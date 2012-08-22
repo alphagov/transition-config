@@ -14,6 +14,6 @@ die "Not a valid CSV"
 
 my $configs = $mappings->entire_csv_as_nginx_config();
 foreach my $host ( keys %$configs ) {
-    open my $handle, '>', "$host.conf";
+    open my $handle, '>', "mappings.${host}.conf";
     print $handle $configs->{$host};
 }
