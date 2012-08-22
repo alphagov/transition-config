@@ -3,7 +3,7 @@ use warnings;
 use Test::More tests => 9;
 use Mappings;
 
-use constant REDIRECT_NGINX => qq(location = /en/MoneyTaxAndBenefits/TaxCredits/Gettingstarted/whoqualifies/DG_201943 { rewrite ^ https://www.gov.uk/working-tax-credit/overview permanent; }\n);
+use constant REDIRECT_NGINX => qq(location = /en/MoneyTaxAndBenefits/TaxCredits/Gettingstarted/whoqualifies/DG_201943 { return 301 https://www.gov.uk/working-tax-credit/overview; }\n);
 use constant GONE_NGINX     => qq(location = /en/Dl1/Directories/DG_10011810 { return 410; }\n);
 use constant INVALID_NGINX  => qq(# invalid entry: status='301' old='http://www.direct.gov.uk/en/Nl1/Newsroom/DG_200994' new=''\n);
 

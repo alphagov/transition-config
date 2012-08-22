@@ -56,7 +56,7 @@ sub row_as_nginx_config {
     
     return( $host, "location = $old_url { return 410; }\n" )
         if '410' eq $status && length $old_url;
-    return( $host, "location = $old_url { rewrite ^ $new_url permanent; }\n" )
+    return( $host, "location = $old_url { return 301 $new_url; }\n" )
         if '301' eq $status && length $old_url && length $new_url;
     
     return(

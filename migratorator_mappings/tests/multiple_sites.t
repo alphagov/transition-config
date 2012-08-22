@@ -3,7 +3,7 @@ use warnings;
 use Test::More tests => 4;
 use Mappings;
 
-use constant NGINX_CONFIG => qq(location = /16-19bursary { rewrite ^ https://www.gov.uk/1619-bursary-fund permanent; }\n);
+use constant NGINX_CONFIG => qq(location = /16-19bursary { return 301 https://www.gov.uk/1619-bursary-fund; }\n);
 use constant DOMAINS_LIST => qw( www.direct.gov.uk www.businesslink.gov.uk );
 
 my $mappings = Mappings->new( 'tests/multiple_sites.csv' );
