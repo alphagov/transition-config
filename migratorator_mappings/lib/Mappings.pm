@@ -54,6 +54,10 @@ sub row_as_nginx_config {
     my( $scheme, $host, $path, $query, $frag ) = uri_split $row->{'Old Url'};
     my $old_url = uri_join undef, undef, $path, $query, $frag;
     
+    # strip potential trailing whitespace
+    $new_url =~ s{\s+$}{};
+    $old_url =~ s{\s+$}{};
+    
     return( $host, "location = $old_url { return 410; }\n" )
         if '410' eq $status && length $old_url;
     return( $host, "location = $old_url { return 301 $new_url; }\n" )
