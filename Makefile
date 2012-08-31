@@ -1,12 +1,14 @@
 all::	www.direct.gov.uk www.businesslink.gov.uk
 
 www.direct.gov.uk:	directgov.csv
-	# ./mappings.sh $@ < mappings.csv > $@
 
 www.businesslink.gov.uk:	businesslink.csv
 
+directgov.csv:	mig_mappings.csv
+	./direct2csv.pl $@ < mig_mappings.csv > $@
+
 # download mappings from Migratorator
-directgov.csv:
+mig_mappings.csv:
 	curl "https://${MIGRATORATOR_AUTH}@migratorator.production.alphagov.co.uk/mappings/filter/status:closed.csv" > $@
 
 businesslink.csv:	bens.csv
