@@ -11,8 +11,8 @@ my $titles = $csv->getline($fh);
 
 while (my $row = $csv->getline($fh)) {
 
-        #Title,Old Url,New Url,Status,Notes,Group,Name,Whole Tag
-	my ($title, $old, $new, $status, $notes, $group, $tag) = @$row;
+        #Title,Old Url, item id, topic id, New Url, new title, section, Status, suggested URLs, Notes
+	my ($title, $old, $item_id, $topic_id, $new, $new_title, $section, $status, $suggested_urls, $notes) = @$row;
 
 	print "$old,$new,$status\n";
 }
