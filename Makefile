@@ -13,7 +13,7 @@ directgov.csv:
 	curl "https://${MIGRATORATOR_AUTH}@migratorator.production.alphagov.co.uk/mappings/filter/status:closed.csv" > $@
 
 businesslink.csv:	bens.csv
-	bens2csv.pl < bens.csv > $@
+	./bens2csv.pl < bens.csv > $@
 
 bens.csv:	
 	curl "https://docs.google.com/spreadsheet/pub?key=0AprXhKI73WmwdHMwaW1aZVphOUJ1a3dTTGhJSFV5dGc&single=true&gid=0&output=csv" > $@
