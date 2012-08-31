@@ -12,7 +12,7 @@ my $csv = Text::CSV->new()
 my $ua = LWP::UserAgent->new( max_redirect => 0 );
 
 open( my $fh, "<", "directgov.csv" ) 
-	or die "test.csv: $!";
+	or die "directgov.csv: $!";
 while ( my $row = $csv->getline( $fh ) ) {
     my $old_url = $row->[0];
     
@@ -26,7 +26,7 @@ while ( my $row = $csv->getline( $fh ) ) {
     my $response = $ua->request($request);
 
     my $redirected_url = $response->header("location");
-    is( $new_url, $redirected_url, "$old_url redirects to $new_url" );
+    is( $redirected_url, $new_url, "$old_url redirects to $new_url" );
 }
 
 done_testing();
