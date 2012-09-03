@@ -13,7 +13,7 @@ my $uri = URI->new($old_url);
 my $old_url_path = $uri->path;
 
 my $request = HTTP::Request->new( 'GET', "http://redirector.preview.alphagov.co.uk$old_url_path" );
-$request->header( 'Host', 'www.direct.gov.uk' );
+$request->header( 'Host', 'www.businesslink.gov.uk' );
 my $response = $ua->request($request);
 
 use Data::Dumper;

@@ -30,14 +30,16 @@ sub entire_csv_as_nginx_config {
     my $self = shift;
     
     my %configs;
-    while ( my( $host, $line ) = $self->row_as_nginx_config() ) {
-        $configs{$host} = []
+    while ( my( $host, $map, $line ) = $self->row_as_nginx_config() ) {
+        $configs{$host}{$map} = []
             unless defined $configs{$host};
-        push @{ $configs{$host} }, $line;
+        push @{ $configs{$host}{$map} }, $line;
     }
     
     foreach my $host ( keys %configs ) {
-        $configs{$host} = join '', sort @{ $configs{$host} };
+        foreach my $map ( keys %{ $configs{$host} } ) {
+            $configs{$host}{$map} = join '', sort @{ $configs{$host}{$map} };
+        }
     }
     
     return \%configs;
@@ -52,22 +54,58 @@ sub row_as_nginx_config {
     my $new_url = $row->{'New Url'};
     
     my( $scheme, $host, $path, $query, $frag ) = uri_split $row->{'Old Url'};
+
     my $old_url = uri_join undef, undef, $path, $query, $frag;
+        
+        # strip potential trailing whitespace
+        $new_url =~ s{\s+$}{};
+        $old_url =~ s{\s+$}{};
     
-    # strip potential trailing whitespace
-    $new_url =~ s{\s+$}{};
-    $old_url =~ s{\s+$}{};
-    
-    return( $host, "location = $old_url { return 410; }\n" )
-        if '410' eq $status && length $old_url;
-    return( $host, "location = $old_url { return 301 $new_url; }\n" )
-        if '301' eq $status && length $old_url && length $new_url;
-    
-    return(
-        $host,
-        "# invalid entry: status='$status' old='$row->{'Old Url'}' new='$new_url'\n"
-    );
+    if ( 'www.direct.gov.uk' eq $host ) {
+        return( $host, "location = $old_url { return 410; }\n" )
+            if '410' eq $status && length $old_url;
+        return( $host, "location = $old_url { return 301 $new_url; }\n" )
+            if '301' eq $status && length $old_url && length $new_url;
+        
+        return(
+            $host,
+            "# invalid entry: status='$status' old='$row->{'Old Url'}' new='$new_url'\n"
+        );
+    } 
+
+    if ( 'www.businesslink.gov.uk' eq $host ) {
+        #get operational part of the url        
+        my $key = $self->get_url_key($old_url);
+        my $config_line;
+
+        if ( '301' eq $status && length $old_url ) {
+            $config_line = "~\\b${key}\\b ${new_url};\n";
+            return( $host, "redirect_map", $config_line )
+        }
+
+        if ( '410' eq $status && length $old_url )  {
+            $config_line = "~\\b${key}\\b 410;\n";
+            return( $host, "gone_map", $config_line )
+        }      
+    }
 }
+
+sub get_url_key {
+    my $self = shift;
+    my $url = shift;
+    my $key;
+    
+    #This is where we do the logic - the output of discussions with Ben and John
+    if ( $url =~ m{topicId=(\d+)} ) {
+        $key = "topicId=$1";
+    } elsif ( $url =~ m{itemId=(\d+)} ) {
+        $key = "itemId=$1";
+    } 
+    
+    return $key; 
+}
+
+
 sub get_row {
     my $self = shift;
     return $self->{'csv'}->getline_hr( $self->{'csv_handle'} );
