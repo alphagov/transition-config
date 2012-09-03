@@ -7,10 +7,13 @@ prove -l tests/migratorator_mappings/*.t
 
 # FIXME - MIGRATORATOR_AUTH
 
+# delete mapping errors files
+rm -f dist/*_errors.txt 
+
 # DIRECTGOV
 #   fetch directgov mappings
 curl "https://${MIGRATORATOR_AUTH}@migratorator.production.alphagov.co.uk/mappings/filter/status:closed.csv" > dist/directgov_mappings.csv
-perl direct2csv.pl < dist/directgov_mappings.csv > dist/directgov.csv 2> dist/directgov_mapping_errors.txt
+perl filter_csv.pl < dist/directgov_mappings.csv > dist/directgov.csv 
 
 #   transform to nginx
 # FIXME perl -Ilib create_mappings.pl dist/directgov.csv
@@ -20,7 +23,7 @@ perl direct2csv.pl < dist/directgov_mappings.csv > dist/directgov.csv 2> dist/di
 # BUSINESSLINK
 #   fetch businesslink mappings
 curl "https://docs.google.com/spreadsheet/pub?key=0AprXhKI73WmwdHMwaW1aZVphOUJ1a3dTTGhJSFV5dGc&single=true&gid=0&output=csv" > dist/businesslink_mappings.csv
-perl bens2csv.pl < dist/businesslink_mappings.csv > dist/businesslink.csv
+perl filter_csv.pl < dist/businesslink_mappings.csv > dist/businesslink.csv
 
 #   transform to nginx
 

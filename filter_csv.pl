@@ -10,9 +10,9 @@ my $fh = *STDIN;
 my $titles = $csv->getline($fh);
 $csv->column_names(@$titles);
 
-open my $formatting_errors,          '>', 'dist/formatting_errors.txt';
-open my $no_destination_errors,      '>', 'dist/no_destination_errors.txt';
-open my $looks_like_redirect_errors, '>', 'dist/looks_like_redirect_errors.txt';
+open my $formatting_errors,          '>>', 'dist/formatting_errors.txt';
+open my $no_destination_errors,      '>>', 'dist/no_destination_errors.txt';
+open my $looks_like_redirect_errors, '>>', 'dist/looks_like_redirect_errors.txt';
 
 
 while (my $row = $csv->getline_hr($fh)) {
