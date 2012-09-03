@@ -7,7 +7,7 @@ use constant REDIRECT_NGINX => qq(location = /en/MoneyTaxAndBenefits/TaxCredits/
 
 
 
-my $mappings = Mappings->new( 'tests/has_space.csv' );
+my $mappings = Mappings->new( 'tests/migratorator_mappings/has_space.csv' );
 isa_ok( $mappings, 'Mappings' );
 
 my( $r_host, $redirect ) = $mappings->row_as_nginx_config();

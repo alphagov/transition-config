@@ -18,7 +18,7 @@ location = /en/YoungPeople/DG_10034785 { return 410; }
 );
 
 
-my $mappings = Mappings->new( 'tests/not_sorted.csv' );
+my $mappings = Mappings->new( 'tests/migratorator_mappings/not_sorted.csv' );
 isa_ok( $mappings, 'Mappings' );
 
 my $configs = $mappings->entire_csv_as_nginx_config();

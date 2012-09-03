@@ -9,7 +9,7 @@ use constant INVALID_NGINX  => qq(# invalid entry: status='301' old='http://www.
 
 
 
-my $mappings = Mappings->new( 'tests/nginx.csv' );
+my $mappings = Mappings->new( 'tests/migratorator_mappings/nginx.csv' );
 isa_ok( $mappings, 'Mappings' );
 
 my( $r_host, $redirect ) = $mappings->row_as_nginx_config();
