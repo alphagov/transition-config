@@ -8,13 +8,16 @@ my $csv = Text::CSV->new({ binary => 1 });
 
 my $fh = *STDIN;
 my $titles = $csv->getline($fh);
+$csv->column_names(@$titles);
 my $line = 1;
 
-while (my $row = $csv->getline($fh)) {
+
+while (my $row = $csv->getline_hr($fh)) {
     $line++;
     
-        #Title,Old Url, New Url, Status, Notes, Group, Name, Whole Tag
-    my ($title, $old, $new, $status, $notes, $group, $name, $whole_tag) = @$row;
+    my $old    = $row->{'Old Url'};
+    my $new    = $row->{'New Url'};
+    my $status = $row->{'Status'};
     
     if ( ! length $old ) {
         print STDERR "Entry without URL at line ${line}\n";
