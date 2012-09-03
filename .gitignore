@@ -3,3 +3,5 @@ directgov.csv
 www.direct.gov.uk
 www.businesslink.gov.uk
 bens.csv
+dist/
+._*
