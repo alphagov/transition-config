@@ -15,6 +15,8 @@ open my $no_destination_errors,      '>>', 'dist/no_destination_errors.txt';
 open my $looks_like_redirect_errors, '>>', 'dist/looks_like_redirect_errors.txt';
 
 
+print "Old Url,New Url,Status\n";
+
 while (my $row = $csv->getline_hr($fh)) {
     
     my $old    = $row->{'Old Url'};
