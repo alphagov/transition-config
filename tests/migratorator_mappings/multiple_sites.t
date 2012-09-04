@@ -10,7 +10,7 @@ my %expected = (
             'location' => qq(location = /16-19bursary { return 301 https://www.gov.uk/1619-bursary-fund; }\n),
         },
         'www.businesslink.gov.uk' => {
-            'redirect_map' => qq(~\\btopicId=1073858783\\b https://www.gov.uk/;\n),
+            'redirect_map' => qq(~topicId=1073858783 https://www.gov.uk/;\n),
         },
     );
 

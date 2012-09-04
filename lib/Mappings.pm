@@ -86,12 +86,12 @@ sub row_as_nginx_config {
         my $config_line;
 
         if ( '301' eq $status && length $old_url ) {
-            $config_line = "~\\b${key}\\b ${new_url};\n";
+            $config_line = "~${key} ${new_url};\n";
             return( $host, "redirect_map", $config_line )
         }
 
         if ( '410' eq $status && length $old_url )  {
-            $config_line = "~\\b${key}\\b 410;\n";
+            $config_line = "~${key} 410;\n";
             return( $host, "gone_map", $config_line )
         }      
     }
