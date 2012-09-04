@@ -4,18 +4,21 @@ use HTTP::Request;
 use LWP::UserAgent;
 use URI;
 
-my @rows;
-my $ua = LWP::UserAgent->new( max_redirect => 0 );
+my $url = shift;
 
-my $old_url = shift;
+my $uri  = URI->new($url);
+my $path = $uri->path_query;
+my $host = $uri->host;
+my $ua   = LWP::UserAgent->new( max_redirect => 0 );
 
-my $uri = URI->new($old_url);
-my $old_url_path = $uri->path;
+my $req_url = "http://redirector.preview.alphagov.co.uk${path}";
 
-my $request = HTTP::Request->new( 'GET', "http://redirector.preview.alphagov.co.uk$old_url_path" );
-$request->header( 'Host', 'www.businesslink.gov.uk' );
+my $request = HTTP::Request->new('GET', $req_url);
+$request->header( 'Host', $host );
+
 my $response = $ua->request($request);
 
-use Data::Dumper;
-print Dumper $response;
-
+print $response->code;
+print ' ' . $response->header('location')
+    if defined $response->header('location');
+print "\n";
