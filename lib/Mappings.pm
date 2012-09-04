@@ -38,7 +38,13 @@ sub entire_csv_as_nginx_config {
     
     foreach my $host ( keys %configs ) {
         foreach my $map ( keys %{ $configs{$host} } ) {
-            $configs{$host}{$map} = join '', sort @{ $configs{$host}{$map} };
+            if ( 'location' eq $map ) {
+                # locations need to be sorted for b-tree insert efficiency
+                $configs{$host}{$map} = join '', sort @{ $configs{$host}{$map} };
+            }
+            else {
+                $configs{$host}{$map} = join '', @{ $configs{$host}{$map} };
+            }
         }
     }
     
@@ -62,13 +68,14 @@ sub row_as_nginx_config {
         $old_url =~ s{\s+$}{};
     
     if ( 'www.direct.gov.uk' eq $host ) {
-        return( $host, "location = $old_url { return 410; }\n" )
+        return( $host, 'location', "location = $old_url { return 410; }\n" )
             if '410' eq $status && length $old_url;
-        return( $host, "location = $old_url { return 301 $new_url; }\n" )
+        return( $host, 'location', "location = $old_url { return 301 $new_url; }\n" )
             if '301' eq $status && length $old_url && length $new_url;
         
         return(
             $host,
+            'location',
             "# invalid entry: status='$status' old='$row->{'Old Url'}' new='$new_url'\n"
         );
     } 
