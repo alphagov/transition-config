@@ -99,15 +99,38 @@ sub row_as_nginx_config {
 
 sub get_url_key {
     my $self = shift;
-    my $url = shift;
-    my $key;
+    my $url  = shift;
     
-    #This is where we do the logic - the output of discussions with Ben and John
-    if ( $url =~ m{topicId=(\d+)} ) {
-        $key = "topicId=$1";
-    } elsif ( $url =~ m{itemId=(\d+)} ) {
-        $key = "itemId=$1";
-    } 
+    my $key;
+    my $topic;
+    my $item;
+    
+    $topic = $1
+        if $url =~ m{topicId=(\d+)};
+    $item = $1
+        if $url =~ m{itemId=(\d+)};
+    
+    if ( defined $topic && defined $item ) {
+        if ( $url =~ m{^/bdotg/action/layer} ) {
+            $key = "topicId=$topic";
+        }
+        elsif ( $url =~ m{^/bdotg/action/detail} ) {
+            $key = "itemId=$item";
+        }
+        else {
+            print STDERR "ERMAGERD"; # FIXME
+        }
+    }
+    elsif ( defined $topic ) {
+        $key = "topicId=$topic";
+    }
+    elsif ( defined $item ) {
+        $key = "itemId=$item";
+    }
+    else {
+        use Data::Dumper;
+        print Dumper $url;
+    }
     
     return $key; 
 }
