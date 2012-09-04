@@ -22,4 +22,4 @@ my $mappings = Mappings->new( 'tests/migratorator_mappings/not_sorted.csv' );
 isa_ok( $mappings, 'Mappings' );
 
 my $configs = $mappings->entire_csv_as_nginx_config();
-ok( $configs->{'www.direct.gov.uk'} eq NGINX_CONFIG, 'nginx config is sorted' );
+ok( $configs->{'www.direct.gov.uk'}{'location'} eq NGINX_CONFIG, 'nginx config is sorted' );
