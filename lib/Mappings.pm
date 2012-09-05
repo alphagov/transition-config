@@ -31,9 +31,11 @@ sub entire_csv_as_nginx_config {
     
     my %configs;
     while ( my( $host, $map, $line ) = $self->row_as_nginx_config() ) {
-        $configs{$host}{$map} = []
-            unless defined $configs{$host};
-        push @{ $configs{$host}{$map} }, $line;
+        if ( defined $host && defined $map && defined $line ) {
+            $configs{$host}{$map} = []
+                unless defined $configs{$host};
+            push @{ $configs{$host}{$map} }, $line;
+        }
     }
     
     foreach my $host ( keys %configs ) {
@@ -81,19 +83,33 @@ sub row_as_nginx_config {
     } 
 
     if ( 'www.businesslink.gov.uk' eq $host ) {
-        #get operational part of the url        
         my $key = $self->get_url_key($old_url);
-        my $config_line;
+        if ( defined $key ) {
+            my $config_line;
 
-        if ( '301' eq $status && length $old_url ) {
-            $config_line = "~${key} ${new_url};\n";
-            return( $host, "redirect_map", $config_line )
+            if ( '301' eq $status && length $old_url ) {
+                $config_line = "~${key} ${new_url};\n";
+                return( $host, "redirect_map", $config_line )
+            }
+
+            if ( '410' eq $status && length $old_url )  {
+                $config_line = "~${key} 410;\n";
+                return( $host, "gone_map", $config_line )
+            }
         }
+        else {
+            print STDERR "no key for $old_url";
+        }     
+    } 
+    elsif ( 'www.improve.businesslink.gov.uk' eq $host || 'online.businesslink.gov.uk' eq $host 
+        || 'businesslink.gov.uk' eq $host || 'tariff.businesslink.gov.uk' eq $host 
+        || 'tariff.nibusinessingo.co.uk' eq $host || 'tariff.business.scotland.gov.uk' eq $host 
+        || 'tariff.business.wales.gov.uk' eq $host ) {
+            # do nothing... for now.
+    }
 
-        if ( '410' eq $status && length $old_url )  {
-            $config_line = "~${key} 410;\n";
-            return( $host, "gone_map", $config_line )
-        }      
+    else {
+        print STDERR "problem with $row->{'Old Url'}\n";
     }
 }
 
@@ -114,11 +130,8 @@ sub get_url_key {
         if ( $url =~ m{^/bdotg/action/layer} ) {
             $key = "topicId=$topic";
         }
-        elsif ( $url =~ m{^/bdotg/action/detail} ) {
-            $key = "itemId=$item";
-        }
         else {
-            print STDERR "ERMAGERD"; # FIXME
+           $key = "itemId=$item";
         }
     }
     elsif ( defined $topic ) {
@@ -127,11 +140,7 @@ sub get_url_key {
     elsif ( defined $item ) {
         $key = "itemId=$item";
     }
-    else {
-        use Data::Dumper;
-        print Dumper $url;
-    }
-    
+
     return $key; 
 }
 
