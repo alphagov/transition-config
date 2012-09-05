@@ -3,29 +3,55 @@ use warnings;
 use Test::More tests => 13;
 use Mappings;
 
-use constant REDIRECT_NGINX => qq(location = /en/MoneyTaxAndBenefits/TaxCredits/Gettingstarted/whoqualifies/DG_201943 { return 301 https://www.gov.uk/working-tax-credit/overview; }\n);
-use constant GONE_NGINX     => qq(location = /en/Dl1/Directories/DG_10011810 { return 410; }\n);
-use constant INVALID_NGINX  => qq(# invalid entry: status='301' old='http://www.direct.gov.uk/en/Nl1/Newsroom/DG_200994' new=''\n);
 
-
-
-my $mappings = Mappings->new( 'tests/migratorator_mappings/nginx.csv' );
+my $mappings = Mappings->new( 'tests/migratorator_mappings/first_line_good.csv' );
 isa_ok( $mappings, 'Mappings' );
 
-my( $r_host, $r_type, $redirect ) = $mappings->row_as_nginx_config();
-my( $g_host, $g_type, $gone     ) = $mappings->row_as_nginx_config();
-my( $i_host, $i_type, $invalid  ) = $mappings->row_as_nginx_config();
-my( $n_host, $no_type, $no_more ) = $mappings->row_as_nginx_config();
+my $directgov_redirect = { 
+	'Old Url'	=> 'http://www.direct.gov.uk/en/MoneyTaxAndBenefits/TaxCredits/Gettingstarted/whoqualifies/DG_201943',
+	'New Url'	=> 'https://www.gov.uk/working-tax-credit/overview',
+	'Status'	=> 301, 
+};
+my( $redirect_host, $redirect_type, $redirect ) = $mappings->row_as_nginx_config($directgov_redirect);
+ok( $redirect_host eq 'www.direct.gov.uk', 
+	'Host that config applies to is directgov' );
+ok( $redirect_type eq 'location',
+	'If host is Directgov and type is redirect, type of nginx block is location'  );
+ok( $redirect eq qq(location = /en/MoneyTaxAndBenefits/TaxCredits/Gettingstarted/whoqualifies/DG_201943 { return 301 https://www.gov.uk/working-tax-credit/overview; }\n),
+    'Nginx config is as expected' );
 
-ok( $r_host        eq 'www.direct.gov.uk', 'redirect host is directgov' );
-ok( $r_type        eq 'location',          'redirect type is location'  );
-ok( REDIRECT_NGINX eq $redirect,           'redirect' );
-ok( $g_host        eq 'www.direct.gov.uk', 'gone host is directgov' );
-ok( $g_type        eq 'location',          'gone type is location'  );
-ok( GONE_NGINX     eq $gone,               'gone' );
-ok( $i_host        eq 'www.direct.gov.uk', 'invalid host is directgov' );
-ok( $i_type        eq 'location',          'invalid type is location'  );
-ok( INVALID_NGINX  eq $invalid,            'invalid' );
+
+my $directgov_gone = { 
+	'Old Url'	=> 'http://www.direct.gov.uk/en/Dl1/Directories/DG_10011810',
+	'New Url'	=> '',
+	'Status'	=> 410, 
+};
+my( $gone_host, $gone_type, $gone ) = $mappings->row_as_nginx_config($directgov_gone);
+ok( $gone_host eq 'www.direct.gov.uk', 
+	'Host that config applies to is directgov' );
+ok( $gone_type eq 'location',
+	'If host is Directgov and type is gone, type of nginx block is location'  );
+ok( $gone eq qq(location = /en/Dl1/Directories/DG_10011810 { return 410; }\n),
+    'Nginx config is as expected' );
+
+
+my $directgov_redirect_without_url = { 
+	'Old Url'	=> 'http://www.direct.gov.uk/en/Nl1/Newsroom/DG_200994',
+	'New Url'	=> '',
+	'Status'	=> 301, 
+};
+my( $redirect_without_url_host, $redirect_without_url_type, $redirect_without_url  ) = $mappings->row_as_nginx_config($directgov_redirect_without_url);
+ok( $redirect_without_url_host eq 'www.direct.gov.uk', 
+	'Host that config applies to is directgov' );
+ok( $redirect_without_url_type eq 'location',
+    'invalid type is location'  );
+use constant INVALID_NGINX  => qq(# invalid entry: status='301' old='http://www.direct.gov.uk/en/Nl1/Newsroom/DG_200994' new=''\n);
+ok( INVALID_NGINX  eq $redirect_without_url, 
+	'invalid nginx is produced' );
+
+
+my $empty_row = undef;
+my( $n_host, $no_type, $no_more ) = $mappings->row_as_nginx_config($empty_row);
 ok( !defined $n_host,                      'no host when EOF' );
 ok( !defined $no_type,                     'no type when EOF' );
 ok( !defined $no_more,                     'no mapping when EOF' );

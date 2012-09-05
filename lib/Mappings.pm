@@ -30,7 +30,7 @@ sub entire_csv_as_nginx_config {
     my $self = shift;
     
     my %configs;
-    while ( my( $host, $map, $line ) = $self->row_as_nginx_config() ) {
+    while ( my( $host, $map, $line ) = $self->row_as_nginx_config($self->get_row) ) {
         if ( defined $host && defined $map && defined $line ) {
             $configs{$host}{$map} = []
                 unless defined $configs{$host};
@@ -54,8 +54,8 @@ sub entire_csv_as_nginx_config {
 }
 sub row_as_nginx_config {
     my $self = shift;
-    my $row  = $self->get_row();
-    
+    my $row  = shift; 
+
     return unless defined $row;
     
     my $status  = $row->{'Status'};

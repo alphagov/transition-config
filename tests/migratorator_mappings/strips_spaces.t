@@ -10,7 +10,7 @@ use constant REDIRECT_NGINX => qq(location = /en/MoneyTaxAndBenefits/TaxCredits/
 my $mappings = Mappings->new( 'tests/migratorator_mappings/has_space.csv' );
 isa_ok( $mappings, 'Mappings' );
 
-my( $r_host, $r_type, $redirect ) = $mappings->row_as_nginx_config();
+my( $r_host, $r_type, $redirect ) = $mappings->row_as_nginx_config($mappings->get_row);
 
 is( $r_host,        'www.direct.gov.uk', 'redirect host is directgov' );
 is( $r_type,        'location',          'redirect type is location' );

@@ -1,7 +1,0 @@
-Title,Old Url,New Url,Status,Notes,Group,Name,Whole Tag
-"'Incapacitated': what this means for Working Tax Credit : Directgov - Money, tax and benefits",http://www.direct.gov.uk/en/MoneyTaxAndBenefits/TaxCredits/Gettingstarted/whoqualifies/DG_201943,https://www.gov.uk/working-tax-credit/overview,301,"28/06/12 AK - page added to Directgov 22/05/12. Hopefully it will have been fed through to GOV.UK so the guide can be reviewed.
-290612 LS - yes, WTC is being reworked and this info will be referenced",site source status destination reviewed,directgov crawler closed content no,site:directgov source:crawler status:closed destination:content reviewed:no
-10 Downing Street : Directgov - Directories,http://www.direct.gov.uk/en/Dl1/Directories/DG_10011810,"",410," Info elsewhere on web
-
-Is number10 going to be on GOV.UK?",content-type section site source status destination,contact directories directgov mapping-exercise closed gone,content-type:contact section:directories site:directgov source:mapping-exercise status:closed destination:gone
-12 towns offered chance to become a 'Portas Pilot' : Directgov - Newsroom,http://www.direct.gov.uk/en/Nl1/Newsroom/DG_200994,,301,"",content-type section site source status destination,article newsroom directgov mapping-exercise closed gone,content-type:article section:newsroom site:directgov source:mapping-exercise status:closed destination:gone
