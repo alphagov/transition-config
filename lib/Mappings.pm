@@ -75,6 +75,12 @@ sub row_as_nginx_config {
         return( $host, 'location', "location = $old_url { return 301 $new_url; }\n" )
             if '301' eq $status && length $old_url && length $new_url;
         
+        #something like     my $new_url = $row->{'New Url'};
+        #if undef or not awaiting ciontat
+        #error ?
+
+        #otherwise we need an awating content map for BL and a location for DG
+
         return(
             $host,
             'location',
@@ -96,6 +102,13 @@ sub row_as_nginx_config {
                 $config_line = "~${key} 410;\n";
                 return( $host, "gone_map", $config_line )
             }
+
+        #something like     my $new_url = $row->{'New Url'};
+        #if undef or not awaiting ciontat
+        #error ?
+
+        #otherwise we need an awating content map for BL and a location for DG
+
         }
         else {
             print STDERR "no key for $old_url";
