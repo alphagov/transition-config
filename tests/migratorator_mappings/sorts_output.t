@@ -3,8 +3,7 @@ use warnings;
 use Test::More tests => 2;
 use Mappings;
 
-use constant NGINX_CONFIG => q(# invalid entry: status='301' old='http://www.direct.gov.uk/14-19prospectus' new=''
-location = /16-19bursary { return 301 https://www.gov.uk/1619-bursary-fund; }
+use constant NGINX_CONFIG => q(location = /16-19bursary { return 301 https://www.gov.uk/1619-bursary-fund; }
 location = /16to19transport { return 301 https://www.gov.uk/subsidised-college-transport-16-19; }
 location = /2007budget { return 410; }
 location = /en/Dl1/Directories/DG_074064 { return 410; }
@@ -22,4 +21,6 @@ my $mappings = Mappings->new( 'tests/migratorator_mappings/not_sorted.csv' );
 isa_ok( $mappings, 'Mappings' );
 
 my $configs = $mappings->entire_csv_as_nginx_config();
+use Data::Dumper;
+print Dumper $configs;
 ok( $configs->{'www.direct.gov.uk'}{'location'} eq NGINX_CONFIG, 'nginx config is sorted' );
