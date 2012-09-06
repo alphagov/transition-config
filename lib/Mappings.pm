@@ -3,6 +3,7 @@ package Mappings;
 use strict;
 use warnings;
 
+use Mappings::Rules;
 use Text::CSV;
 use URI::Split  qw( uri_split uri_join );
 
@@ -57,141 +58,10 @@ sub entire_csv_as_nginx_config {
 sub row_as_nginx_config {
     my $self = shift;
     my $row  = shift; 
-
-    return unless defined $row;
     
-    my $status  = $row->{'Status'};
-    my $new_url = $row->{'New Url'};
-    
-    my( $scheme, $host, $path, $query, $frag ) = uri_split $row->{'Old Url'};
-
-    my $old_url = uri_join undef, undef, $path, $query, $frag;
-        
-        # strip potential trailing whitespace
-        $new_url =~ s{\s+$}{};
-        $old_url =~ s{\s+$}{};
-    
-    if ( 'www.direct.gov.uk' eq $host ) {
-        return( $host, 'location', "location = $old_url { return 410; }\n" )
-            if '410' eq $status && length $old_url;
-        return( $host, 'location', "location = $old_url { return 301 $new_url; }\n" )
-            if '301' eq $status && length $old_url && length $new_url;
-        
-        my $whole_tag = $row->{'Whole Tag'};
-
-        if ( defined $whole_tag && $whole_tag =~ m{status:(\S+)}) {
-            my $mapping_status = $1;
-
-            if ( 'awaiting-content' eq $mapping_status ) {
-                return( $host, 'location', "location = $old_url { return 418; }\n" );
-            }
-            elsif ( 'closed' eq $mapping_status ) {
-                my $full_old_url = "$row->{'Old Url'}\n";
-                return( $host, 'no_destination_error', $full_old_url );
-            } 
-            elsif ( 'open' eq $mapping_status ) {
-                my $full_old_url = "$row->{'Old Url'}\n";
-                return( $host, 'unresolved', $full_old_url );
-            }
-            else {
-                die "Whole Tag column contains unexpected status";
-            }
-        }
-
-        return(
-            $host,
-            'location',
-            "# invalid entry: status='$status' old='$row->{'Old Url'}' new='$new_url'\n"
-        );
-    } 
-
-    if ( 'www.businesslink.gov.uk' eq $host ) {
-        my $key = $self->get_url_key($old_url);
-        if ( defined $key ) {
-            my $config_line;
-
-            if ( '410' eq $status && length $old_url )  {
-                $config_line = "~${key} 410;\n";
-                return( $host, "gone_map", $config_line )
-            }
-
-            if ( '301' eq $status && length $old_url && length $new_url ) {
-                $config_line = "~${key} ${new_url};\n";
-                return( $host, "redirect_map", $config_line )
-            }
-
-
-        my $mapping_status = $row->{'Whole Tag'};
-
-        if ( defined $mapping_status ) {
-            
-            if ( 'Awaiting-content' eq $mapping_status ) {
-                $config_line = "~${key} 418;\n";
-                return( $host, "awaiting_content_map", $config_line )
-            }
-            elsif ( 'Closed' eq $mapping_status ) {
-                my $full_old_url = "$row->{'Old Url'}\n";
-                return( $host, "no_destination_error", $full_old_url );
-            } 
-            elsif ( 'Open' eq $mapping_status ) {
-                my $full_old_url = "$row->{'Old Url'}\n";
-                return( $host, "unresolved", $full_old_url );
-
-            }
-            else {
-                die "Whole Tag column for ${old_url} contains unexpected status ${mapping_status}";
-            }
-        }
-
-
-
-
-        }
-        else {
-            print STDERR "no key for $old_url";
-        }     
-    } 
-    elsif ( 'www.improve.businesslink.gov.uk' eq $host || 'online.businesslink.gov.uk' eq $host 
-        || 'businesslink.gov.uk' eq $host || 'tariff.businesslink.gov.uk' eq $host 
-        || 'tariff.nibusinessingo.co.uk' eq $host || 'tariff.business.scotland.gov.uk' eq $host 
-        || 'tariff.business.wales.gov.uk' eq $host ) {
-            # do nothing... for now.
-    }
-
-    else {
-        print STDERR "problem with $row->{'Old Url'}\n";
-    }
-}
-
-sub get_url_key {
-    my $self = shift;
-    my $url  = shift;
-    
-    my $key;
-    my $topic;
-    my $item;
-    
-    $topic = $1
-        if $url =~ m{topicId=(\d+)};
-    $item = $1
-        if $url =~ m{itemId=(\d+)};
-    
-    if ( defined $topic && defined $item ) {
-        if ( $url =~ m{^/bdotg/action/layer} ) {
-            $key = "topicId=$topic";
-        }
-        else {
-           $key = "itemId=$item";
-        }
-    }
-    elsif ( defined $topic ) {
-        $key = "topicId=$topic";
-    }
-    elsif ( defined $item ) {
-        $key = "itemId=$item";
-    }
-
-    return $key; 
+    my $rules = Mappings::Rules->new( $row );
+    return unless defined $rules;
+    return $rules->as_nginx_config();
 }
 
 
