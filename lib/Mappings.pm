@@ -75,11 +75,24 @@ sub row_as_nginx_config {
         return( $host, 'location', "location = $old_url { return 301 $new_url; }\n" )
             if '301' eq $status && length $old_url && length $new_url;
         
-        #something like     my $new_url = $row->{'New Url'};
-        #if undef or not awaiting ciontat
-        #error ?
+        my $whole_tag = $row->{'Whole Tag'};
 
-        #otherwise we need an awating content map for BL and a location for DG
+        if ( defined $whole_tag && $whole_tag =~ m{status:(\S+)}) {
+            my $mapping_status = $1;
+
+            if ( 'awaiting-content' eq $mapping_status ) {
+                return( $host, 'location', "location = $old_url { return 418; }\n" );
+            }
+            elsif ( 'closed' eq $mapping_status ) {
+
+            } 
+            elsif ( 'open' eq $mapping_status ) {
+
+            }
+            else {
+                die "Whole Tag column contains unexpected status";
+            }
+        }
 
         return(
             $host,

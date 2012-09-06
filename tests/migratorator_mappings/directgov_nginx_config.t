@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-use Test::More tests => 10;
+use Test::More tests=>19;
 use Mappings;
 
 
@@ -35,26 +35,50 @@ ok( $gone eq qq(location = /en/Dl1/Directories/DG_10011810 { return 410; }\n),
     'Nginx config is as expected' );
 
 
-# Rewrite following test as (at least) two:
+my $directgov_redirect_awaiting_content = { 
+	'Old Url'	=> 'http://www.direct.gov.uk/en/TravelAndTransport/Passports/Howtochangethenameonyourpassport/DG_174165',
+	'New Url'	=> '',
+	'Status'	=> 301,
+	'Whole Tag'	=> 'content-type:article section:travel-and-transport site:directgov source:mapping-exercise status:awaiting-content destination:content',
+};
+my( $awaiting_content_host, $awaiting_content_type, $awaiting_content ) = $mappings->row_as_nginx_config($directgov_redirect_awaiting_content);
+ok( $awaiting_content_host eq 'www.direct.gov.uk', 
+	'Host that config applies to is Directgov' );
+ok( $awaiting_content_type eq 'location',
+	'If host is Directgov and type is awaiting content, type of nginx block is location'  );
+ok( $awaiting_content eq qq(location = /en/TravelAndTransport/Passports/Howtochangethenameonyourpassport/DG_174165 { return 418; }\n),
+    'Nginx config is as expected' );
 
-# if there is a 301 and there is a status of awaiting content then return 418
 
-# if it's 301 with no blah and no awating content - what?
 
-# my $directgov_redirect_without_url = { 
-# 	'Old Url'	=> 'http://www.direct.gov.uk/en/Nl1/Newsroom/DG_200994',
-# 	'New Url'	=> '',
-# 	'Status'	=> 301, 
-# };
-# my( $redirect_without_url_host, $redirect_without_url_type, $redirect_without_url  ) = $mappings->row_as_nginx_config($directgov_redirect_without_url);
-# ok( $redirect_without_url_host eq 'www.direct.gov.uk', 
-# 	'Host that config applies to is directgov' );
-# ok( $redirect_without_url_type eq 'location',
-#     'invalid type is location'  );
-# use constant INVALID_NGINX  => qq(# invalid entry: status='301' old='http://www.direct.gov.uk/en/Nl1/Newsroom/DG_200994' new=''\n);
-# ok( INVALID_NGINX  eq $redirect_without_url, 
-# 	'invalid nginx is produced' );
+my $directgov_no_url_open = { 
+	'Old Url'	=> 'http://www.direct.gov.uk/en/TravelAndTransport/Passports/Howtochangethenameonyourpassport/DG_174165',
+	'New Url'	=> '',
+	'Status'	=> 301,
+	'Whole Tag'	=> 'content-type:article section:travel-and-transport site:directgov source:mapping-exercise status:open destination:content',
+};
+my( $no_new_url_open_host, $no_new_url_open_type, $no_new_url_open_content ) = $mappings->row_as_nginx_config($directgov_no_url_open);
+ok( $no_new_url_open_host eq 'www.direct.gov.uk', 
+	'Host that config applies to is Directgov' );
+ok( $no_new_url_open_type eq 'unresolved',
+	"If status is 301, whole tag 'status' is open, and there is no new url, this should be flagged as unresolved."  );
+ok( $no_new_url_open_content eq "http://www.direct.gov.uk/en/TravelAndTransport/Passports/Howtochangethenameonyourpassport/DG_174165\n",
+    'The unresolved file will be populated with the URL.' );
 
+
+my $directgov_no_url_closed = { 
+	'Old Url'	=> 'http://www.direct.gov.uk/en/TravelAndTransport/Passports/Howtochangethenameonyourpassport/DG_174165',
+	'New Url'	=> '',
+	'Status'	=> 301,
+	'Whole Tag'	=> 'content-type:article section:travel-and-transport site:directgov source:mapping-exercise status:closed destination:content',
+};
+my( $no_new_url_closed_host, $no_new_url_closed_type, $no_new_url_closed_content ) = $mappings->row_as_nginx_config($directgov_no_url_closed);
+ok( $no_new_url_closed_host eq 'www.direct.gov.uk', 
+	'Host that config applies to is Directgov' );
+ok( $no_new_url_closed_type eq 'no_destination_error',
+	"If status is 301, whole tag 'status' is closed, and there is no new url, this is a 'no destination' error."  );
+ok( $no_new_url_closed_content eq "http://www.direct.gov.uk/en/TravelAndTransport/Passports/Howtochangethenameonyourpassport/DG_174165\n",
+    "The 'no destination' error file will be populated with the URL." );
 
 my $empty_row = undef;
 my( $n_host, $no_type, $no_more ) = $mappings->row_as_nginx_config($empty_row);
