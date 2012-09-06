@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-use Test::More tests=>19;
+use Test::More;
 use Mappings;
 
 
@@ -43,7 +43,7 @@ my $businesslink_redirect_awaiting_content = {
 my( $awaiting_content_host, $awaiting_content_type, $awaiting_content ) = $mappings->row_as_nginx_config($businesslink_redirect_awaiting_content);
 ok( $awaiting_content_host eq 'www.businesslink.gov.uk', 
 	'Host that config applies to is businesslink' );
-ok( $awaiting_content_type eq 'gone_map',
+ok( $awaiting_content_type eq 'awaiting_content_map',
 	'If host is businesslink and type is awaiting content, type of nginx block is awaiting_content_map'  );
 ok( $awaiting_content eq qq(~topicId=1073858854 418;\n),
     'Nginx config is as expected' );
@@ -82,3 +82,5 @@ my( $n_host, $no_type, $no_more ) = $mappings->row_as_nginx_config($empty_row);
 ok( !defined $n_host,                      'no host when EOF' );
 ok( !defined $no_type,                     'no type when EOF' );
 ok( !defined $no_more,                     'no mapping when EOF' );
+
+done_testing();

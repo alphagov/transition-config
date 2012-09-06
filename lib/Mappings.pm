@@ -84,10 +84,12 @@ sub row_as_nginx_config {
                 return( $host, 'location', "location = $old_url { return 418; }\n" );
             }
             elsif ( 'closed' eq $mapping_status ) {
-
+                my $full_old_url = "$row->{'Old Url'}\n";
+                return( $host, 'no_destination_error', $full_old_url );
             } 
             elsif ( 'open' eq $mapping_status ) {
-
+                my $full_old_url = "$row->{'Old Url'}\n";
+                return( $host, 'unresolved', $full_old_url );
             }
             else {
                 die "Whole Tag column contains unexpected status";
@@ -106,21 +108,41 @@ sub row_as_nginx_config {
         if ( defined $key ) {
             my $config_line;
 
-            if ( '301' eq $status && length $old_url ) {
-                $config_line = "~${key} ${new_url};\n";
-                return( $host, "redirect_map", $config_line )
-            }
-
             if ( '410' eq $status && length $old_url )  {
                 $config_line = "~${key} 410;\n";
                 return( $host, "gone_map", $config_line )
             }
 
-        #something like     my $new_url = $row->{'New Url'};
-        #if undef or not awaiting ciontat
-        #error ?
+            if ( '301' eq $status && length $old_url && length $new_url ) {
+                $config_line = "~${key} ${new_url};\n";
+                return( $host, "redirect_map", $config_line )
+            }
 
-        #otherwise we need an awating content map for BL and a location for DG
+
+        my $mapping_status = $row->{'Whole Tag'};
+
+        if ( defined $mapping_status ) {
+            
+            if ( 'Awaiting-content' eq $mapping_status ) {
+                $config_line = "~${key} 418;\n";
+                return( $host, "awaiting_content_map", $config_line )
+            }
+            elsif ( 'Closed' eq $mapping_status ) {
+                my $full_old_url = "$row->{'Old Url'}\n";
+                return( $host, "no_destination_error", $full_old_url );
+            } 
+            elsif ( 'Open' eq $mapping_status ) {
+                my $full_old_url = "$row->{'Old Url'}\n";
+                return( $host, "unresolved", $full_old_url );
+
+            }
+            else {
+                die "Whole Tag column for ${old_url} contains unexpected status ${mapping_status}";
+            }
+        }
+
+
+
 
         }
         else {
