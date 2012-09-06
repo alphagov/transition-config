@@ -11,22 +11,24 @@ prove -l tests/migratorator_mappings/*.t
 rm -f dist/*_errors.txt 
 
 # DIRECTGOV
+
 #   fetch directgov mappings
 curl "https://${MIGRATORATOR_AUTH}@migratorator.production.alphagov.co.uk/mappings/filter/status:closed.csv" > dist/directgov_mappings.csv
 perl filter_csv.pl < dist/directgov_mappings.csv > dist/directgov.csv 
 
 #   transform to nginx
-# FIXME perl -Ilib create_mappings.pl dist/directgov.csv
+perl -Ilib create_mappings.pl dist/directgov.csv
 
 
 
 # BUSINESSLINK
+
 #   fetch businesslink mappings
 curl "https://docs.google.com/spreadsheet/pub?key=0AprXhKI73WmwdHMwaW1aZVphOUJ1a3dTTGhJSFV5dGc&single=true&gid=0&output=csv" > dist/businesslink_mappings.csv
 perl filter_csv.pl < dist/businesslink_mappings.csv > dist/businesslink.csv
 
 #   transform to nginx
-
+perl -Ilib create_mappings.pl dist/businesslink.csv
 
 exit
 
