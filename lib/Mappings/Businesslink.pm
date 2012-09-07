@@ -9,9 +9,6 @@ use base 'Mappings::Rules';
 sub actual_nginx_config {
     my $self = shift;
     
-    # we must know what URL we are operating on
-    return unless $self->{'old_url'};
-    
     my $map_key = $self->get_url_key( $self->{'old_url_parts'}{'path'}, $self->{'old_url_parts'}{'query'} );
     my $type    = 'unresolved';
     my $config  = "$self->{'old_url'}\n";

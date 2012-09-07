@@ -80,9 +80,6 @@ sub as_nginx_config {
 sub actual_nginx_config {
     my $self = shift;
     
-    # we must know what URL we are operating on
-    return unless $self->{'old_url'};
-    
     # assume mappings are closed unless otherwise stated
     my $mapping_status = 'closed';
     if ( defined $self->{'whole_tag'} && $self->{'whole_tag'} =~ m{status:(\S+)} ) {
