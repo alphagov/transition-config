@@ -58,10 +58,12 @@ sub get_url_key {
     my $topic;
     my $item;
     
-    $topic = $1
-        if $query_string =~ m{topicId=(\d+)};
-    $item = $1
-        if $query_string =~ m{itemId=(\d+)};
+    if ( defined $query_string ) {
+        $topic = $1
+            if $query_string =~ m{topicId=(\d+)};
+        $item = $1
+            if $query_string =~ m{itemId=(\d+)};
+    }
     
     if ( defined $topic && defined $item ) {
         if ( $path =~ m{^/bdotg/action/layer} ) {

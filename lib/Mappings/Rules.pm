@@ -29,10 +29,13 @@ sub new {
     
     my( $scheme, $host, $path, $query, $frag ) = uri_split $row->{'Old Url'};
     my $old_url_relative = uri_join undef, undef, $path, $query, $frag;
+    my $actual_class = $class;
     
-    my $actual_class = defined $HOSTNAME_MAPPINGS{$host}
-                           ? "Mappings::$HOSTNAME_MAPPINGS{$host}"
-                           : $class;
+    if ( defined $host ) {
+        $actual_class = defined $HOSTNAME_MAPPINGS{$host}
+                            ? "Mappings::$HOSTNAME_MAPPINGS{$host}"
+                            : $class;
+    }
     
     my $self = {
         old_url          => $row->{'Old Url'},
