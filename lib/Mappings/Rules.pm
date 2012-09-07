@@ -9,16 +9,24 @@ use Mappings::Ignore;
 use URI::Split  qw( uri_split uri_join );
 
 my %HOSTNAME_MAPPINGS = (
-    'www.businesslink.gov.uk' => 'Businesslink',
+    'www.businesslink.gov.uk'                   => 'Businesslink',
     
     # ignore these for now
-    'www.improve.businesslink.gov.uk' => 'Ignore',
-    'online.businesslink.gov.uk'      => 'Ignore',
-    'businesslink.gov.uk'             => 'Ignore',
-    'tariff.businesslink.gov.uk'      => 'Ignore',
-    'tariff.nibusinessingo.co.uk'     => 'Ignore',
-    'tariff.business.scotland.gov.uk' => 'Ignore',
-    'tariff.business.wales.gov.uk'    => 'Ignore',
+    'www.improve.businesslink.gov.uk'           => 'Ignore',
+    'online.businesslink.gov.uk'                => 'Ignore',
+    'businesslink.gov.uk'                       => 'Ignore',
+    'tariff.businesslink.gov.uk'                => 'Ignore',
+    'tariff.nibusinessingo.co.uk'               => 'Ignore',
+    'tariff.business.scotland.gov.uk'           => 'Ignore',
+    'tariff.business.wales.gov.uk'              => 'Ignore',
+    'www.business.gov.uk'                       => 'Ignore',
+    'www.business.scotland.gov.uk'              => 'Ignore',
+    'www.contractsfinder.businesslink.gov.uk'   => 'Ignore',
+    'www.events.businesslink.gov.uk'            => 'Ignore',
+    'www.nibusinessinfo.co.uk'                  => 'Ignore',
+    'www.ukwelcomes.businesslink.gov.uk'        => 'Ignore',
+    'business.wales.gov.uk'                     => 'Ignore',
+    'businesslink-online.hmrc.gov.uk'           => 'Ignore',
 );
 
 
