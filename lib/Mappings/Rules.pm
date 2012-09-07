@@ -62,6 +62,19 @@ sub new {
 sub as_nginx_config {
     my $self = shift;
     
+    # default checks for sane input
+    return( 'no_host', 'no_source_url', "$self->{'new_url'}\n" )
+        if !defined $self->{'old_url'} || !length $self->{'old_url'};
+    
+    return( $self->{'old_url_parts'}{'host'}, 'no_status', "$self->{'old_url'}\n" )
+        if !defined $self->{'status'} || !length $self->{'status'};
+    
+    return $self->actual_nginx_config();
+}
+
+sub actual_nginx_config {
+    my $self = shift;
+    
     # we must know what URL we are operating on
     return unless $self->{'old_url'};
     

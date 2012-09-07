@@ -6,7 +6,7 @@ use base 'Mappings::Rules';
 
 
 
-sub as_nginx_config {
+sub actual_nginx_config {
     my $self = shift;
     
     # we must know what URL we are operating on
