@@ -44,7 +44,7 @@ my( $awaiting_content_host, $awaiting_content_type, $awaiting_content ) = $mappi
 is( $awaiting_content_host, 'www.businesslink.gov.uk', 
 	'Host that config applies to is businesslink' );
 is( $awaiting_content_type, 'awaiting_content_map',
-	'If host is businesslink and type is awaiting content, type of nginx block is awaiting_content_map'  );
+	"If status is 301, whole tag 'status' is 'awaiting content', type of nginx block is awaiting_content_map"  );
 is( $awaiting_content, qq(~topicId=1073858854 418;\n),
     'Nginx config is as expected' );
 
@@ -58,10 +58,10 @@ my $businesslink_no_new_url_open = {
 my( $no_new_url_open_host, $no_new_url_open_type, $no_new_url_open_content ) = $mappings->row_as_nginx_config($businesslink_no_new_url_open);
 is( $no_new_url_open_host, 'www.businesslink.gov.uk', 
 	'Host that config applies to is businesslink' );
-is( $no_new_url_open_type, 'unresolved',
-	"If status is 301, whole tag 'status' is Open, and there is no new url, this should be flagged as unresolved."  );
+is( $no_new_url_open_type, 'no_destination_error',
+	"If status is 301, whole tag 'status' is Open, and there is no new url, this is a 'no destination' error."  );
 is( $no_new_url_open_content, "http://www.businesslink.gov.uk/bdotg/action/layer?topicId=1073858854\n",
-    'The unresolved file will be populated with the URL.' );
+    "The 'no destination' file will be populated with the URL." );
 
 my $businesslink_no_new_url_closed = { 
 	'Old Url'	=> 'http://www.businesslink.gov.uk/bdotg/action/layer?topicId=1073858854',

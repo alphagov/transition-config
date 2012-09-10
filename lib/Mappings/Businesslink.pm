@@ -9,47 +9,47 @@ use base 'Mappings::Rules';
 sub actual_nginx_config {
     my $self = shift;
     
-    my $map_key = $self->get_url_key( $self->{'old_url_parts'}{'path'}, $self->{'old_url_parts'}{'query'} );
-    my $type    = 'unresolved';
-    my $config  = "$self->{'old_url'}\n";
-    
-    # assume mappings are closed unless otherwise stated
-    my $mapping_status = 'closed';
-    if ( defined $self->{'whole_tag'} ) {
-        $mapping_status = lc $self->{'whole_tag'};
-    }
-    
+    my $map_key = $self->get_url_key( $self->{'old_url_parts'} );
+     
+    my $map_or_error_type;
+    my $config_line;
+
     if ( defined $map_key ) {
-        if ( 'closed' eq $mapping_status ) {
-            if ( '410' eq $self->{'status'} ) {
-                # 410 Gone
-                $type   = 'gone_map';
-                $config = "~${map_key} 410;\n";
-            }
-            elsif ( '301' eq $self->{'status'} ) {
-                if ( length $self->{'new_url'} ) {
-                    # 301 Moved Permanently
-                    $type   = 'redirect_map';
-                    $config = "~${map_key} $self->{'new_url'};\n";
-                }
-                else {
-                    $type = 'no_destination_error';
-                }
-            }
+        if ( '410' eq $self->{'status'} ) {
+            # 410 Gone
+            $map_or_error_type   = 'gone_map';
+            $config_line = "~${map_key} 410;\n";
         }
-        elsif ( 'awaiting-content' eq $mapping_status ) {
-            # 418 I'm a Teapot -- used to signify "page will exist soon"
-            $type   = 'awaiting_content_map';
-            $config = "~${map_key} 418;\n";
+        elsif ( '301' eq $self->{'status'} ) {
+            if ( length $self->{'new_url'} ) {
+                # 301 Moved Permanently
+                $map_or_error_type   = 'redirect_map';
+                $config_line = "~${map_key} $self->{'new_url'};\n";
+            } 
+            elsif ( defined $self->{'whole_tag'} && lc $self->{'whole_tag'} eq 'awaiting-content' ) {
+                # 418 I'm a Teapot -- used to signify "page will exist soon"
+                $map_or_error_type   = 'awaiting_content_map';
+                $config_line = "~${map_key} 418;\n";
+            }
+            else {
+                $map_or_error_type = 'no_destination_error';
+                $config_line = "$self->{'old_url'}\n";
+            }
         }
     }
+    else {
+        $map_or_error_type = 'no_map_key_error'; 
+        $config_line = "$self->{'old_url'}\n"; 
+    }
     
-    return( $self->{'old_url_parts'}{'host'}, $type, $config );
+    return( $self->{'old_url_parts'}{'host'}, $map_or_error_type, $config_line );
 }
 sub get_url_key {
     my $self         = shift;
-    my $path         = shift;
-    my $query_string = shift;
+    my $parts        = shift;
+    
+    my $path         = $parts->{'path'};
+    my $query_string = $parts->{'query'};
     
     my $key;
     my $topic;
