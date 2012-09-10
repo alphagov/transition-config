@@ -13,6 +13,11 @@ sub actual_nginx_config {
      
     my $map_or_error_type;
     my $config_line;
+    my $mapping_status;
+
+    if ( defined $self->{'whole_tag'} ) {
+        $mapping_status = lc $self->{'whole_tag'};
+    }
 
     if ( defined $map_key ) {
         if ( '410' eq $self->{'status'} ) {
@@ -21,16 +26,16 @@ sub actual_nginx_config {
             $config_line = "~${map_key} 410;\n";
         }
         elsif ( '301' eq $self->{'status'} ) {
-            if ( length $self->{'new_url'} ) {
-                # 301 Moved Permanently
-                $map_or_error_type   = 'redirect_map';
-                $config_line = "~${map_key} $self->{'new_url'};\n";
-            } 
-            elsif ( defined $self->{'whole_tag'} && lc $self->{'whole_tag'} eq 'awaiting-content' ) {
+            if ( 'awaiting-content' eq $mapping_status || 'awaiting-publication' eq $mapping_status ) {
                 # 418 I'm a Teapot -- used to signify "page will exist soon"
                 $map_or_error_type   = 'awaiting_content_map';
                 $config_line = "~${map_key} 418;\n";
             }
+            elsif ( length $self->{'new_url'}) {
+                # 301 Moved Permanently
+                $map_or_error_type   = 'redirect_map';
+                $config_line = "~${map_key} $self->{'new_url'};\n";
+            } 
             else {
                 $map_or_error_type = 'no_destination_error';
                 $config_line = "$self->{'old_url'}\n";

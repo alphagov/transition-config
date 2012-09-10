@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-use Test::More tests => 19;
+use Test::More;
 use Mappings;
 
 
@@ -44,8 +44,22 @@ my( $awaiting_content_host, $awaiting_content_type, $awaiting_content ) = $mappi
 is( $awaiting_content_host, 'www.businesslink.gov.uk', 
 	'Host that config applies to is businesslink' );
 is( $awaiting_content_type, 'awaiting_content_map',
-	"If status is 301, whole tag 'status' is 'awaiting content', type of nginx block is awaiting_content_map"  );
+	"If status is 301 and whole tag 'status' is 'awaiting content', type of nginx block is awaiting_content_map"  );
 is( $awaiting_content, qq(~topicId=1073858854 418;\n),
+    'Nginx config is as expected' );
+
+my $businesslink_redirect_awaiting_publication = { 
+	'Old Url'	=> 'http://www.businesslink.gov.uk/bdotg/action/layer?topicId=1073858854',
+	'New Url'	=> 'https://www.gov.uk/get-information-about-a-company',
+	'Status'	=> 301,
+	'Whole Tag'	=> 'Awaiting-publication',
+};
+my( $awaiting_publication_host, $awaiting_publication_type, $awaiting_publication ) = $mappings->row_as_nginx_config($businesslink_redirect_awaiting_publication);
+is( $awaiting_publication_host, 'www.businesslink.gov.uk', 
+	'Host that config applies to is businesslink' );
+is( $awaiting_publication_type, 'awaiting_content_map',
+	"If status is 301 and whole tag 'status' is 'awaiting publication', type of nginx block is awaiting_content_map"  );
+is( $awaiting_publication, qq(~topicId=1073858854 418;\n),
     'Nginx config is as expected' );
 
 
@@ -82,3 +96,5 @@ my( $n_host, $no_type, $no_more ) = $mappings->row_as_nginx_config($empty_row);
 ok( !defined $n_host,                      'no host when EOF' );
 ok( !defined $no_type,                     'no type when EOF' );
 ok( !defined $no_more,                     'no mapping when EOF' );
+
+done_testing();
