@@ -8,7 +8,7 @@ prove -l tests/migratorator_mappings/*.t
 # FIXME - MIGRATORATOR_AUTH
 
 # delete any previous mapping errors files
-rm -f dist/*_errors.txt 
+rm -f dist/*
 
 
 # DIRECTGOV
