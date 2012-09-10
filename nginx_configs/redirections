@@ -1,0 +1,38 @@
+map $query_string $new_url {
+  include /var/apps/redirector/www.businesslink.gov.uk.redirect_map.conf;
+}
+
+map $query_string $gone {
+  include /var/apps/redirector/www.businesslink.gov.uk.gone_map.conf;
+}
+
+map $query_string $awaiting_content {
+  include /var/apps/redirector/www.businesslink.gov.uk.awaiting_content_map.conf;
+}
+
+
+server {
+  server_name www.businesslink.gov.uk www-business-link-gov-uk.redirector.preview.alphagov.co.uk;
+
+  include /var/apps/redirector/www.businesslink.gov.uk.location.conf;  
+
+  if ( $new_url ) {
+    return 301 $new_url;
+  }
+
+  if ( $gone ) {
+    return 410;
+  }
+
+  if ( $awaiting_content ) {
+    return 418;
+  }
+
+}
+
+server {
+    server_name www.direct.gov.uk www-direct-gov-uk.redirector.preview.alphagov.co.uk;
+
+    include /var/apps/redirector/www.direct.gov.uk.location.conf;
+
+}
