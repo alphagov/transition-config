@@ -107,8 +107,8 @@ my( $businesslink_home_host, $businesslink_home_type, $businesslink_home_content
 is( $businesslink_home_host, 'www.businesslink.gov.uk', 
 	'Host that config applies to is businesslink' );
 is( $businesslink_home_type, 'location',
-	"If the location has a query string, and the path is /bgotg/action/home then it is a location redirect."  );
-is( $businesslink_home_content, "location = /bgotg/action/home { return 301 https://www.gov.uk; }\n",
+	"If the location has a query string, and the path is /bdotg/action/home then it is a location redirect."  );
+is( $businesslink_home_content, "location = /bdotg/action/home { return 301 https://www.gov.uk; }\n",
     "The homepage redirects to the gov.uk homepage" );
 
 $businesslink_home_url = { 
@@ -121,8 +121,8 @@ $businesslink_home_url = {
 is( $businesslink_home_host, 'www.businesslink.gov.uk', 
 	'Host that config applies to is businesslink' );
 is( $businesslink_home_type, 'location',
-	"If the location has a query string, and the path is /bgotg/action/home then it is a location redirect."  );
-is( $businesslink_home_content, qq(location = /bgotg/action/home { return 301 https://www.test.uk; }\n),
+	"If the location has a query string, and the path is /bdotg/action/home then it is a location redirect."  );
+is( $businesslink_home_content, qq(location = /bdotg/action/home { return 301 https://www.test.uk; }\n),
     "The GOV.UK homepage is not hard-coded" );
 
 
