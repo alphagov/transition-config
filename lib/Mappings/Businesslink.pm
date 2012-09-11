@@ -13,7 +13,7 @@ sub actual_nginx_config {
      
     my $map_or_error_type;
     my $config_line;
-    my $mapping_status;
+    my $mapping_status = '';
 
     if ( defined $self->{'whole_tag'} ) {
         $mapping_status = lc $self->{'whole_tag'};
