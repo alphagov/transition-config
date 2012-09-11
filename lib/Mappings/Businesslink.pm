@@ -9,7 +9,7 @@ use base 'Mappings::Rules';
 sub actual_nginx_config {
     my $self = shift;
     
-    my $map_key = $self->get_url_key( $self->{'old_url_parts'} );
+    my $map_key = $self->get_map_key( $self->{'old_url_parts'} );
      
     my $map_or_error_type;
     my $config_line;
@@ -49,7 +49,7 @@ sub actual_nginx_config {
     
     return( $self->{'old_url_parts'}{'host'}, $map_or_error_type, $config_line );
 }
-sub get_url_key {
+sub get_map_key {
     my $self         = shift;
     my $parts        = shift;
     
