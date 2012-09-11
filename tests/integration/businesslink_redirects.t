@@ -19,8 +19,8 @@ open( my $fh, "<", "dist/businesslink_mappings_source.csv" )
 my $names = $csv->getline( $fh );
 $csv->column_names( @$names );
 
-open ( my $output_log, ">", "dist/integration_test_failures.csv")
-    or die "dist/integration_test_failures.csv: $!";
+open ( my $output_log, ">", "dist/businesslink_integration_test_failures.csv")
+    or die "dist/businesslink_integration_test_failures.csv: $!";
 
 while ( my $row = $csv->getline_hr( $fh ) ) {
     my $old_url = $row->{'Old Url'};
