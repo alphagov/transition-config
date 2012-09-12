@@ -47,13 +47,9 @@ $test_url_parts->{query} = 'itemId=5002011861&type=ONEOFFPAGE';
 $result_key   = Mappings::Businesslink::get_map_key( undef, $test_url_parts );
 is( 'itemId=5002011861', $result_key, "If a URL has a item id and no topic id then use the item id" );
 
-# should be a test for what to do if there isn't a key
-
-# $test_url_parts->{path}     = '/bdotg/action/detail';
-# $test_url_parts->{query} = 'itemId=5002011861&type=ONEOFFPAGE';
-# $result_key   = Mappings::Businesslink::get_map_key( undef, $test_url_parts );
-# is( 'itemId=5002011861', $result_key, "If a URL starts with home then redirect to the govuk homepage" );
-
-
+$test_url_parts->{path}     = '/bdotg/action/detail';
+$test_url_parts->{query} = 'type=ONEOFFPAGE';
+$result_key   = Mappings::Businesslink::get_map_key( undef, $test_url_parts );
+is( undef, $result_key, "If a URL has no item id and no topic id then the map_key is undefined" );
 
 done_testing();
