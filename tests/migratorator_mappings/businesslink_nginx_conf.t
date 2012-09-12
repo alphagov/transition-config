@@ -107,7 +107,7 @@ my( $businesslink_home_host, $businesslink_home_type, $businesslink_home_content
 is( $businesslink_home_host, 'www.businesslink.gov.uk', 
 	'Host that config applies to is businesslink' );
 is( $businesslink_home_type, 'location',
-	"If the location has a query string, and the path is /bdotg/action/home then it is a location redirect."  );
+	"If the URL has a query string, and the path is /bdotg/action/home then it is a location redirect."  );
 is( $businesslink_home_content, "location = /bdotg/action/home { return 301 https://www.gov.uk; }\n",
     "The homepage redirects to the gov.uk homepage" );
 
@@ -121,15 +121,56 @@ $businesslink_home_url = {
 is( $businesslink_home_host, 'www.businesslink.gov.uk', 
 	'Host that config applies to is businesslink' );
 is( $businesslink_home_type, 'location',
-	"If the location has a query string, and the path is /bdotg/action/home then it is a location redirect."  );
+	"If the URL has a query string, and the path is /bdotg/action/home then it is a location redirect."  );
 is( $businesslink_home_content, qq(location = /bdotg/action/home { return 301 https://www.test.uk; }\n),
     "The GOV.UK homepage is not hard-coded" );
 
 
-# if it's a FURL it adds the right line to the location file
+my $businesslink_friendly_url = { 
+	'Old Url'	=> 'http://www.businesslink.gov.uk/tattoopeircingelectrolysis',
+	'New Url'	=> '',
+	'Status'	=> 410,
+	'Whole Tag'	=> 'Closed',
+};
+my( $businesslink_friendly_url_host, $businesslink_friendly_url_type, 
+	$businesslink_friendly_url_content ) = $mappings->row_as_nginx_config($businesslink_friendly_url);
+is( $businesslink_friendly_url_host, 'www.businesslink.gov.uk', 
+	'Host that config applies to is businesslink' );
+is( $businesslink_friendly_url_type, 'location',
+	"If the location has no query string, it is a location block."  );
+is( $businesslink_friendly_url_content, "location = /tattoopeircingelectrolysis { return 410; }\n",
+    "A friendly URL with a 410 creates a 410 location config line." );
 
-# if it's not a FURL because it has a query string it does not
 
-# if it's not a FURL because it has /btogdblha it does not
+$businesslink_friendly_url = { 
+	'Old Url'	=> 'http://www.businesslink.gov.uk/yorkshire',
+	'New Url'	=> 'https://www.gov.uk/yorkshire',
+	'Status'	=> 301,
+	'Whole Tag'	=> 'Closed',
+};
+( $businesslink_friendly_url_host, $businesslink_friendly_url_type, 
+	$businesslink_friendly_url_content ) = $mappings->row_as_nginx_config($businesslink_friendly_url);
+is( $businesslink_friendly_url_host, 'www.businesslink.gov.uk', 
+	'Host that config applies to is businesslink' );
+is( $businesslink_friendly_url_type, 'location',
+	"If the location has no query string, it is a location block."  );
+is( $businesslink_friendly_url_content, "location = /yorkshire { return 301 https://www.gov.uk/yorkshire; }\n",
+    "A friendly URL with a 301 creates a location redirect." );
+
+
+my $businesslink_friendly_url_with_querystring = { 
+	'Old Url'	=> 'http://www.businesslink.gov.uk/tattoopeircingelectrolysis?topicId=1073858854',
+	'New Url'	=> 'http://www.gov.uk/testresult',
+	'Status'	=> 301,
+	'Whole Tag'	=> 'Closed',
+};
+my( $businesslink_friendly_host_with_querystring, $businesslink_friendly_type_with_querystring, 
+	$businesslink_friendly_content_with_querystring ) = $mappings->row_as_nginx_config($businesslink_friendly_url_with_querystring);
+is( $businesslink_friendly_host_with_querystring, 'www.businesslink.gov.uk', 
+	'Host that config applies to is businesslink' );
+is( $businesslink_friendly_type_with_querystring, 'redirect_map',
+	"If there is a query string, then it should to go a map, even if it looks like a friendly url"  );
+is( $businesslink_friendly_content_with_querystring, "~topicId=1073858854 http://www.gov.uk/testresult;\n", 
+	"A friendly URL does not contain a query string" );
 
 done_testing();

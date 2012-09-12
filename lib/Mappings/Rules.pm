@@ -87,6 +87,12 @@ sub as_nginx_config {
 
 sub actual_nginx_config {
     my $self = shift;
+
+    return $self->location_config();
+}
+
+sub location_config {
+    my $self = shift;
     
     # assume mappings are closed unless otherwise stated
     my $mapping_status = 'closed';
@@ -94,7 +100,7 @@ sub actual_nginx_config {
         $mapping_status = $1;
     }
     
-    my $type = 'location';
+    my $config_or_error_type = 'location';
     my $config;
     
     if ( 'closed' eq $mapping_status ) {
@@ -108,7 +114,7 @@ sub actual_nginx_config {
                 $config = "location = $self->{'old_url_relative'} { return 301 $self->{'new_url'}; }\n";
             }
             else {
-                $type   = 'no_destination_error';
+                $config_or_error_type   = 'no_destination_error';
                 $config = "$self->{'old_url'}\n";
             }
         }
@@ -118,11 +124,11 @@ sub actual_nginx_config {
         $config = "location = $self->{'old_url_relative'} { return 418; }\n";
     }
     else {
-        $type   = 'unresolved';
+        $config_or_error_type   = 'unresolved';
         $config = "$self->{'old_url'}\n";
     }
     
-    return( $self->{'old_url_parts'}{'host'}, $type, $config );
+    return( $self->{'old_url_parts'}{'host'}, $config_or_error_type, $config );
 }
 
 

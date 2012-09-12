@@ -9,27 +9,20 @@ use base 'Mappings::Rules';
 sub actual_nginx_config {
     my $self = shift;
     
-    my $map_or_error_type;
+    my $config_or_error_type;
     my $config_line;
     my $mapping_status = '';
     
     if ( defined $self->{'old_url_parts'}{'query'} ) {
 
         if ( '/bdotg/action/home' eq $self->{'old_url_parts'}{'path'} ) {
-            $map_or_error_type = 'location'; #misnamed
-            $config_line = "location = $self->{'old_url_parts'}{'path'} { return 301 $self->{'new_url'}; }\n"; #do we want this instead of old url relative?
+            $config_or_error_type = 'location'; 
+            $config_line = "location = $self->{'old_url_parts'}{'path'} { return 301 $self->{'new_url'}; }\n"; 
+            # do we want this instead of old url relative?
         }
         else {
-    # -> add it to location conf
-    
-
-    # get map key
             my $map_key = $self->get_map_key( $self->{'old_url_parts'} );
-            # -> add it to the relevant map 
             
-
-
-
             if ( defined $self->{'whole_tag'} ) {
                 $mapping_status = lc $self->{'whole_tag'};
             }
@@ -37,34 +30,38 @@ sub actual_nginx_config {
             if ( defined $map_key ) {
                 if ( '410' eq $self->{'status'} ) {
                     # 410 Gone
-                    $map_or_error_type   = 'gone_map';
+                    $config_or_error_type   = 'gone_map';
                     $config_line = "~${map_key} 410;\n";
                 }
                 elsif ( '301' eq $self->{'status'} ) {
                     if ( 'awaiting-content' eq $mapping_status || 'awaiting-publication' eq $mapping_status ) {
                         # 418 I'm a Teapot -- used to signify "page will exist soon"
-                        $map_or_error_type   = 'awaiting_content_map';
+                        $config_or_error_type   = 'awaiting_content_map';
                         $config_line = "~${map_key} 418;\n";
                     }
                     elsif ( length $self->{'new_url'}) {
                         # 301 Moved Permanently
-                        $map_or_error_type   = 'redirect_map';
+                        $config_or_error_type   = 'redirect_map';
                         $config_line = "~${map_key} $self->{'new_url'};\n";
                     } 
                     else {
-                        $map_or_error_type = 'no_destination_error';
+                        $config_or_error_type = 'no_destination_error';
                         $config_line = "$self->{'old_url'}\n";
                     }
                 }
             }
             else {
-                $map_or_error_type = 'no_map_key_error'; 
+                $config_or_error_type = 'no_map_key_error'; 
                 $config_line = "$self->{'old_url'}\n"; 
             }
         }
-        
+        return( $self->{'old_url_parts'}{'host'}, $config_or_error_type, $config_line );    
+    }
+    # if no query string, we treat it as a furl
+    else {
+        return $self->location_config();
     }    
-    return( $self->{'old_url_parts'}{'host'}, $map_or_error_type, $config_line );
+    
 }
 sub get_map_key {
     my $self         = shift;
