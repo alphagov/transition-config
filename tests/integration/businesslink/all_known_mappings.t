@@ -19,10 +19,11 @@ open( my $fh, "<", "dist/businesslink_mappings_source.csv" )
 my $names = $csv->getline( $fh );
 $csv->column_names( @$names );
 
-open ( my $output_log, ">", "dist/businesslink_integration_test_failures.csv")
-    or die "dist/businesslink_integration_test_failures.csv: $!";
+open ( my $output_log, ">", "dist/businesslink_all_known_mappings_that_fail.csv")
+    or die "dist/businesslink_all_known_mappings_that_fail.csv: $!";
 
 while ( my $row = $csv->getline_hr( $fh ) ) {
+
     my $old_url = $row->{'Old Url'};
     
     my $uri = URI->new($old_url);
@@ -34,27 +35,10 @@ while ( my $row = $csv->getline_hr( $fh ) ) {
     $request->header( 'Host', 'www.businesslink.gov.uk' );
     my $response = $ua->request($request);
 
-    my $return;
-    my $mapping_status;
-    my $new_url;
+    my $correct_response_code = ( 410 == $response->code || 301 == $response->code );
 
-
-    if ( 410 == $status_code ) {
-        $return = is(  $response->code, 410, "$old_url returns 410" )
-    }        
-
-    if ( 301 == $status_code ) {
-        $mapping_status = lc $row->{'Whole Tag'};
-        if ( 'awaiting-content' eq $mapping_status || 'awaiting-publication' eq $mapping_status ) {
-            $return = is(  $response->code, 418, "$old_url returns 418" );
-        }
-        else {
-            $new_url = $row->{'New Url'};
-            my $redirected_url = $response->header("location");
-            $return = is( $redirected_url, $new_url, "$old_url redirects to $new_url" );
-        } 
-    }
-
+    $return = is(  1, correct_response_code, "ba" );
+         
     if ( 0 == $return ) {
         printf $output_log "%s,%s,%s,%s\n", $old_url, $new_url, $status_code, $mapping_status;
     }
