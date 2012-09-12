@@ -97,4 +97,39 @@ ok( !defined $n_host,                      'no host when EOF' );
 ok( !defined $no_type,                     'no type when EOF' );
 ok( !defined $no_more,                     'no mapping when EOF' );
 
+my $businesslink_home_url = { 
+	'Old Url'	=> 'http://www.businesslink.gov.uk/bdotg/action/home?topicId=1073858854',
+	'New Url'	=> 'https://www.gov.uk',
+	'Status'	=> 301,
+	'Whole Tag'	=> 'Closed',
+};
+my( $businesslink_home_host, $businesslink_home_type, $businesslink_home_content ) = $mappings->row_as_nginx_config($businesslink_home_url);
+is( $businesslink_home_host, 'www.businesslink.gov.uk', 
+	'Host that config applies to is businesslink' );
+is( $businesslink_home_type, 'location',
+	"If the location has a query string, and the path is /bgotg/action/home then it is a location redirect."  );
+is( $businesslink_home_content, "location = /bgotg/action/home { return 301 https://www.gov.uk; }\n",
+    "The homepage redirects to the gov.uk homepage" );
+
+$businesslink_home_url = { 
+	'Old Url'	=> 'http://www.businesslink.gov.uk/bdotg/action/home?topicId=1073858854',
+	'New Url'	=> 'https://www.test.uk',
+	'Status'	=> 301,
+	'Whole Tag'	=> 'Closed',
+};
+( $businesslink_home_host, $businesslink_home_type, $businesslink_home_content ) = $mappings->row_as_nginx_config($businesslink_home_url);
+is( $businesslink_home_host, 'www.businesslink.gov.uk', 
+	'Host that config applies to is businesslink' );
+is( $businesslink_home_type, 'location',
+	"If the location has a query string, and the path is /bgotg/action/home then it is a location redirect."  );
+is( $businesslink_home_content, qq(location = /bgotg/action/home { return 301 https://www.test.uk; }\n),
+    "The GOV.UK homepage is not hard-coded" );
+
+
+# if it's a FURL it adds the right line to the location file
+
+# if it's not a FURL because it has a query string it does not
+
+# if it's not a FURL because it has /btogdblha it does not
+
 done_testing();
