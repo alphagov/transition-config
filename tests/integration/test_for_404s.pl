@@ -15,9 +15,18 @@ open( my $fh, "<", "dist/directgov_all_mappings.csv" )
 my $names = $csv->getline( $fh );
 $csv->column_names( @$names );
 
-while ( my $row = $csv->getline_hr( $fh ) ) {
-	my $old_url = $row->{'Old Url'};
-	my $response = $ua->get($old_url);
 
-	isnt ( $response->code, 404, "$old_url is not a 404");
+open ( my $output_log, ">", "dist/directgov_404s.csv" )
+	or die "dist/directgov_404s.csv" . ": $!";
+
+
+while ( my $row = $csv->getline_hr( $fh ) ) {
+	my $url = $row->{'New Url'};
+
+	if ( defined $url ) {
+		my $response = $ua->get($url);
+		isnt ( $response->code, 404, "$url is not a 404")
+			or print $output_log "$url\n";
+	}
 }
+done_testing();
