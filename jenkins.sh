@@ -13,6 +13,9 @@ rm -f dist/*
 curl "https://${MIGRATORATOR_AUTH}@migratorator.production.alphagov.co.uk/mappings/filter/status:closed.csv" > dist/directgov_mappings_source.csv
 perl -Ilib create_mappings.pl dist/directgov_mappings_source.csv
 
+# Download all migratorator mappings for integration test
+curl "https://${MIGRATORATOR_AUTH}@migratorator.production.alphagov.co.uk/mappings.csv" > dist/directgov_all_mappings.csv
+
 
 # BUSINESSLINK
 curl "https://docs.google.com/spreadsheet/pub?key=0AprXhKI73WmwdHMwaW1aZVphOUJ1a3dTTGhJSFV5dGc&single=true&gid=0&output=csv" > dist/businesslink_mappings_source.csv

@@ -1,11 +1,11 @@
-my $test = Businesslink::AllKnown->new();
-$test->input_file("dist/businesslink_mappings_source.csv");
-$test->output_file("dist/businesslink_all_known_mappings_that_fail.csv");
+my $test = Directgov::AllKnown->new();
+$test->input_file("dist/directgov_all_mappings.csv");
+$test->output_file("dist/directgov_all_known_mappings_that_fail.csv");
 $test->run_tests();
 exit;
 
 
-package Businesslink::AllKnown;
+package Directgov::AllKnown;
 use base 'IntegrationTest';
 
 use strict;
@@ -27,3 +27,5 @@ sub test {
 
     return( $return, $mapping_status );
 }
+
+done_testing();

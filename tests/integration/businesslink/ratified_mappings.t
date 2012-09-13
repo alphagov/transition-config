@@ -1,6 +1,6 @@
 my $test = Businesslink::Ratified->new();
 $test->input_file("dist/businesslink_mappings_source.csv");
-$test->output_file("dist/businesslink_all_known_mappings_that_fail.csv");
+$test->output_file("dist/businesslink_integration_test_failures.csv");
 $test->run_tests();
 exit;
 
