@@ -31,10 +31,32 @@ sub entire_csv_as_nginx_config {
     my $self = shift;
     
     my %configs;
+    my %check_for_dupes;
+    
     while ( my $row = $self->get_row() ) {
         my( $host, $map, $line ) = $self->row_as_nginx_config($row);
         
         if ( defined $host && defined $map && defined $line ) {
+            # check for first type of duplicate -- the same URL twice
+            my $location_duplicate_key = $row->{'Old Url'};
+            if ( !defined $check_for_dupes{$location_duplicate_key} ) {
+                $check_for_dupes{$location_duplicate_key} = 1;
+                
+                my $duplicate_mapping_key = sprintf '%s:%s:%s', $host, $map, $line;
+                
+                if ( !defined $check_for_dupes{$duplicate_mapping_key} ) {
+                    $check_for_dupes{$duplicate_mapping_key} = 1;
+                }
+                else {
+                    $map = 'duplicate_entry_error';
+                    $line = $row->{'Old Url'} . "\n";
+                }
+            }
+            else {
+                $map = 'duplicate_entry_error';
+                $line = $row->{'Old Url'} . "\n";
+            }
+            
             $configs{$host}{$map} = []
                 unless defined $configs{$host};
             push @{ $configs{$host}{$map} }, $line;
