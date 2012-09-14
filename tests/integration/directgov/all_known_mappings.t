@@ -21,11 +21,12 @@ sub test {
 
     my $mapping_status = '';
     my $return = 0;
+    my $new_url = '';
 
     my $correct_response_code = ( 410 == $response->code || 301 == $response->code );
     $return = is(  1, $correct_response_code, $row->{'Old Url'} . ' returns either a 410 or a 301' );
 
-    return( $return, $mapping_status );
+    return( $return, $mapping_status, $new_url );
 }
 
 done_testing();

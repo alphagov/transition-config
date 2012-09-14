@@ -25,10 +25,11 @@ sub test {
     }
 
     my $return = 0;
+    my $new_url = '';
 
     if (  length $status_code && 301 == $status_code && defined $mapping_status && 'awaiting-content' eq $mapping_status ) {
         $return = is(  $response->code, 418, $row->{'Old Url'} . 'returns 418' );
     }
 
-    return( $return, $mapping_status );
+    return( $return, $mapping_status, $new_url );
 }

@@ -21,6 +21,7 @@ sub test {
     
     my $mapping_status = lc $row->{'Whole Tag'};
     my $return = 0;
+    my $new_url = '';
 
     if ( 'closed' eq $mapping_status ) {
         if ( 410 == $status_code ) {
@@ -28,12 +29,12 @@ sub test {
         }        
 
         if ( 301 == $status_code ) {
-            my $new_url = $row->{'New Url'};
+            $new_url = $row->{'New Url'};
             my $redirected_url = $response->header("location");
             $return = is( $redirected_url, $new_url, $row->{'Old Url'} . " redirects to $new_url" );
         }
     }
 
-    return( $return, $mapping_status );
+    return( $return, $mapping_status, $new_url );
 }
 

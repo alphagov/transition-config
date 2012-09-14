@@ -21,18 +21,19 @@ sub test {
     
     my $mapping_status;
     my $return = 0;
+    my $new_url = '';
 
     if ( 410 == $status_code ) {
         $return = is(  $response->code, 410, $row->{'Old Url'} . ' returns 410' )
     }        
 
     if ( 301 == $status_code ) {
-        my $new_url = $row->{'New Url'};
+        $new_url = $row->{'New Url'};
         my $redirected_url = $response->header("location");
         $return = is( $redirected_url, $new_url,  $row->{'Old Url'}  . 'redirects to $new_url' );
     }
 
-    return( $return, $mapping_status );
+    return( $return, $mapping_status, $new_url );
 }
 
    

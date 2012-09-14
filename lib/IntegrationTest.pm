@@ -57,9 +57,8 @@ sub run_tests {
 	    $request->header( 'Host', $uri->host );
 	    my $response = $ua->request($request);
 
-	    my $new_url = '';
-
-	    my( $return, $mapping_status ) = $self->test($status_code, $response, $row);
+	    
+	    my( $return, $mapping_status, $new_url ) = $self->test($status_code, $response, $row);
 
 	    if ( 0 == $return ) {
 	        printf $output_log "%s,%s,%s,%s\n", $old_url, $new_url, $status_code, $mapping_status;
