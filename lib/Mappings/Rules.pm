@@ -11,6 +11,7 @@ use URI::Split  qw( uri_split uri_join );
 my %HOSTNAME_MAPPINGS = (
     'www.businesslink.gov.uk'                   => 'Businesslink',
     'online.businesslink.gov.uk'                => 'Businesslink',
+    'www.ukwelcomes.businesslink.gov.uk'        => 'Businesslink',
     
     # ignore these for now
     'www.improve.businesslink.gov.uk'           => 'Ignore',
@@ -24,7 +25,6 @@ my %HOSTNAME_MAPPINGS = (
     'www.contractsfinder.businesslink.gov.uk'   => 'Ignore',
     'www.events.businesslink.gov.uk'            => 'Ignore',
     'www.nibusinessinfo.co.uk'                  => 'Ignore',
-    'www.ukwelcomes.businesslink.gov.uk'        => 'Ignore',
     'business.wales.gov.uk'                     => 'Ignore',
     'businesslink-online.hmrc.gov.uk'           => 'Ignore',
 );
@@ -131,8 +131,8 @@ sub location_config {
         $config_or_error_type   = 'unresolved';
         $config = "$self->{'old_url'}\n";
     }
-    # online.businesslink is a special case. Special-cased for now, deal with properly later
-    if ( 'online.businesslink.gov.uk' eq $self->{'old_url_parts'}{'host'} ) {
+    # online.businesslink and ukwelcomes are special cases. Special-cased for now, deal with properly later
+    if ( 'online.businesslink.gov.uk' eq $self->{'old_url_parts'}{'host'} || 'www.ukwelcomes.businesslink.gov.uk' eq $self->{'old_url_parts'}{'host'} ) {
         $self->{'old_url_parts'}{'host'} = 'www.businesslink.gov.uk';
     }
     return( $self->{'old_url_parts'}{'host'}, $config_or_error_type, $config );
