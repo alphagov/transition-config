@@ -10,10 +10,10 @@ use URI::Split  qw( uri_split uri_join );
 
 my %HOSTNAME_MAPPINGS = (
     'www.businesslink.gov.uk'                   => 'Businesslink',
+    'online.businesslink.gov.uk'                => 'Businesslink',
     
     # ignore these for now
     'www.improve.businesslink.gov.uk'           => 'Ignore',
-    'online.businesslink.gov.uk'                => 'Ignore',
     'businesslink.gov.uk'                       => 'Ignore',
     'tariff.businesslink.gov.uk'                => 'Ignore',
     'tariff.nibusinessingo.co.uk'               => 'Ignore',
@@ -127,7 +127,10 @@ sub location_config {
         $config_or_error_type   = 'unresolved';
         $config = "$self->{'old_url'}\n";
     }
-    
+    # online.businesslink is a special case. Special-cased for now, deal with properly later
+    if ( 'online.businesslink.gov.uk' eq $self->{'old_url_parts'}{'host'} ) {
+        $self->{'old_url_parts'}{'host'} = 'www.businesslink.gov.uk';
+    }
     return( $self->{'old_url_parts'}{'host'}, $config_or_error_type, $config );
 }
 

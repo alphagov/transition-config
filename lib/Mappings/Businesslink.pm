@@ -55,6 +55,9 @@ sub actual_nginx_config {
                 $config_line = "$self->{'old_url'}\n"; 
             }
         }
+        # this is to deal with online, which has exactly the same rules
+        # as www - should be handled better        
+        $self->{'old_url_parts'}{'host'} = 'www.businesslink.gov.uk'; 
         return( $self->{'old_url_parts'}{'host'}, $config_or_error_type, $config_line );    
     }
     # if no query string, we treat it as a furl
