@@ -24,7 +24,7 @@ sub test {
         $mapping_status = lc $1;
     }
 
-    my $return = 0;
+    my $return = 1;
     my $new_url = '';
 
     if (  length $status_code && 301 == $status_code && defined $mapping_status && 'awaiting-content' eq $mapping_status ) {

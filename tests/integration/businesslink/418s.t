@@ -20,7 +20,7 @@ sub test {
     my $row     = shift;
 
     my $mapping_status = lc $row->{'Whole Tag'};
-    my $return = 0;
+    my $return = 1;
     my $new_url = '';
 
     if ( 301 == $status_code && defined $mapping_status && 'awaiting-content' eq $mapping_status ) {

@@ -20,7 +20,7 @@ sub test {
     my $row     = shift;
 
     my $mapping_status = '';
-    my $return = 0;
+    my $return = 1;
     my $new_url = '';
 
     my $correct_response_code = ( 410 == $response->code || 301 == $response->code );
