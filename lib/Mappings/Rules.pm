@@ -39,7 +39,7 @@ sub new {
     
     my( $scheme, $host, $path, $query, $frag ) = uri_split $row->{'Old Url'};
     # uri_split counts a ? with nothing after it as having a query string.
-    if ( !length $query ) {
+    if ( defined $query && !length $query ) {
         $query = undef;
     }
     my $old_url_relative = uri_join undef, undef, $path, $query, $frag;
