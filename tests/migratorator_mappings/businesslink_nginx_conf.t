@@ -17,7 +17,7 @@ is( $redirect_host, 'www.businesslink.gov.uk',
 	'Host that config applies to is businesslink' );
 is( $redirect_type, 'redirect_map',
 	'If host is businesslink and type is redirect, type of nginx block is redirect_map'  );
-is( $redirect, qq(~itemId=1081930072 https://www.gov.uk/get-information-about-a-company;\n),
+is( $redirect, qq(~detail.*itemId=1081930072 https://www.gov.uk/get-information-about-a-company;\n),
     'Nginx config is as expected' );
 
 my $businesslink_gone = { 
@@ -30,7 +30,7 @@ is( $gone_host, 'www.businesslink.gov.uk',
 	'Host that config applies to is businesslink' );
 is( $gone_type, 'gone_map',
 	'If host is businesslink and type is gone, type of nginx block is gone_map'  );
-is( $gone, qq(~topicId=1073858975 410;\n),
+is( $gone, qq(~layer.*topicId=1073858975 410;\n),
     'Nginx config is as expected' );
 
 
@@ -45,7 +45,7 @@ is( $awaiting_content_host, 'www.businesslink.gov.uk',
 	'Host that config applies to is businesslink' );
 is( $awaiting_content_type, 'awaiting_content_map',
 	"If status is 301 and whole tag 'status' is 'awaiting content', type of nginx block is awaiting_content_map"  );
-is( $awaiting_content, qq(~topicId=1073858854 418;\n),
+is( $awaiting_content, qq(~layer.*topicId=1073858854 418;\n),
     'Nginx config is as expected' );
 
 my $businesslink_redirect_awaiting_publication = { 
@@ -59,7 +59,7 @@ is( $awaiting_publication_host, 'www.businesslink.gov.uk',
 	'Host that config applies to is businesslink' );
 is( $awaiting_publication_type, 'awaiting_content_map',
 	"If status is 301 and whole tag 'status' is 'awaiting publication', type of nginx block is awaiting_content_map"  );
-is( $awaiting_publication, qq(~topicId=1073858860 418;\n),
+is( $awaiting_publication, qq(~layer.*topicId=1073858860 418;\n),
     'Nginx config is as expected' );
 
 
@@ -172,5 +172,33 @@ is( $businesslink_friendly_type_with_querystring, 'redirect_map',
 	"If there is a query string, then it should to go a map, even if it looks like a friendly url"  );
 is( $businesslink_friendly_content_with_querystring, "~topicId=1073858865 http://www.gov.uk/testresult;\n", 
 	"A friendly URL does not contain a query string" );
+
+my $businesslink_layer_with_topicid = {
+    'Old Url' => 'http://www.businesslink.gov.uk/bdotg/action/layer?topicId=1081986989',
+    'New Url' => 'https://www.gov.uk/browse/business',
+    'Status'  => 301,
+};
+my( $businesslink_layer_with_topicid_host,
+    $businesslink_layer_with_topicid_type,
+    $businesslink_layer_with_topicid_content
+        ) = $mappings->row_as_nginx_config($businesslink_layer_with_topicid);
+is( $businesslink_layer_with_topicid_host, 'www.businesslink.gov.uk' );
+is( $businesslink_layer_with_topicid_type, 'redirect_map' );
+is( $businesslink_layer_with_topicid_content, '~layer.*topicId=1081986989' );
+
+
+my $businesslink_sitemap_with_topicid = {
+    'Old Url' => 'http://online.businesslink.gov.uk/bdotg/action/sitemap?topicId=1081986989',
+    'New Url' => 'http://www.hmrc.gov.uk/agents/index.htm',
+    'Status'  => 301,
+};
+my( $businesslink_sitemap_with_topicid_host,
+    $businesslink_sitemap_with_topicid_type,
+    $businesslink_sitemap_with_topicid_content
+        ) = $mappings->row_as_nginx_config($businesslink_sitemap_with_topicid);
+is( $businesslink_sitemap_with_topicid_host, 'www.businesslink.gov.uk' );
+is( $businesslink_sitemap_with_topicid_type, 'redirect_map' );
+is( $businesslink_sitemap_with_topicid_content, '~sitemap.*topicId=1081986989' );
+
 
 done_testing();
