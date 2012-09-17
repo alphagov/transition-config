@@ -12,10 +12,10 @@ my %HOSTNAME_MAPPINGS = (
     'www.businesslink.gov.uk'                   => 'Businesslink',
     'online.businesslink.gov.uk'                => 'Businesslink',
     'www.ukwelcomes.businesslink.gov.uk'        => 'Businesslink',
+    'businesslink.gov.uk'                       => 'Businesslink',
     
     # ignore these for now
     'www.improve.businesslink.gov.uk'           => 'Ignore',
-    'businesslink.gov.uk'                       => 'Ignore',
     'tariff.businesslink.gov.uk'                => 'Ignore',
     'tariff.nibusinessingo.co.uk'               => 'Ignore',
     'tariff.business.scotland.gov.uk'           => 'Ignore',
@@ -139,8 +139,11 @@ sub location_config {
         $config_or_error_type   = 'unresolved';
         $config = "$self->{'old_url'}\n";
     }
-    # online.businesslink and ukwelcomes are special cases. Special-cased for now, deal with properly later
-    if ( 'online.businesslink.gov.uk' eq $self->{'old_url_parts'}{'host'} || 'www.ukwelcomes.businesslink.gov.uk' eq $self->{'old_url_parts'}{'host'} ) {
+    # online.businesslink, businesslink and ukwelcomes should all go into the same server block
+    # as www.businesslink. Special-cased for now
+    if ( 'online.businesslink.gov.uk' eq $self->{'old_url_parts'}{'host'} 
+        || 'www.ukwelcomes.businesslink.gov.uk' eq $self->{'old_url_parts'}{'host'} 
+        || 'businesslink.gov.uk' eq $self->{'old_url_parts'}{'host'} ) {
         $self->{'old_url_parts'}{'host'} = 'www.businesslink.gov.uk';
     }
     
