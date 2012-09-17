@@ -184,7 +184,7 @@ my( $businesslink_layer_with_topicid_host,
         ) = $mappings->row_as_nginx_config($businesslink_layer_with_topicid);
 is( $businesslink_layer_with_topicid_host, 'www.businesslink.gov.uk' );
 is( $businesslink_layer_with_topicid_type, 'redirect_map' );
-is( $businesslink_layer_with_topicid_content, '~layer.*topicId=1081986989' );
+is( $businesslink_layer_with_topicid_content, "~layer.*topicId=1081986989 https://www.gov.uk/browse/business;\n" );
 
 
 my $businesslink_sitemap_with_topicid = {
@@ -198,7 +198,7 @@ my( $businesslink_sitemap_with_topicid_host,
         ) = $mappings->row_as_nginx_config($businesslink_sitemap_with_topicid);
 is( $businesslink_sitemap_with_topicid_host, 'www.businesslink.gov.uk' );
 is( $businesslink_sitemap_with_topicid_type, 'redirect_map' );
-is( $businesslink_sitemap_with_topicid_content, '~sitemap.*topicId=1081986989' );
+is( $businesslink_sitemap_with_topicid_content, "~sitemap.*topicId=1081986989 http://www.hmrc.gov.uk/agents/index.htm;\n" );
 
 
 done_testing();

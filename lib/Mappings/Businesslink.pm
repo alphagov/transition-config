@@ -87,13 +87,14 @@ sub get_map_key {
             if $query_string =~ m{itemId=(\d+)};
     }
     
-    if ( defined $topic && defined $item ) {
-        if ( $path =~ m{^/bdotg/action/layer} ) {
-            $key = "topicId=$topic";
-        }
-        else {
-           $key = "itemId=$item";
-        }
+    if ( $path =~ m{^/bdotg/action/layer} ) {
+        $key = "layer.*topicId=$topic";
+    } 
+    elsif ( $path =~ m{^/bdotg/action/detail} ) {
+        $key = "detail.*itemId=$item";   
+    }
+    elsif ( $path =~ m{^/bdotg/action/sitemap}  ) {
+        $key = "sitemap.*topicId=$topic";   
     }
     elsif ( defined $topic ) {
         $key = "topicId=$topic";
