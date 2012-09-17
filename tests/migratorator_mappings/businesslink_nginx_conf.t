@@ -49,7 +49,7 @@ is( $awaiting_content, qq(~topicId=1073858854 418;\n),
     'Nginx config is as expected' );
 
 my $businesslink_redirect_awaiting_publication = { 
-	'Old Url'	=> 'http://www.businesslink.gov.uk/bdotg/action/layer?topicId=1073858854',
+	'Old Url'	=> 'http://www.businesslink.gov.uk/bdotg/action/layer?topicId=1073858860',
 	'New Url'	=> 'https://www.gov.uk/get-information-about-a-company',
 	'Status'	=> 301,
 	'Whole Tag'	=> 'Awaiting-publication',
@@ -59,12 +59,12 @@ is( $awaiting_publication_host, 'www.businesslink.gov.uk',
 	'Host that config applies to is businesslink' );
 is( $awaiting_publication_type, 'awaiting_content_map',
 	"If status is 301 and whole tag 'status' is 'awaiting publication', type of nginx block is awaiting_content_map"  );
-is( $awaiting_publication, qq(~topicId=1073858854 418;\n),
+is( $awaiting_publication, qq(~topicId=1073858860 418;\n),
     'Nginx config is as expected' );
 
 
 my $businesslink_no_new_url_open = { 
-	'Old Url'	=> 'http://www.businesslink.gov.uk/bdotg/action/layer?topicId=1073858854',
+	'Old Url'	=> 'http://www.businesslink.gov.uk/bdotg/action/layer?topicId=1073858858',
 	'New Url'	=> '',
 	'Status'	=> 301,
 	'Whole Tag'	=> 'Open',
@@ -74,11 +74,11 @@ is( $no_new_url_open_host, 'www.businesslink.gov.uk',
 	'Host that config applies to is businesslink' );
 is( $no_new_url_open_type, 'no_destination_error',
 	"If status is 301, whole tag 'status' is Open, and there is no new url, this is a 'no destination' error."  );
-is( $no_new_url_open_content, "http://www.businesslink.gov.uk/bdotg/action/layer?topicId=1073858854\n",
+is( $no_new_url_open_content, "http://www.businesslink.gov.uk/bdotg/action/layer?topicId=1073858858\n",
     "The 'no destination' file will be populated with the URL." );
 
 my $businesslink_no_new_url_closed = { 
-	'Old Url'	=> 'http://www.businesslink.gov.uk/bdotg/action/layer?topicId=1073858854',
+	'Old Url'	=> 'http://www.businesslink.gov.uk/bdotg/action/layer?topicId=1073858859',
 	'New Url'	=> '',
 	'Status'	=> 301,
 	'Whole Tag'	=> 'Closed',
@@ -88,7 +88,7 @@ is( $no_new_url_closed_host, 'www.businesslink.gov.uk',
 	'Host that config applies to is businesslink' );
 is( $no_new_url_closed_type, 'no_destination_error',
 	"If status is 301, whole tag 'status' is Closed, and there is no new url, this is a 'no destination' error."  );
-is( $no_new_url_closed_content, "http://www.businesslink.gov.uk/bdotg/action/layer?topicId=1073858854\n",
+is( $no_new_url_closed_content, "http://www.businesslink.gov.uk/bdotg/action/layer?topicId=1073858859\n",
     "The 'no destination' error file will be populated with the URL." );
 
 my $empty_row = undef;
@@ -159,7 +159,7 @@ is( $businesslink_friendly_url_content, "location = /yorkshire { return 301 http
 
 
 my $businesslink_friendly_url_with_querystring = { 
-	'Old Url'	=> 'http://www.businesslink.gov.uk/tattoopeircingelectrolysis?topicId=1073858854',
+	'Old Url'	=> 'http://www.businesslink.gov.uk/tattoopeircingelectrolysis?topicId=1073858865',
 	'New Url'	=> 'http://www.gov.uk/testresult',
 	'Status'	=> 301,
 	'Whole Tag'	=> 'Closed',
@@ -170,7 +170,7 @@ is( $businesslink_friendly_host_with_querystring, 'www.businesslink.gov.uk',
 	'Host that config applies to is businesslink' );
 is( $businesslink_friendly_type_with_querystring, 'redirect_map',
 	"If there is a query string, then it should to go a map, even if it looks like a friendly url"  );
-is( $businesslink_friendly_content_with_querystring, "~topicId=1073858854 http://www.gov.uk/testresult;\n", 
+is( $businesslink_friendly_content_with_querystring, "~topicId=1073858865 http://www.gov.uk/testresult;\n", 
 	"A friendly URL does not contain a query string" );
 
 done_testing();
