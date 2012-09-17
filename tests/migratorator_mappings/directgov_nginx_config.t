@@ -52,7 +52,7 @@ is( $awaiting_content, qq(location = /en/TravelAndTransport/Passports/Howtochang
 
 
 my $directgov_no_url_open = { 
-	'Old Url'	=> 'http://www.direct.gov.uk/en/TravelAndTransport/Passports/Howtochangethenameonyourpassport/DG_174165',
+	'Old Url'	=> 'http://www.direct.gov.uk/en/TravelAndTransport/Passports/Howtochangethenameonyourpassport/DG_174167',
 	'New Url'	=> '',
 	'Status'	=> 301,
 	'Whole Tag'	=> 'content-type:article section:travel-and-transport site:directgov source:mapping-exercise status:open destination:content',
@@ -62,12 +62,12 @@ is( $no_new_url_open_host, 'www.direct.gov.uk',
 	'Host that config applies to is Directgov' );
 is( $no_new_url_open_type, 'unresolved',
 	"If status is 301, whole tag 'status' is open, and there is no new url, this should be flagged as unresolved."  );
-is( $no_new_url_open_content, "http://www.direct.gov.uk/en/TravelAndTransport/Passports/Howtochangethenameonyourpassport/DG_174165\n",
+is( $no_new_url_open_content, "http://www.direct.gov.uk/en/TravelAndTransport/Passports/Howtochangethenameonyourpassport/DG_174167\n",
     'The unresolved file will be populated with the URL.' );
 
 
 my $directgov_no_url_closed = { 
-	'Old Url'	=> 'http://www.direct.gov.uk/en/TravelAndTransport/Passports/Howtochangethenameonyourpassport/DG_174165',
+	'Old Url'	=> 'http://www.direct.gov.uk/en/TravelAndTransport/Passports/Howtochangethenameonyourpassport/DG_174166',
 	'New Url'	=> '',
 	'Status'	=> 301,
 	'Whole Tag'	=> 'content-type:article section:travel-and-transport site:directgov source:mapping-exercise status:closed destination:content',
@@ -77,7 +77,7 @@ is( $no_new_url_closed_host, 'www.direct.gov.uk',
 	'Host that config applies to is Directgov' );
 is( $no_new_url_closed_type, 'no_destination_error',
 	"If status is 301, whole tag 'status' is closed, and there is no new url, this is a 'no destination' error."  );
-is( $no_new_url_closed_content, "http://www.direct.gov.uk/en/TravelAndTransport/Passports/Howtochangethenameonyourpassport/DG_174165\n",
+is( $no_new_url_closed_content, "http://www.direct.gov.uk/en/TravelAndTransport/Passports/Howtochangethenameonyourpassport/DG_174166\n",
     "The 'no destination' error file will be populated with the URL." );
 
 my $empty_row = undef;

@@ -108,9 +108,14 @@ sub location_config {
     }
     
     my $config_or_error_type = 'location';
+    my $duplicate_entry_key  = $self->{'old_url_parts'}{'path'};
     my $config;
     
-    if ( 'closed' eq $mapping_status ) {
+    if ( defined $self->{'duplicates'}{$duplicate_entry_key} ) {
+        $config_or_error_type = 'duplicate_entry_error';
+        $config = "$self->{'old_url'}\n";
+    }
+    elsif ( 'closed' eq $mapping_status ) {
         if ( '410' eq $self->{'status'} ) {
             # 410 Gone
             $config = "location = $self->{'old_url_relative'} { return 410; }\n";
@@ -138,6 +143,9 @@ sub location_config {
     if ( 'online.businesslink.gov.uk' eq $self->{'old_url_parts'}{'host'} || 'www.ukwelcomes.businesslink.gov.uk' eq $self->{'old_url_parts'}{'host'} ) {
         $self->{'old_url_parts'}{'host'} = 'www.businesslink.gov.uk';
     }
+    
+    $self->{'duplicates'}{$duplicate_entry_key} = 1;
+    
     return( $self->{'old_url_parts'}{'host'}, $config_or_error_type, $config );
 }
 
