@@ -21,14 +21,16 @@ sub actual_nginx_config {
             # do we want this instead of old url relative?
         }
         else {
-            my $map_key = $self->get_map_key( $self->{'old_url_parts'} );
+            $mapping_status = lc $self->{'whole_tag'}
+                if defined $self->{'whole_tag'};
             
-            if ( defined $self->{'whole_tag'} ) {
-                $mapping_status = lc $self->{'whole_tag'};
-            }
-
+            my $map_key = $self->get_map_key( $self->{'old_url_parts'} );
             if ( defined $map_key ) {
-                if ( '410' eq $self->{'status'} ) {
+                if ( defined $self->{'duplicates'}{$map_key} ) {
+                    $config_or_error_type = 'duplicate_entry_error';
+                    $config_line = $self->{'old_url'} . "\n";
+                }
+                elsif ( '410' eq $self->{'status'} ) {
                     # 410 Gone
                     $config_or_error_type   = 'gone_map';
                     $config_line = "~${map_key} 410;\n";
@@ -49,6 +51,7 @@ sub actual_nginx_config {
                         $config_line = "$self->{'old_url'}\n";
                     }
                 }
+                $self->{'duplicates'}{$map_key} = 1;
             }
             else {
                 $config_or_error_type = 'no_map_key_error'; 

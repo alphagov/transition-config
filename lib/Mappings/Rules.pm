@@ -34,6 +34,7 @@ my %HOSTNAME_MAPPINGS = (
 sub new {
     my $class = shift;
     my $row   = shift;
+    my $duplicate_key_cache = shift;
     
     return unless defined $row;
     
@@ -65,6 +66,8 @@ sub new {
         new_url   => $row->{'New Url'},
         status    => $row->{'Status'},
         whole_tag => $row->{'Whole Tag'},
+        
+        duplicates => $duplicate_key_cache,
     };
     bless $self, $actual_class;
     

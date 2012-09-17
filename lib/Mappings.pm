@@ -7,6 +7,8 @@ use Mappings::Rules;
 use Text::CSV;
 use URI::Split  qw( uri_split uri_join );
 
+my %duplicate_key_errors;
+
 
 
 sub new {
@@ -41,16 +43,6 @@ sub entire_csv_as_nginx_config {
             my $location_duplicate_key = $row->{'Old Url'};
             if ( !defined $check_for_dupes{$location_duplicate_key} ) {
                 $check_for_dupes{$location_duplicate_key} = 1;
-                
-                my $duplicate_mapping_key = sprintf '%s:%s:%s', $host, $map, $line;
-                
-                if ( !defined $check_for_dupes{$duplicate_mapping_key} ) {
-                    $check_for_dupes{$duplicate_mapping_key} = 1;
-                }
-                else {
-                    $map = 'duplicate_entry_error';
-                    $line = $row->{'Old Url'} . "\n";
-                }
             }
             else {
                 $map = 'duplicate_entry_error';
@@ -81,7 +73,7 @@ sub row_as_nginx_config {
     my $self = shift;
     my $row  = shift; 
     
-    my $rules = Mappings::Rules->new( $row );
+    my $rules = Mappings::Rules->new( $row, \%duplicate_key_errors );
     return unless defined $rules;
     return $rules->as_nginx_config();
 }
