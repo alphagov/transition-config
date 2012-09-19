@@ -12,7 +12,9 @@ use URI;
 sub new {
 	my $class = shift;
 
-	my $self = {};
+	my $self = {
+	    ua => LWP::UserAgent->new( max_redirect => 0 ),
+	};
 	bless $self, $class;
 
 	return $self;
@@ -34,7 +36,6 @@ sub run_tests {
 
 	my $csv = Text::CSV->new( { binary => 1 } ) 
 	    or die "Cannot use CSV: ".Text::CSV->error_diag();
-	my $ua = LWP::UserAgent->new( max_redirect => 0 );
 
 	open( my $fh, "<", $self->{'input_file'} ) 
 	    or die $self->{'input_file'} . ": $!";
@@ -53,14 +54,10 @@ sub run_tests {
 	    
 	    my $status_code = $row->{'Status'};
 
-	    my $request = HTTP::Request->new( 'GET', "http://redirector.preview.alphagov.co.uk$old_url_path" );
-	    $request->header( 'Host', $uri->host );
-	    my $response = $ua->request($request);
-
         my $mapping_status = lc $row->{'Whole Tag'};
         my $new_url = $row->{'New Url'};
         
-	    my $return = $self->test($row, $response);
+	    my $return = $self->test($row);
 
 	    if ( 0 == $return ) {
 	        printf $output_log "%s,%s,%s,%s\n", $old_url, $new_url, $status_code, $mapping_status;
@@ -70,10 +67,24 @@ sub run_tests {
 	done_testing();
 }
 
+sub get_response {
+    my $self = shift;
+    my $row  = shift;
+    
+    my $old_uri        = URI->new( $row->{'Old Url'} );
+    my $redirector_url = sprintf '%s%s',
+                            'http://redirector.preview.alphagov.co.uk',
+                            $old_uri->path_query;
+    
+    my $request = HTTP::Request->new( 'GET', $redirector_url );
+    $request->header( 'Host', $old_uri->host );
+    
+    return $self->{'ua'}->request($request);
+}
+
 sub test_closed_redirects {
-    my $self     = shift;
-    my $row      = shift;
-    my $response = shift;
+    my $self = shift;
+    my $row  = shift;
     
     my $mapping_status = lc $row->{'Whole Tag'};
     
@@ -84,13 +95,13 @@ sub test_closed_redirects {
     return -1;
 }
 sub is_redirect_response {
-    my $self     = shift;
-    my $row      = shift;
-    my $response = shift;
+    my $self = shift;
+    my $row  = shift;
     
     if ( 301 == $row->{'Status'} ) {
-        my $old_url = $row->{'Old Url'};
-        my $new_url = $row->{'New Url'};
+        my $old_url  = $row->{'Old Url'};
+        my $new_url  = $row->{'New Url'};
+        my $response = $self->get_response($row);
         
         return is(
                 $response->header('location'),
@@ -102,25 +113,24 @@ sub is_redirect_response {
     return -1;
 }
 sub test_closed_gones {
-    my $self     = shift;
-    my $row      = shift;
-    my $response = shift;
+    my $self = shift;
+    my $row  = shift;
     
     my $mapping_status = lc $row->{'Whole Tag'};
     
     if ( $mapping_status =~ m{\bclosed\b} ) {
-        return $self->is_gone_response($row, $response);
+        return $self->is_gone_response($row);
     }
     
     return -1;
 }
 sub is_gone_response {
-    my $self     = shift;
-    my $row      = shift;
-    my $response = shift;
+    my $self = shift;
+    my $row  = shift;
     
     if ( 410 == $row->{'Status'} ) {
-        my $old_url = $row->{'Old Url'};
+        my $response = $self->get_response($row);
+        my $old_url  = $row->{'Old Url'};
         
         return is(
                 $response->code,
@@ -131,6 +141,5 @@ sub is_gone_response {
     
     return -1;
 }
-
 
 1;
