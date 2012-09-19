@@ -57,8 +57,10 @@ sub run_tests {
 	    $request->header( 'Host', $uri->host );
 	    my $response = $ua->request($request);
 
-	    
-	    my( $return, $mapping_status, $new_url ) = $self->test($status_code, $response, $row);
+        my $mapping_status = lc $row->{'Whole Tag'};
+        my $new_url = $row->{'New Url'};
+        
+	    my $return = $self->test($row, $response);
 
 	    if ( 0 == $return ) {
 	        printf $output_log "%s,%s,%s,%s\n", $old_url, $new_url, $status_code, $mapping_status;
@@ -67,5 +69,68 @@ sub run_tests {
 
 	done_testing();
 }
+
+sub test_closed_redirects {
+    my $self     = shift;
+    my $row      = shift;
+    my $response = shift;
+    
+    my $mapping_status = lc $row->{'Whole Tag'};
+    
+    if ( $mapping_status =~ m{\bclosed\b} ) {
+        return $self->is_redirect_response($row);
+    }
+    
+    return -1;
+}
+sub is_redirect_response {
+    my $self     = shift;
+    my $row      = shift;
+    my $response = shift;
+    
+    if ( 301 == $row->{'Status'} ) {
+        my $old_url = $row->{'Old Url'};
+        my $new_url = $row->{'New Url'};
+        
+        return is(
+                $response->header('location'),
+                $new_url,
+                "$old_url redirects to $new_url"
+            );
+    }
+    
+    return -1;
+}
+sub test_closed_gones {
+    my $self     = shift;
+    my $row      = shift;
+    my $response = shift;
+    
+    my $mapping_status = lc $row->{'Whole Tag'};
+    
+    if ( $mapping_status =~ m{\bclosed\b} ) {
+        return $self->is_gone_response($row, $response);
+    }
+    
+    return -1;
+}
+sub is_gone_response {
+    my $self     = shift;
+    my $row      = shift;
+    my $response = shift;
+    
+    if ( 410 == $row->{'Status'} ) {
+        my $old_url = $row->{'Old Url'};
+        
+        return is(
+                $response->code,
+                410,
+                "$old_url returns 410"
+            );
+    }
+    
+    return -1;
+}
+
 
 1;
