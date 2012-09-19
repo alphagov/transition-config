@@ -1,7 +1,9 @@
 package IntegrationTest;
 
+use v5.10;
 use strict;
 use warnings;
+
 use Test::More;
 use Text::CSV;
 use HTTP::Request;
@@ -45,22 +47,22 @@ sub run_tests {
 
 	open ( my $output_log, ">", $self->{'output_file'} )
 	    or die $self->{'output_file'} . ": $!";
+	say $output_log "Old Url,New Url,Status,Whole Tag,Test Result,"
+	                . "Actual Status,Actual New Url";
 
 	while ( my $row = $csv->getline_hr( $fh ) ) {
-	    my $old_url = $row->{'Old Url'};
+	    my( $passed, $response_status, $location_header ) = $self->test($row);
 	    
-	    my $uri = URI->new($old_url);
-	    my $old_url_path = $uri->path_query;
-	    
-	    my $status_code = $row->{'Status'};
-
-        my $mapping_status = lc $row->{'Whole Tag'};
-        my $new_url = $row->{'New Url'};
-        
-	    my $return = $self->test($row);
-
-	    if ( 0 == $return ) {
-	        printf $output_log "%s,%s,%s,%s\n", $old_url, $new_url, $status_code, $mapping_status;
+	    if ( $passed != -1 ) {
+	        say $output_log 
+	            join ',',
+	                $row->{'Old Url'},
+                    $row->{'New Url'},
+                    $row->{'Status'},
+                    $row->{'Whole Tag'},
+                    $passed,
+                    $response_status,
+                    $location_header;
 	    }
 	}
 
@@ -103,11 +105,17 @@ sub is_redirect_response {
         my $new_url  = $row->{'New Url'};
         my $response = $self->get_response($row);
         
-        return is(
+        my $passed = is(
                 $response->header('location'),
                 $new_url,
                 "$old_url redirects to $new_url"
             );
+        
+        return(
+            $passed,
+            $response->code,
+            $response->header('location')
+        );
     }
     
     return -1;
@@ -132,11 +140,17 @@ sub is_gone_response {
         my $response = $self->get_response($row);
         my $old_url  = $row->{'Old Url'};
         
-        return is(
+        my $passed = is(
                 $response->code,
                 410,
                 "$old_url returns 410"
             );
+        
+        return(
+            $passed,
+            $response->code,
+            $response->header('location') // ''
+        );
     }
     
     return -1;
