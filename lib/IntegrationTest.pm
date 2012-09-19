@@ -12,52 +12,52 @@ use URI;
 
 
 sub new {
-	my $class = shift;
+    my $class = shift;
 
-	my $self = {
-	    ua => LWP::UserAgent->new( max_redirect => 0 ),
-	};
-	bless $self, $class;
+    my $self = {
+        ua => LWP::UserAgent->new( max_redirect => 0 ),
+    };
+    bless $self, $class;
 
-	return $self;
+    return $self;
 }
 
 sub input_file {
-	my $self = shift;
+    my $self = shift;
 
-	$self->{'input_file'} = shift;
+    $self->{'input_file'} = shift;
 }
 sub output_file {
-	my $self = shift;
+    my $self = shift;
 
-	$self->{'output_file'} = shift;
+    $self->{'output_file'} = shift;
 }
 
 sub run_tests {
-	my $self = shift;
+    my $self = shift;
 
-	my $csv = Text::CSV->new( { binary => 1 } ) 
-	    or die "Cannot use CSV: ".Text::CSV->error_diag();
+    my $csv = Text::CSV->new( { binary => 1 } ) 
+        or die "Cannot use CSV: ".Text::CSV->error_diag();
 
-	open( my $fh, "<", $self->{'input_file'} ) 
-	    or die $self->{'input_file'} . ": $!";
+    open( my $fh, "<", $self->{'input_file'} ) 
+        or die $self->{'input_file'} . ": $!";
 
-	my $names = $csv->getline( $fh );
-	$csv->column_names( @$names );
+    my $names = $csv->getline( $fh );
+    $csv->column_names( @$names );
 
-	open ( my $output_log, ">", $self->{'output_file'} )
-	    or die $self->{'output_file'} . ": $!";
-	say $output_log "Old Url,New Url,Status,Whole Tag,Test Result,"
-	                . "Actual Status,Actual New Url,New Url Status";
+    open ( my $output_log, ">", $self->{'output_file'} )
+        or die $self->{'output_file'} . ": $!";
+    say $output_log "Old Url,New Url,Status,Whole Tag,Test Result,"
+                    . "Actual Status,Actual New Url,New Url Status";
 
-	while ( my $row = $csv->getline_hr( $fh ) ) {
-	    my( $passed, $response_status, $location_header, $new_url_status )
-	        = $self->test($row);
-	    
-	    if ( $passed != -1 ) {
-	        say $output_log 
-	            join ',',
-	                $row->{'Old Url'},
+    while ( my $row = $csv->getline_hr( $fh ) ) {
+        my( $passed, $response_status, $location_header, $new_url_status )
+            = $self->test($row);
+        
+        if ( $passed != -1 ) {
+            say $output_log 
+                join ',',
+                    $row->{'Old Url'},
                     $row->{'New Url'},
                     $row->{'Status'},
                     $row->{'Whole Tag'},
@@ -65,10 +65,10 @@ sub run_tests {
                     $response_status,
                     $location_header,
                     $new_url_status;
-	    }
-	}
+        }
+    }
 
-	done_testing();
+    done_testing();
 }
 
 sub get_response {
