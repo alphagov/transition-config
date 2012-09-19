@@ -48,10 +48,11 @@ sub run_tests {
 	open ( my $output_log, ">", $self->{'output_file'} )
 	    or die $self->{'output_file'} . ": $!";
 	say $output_log "Old Url,New Url,Status,Whole Tag,Test Result,"
-	                . "Actual Status,Actual New Url";
+	                . "Actual Status,Actual New Url,New Url Status";
 
 	while ( my $row = $csv->getline_hr( $fh ) ) {
-	    my( $passed, $response_status, $location_header ) = $self->test($row);
+	    my( $passed, $response_status, $location_header, $new_url_status )
+	        = $self->test($row);
 	    
 	    if ( $passed != -1 ) {
 	        say $output_log 
@@ -62,7 +63,8 @@ sub run_tests {
                     $row->{'Whole Tag'},
                     $passed,
                     $response_status,
-                    $location_header;
+                    $location_header,
+                    $new_url_status;
 	    }
 	}
 
@@ -111,10 +113,22 @@ sub is_redirect_response {
                 "$old_url redirects to $new_url"
             );
         
+        my $redirected_to_200 = 0;
+        if ( $passed ) {
+            my $redirected_response = $self->{'ua'}->get($new_url);
+            
+            $redirected_to_200 = is(
+                    $redirected_response->code,
+                    200,
+                    "$new_url returns 200"
+                );
+        }
+        
         return(
             $passed,
             $response->code,
-            $response->header('location')
+            $response->header('location'),
+            $redirected_to_200
         );
     }
     
@@ -149,7 +163,8 @@ sub is_gone_response {
         return(
             $passed,
             $response->code,
-            $response->header('location') // ''
+            $response->header('location') // '',
+            0
         );
     }
     
