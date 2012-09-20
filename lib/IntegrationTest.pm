@@ -107,28 +107,25 @@ sub is_redirect_response {
         my $new_url  = $row->{'New Url'};
         my $response = $self->get_response($row);
         
-        my $passed = is(
-                $response->header('location'),
-                $new_url,
-                "$old_url redirects to $new_url"
-            );
+        my $passed = $response->header('location') eq $new_url;
+        my $redirected_response_code = 0;
         
-        my $redirected_to_200 = 0;
         if ( $passed ) {
             my $redirected_response = $self->{'ua'}->get($new_url);
+            $redirected_response_code = $redirected_response->code;
             
-            $redirected_to_200 = is(
-                    $redirected_response->code,
-                    200,
-                    "$new_url returns 200"
-                );
+            $passed = is(
+                $redirected_response_code,
+                200,
+                "$old_url redirects to $new_url, which is 200"
+            );
         }
         
         return(
             $passed,
             $response->code,
             $response->header('location'),
-            $redirected_to_200
+            $redirected_response_code
         );
     }
     
