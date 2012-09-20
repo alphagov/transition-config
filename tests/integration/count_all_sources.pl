@@ -23,11 +23,11 @@ Net::Statsd::gauge(
     $businesslink_mappings
 );
 Net::Statsd::gauge(
-    'govuk.app.redirector.total.businesslink',
+    'govuk.app.redirector.total.directgov',
     $directgov_mappings
 );
 Net::Statsd::gauge(
-    'govuk.app.redirector.total',
+    'govuk.app.redirector.total.total',
     $total_mappings
 );
 exit;
