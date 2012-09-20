@@ -32,6 +32,11 @@ sub output_file {
 
     $self->{'output_file'} = shift;
 }
+sub output_error_file {
+    my $self = shift;
+
+    $self->{'output_error_file'} = shift;
+}
 
 sub run_tests {
     my $self = shift;
@@ -47,15 +52,34 @@ sub run_tests {
 
     open ( my $output_log, ">", $self->{'output_file'} )
         or die $self->{'output_file'} . ": $!";
+    
+    open ( my $output_error_log, '>', $self->{'output_error_file'} )
+        or die $self->{'output_error_file'} . ": $!";
+    
     say $output_log "Old Url,New Url,Status,Whole Tag,Test Result,"
                     . "Actual Status,Actual New Url,New Url Status";
 
+    say $output_error_log "Old Url,New Url,Status,Whole Tag,Test Result,"
+                          . "Actual Status,Actual New Url,New Url Status";
+    
     while ( my $row = $csv->getline_hr( $fh ) ) {
         my( $passed, $response_status, $location_header, $new_url_status )
             = $self->test($row);
         
         if ( $passed != -1 ) {
             say $output_log 
+                join ',',
+                    $row->{'Old Url'},
+                    $row->{'New Url'},
+                    $row->{'Status'},
+                    $row->{'Whole Tag'},
+                    $passed,
+                    $response_status,
+                    $location_header,
+                    $new_url_status;
+        }
+        if ( $passed == 0 ) {
+            say $output_error_log
                 join ',',
                     $row->{'Old Url'},
                     $row->{'New Url'},
