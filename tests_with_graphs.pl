@@ -64,7 +64,7 @@ foreach my $test ( @tests ) {
 }
 
 say "\nRegistering graphs...";
-foreach my $graph ( keys %graph_numbers ) {
+foreach my $graph ( sort keys %graph_numbers ) {
     say "$graph = $graph_numbers{$graph}";
     Net::Statsd::gauge( $graph, $graph_numbers{$graph} );
 }
