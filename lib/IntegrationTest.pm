@@ -63,10 +63,25 @@ sub run_tests {
                           . "Actual Status,Actual New Url,New Url Status";
     
     while ( my $row = $csv->getline_hr( $fh ) ) {
-        my( $passed, $response_status, $location_header, $new_url_status )
+        my( $passed, $response, $redirected_response )
             = $self->test($row);
         
         if ( $passed != -1 ) {
+            my $response_status   = $response->code;
+            my $location_header   = $response->header('location');
+            my $redirected_status = 0;
+            
+            if ( defined $redirected_response ) {
+                $redirected_status = $redirected_response->code;
+                my $is_redirect = 301 == $redirected_status
+                                  || 302 == $redirected_status;
+                
+                if ( $is_redirect ) {
+                    $location_header =
+                        $redirected_response->header('location');
+                }
+            }
+            
             say $output_log 
                 join ',',
                     $row->{'Old Url'},
@@ -76,19 +91,20 @@ sub run_tests {
                     $passed,
                     $response_status,
                     $location_header,
-                    $new_url_status;
-        }
-        if ( $passed == 0 ) {
-            say $output_error_log
-                join ',',
-                    $row->{'Old Url'},
-                    $row->{'New Url'},
-                    $row->{'Status'},
-                    $row->{'Whole Tag'},
-                    $passed,
-                    $response_status,
-                    $location_header,
-                    $new_url_status;
+                    $redirected_status;
+            
+            if ( $passed == 0 ) {
+                say $output_error_log
+                    join ',',
+                        $row->{'Old Url'},
+                        $row->{'New Url'},
+                        $row->{'Status'},
+                        $row->{'Whole Tag'},
+                        $passed,
+                        $response_status,
+                        $location_header,
+                        $redirected_status;
+            }
         }
     }
 
@@ -132,22 +148,21 @@ sub is_redirect_response {
         my $response = $self->get_response($row);
         
         my $passed = $response->header('location') eq $new_url;
-        my $redirected_response_code = 0;
+        my $redirected_response;
         
         if ( $passed ) {
-            my $redirected_response = $self->{'ua'}->get($new_url);
-            $redirected_response_code = $redirected_response->code;
+            $redirected_response = $self->{'ua'}->get($new_url);
             
             # FIXME swallow 404s for now - this allows our integration
             # tests to pass for "awaiting publication" content, which makes
             # them more useful for highlighting broken code
-            if ( 404 == $redirected_response_code ) {
+            if ( 404 == $redirected_response->code ) {
                 $passed = 1;
                 pass("$old_url redirects to $new_url, which is 200 (or 404)");
             }
             else {
                 $passed = is(
-                    $redirected_response_code,
+                    $redirected_response->code,
                     200,
                     "$old_url redirects to $new_url, which is 200"
                 );
@@ -156,9 +171,8 @@ sub is_redirect_response {
         
         return(
             $passed,
-            $response->code,
-            $response->header('location'),
-            $redirected_response_code
+            $response,
+            $redirected_response
         );
     }
     
@@ -192,9 +206,8 @@ sub is_gone_response {
         
         return(
             $passed,
-            $response->code,
-            $response->header('location') // '',
-            0
+            $response,
+            undef
         );
     }
     
