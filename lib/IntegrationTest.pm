@@ -68,7 +68,7 @@ sub run_tests {
         
         if ( $passed != -1 ) {
             my $response_status   = $response->code;
-            my $location_header   = $response->header('location');
+            my $location_header   = $response->header('location') // '';
             my $redirected_status = 0;
             
             if ( defined $redirected_response ) {
