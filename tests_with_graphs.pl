@@ -33,6 +33,7 @@ while ( my $path = $find_tests->() ) {
 
 my $aggregate = $harness->runtests(@tests);
 my %graph_numbers;
+my $any_tests_have_failed = 0;
 
 foreach my $test ( @tests ) {
     my $results = $aggregate->{'parser_for'}{$test};
@@ -47,6 +48,9 @@ foreach my $test ( @tests ) {
     my $graph_path  = $graph_name_base;
     my $tests_ran   = $results->{'tests_run'};
     my $passed      = scalar @{ $results->{'actual_passed'} };
+    
+    $any_tests_have_failed = 1
+        if $tests_ran > $passed;
     
     $graph_numbers{"${graph_path}.total"}  += $tests_ran;
     $graph_numbers{"${graph_path}.passed"} += $passed;
@@ -68,3 +72,5 @@ foreach my $graph ( sort keys %graph_numbers ) {
     say "$graph = $graph_numbers{$graph}";
     Net::Statsd::gauge( $graph, $graph_numbers{$graph} );
 }
+
+return $any_tests_have_failed;
