@@ -13,6 +13,7 @@ use Text::Intermixed;
 use constant OPTIONS => qw(
       report-output=s
          graph-base=s
+       graph-number=s@
     report-template=s
               tests=s
 );
@@ -41,6 +42,11 @@ while ( my $path = $find_tests->() ) {
 my $aggregate = $harness->runtests(@tests);
 my %graph_numbers;
 my $any_tests_have_failed = 0;
+
+foreach my $graph_number ( @{ $option{'graph-number'} } ) {
+    $graph_number =~ m{(.*)=(\d+)};
+    $graph_numbers{$1} = $2;
+}
 
 foreach my $test ( @tests ) {
     my $results = $aggregate->{'parser_for'}{$test};
@@ -152,3 +158,7 @@ Use <file> as a template to produce a report.
 
 Output the expanded report template in <file>.
 
+=item --graph-number "example=54"
+
+Add numbers to graphs for the report that aren't calculated by running
+the tests. Can be used multiple times.
