@@ -73,4 +73,4 @@ foreach my $graph ( sort keys %graph_numbers ) {
     Net::Statsd::gauge( $graph, $graph_numbers{$graph} );
 }
 
-return $any_tests_have_failed;
+exit $any_tests_have_failed;
