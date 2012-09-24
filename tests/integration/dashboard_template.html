@@ -104,7 +104,19 @@
   <h1>Transition Dashboard</h1>
   
   <div id='overview'>
-    <p class='percentage'><strong>{{ $RENDER .= sprintf '%02d',  $graph_numbers{'govuk.app.redirector.total.total'} / $graph_numbers{'govuk.app.redirector.ratified.passed'}; }}%</strong> <b>of ${graph_numbers{'govuk.app.redirector.total.total'}} known mappings are correctly redirecting.</b></p>
+    <p class='percentage'>
+      <strong>{{ 
+        $RENDER .= sprintf '%02d',
+            (
+              $graph_numbers{'govuk.app.redirector.ratified.passed'} /
+              $graph_numbers{'govuk.app.redirector.total.total'}
+            ) * 100;
+      }}%</strong>
+      <b>
+        of ${graph_numbers{'govuk.app.redirector.total.total'}} 
+        known mappings are correctly redirecting.
+      </b>
+    </p>
     <p class='summary'>
       <img src='http://graphite.production.alphagov.co.uk/render/?from=-168hours&amp;yMin=0&amp;fgcolor=333333&amp;bgcolor=f6f6f6&amp;areaMode=all&amp;drawNullAsZero=false&amp;colorList=666666,ff6666,66ff66,000000&amp;hideLegend=1&amp;hideAxes=0&amp;target=stats.gauges.govuk.app.redirector.total.total&amp;target=stats.gauges.govuk.app.redirector.ratified.total&amp;target=stats.gauges.govuk.app.redirector.ratified.passed&amp;target=drawAsInfinite%28stats.govuk.app.redirector.deploys.production%29&amp;width=600&amp;height=300&amp;_salt=1347977660.885' class='graph' width='600' height='300'>
       We have <span class='known'>${graph_numbers{'govuk.app.redirector.total.total'}} known mappings</span>, 
