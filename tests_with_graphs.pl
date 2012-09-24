@@ -5,17 +5,21 @@ use warnings;
 
 use File::Basename;
 use File::Next;
+use Getopt::Long    qw( :config bundling );
 use Net::Statsd;
 use TAP::Harness;
 
+use constant OPTIONS => qw(
+         graph-base=s
+              tests=s
+);
+use constant REQUIRED_OPTIONS => qw( tests graph-base );
 
 
-my $tests_directory = shift;
-my $graph_name_base = shift;
 
-die "Usage: tests_with_graphs.pl <directory> <graph name base>"
-    unless defined $tests_directory && defined $graph_name_base;
-
+my %option          = get_options_or_exit();
+my $tests_directory = $option{'tests'};
+my $graph_name_base = $option{'graph-base'};
 
 my $find_tests = File::Next::files( $tests_directory );
 my $harness    = TAP::Harness->new({
@@ -74,3 +78,44 @@ foreach my $graph ( sort keys %graph_numbers ) {
 }
 
 exit $any_tests_have_failed;
+
+
+
+sub get_options_or_exit {
+    my %getopts = @_;
+    
+    my $known = GetOptions( \%getopts, OPTIONS );
+    my $usage = ! $known || $getopts{'help'};
+    
+    foreach my $key ( REQUIRED_OPTIONS ) {
+        $usage = 1
+            unless defined $getopts{ $key };
+    }
+    
+    pod2usage() if $usage;
+    
+    return %getopts;
+}
+
+__END__
+
+=head1 NAME
+
+B<tests_with_graphs.pl> - register results of tests with statsd
+
+=head1 SYNOPSIS
+
+B<tests_with_graphs.pl> --tests <dir> --graph-base <string>
+    
+=head1 OPTIONS
+
+=over
+
+=item --tests <dir>
+
+Run all tests found under <dir>. Required.
+
+=item --graph-base <string>
+
+Base name for graphs in statsd/graphite. Required.
+
