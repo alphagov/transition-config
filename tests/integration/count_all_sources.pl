@@ -14,9 +14,13 @@ my $directgov_mappings
     = count_rows_in_csv('dist/directgov_all_mappings.csv');
 my $total_mappings = $businesslink_mappings + $directgov_mappings;
 
-say "Businesslink total mappings $businesslink_mappings";
-say "Directgov total mappings    $directgov_mappings";
-say "TOTAL                       $total_mappings";
+say "--graph-number govuk.app.redirector.total.total=$total_mappings";
+say "--graph-number govuk.app.redirector.total.directgov=$directgov_mappings";
+say "--graph-number govuk.app.redirector.total.businesslink=$businesslink_mappings";
+
+say STDERR "Businesslink total mappings $businesslink_mappings";
+say STDERR "Directgov total mappings    $directgov_mappings";
+say STDERR "TOTAL                       $total_mappings";
 
 Net::Statsd::gauge(
     'govuk.app.redirector.total.businesslink',

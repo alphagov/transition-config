@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    html {
+      background:           #eee;
+    }
+    body {
+      font-family:          'Helvetica', 'Arial', sans-serif;
+      width:                910px;
+      margin:               0 auto;
+      background:           #fff;
+      padding:              20px;
+    }
+    h1, h2 {
+      font-family:          'Helvetica Neue';
+      font-weight:          300;
+      font-size:            3em;
+      color:                #69c;
+      margin-bottom:        0;
+    }
+    h1 {
+      margin-top:           0;
+    }
+    h2 {
+      font-size:            1.5em;
+    }
+    b {
+      position:             absolute;
+      left:                 -9999px;
+    }
+    
+    img.graph {
+      border:               1px solid #ccc;
+      display:              block;
+    }
+    
+    #overview {
+      overflow:             auto;
+      padding-bottom:       2em;
+    }
+    #overview p.percentage {
+      padding-top:          4em;
+      width:                280px;
+      float:                right;
+      text-align:           center;
+      color:                #69c;
+      font-family:          'Helvetica Neue';
+    }
+    #overview p.percentage strong {
+      font-size:            6em;
+      font-weight:          300;
+      display:              block;
+    }
+    #overview p.summary {
+      width:                602px;
+      font-size:            0.8em;
+      float:                left;
+      text-align:           center;
+    }
+    #overview p.summary img {
+      margin-bottom:        5px;
+    }
+    #overview dl {
+      margin:               0.5em 0;
+      padding-top:          1em;
+      clear:                both;
+      font-size:            0.6875em;
+      color:                #999;
+    }
+    #overview dt {
+      font-weight:          bold;
+      float:                left;
+      margin-right:         0.5em;
+    }
+    #overview dd {
+      margin-bottom:        0.5em;
+    }
+    #overview dd em {
+      font-weight:          bold;
+      font-style:           normal;
+    }
+    
+    .known {
+      color:                #666;
+    }
+    .closed {
+      color:                #f33;
+    }
+    .pass {
+      color:                #393;
+    }
+    
+    div.breakdown {
+      padding-top:          1em;
+      overflow:             auto;
+    }
+    div.breakdown img.graph {
+      float:                left;
+    }
+  </style>
+</head>
+<body>
+  <h1>Transition Dashboard</h1>
+  
+  <div id='overview'>
+    <p class='percentage'><strong>{{ $RENDER .= sprintf '%02d',  $graph_numbers{'govuk.app.redirector.total.total'} / $graph_numbers{'govuk.app.redirector.ratified.passed'}; }}%</strong> <b>of ${graph_numbers{'govuk.app.redirector.total.total'}} known mappings are correctly redirecting.</b></p>
+    <p class='summary'>
+      <img src='http://graphite.production.alphagov.co.uk/render/?from=-168hours&amp;yMin=0&amp;fgcolor=333333&amp;bgcolor=f6f6f6&amp;areaMode=all&amp;drawNullAsZero=false&amp;colorList=666666,ff6666,66ff66,000000&amp;hideLegend=1&amp;hideAxes=0&amp;target=stats.gauges.govuk.app.redirector.total.total&amp;target=stats.gauges.govuk.app.redirector.ratified.total&amp;target=stats.gauges.govuk.app.redirector.ratified.passed&amp;target=drawAsInfinite%28stats.govuk.app.redirector.deploys.production%29&amp;width=600&amp;height=300&amp;_salt=1347977660.885' class='graph' width='600' height='300'>
+      We have <span class='known'>${graph_numbers{'govuk.app.redirector.total.total'}} known mappings</span>, 
+      <span class='closed'>${graph_numbers{'govuk.app.redirector.ratified.total'}} are closed</span>
+      of which <span class='pass'>${graph_numbers{'govuk.app.redirector.ratified.passed'}} pass</span>.
+    </p>
+    <dl>
+      <dt class='known'>known mappings</dt>
+      <dd>
+        are where we have a record of a URL on Directgov or Business Link
+        that needs to be addressed in the redirector
+      </dd>
+      <dt class='closed'>closed mappings</dt>
+      <dd>
+        are where the decision over what to do with the URL (redirect to
+        somewhere else, mark it as gone) has been decided
+      </dd>
+      <dt class='pass'>passing mappings</dt>
+      <dd>
+        are where the redirector correctly returns a 410 for gone content,
+        or correctly redirects to a <em>page that returns 200 OK</em>
+      </dd>
+    </dl>
+  </div>
+  
+  <div id='directgov' class='breakdown'>
+    <h2>Directgov &mdash; overview, redirect and gone</h2>
+    <img src='http://graphite.production.alphagov.co.uk/render/?from=-168hours&amp;yMin=0&amp;fgcolor=333333&amp;bgcolor=f6f6f6&amp;areaMode=all&amp;drawNullAsZero=false&amp;colorList=666666,ff6666,66ff66&amp;hideLegend=1&amp;hideAxes=0&amp;target=stats.gauges.govuk.app.redirector.total.directgov&amp;target=stats.gauges.govuk.app.redirector.ratified.directgov.total&amp;target=stats.gauges.govuk.app.redirector.ratified.directgov.passed&amp;width=600&amp;height=300&amp;_salt=1347977660.885' class='graph' width='600' height='300'>
+    <img src='http://graphite.production.alphagov.co.uk/render/?from=-168hours&amp;yMin=0&amp;fgcolor=333333&amp;bgcolor=f6f6f6&amp;areaMode=all&amp;drawNullAsZero=false&amp;colorList=ff6666,66ff66&amp;hideLegend=1&amp;hideAxes=1&amp;target=stats.gauges.govuk.app.redirector.ratified.directgov.redirects.total&amp;target=stats.gauges.govuk.app.redirector.ratified.directgov.redirects.passed&amp;width=300&amp;height=149&amp;_salt=1347977660.885' class='graph detail' width='300' height='149'>
+    <img src='http://graphite.production.alphagov.co.uk/render/?from=-168hours&amp;yMin=0&amp;fgcolor=333333&amp;bgcolor=f6f6f6&amp;areaMode=all&amp;drawNullAsZero=false&amp;colorList=ff6666,66ff66&amp;hideLegend=1&amp;hideAxes=1&amp;target=stats.gauges.govuk.app.redirector.ratified.directgov.gone.total&amp;target=stats.gauges.govuk.app.redirector.ratified.directgov.gone.passed&amp;width=300&amp;height=149&amp;_salt=1347977660.885' class='graph detail' width='300' height='149'>
+    
+  </div>
+  
+  <div id='businesslink' class='breakdown'>
+    <h2>Business Link &mdash; overview, redirect and gone</h2>
+    <img src='http://graphite.production.alphagov.co.uk/render/?from=-168hours&amp;yMin=0&amp;fgcolor=333333&amp;bgcolor=f6f6f6&amp;areaMode=all&amp;drawNullAsZero=false&amp;colorList=666666,ff6666,66ff66&amp;hideLegend=1&amp;hideAxes=0&amp;target=stats.gauges.govuk.app.redirector.total.businesslink&amp;target=stats.gauges.govuk.app.redirector.ratified.businesslink.total&amp;target=stats.gauges.govuk.app.redirector.ratified.businesslink.passed&amp;width=600&amp;height=300&amp;_salt=1347977660.885' class='graph' width='600' height='300'>
+    <img src='http://graphite.production.alphagov.co.uk/render/?from=-168hours&amp;yMin=0&amp;fgcolor=333333&amp;bgcolor=f6f6f6&amp;areaMode=all&amp;drawNullAsZero=false&amp;colorList=ff6666,66ff66&amp;hideLegend=1&amp;hideAxes=1&amp;target=stats.gauges.govuk.app.redirector.ratified.directgov.redirects.total&amp;target=stats.gauges.govuk.app.redirector.ratified.directgov.redirects.passed&amp;width=300&amp;height=150&amp;_salt=1347977660.885' class='graph detail' width='300' height='150'>
+    <img src='http://graphite.production.alphagov.co.uk/render/?from=-168hours&amp;yMin=0&amp;fgcolor=333333&amp;bgcolor=f6f6f6&amp;areaMode=all&amp;drawNullAsZero=false&amp;colorList=ff6666,66ff66&amp;hideLegend=1&amp;hideAxes=1&amp;target=stats.gauges.govuk.app.redirector.ratified.directgov.gone.total&amp;target=stats.gauges.govuk.app.redirector.ratified.directgov.gone.passed&amp;width=300&amp;height=150&amp;_salt=1347977660.885' class='graph detail' width='300' height='150'>
+  </div>
+  
+</body>
+</html>
