@@ -8,9 +8,12 @@ use File::Next;
 use Getopt::Long    qw( :config bundling );
 use Net::Statsd;
 use TAP::Harness;
+use Text::Intermixed;
 
 use constant OPTIONS => qw(
+      report-output=s
          graph-base=s
+    report-template=s
               tests=s
 );
 use constant REQUIRED_OPTIONS => qw( tests graph-base );
@@ -77,6 +80,28 @@ foreach my $graph ( sort keys %graph_numbers ) {
     Net::Statsd::gauge( $graph, $graph_numbers{$graph} );
 }
 
+if ( defined $option{'report-output'} ) {
+    my $template = do {
+            local $/;
+            open my $handle, '<', $option{'report-template'}
+                or die "Cannot open $option{'report-template'}: $!";
+            <$handle>;
+        };
+    open my $report_handle, '>', $option{'report-output'}
+        or die "Cannot open $option{'report-output'}: $!";
+    
+    my( $output, $errors ) = render_intermixed(
+        $template,
+        {
+            graph_numbers => \%graph_numbers,
+            harness       => $aggregate,
+        }
+    );
+    
+    print {$report_handle} $output;
+    print STDERR $errors;
+}
+
 exit $any_tests_have_failed;
 
 
@@ -118,4 +143,12 @@ Run all tests found under <dir>. Required.
 =item --graph-base <string>
 
 Base name for graphs in statsd/graphite. Required.
+
+=item --report-template <file>
+
+Use <file> as a template to produce a report.
+
+=item --report-output <file>
+
+Output the expanded report template in <file>.
 
