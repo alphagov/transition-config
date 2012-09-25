@@ -95,8 +95,20 @@
       padding-top:          1em;
       overflow:             auto;
     }
-    div.breakdown img.graph {
+    div.graph {
       float:                left;
+    }
+    div.graph.detail {
+      position:             relative;
+      width:                302px;
+      float:                left;
+    }
+    div.graph.detail em {
+      position:             absolute;
+      top:                  5px;
+      left:                 5px;
+      font-style:           normal;
+      color:                #666;
     }
   </style>
 </head>
@@ -144,17 +156,32 @@
   
   <div id='directgov' class='breakdown'>
     <h2>Directgov &mdash; overview, redirect and gone</h2>
-    <img src='http://graphite.production.alphagov.co.uk/render/?from=-168hours&amp;yMin=0&amp;fgcolor=333333&amp;bgcolor=f6f6f6&amp;areaMode=all&amp;drawNullAsZero=false&amp;colorList=666666,ff6666,66ff66&amp;hideLegend=1&amp;hideAxes=0&amp;target=stats.gauges.govuk.app.redirector.total.directgov&amp;target=stats.gauges.govuk.app.redirector.ratified.directgov.total&amp;target=stats.gauges.govuk.app.redirector.ratified.directgov.passed&amp;width=600&amp;height=300&amp;_salt=1347977660.885' class='graph' width='600' height='300'>
-    <img src='http://graphite.production.alphagov.co.uk/render/?from=-168hours&amp;yMin=0&amp;fgcolor=333333&amp;bgcolor=f6f6f6&amp;areaMode=all&amp;drawNullAsZero=false&amp;colorList=ff6666,66ff66&amp;hideLegend=1&amp;hideAxes=1&amp;target=stats.gauges.govuk.app.redirector.ratified.directgov.redirects.total&amp;target=stats.gauges.govuk.app.redirector.ratified.directgov.redirects.passed&amp;width=300&amp;height=149&amp;_salt=1347977660.885' class='graph detail' width='300' height='149'>
-    <img src='http://graphite.production.alphagov.co.uk/render/?from=-168hours&amp;yMin=0&amp;fgcolor=333333&amp;bgcolor=f6f6f6&amp;areaMode=all&amp;drawNullAsZero=false&amp;colorList=ff6666,66ff66&amp;hideLegend=1&amp;hideAxes=1&amp;target=stats.gauges.govuk.app.redirector.ratified.directgov.gone.total&amp;target=stats.gauges.govuk.app.redirector.ratified.directgov.gone.passed&amp;width=300&amp;height=149&amp;_salt=1347977660.885' class='graph detail' width='300' height='149'>
-    
+    <div class='graph'>
+      <img src='http://graphite.production.alphagov.co.uk/render/?from=-168hours&amp;yMin=0&amp;fgcolor=333333&amp;bgcolor=f6f6f6&amp;areaMode=all&amp;drawNullAsZero=false&amp;colorList=666666,ff6666,66ff66&amp;hideLegend=1&amp;hideAxes=0&amp;target=stats.gauges.govuk.app.redirector.total.directgov&amp;target=stats.gauges.govuk.app.redirector.ratified.directgov.total&amp;target=stats.gauges.govuk.app.redirector.ratified.directgov.passed&amp;width=600&amp;height=300&amp;_salt=1347977660.885' class='graph' width='600' height='300'>
+    </div>
+    <div class='graph detail'>
+      <img src='http://graphite.production.alphagov.co.uk/render/?from=-168hours&amp;yMin=0&amp;fgcolor=333333&amp;bgcolor=f6f6f6&amp;areaMode=all&amp;drawNullAsZero=false&amp;colorList=ff6666,66ff66&amp;hideLegend=1&amp;hideAxes=1&amp;target=stats.gauges.govuk.app.redirector.ratified.directgov.redirects.total&amp;target=stats.gauges.govuk.app.redirector.ratified.directgov.redirects.passed&amp;width=300&amp;height=149&amp;_salt=1347977660.885' class='graph detail' width='300' height='149'>
+      <em>redirects</em>
+    </div>
+    <div class='graph detail'>
+      <img src='http://graphite.production.alphagov.co.uk/render/?from=-168hours&amp;yMin=0&amp;fgcolor=333333&amp;bgcolor=f6f6f6&amp;areaMode=all&amp;drawNullAsZero=false&amp;colorList=ff6666,66ff66&amp;hideLegend=1&amp;hideAxes=1&amp;target=stats.gauges.govuk.app.redirector.ratified.directgov.gone.total&amp;target=stats.gauges.govuk.app.redirector.ratified.directgov.gone.passed&amp;width=300&amp;height=149&amp;_salt=1347977660.885' class='graph detail' width='300' height='149'>
+      <em>redirects</em>
+    </div>
   </div>
   
   <div id='businesslink' class='breakdown'>
     <h2>Business Link &mdash; overview, redirect and gone</h2>
-    <img src='http://graphite.production.alphagov.co.uk/render/?from=-168hours&amp;yMin=0&amp;fgcolor=333333&amp;bgcolor=f6f6f6&amp;areaMode=all&amp;drawNullAsZero=false&amp;colorList=666666,ff6666,66ff66&amp;hideLegend=1&amp;hideAxes=0&amp;target=stats.gauges.govuk.app.redirector.total.businesslink&amp;target=stats.gauges.govuk.app.redirector.ratified.businesslink.total&amp;target=stats.gauges.govuk.app.redirector.ratified.businesslink.passed&amp;width=600&amp;height=300&amp;_salt=1347977660.885' class='graph' width='600' height='300'>
-    <img src='http://graphite.production.alphagov.co.uk/render/?from=-168hours&amp;yMin=0&amp;fgcolor=333333&amp;bgcolor=f6f6f6&amp;areaMode=all&amp;drawNullAsZero=false&amp;colorList=ff6666,66ff66&amp;hideLegend=1&amp;hideAxes=1&amp;target=stats.gauges.govuk.app.redirector.ratified.directgov.redirects.total&amp;target=stats.gauges.govuk.app.redirector.ratified.directgov.redirects.passed&amp;width=300&amp;height=150&amp;_salt=1347977660.885' class='graph detail' width='300' height='150'>
-    <img src='http://graphite.production.alphagov.co.uk/render/?from=-168hours&amp;yMin=0&amp;fgcolor=333333&amp;bgcolor=f6f6f6&amp;areaMode=all&amp;drawNullAsZero=false&amp;colorList=ff6666,66ff66&amp;hideLegend=1&amp;hideAxes=1&amp;target=stats.gauges.govuk.app.redirector.ratified.directgov.gone.total&amp;target=stats.gauges.govuk.app.redirector.ratified.directgov.gone.passed&amp;width=300&amp;height=150&amp;_salt=1347977660.885' class='graph detail' width='300' height='150'>
+    <div class='graph'>
+      <img src='http://graphite.production.alphagov.co.uk/render/?from=-168hours&amp;yMin=0&amp;fgcolor=333333&amp;bgcolor=f6f6f6&amp;areaMode=all&amp;drawNullAsZero=false&amp;colorList=666666,ff6666,66ff66&amp;hideLegend=1&amp;hideAxes=0&amp;target=stats.gauges.govuk.app.redirector.total.businesslink&amp;target=stats.gauges.govuk.app.redirector.ratified.businesslink.total&amp;target=stats.gauges.govuk.app.redirector.ratified.businesslink.passed&amp;width=600&amp;height=300&amp;_salt=1347977660.885' class='graph' width='600' height='300'>
+    </div>
+    <div class='graph detail'>
+      <img src='http://graphite.production.alphagov.co.uk/render/?from=-168hours&amp;yMin=0&amp;fgcolor=333333&amp;bgcolor=f6f6f6&amp;areaMode=all&amp;drawNullAsZero=false&amp;colorList=ff6666,66ff66&amp;hideLegend=1&amp;hideAxes=1&amp;target=stats.gauges.govuk.app.redirector.ratified.directgov.redirects.total&amp;target=stats.gauges.govuk.app.redirector.ratified.directgov.redirects.passed&amp;width=300&amp;height=150&amp;_salt=1347977660.885' class='graph detail' width='300' height='150'>
+      <em>redirects</em>
+    </div>
+    <div class='graph detail'>
+      <img src='http://graphite.production.alphagov.co.uk/render/?from=-168hours&amp;yMin=0&amp;fgcolor=333333&amp;bgcolor=f6f6f6&amp;areaMode=all&amp;drawNullAsZero=false&amp;colorList=ff6666,66ff66&amp;hideLegend=1&amp;hideAxes=1&amp;target=stats.gauges.govuk.app.redirector.ratified.directgov.gone.total&amp;target=stats.gauges.govuk.app.redirector.ratified.directgov.gone.passed&amp;width=300&amp;height=150&amp;_salt=1347977660.885' class='graph detail' width='300' height='150'>
+      <em>redirects</em>
+    </div>
   </div>
   
 </body>
