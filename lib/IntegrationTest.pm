@@ -85,9 +85,9 @@ sub run_tests {
             say $output_log 
                 join ',',
                     $row->{'Old Url'},
-                    $row->{'New Url'},
+                    $row->{'New Url'} // '',
                     $row->{'Status'},
-                    $row->{'Whole Tag'},
+                    $row->{'Whole Tag'} // '',
                     $passed,
                     $response_status,
                     $location_header,
@@ -97,9 +97,9 @@ sub run_tests {
                 say $output_error_log
                     join ',',
                         $row->{'Old Url'},
-                        $row->{'New Url'},
+                        $row->{'New Url'} // '',
                         $row->{'Status'},
-                        $row->{'Whole Tag'},
+                        $row->{'Whole Tag'} // '',
                         $passed,
                         $response_status,
                         $location_header,
@@ -212,6 +212,24 @@ sub is_gone_response {
     }
     
     return -1;
+}
+sub is_valid_redirector_response {
+    my $self = shift;
+    my $row  = shift;
+
+    my $response = $self->get_response($row);
+    my $response_code = $response->code;
+    my $valid_response = ( 410 == $response_code || 301 == $response_code );
+
+    my $old_url  = $row->{'Old Url'};
+
+    my $passed = ok( $valid_response, "$old_url returns $response_code" );
+
+    return(
+        $passed,
+        $response,
+        undef
+    );
 }
 
 1;
