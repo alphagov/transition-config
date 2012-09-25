@@ -9,6 +9,9 @@ open ( my $log_stats, ">", "dist/log_stats.txt" )
         or die "dist/log_stats.txt" . ": $!";
 print $log_stats "Total hits: $total_hits\n";
 print $log_stats "Failing hits: $failing_hits\n";
+my $percentage_passing = (1 - ($failing_hits/$total_hits))*100;
+$percentage_passing = sprintf "%.0f", $percentage_passing;
+print $log_stats "${percentage_passing}% passing\n";
 exit;
 
 
