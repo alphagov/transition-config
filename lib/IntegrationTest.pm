@@ -117,7 +117,7 @@ sub get_response {
     
     my $old_uri        = URI->new( $row->{'Old Url'} );
     my $redirector_url = sprintf '%s%s',
-                            'http://redirector.preview.alphagov.co.uk',
+                            'http://redirector.production.alphagov.co.uk',
                             $old_uri->path_query;
     
     my $request = HTTP::Request->new( 'GET', $redirector_url );
