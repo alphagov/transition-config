@@ -23,5 +23,5 @@ perl -Ilib create_mappings.pl dist/businesslink_mappings_source.csv
 
 
 # NGINX
-cp nginx_configs/*.conf dist
+cp nginx_configs/*.{conf,html,png,css} dist
 exit
