@@ -1,11 +1,15 @@
 use v5.10;
 use strict;
 use warnings; 
+use Data::Dumper;
 use HTTP::Request;
 use LWP::UserAgent;
 use URI;
 
-my $url = shift;
+
+
+my $url     = shift;
+my $verbose = shift;
 
 my $uri  = URI->new($url);
 my $path = $uri->path_query;
@@ -31,4 +35,7 @@ if ( defined $redirect ) {
     $code     = $redirect_response->code;
     
     printf "%d %s\n", $code, $redirect // '';
+    
+    print Dumper $redirect_response
+        if $verbose;
 }
