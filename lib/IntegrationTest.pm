@@ -14,7 +14,7 @@ use URI;
 sub new {
     my $class = shift;
     
-    my $host_type = $ENV{'REDIRECTOR'} // 'preview';
+    my $host_type = $ENV{'DEPLOY_TO'} // 'preview';
 
     my $self = {
         ua => LWP::UserAgent->new( max_redirect => 0 ),
