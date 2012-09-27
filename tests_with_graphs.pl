@@ -43,7 +43,8 @@ while ( my $path = $find_tests->() ) {
 
 my $aggregate = $harness->runtests(@tests);
 my %graph_numbers;
-my $any_tests_have_failed = 0;
+my $total_tests_run = 0;
+my $total_tests_passed = 0;
 
 foreach my $graph_number ( @{ $option{'graph-number'} } ) {
     $graph_number =~ m{(.*)=(\d+)};
@@ -64,14 +65,14 @@ foreach my $test ( @tests ) {
     my $tests_ran   = $results->{'tests_run'};
     my $passed      = scalar @{ $results->{'actual_passed'} };
     
-    $any_tests_have_failed = 1
-        if $tests_ran > $passed;
     
-    $graph_numbers{"${graph_path}.total"}  += $tests_ran;
-    $graph_numbers{"${graph_path}.passed"} += $passed;
+
+    $total_tests_run += $tests_ran;
+    $total_tests_passed += $passed;
+
     $graph_numbers{"${graph_path}.${test_name}.total"}  += $tests_ran;
     $graph_numbers{"${graph_path}.${test_name}.passed"} += $passed;
-    
+
     foreach my $subdir ( @directories ) {
         $graph_path .= ".${subdir}";
         
@@ -83,6 +84,9 @@ foreach my $test ( @tests ) {
 }
 
 say '';
+$graph_numbers{"${graph_name_base}.total"}  = $total_tests_run;
+$graph_numbers{"${graph_name_base}.passed"} = $total_tests_passed;
+    
 foreach my $graph ( sort keys %graph_numbers ) {
     say "$graph = $graph_numbers{$graph}";
     Net::Statsd::gauge( $graph, $graph_numbers{$graph} )
@@ -111,7 +115,11 @@ if ( defined $option{'report-output'} ) {
     print STDERR $errors;
 }
 
-exit $any_tests_have_failed;
+my $tests_considered_a_fail = 0;
+$tests_considered_a_fail = 1
+    if ( $total_tests_passed/$total_tests_run ) < 0.6;
+
+exit $tests_considered_a_fail;
 
 
 
