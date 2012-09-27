@@ -6,7 +6,7 @@ mkdir -p dist
 prove -l tests/migratorator_mappings/*.t
 
 # delete any previous mapping errors files
-rm -f dist/*
+rm -rf dist/*
 
 # DIRECTGOV
 curl "https://${MIGRATORATOR_AUTH}@migratorator.production.alphagov.co.uk/mappings/filter/status:closed.csv" > dist/directgov_mappings_source.csv
