@@ -1,3 +1,4 @@
+use v5.10;
 use strict;
 use warnings; 
 use HTTP::Request;
@@ -17,8 +18,18 @@ my $request = HTTP::Request->new('GET', $req_url);
 $request->header( 'Host', $host );
 
 my $response = $ua->request($request);
+my $redirect = $response->header('location');
+my $code     = $response->code;
 
-print $response->code;
-print ' ' . $response->header('location')
-    if defined $response->header('location');
-print "\n";
+
+printf "%d %s\n", $code, $redirect // '';
+if ( defined $redirect ) {
+    my $redirect_request = HTTP::Request->new('GET', $redirect);
+    $redirect_request->header( 'Host', $host );
+    my $redirect_response = $ua->request($redirect_request);
+    
+    $redirect = $redirect_response->header('location');
+    $code     = $redirect_response->code;
+    
+    printf "%d %s\n", $code, $redirect // '';
+}
