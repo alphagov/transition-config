@@ -16,6 +16,8 @@ use constant OPTIONS => qw(
        graph-number=s@
     report-template=s
               tests=s
+            preview
+         production
 );
 use constant REQUIRED_OPTIONS => qw( tests graph-base );
 
@@ -80,10 +82,11 @@ foreach my $test ( @tests ) {
     }
 }
 
-say "\nRegistering graphs...";
+say '';
 foreach my $graph ( sort keys %graph_numbers ) {
     say "$graph = $graph_numbers{$graph}";
-    Net::Statsd::gauge( $graph, $graph_numbers{$graph} );
+    Net::Statsd::gauge( $graph, $graph_numbers{$graph} )
+        if ! defined $option{'preview'};
 }
 
 if ( defined $option{'report-output'} ) {
