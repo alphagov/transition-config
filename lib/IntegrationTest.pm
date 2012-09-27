@@ -13,9 +13,12 @@ use URI;
 
 sub new {
     my $class = shift;
+    
+    my $host_type = $ENV{'REDIRECTOR'} // 'preview';
 
     my $self = {
         ua => LWP::UserAgent->new( max_redirect => 0 ),
+        redirector_host => "http://redirector.${host_type}.alphagov.co.uk",
     };
     bless $self, $class;
 
@@ -117,7 +120,7 @@ sub get_response {
     
     my $old_uri        = URI->new( $row->{'Old Url'} );
     my $redirector_url = sprintf '%s%s',
-                            'http://redirector.production.alphagov.co.uk',
+                            $self->{'redirector_host'},
                             $old_uri->path_query;
     
     my $request = HTTP::Request->new( 'GET', $redirector_url );
