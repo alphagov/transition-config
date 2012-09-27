@@ -28,7 +28,6 @@ my $graph_name_base = $option{'graph-base'};
 my $find_tests = File::Next::files( $tests_directory );
 my $harness    = TAP::Harness->new({
         lib       => [ 'lib' ],
-        jobs      => 4,
         verbosity => 0,
     });
 my @tests;
