@@ -55,7 +55,7 @@ sub graph_open_sources_in {
         next if $tag =~ m{devolved};
         
         say STDERR "Unknown state: '${tag}'";
-        use Data::Dumper::Concise;
+        use Data::Dumper;
         print Dumper \$row;
     }
     
