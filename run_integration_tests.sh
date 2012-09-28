@@ -15,4 +15,5 @@ perl tests_with_graphs.pl \
 
 if [ "$DEPLOY_TO" = 'production' ]; then
     perl tests/integration/graph_redirects_results.pl
+    perl tests/integration/graph_open_sources.pl
 fi
