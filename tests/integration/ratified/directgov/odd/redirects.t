@@ -9,6 +9,7 @@ exit;
 package Directgov::Ratified::Redirects;
 use base 'IntegrationTest';
 
+use v5.10;
 use strict;
 use warnings;
 use Test::More;
@@ -16,6 +17,9 @@ use Test::More;
 
 sub test {
     my $self = shift;
+    
+    state $count = 0;
+    return -1 if $count++ % 2;
     
     $self->test_closed_redirects(@_);
 }
