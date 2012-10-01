@@ -39,7 +39,7 @@ sub graph_open_sources_in {
         if ( $tag =~ m{awaiting-content} ) {
             $page_state{'awaitingcontent'}++;
         }
-        elsif ( $tag =~ m{open} ) {
+        elsif ( $tag =~ m{open} || $tag =~ m{reviewed:yes} ) {
             $page_state{'open'}++;
         }
         elsif ( $tag =~ m{reviewed:no} ) {
@@ -51,6 +51,7 @@ sub graph_open_sources_in {
         
         next if $tag =~ m{awaiting-content};
         next if $tag =~ m{open};
+        next if $tag =~ m{reviewed:yes};
         next if $tag =~ m{reviewed:no};
         next if $tag =~ m{devolved};
         
