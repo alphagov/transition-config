@@ -17,7 +17,7 @@
 
         <article role="article" class="group">
 
-          <p>Sorry, the Directgov website has been replaced and the page that used to be here has been archived. You can <a href="http://webarchive.nationalarchives.gov.uk/+/www.direct.gov.uk<?= $_SERVER['REQUEST_URI'] ?>">find a copy here</a>, but bear in mind that the information provided may be out of date.</p>
+          <p>Sorry, the Directgov website has been replaced and the page that used to be here has been archived. You can <a href="http://webarchive.nationalarchives.gov.uk/20121015000000/www.direct.gov.uk<?= $_SERVER['REQUEST_URI'] ?>">find a copy here</a>, but bear in mind that the information provided may be out of date.</p>
 
           <p>The home for government services and information is now <a href="http://www.gov.uk">GOV.UK</a>.</p>
 
