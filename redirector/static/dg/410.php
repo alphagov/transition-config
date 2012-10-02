@@ -22,7 +22,7 @@
 
           <p>On 17 October 2012 the Directgov website was replaced by <a href='https://www.gov.uk'>GOV.UK</a>.</p>
 
-          <p>GOV.UK does not cover every piece of content that used to be found on Directgov . The page you are looking for is probably one of these.</p>
+          <p>GOV.UK does not cover every piece of content that used to be found on Directgov. The page you are looking for is probably one of these.</p>
 
           <p>Essential government services and information can be found at <a href='https://www.gov.uk'>GOV.UK</a>.</p>
 
