@@ -20,7 +20,7 @@
 
         <article role="article" class="group">
 
-          <p>On 17 October 2012 the [Directgov or Business Link] website was replaced by <a href='https://www.gov.uk'>GOV.UK</a>.</p>
+          <p>On 17 October 2012 the Business Link website was replaced by <a href='https://www.gov.uk'>GOV.UK</a>.</p>
 
           <p>GOV.UK does not cover every piece of content that used to be found on Business Link. The page you are looking for is probably one of these.</p>
 
