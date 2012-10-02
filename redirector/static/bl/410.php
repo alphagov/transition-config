@@ -14,19 +14,19 @@
         <header class="page-header group businesslink">
           <div class="legacy-site-logo"></div>
           <hgroup>
-            <h1>This page has been archived</h1>
+            <h1>Business Link has been replaced</h1>
           </hgroup>
         </header>
 
         <article role="article" class="group">
 
-          <p>Sorry, the Business Link website has been replaced and the page that used to be here has been archived. You can <a href="http://webarchive.nationalarchives.gov.uk/20121015000000/www.businesslink.gov.uk<?= $_SERVER['REQUEST_URI'] ?>">find a copy here</a>, but bear in mind that the information provided may be out of date.</p>
+          <p>On 17 October 2012 the [Directgov or Business Link] website was replaced by <a href='https://www.gov.uk'>GOV.UK</a>.</p>
 
-          <p>The home for government services and information is now <a href="https://www.gov.uk">GOV.UK</a>.</p>
+          <p>GOV.UK does not cover every piece of content that used to be found on Business Link. The page you are looking for is probably one of these.</p>
 
-          <!--
-          <p>You may be able to find relevant information at <a href="#">The Chartered Institute of Marketing</a></p>
-          -->
+          <p>Essential government services and information can be found at <a href='https://www.gov.uk'>GOV.UK</a>.</p>
+
+          <p>A copy of the page you were looking for can be found on <a href="http://webarchive.nationalarchives.gov.uk/20121015000000/www.businesslink.gov.uk<?= $_SERVER['REQUEST_URI'] ?>">The National Archives website</a>, however it will not be updated after 17 October 2012.</p>
 
         </article>
       </div>
