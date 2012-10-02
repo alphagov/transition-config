@@ -39,6 +39,7 @@ p {
   background-color: #fff;
   margin: 2em auto 0 auto;
   max-width: 720px;
+  *width: 720px;
 }
 
 article {
@@ -62,16 +63,6 @@ header.page-header hgroup h1 {
 
 }
 
-/* direct gov */
-
-
-
-/* business link */
-
 header.page-header.businesslink .legacy-site-logo {
   background: #0077B6 url(/businesslink-logo.png) no-repeat 5em 50%;
-}
-
-header.page-header.directgov .legacy-site-logo {
-  background: #ff5b00 url(/directgov-logo.png) no-repeat 5em 50%;
 }
