@@ -2,10 +2,10 @@
 set -e
 mkdir -p dist
 
-# run migratorator_mappings tests
-prove -l tests/migratorator_mappings/*.t
+# run migratorator_mappings logic tests
+prove -l tests/migratorator_mappings/logic/*.t
 
-# delete any previous mapping errors files
+# delete previous config, error files, etc
 rm -rf dist/*
 
 # DIRECTGOV
