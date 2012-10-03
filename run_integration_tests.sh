@@ -10,6 +10,7 @@ perl tests_with_graphs.pl \
         --graph-base 'govuk.app.redirector.ratified' \
         --report-template tests/integration/dashboard_template.html \
         --report-output dist/dashboard.html \
+        --output-csv dist/integration_results.csv \
         --${DEPLOY_TO:-preview} \
         $graphs
 

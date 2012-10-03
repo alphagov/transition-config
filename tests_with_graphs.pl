@@ -18,6 +18,7 @@ use constant OPTIONS => qw(
               tests=s
             preview
          production
+         output-csv=s
 );
 use constant REQUIRED_OPTIONS => qw( tests graph-base );
 
@@ -87,11 +88,22 @@ foreach my $test ( @tests ) {
 say '';
 $graph_numbers{"${graph_name_base}.total"}  = $total_tests_run;
 $graph_numbers{"${graph_name_base}.passed"} = $total_tests_passed;
-    
+
+my $csv;
+if ( $option{'output-csv'} ) {
+    open $csv, '>', $option{'output-csv'}
+        or die $option{'output-csv'} . ": $!";
+    say $csv 'graph,count';
+}
+
 foreach my $graph ( sort keys %graph_numbers ) {
     say "$graph = $graph_numbers{$graph}";
+    
     Net::Statsd::gauge( $graph, $graph_numbers{$graph} )
         if ! defined $option{'preview'};
+    
+    say $csv "$graph,$graph_numbers{$graph}"
+        if $option{'output-csv'};
 }
 
 if ( defined $option{'report-output'} ) {
