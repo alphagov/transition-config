@@ -129,8 +129,10 @@ if ( defined $option{'report-output'} ) {
 }
 
 my $tests_considered_a_fail = 0;
+my $total_mappings = $graph_numbers{"${graph_name_base}.total.total"};
+
 $tests_considered_a_fail = 1
-    if ( $total_tests_passed/$total_tests_run ) < 0.81;
+   if ( $total_tests_passed/$total_mappings ) < 0.81;
 
 exit $tests_considered_a_fail;
 
