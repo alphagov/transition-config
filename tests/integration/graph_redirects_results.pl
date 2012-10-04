@@ -51,7 +51,7 @@ sub graph_errors_in {
         
         say "$graph_name = $statuses{$status_code}";
         
-        say $csv "$graph_name = $page_state{$state}"
+        say $csv "$graph_name = $statuses{$status_code}"
             if defined $output_csv;
         
         Net::Statsd::gauge( $graph_name, $statuses{$status_code} );
