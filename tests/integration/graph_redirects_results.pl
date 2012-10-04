@@ -8,13 +8,13 @@ use Net::Statsd;
 
 
 
-my $output_csv     = shift;
-my $base_namespace = 'govuk.app.redirector.ratified';
+my $output_csv_file = shift;
+my $base_namespace  = 'govuk.app.redirector.ratified';
 
-my $csv;
-if ( defined $output_csv ) {
-    open $csv, '>>', $output_csv
-        or die $output_csv . ": $!";
+my $output_csv;
+if ( defined $output_csv_file ) {
+    open $output_csv, '>>', $output_csv_file
+        or die "${output_csv_file}: $!";
 }
 
 graph_errors_in( 'dist/businesslink_redirects_test_output.csv', 'businesslink' );
@@ -51,8 +51,8 @@ sub graph_errors_in {
         
         say "$graph_name = $statuses{$status_code}";
         
-        say $csv "$graph_name = $statuses{$status_code}"
-            if defined $output_csv;
+        say $output_csv "$graph_name = $statuses{$status_code}"
+            if defined $output_csv_file;
         
         Net::Statsd::gauge( $graph_name, $statuses{$status_code} );
     }
