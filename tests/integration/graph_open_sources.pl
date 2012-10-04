@@ -8,7 +8,14 @@ use Net::Statsd;
 
 
 
+my $output_csv     = shift;
 my $base_namespace = 'govuk.app.redirector.ratified';
+
+my $csv;
+if ( defined $output_csv ) {
+    open $csv, '>>', $output_csv
+        or die $output_csv . ": $!";
+}
 
 graph_open_sources_in( 'dist/businesslink_mappings_source.csv', 'businesslink' );
 graph_open_sources_in( 'dist/directgov_all_mappings.csv',       'directgov'    );
@@ -67,6 +74,10 @@ sub graph_open_sources_in {
                             $state;
         
         say "$graph_name = $page_state{$state}";
+        
+        say $csv "$graph_name = $page_state{$state}"
+            if defined $output_csv;
+        
         Net::Statsd::gauge( $graph_name, $page_state{$state} );
     }
 }

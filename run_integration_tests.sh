@@ -15,6 +15,6 @@ perl tests_with_graphs.pl \
         $graphs
 
 if [ "$DEPLOY_TO" = 'production' ]; then
-    perl tests/integration/graph_redirects_results.pl
-    perl tests/integration/graph_open_sources.pl
+    perl tests/integration/graph_redirects_results.pl dist/integration_results.csv
+    perl tests/integration/graph_open_sources.pl dist/integration_results.csv
 fi
