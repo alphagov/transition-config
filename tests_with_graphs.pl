@@ -130,7 +130,7 @@ if ( defined $option{'report-output'} ) {
 
 my $tests_considered_a_fail = 0;
 $tests_considered_a_fail = 1
-    if ( $total_tests_passed/$total_tests_run ) < 0.7;
+    if ( $total_tests_passed/$total_tests_run ) < 0.81;
 
 exit $tests_considered_a_fail;
 
