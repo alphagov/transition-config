@@ -7,5 +7,5 @@
 
 site=directgov
 
-sort -k2 -n "$site-good.txt" | awk 'BEGIN { print "Old Url,Count,Status" }
+sort -k2 -nr "$site-good.txt" | awk 'BEGIN { print "Old Url,Count,Status" }
  { print "\"" $1 "\"," $2 "," $3 }' > $site-testable.csv
