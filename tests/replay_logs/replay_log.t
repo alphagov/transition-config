@@ -1,9 +1,9 @@
 my $test = ReplayLogs::ReplayLogs->new();
 my $total_hits = 0;
 my $failing_hits = 0;
-$test->input_file("dist/urls.csv");
-$test->output_file("dist/replay_logs_test_output.csv");
-$test->output_error_file("dist/logs_that_fail.csv");
+$test->input_file("dist/directgov-testable.csv");
+$test->output_file("dist/directgov-testable_output.csv");
+$test->output_error_file("dist/directgov-testable-failures.csv");
 $test->run_tests();
 open ( my $log_stats, ">", "dist/log_stats.txt" )
         or die "dist/log_stats.txt" . ": $!";
