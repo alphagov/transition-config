@@ -19,4 +19,21 @@ perl -Ilib create_mappings.pl dist/businesslink_mappings_source.csv
 # NGINX
 rsync -a redirector/. dist/.
 
+# CRAFT 410 PAGES
+cat \
+    redirector/410_preamble.php \
+    dist/www.businesslink.gov.uk.*suggested_links.conf \
+    redirector/410_header.php \
+    redirector/static/bl/410.html \
+        > dist/static/bl/410.php
+cp redirector/410_suggested_links.php dist/static/bl
+
+cat \
+    redirector/410_preamble.php \
+    dist/www.direct.gov.uk.*suggested_links.conf \
+    redirector/410_header.php \
+    redirector/static/dg/410.html \
+        > dist/static/dg/410.php
+cp redirector/410_suggested_links.php dist/static/dg
+
 exit
