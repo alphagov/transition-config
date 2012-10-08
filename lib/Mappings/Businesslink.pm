@@ -119,7 +119,7 @@ sub get_suggested_links {
     my $self    = shift;
     my $map_key = shift;
     
-    return unless defined $self->{'suggested'};
+    return unless length $self->{'suggested'};
     
     my $links;
     foreach my $line ( split /\n/, $self->{'suggested'} ) {
