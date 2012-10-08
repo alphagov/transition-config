@@ -27,5 +27,6 @@ sort -k2 -nr "$site-testable-urls.txt" | awk 'BEGIN { print "Old Url,Count,Statu
  { print "\"" $1 "\"," $2 "," $3 }' > $site-testable.csv
 
 # and add all the valid ones to all-valid.txt
-
-# we want to join the error pages into another file - 404s should still 404
+awk '{ print $1 }' "$site-testable-urls.txt" > temp.txt
+cat temp.txt ../$site-all.txt | sort | uniq > $new_site_all.txt
+mv $new_site_all.txt ../$site-all.txt

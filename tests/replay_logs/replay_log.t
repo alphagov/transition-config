@@ -2,9 +2,10 @@ my $test = ReplayLogs::ReplayLogs->new();
 my $total_hits = 0;
 my $failing_hits = 0;
 $test->input_file("dist/directgov-testable.csv");
-$test->output_file("dist/directgov-testable_output.csv");
+$test->output_file("dist/directgov-testable-output.csv");
 $test->output_error_file("dist/directgov-testable-failures.csv");
 $test->run_tests();
+
 open ( my $log_stats, ">", "dist/log_stats.txt" )
         or die "dist/log_stats.txt" . ": $!";
 print $log_stats "Total hits: $total_hits\n";
