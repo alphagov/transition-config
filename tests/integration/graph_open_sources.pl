@@ -35,7 +35,11 @@ sub graph_open_sources_in {
     my $names = $csv->getline( $fh );
     $csv->column_names( @$names );
     
-    my %page_state;
+    my %page_state = (
+        awaitingcontent => 0,
+        open            => 0,
+        unreviewed      => 0,
+    );
     
     while ( my $row = $csv->getline_hr( $fh ) ) {
         my $tag = lc $row->{'Whole Tag'};

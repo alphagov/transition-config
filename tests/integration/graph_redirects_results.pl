@@ -35,7 +35,16 @@ sub graph_errors_in {
     my $names = $csv->getline( $fh );
     $csv->column_names( @$names );
     
-    my %statuses;
+    my %statuses = (
+        200 => 0,
+        301 => 0,
+        302 => 0,
+        400 => 0,
+        404 => 0,
+        410 => 0,
+        500 => 0,
+    );
+    
     while ( my $row = $csv->getline_hr( $fh ) ) {
         my $actual_status = $row->{'New Url Status'};
         $statuses{$actual_status}++;
