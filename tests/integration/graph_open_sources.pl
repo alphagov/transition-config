@@ -18,7 +18,7 @@ if ( defined $output_csv_file ) {
 }
 
 graph_open_sources_in( 'dist/businesslink_mappings_source.csv', 'businesslink' );
-graph_open_sources_in( 'dist/directgov_all_mappings.csv',       'directgov'    );
+graph_open_sources_in( 'dist/directgov_mappings_source.csv',    'directgov'    );
 exit;
 
 

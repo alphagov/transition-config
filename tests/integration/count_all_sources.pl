@@ -11,7 +11,7 @@ use Net::Statsd;
 my $businesslink_mappings
     = count_rows_in_csv('dist/businesslink_mappings_source.csv');
 my $directgov_mappings
-    = count_rows_in_csv('dist/directgov_all_mappings.csv');
+    = count_rows_in_csv('dist/directgov_mappings_source.csv');
 my $total_mappings = $businesslink_mappings + $directgov_mappings;
 
 say "--graph-number govuk.app.redirector.total.total=$total_mappings";
