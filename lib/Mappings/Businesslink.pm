@@ -37,7 +37,7 @@ sub actual_nginx_config {
                     $config_or_error_type = 'gone_map';
                     $config_line = "~${map_key} 410;\n";
                     $suggested_links_type = 'suggested_links_map';
-                    $suggested_links = $self->get_suggested_links($map_key);
+                    $suggested_links = $self->get_suggested_links($map_key, 1);
                 }
                 elsif ( '301' eq $self->{'status'} ) {
                     if ( 'awaiting-content' eq $mapping_status || 'awaiting-publication' eq $mapping_status ) {
@@ -116,8 +116,9 @@ sub get_map_key {
     return $key; 
 }
 sub get_suggested_links {
-    my $self    = shift;
-    my $map_key = shift;
+    my $self   = shift;
+    my $lookup = shift;
+    my $is_map = shift;
     
     return unless length $self->{'suggested'};
     
@@ -129,7 +130,9 @@ sub get_suggested_links {
         $links .= "<li><a href=\"${url}\">${text}</a></li>";
     }
     
-    return "\$query_suggested_links['${map_key}'] = '${links}';\n";
+    return "\$query_suggested_links['${lookup}'] = '${links}';\n"
+        if defined $is_map;
+    return "\$location_suggested_links['${lookup}'] = '${links}';\n";
 }
 
 1;
