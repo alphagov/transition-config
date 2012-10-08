@@ -1,0 +1,13 @@
+Each number refers to a line in prune-logs-test-data.txt and lists the files that, after running prune.sh, you should expect that data to appear in.
+
+1. site-non-errors
+   site-testable-urls
+2. ignored - should appear in no subsequent file
+3. site-redirects
+   site-errors
+4. site-redirects
+   site-errors
+5. site-redirects
+   site-valid-redirects
+   site-testable-urls
+
