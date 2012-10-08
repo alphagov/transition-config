@@ -65,7 +65,7 @@ sub new {
         new_url   => $row->{'New Url'},
         status    => $row->{'Status'},
         whole_tag => $row->{'Whole Tag'},
-        suggested => $row->{'Suggested'},
+        suggested => $row->{'Suggested Links'},
         
         duplicates => $duplicate_key_cache,
     };
