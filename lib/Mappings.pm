@@ -36,12 +36,19 @@ sub entire_csv_as_nginx_config {
     my %check_for_dupes;
     
     while ( my $row = $self->get_row() ) {
-        my( $host, $map, $line ) = $self->row_as_nginx_config($row);
+        my( $host, $rule_map, $rule, $suggested_map, $suggested )
+            = $self->row_as_nginx_config($row);
         
-        if ( defined $host && defined $map && defined $line ) {
-            $configs{$host}{$map} = []
-                unless defined $configs{$host};
-            push @{ $configs{$host}{$map} }, $line;
+        if ( defined $host && defined $rule_map && defined $rule ) {
+            $configs{$host}{$rule_map} = []
+                unless defined $configs{$host}{$rule_map};
+            push @{ $configs{$host}{$rule_map} }, $rule;
+            
+            if ( defined $suggested_map && defined $suggested ) {
+                $configs{$host}{$suggested_map} = []
+                    unless defined $configs{$host}{$suggested_map};
+                push @{ $configs{$host}{$suggested_map} }, $suggested;
+            }
         }
     }
     

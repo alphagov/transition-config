@@ -10,7 +10,9 @@ sub actual_nginx_config {
     my $self = shift;
     
     my $config_or_error_type;
+    my $suggested_links_type;
     my $config_line;
+    my $suggested_links;
     my $mapping_status = '';
     
     if ( defined $self->{'old_url_parts'}{'query'} ) {
@@ -32,8 +34,10 @@ sub actual_nginx_config {
                 }
                 elsif ( '410' eq $self->{'status'} ) {
                     # 410 Gone
-                    $config_or_error_type   = 'gone_map';
+                    $config_or_error_type = 'gone_map';
                     $config_line = "~${map_key} 410;\n";
+                    $suggested_links_type = 'suggested_links_map';
+                    $suggested_links = $self->get_suggested_links($map_key);
                 }
                 elsif ( '301' eq $self->{'status'} ) {
                     if ( 'awaiting-content' eq $mapping_status || 'awaiting-publication' eq $mapping_status ) {
@@ -61,7 +65,14 @@ sub actual_nginx_config {
         # this is to deal with online, which has exactly the same rules
         # as www - should be handled better        
         $self->{'old_url_parts'}{'host'} = 'www.businesslink.gov.uk'; 
-        return( $self->{'old_url_parts'}{'host'}, $config_or_error_type, $config_line );    
+        
+        return(
+            $self->{'old_url_parts'}{'host'},
+            $config_or_error_type,
+            $config_line,
+            $suggested_links_type,
+            $suggested_links
+        );
     }
     # if no query string, we treat it as a furl
     else {
@@ -103,6 +114,20 @@ sub get_map_key {
     }
     
     return $key; 
+}
+sub get_suggested_links {
+    my $self    = shift;
+    my $map_key = shift;
+    
+    return unless defined $self->{'suggested'};
+    
+    my $links;
+    foreach my $line ( split /\n/, $self->{'suggested'} ) {
+        my( $url, $text ) = split / /, $line, 2;
+        $links .= "<li><a href=\"${url}\">${text}</a></li>";
+    }
+    
+    return "\$query_suggested_links['${map_key}'] = '${links}';\n";
 }
 
 1;

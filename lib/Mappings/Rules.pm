@@ -65,6 +65,7 @@ sub new {
         new_url   => $row->{'New Url'},
         status    => $row->{'Status'},
         whole_tag => $row->{'Whole Tag'},
+        suggested => $row->{'Suggested'},
         
         duplicates => $duplicate_key_cache,
     };
@@ -108,6 +109,8 @@ sub location_config {
     
     my $config_or_error_type = 'location';
     my $duplicate_entry_key  = $self->{'old_url_parts'}{'path'};
+    my $suggested_links_type;
+    my $suggested_links;
     my $config;
     
     if ( defined $self->{'duplicates'}{$duplicate_entry_key} ) {
@@ -118,6 +121,8 @@ sub location_config {
         if ( '410' eq $self->{'status'} ) {
             # 410 Gone
             $config = "location = $self->{'old_url_relative'} { return 410; }\n";
+            $suggested_links_type = 'location_suggested_links';
+            $suggested_links = $self->get_suggested_links( $self->{'old_url_relative'} );
         }
         elsif ( '301' eq $self->{'status'} ) {
             # 301 Moved Permanently
@@ -147,8 +152,28 @@ sub location_config {
     }
     
     $self->{'duplicates'}{$duplicate_entry_key} = 1;
+        
+    return(
+        $self->{'old_url_parts'}{'host'},
+        $config_or_error_type,
+        $config,
+        $suggested_links_type,
+        $suggested_links
+    );
+}
+sub get_suggested_links {
+    my $self     = shift;
+    my $location = shift;
     
-    return( $self->{'old_url_parts'}{'host'}, $config_or_error_type, $config );
+    return unless defined $self->{'suggested'};
+    
+    my $links;
+    foreach my $line ( split /\n/, $self->{'suggested'} ) {
+        my( $url, $text ) = split / /, $line, 2;
+        $links .= "<li><a href=\"${url}\">${text}</a></li>";
+    }
+    
+    return "\$location_suggested_links['${location}'] = '${links}';\n";
 }
 
 
