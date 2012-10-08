@@ -12,7 +12,7 @@ my %expected = (
         },
         'www.businesslink.gov.uk' => {
             'gone_map' => qq(~topicId=1073858783 410;\n),
-            'suggested_links_map' => qq(\$query_suggested_links['topicId=1073858783'] = '<li><a href="http://www.hmrc.gov.uk">HMRC</a></li><li><a href="http://www.number10.gov.uk">Number 10</a></li>';\n),
+            'suggested_links_map' => qq(\$query_suggested_links['topicId=1073858783'] = '<li><a href="http://www.hmrc.gov.uk">HMRC</a></li><li><a href="http://www.number10.gov.uk">http://www.number10.gov.uk</a></li>';\n),
         },
     );
 

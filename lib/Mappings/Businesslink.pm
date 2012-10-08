@@ -124,6 +124,8 @@ sub get_suggested_links {
     my $links;
     foreach my $line ( split /\n/, $self->{'suggested'} ) {
         my( $url, $text ) = split / /, $line, 2;
+        $text = $url
+            unless defined $text;
         $links .= "<li><a href=\"${url}\">${text}</a></li>";
     }
     
