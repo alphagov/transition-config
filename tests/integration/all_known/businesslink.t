@@ -1,6 +1,7 @@
 my $test = Businesslink::AllKnown->new();
 $test->input_file("dist/businesslink_mappings_source.csv");
-$test->output_file("dist/businesslink_all_known_mappings_that_fail.csv");
+$test->output_file("dist/businesslink_all_known_mappings_output.csv");
+$test->output_error_file("dist/businesslink_all_known_mappings_that_fail.csv");
 $test->run_tests();
 exit;
 
@@ -15,16 +16,18 @@ use Test::More;
 
 sub test {
     my $self = shift;
-    my $status_code = shift;
-    my $response = shift;
     my $row     = shift;
 
-    my $mapping_status = '';
-    my $return = 1;
-    my $new_url = '';
-
+    my $response = $self->get_response($row);
+    
     my $correct_response_code = ( 410 == $response->code || 301 == $response->code );
-    $return = is(  1, $correct_response_code, $row->{'Old Url'} . ' returns either a 410 or a 301' );
+    my $passed = is(  1, $correct_response_code, $row->{'Old Url'} . ' returns either a 410 or a 301' );
 
-    return( $return, $mapping_status, $new_url );
+    return(
+        $passed,
+        $response,
+        undef
+    );
 }
+
+done_testing();
