@@ -3,7 +3,7 @@ use strict;
 use warnings;
 
 use Test::More;
-require 'tests/integration/subdomains/get_response.pl';
+require 'tests/integration/config_rules/get_response.pl';
 
 my ( $response_code, $redirect_location) = &get_response ( 'http://www.businesslink.co.uk' );
 is( '301', $response_code, "www.businesslink.co.uk homepage redirects" );

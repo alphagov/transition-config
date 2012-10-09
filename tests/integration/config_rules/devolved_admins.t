@@ -3,7 +3,7 @@ use strict;
 use warnings;
 
 use Test::More;
-require 'tests/integration/subdomains/get_response.pl';
+require 'tests/integration/config_rules/get_response.pl';
 
 
 # Scotland

@@ -3,7 +3,7 @@ use strict;
 use warnings;
 
 use Test::More;
-require 'tests/integration/subdomains/get_response.pl';
+require 'tests/integration/config_rules/get_response.pl';
 
 my ( $response_code, $redirect_location) = &get_response ( 'http://tariff.businesslink.gov.uk/tariff-bl/mainMenu' );
 is( '301', $response_code, "Trade tariff homepage redirects" );
