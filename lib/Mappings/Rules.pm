@@ -172,7 +172,7 @@ sub get_suggested_links {
         $line = $self->escape_characters($line);
         
         my( $url, $text ) = split / /, $line, 2;
-        $text = $url
+        $text = $self->presentable_url($url)
             unless defined $text;
         $links .= "<li><a href='${url}'>${text}</a></li>";
     }
@@ -189,7 +189,15 @@ sub escape_characters {
     
     return $string;
 }
-
+sub presentable_url {
+    my $self = shift;
+    my $url  = shift;
+    
+    $url =~ s{^https?://(?:www\.)?}{};
+    $url =~ s{/$}{};
+    
+    return $url;
+}
 
 
 1;

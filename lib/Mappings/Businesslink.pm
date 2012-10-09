@@ -127,7 +127,7 @@ sub get_suggested_links {
         $line = $self->escape_characters($line);
         
         my( $url, $text ) = split / /, $line, 2;
-        $text = $url
+        $text = $self->presentable_url($url)
             unless defined $text;
         $links .= "<li><a href='${url}'>${text}</a></li>";
     }
