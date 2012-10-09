@@ -169,13 +169,25 @@ sub get_suggested_links {
     
     my $links;
     foreach my $line ( split /\n/, $self->{'suggested'} ) {
+        $line = $self->escape_characters($line);
+        
         my( $url, $text ) = split / /, $line, 2;
         $text = $url
             unless defined $text;
-        $links .= "<li><a href=\"${url}\">${text}</a></li>";
+        $links .= "<li><a href='${url}'>${text}</a></li>";
     }
     
-    return "\$location_suggested_links['${location}'] = '${links}';\n";
+    return "\$location_suggested_links['${location}'] = \"${links}\";\n";
+}
+sub escape_characters {
+    my $self   = shift;
+    my $string = shift;
+    
+    $string =~ s{"}{''}g;
+    $string =~ s{<}{&lt;}g;
+    $string =~ s{>}{&gt;}g;
+    
+    return $string;
 }
 
 

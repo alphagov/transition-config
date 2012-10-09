@@ -124,15 +124,17 @@ sub get_suggested_links {
     
     my $links;
     foreach my $line ( split /\n/, $self->{'suggested'} ) {
+        $line = $self->escape_characters($line);
+        
         my( $url, $text ) = split / /, $line, 2;
         $text = $url
             unless defined $text;
-        $links .= "<li><a href=\"${url}\">${text}</a></li>";
+        $links .= "<li><a href='${url}'>${text}</a></li>";
     }
     
-    return "\$query_suggested_links['${lookup}'] = '${links}';\n"
+    return "\$query_suggested_links['${lookup}'] = \"${links}\";\n"
         if defined $is_map;
-    return "\$location_suggested_links['${lookup}'] = '${links}';\n";
+    return "\$location_suggested_links['${lookup}'] = \"${links}\";\n";
 }
 
 1;
