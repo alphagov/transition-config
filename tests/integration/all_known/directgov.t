@@ -1,5 +1,5 @@
 my $test = Directgov::AllKnown->new();
-$test->input_file("dist/directgov_all_mappings.csv");
+$test->input_file("dist/directgov_mappings_source.csv");
 $test->output_file("dist/directgov_all_known_mappings_output.csv");
 $test->output_error_file("dist/directgov_all_known_mappings_that_fail.csv");
 $test->run_tests();
