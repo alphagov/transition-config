@@ -49,17 +49,17 @@ is( 'http://www.hmrc.gov.uk/agents/index.htm', $redirect_location, "redirect is 
 is( '301', $response_code, "www.business.gov.uk homepage redirects" );
 is( 'https://www.gov.uk', $redirect_location, "redirect is to https://www.gov.uk/" );
 
-( $response_code, $redirect_location) = &get_response ( 'http://www.business.gov.uk/bdotg/action/layer?r.l1=1079068363&r.s=tl&topicId=1086048413' );
+( $response_code, $redirect_location) = &get_response ( 'http://www.business.gov.uk/bdotg/action/detail?itemId=1087011081&type=RESOURCES' );
 is( '301', $response_code, "A sample www.business.gov.uk page redirects" );
-is( 'https://www.gov.uk/managing-your-waste-an-overview', $redirect_location, "redirect is to the equivalent businesslink redirect on GOV.UK" );
+is( 'https://www.gov.uk/preventing-air-pollution', $redirect_location, "redirect is to the equivalent businesslink redirect on GOV.UK" );
 
 ( $response_code, $redirect_location) = &get_response ( 'http://businesslink.gov.uk' );
 is( '301', $response_code, "businesslink.gov.uk homepage redirects" );
 is( 'https://www.gov.uk', $redirect_location, "redirect is to https://www.gov.uk/" );
 
-( $response_code, $redirect_location) = &get_response ( 'http://businesslink.gov.uk/bdotg/action/layer?r.l1=1079068363&r.s=tl&topicId=1086048413' );
+( $response_code, $redirect_location) = &get_response ( 'http://businesslink.gov.uk/bdotg/action/detail?itemId=1087011081&type=RESOURCES' );
 is( '301', $response_code, "A sample businesslink.gov.uk page redirects" );
-is( 'https://www.gov.uk/managing-your-waste-an-overview', $redirect_location, "redirect is to the equivalent businesslink redirect on GOV.UK" );
+is( 'https://www.gov.uk/preventing-air-pollution', $redirect_location, "redirect is to the equivalent businesslink redirect on GOV.UK" );
 
 ( $response_code, $redirect_location) = &get_response ( 'http://online.businesslink.gov.uk' );
 is( '301', $response_code, "online.businesslink.gov.uk homepage redirects" );
