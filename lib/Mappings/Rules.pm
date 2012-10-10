@@ -122,7 +122,7 @@ sub location_config {
             # 410 Gone
             $config = "location = $self->{'old_url_relative'} { return 410; }\n";
             $suggested_links_type = 'location_suggested_links';
-            $suggested_links = $self->get_suggested_links( $self->{'old_url_relative'} );
+            $suggested_links = $self->get_suggested_link( $self->{'old_url_relative'} );
         }
         elsif ( '301' eq $self->{'status'} ) {
             # 301 Moved Permanently
@@ -161,7 +161,7 @@ sub location_config {
         $suggested_links
     );
 }
-sub get_suggested_links {
+sub get_suggested_link {
     my $self     = shift;
     my $location = shift;
     
@@ -174,7 +174,10 @@ sub get_suggested_links {
         my( $url, $text ) = split / /, $line, 2;
         $text = $self->presentable_url($url)
             unless defined $text;
-        $links .= "<li><a href='${url}'>${text}</a></li>";
+        $links .= "<a href='${url}'>${text}</a>";
+        
+        # we only ever use the first link
+        last;
     }
     
     return "\$location_suggested_links['${location}'] = \"${links}\";\n";
