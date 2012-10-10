@@ -22,37 +22,36 @@ do
 		ls $site/*\.*$day*.gz | while read filename
 		do
 			echo $(date +"%H:%M:%S") "  $filename" >&2
+
+			# extract URL status from logfiles
 			case $(basename "$filename" .gz) in
+
+			# Business Link Akamai
 			akamai_*)
 				 gzip -d -c "$filename" | awk '/^[^#]/ { print $5 " " $6 }' | sed -e 's+^/wwwt+http://www+' -e 's+businesslink.gov.uk.akadns.net/+businesslink.gov.uk/+'
 			;;
+
+			# Business Link origin server
 			webserver*)
-				# a mixture of devolved sites
-				# https-prod http://www.businesslink.gov.uk / http://online.businesslink.gov.uk
-
-				# https-online https://online.businesslink.gov.uk
-
-				# https-ukwelcomes http://www.ukwelcomes.businesslink.gov.uk /
-				# http://online.ukwelcomes.businesslink.gov.uk
-
-				# https-online-ukwelcomes https://online.ukwelcomes.businesslink.gov.uk
-
-				# https-wales http://business.wales.gov.uk / https://business.wales.gov.uk
-
-				# https-bgateway http://www.business.scotland.gov.uk /
-				# https://www.business.scotland.gov.uk
-
-				# https-ini http://www.nibusinessinfo.co.uk / https://www.nibusinessinfo.co.uk
-
-				# https-301war This is used to add the routing onto received base
-				# domains. i.e. http://www.businesslink.gov.uk becomes
-				# http://www.businesslink.gov.uk/bdotg/action/home.
-
-			 	# e.g. GET /bdotg/action/openpopup?flag=e&itemId=1075331868&r.i=1081676012&r.t=RESOURCES&site=202&type=ONEOFFPAGE HTTP/1.1" 200 4184 "-" "Mozilla/5.0 (comp
-				# atible; AhrefsBot/3.1; +http://ahrefs.com/robot/)" GET "HTTP/1.1" https-bgateway
-
-				#gzip -d -c "$filename" | awk '/^[^#]/ { print $7 " " $9 }' | sed -e 's+^+http://www.businesslink.gov.uk+'
+				gzip -d -c "$filename" |
+				awk 'BEGIN {
+					a["https-prod"] = "http://www.businesslink.gov.uk"; 
+					a["https-online"] = "https://online.businesslink.gov.uk";
+					a["https-ukwelcomes"] = "http://www.ukwelcomes.businesslink.gov.uk";
+					a["https-online-ukwelcomes"] = "https://online.ukwelcomes.businesslink.gov.uk";
+					a["https-wales"] = "http://businesslink.gov.uk";
+					a["https-bgateway"] = "http://www.businesslink.gov.uk";
+					a["https-ini"] = "http://www.businesslink.gov.uk";
+					a["https-301war"] = "http://www.businesslink.gov.uk";
+				}
+				/^[^#]/ { print a[$(NF)] $7 " " $9 }'
 			;;
+
+			# LRC logs
+			access*)
+			;;
+
+			# DirectGov Akamai
 			prod_*) 
 				 gzip -d -c "$filename" | awk '/^[^#]/ { print $5 " " $6 }' | sed -e 's+^/theclubprod.download.akamai.com+http://www.direct.gov.uk+' -e 's+^/+http://+'
 			;;
