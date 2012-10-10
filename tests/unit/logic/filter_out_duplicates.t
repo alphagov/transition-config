@@ -5,7 +5,7 @@ use Mappings;
 
 
 
-my $mappings = Mappings->new( 'tests/migratorator_mappings/contains_duplicates.csv' );
+my $mappings = Mappings->new( 'tests/unit/contains_duplicates.csv' );
 isa_ok( $mappings, 'Mappings' );
 
 my $expected = {
