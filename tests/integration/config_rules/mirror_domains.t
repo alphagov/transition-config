@@ -11,7 +11,7 @@ is( 'https://www.gov.uk', $redirect_location, "redirect is to https://www.gov.uk
 
 ( $response_code, $redirect_location) = get_response ( 'http://www.businesslink.co.uk/bdotg/action/layer?r.s=tl&topicId=1086951342' );
 is( '301', $response_code, "A sample www.businesslink.co.uk page redirects" );
-is( 'https://www.gov.uk/renting-a-business-property-tenant-responsibilities', $redirect_location, "redirect is to the equivalent businesslink redirect on GOV.UK" );
+is( 'https://www.gov.uk/renting-business-property-tenant-responsibilities', $redirect_location, "redirect is to the equivalent businesslink redirect on GOV.UK" );
 
 ( $response_code, $redirect_location) = get_response ( 'http://www.businesslink.org' );
 is( '301', $response_code, "www.businesslink.org homepage redirects" );
