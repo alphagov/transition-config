@@ -2,8 +2,8 @@
 set -e
 mkdir -p dist
 
-# run migratorator_mappings logic tests
-prove -l tests/migratorator_mappings/logic/*.t
+# run unit logic tests
+prove -l tests/unit/logic/*.t
 
 # delete previous config, error files, etc
 rm -rf dist/*
