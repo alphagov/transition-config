@@ -7,7 +7,7 @@
 site=directgov
 
 echo $(date +"%H:%M:%S") "curling each redirect to find where it redirects to..." >&2
-awk '$3 ~ /^3/ { print $1 " " $2 }' "${site}.txt" | while read url count; do curl -f -s -o /dev/null -w '%{url_effective} %{http_code} %{redirect_url}' "$url"; echo " " $count; done > "${site}-redirects".txt
+awk '$3 ~ /^3/ { print $1 " " $2 }' "${site}.txt" | while read url count; do echo -n $url " "; curl -L -s -o /dev/null -w '%{http_code} %{url_effective}' "$url"; echo " " $count; done > "${site}-redirects".txt
 
 echo $(date +"%H:%M:%S") "moving those we can assume aren't errors (those without status of 3xx, 4xx, or 5xx) to ${site}-nonerrors.txt..." >&2
 awk '$3 !~ /^[3-5]/ { print }' < ${site}.txt | sort > ${site}-nonerrors.txt
