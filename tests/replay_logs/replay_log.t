@@ -1,12 +1,18 @@
+use strict;
+use warnings;
+use POSIX qw(strftime);
+
 my $test = ReplayLogs::ReplayLogs->new();
 my $total_hits = 0;
 my $failing_hits = 0;
 $test->input_file("dist/directgov-testable.csv");
-$test->output_file("dist/directgov-testable-output.csv");
-$test->output_error_file("dist/directgov-testable-failures.csv");
+
+my $timestamp = strftime '%Y-%m-%d-%H-%M', localtime;
+$test->output_file("dist/directgov-testable-output.${timestamp}.csv");
+$test->output_error_file("dist/directgov-testable-failures.${timestamp}.csv");
 $test->run_tests();
 
-open ( my $log_stats, ">", "dist/log_stats.txt" )
+open ( my $log_stats, ">", "dist/log_stats.${timestamp}.txt" )
         or die "dist/log_stats.txt" . ": $!";
 print $log_stats "Total hits: $total_hits\n";
 print $log_stats "Failing hits: $failing_hits\n";
