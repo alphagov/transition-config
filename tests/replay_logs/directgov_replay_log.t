@@ -12,7 +12,7 @@ $test->output_file("dist/directgov-testable-output.${timestamp}.csv");
 $test->output_error_file("dist/directgov-testable-failures.${timestamp}.csv");
 $test->run_tests();
 
-open ( my $log_stats, ">", "dist/log_stats.${timestamp}.txt" )
+open ( my $log_stats, ">", "dist/directgov_log_stats.${timestamp}.txt" )
         or die "dist/log_stats.txt" . ": $!";
 print $log_stats "Total hits: $total_hits\n";
 print $log_stats "Failing hits: $failing_hits\n";
