@@ -16,7 +16,7 @@ my $path = $uri->path_query;
 my $host = $uri->host;
 my $ua   = LWP::UserAgent->new( max_redirect => 0 );
 
-my $req_url = "http://redirector.production.alphagov.co.uk${path}";
+my $req_url = "http://redirector.preview.alphagov.co.uk${path}";
 
 my $request = HTTP::Request->new('GET', $req_url);
 $request->header( 'Host', $host );
