@@ -119,10 +119,16 @@ sub location_config {
     }
     elsif ( 'closed' eq $mapping_status ) {
         if ( '410' eq $self->{'status'} ) {
-            # 410 Gone
-            $config = "location = $self->{'old_url_relative'} { return 410; }\n";
-            $suggested_links_type = 'location_suggested_links';
-            $suggested_links = $self->get_suggested_link( $self->{'old_url_relative'} );
+            if ( $self->{'whole_tag'} =~ m{gone-welsh} ) {
+                # 410 Gone Welsh (actually a 301 to the Why No Welsh page)
+                $config = "location = $self->{'old_url_relative'} { return 301 https://www.gov.uk/cymraeg; }\n"
+            }
+            else {
+                # 410 Gone
+                $config = "location = $self->{'old_url_relative'} { return 410; }\n";
+                $suggested_links_type = 'location_suggested_links';
+                $suggested_links = $self->get_suggested_link( $self->{'old_url_relative'} );
+            }
         }
         elsif ( '301' eq $self->{'status'} ) {
             # 301 Moved Permanently
