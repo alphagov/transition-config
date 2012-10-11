@@ -6,7 +6,7 @@
 #  one for each day the processed directory for each day
 #
 
-for site in directgov # businesslink directgov
+for site in businesslink directgov
 do
 	find $site -name '*\.2012*.gz' | sed -e 's/^.*\(2012[0-1][0-9][0-9][0-9]\).*$/\1/' | sort -u |
 
@@ -43,6 +43,26 @@ do
 					a["https-bgateway"] = "http://www.businesslink.gov.uk";
 					a["https-ini"] = "http://www.businesslink.gov.uk";
 					a["https-301war"] = "http://www.businesslink.gov.uk";
+					a["aol"] = "http://aol.businesslink.gov.uk";
+					a["msn"] = "http://msn.businesslink.gov.uk";
+					a["blackpoolunlimited"] = "http://blackpoolunlimited.businesslink.gov.uk";
+					a["alliance-leicestercommercialbank"] = "http://alliance-leicestercommercialbank.businesslink.gov.uk";
+					a["sage"] = "http://sagestartup.businesslink.gov.uk";
+					a["simplybusiness"] = "http://simplybusiness.businesslink.gov.uk";
+					a["%vsid%"] = "http://www.businesslink.gov.uk";
+					a["https-elms"] = "https://elms.businesslink.gov.uk";
+					a["https-elms-ssl"] = "https://elms.businesslink.gov.uk";
+					a["https-services"] = "https://services.businesslink.gov.uk";
+
+					a["BusinessLinkEastMidlands"] = "http://www.businesslink.gov.uk";
+					a["BusinessLinkLondon"] = "http://www.businesslink.gov.uk";
+					a["BusinessLinkNorthEast"] = "http://www.businesslink.gov.uk";
+					a["BusinessLinkNorthWest"] = "http://www.businesslink.gov.uk";
+					a["BusinessLinkSouthEast"] = "http://www.businesslink.gov.uk";
+					a["BusinessLinkSouthWest"] = "http://www.businesslink.gov.uk";
+					a["BusinessLinkWestMidlands"] = "http://www.businesslink.gov.uk";
+					a["BusinessLinkYorkshire"] = "http://www.businesslink.gov.uk";
+
 				}
 				/^[^#]/ { print a[$(NF)] $7 " " $9 }'
 			;;
