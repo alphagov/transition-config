@@ -7,7 +7,7 @@ use Mappings;
 
 my %expected = (
         'www.direct.gov.uk' => {
-            'location' => qq(location = /16-19bursary { return 301 https://www.gov.uk/1619-bursary-fund; }\n),
+            'location' => qq(location ~* /16-19bursary { return 301 https://www.gov.uk/1619-bursary-fund; }\n),
         },
         'www.businesslink.gov.uk' => {
             'redirect_map' => qq(~topicId=1073858783 https://www.gov.uk/;\n),

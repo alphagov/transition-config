@@ -138,7 +138,7 @@ is( $businesslink_friendly_url_host, 'www.businesslink.gov.uk',
 	'Host that config applies to is businesslink' );
 is( $businesslink_friendly_url_type, 'location',
 	"If the location has no query string, it is a location block."  );
-is( $businesslink_friendly_url_content, "location = /tattoopeircingelectrolysis { return 410; }\n",
+is( $businesslink_friendly_url_content, "location ~* /tattoopeircingelectrolysis { return 410; }\n",
     "A friendly URL with a 410 creates a 410 location config line." );
 
 
@@ -154,7 +154,7 @@ is( $businesslink_friendly_url_host, 'www.businesslink.gov.uk',
 	'Host that config applies to is businesslink' );
 is( $businesslink_friendly_url_type, 'location',
 	"If the location has no query string, it is a location block."  );
-is( $businesslink_friendly_url_content, "location = /yorkshire { return 301 https://www.gov.uk/yorkshire; }\n",
+is( $businesslink_friendly_url_content, "location ~* /yorkshire { return 301 https://www.gov.uk/yorkshire; }\n",
     "A friendly URL with a 301 creates a location redirect." );
 
 

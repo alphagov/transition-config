@@ -3,7 +3,7 @@ use warnings;
 use Test::More tests => 4;
 use Mappings;
 
-use constant REDIRECT_NGINX => qq(location = /en/MoneyTaxAndBenefits/TaxCredits/Gettingstarted/whoqualifies/DG_201943 { return 301 https://www.gov.uk/working-tax-credit/overview; }\n);
+use constant REDIRECT_NGINX => qq(location ~* /en/MoneyTaxAndBenefits/TaxCredits/Gettingstarted/whoqualifies/DG_201943 { return 301 https://www.gov.uk/working-tax-credit/overview; }\n);
 
 
 
