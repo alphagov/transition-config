@@ -171,7 +171,7 @@ sub get_suggested_link {
     my $self     = shift;
     my $location = shift;
     
-    return unless length $self->{'suggested'};
+    return unless defined $self->{'suggested'} && length $self->{'suggested'};
     
     my $links;
     foreach my $line ( split /\n/, $self->{'suggested'} ) {
