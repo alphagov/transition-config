@@ -119,7 +119,7 @@ sub location_config {
     }
     elsif ( 'closed' eq $mapping_status ) {
         if ( '410' eq $self->{'status'} ) {
-            if ( $self->{'whole_tag'} =~ m{gone-welsh} ) {
+            if ( defined $self->{'whole_tag'} && $self->{'whole_tag'} =~ m{gone-welsh} ) {
                 # 410 Gone Welsh (actually a 301 to the Why No Welsh page)
                 $config = "location = $self->{'old_url_relative'} { return 301 https://www.gov.uk/cymraeg; }\n"
             }

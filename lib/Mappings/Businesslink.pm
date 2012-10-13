@@ -120,7 +120,7 @@ sub get_suggested_link {
     my $lookup = shift;
     my $is_map = shift;
     
-    return unless length $self->{'suggested'};
+    return unless defined $self->{'suggested'} && length $self->{'suggested'};
     
     my $links;
     foreach my $line ( split /\n/, $self->{'suggested'} ) {
