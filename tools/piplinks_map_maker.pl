@@ -72,6 +72,8 @@ sub fix_slug {
     say STDERR "bad slug $slug"
         if $slug =~ m{[^a-z0-9-]};
     $slug =~ s{ }{-}g;
+    $slug =~ s{&}{and}g;
+    $slug =~ s{'}{}g;
     $slug =~ s{[^a-z0-9-]}{-}g;
     $slug =~ s{-+}{-}g;
     $slug =~ s{-+$}{}g;
