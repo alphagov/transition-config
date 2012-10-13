@@ -149,19 +149,22 @@ sub is_redirect_response {
         my $old_url  = $row->{'Old Url'};
         my $new_url  = $row->{'New Url'};
         my $response = $self->get_response($row);
+        my $location = $response->header('location');
         
-        my $passed = $response->header('location') eq $new_url;
+        my $redirected_response_code = 599;
         my $redirected_response;
         
-        if ( $passed ) {
-            $redirected_response = $self->{'ua'}->get($new_url);
-            
-            $passed = is(
-                $redirected_response->code,
-                200,
-                "$old_url redirects to $new_url, which is 200"
-            );
+        if ( defined $location ) {
+            $redirected_response = $self->{'ua'}->get($new_url)
+                if $location eq $new_url;
+            $redirected_response_code = $redirected_response->code;
         }
+        
+        my $passed = is(
+            $redirected_response_code,
+            200,
+            "$old_url redirects to $new_url, which is 200"
+        );
         
         return(
             $passed,
