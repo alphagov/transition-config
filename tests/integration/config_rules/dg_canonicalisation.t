@@ -38,5 +38,11 @@ is( '404', $response_code, "Link that doesn't end in the DG number does not redi
 ( $response_code, $redirect_location) = get_response ( 'http://www.direct.gov.uk/cy/Environmentandgreenerliving/Greenertravel/Enjoyingthecountryside/DG_064868' );
 is( '404', $response_code, "Link with /cy does not redirect" );
 
+( $response_code, $redirect_location) = get_response ( 'http://www.direct.gov.uk/enblah/DG_064868' );
+is( '404', $response_code, "/en/ has to be whole segment" );
+
+( $response_code, $redirect_location) = get_response ( 'http://www.direct.gov.uk/en/blahDG_064868' );
+is( '404', $response_code, "DG number has to be whole segment" );
+
 
 done_testing();
