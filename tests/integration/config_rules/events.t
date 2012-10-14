@@ -32,8 +32,8 @@ foreach my $url ( '', '/', '/blah', '/some/url', '/who?eric=bananaman' ) {
         = get_response( "http://admin.events.businesslink.gov.uk${url}" );
     is( $response_code, 301, "http://admin.events.businesslink.gov.uk${url}" );
     is( $redirect_location,
-        'https://www.business-events.org.uk',
-        'redirect is to www.business-events.org.uk'
+        'https://admin.business-events.org.uk',
+        'redirect is to admin.business-events.org.uk'
     );
 }
 
