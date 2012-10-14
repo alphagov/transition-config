@@ -17,8 +17,8 @@ if ( defined $output_csv_file ) {
         or die "${output_csv_file}: $!";
 }
 
-graph_errors_in( 'dist/businesslink_redirects_test_output.csv', 'businesslink' );
-graph_errors_in( 'dist/directgov_redirects_test_output.csv',    'directgov'    );
+graph_errors_in( 'dist/businesslink_redirects_output.csv', 'businesslink' );
+graph_errors_in( 'dist/directgov_redirects_output.csv',    'directgov'    );
 exit;
 
 

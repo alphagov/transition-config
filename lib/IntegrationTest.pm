@@ -60,10 +60,12 @@ sub run_tests {
         or die $self->{'output_error_file'} . ": $!";
     
     say $output_log "Old Url,New Url,Status,Whole Tag,Test Result,"
-                    . "Actual Status,Actual New Url,New Url Status";
+                    . "Actual Status,Actual New Url,New Url Status"
+                        unless defined $self->{'output_has_no_header'};
 
     say $output_error_log "Old Url,New Url,Status,Whole Tag,Test Result,"
-                          . "Actual Status,Actual New Url,New Url Status";
+                          . "Actual Status,Actual New Url,New Url Status"
+                              unless defined $self->{'output_has_no_header'};
     
     while ( my $row = $csv->getline_hr( $fh ) ) {
         my( $passed, $response, $redirected_response )

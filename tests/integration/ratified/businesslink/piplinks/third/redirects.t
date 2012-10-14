@@ -1,5 +1,6 @@
 my $test = Businesslink::Ratified::Piplinks->new();
 $test->input_file("dist/businesslink_piplink_redirects_source.csv");
+$test->{'output_has_no_header'} = 1;
 $test->output_file("dist/businesslink_piplink_third_redirects_output.csv");
 $test->output_error_file("dist/businesslink_piplink_third_redirects_errors.csv");
 $test->run_tests();
