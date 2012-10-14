@@ -1,7 +1,10 @@
 #!/bin/sh
 
+set -x
+
 export PERL5LIB='lib'
 
+echo DEPLOY_TO=$DEPLOY_TO
 
 graphs=`perl tests/integration/count_all_sources.pl`
 
