@@ -129,7 +129,7 @@ if ( defined $option{'report-output'} ) {
 }
 
 my $tests_considered_a_fail = 0;
-my $total_mappings = $graph_numbers{"${graph_name_base}.total.total"};
+my $total_mappings = $graph_numbers{"govuk.app.redirector.total.total"};
 
 $tests_considered_a_fail = 1
    if ( $total_tests_passed/$total_mappings ) < 0.81;
