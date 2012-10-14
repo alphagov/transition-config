@@ -154,9 +154,8 @@ sub is_redirect_response {
         my $redirected_response_code = 599;
         my $redirected_response;
         
-        if ( defined $location ) {
-            $redirected_response = $self->{'ua'}->get($new_url)
-                if $location eq $new_url;
+        if ( defined $location && $location eq $new_url ) {
+            $redirected_response = $self->{'ua'}->get($new_url);
             $redirected_response_code = $redirected_response->code;
         }
         
