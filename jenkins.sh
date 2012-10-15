@@ -3,7 +3,7 @@ set -e
 mkdir -p dist
 
 # run unit logic tests
-prove -l tests/unit/logic/*.t
+# prove -l tests/unit/logic/*.t
 
 # delete previous config, error files, etc
 rm -rf dist/*
@@ -39,6 +39,6 @@ cat \
         > dist/static/dg/410.php
 cp redirector/410_suggested_links.php dist/static/dg
 
-prove -l tests/unit/sources/valid_lines.t
+# prove -l tests/unit/sources/valid_lines.t
 
 exit
