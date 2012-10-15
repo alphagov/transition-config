@@ -142,35 +142,33 @@ is( $redirect_type, 'location',
 is( $redirect, qq(location ~* ^/reallyfriendlyurl\$ { return 302 https://www.gov.uk; }\n),
     'Redirect is to the GOV.UK homepage' );
 
-# is this a valid failure?
+$directgov_redirect = { 
+	'Old Url'	=> 'http://www.direct.gov.uk/anotherfriendlyurl',
+	'New Url'	=> 'https://www.gov.uk/place',
+	'Status'	=> 301,
+	'Whole Tag' => 'status:awaiting-content',
+};
+( $redirect_host, $redirect_type, $redirect ) = $mappings->row_as_nginx_config($directgov_redirect);
+is( $redirect_host, 'www.direct.gov.uk', 
+	'Host that config applies to is directgov' );
+is( $redirect_type, 'location',
+	'A friendly URL 301 with a new URL and a status of awaiting content is added to the location block'	 );
+is( $redirect, qq(location ~* ^/anotherfriendlyurl\$ { return 302 https://www.gov.uk; }\n),
+	'Redirect is to the GOV.UK homepage' );
 
-# $directgov_redirect = { 
-# 	'Old Url'	=> 'http://www.direct.gov.uk/anotherfriendlyurl',
-# 	'New Url'	=> 'https://www.gov.uk/place',
-# 	'Status'	=> 301,
-# 	'Whole Tag' => 'status:awaiting-content',
-# };
-# ( $redirect_host, $redirect_type, $redirect ) = $mappings->row_as_nginx_config($directgov_redirect);
-# is( $redirect_host, 'www.direct.gov.uk', 
-# 	'Host that config applies to is directgov' );
-# is( $redirect_type, 'location',
-# 	'A friendly URL 301 with a new URL and a status of awaiting content is added to the location block'  );
-# is( $redirect, qq(location ~* ^/anotherfriendlyurl\$ { return 302 https://www.gov.uk; }\n),
-#     'Redirect is to the GOV.UK homepage' );
-
-# $directgov_redirect = { 
-# 	'Old Url'	=> 'http://www.directgov.gov.uk/validurl',
-# 	'New Url'	=> 'https://www.gov.uk/validredirect',
-# 	'Status'	=> 301,
-# 	'Whole Tag' => 'closed',
-# };
-# ( $redirect_host, $redirect_type, $redirect ) = $mappings->row_as_nginx_config($directgov_redirect);
-# is( $redirect_host, 'www.direct.gov.uk', 
-# 	'Host that config applies to is directgov' );
-# is( $redirect_type, 'location',
-# 	'A friendly URL 301 with a new URL and a status of closed is added to the location map'  );
-# is( $redirect, qq(location ~* ^/validurl\$ { return 301 https://www.gov.uk/validredirect; }\n),
-#     'Redirect is as expected' );
+$directgov_redirect = { 
+	'Old Url'	=> 'http://www.direct.gov.uk/validurl',
+	'New Url'	=> 'https://www.gov.uk/validredirect',
+	'Status'	=> 301,
+	'Whole Tag' => 'closed',
+};
+( $redirect_host, $redirect_type, $redirect ) = $mappings->row_as_nginx_config($directgov_redirect);
+is( $redirect_host, 'www.direct.gov.uk', 
+	'Host that config applies to is directgov' );
+is( $redirect_type, 'location',
+	'A friendly URL 301 with a new URL and a status of closed is added to the location map'	 );
+is( $redirect, qq(location ~* ^/validurl\$ { return 301 https://www.gov.uk/validredirect; }\n),
+	'Redirect is as expected' );
 
 $directgov_redirect = { 
 	'Old Url'	=> 'http://www.direct.gov.uk/reallybrokenurl',
