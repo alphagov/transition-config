@@ -40,12 +40,12 @@ sub actual_nginx_config {
                     $suggested_links = $self->get_suggested_link($map_key, 1);
                 }
                 elsif ( '301' eq $self->{'status'} ) {
-                    if ( 'awaiting-content' eq $mapping_status || 'awaiting-publication' eq $mapping_status ) {
-                        # 418 I'm a Teapot -- used to signify "page will exist soon"
-                        $config_or_error_type   = 'awaiting_content_map';
-                        $config_line = "~${map_key} 418;\n";
-                    }
-                    elsif ( length $self->{'new_url'}) {
+                    # if ( 'awaiting-content' eq $mapping_status || 'awaiting-publication' eq $mapping_status ) {
+                    #     # 418 I'm a Teapot -- used to signify "page will exist soon"
+                    #     $config_or_error_type   = 'awaiting_content_map';
+                    #     $config_line = "~${map_key} 418;\n";
+                    # }
+                    if ( length $self->{'new_url'}) {
                         # 301 Moved Permanently
                         $config_or_error_type   = 'redirect_map';
                         $config_line = "~${map_key} $self->{'new_url'};\n";
@@ -54,6 +54,10 @@ sub actual_nginx_config {
                         $config_or_error_type = 'no_destination_error';
                         $config_line = "$self->{'old_url'}\n";
                     }
+                }
+                elsif ( '302' eq $self->{'status'} ) {
+                    $config_or_error_type   = 'awaiting_content_map';
+                    $config_line = "~${map_key} https://www.gov.uk;\n";
                 }
                 $self->{'duplicates'}{$map_key} = 1;
             }

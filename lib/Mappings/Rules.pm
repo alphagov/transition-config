@@ -153,17 +153,28 @@ sub dg_location_config {
             # 301 Moved Permanently
             if ( length $self->{'new_url'} ) {
                 $config = "location ~* ^/en/(.*/)?$self->{'dg_number'}\$ { return 301 $self->{'new_url'}; }\n";
+
             }
             else {
                 $config_or_error_type   = 'no_destination_error';
                 $config = "$self->{'old_url'}\n";
             }
         }
+        elsif ( '302' eq $self->{'status'} || 'awaiting-content' eq $mapping_status ) {
+            # 302 Moved Temporarily
+            $config = "location ~* ^/en/(.*/)?$self->{'dg_number'}\$ { return 302 https://www.gov.uk; }\n";
+        }
     }
     elsif ( 'awaiting-content' eq $mapping_status ) {
-        # 418 I'm a Teapot -- used to signify "page will exist soon"
-        $config = "location = $self->{'old_url_relative'} { return 418; }\n";
+        # 302 Moved Temporarily
+        $config = "location ~* ^/en/(.*/)?$self->{'dg_number'}\$ { return 302 https://www.gov.uk; }\n";
     }
+        
+    # }
+    # elsif ( 'awaiting-content' eq $mapping_status ) {
+    #     # 418 I'm a Teapot -- used to signify "page will exist soon"
+    #     $config = "location = $self->{'old_url_relative'} { return 418; }\n";
+    # }
     else {
         $config_or_error_type   = 'unresolved';
         $config = "$self->{'old_url'}\n";
@@ -221,11 +232,15 @@ sub location_config {
                 $config_or_error_type   = 'no_destination_error';
                 $config = "$self->{'old_url'}\n";
             }
+        } 
+        elsif ( '302' eq $self->{'status'} || 'awaiting-content' eq $mapping_status ) {
+            # 302 Moved Temporarily
+            $config = "location ~* ^$self->{'old_url_relative'}\$ { return 302 https://www.gov.uk; }\n";
         }
     }
     elsif ( 'awaiting-content' eq $mapping_status ) {
-        # 418 I'm a Teapot -- used to signify "page will exist soon"
-        $config = "location = $self->{'old_url_relative'} { return 418; }\n";
+        # 302 Moved Temporarily
+        $config = "location ~* ^$self->{'old_url_relative'}\$ { return 302 https://www.gov.uk; }\n";
     }
     else {
         $config_or_error_type   = 'unresolved';
