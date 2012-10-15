@@ -127,14 +127,7 @@ if ( defined $option{'report-output'} ) {
     print {$report_handle} $output;
     print STDERR $errors;
 }
-
-my $tests_considered_a_fail = 0;
-my $total_mappings = $graph_numbers{"govuk.app.redirector.total.total"};
-
-$tests_considered_a_fail = 1
-   if ( $total_tests_passed/$total_mappings ) < 0.81;
-
-exit $tests_considered_a_fail;
+exit;
 
 
 

@@ -1,5 +1,6 @@
 #!/bin/sh
 
+set -e
 set -x
 
 export PERL5LIB='lib'
@@ -41,3 +42,5 @@ if [ "$DEPLOY_TO" = 'production' ]; then
     perl tests/integration/graph_redirects_results.pl dist/integration_results.csv
     perl tests/integration/graph_open_sources.pl dist/integration_results.csv
 fi
+
+perl fail_build.pl
