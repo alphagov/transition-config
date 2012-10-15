@@ -19,6 +19,10 @@ perl -Ilib create_mappings.pl dist/businesslink_mappings_source.csv
 # OTHER TEST DATA
 cp data/businesslink_piplink_redirects_source.csv dist
 
+# BUSINESSLINK LRC
+#tools/lrc.sh
+#prove tools/test-log.pl  < dist/lrc.csv 2> dist/lrc.errors
+
 # NGINX
 rsync -a redirector/. dist/.
 

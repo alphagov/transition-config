@@ -1,7 +1,9 @@
 #!/bin/bash
 
 #
-#  finds LRC URLs
+#  find and prune LRC URLs from the BT supplied logs
+#
+#  - raw log files are on the transition machine
 #
 
 mkdir -p lrc
