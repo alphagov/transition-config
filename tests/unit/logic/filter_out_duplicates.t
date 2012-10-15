@@ -16,7 +16,7 @@ my $expected = {
     },
     'www.direct.gov.uk' => {
         'duplicate_entry_error' => "http://www.direct.gov.uk/en/MoneyTaxAndBenefits/TaxCredits/Gettingstarted/whoqualifies/DG_201943\n",
-        'location' => "location ~* /en/MoneyTaxAndBenefits/TaxCredits/Gettingstarted/whoqualifies/DG_201943 { return 301 https://www.gov.uk/working-tax-credit/overview; }\n",
+        'location' => "location ~* /en/(.*/)?dg_201943\$ { return 301 https://www.gov.uk/working-tax-credit/overview; }\n",
     },
 };
 

@@ -7,7 +7,7 @@ use Mappings;
 
 my %expected = (
         'www.direct.gov.uk' => {
-            'location' => qq(location ~* /cy/Parents/Yourchildshealthandsafety/WorriedAbout/DG_10026210CY { return 301 https://www.gov.uk/cymraeg; }\nlocation ~* /en/Nl1/Newsroom/DG_187286 { return 410; }\n),
+            'location' => qq(location ~* ^/cy/Parents/Yourchildshealthandsafety/WorriedAbout/DG_10026210CY\$ { return 301 https://www.gov.uk/cymraeg; }\nlocation ~* /en/(.*/)?dg_187286\$ { return 410; }\n),
         },
     );
 
