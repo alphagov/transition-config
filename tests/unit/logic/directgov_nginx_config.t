@@ -46,7 +46,7 @@ is( $awaiting_content_host, 'www.direct.gov.uk',
 	'Host that config applies to is Directgov' );
 is( $awaiting_content_type, 'location',
 	'If host is Directgov and type is awaiting content, type of nginx block is location'  );
-is( $awaiting_content, qq(location = /en/TravelAndTransport/Passports/Howtochangethenameonyourpassport.html { return 418; }\n),
+is( $awaiting_content, qq(location ~* ^/en/TravelAndTransport/Passports/Howtochangethenameonyourpassport.html\$ { return 302 https://www.gov.uk; }\n),
     'Nginx config is as expected' );
 
 
