@@ -37,5 +37,5 @@ sub test_row {
     ok( $old_url =~ m{^https?://},  "$old_url should be a full URL"  );
     
     my $new_url = $row->{'New Url'};
-    ok( $new_url !~ m{^http://www.gov.uk}, "$new_url should point to HTTPS" );
+    ok( $new_url !~ m{^http://www.gov.uk}, "$old_url points to $new_url - should point to HTTPS" );
 }
