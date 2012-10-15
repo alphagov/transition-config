@@ -17,7 +17,7 @@ is( $redirect_host, 'www.direct.gov.uk',
 	'Host that config applies to is directgov' );
 is( $redirect_type, 'location',
 	'If host is Directgov and type is redirect, type of nginx block is location' );
-is( $redirect, qq(location ~* /en/(.*/)?dg_201943\$ { return 301 https://www.gov.uk/working-tax-credit/overview; }\n),
+is( $redirect, qq(location ~* ^/en/(.*/)?dg_201943\$ { return 301 https://www.gov.uk/working-tax-credit/overview; }\n),
     'Nginx config is as expected' );
 
 
@@ -31,7 +31,7 @@ is( $gone_host, 'www.direct.gov.uk',
 	'Host that config applies to is directgov' );
 is( $gone_type, 'location',
 	'If host is Directgov and type is gone, type of nginx block is location'  );
-is( $gone, qq(location ~* /en/(.*/)?dg_10011810\$ { return 410; }\n),
+is( $gone, qq(location ~* ^/en/(.*/)?dg_10011810\$ { return 410; }\n),
     'Nginx config is as expected' );
 
 
