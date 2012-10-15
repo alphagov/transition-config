@@ -140,11 +140,11 @@ sub dg_location_config {
         if ( '410' eq $self->{'status'} ) {
             if ( defined $self->{'whole_tag'} && $self->{'whole_tag'} =~ m{gone-welsh} ) {
                 # 410 Gone Welsh (actually a 301 to the Why No Welsh page)
-                $config = "location ~* /en/(.*/)?$self->{'dg_number'}\$ { return 301 https://www.gov.uk/cymraeg; }\n"
+                $config = "location ~* ^/en/(.*/)?$self->{'dg_number'}\$ { return 301 https://www.gov.uk/cymraeg; }\n"
             }
             else {
                 # 410 Gone
-                $config = "location ~* /en/(.*/)?$self->{'dg_number'}\$ { return 410; }\n";
+                $config = "location ~* ^/en/(.*/)?$self->{'dg_number'}\$ { return 410; }\n";
                 $suggested_links_type = 'location_suggested_links';
                 $suggested_links = $self->get_suggested_link( $self->{'dg_number'} );
             }
@@ -152,7 +152,7 @@ sub dg_location_config {
         elsif ( '301' eq $self->{'status'} ) {
             # 301 Moved Permanently
             if ( length $self->{'new_url'} ) {
-                $config = "location ~* /en/(.*/)?$self->{'dg_number'}\$ { return 301 $self->{'new_url'}; }\n";
+                $config = "location ~* ^/en/(.*/)?$self->{'dg_number'}\$ { return 301 $self->{'new_url'}; }\n";
             }
             else {
                 $config_or_error_type   = 'no_destination_error';

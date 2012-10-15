@@ -44,5 +44,14 @@ is( '404', $response_code, "/en/ has to be whole segment" );
 ( $response_code, $redirect_location) = get_response ( 'http://www.direct.gov.uk/en/blahDG_064868' );
 is( '404', $response_code, "DG number has to be whole segment" );
 
+( $response_code, $redirect_location) = get_response ( 'http://www.direct.gov.uk/en/DG_064868blah' );
+is( '404', $response_code, "DG number has to be whole segment" );
+
+( $response_code, $redirect_location) = get_response ( 'http://www.direct.gov.uk/en/blahDG_064868blah' );
+is( '404', $response_code, "DG number has to be whole segment" );
+
+( $response_code, $redirect_location) = get_response ( 'http://www.direct.gov.uk/blah/en/DG_064868' );
+is( '404', $response_code, "URL has to start with /en" );
+
 
 done_testing();
