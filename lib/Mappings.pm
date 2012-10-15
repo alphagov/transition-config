@@ -7,8 +7,6 @@ use Mappings::Rules;
 use Text::CSV;
 use URI::Split  qw( uri_split uri_join );
 
-my %duplicate_key_errors;
-
 
 
 sub new {
@@ -17,6 +15,8 @@ sub new {
     
     my $self = {};
     bless $self, $class;
+    
+    $self->{'duplicate_key_errors'} = {};
     
     $self->{'csv'} = Text::CSV->new({ binary => 1 });
     open $self->{'csv_handle'}, '<:encoding(utf8)', $csv_file
@@ -70,7 +70,7 @@ sub row_as_nginx_config {
     my $self = shift;
     my $row  = shift; 
     
-    my $rules = Mappings::Rules->new( $row, \%duplicate_key_errors );
+    my $rules = Mappings::Rules->new( $row, $self->{'duplicate_key_errors'} );
     return unless defined $rules;
     return $rules->as_nginx_config();
 }
