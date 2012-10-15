@@ -31,11 +31,7 @@ is( $gone_host, 'www.direct.gov.uk',
 	'Host that config applies to is directgov' );
 is( $gone_type, 'location',
 	'If host is Directgov and type is gone, type of nginx block is location'  );
-<<<<<<< HEAD
 is( $gone, qq(location ~* /en/Dl1/Directories/DG_10011810 { return 410; }\n),
-=======
-is( $gone, qq(location = /en/Dl1/Directories.html { return 410; }\n),
->>>>>>> 73df51d705c7447e226d7afe54eed7e92d550b7e
     'Nginx config is as expected' );
 
 
