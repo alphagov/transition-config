@@ -71,14 +71,14 @@ is( '301', $response_code, "A sample sage page redirects" );
 is( 'https://www.gov.uk/browse/business/waste-environment', $redirect_location, "redirect is to the equivalent businesslink redirect on GOV.UK" );
 
 # blackpool unlimited is not going to change
-( $response_code, $redirect_location) = get_response ( 'http://blackpoolunlimited.businesslink.gov.uk' );
-is( '500', $response_code, "blackpoolunlimited homepage is not handled by the redirector" );
-
-( $response_code, $redirect_location) = get_response ( 'http://blackpoolunlimited.businesslink.gov.uk/portal/action/home?&domain=blackpoolunlimited.businesslink.gov.uk' );
-is( '500', $response_code, "actual blackpoolunlimited homepage is not handled by the redirector" );
-
-( $response_code, $redirect_location) = get_response ( 'http://blackpoolunlimited.businesslink.gov.uk/portal/action/layer?topicId=1073858787' );
-is( '500', $response_code, "A sample blackpoolunlimited page is not handled by the redirector" );
+# ( $response_code, $redirect_location) = get_response ( 'http://blackpoolunlimited.businesslink.gov.uk' );
+# is( '500', $response_code, "blackpoolunlimited homepage is not handled by the redirector" );
+# 
+# ( $response_code, $redirect_location) = get_response ( 'http://blackpoolunlimited.businesslink.gov.uk/portal/action/home?&domain=blackpoolunlimited.businesslink.gov.uk' );
+# is( '500', $response_code, "actual blackpoolunlimited homepage is not handled by the redirector" );
+# 
+# ( $response_code, $redirect_location) = get_response ( 'http://blackpoolunlimited.businesslink.gov.uk/portal/action/layer?topicId=1073858787' );
+# is( '500', $response_code, "A sample blackpoolunlimited page is not handled by the redirector" );
 
 
 done_testing();
