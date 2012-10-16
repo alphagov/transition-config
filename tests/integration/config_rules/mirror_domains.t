@@ -35,7 +35,7 @@ is( 'https://www.gov.uk', $redirect_location, "redirect is to https://www.gov.uk
 
 ( $response_code, $redirect_location) = get_response ( 'http://businesslink.co.uk/bdotg/action/detail?itemId=1084193360&r.l1=1073858787&r.l2=1084607697&r.l3=1084188521&r.s=sc&type=RESOURCES' );
 is( '301', $response_code, "A sample businesslink.co.uk page redirects" );
-is( 'https://www.gov.uk/checks-on-job-applicants', $redirect_location, "redirect is to the equivalent businesslink redirect on GOV.UK" );
+is( 'https://www.gov.uk/employers-checks-job-applicants', $redirect_location, "redirect is to the equivalent businesslink redirect on GOV.UK" );
 
 ( $response_code, $redirect_location) = get_response ( 'http://businesslink.org' );
 is( '301', $response_code, "businesslink.org homepage redirects" );
@@ -67,7 +67,7 @@ is( 'https://www.gov.uk', $redirect_location, "redirect is to https://www.gov.uk
 
 ( $response_code, $redirect_location) = get_response ( 'http://online.businesslink.gov.uk/bdotg/action/detail?itemId=1084193360&r.l1=1073858787&r.l2=1084607697&r.l3=1084188521&r.s=sc&type=RESOURCES' );
 is( '301', $response_code, "A sample online.businesslink.gov.uk page redirects" );
-is( 'https://www.gov.uk/checks-on-job-applicants', $redirect_location, "redirect is to the equivalent businesslink redirect on GOV.UK" );
+is( 'https://www.gov.uk/employers-checks-job-applicants', $redirect_location, "redirect is to the equivalent businesslink redirect on GOV.UK" );
 
 
 done_testing();

@@ -14,7 +14,7 @@ my $redirect_location;
     = get_response( 'http://www.elearning.businesslink.gov.uk/startingup/0064' );
 is( $response_code, 301, 'http://www.elearning.businesslink.gov.uk/startingup/0064' );
 is( $redirect_location,
-    'https://www.gov.uk/corporation-tax-rates',
+    'https://www.gov.uk/pay-corporation-tax',
     'redirect is to correct gov.uk URL'
 );
 
