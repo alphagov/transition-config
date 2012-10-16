@@ -217,7 +217,7 @@ sub is_valid_redirector_response {
 
     my $response = $self->get_response($row);
     my $response_code = $response->code;
-    my $valid_response = ( 410 == $response_code || 301 == $response_code || 200 == $response_code );
+    my $valid_response = ( 410 == $response_code || 301 == $response_code || 302 == $response_code || 200 == $response_code );
 
     my $old_url  = $row->{'Old Url'};
 
