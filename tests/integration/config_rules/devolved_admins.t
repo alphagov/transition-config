@@ -31,15 +31,15 @@ is( 'https://www.gov.uk/vat-businesses',
 	$redirect_location, "to the correct businesslink redirect" );
 
 # Northern Ireland
-( $response_code, $redirect_location) = get_response ( 'http://www.businesslink.gov.uk/bdotg/action/detail?itemId=1073792345&r.l1=1073861225&r.l2=1073866217&r.l3=1074018703&r.s=sc&type=RESOURCES&site=191' );
+( $response_code, $redirect_location) = get_response ( 'http://www.businesslink.gov.uk/bdotg/action/layer?r.l1=1073858805&r.l2=1085541869&r.s=m&topicId=1073859188&site=191' );
 is( '301', $response_code, "A sample site=191 redirects" );
-is( 'http://www.nibusinessinfo.co.uk/bdotg/action/detail?itemId=1073792345&r.l1=1073861225&r.l2=1073866217&r.l3=1074018703&r.s=sc&type=RESOURCES&site=191', 
+is( 'http://www.nibusinessinfo.co.uk/bdotg/action/layer?r.l1=1073858805&r.l2=1085541869&r.s=m&topicId=1073859188&site=191', 
 	$redirect_location, "redirect is the equivalent page on nibusinessinfo" );
 
 # Same one without site=191
-( $response_code, $redirect_location) = get_response ( 'http://www.businesslink.gov.uk/bdotg/action/detail?itemId=1073792345&r.l1=1073861225&r.l2=1073866217&r.l3=1074018703&r.s=sc&type=RESOURCES' );
+( $response_code, $redirect_location) = get_response ( 'http://www.businesslink.gov.uk/bdotg/action/layer?r.l1=1073858805&r.l2=1085541869&r.s=m&topicId=1073859188' );
 is( '301', $response_code, "The same page without site=191 redirects" );
-is( 'https://www.gov.uk/selling-your-business-your-responsibilities', 
+is( 'https://www.gov.uk/vat-businesses', 
 	$redirect_location, "to the correct businesslink redirect" );
 
 

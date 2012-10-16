@@ -17,9 +17,9 @@ is( 'https://www.gov.uk/renting-business-property-tenant-responsibilities', $red
 is( '301', $response_code, "www.businesslink.org homepage redirects" );
 is( 'https://www.gov.uk', $redirect_location, "redirect is to https://www.gov.uk/" );
 
-( $response_code, $redirect_location) = get_response ( 'http://www.businesslink.org/bdotg/action/detail?itemId=1076795317&r.l1=1073858790&r.l2=1084705429&r.l3=1087443481&r.l4=1076795303&r.s=m&type=RESOURCES' );
+( $response_code, $redirect_location) = get_response ( 'http://www.businesslink.org/bdotg/action/layer?r.s=tl&topicId=1086951342' );
 is( '301', $response_code, "A sample www.businesslink.org page redirects" );
-is( 'https://www.gov.uk/business-finance-explained', $redirect_location, "redirect is to the equivalent businesslink redirect on GOV.UK" );
+is( 'https://www.gov.uk/renting-business-property-tenant-responsibilities', $redirect_location, "redirect is to the equivalent businesslink redirect on GOV.UK" );
 
 ( $response_code, $redirect_location) = get_response ( 'http://business.gov.uk' );
 is( '301', $response_code, "business.gov.uk homepage redirects" );
