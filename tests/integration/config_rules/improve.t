@@ -23,7 +23,7 @@ foreach my $url ( '', '/', '/blah', '/some/url', '/who?eric=bananaman' ) {
         = get_response( "http://www.improve.businesslink.gov.uk${url}" );
     is( $response_code, 301, "http://www.improve.businesslink.gov.uk${url}" );
     is( $redirect_location,
-        'https://www.gov.uk/browse/business',
+        'https://www.gov.uk/growing-your-business',
         'redirect is to correct gov.uk URL'
     );
 }
