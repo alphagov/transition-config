@@ -5,9 +5,7 @@ $test->input_file("dist/businesslink_piplink_redirects_source.csv");
 $test->{'output_has_no_header'} = 1;
 $test->output_file("dist/businesslink_piplink_fourth_redirects_output.csv");
 $test->output_error_file("dist/businesslink_piplink_fourth_redirects_errors.csv");
-pass('piplinks testing currently disabled');
-done_testing();
-# $test->run_tests();
+$test->run_tests();
 exit;
 
 
