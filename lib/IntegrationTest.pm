@@ -14,14 +14,15 @@ use URI;
 sub new {
     my $class = shift;
     
-    my $host_type = $ENV{'DEPLOY_TO'} // 'preview';
-
     my $self = {
         ua => LWP::UserAgent->new( max_redirect => 0 ),
-        redirector_host => "http://redirector.${host_type}.alphagov.co.uk",
     };
     bless $self, $class;
-
+    
+    my $host_type = $ENV{'DEPLOY_TO'} // 'preview';
+    $self->{'use_redirector'} = 1
+        if 'preview' eq $host_type;
+    
     return $self;
 }
 
@@ -120,13 +121,19 @@ sub get_response {
     my $self = shift;
     my $row  = shift;
     
-    my $old_uri        = URI->new( $row->{'Old Url'} );
-    my $redirector_url = sprintf '%s%s',
-                            $self->{'redirector_host'},
-                            $old_uri->path_query;
-    
-    my $request = HTTP::Request->new( 'GET', $redirector_url );
-    $request->header( 'Host', $old_uri->host );
+    my $request;
+    if ( $self->{'use_redirector'} ) {
+        my $old_uri        = URI->new( $row->{'Old Url'} );
+        my $redirector_url = sprintf '%s%s',
+                                'http://redirector.preview.alphagov.co.uk',
+                                $old_uri->path_query;
+        
+        $request = HTTP::Request->new( 'GET', $redirector_url );
+        $request->header( 'Host', $old_uri->host );
+    }
+    else {
+        $request = HTTP::Request->new( 'GET', $row->{'Old Url'} );
+    }
     
     return $self->{'ua'}->request($request);
 }

@@ -8,7 +8,7 @@ use URI;
 
 my $host_type = $ENV{'DEPLOY_TO'} // 'preview';
 my $ua = LWP::UserAgent->new( max_redirect => 0 );
-my $redirector_host = "http://redirector.${host_type}.alphagov.co.uk";
+my $redirector_host = "http://redirector.preview.alphagov.co.uk";
 
 sub get_response {
     my $test_url       = shift;
@@ -20,7 +20,7 @@ sub get_response {
     $test_uri->path_query;
     
     my $request;
-    if ( $not_redirector ) {
+    if ( $not_redirector || 'production' eq $host_type ) {
         $request = HTTP::Request->new( 'GET', $test_url );
     }
     else {
