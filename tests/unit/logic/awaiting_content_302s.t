@@ -19,8 +19,8 @@ is( $redirect_host, 'www.businesslink.gov.uk',
 	'Host that config applies to is businesslink' );
 is( $redirect_type, 'awaiting_content_map',
 	'A 302 with no new URL is added to the awaiting content map'  );
-is( $redirect, qq(~topicId=12345678 https://www.gov.uk;\n),
-    'Redirect is to the GOV.UK homepage' );
+is( $redirect, qq(~topicId=12345678 https://www.gov.uk/browse/business/maritime;\n),
+    'Redirect is to the GOV.UK maritime browse page' );
 
 $businesslink_redirect = { 
 	'Old Url'	=> 'http://www.businesslink.gov.uk/bdotg/action/?topicId=01234567',
@@ -33,8 +33,8 @@ is( $redirect_host, 'www.businesslink.gov.uk',
 	'Host that config applies to is businesslink' );
 is( $redirect_type, 'awaiting_content_map',
 	'A 302 with a new URL is added to the awaiting content map'  );
-is( $redirect, qq(~topicId=01234567 https://www.gov.uk;\n),
-    'Redirect is to the GOV.UK homepage' );
+is( $redirect, qq(~topicId=01234567 https://www.gov.uk/browse/business/maritime;\n),
+    'Redirect is to the GOV.UK maritime browse page' );
 
 $businesslink_redirect = { 
 	'Old Url'	=> 'http://www.businesslink.gov.uk/bdotg/action/?topicId=00123456',

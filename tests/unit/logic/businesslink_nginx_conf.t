@@ -45,7 +45,7 @@ is( $awaiting_content_host, 'www.businesslink.gov.uk',
 	'Host that config applies to is businesslink' );
 is( $awaiting_content_type, 'awaiting_content_map',
 	"If status is 302 and whole tag 'status' is 'awaiting content', type of nginx block is awaiting_content_map"  );
-is( $awaiting_content, qq(~topicId=1073858854 https://www.gov.uk;\n),
+is( $awaiting_content, qq(~topicId=1073858854 https://www.gov.uk/browse/business/maritime;\n),
     'Nginx config is as expected' );
 
 
@@ -74,7 +74,7 @@ is( $awaiting_publication_host, 'www.businesslink.gov.uk',
 	'Host that config applies to is businesslink' );
 is( $awaiting_publication_type, 'awaiting_content_map',
 	"If status is 302 type of nginx block is awaiting_content_map"  );
-is( $awaiting_publication, qq(~topicId=1073858860 https://www.gov.uk;\n),
+is( $awaiting_publication, qq(~topicId=1073858860 https://www.gov.uk/browse/business/maritime;\n),
     'Nginx config is as expected' );
 
 

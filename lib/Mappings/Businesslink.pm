@@ -45,7 +45,7 @@ sub actual_nginx_config {
             }
             elsif ( '302' eq $self->{'status'} ) {
                 $config_or_error_type   = 'awaiting_content_map';
-                $config_line = "~${map_key} https://www.gov.uk;\n";
+                $config_line = "~${map_key} https://www.gov.uk/browse/business/maritime;\n";
             }
             $self->{'duplicates'}{$map_key} = 1;
         }
