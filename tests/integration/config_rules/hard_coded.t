@@ -10,7 +10,7 @@ require 'tests/integration/config_rules/get_response.pl';
 my ( $response_code, $redirect_location) = get_response ( 'http://www.businesslink.gov.uk/bdotg/action/ruDetail?itemId=1080466320&type=REGUPDATE' );
 is( '410', $response_code, "Anything containining ruDetail should be a 410" );
 
-my ( $response_code, $redirect_location) = get_response ( 'http://www.businesslink.gov.uk/bdotg/action/ruDetail?itemId=1079357338&type=REGUPDATE' );
+( $response_code, $redirect_location) = get_response ( 'http://www.businesslink.gov.uk/bdotg/action/ruDetail?itemId=1079357338&type=REGUPDATE' );
 is( '410', $response_code, "Anything containining ruDetail should be a 410" );
 
 # hub

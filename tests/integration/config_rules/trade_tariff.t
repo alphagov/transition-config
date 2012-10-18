@@ -25,7 +25,7 @@ is( 'https://www.gov.uk/trade-tariff', $redirect_location, "redirect is to https
 
 # devolved admin trade-tariffs should not be handled by the redirector.
 # NI
-my $error_status = $ENV{'DEPLOY_TO'} eq 'production' ? 502 : 500;
+my $error_status = $ENV{'DEPLOY_TO'} eq 'production' ? 200 : 500;
 
 ( $response_code, $redirect_location) = get_response ( 'http://tariff.nibusinessinfo.co.uk/tariff-bl/mainMenu' );
 is( $error_status, $response_code, "The NI trade tariff homepage should not be handled by the redirector" );
