@@ -9,7 +9,7 @@ use Net::Statsd;
 
 
 my $businesslink_mappings
-    = count_rows_in_csv('dist/businesslink_mappings_source.csv');
+    = count_rows_in_csv('dist/businesslink_mappings_source.csv')
     + count_rows_in_csv('dist/businesslink_piplink_redirects_source.csv');
 my $directgov_mappings
     = count_rows_in_csv('dist/directgov_mappings_source.csv');
