@@ -5,6 +5,12 @@ use warnings;
 use Test::More;
 require 'tests/integration/config_rules/get_response.pl';
 
+if ( 'preview' eq $ENV{'DEPLOY_TO'} ) {
+    pass("Don't bother testing syndicated domains on preview.");
+    done_testing();
+    exit;
+}
+
 # aol
 my ( $response_code, $redirect_location) = get_response ( 'http://aol.businesslink.gov.uk' );
 is( '200', $response_code, "aol homepage does not redirect" );
