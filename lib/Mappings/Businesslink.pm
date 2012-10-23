@@ -55,8 +55,12 @@ sub actual_nginx_config {
         }
         
         # this is to deal with online, which has exactly the same rules
-        # as www - should be handled better        
-        $self->{'old_url_parts'}{'host'} = 'www.businesslink.gov.uk'; 
+        # as www - should be handled better
+        my $host = $self->{'old_url_parts'}{'host'};
+        
+        $self->{'old_url_parts'}{'host'} = 'www.businesslink.gov.uk'
+            if 'online.businesslink.gov.uk' eq $host
+                || 'businesslink.gov.uk' eq $host;
         
         return(
             $self->{'old_url_parts'}{'host'},
