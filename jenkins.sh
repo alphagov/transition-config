@@ -28,10 +28,6 @@ touch redirector/lrc_map.conf
 # tools/lrc.sh > dist/lrc.csv
 # prove tools/test-log.pl  < dist/lrc.csv 2> dist/lrc.errors
 
-# generate sitemaps
-perl tools/sitemap.pl dist/directgov_mappings_source.csv > redirector/static/dg/sitemap.xml
-perl tools/sitemap.pl dist/businesslink_mappings_source.csv > redirector/static/bl/sitemap.xml
-
 # NGINX
 rsync -a redirector/. dist/.
 
@@ -53,7 +49,11 @@ cat \
         > dist/static/dg/410.php
 cp redirector/410_suggested_links.php dist/static/dg
 
-#prove -l tests/unit/sources/valid_sitemaps.t
 prove -l tests/unit/sources/valid_lines.t
+
+# generate sitemaps
+perl tools/sitemap.pl dist/directgov_mappings_source.csv 'www.direct.gov.uk' > dist/static/dg/sitemap.xml
+perl tools/sitemap.pl dist/businesslink_mappings_source.csv 'www.businesslink.gov.uk' 'online.businesslink.gov.uk' > dist/static/bl/sitemap.xml
+prove -l tests/unit/sources/valid_sitemaps.t
 
 exit
