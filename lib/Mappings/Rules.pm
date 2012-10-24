@@ -268,9 +268,9 @@ sub get_suggested_link {
     foreach my $line ( split /\n/, $self->{'suggested'} ) {
         $line = $self->escape_characters($line);
         
-        my( $url, $text ) = split / /, $line, 2;
+        my( $url, $text ) = split / +/, $line, 2;
         $text = $self->presentable_url($url)
-            unless defined $text;
+            unless defined $text && length $text;
         $links .= "<a href='${url}'>${text}</a>";
         
         # we only ever use the first link
