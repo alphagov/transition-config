@@ -5,7 +5,7 @@ use Mappings;
 
 
 
-my $mappings = Mappings->new( 'tests/unit/first_line_good.csv' );
+my $mappings = Mappings->new( 'tests/unit/test_data/first_line_good.csv' );
 isa_ok( $mappings, 'Mappings' );
 
 

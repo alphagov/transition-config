@@ -3,7 +3,7 @@ use warnings;
 use Test::More tests => 2;
 use Mappings;
 
-my $mappings = Mappings->new( 'tests/unit/row.csv' );
+my $mappings = Mappings->new( 'tests/unit/test_data/row.csv' );
 isa_ok( $mappings, 'Mappings' );
 
 my $row = $mappings->get_row();

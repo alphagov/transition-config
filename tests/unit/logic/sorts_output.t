@@ -17,7 +17,7 @@ location ~* ^/en/EducationAndLearning/14To19/index.htm$ { return 301 https://www
 );
 
 
-my $mappings = Mappings->new( 'tests/unit/not_sorted.csv' );
+my $mappings = Mappings->new( 'tests/unit/test_data/not_sorted.csv' );
 isa_ok( $mappings, 'Mappings' );
 
 my $configs = $mappings->entire_csv_as_nginx_config();

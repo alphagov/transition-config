@@ -18,7 +18,7 @@ my %expected = (
     );
 
 
-my $mappings = Mappings->new( 'tests/unit/suggested_links.csv' );
+my $mappings = Mappings->new( 'tests/unit/test_data/suggested_links.csv' );
 isa_ok( $mappings, 'Mappings' );
 
 my $configs = $mappings->entire_csv_as_nginx_config();

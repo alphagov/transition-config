@@ -5,7 +5,7 @@ use Mappings;
 
 
 
-my $mappings = Mappings->new( 'tests/unit/contains_duplicates.csv' );
+my $mappings = Mappings->new( 'tests/unit/test_data/contains_duplicates.csv' );
 isa_ok( $mappings, 'Mappings' );
 
 my $expected = {

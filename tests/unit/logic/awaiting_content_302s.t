@@ -4,7 +4,7 @@ use Test::More;
 use Mappings;
 
 
-my $mappings = Mappings->new( 'tests/unit/first_line_good.csv' );
+my $mappings = Mappings->new( 'tests/unit/test_data/first_line_good.csv' );
 isa_ok( $mappings, 'Mappings' );
 
 # businesslink maps
@@ -125,7 +125,7 @@ is( $redirect, qq(http://www.businesslink.gov.uk/invalidurl\n),
 
 # directgov locations
 
-$mappings = Mappings->new( 'tests/unit/first_line_good.csv' );
+$mappings = Mappings->new( 'tests/unit/test_data/first_line_good.csv' );
 isa_ok( $mappings, 'Mappings' );
 
 my $directgov_redirect = { 
