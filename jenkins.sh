@@ -10,7 +10,8 @@ rm -rf dist/*
 
 # DIRECTGOV
 # curl "https://${MIGRATORATOR_AUTH}@migratorator.production.alphagov.co.uk/mappings.csv" > dist/directgov_mappings_source.csv
-perl -Ilib create_mappings.pl data/directgov_mappings_source_20121025.csv
+cp data/directgov_mappings_source_20121025.csv dist/directgov_mappings_source.csv
+perl -Ilib create_mappings.pl dist/directgov_mappings_source.csv
 
 # BUSINESSLINK
 curl "https://docs.google.com/spreadsheet/pub?key=0AprXhKI73WmwdHMwaW1aZVphOUJ1a3dTTGhJSFV5dGc&single=true&gid=0&output=csv" > dist/businesslink_mappings_source.csv
@@ -52,7 +53,7 @@ cp redirector/410_suggested_links.php dist/static/dg
 prove -l tests/unit/sources/valid_lines.t
 
 # generate sitemaps
-perl tools/sitemap.pl data/directgov_mappings_source_20121025.csv 'www.direct.gov.uk' > dist/static/dg/sitemap.xml
+perl tools/sitemap.pl dist/directgov_mappings_source.csv 'www.direct.gov.uk' > dist/static/dg/sitemap.xml
 perl tools/sitemap.pl dist/businesslink_mappings_source.csv 'www.businesslink.gov.uk' 'online.businesslink.gov.uk' > dist/static/bl/sitemap.xml
 prove -l tests/unit/sources/valid_sitemaps.t
 
