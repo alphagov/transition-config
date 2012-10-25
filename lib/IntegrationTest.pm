@@ -218,6 +218,29 @@ sub is_gone_response {
     
     return -1;
 }
+sub is_ok_response {
+    my $self = shift;
+    my $row  = shift;
+
+    if ( 200 == $row->{'Status'} ) {
+        my $response = $self->get_response($row);
+        my $old_url  = $row->{'Old Url'};
+
+        my $passed = is(
+                $response->code,
+                200,
+                "$old_url returns 200"
+            );
+
+        return(
+            $passed,
+            $response,
+            undef
+        );
+    }
+
+    return -1;
+}
 sub is_valid_redirector_response {
     my $self = shift;
     my $row  = shift;
