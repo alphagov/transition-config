@@ -1,4 +1,5 @@
 my $test = Top_250::Directgov->new();
+$test->{'force_production_redirector'} = 1;
 $test->input_file("tests/integration/test_data/top_250_directgov_urls.csv");
 $test->output_file("dist/top_250_directgov_test_output.csv");
 $test->output_error_file("dist/top_250_directgov_failures.csv");

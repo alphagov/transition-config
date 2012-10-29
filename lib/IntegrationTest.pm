@@ -131,6 +131,15 @@ sub get_response {
         $request = HTTP::Request->new( 'GET', $redirector_url );
         $request->header( 'Host', $old_uri->host );
     }
+    elsif ( $self->{'force_production_redirector'} ) {
+        my $old_uri        = URI->new( $row->{'Old Url'} );
+        my $redirector_url = sprintf '%s%s',
+                                'http://redirector.production.alphagov.co.uk',
+                                $old_uri->path_query;
+        
+        $request = HTTP::Request->new( 'GET', $redirector_url );
+        $request->header( 'Host', $old_uri->host );
+    }
     else {
         $request = HTTP::Request->new( 'GET', $row->{'Old Url'} );
     }

@@ -1,4 +1,5 @@
 my $test = Top_250::BusinessLink->new();
+$test->{'force_production_redirector'} = 1;
 $test->input_file("tests/integration/test_data/sample_piplink_urls.csv");
 $test->output_file("dist/piplinks_test_output.csv");
 $test->output_error_file("dist/piplink_failures.csv");
