@@ -9,8 +9,6 @@ echo DEPLOY_TO=$DEPLOY_TO
 
 graphs=`perl tests/integration/count_all_sources.pl`
 
-prove -lj4 tests/integration/config_rules/
-
 perl tests_with_graphs.pl \
         --tests tests/integration/ratified \
         --graph-base 'govuk.app.redirector.ratified' \
