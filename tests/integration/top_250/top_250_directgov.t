@@ -18,8 +18,18 @@ use Test::More;
 sub test {
     my $self = shift;
     
-    $self->is_redirect_response(@_);
- 	$self->is_gone_response(@_);
-    $self->is_ok_response(@_);
-       
+    my ( $passed, $response, $test_response ) = $self->is_redirect_response(@_);
+    
+    if ( -1 == $passed ) {
+    	( $passed, $response, $test_response ) = $self->is_gone_response(@_);
+    	if ( -1 == $passed ) {
+    		( $passed, $response, $test_response ) = $self->is_ok_response(@_);
+    	}
+    }
+
+    return ( 
+    	$passed, 
+    	$response, 
+    	$test_response 
+    ); 
 }
