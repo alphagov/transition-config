@@ -79,6 +79,9 @@ sub fix_slug {
     $slug =~ s{-+$}{}g;
     $slug =~ s{^-+}{}g;
     
+    # "special" case
+    $slug =~ s{sex-establishment-sex-cinema}{sex-establishment---sex-cinema};
+    
     return $slug;
 }
 sub output_nginx_maps {
