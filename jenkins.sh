@@ -9,7 +9,8 @@ prove -l tests/unit/logic/*.t
 rm -rf dist/*
 
 # DIRECTGOV
-curl "https://${MIGRATORATOR_AUTH}@migratorator.production.alphagov.co.uk/mappings.csv" > dist/directgov_mappings_source.csv
+# curl "https://${MIGRATORATOR_AUTH}@migratorator.production.alphagov.co.uk/mappings.csv" > dist/directgov_mappings_source.csv
+cp data/directgov_mappings_source_20121030.csv dist/directgov_mappings_source.csv
 perl -Ilib create_mappings.pl dist/directgov_mappings_source.csv
 
 # BUSINESSLINK
