@@ -12,7 +12,12 @@ use LWP::UserAgent;
 use URI;
 use Test::Simple;
 
+my $host_type = $ENV{'DEPLOY_TO'} // "dev";
 my $redirector_host = "http://localhost";
+
+if ($host_type eq "preview") {
+	$redirector_host = "http://redirector.preview.alphagov.co.uk";
+}
 
 my $ua = LWP::UserAgent->new( max_redirect => 0 ),
 
@@ -23,18 +28,23 @@ $csv->column_names( @$names );
 
 while (my $row = $csv->getline_hr($fh)) {
 
-	my ($url, $location, $status, $count, $meta) = (
+	my ($url, $location, $status, $md5) = (
 		$row->{'Old Url'},
 		$row->{'New Url'},
 		$row->{'Status'},
-		$row->{'Count'},
-		$row->{'Whole Tag'},
+		$row->{'md5'},
 	);
 
 	my $uri = URI->new($url);
 
-	my $request = HTTP::Request->new('GET', "http://localhost" . $uri->path_query);
-	$request->header( 'Host', $uri->host );
+	my $request;
+	
+	if ($host_type eq "production") {
+		$request = HTTP::Request->new('GET', $url);
+	} else {
+		$request = HTTP::Request->new('GET', $redirector_host . $uri->path_query);
+		$request->header( 'Host', $uri->host );
+	}
 
 	my $response = $ua->request($request);
 
