@@ -15,9 +15,10 @@ use Test::More;
 my $host_type = $ENV{'DEPLOY_TO'} // "dev";
 my $redirector_host = "http://localhost";
 
-if ($host_type eq "preview") {
-	$redirector_host = "http://redirector.preview.alphagov.co.uk";
-}
+$redirector_host = 'http://redirector.preview.alphagov.co.uk'
+    if $host_type eq 'preview';
+$redirector_host = 'http://redirector.production.alphagov.co.uk'
+    if $host_type eq 'production';
 
 my $ua = LWP::UserAgent->new( max_redirect => 0 ),
 
@@ -39,12 +40,8 @@ while (my $row = $csv->getline_hr($fh)) {
 
 	my $request;
 	
-	if ($host_type eq "production") {
-		$request = HTTP::Request->new('GET', $url);
-	} else {
-		$request = HTTP::Request->new('GET', $redirector_host . $uri->path_query);
-		$request->header( 'Host', $uri->host );
-	}
+	$request = HTTP::Request->new('GET', $redirector_host . $uri->path_query);
+	$request->header( 'Host', $uri->host );
 
 	my $response = $ua->request($request);
 
