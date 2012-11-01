@@ -48,7 +48,7 @@ cpcRecord,https://dsa.dft.gov.uk/cpctrain
 umbrellasearch,http://www.homeoffice.gov.uk/agencies-public-bodies/crb/services/ub-search/
 umbrellaupdate,http://www.crb.homeoffice.gov.uk/businesslink/umbrella_body_update.aspx
 jobwarehouse,https://jobwarehouse.businesslink.gov.uk/gateway.aspx
-edon,https://edon.businesslink.gov.uk/gateway.aspx?xgovr3h=edon
+edon,https://edon.businesslink.gov.uk/gateway.aspx?xgovr3h=edon&xgovk3w=bl1000
 CIS_Contractor_AAG,https://online.hmrc.gov.uk/linkto?hmrctxnid=CIS_Contractor_AAG
 CIS_Agents_AAG,https://online.hmrc.gov.uk/linkto?hmrctxnid=CIS_Agents_AAG
 CT_Orgs_AAG,https://online.hmrc.gov.uk/linkto?hmrctxnid=CT_Orgs_AAG
