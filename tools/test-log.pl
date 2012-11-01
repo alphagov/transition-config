@@ -10,7 +10,7 @@ use Text::CSV;
 use HTTP::Request;
 use LWP::UserAgent;
 use URI;
-use Test::Simple;
+use Test::More;
 
 my $host_type = $ENV{'DEPLOY_TO'} // "dev";
 my $redirector_host = "http://localhost";
@@ -22,7 +22,7 @@ if ($host_type eq "preview") {
 my $ua = LWP::UserAgent->new( max_redirect => 0 ),
 
 my $csv = Text::CSV->new( { binary => 1 } );
-my $fh = *STDIN;
+open my $fh, '<', 'data/lrc_tests.csv';
 my $names = $csv->getline( $fh );
 $csv->column_names( @$names );
 
@@ -48,9 +48,11 @@ while (my $row = $csv->getline_hr($fh)) {
 
 	my $response = $ua->request($request);
 
-	ok($response->code eq $status, "$url status E:[$status] R:[" . $response->code . "]");
+	is( $response->code, $status, "${url} should return $status" );
 
 	if ($location || $response->header('location')) {
-		ok($response->header('location') eq $location, "$url location E:[$location] R:[" . $response->header('location') . "]");
+		is( $response->header('location'), $location, "$url should redirect to $location");
 	}
 }
+
+done_testing();
