@@ -22,7 +22,7 @@ cp data/businesslink_piplink_redirects_source.csv dist
 
 # BUSINESSLINK LRC
 perl tools/lrc_map_maker.pl data/lrc_transactions_source.csv > dist/lrc_map.conf
-prove tools/test-log.pl < data/lrc_tests.csv 2> dist/lrc.errors
+# prove tools/test-log.pl < data/lrc_tests.csv 2> dist/lrc.errors
 
 # NGINX
 rsync -a redirector/. dist/.
