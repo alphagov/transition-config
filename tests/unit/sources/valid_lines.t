@@ -4,6 +4,7 @@ use warnings;
 
 use Test::More;
 use Text::CSV;
+use URI;
 
 
 test_file('dist/businesslink_mappings_source.csv');
@@ -36,6 +37,20 @@ sub test_row {
     ok( $old_url ne '#REF!',        "$old_url should not be '#REF!'" );
     ok( $old_url =~ m{^https?://},  "$old_url should be a full URL"  );
     
+    # strip leading/trailing whitespace before comparing
+    $old_url =~ s{^\s*(.*?)\s*$}{$1};
+    my $old_uri = URI->new($old_url);
+    is( $old_uri, $old_url, "$old_url should be a valid URL" );
+
     my $new_url = $row->{'New Url'};
     ok( $new_url !~ m{^http://www.gov.uk}, "$old_url points to $new_url - should point to HTTPS" );
+    
+    if ( "301" eq $row->{'Status'} && $new_url ne '' ) {
+        # strip leading/trailing whitespace before comparing
+        $new_url =~ s{^\s*(.*?)\s*$}{$1};
+        my $new_uri = URI->new($new_url);
+        
+        ok( $new_url =~ m{^https?://}, "$new_url (from $old_url) should be a full URL"  );
+        is( $new_uri, $new_url,        "$new_url (from $old_url) should be a valid URL" );
+    }
 }
