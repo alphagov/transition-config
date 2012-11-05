@@ -81,6 +81,8 @@ sub fix_slug {
     
     # "special" case
     $slug =~ s{sex-establishment-sex-cinema}{sex-establishment---sex-cinema};
+    $slug =~ s{domestic-energy-assessor-existing-buildings}{domestic-energy-assessor---existing-buildings};
+    $slug =~ s{registration-carrier-broker-of-controlled-waste}{registration-carrier---broker-of-controlled-waste};
     
     return $slug;
 }
