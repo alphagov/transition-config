@@ -21,7 +21,7 @@ lbopsearch,http://www.tan.gov.uk/tanen/VOSA_AnonymousOperatorSearch_New.asp
 vosa1,http://www.tan.gov.uk/tanen/VOSA_AnonymousOperatorSearch_New.asp
 vosa7,http://www.tan.gov.uk/tanen/VOSA_AnonymousOperatorSearch_New.asp
 registertrademark,http://www.ipo.gov.uk/bl-tm3-start
-vanfueldata,http://vanfueldata.dft.gov.uk/
+vanfueldata,http://vanfueldata.dft.gov.uk/?xgovr3h=vanfueldata
 dangerousgoods,http://www.dft.gov.uk/dangerous-goods-database/
 CIS_Contractor_AAG,https://online.hmrc.gov.uk/linkto?hmrctxnid=CIS_Contractor_AAG
 SA_Agent_AAG,https://online.hmrc.gov.uk/linkto?hmrctxnid=SA_Agent_AAG
