@@ -206,6 +206,10 @@ sub location_config {
     my $suggested_links;
     my $config;
     
+    # remove %-encoding in source mappings for nginx
+    my $old_url = $self->{'old_url_relative'};
+    $old_url =~ s/%([0-9A-Fa-f]{2})/chr(hex($1))/eg;
+    
     if ( defined $self->{'duplicates'}{$duplicate_entry_key} ) {
         $config_or_error_type = 'duplicate_entry_error';
         $config = "$self->{'old_url'}\n";
@@ -213,14 +217,14 @@ sub location_config {
     elsif ( 'closed' eq $mapping_status ) {
         if ( '410' eq $self->{'status'} ) {
             # 410 Gone
-            $config = "location ~* ^$self->{'old_url_relative'}\$ { return 410; }\n";
+            $config = "location ~* ^${old_url}\$ { return 410; }\n";
             $suggested_links_type = 'location_suggested_links';
             $suggested_links = $self->get_suggested_link( $self->{'old_url_relative'} );
         }
         elsif ( '301' eq $self->{'status'} ) {
             # 301 Moved Permanently
             if ( length $self->{'new_url'} ) {
-                $config = "location ~* ^$self->{'old_url_relative'}\$ { return 301 $self->{'new_url'}; }\n";
+                $config = "location ~* ^${old_url}\$ { return 301 $self->{'new_url'}; }\n";
             }
             else {
                 $config_or_error_type   = 'no_destination_error';
@@ -229,12 +233,12 @@ sub location_config {
         } 
         elsif ( '302' eq $self->{'status'} || 'awaiting-content' eq $mapping_status ) {
             # 302 Moved Temporarily
-            $config = "location ~* ^$self->{'old_url_relative'}\$ { return 302 https://www.gov.uk; }\n";
+            $config = "location ~* ^${old_url}\$ { return 302 https://www.gov.uk; }\n";
         }
     }
     elsif ( 'awaiting-content' eq $mapping_status ) {
         # 302 Moved Temporarily
-        $config = "location ~* ^$self->{'old_url_relative'}\$ { return 302 https://www.gov.uk; }\n";
+        $config = "location ~* ^${old_url}\$ { return 302 https://www.gov.uk; }\n";
     }
     else {
         $config_or_error_type   = 'unresolved';
