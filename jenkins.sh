@@ -56,11 +56,11 @@ cat \
     redirector/static/communities/410.html \
         > dist/static/communities/410.php
 
-prove -l tests/unit/sources/valid_lines.t
-
 # generate sitemaps
 perl tools/sitemap.pl dist/directgov_mappings_source.csv 'www.direct.gov.uk' > dist/static/dg/sitemap.xml
 perl tools/sitemap.pl dist/businesslink_mappings_source.csv 'www.businesslink.gov.uk' 'online.businesslink.gov.uk' > dist/static/bl/sitemap.xml
-prove -l tests/unit/sources/valid_sitemaps.t
+
+# test everything, to fail the build if bad data
+prove -lj4 tests/unit/sources
 
 exit
