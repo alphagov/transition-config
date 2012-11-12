@@ -3,7 +3,7 @@ set -e
 mkdir -p dist
 
 # run unit logic tests
-prove -l tests/unit/logic/*.t
+prove -lj4 tests/unit/logic/*.t
 
 # delete previous config, error files, etc
 rm -rf dist/*
