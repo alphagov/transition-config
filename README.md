@@ -1,4 +1,7 @@
 redirector
 ==========
 
-Downloads the Directgov mappings from the Migratorator and the Business Link mappings from Ben's spreadsheet in GoogleDocs, and builds Nginx config to redirect the DirectGov and Business Link Web sites.
+Builds nginx config to redirect the DirectGov and Business Link Web sites, as well as various other departmental websites.
+
+Directgov mappings are downloaded from the Migratorator.
+Business Link mappings are stored in the data folder of this directory.
