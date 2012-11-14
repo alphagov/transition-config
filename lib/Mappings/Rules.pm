@@ -224,6 +224,10 @@ sub location_config {
     # strip trailing slashes, as they are added as optional in nginx
     $old_url =~ s{/$}{};
     
+    # escape characters with nginx config meaning in the destination
+    my $new_url = $self->{'new_url'};
+    $new_url =~ s{;}{\\;}g;
+    
     if ( defined $self->{'duplicates'}{$duplicate_entry_key} ) {
         $config_or_error_type = 'duplicate_entry_error';
         $config = "$self->{'old_url'}\n";
