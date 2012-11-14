@@ -58,7 +58,7 @@ is( '200', $response_code, "simply business homepage does not redirect" );
 is( '200', $response_code, "actual simply business homepage does not redirect" );
 
 ( $response_code, $redirect_location) = get_response ( 'http://simplybusiness.businesslink.gov.uk/portal/action/layer?r.l1=1073861225&r.s=m&topicId=1079068363' );
-is( '200', $response_code, "A sample sage page does not redirect" );
+is( '200', $response_code, "A sample simply business page does not redirect" );
 
 ( $response_code, $redirect_location) = get_response ( 'http://blackpoolunlimited.businesslink.gov.uk' );
 is( '200', $response_code, "Blackpool Unlimited does not redirect" );
