@@ -271,6 +271,9 @@ sub get_suggested_link {
     
     return unless defined $self->{'suggested'} && length $self->{'suggested'};
     
+    # strip trailing slashes for predictable matching in 410 page code
+    $location =~ s{/$}{};
+    
     my $links;
     foreach my $line ( split /\n/, $self->{'suggested'} ) {
         $line = $self->escape_characters($line);
