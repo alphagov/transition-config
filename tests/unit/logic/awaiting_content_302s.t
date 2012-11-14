@@ -77,7 +77,7 @@ is( $redirect_host, 'www.businesslink.gov.uk',
 	'Host that config applies to is businesslink' );
 is( $redirect_type, 'location',
 	'A friendly URL 302 with no new URL is added to the location block'  );
-is( $redirect, qq(location ~* ^/friendlyurl\$ { return 302 https://www.gov.uk; }\n),
+is( $redirect, qq(location ~* ^/friendlyurl/?\$ { return 302 https://www.gov.uk; }\n),
     'Redirect is to the GOV.UK homepage' );
 
 $businesslink_redirect = { 
@@ -91,7 +91,7 @@ is( $redirect_host, 'www.businesslink.gov.uk',
 	'Host that config applies to is businesslink' );
 is( $redirect_type, 'location',
 	'A friendly URL 302 with a new URL is added to the location block'  );
-is( $redirect, qq(location ~* ^/anotherfriendlyurl\$ { return 302 https://www.gov.uk; }\n),
+is( $redirect, qq(location ~* ^/anotherfriendlyurl/?\$ { return 302 https://www.gov.uk; }\n),
     'Redirect is to the GOV.UK homepage' );
 
 $businesslink_redirect = { 
@@ -105,7 +105,7 @@ is( $redirect_host, 'www.businesslink.gov.uk',
 	'Host that config applies to is businesslink' );
 is( $redirect_type, 'location',
 	'A friendly URL 301 with a new URL is added to the location map'  );
-is( $redirect, qq(location ~* ^/validurl\$ { return 301 https://www.gov.uk/validplace; }\n),
+is( $redirect, qq(location ~* ^/validurl/?\$ { return 301 https://www.gov.uk/validplace; }\n),
     'Redirect is as expected' );
 
 $businesslink_redirect = { 
@@ -139,7 +139,7 @@ is( $redirect_host, 'www.direct.gov.uk',
 	'Host that config applies to is directgov' );
 is( $redirect_type, 'location',
 	'A friendly URL 301 with no new URL and a tag of awaiting content is added to the location block'  );
-is( $redirect, qq(location ~* ^/reallyfriendlyurl\$ { return 302 https://www.gov.uk; }\n),
+is( $redirect, qq(location ~* ^/reallyfriendlyurl/?\$ { return 302 https://www.gov.uk; }\n),
     'Redirect is to the GOV.UK homepage' );
 
 $directgov_redirect = { 
@@ -153,7 +153,7 @@ is( $redirect_host, 'www.direct.gov.uk',
 	'Host that config applies to is directgov' );
 is( $redirect_type, 'location',
 	'A friendly URL 301 with a new URL and a status of awaiting content is added to the location block'	 );
-is( $redirect, qq(location ~* ^/anotherfriendlyurl\$ { return 302 https://www.gov.uk; }\n),
+is( $redirect, qq(location ~* ^/anotherfriendlyurl/?\$ { return 302 https://www.gov.uk; }\n),
 	'Redirect is to the GOV.UK homepage' );
 
 $directgov_redirect = { 
@@ -167,7 +167,7 @@ is( $redirect_host, 'www.direct.gov.uk',
 	'Host that config applies to is directgov' );
 is( $redirect_type, 'location',
 	'A friendly URL 301 with a new URL and a status of closed is added to the location map'	 );
-is( $redirect, qq(location ~* ^/validurl\$ { return 301 https://www.gov.uk/validredirect; }\n),
+is( $redirect, qq(location ~* ^/validurl/?\$ { return 301 https://www.gov.uk/validredirect; }\n),
 	'Redirect is as expected' );
 
 $directgov_redirect = { 

@@ -8,7 +8,7 @@ use Mappings;
 my %expected = (
         'www.direct.gov.uk' => {
 
-            'location' => qq(location ~* ^/16-19bursary\$ { return 410; }\nlocation ~* ^/en/(.*/)?dg_10034785\$ { return 410; }\n),
+            'location' => qq(location ~* ^/16-19bursary/?\$ { return 410; }\nlocation ~* ^/en/(.*/)?dg_10034785\$ { return 410; }\n),
             'location_suggested_links' => qq(\$location_suggested_links['/16-19bursary'] = "<a href='http://www.dwp.gov.uk'>Department for &lt;b&gt;''Work and Pensions''&lt;/b&gt;</a>";\n),
         },
         'www.businesslink.gov.uk' => {

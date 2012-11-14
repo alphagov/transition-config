@@ -18,7 +18,7 @@ is( $redirect_host, 'www.improve.businesslink.gov.uk',
 is( $redirect_type, 'location',
     'Type is location'  );
 is( $redirect, 
-    qq(location ~* ^/content/how-designing-demand-helped-us-rebrand-–-tastetech-ltd\$ { return 410; }\n),
+    qq(location ~* ^/content/how-designing-demand-helped-us-rebrand-–-tastetech-ltd/?\$ { return 410; }\n),
     'Nginx config has original characters, not percent-encoded' );
 
 
@@ -34,7 +34,7 @@ is( $redirect_host, 'www.improve.businesslink.gov.uk',
 is( $redirect_type, 'location',
     'Type is location'  );
 is( $redirect, 
-    qq(location ~* ^/content/how-designing-demand-helped-us-rebrand-–-tastetech-ltd\$ { return 301 https://www.gov.uk/tastetech; }\n),
+    qq(location ~* ^/content/how-designing-demand-helped-us-rebrand-–-tastetech-ltd/?\$ { return 301 https://www.gov.uk/tastetech; }\n),
     'Nginx config has original characters, not percent-encoded' );
 
 $mappings = Mappings->new( 'tests/unit/test_data/first_line_good.csv' );
@@ -49,7 +49,7 @@ is( $redirect_host, 'www.direct.gov.uk',
 is( $redirect_type, 'location',
     'Type is location'  );
 is( $redirect, 
-    qq(location ~* ^/content/how-designing-demand-helped-us-rebrand-–-tastetech-ltd\$ { return 410; }\n),
+    qq(location ~* ^/content/how-designing-demand-helped-us-rebrand-–-tastetech-ltd/?\$ { return 410; }\n),
     'Nginx config has original characters, not percent-encoded' );
 
 $mappings = Mappings->new( 'tests/unit/test_data/first_line_good.csv' );
@@ -64,7 +64,7 @@ is( $redirect_host, 'www.direct.gov.uk',
 is( $redirect_type, 'location',
     'Type is location'  );
 is( $redirect, 
-    qq(location ~* ^/content/how-designing-demand-helped-us-rebrand-–-tastetech-ltd\$ { return 301 https://www.gov.uk/tastetech; }\n),
+    qq(location ~* ^/content/how-designing-demand-helped-us-rebrand-–-tastetech-ltd/?\$ { return 301 https://www.gov.uk/tastetech; }\n),
     'Nginx config has original characters, not percent-encoded' );
 
 done_testing();
