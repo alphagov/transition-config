@@ -241,8 +241,8 @@ sub location_config {
         }
         elsif ( '301' eq $self->{'status'} ) {
             # 301 Moved Permanently
-            if ( length $self->{'new_url'} ) {
-                $config = "location ~* ^${old_url}/?\$ { return 301 $self->{'new_url'}; }\n";
+            if ( length $new_url ) {
+                $config = "location ~* ^${old_url}/?\$ { return 301 $new_url; }\n";
             }
             else {
                 $config_or_error_type   = 'no_destination_error';
