@@ -46,6 +46,10 @@ sub test_source_line {
     my $self = shift;
     my $row  = shift;
     
+    # only test closed sources
+    my $mapping_status = lc $row->{'Whole Tag'};
+    return unless $mapping_status =~ m{\bclosed\b};
+    
     my $old_url = $row->{'Old Url'};
     ok(
         $old_url ne '#REF!',
