@@ -217,6 +217,9 @@ sub location_config {
     $old_url =~ s{\)}{\\)}g;
     $old_url =~ s{\.}{\\.}g;
     
+    # escape spaces
+    $old_url =~ s{ }{\\ }g;
+    
     # strip trailing slashes, as they are added as optional in nginx
     $old_url =~ s{/$}{};
     
