@@ -212,6 +212,11 @@ sub location_config {
     my $old_url = $self->{'old_url_relative'};
     $old_url =~ s/%([0-9A-Fa-f]{2})/chr(hex($1))/eg;
     
+    # escape characters with regexp meaning
+    $old_url =~ s{\(}{\\(}g;
+    $old_url =~ s{\)}{\\)}g;
+    $old_url =~ s{\.}{\\.}g;
+    
     # strip trailing slashes, as they are added as optional in nginx
     $old_url =~ s{/$}{};
     

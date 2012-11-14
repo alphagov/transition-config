@@ -12,8 +12,8 @@ location ~* ^/en/(.*/)?dg_10034785$ { return 410; }
 location ~* ^/en/(.*/)?dg_200994$ { return 410; }
 location ~* ^/en/(.*/)?dg_201156$ { return 410; }
 location ~* ^/en/(.*/)?dg_201943$ { return 301 https://www.gov.uk/working-tax-credit/overview; }
-location ~* ^/en/EducationAndLearning/14To19/MoneyToLearn/16to19bursary/index.htm/?$ { return 301 https://www.gov.uk/1619-bursary-fund; }
-location ~* ^/en/EducationAndLearning/14To19/index.htm/?$ { return 301 https://www.gov.uk/browse/education; }
+location ~* ^/en/EducationAndLearning/14To19/MoneyToLearn/16to19bursary/index\.htm/?$ { return 301 https://www.gov.uk/1619-bursary-fund; }
+location ~* ^/en/EducationAndLearning/14To19/index\.htm/?$ { return 301 https://www.gov.uk/browse/education; }
 );
 
 

@@ -17,7 +17,7 @@ is( $redirect_host, 'www.direct.gov.uk',
 	'Host that config applies to is directgov' );
 is( $redirect_type, 'location',
 	'If host is Directgov and type is redirect, type of nginx block is location' );
-is( $redirect, qq(location ~* ^/en/MoneyTaxAndBenefits/TaxCredits/Gettingstarted/whoqualifies.html/?\$ { return 301 https://www.gov.uk/working-tax-credit/overview; }\n),
+is( $redirect, qq(location ~* ^/en/MoneyTaxAndBenefits/TaxCredits/Gettingstarted/whoqualifies\\.html/?\$ { return 301 https://www.gov.uk/working-tax-credit/overview; }\n),
     'Nginx config is as expected' );
 
 
@@ -31,7 +31,7 @@ is( $gone_host, 'www.direct.gov.uk',
 	'Host that config applies to is directgov' );
 is( $gone_type, 'location',
 	'If host is Directgov and type is gone, type of nginx block is location'  );
-is( $gone, qq(location ~* ^/en/Dl1/Directories.html/?\$ { return 410; }\n),
+is( $gone, qq(location ~* ^/en/Dl1/Directories\\.html/?\$ { return 410; }\n),
     'Nginx config is as expected' );
 
 
@@ -46,7 +46,7 @@ is( $awaiting_content_host, 'www.direct.gov.uk',
 	'Host that config applies to is Directgov' );
 is( $awaiting_content_type, 'location',
 	'If host is Directgov and type is awaiting content, type of nginx block is location'  );
-is( $awaiting_content, qq(location ~* ^/en/TravelAndTransport/Passports/Howtochangethenameonyourpassport.html/?\$ { return 302 https://www.gov.uk; }\n),
+is( $awaiting_content, qq(location ~* ^/en/TravelAndTransport/Passports/Howtochangethenameonyourpassport\\.html/?\$ { return 302 https://www.gov.uk; }\n),
     'Nginx config is as expected' );
 
 
