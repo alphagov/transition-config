@@ -9,7 +9,7 @@ die "Usage: create_mappings.pl <input_csv>"
     unless defined $csv;
 
 my $mappings = Mappings->new( $csv );
-die "Not a valid CSV"
+die "$csv: not a valid CSV"
     unless defined $mappings;
 
 my $configs = $mappings->entire_csv_as_nginx_config();
