@@ -75,8 +75,4 @@ is ( 'https://www.gov.uk', $redirect_location, "to the GOV.UK homepage");
 is( '301', $response_code, "A sample simply business page redirects" );
 is ( 'https://www.gov.uk/browse/business/waste-environment', $redirect_location, "to the appropriate GOV.UK page");
 
-( $response_code, $redirect_location) = get_response ( 'http://blackpoolunlimited.businesslink.gov.uk' );
-is( '301', $response_code, "Blackpool Unlimited redirects" );
-is ( 'https://www.gov.uk', $redirect_location, "to the GOV.UK homepage");
-
 done_testing();
