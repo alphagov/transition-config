@@ -5,12 +5,6 @@ use warnings;
 use Test::More;
 require 'tests/integration/config_rules/get_response.pl';
 
-if ( 'production' eq $ENV{'DEPLOY_TO'} ) {
-    pass("Don't bother testing communities on production before it goes live.");
-    done_testing();
-    exit;
-}
-
 my $response_code;
 my $redirect_location;
 
