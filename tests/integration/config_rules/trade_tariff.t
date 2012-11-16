@@ -22,31 +22,4 @@ is( 'https://www.gov.uk/trade-tariff', $redirect_location, "redirect is to https
 is( '301', $response_code, "content.tariff.businesslink.gov.uk redirects" );
 is( 'https://www.gov.uk/trade-tariff', $redirect_location, "redirect is to https://www.gov.uk/trade-tariff" );
 
-
-# devolved admin trade-tariffs should not be handled by the redirector.
-# NI
-my $error_status = $ENV{'DEPLOY_TO'} eq 'production' ? 200 : 500;
-
-( $response_code, $redirect_location) = get_response ( 'http://tariff.nibusinessinfo.co.uk/tariff-bl/mainMenu' );
-is( $error_status, $response_code, "The NI trade tariff homepage should not be handled by the redirector" );
-
-( $response_code, $redirect_location) = get_response ( 'http://tariff.nibusinessinfo.co.uk/tariff-bl/export/sections.html?export=true' );
-is( $error_status, $response_code, "A sample NI trade tariff page should not be handled by the redirector" );
-
-# FIXME commented out because DNS is wrong
-# # Scotland
-# ( $response_code, $redirect_location) = get_response ( 'http://tariff.business.scotland.gov.uk/tariff-bl/mainMenu' );
-# is( $error_status, $response_code, "The Scotland trade tariff homepage should not be handled by the redirector" );
-# 
-# ( $response_code, $redirect_location) = get_response ( 'http://tariff.business.scotland.gov.uk/tariff-bl/export/section.html?export=true&from=list&id=04&simulationDate=09/10/12' );
-# is( $error_status, $response_code, "A sample Scotland trade tariff page should not be handled by the redirector" );
-
-# Wales
-( $response_code, $redirect_location) = get_response ( 'http://tariff.business.wales.gov.uk/tariff-bl/mainMenu' );
-is( $error_status, $response_code, "The Wales trade tariff homepage should not be handled by the redirector" );
-
-( $response_code, $redirect_location) = get_response ( 'http://tariff.business.wales.gov.uk/tariff-bl/export/heading.html?export=false&simulationDate=11/10/12&id=2309105100&additionalCode1=&additionalCode2=&additionalCode3=&countryCode=' );
-is( $error_status, $response_code, "A sample Wales trade tariff page should not be handled by the redirector" );
-
-
 done_testing();
