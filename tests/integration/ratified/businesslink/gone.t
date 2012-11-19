@@ -1,8 +1,8 @@
 my $test = Businesslink::Ratified::Gone->new();
 $test->input_file("dist/businesslink_mappings_source.csv");
 $test->{'output_has_no_header'} = 1;
-$test->output_file("dist/businesslink_even_gone_output.csv");
-$test->output_error_file("dist/businesslink_even_gone_errors.csv");
+$test->output_file("dist/businesslink_gone_output.csv");
+$test->output_error_file("dist/businesslink_gone_errors.csv");
 $test->run_tests();
 exit;
 

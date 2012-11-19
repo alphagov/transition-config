@@ -1,8 +1,8 @@
 my $test = Businesslink::Ratified::Redirects->new();
 $test->input_file("dist/businesslink_mappings_source.csv");
 $test->{'output_has_no_header'} = 1;
-$test->output_file("dist/businesslink_even_redirects_output.csv");
-$test->output_error_file("dist/businesslink_even_redirects_errors.csv");
+$test->output_file("dist/businesslink_redirects_output.csv");
+$test->output_error_file("dist/businesslink_redirects_errors.csv");
 $test->run_tests();
 exit;
 
