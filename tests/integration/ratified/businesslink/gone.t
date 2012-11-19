@@ -19,8 +19,5 @@ use Test::More;
 sub test {
     my $self = shift;
     
-    state $count = 0;
-    return -1 unless $count++ % 2;
-    
     $self->test_closed_gones(@_);
 }
