@@ -169,7 +169,7 @@ sub is_redirect_response {
         my $response = $self->get_response($row);
         my $location = $response->header('location');
         
-        my $redirected_response_code = 599;
+        my $redirected_response_code = "wrong redirect location";
         my $redirected_response;
         
         if ( defined $location && $location eq $new_url ) {
