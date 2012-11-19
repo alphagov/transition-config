@@ -203,7 +203,7 @@ sub location_config {
     $mapping_status = lc $mapping_status;
     
     my $config_or_error_type = 'location';
-    my $duplicate_entry_key  = $self->{'old_url_parts'}{'path'};
+    my $duplicate_entry_key  = $self->{'old_url_parts'}{'host'} . $self->{'old_url_parts'}{'path'};
     my $suggested_links_type;
     my $suggested_links;
     my $config;

@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-use Test::More tests => 2;
+use Test::More tests => 4;
 use Mappings;
 
 
@@ -23,4 +23,22 @@ my $expected = {
 
 
 my $configs = $mappings->entire_csv_as_nginx_config();
+is_deeply( $expected, $configs, 'nginx config' );
+
+
+$mappings = Mappings->new( 'tests/unit/test_data/cross_domain_duplicates.csv' );
+isa_ok( $mappings, 'Mappings' );
+
+$expected = {
+    'www.businesslink.gov.uk' => {
+    	'location' => "location ~* ^/mynewbusiness/?\$ { return 301 https://www.gov.uk/starting-up-a-business; }\n",
+    },
+    'www.improve.businesslink.gov.uk' => {
+        'location' => "location ~* ^/mynewbusiness/?\$ { return 301 https://www.gov.uk/starting-up-a-business; }\n",
+    },
+};
+
+
+
+$configs = $mappings->entire_csv_as_nginx_config();
 is_deeply( $expected, $configs, 'nginx config' );
