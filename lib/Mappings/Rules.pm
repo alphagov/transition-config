@@ -216,6 +216,7 @@ sub location_config {
     $old_url =~ s{\(}{\\(}g;
     $old_url =~ s{\)}{\\)}g;
     $old_url =~ s{\.}{\\.}g;
+    $old_url =~ s{\*}{\\*}g;
     
     # escape charaters with nginx config meaning
     $old_url =~ s{ }{\\ }g;
