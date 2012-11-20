@@ -220,6 +220,7 @@ sub location_config {
     
     # escape charaters with nginx config meaning
     $old_url =~ s{ }{\\ }g;
+    $old_url =~ s{\t}{\\\t}g;
     $old_url =~ s{;}{\\;}g;
     
     # strip trailing slashes, as they are added as optional in nginx
