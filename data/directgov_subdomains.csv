@@ -38,7 +38,7 @@ Childrens centre finder,childrenscentresfinder.direct.gov.uk,dcs-vml-web-l02.ser
 ,colleges.direct.gov.uk,dcs-vml-web-l02.server-farm.dcsf.gov.uk,Redirect to GONE,
 ,communitypayback.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Redirect to GONE,
 ,consultations-crawl.direct.gov.uk,sadg-crawler.sa-alias.co.uk,Redirect to GONE,
-,consultations.direct.gov.uk,sadg-gsa.sa-alias.co.uk,Redirect to GONE,
+,consultations.direct.gov.uk,sadg-gsa.sa-alias.co.uk,Other redirect destination,https://www.gov.uk/government/consultations
 ,consultations1.direct.gov.uk,sadg-nonjs.sa-alias.co.uk,Redirect to GONE,
 ,consumer-forms.direct.gov.uk,80.86.42.52,Redirect to GONE,
 ,consumer-tools.direct.gov.uk,80.86.42.51,Redirect to GONE,
