@@ -5,18 +5,18 @@ Name,Subdomains,Host,Leave,redirect URL
 ,agencyworkers.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Redirect to GONE,
 ,api.childmaintenanceservice.direct.gov.uk,,Leave,
 ,backtowork.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Redirect to GONE,
-,benefits-adviser.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Leave,
+,benefits-adviser.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Other redirect destination,https://www.gov.uk/benefits-adviser
 ,benefitsadviser.direct.gov.uk,66.54.40.85,Leave,
 ,benefitsadvisor.direct.gov.uk,66.54.40.85,Leave,
 ,beplantwise.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Other redirect destination,https://secure.fera.defra.gov.uk/nonnativespecies/beplantwise/
-Your future wallet,betterfuture.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,TBC,,This subdomain is currently needed for Future Wallet - need to decide on tool closure before changing
+Your future wallet,betterfuture.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,TBC,
 Apply for a Blue Badge online,bluebadge.direct.gov.uk,152.114.70.62,Leave,
 ,bluebadge2.direct.gov.uk,,Leave,
-,brand.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,TBC,,Dependency on trans toolkit solution
+,brand.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,TBC,
 ,bursarymap.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Redirect to GONE,
 ,businesslink.innovate.direct.gov.uk,94.236.94.60,Leave,
 ,buyerbeware.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Redirect to GONE,
-,campaigns.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,TBC,,Dependency on trans toolkit solution
+,campaigns.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,TBC,
 ,campaigns2.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Redirect to GONE,
 Carbon Calculator,carboncalculator.direct.gov.uk,actonco2.amee.com,Leave,
 ,careandsupport.direct.gov.uk,80.68.94.36,Redirect to GONE,
@@ -34,11 +34,11 @@ Childrens centre finder,childrenscentresfinder.direct.gov.uk,dcs-vml-web-l02.ser
 ,childsafety.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Redirect to GONE,
 ,chwiliadgwaith.direct.gov.uk,,Redirect to GONE,
 ,clickcleverclicksafe.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Redirect to GONE,
-,co2calculator.direct.gov.uk,,Leave,
+,co2calculator.direct.gov.uk,,Redirect to GONE,
 ,colleges.direct.gov.uk,dcs-vml-web-l02.server-farm.dcsf.gov.uk,Redirect to GONE,
 ,communitypayback.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Redirect to GONE,
 ,consultations-crawl.direct.gov.uk,sadg-crawler.sa-alias.co.uk,Redirect to GONE,
-,consultations.direct.gov.uk,sadg-gsa.sa-alias.co.uk,Other redirect destination,https://www.gov.uk/government/consultations
+,consultations.direct.gov.uk,sadg-gsa.sa-alias.co.uk,Redirect to GONE,
 ,consultations1.direct.gov.uk,sadg-nonjs.sa-alias.co.uk,Redirect to GONE,
 ,consumer-forms.direct.gov.uk,80.86.42.52,Redirect to GONE,
 ,consumer-tools.direct.gov.uk,80.86.42.51,Redirect to GONE,
@@ -105,7 +105,7 @@ Forms and guidance finder,hmctsformfinder.direct.gov.uk,212.137.36.113,Leave,
 ,jobsearch.direct.gov.uk,,Leave,
 ,jobseeker.direct.gov.uk,jobseeker.wip.direct.gov.uk,Leave,
 Jobs and Skills search,jobseekers.direct.gov.uk,jobseekers.wip.direct.gov.uk,Leave,
-,keepwarmkeepwell.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Leave,
+,keepwarmkeepwell.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Other redirect destination,http://webarchive.nationalarchives.gov.uk/20100519184032/http://keepwarmkeepwell.direct.gov.uk/index.html
 ,kids.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Redirect to GONE,
 Learner support,learnersupport.direct.gov.uk,,Leave,
 ,letskeepcrimedown.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Redirect to GONE,
@@ -210,14 +210,14 @@ Tales of the road,talesoftheroad.direct.gov.uk,92.52.89.47,Leave,
 ,thebigtreeplant.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Other redirect destination,http://www.defra.gov.uk/bigtreeplant/
 ,theorytest.direct.gov.uk,159.182.111.100,Leave,
 Think,think.direct.gov.uk,92.52.89.47,Leave,
-,thinkbike.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Other redirect destination,http://www.direct.gov.uk/think
-,thinkdrinkdrive.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Other redirect destination,http://www.direct.gov.uk/think
-,thinkdrugdrive.direct.gov.uk,213.225.137.179,Leave,
-,thinkfatigue.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Other redirect destination,http://www.direct.gov.uk/think
-,thinkhorsesense.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Other redirect destination,http://www.direct.gov.uk/think
-,thinkmobiles.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Other redirect destination,http://www.direct.gov.uk/think
-,thinkseatbelts.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Other redirect destination,http://www.direct.gov.uk/think
-,thinkspeed.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Other redirect destination,http://www.direct.gov.uk/think
+,thinkbike.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Other redirect destination,http://think.direct.gov.uk/motorcycles.html
+,thinkdrinkdrive.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Other redirect destination,http://think.direct.gov.uk/drink-driving.html
+,thinkdrugdrive.direct.gov.uk,213.225.137.179,Other redirect destination,http://drugdrive.direct.gov.uk/
+,thinkfatigue.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Other redirect destination,http://think.direct.gov.uk/fatigue.html
+,thinkhorsesense.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Other redirect destination,http://think.direct.gov.uk/horses.html
+,thinkmobiles.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Other redirect destination,http://think.direct.gov.uk/mobile-phones.html
+,thinkseatbelts.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Other redirect destination,http://think.direct.gov.uk/seat-belts.html
+,thinkspeed.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Other redirect destination,http://think.direct.gov.uk/speed.html
 This is abuse,thisisabuse.direct.gov.uk,94.236.15.225,Leave,
 ,tiger.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Redirect to GONE,
 ,togetherwecan.direct.gov.uk,213.225.144.27,Redirect to GONE,
