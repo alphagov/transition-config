@@ -33,7 +33,6 @@ sub entire_csv_as_nginx_config {
     my $self = shift;
     
     my %configs;
-    my %check_for_dupes;
     
     while ( my $row = $self->get_row() ) {
         my( $host, $rule_map, $rule, $suggested_map, $suggested )
