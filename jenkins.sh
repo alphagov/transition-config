@@ -3,7 +3,7 @@
 set -e
 mkdir -p dist
 
-source sites.sh
+. sites.sh
 
 function error_exit() {
     echo "$@" 1>&2
