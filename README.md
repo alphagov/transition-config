@@ -59,8 +59,8 @@ The two files required are:
 
 ### Dry-run the post-commit build
 
-Run `jenkins.sh` before committing and pushing the new site to confirm that
-it doesn't break, which would stop anyone from deploying.
+Run `bash jenkins.sh` before committing and pushing the new site to confirm
+that it doesn't break, which would stop anyone from deploying.
 
 The last line output by `jenkins.sh` is "Redirector build succeeded."
 
