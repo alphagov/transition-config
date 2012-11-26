@@ -1,6 +1,14 @@
-#!/bin/sh
+#!/bin/bash
+
 set -e
 mkdir -p dist
+
+source sites.sh
+
+function error_exit() {
+    echo "$@" 1>&2
+    exit 1
+}
 
 # run unit logic tests
 prove -lj4 tests/unit/logic/*.t
@@ -8,23 +16,38 @@ prove -lj4 tests/unit/logic/*.t
 # delete previous config, error files, etc
 rm -rf dist/*
 
-# DIRECTGOV
-curl "https://${MIGRATORATOR_AUTH}@migratorator.production.alphagov.co.uk/mappings.csv" > dist/directgov_mappings_source.csv
-perl -Ilib create_mappings.pl dist/directgov_mappings_source.csv
+# copy the mappings source files to dist
+TEST_FILES=''
+for site in ${REDIRECTOR_SITES[@]}; do
+    # no mapping source for directgov as yet
+    [ $site = 'directgov' ] && continue
+    
+    cp data/mappings/${site}.csv dist/${site}_mappings_source.csv
+    
+    test_file="tests/unit/sources/${site}_valid_lines.t"
+    [ -f $test_file ] || error_exit "No test '${test_file}'"
+    TEST_FILES="${TEST_FILES} ${test_file}"
+done
 
-# BUSINESSLINK
-cp data/businesslink_mappings_source.csv dist
-perl -Ilib create_mappings.pl dist/businesslink_mappings_source.csv
+# fetch directgov
+echo 'Fetching directgov from the migratorator'
+curl "https://${MIGRATORATOR_AUTH}@migratorator.production.alphagov.co.uk/mappings.csv" > dist/directgov_mappings_source.csv
+
+# copy extra businesslink piplinks
 cp data/businesslink_piplink_redirects_source.csv dist
 
-# DCLG
-cp data/communities_mappings_source.csv dist
-perl -Ilib create_mappings.pl dist/communities_mappings_source.csv
+# check the data sources for problems
+prove -lj4 $TEST_FILES tests/unit/sources/directgov_valid_lines.t
 
-# NGINX
+# create the mappings from the source CSV files
+for site in ${REDIRECTOR_SITES[@]}; do
+    perl -Ilib create_mappings.pl dist/${site}_mappings_source.csv
+done
+
+# copy configuration to dist for archiving
 rsync -a redirector/. dist/.
 
-# CRAFT 410 PAGES
+# create the 410 pages
 cat \
     redirector/410_preamble.php \
     dist/www.businesslink.gov.uk.*suggested_links*.conf \
@@ -50,17 +73,31 @@ cat \
         > dist/static/dg/410.php
 cp redirector/410_suggested_links.php dist/static/dg
 
-cat \
-    redirector/410_preamble.php \
-    redirector/410_header.php \
-    redirector/static/communities/410.html \
-        > dist/static/communities/410.php
+for site in ${REDIRECTOR_SITES[@]}; do
+    [ $site = 'directgov' ] && continue
+    [ $site = 'businesslink' ] && continue
+    
+    touch dist/www.${site}.gov.uk.no_suggested_links.conf
+    
+    cat \
+        redirector/410_preamble.php \
+        dist/www.${site}.gov.uk.*suggested_links*.conf \
+        redirector/410_header.php \
+        redirector/static/${site}/410.html \
+            > dist/static/${site}/410.php
+done
 
 # generate sitemaps
 perl tools/sitemap.pl dist/directgov_mappings_source.csv 'www.direct.gov.uk' > dist/static/dg/sitemap.xml
 perl tools/sitemap.pl dist/businesslink_mappings_source.csv 'www.businesslink.gov.uk' 'online.businesslink.gov.uk' > dist/static/bl/sitemap.xml
+for site in ${REDIRECTOR_SITES[@]}; do
+    [ $site = 'directgov' ] && continue
+    [ $site = 'businesslink' ] && continue
+    
+    perl \
+        tools/sitemap.pl \
+        dist/${site}_mappings_source.csv \
+        www.${site}.gov.uk > dist/static/${site}/sitemap.xml
+done
 
-# test everything, to fail the build if bad data
-prove -lj4 tests/unit/sources
-
-exit
+echo "Redirector build succeeded."
