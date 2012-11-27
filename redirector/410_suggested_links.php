@@ -1,6 +1,6 @@
 <?php
 
-$uri_without_slash = ( $_SERVER['REQUEST_URI'], '/' );
+$uri_without_slash = rtrim( $_SERVER['REQUEST_URI'], '/' );
 
 if ( isset( $location_suggested_links[$uri_without_slash] ) ) {
     $suggested_links = $location_suggested_links[$uri_without_slash];
