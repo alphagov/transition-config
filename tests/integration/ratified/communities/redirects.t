@@ -1,6 +1,5 @@
 my $test = Communities::Ratified::Redirects->new();
 $test->input_file("dist/communities_mappings_source.csv");
-$test->{'output_has_no_header'} = 1;
 $test->output_file("dist/communities_redirects_output.csv");
 $test->output_error_file("dist/communities_redirects_errors.csv");
 $test->run_tests();
