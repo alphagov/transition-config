@@ -68,6 +68,7 @@ sub new {
         status    => $row->{'Status'},
         whole_tag => $row->{'Whole Tag'},
         suggested => $row->{'Suggested Links'},
+        gone_link => $row->{'Archive Link'},
         
         duplicates => $duplicate_key_cache,
     };
@@ -131,6 +132,7 @@ sub dg_location_config {
     my $duplicate_entry_key  = $self->{'old_url_parts'}{'path'};
     my $suggested_links_type;
     my $suggested_links;
+    my $gone_link;
     my $config;
     
     if ( defined $self->{'duplicates'}{$duplicate_entry_key} ) {
@@ -148,6 +150,7 @@ sub dg_location_config {
                 $config = "location ~* ^/en/(.*/)?$self->{'dg_number'}\$ { return 410; }\n";
                 $suggested_links_type = 'location_suggested_links';
                 $suggested_links = $self->get_suggested_link( $self->{'dg_number'} );
+                $gone_link = $self->get_gone_link( $self->{'dg_number'} );
             }
         }
         elsif ( '301' eq $self->{'status'} ) {
@@ -188,7 +191,8 @@ sub dg_location_config {
         $config_or_error_type,
         $config,
         $suggested_links_type,
-        $suggested_links
+        $suggested_links,
+        $gone_link
     );
 }
 
@@ -206,6 +210,7 @@ sub location_config {
     my $duplicate_entry_key  = $self->{'old_url_parts'}{'host'} . $self->{'old_url_parts'}{'path'};
     my $suggested_links_type;
     my $suggested_links;
+    my $gone_link;
     my $config;
     
     # remove %-encoding in source mappings for nginx
@@ -240,6 +245,7 @@ sub location_config {
             $config = "location ~* ^${old_url}/?\$ { return 410; }\n";
             $suggested_links_type = 'location_suggested_links';
             $suggested_links = $self->get_suggested_link( $self->{'old_url_relative'} );
+            $gone_link = $self->get_gone_link( $self->{'old_url_relative'} );
         }
         elsif ( '301' eq $self->{'status'} ) {
             # 301 Moved Permanently
@@ -279,7 +285,8 @@ sub location_config {
         $config_or_error_type,
         $config,
         $suggested_links_type,
-        $suggested_links
+        $suggested_links,
+        $gone_link
     );
 }
 sub get_suggested_link {
@@ -305,6 +312,17 @@ sub get_suggested_link {
     }
     
     return "\$location_suggested_links['${location}'] = \"${links}\";\n";
+}
+sub get_gone_link {
+    my $self     = shift;
+    my $location = shift;
+    
+    return unless defined $self->{'gone_link'} && length $self->{'gone_link'};
+    
+    # strip trailing slashes for predictable matching in 410 page code
+    $location =~ s{/$}{};
+    
+    return "\$gone_links['$location'] = \"$self->{'gone_link'}\";\n";
 }
 sub escape_characters {
     my $self   = shift;
