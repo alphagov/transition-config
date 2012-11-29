@@ -35,7 +35,7 @@ sub entire_csv_as_nginx_config {
     my %configs;
     
     while ( my $row = $self->get_row() ) {
-        my( $host, $rule_map, $rule, $suggested_map, $suggested, $gone_link )
+        my( $host, $rule_map, $rule, $suggested_map, $suggested, $archive_link )
             = $self->row_as_nginx_config($row);
         
         if ( defined $host && defined $rule_map && defined $rule ) {
@@ -49,10 +49,10 @@ sub entire_csv_as_nginx_config {
                 push @{ $configs{$host}{$suggested_map} }, $suggested;
             }
             
-            if ( defined $gone_link ) {
-                $configs{$host}{'gone_links'} = []
-                    unless defined $configs{$host}{'gone_links'};
-                push @{ $configs{$host}{'gone_links'} }, $gone_link;
+            if ( defined $archive_link ) {
+                $configs{$host}{'archive_links'} = []
+                    unless defined $configs{$host}{'archive_links'};
+                push @{ $configs{$host}{'archive_links'} }, $archive_link;
             }
         }
     }

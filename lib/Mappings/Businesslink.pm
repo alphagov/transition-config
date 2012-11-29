@@ -13,7 +13,7 @@ sub actual_nginx_config {
     my $suggested_links_type;
     my $config_line;
     my $suggested_links;
-    my $gone_link;
+    my $archive_link;
     my $mapping_status = '';
     
     if ( defined $self->{'old_url_parts'}{'query'} ) {
@@ -32,7 +32,7 @@ sub actual_nginx_config {
                 $config_line = "~${map_key} 410;\n";
                 $suggested_links_type = 'suggested_links_map';
                 $suggested_links = $self->get_suggested_link($map_key, 1);
-                $gone_link = $self->get_gone_link($map_key);
+                $archive_link = $self->get_archive_link($map_key);
             }
             elsif ( '301' eq $self->{'status'} ) {
                 if ( length $self->{'new_url'}) {
@@ -70,7 +70,7 @@ sub actual_nginx_config {
             $config_line,
             $suggested_links_type,
             $suggested_links,
-            $gone_link
+            $archive_link
         );
     }
     # if no query string, we treat it as a furl
