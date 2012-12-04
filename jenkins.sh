@@ -68,6 +68,7 @@ cp redirector/410_suggested_links.php dist/static/improve
 cat \
     redirector/410_preamble.php \
     dist/www.direct.gov.uk.*suggested_links*.conf \
+    dist/www.direct.gov.uk.archive_links.conf \
     redirector/410_header.php \
     redirector/static/dg/410.html \
         > dist/static/dg/410.php
