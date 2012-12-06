@@ -15,7 +15,7 @@ the site being added (eg 'communities' for the site `www.communities.gov.uk`).
 
 ### Create the mappings CSV
 
-Create a file `data/<WEBSITE>_mappings_source.csv` containing three columns:
+Create a file `data/mappings/{WEBSITE}.csv` containing three columns:
 
 * `Old Url` – the original URL
 * `Status` – either 301 (when redirecting to a new page) or 410 (when the page has gone)
