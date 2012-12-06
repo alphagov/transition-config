@@ -26,7 +26,7 @@ They should be sorted on the Old Url column (this makes diffs between commits mo
 The two files required are:
 
 1.  `data/WEBSITE_mappings_source.csv` – the complete list of mappings
-2.  `tests/integration/test_data/top_250_WEBSITE_urls.csv` – a selection of the most popular/important URLs
+2.  `tests/integration/test_data/top_250_WEBSITE_urls.csv` – this is a sample which will be used to perform a quicker integration test on deployment
 
 ### Create the site in the repository
 
