@@ -3,4 +3,5 @@ declare -a REDIRECTOR_SITES=(
     businesslink
     communities
     ago
+    mod
 )
