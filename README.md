@@ -30,8 +30,6 @@ Optionally, create a sample to be used for integration testing at `tests/integra
 1.  In the `redirector` directory, create a new configuration file containing
     the nginx server block(s) needed for the site.
 
-1.  Add the mappings CSV to the data directory.
-
 1.  Add WEBSITE to `sites.sh`.
 
 1.  Copy the static assets from `redirector/static/_skeleton` to
