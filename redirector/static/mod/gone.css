@@ -71,7 +71,3 @@ header.page-header .legacy-site-logo {
 header.page-header hgroup h1 {
 
 }
-
-header.page-header.directgov .legacy-site-logo {
-  background: #ff5b00 url(/directgov-logo.png) no-repeat 5em 50%;
-}
