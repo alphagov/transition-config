@@ -48,6 +48,8 @@ This is a quick test of the most important urls which will be run on every deplo
 1. Create a sample mappings file containing up to 250 urls, e.g. `tests/integration/test_data/top_250_WEBSITE_urls.csv`. 
 2. Create the test script, `tests/integration/sample/top_250_WEBSITE.t` you can base it on `tests/integration/sample/top_250_directgov.t`
 
+You can run this test using `prove -l tests/integration/sample/top_250_WEBSITE.t` but it will not pass until the redirector is deployed.
+
 #### Complete test
 
 This is a full integration test which is run on a nightly basis
