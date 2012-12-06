@@ -23,8 +23,6 @@ Create a file `data/<WEBSITE>_mappings_source.csv` containing three columns:
 
 It should be sorted on the Old Url column (this makes diffs between commits more readable).
 
-Optionally, create a sample to be used for integration testing at `tests/integration/test_data/top_250_WEBSITE_urls.csv`. We recommend that this should contain the most important urls on the site. If you don't provide this sample, a random 250 entries will be taken from the full file.
-
 ### Create the site in the repository
 
 1.  In the `redirector` directory, create a new configuration file containing
@@ -43,14 +41,18 @@ Optionally, create a sample to be used for integration testing at `tests/integra
 
 ### Create the required tests
 
-1.  Create the test file for the top 250 URLs data source. This is done by
-    copying an existing test `tests/integration/sample/top_250_directgov.t`
-    and amending any references to directgov to the new website.
+#### Subset test 
 
-2.  Create the test files for the complete mappings source. This is done by
-    copying the two test files under `tests/integration/ratified/directgov/`
-    to a new directory and amending any references to directgov to the new
-    website.
+This is a quick test of the most important urls which will be run on every deployment.
+
+1. Create a sample mappings file containing up to 250 urls, e.g. `tests/integration/test_data/top_250_WEBSITE_urls.csv`. 
+2. Create the test script, `tests/integration/sample/top_250_WEBSITE.t` you can base it on `tests/integration/sample/top_250_directgov.t`
+
+#### Complete test
+
+This is a full integration test which is run on a nightly basis
+
+Create test scripts at `tests/integration/ratified/WEBSITE/` you can base them on the tests in `tests/integration/ratified/directgov/`
 
 ### Dry-run the post-commit build
 
