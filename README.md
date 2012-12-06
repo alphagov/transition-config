@@ -1,4 +1,4 @@
-redirector
+Redirector
 ==========
 
 Nginx configuration and supporting tools and tests for the redirector,
@@ -13,20 +13,17 @@ Adding a new website
 **n.b.** during these instructions WEBSITE should be replaced with the name of
 the site being added (eg 'communities' for the site `www.communities.gov.uk`).
 
-### Create the mappings CSVs.
+### Create the mappings CSV
 
-The CSVs must contain three columns:
+Create a file `data/<WEBSITE>_mappings_source.csv` containing three columns:
 
 * `Old Url` – the original URL
 * `Status` – either 301 (when redirecting to a new page) or 410 (when the page has gone)
 * `New Url` – optional when the `Status` is 410
 
-They should be sorted on the Old Url column (this makes diffs between commits more readable).
+It should be sorted on the Old Url column (this makes diffs between commits more readable).
 
-The two files required are:
-
-1.  `data/WEBSITE_mappings_source.csv` – the complete list of mappings
-2.  `tests/integration/test_data/top_250_WEBSITE_urls.csv` – this is a sample which will be used to perform a quicker integration test on deployment
+Optionally, create a sample to be used for integration testing at `tests/integration/test_data/top_250_WEBSITE_urls.csv`. We recommend that this should contain the most important urls on the site. If you don't provide this sample, a random 250 entries will be taken from the full file.
 
 ### Create the site in the repository
 
