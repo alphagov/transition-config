@@ -33,10 +33,9 @@ It should be sorted on the Old Url column (this makes diffs between commits more
 1.  Copy the static assets from `redirector/static/_skeleton` to
     `redirector/static/WEBSITE` and edit as necessary.
     
-    *   `404.html` – add the department name
-    *   `410.html` – add the department name and the timestamp in the link
-        to the National Archives for the correct crawl
-    *   `gone.css`
+    *   `404.html` – add the date, department name and the new homepage (e.g. https://www.gov.uk/dclg)
+    *   `410.html` – add the date, department name, new homepage, the National Archives timestamp and the old website address (this is for the National Archives link creation - for example, for DCLG the timestamp is 20120919132719 and the website is www.communities.gov.uk)
+    *   `gone.css` - this does not require any change
 
 
 ### Create the required tests
