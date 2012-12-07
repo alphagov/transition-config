@@ -62,11 +62,18 @@ that it doesn't break, which would stop anyone from deploying.
 
 The last line output by `jenkins.sh` is "Redirector build succeeded."
 
-### Deploy the redirector
+### Deploy the redirector to preview
 
-At this point, the redirector repository will need to be deployed to 
-preview and production. This ensures the new configuration files are
-available before altering the puppetry.
+A jenkins commit will kick off the Redirector build, followed by the Redirector-deploy (which only deploys to preview), 
+then followed by the Redirector-Integration-Subset. 
+
+You should make sure that these tests all pass before you deploy to production. 
+
+### Deploy the redirector to production
+
+You must deploy the redirector to production before altering puppet.
+
+There is no release tag - all that is required for the production deploy is the build number of the latest Redirector job.
 
 ### Add the website to puppet
 
