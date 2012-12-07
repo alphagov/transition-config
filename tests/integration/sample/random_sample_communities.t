@@ -1,8 +1,8 @@
 my $test = Random_250::Communities->new();
 $test->{'force_production_redirector'} = 1;
-$test->input_file("tests/integration/test_data/random_250_communities_urls.csv");
-$test->output_file("dist/random_250_communities_test_output.csv");
-$test->output_error_file("dist/random_250_communities_failures.csv");
+$test->input_file("tests/integration/test_data/random_sample_communities_urls.csv");
+$test->output_file("dist/random_sample_communities_test_output.csv");
+$test->output_error_file("dist/random_sample_communities_failures.csv");
 $test->run_tests();
 exit;
 
