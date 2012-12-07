@@ -47,8 +47,8 @@ sub test_source_line {
     my $row  = shift;
 
     # only test closed sources
-    my $mapping_status = lc $row->{'Whole Tag'};
-    return if defined $row->{'Whole Tag'} && $mapping_status !~ m{\bclosed\b};
+    my $mapping_status = lc($row->{'Whole Tag'} // '');
+    return if $mapping_status && $mapping_status !~ m{\bclosed\b};
 
     my $old_url = $row->{'Old Url'};
     ok(
