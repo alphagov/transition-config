@@ -15,7 +15,7 @@ the site being added (eg 'communities' for the site `www.communities.gov.uk`).
 
 ### Create the mappings CSV
 
-Create a file `data/mappings/{WEBSITE}.csv` containing three columns:
+Create a file `data/mappings/WEBSITE.csv` containing three columns:
 
 * `Old Url` – the original URL
 * `Status` – either 301 (when redirecting to a new page) or 410 (when the page has gone)
@@ -40,12 +40,18 @@ It should be sorted on the Old Url column (this makes diffs between commits more
 
 ### Create the required tests
 
+#### Valid Lines
+
+Add a valid lines test script: tests/logic/sources/WEBSITE_valid_lines.t, using one of the others as a template. This will be automated but is currently a manual step. It is required because jenkins.sh tests all the mappings before attempting to build. 
+
 #### Subset test 
 
 This is a quick test of the most important urls which will be run on every deployment.
 
+It doesn't need to be 250, and it can just be a random sample, but ideally it would be the top 10% or so mappings in terms of importance.
+
 1. Create a sample mappings file containing up to 250 urls, e.g. `tests/integration/test_data/top_250_WEBSITE_urls.csv`. 
-2. Create the test script, `tests/integration/sample/top_250_WEBSITE.t` you can base it on `tests/integration/sample/top_250_directgov.t`
+2. Create the test script, e.g. `tests/integration/sample/top_250_WEBSITE.t` you can base it on `tests/integration/sample/top_250_directgov.t`
 
 You can run this test using `prove -l tests/integration/sample/top_250_WEBSITE.t` but it will not pass until the redirector is deployed.
 
