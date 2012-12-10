@@ -13,6 +13,6 @@ end
 
 task :required_perl_modules do
   %w{Text::CSV}.each do |module_name|
-    Kernel.system("perl -m#{module_name} > /dev/null 2>&1") || raise("Required perl module '#{module_name}' not found")
+    Kernel.system("perl -m#{module_name} -eprint > /dev/null 2>&1") || raise("Required perl module '#{module_name}' not found")
   end
 end
