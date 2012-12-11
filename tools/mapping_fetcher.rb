@@ -9,6 +9,17 @@ class MappingFetcher
   def initialize(csv_url, mapping_name)
     @csv_url = csv_url
     @mapping_name = mapping_name
+    @admin_url_mappings = {}
+  end
+
+  def remap_new_urls_using(admin_url_mapping_csv_file)
+    data = File.open(admin_url_mapping_csv_file, 'r:utf-8') { |f| f.read}
+
+    CSV.parse(data, headers: true, header_converters: [NilAsBlankConverter, :downcase]).each do |row|
+      if row['admin url'] =~ /whitehall-admin/ && row['new url'] && !row['new url'].empty?
+        @admin_url_mappings[row['admin url']] = row['new url']
+      end
+    end
   end
 
   def fetch
@@ -18,7 +29,7 @@ class MappingFetcher
       i = 0
       ensure_no_duplicates(input_csv.sort_by {|row| row['old url']}).each do |row|
         old_url = sanitize_url(row['old url'])
-        new_url = sanitize_url(row['new url'])
+        new_url = sanitize_url(remap_new_url(row['new url']))
         new_row = if valid_destination_url?(new_url)
           [old_url, new_url, "301"]
         else
@@ -56,6 +67,10 @@ class MappingFetcher
     end
   end
 
+  def remap_new_url(new_url)
+    @admin_url_mappings[new_url] || new_url
+  end
+
   def categorise_new_url(new_url)
     case new_url
     when %r{https://www\.gov\.uk/government/uploads/} then :asset
@@ -75,11 +90,15 @@ class MappingFetcher
 
   def valid_destination_url?(url)
     must_not_be_whitehall_admin!(url)
-    !on_national_archives?(url) && !blank?(url)
+    !on_national_archives?(url) && !blank?(url) && !is_whitehall_admin?(url)
+  end
+
+  def is_whitehall_admin?(url)
+    url =~ /whitehall-admin/
   end
 
   def must_not_be_whitehall_admin!(url)
-    raise "Destination urls must not be whitehall-admin - '#{url}'" if url =~ /whitehall-admin/
+    $stderr.puts "Destination urls must not be whitehall-admin - '#{url}'" if is_whitehall_admin?(url)
   end
 
   def blank?(url)
