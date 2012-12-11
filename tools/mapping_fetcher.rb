@@ -90,7 +90,7 @@ class MappingFetcher
 
   def valid_destination_url?(url)
     must_not_be_whitehall_admin!(url)
-    !on_national_archives?(url) && !blank?(url) && !is_whitehall_admin?(url)
+    !on_national_archives?(url) && !blank?(url) && !is_whitehall_admin?(url) && valid_url?(url)
   end
 
   def is_whitehall_admin?(url)
@@ -117,7 +117,9 @@ class MappingFetcher
   end
 
   def valid_url?(url)
-    URI.parse(url) rescue false
+    url && url =~ %r{^https?://} && URI.parse(url)
+  rescue
+    false
   end
 
   def sanitize_url(url)
