@@ -5,6 +5,7 @@ use strict;
 use warnings;
 
 use Mappings::Businesslink;
+use Mappings::Directgov;
 use Mappings::Ignore;
 
 use URI::Split  qw( uri_split uri_join );
@@ -14,6 +15,9 @@ my %HOSTNAME_MAPPINGS = (
     'online.businesslink.gov.uk'                => 'Businesslink',
     'www.ukwelcomes.businesslink.gov.uk'        => 'Businesslink',
     'businesslink.gov.uk'                       => 'Businesslink',
+
+    'www.direct.gov.uk'                         => 'Directgov',
+    'direct.gov.uk'                             => 'Directgov',
     
     # ignore these for now
     'tariff.businesslink.gov.uk'                => 'Ignore',
