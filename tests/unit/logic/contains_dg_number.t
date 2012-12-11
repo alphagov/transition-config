@@ -21,7 +21,7 @@ $test_url_parts->{path}     = '/en/DG_064868';
 $dg_number   = Mappings::Directgov::dg_number( undef, $test_url_parts );
 isnt( $dg_number, 'DG_064868', "DG number is lower case" );
 
-$test_url_parts->{path}     = 'http://www.direct.gov.uk/en/Environmentandgreenerliving/Greenertravel/Enjoyingthecountryside/DG_064868';
+$test_url_parts->{path}     = '/en/Environmentandgreenerliving/Greenertravel/Enjoyingthecountryside/DG_064868';
 $dg_number   = Mappings::Directgov::dg_number( undef, $test_url_parts );
 is( $dg_number, 'dg_064868', "Long URL contains a DG number" );
 
@@ -56,6 +56,22 @@ is( undef, $dg_number, "A DG number must start with some form of DG_ " );
 $test_url_parts->{path}     = '/en/blahblahDG_064868';
 $dg_number   = Mappings::Directgov::dg_number( undef, $test_url_parts );
 is( undef, $dg_number, "A DG number must be the whole segment" );
+
+$test_url_parts->{path}     = '/cy/DG_064868CY';
+$dg_number   = Mappings::Directgov::dg_number( undef, $test_url_parts );
+is( undef, $dg_number, "URLs without /en/ are not canonicalised using DG numbers" );
+
+$test_url_parts->{path}     = '/cy/DG_10027878CY';
+$dg_number   = Mappings::Directgov::dg_number( undef, $test_url_parts );
+is( undef, $dg_number, "URLs without /en/ are not canonicalised using DG numbers" );
+
+$test_url_parts->{path}     = '/cy/Governmentcitizensandrights/Consumerrights/Protectyourselffromscams/DG_195967CY';
+$dg_number   = Mappings::Directgov::dg_number( undef, $test_url_parts );
+is( undef, $dg_number, "URLs without /en/ are not canonicalised using DG numbers" );
+
+$test_url_parts->{path}     = '/cy/Pensionsandretirementplanning/EndOfLife/WhatToDoAfterADeath/DG_10027878CY';
+$dg_number   = Mappings::Directgov::dg_number( undef, $test_url_parts );
+is( undef, $dg_number, "URLs without /en/ are not canonicalised using DG numbers" );
 
 $test_url_parts->{path}     = '/cy/DG_064868';
 $dg_number   = Mappings::Directgov::dg_number( undef, $test_url_parts );

@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-use Test::More tests=>19;
+use Test::More tests=>25;
 use Mappings;
 
 
@@ -21,12 +21,38 @@ is( $redirect, qq(location ~* ^/en/MoneyTaxAndBenefits/TaxCredits/Gettingstarted
     'Nginx config is as expected' );
 
 
+my $directgov_cy_gone = {
+	'Old Url'	=> 'http://www.direct.gov.uk/cy/Governmentcitizensandrights/Consumerrights/Protectyourselffromscams/DG_195967CY',
+	'New Url'	=> '',
+	'Status'	=> 410,
+};
+my( $gone_host, $gone_type, $gone ) = $mappings->row_as_nginx_config($directgov_cy_gone);
+is( $gone_host, 'www.direct.gov.uk',
+	'Host that config applies to is directgov' );
+is( $gone_type, 'location',
+	'If host is Directgov and type is gone, type of nginx block is location'  );
+is( $gone, qq(location ~* ^/cy/Governmentcitizensandrights/Consumerrights/Protectyourselffromscams/DG_195967CY/?\$ { return 410; }\n),
+    'Nginx config is as expected' );
+
+$directgov_cy_gone = {
+	'Old Url'	=> 'http://www.direct.gov.uk/cy/Pensionsandretirementplanning/EndOfLife/WhatToDoAfterADeath/DG_10027878CY',
+	'New Url'	=> '',
+	'Status'	=> 410,
+};
+( $gone_host, $gone_type, $gone ) = $mappings->row_as_nginx_config($directgov_cy_gone);
+is( $gone_host, 'www.direct.gov.uk',
+	'Host that config applies to is directgov' );
+is( $gone_type, 'location',
+	'If host is Directgov and type is gone, type of nginx block is location'  );
+is( $gone, qq(location ~* ^/cy/Pensionsandretirementplanning/EndOfLife/WhatToDoAfterADeath/DG_10027878CY/?\$ { return 410; }\n),
+    'Nginx config is as expected' );
+
 my $directgov_gone = { 
 	'Old Url'	=> 'http://www.direct.gov.uk/en/Dl1/Directories.html',
 	'New Url'	=> '',
 	'Status'	=> 410, 
 };
-my( $gone_host, $gone_type, $gone ) = $mappings->row_as_nginx_config($directgov_gone);
+( $gone_host, $gone_type, $gone ) = $mappings->row_as_nginx_config($directgov_gone);
 is( $gone_host, 'www.direct.gov.uk', 
 	'Host that config applies to is directgov' );
 is( $gone_type, 'location',
