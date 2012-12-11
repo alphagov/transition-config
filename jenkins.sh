@@ -59,7 +59,7 @@ cp redirector/410_suggested_links.php dist/static/bl
 
 cat \
     redirector/410_preamble.php \
-    dist/www.improve.businesslink.gov.uk.*suggested_links*.conf \
+    dist/improve.businesslink.gov.uk.*suggested_links*.conf \
     redirector/410_header.php \
     redirector/static/improve/410.html \
         > dist/static/improve/410.php
