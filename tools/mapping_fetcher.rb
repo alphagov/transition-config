@@ -180,6 +180,8 @@ class MappingFetcher
     categories = cluster.map {|row| row['new url']}.uniq.map {|new_url| categorise_new_url(new_url)}
     if categories.size == 2 && categories.include?(:asset) && categories.include?(:page)
       cluster.select {|row| categorise_new_url(row) == :page }
+    elsif non_blank = cluster.find {|row| !blank?(row['new url']) }
+      [non_blank]
     else
       [cluster.first]
     end
