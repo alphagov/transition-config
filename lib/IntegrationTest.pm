@@ -64,6 +64,7 @@ sub run_tests {
                     . "Actual Status,Actual New Url,New Url Status"
                         unless defined $self->{'output_has_no_header'};
 
+    my $error_count = 0;
     say $output_error_log "Old Url,New Url,Expected Status,"
                           . "Actual Status,Actual New Url,New Url Status"
                               unless defined $self->{'output_has_no_header'};
@@ -100,6 +101,7 @@ sub run_tests {
                     $redirected_status;
             
             if ( $passed == 0 ) {
+                $error_count++;
                 say $output_error_log
                     join ',',
                         $row->{'Old Url'},
@@ -111,6 +113,11 @@ sub run_tests {
             }
         }
     }
+
+    # clean up error files if no actual errors occured
+    close $output_error_log;
+    unlink $self->{'output_error_file'}
+        unless $error_count;
 
     done_testing();
 }
