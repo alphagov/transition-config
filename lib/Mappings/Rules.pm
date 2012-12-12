@@ -51,7 +51,6 @@ sub new {
     if ( defined $query && !length $query ) {
         $query = undef;
     }
-    my $old_url_relative = uri_join undef, undef, $path, $query, $frag;
     my $actual_class = $class;
     
     if ( defined $host ) {
@@ -62,7 +61,6 @@ sub new {
 
     my $self = {
         old_url          => $row->{'Old Url'},
-        old_url_relative => $old_url_relative,
         old_url_parts    => {
             scheme => $scheme,
             host   => $host,
@@ -123,7 +121,7 @@ sub location_config {
     my $config;
     
     # remove %-encoding in source mappings for nginx
-    my $old_url = $self->{'old_url_relative'};
+    my $old_url = $self->{'old_url_parts'}{'path'};
     $old_url =~ s/%([0-9A-Fa-f]{2})/chr(hex($1))/eg;
     
     # escape characters with regexp meaning
@@ -153,8 +151,8 @@ sub location_config {
             # 410 Gone
             $config = "location ~* ^${old_url}/?\$ { return 410; }\n";
             $suggested_links_type = 'location_suggested_links';
-            $suggested_links = $self->get_suggested_link( $self->{'old_url_relative'} );
-            $archive_link = $self->get_archive_link( $self->{'old_url_relative'} );
+            $suggested_links = $self->get_suggested_link( $self->{'old_url_parts'}{'path'} );
+            $archive_link = $self->get_archive_link( $self->{'old_url_parts'}{'path'} );
         }
         elsif ( '301' eq $self->{'status'} ) {
             # 301 Moved Permanently
