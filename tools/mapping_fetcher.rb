@@ -120,6 +120,7 @@ class MappingFetcher
     Enumerator.new do |yielder|
       rows.each do |row|
         new_url = remap_new_url(row['new url'])
+        new_url = ensure_new_url_uses_https_for_govuk(new_url)
         if !blank?(new_url) && !valid_destination_url?(new_url)
           $stderr.puts "WARNING: Row #{row['source']} #{row['row_number']} - invalid new url '#{new_url}'"
           new_url = ""
@@ -189,6 +190,16 @@ class MappingFetcher
 
   def remap_new_url(new_url)
     @new_url_mappings[new_url] || new_url
+  end
+
+  def ensure_new_url_uses_https_for_govuk(new_url)
+    if new_url && new_url.start_with?("http://www.gov.uk/")
+      new_url.sub(%r{^http://www\.gov\.uk/}, "https://www.gov.uk/")
+    elsif new_url && new_url.start_with?("www.gov.uk/")
+      new_url.sub(%r{^www\.gov\.uk/}, "https://www.gov.uk/")
+    else
+      new_url
+    end
   end
 
   def categorise_new_url(new_url)
