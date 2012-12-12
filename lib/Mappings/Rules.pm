@@ -41,6 +41,10 @@ sub new {
     my $duplicate_key_cache = shift;
     
     return unless defined $row;
+
+    # strip potential trailing whitespace from urls
+    $row->{'New Url'} =~ s{\s+$}{};
+    $row->{'Old Url'} =~ s{\s+$}{};
     
     my( $scheme, $host, $path, $query, $frag ) = uri_split $row->{'Old Url'};
     # uri_split counts a ? with nothing after it as having a query string.
@@ -55,7 +59,7 @@ sub new {
                             ? "Mappings::$HOSTNAME_MAPPINGS{$host}"
                             : $class;
     }
-    
+
     my $self = {
         old_url          => $row->{'Old Url'},
         old_url_relative => $old_url_relative,
@@ -78,11 +82,6 @@ sub new {
     };
     bless $self, $actual_class;
     
-    # strip potential trailing whitespace from urls
-    $self->{'new_url'} =~ s{\s+$}{};
-    $self->{'old_url'} =~ s{\s+$}{};
-    $self->{'old_url_relative'} =~ s{\s+$}{};
-    
     return $self;
 }
 
@@ -95,7 +94,7 @@ sub as_nginx_config {
     
     return( $self->{'old_url_parts'}{'host'}, 'no_status', "$self->{'old_url'}\n" )
         if !defined $self->{'status'} || !length $self->{'status'};
-    
+
     return $self->actual_nginx_config();
 }
 

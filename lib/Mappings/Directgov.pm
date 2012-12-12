@@ -24,7 +24,7 @@ sub dg_number {
     
     my $lc_old_url = lc $parts->{'path'};
 
-    if ( $lc_old_url =~ m{^/en/} && $lc_old_url =~ m{/(dg_\d+)} ) {
+    if ( $lc_old_url =~ m{^/en/} && $lc_old_url =~ m{/(dg_\d+)$} ) {
         return $1;
     }
     return;

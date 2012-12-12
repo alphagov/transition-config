@@ -37,6 +37,10 @@ $test_url_parts->{path}     = '/en/dg_064868';
 $dg_number   = Mappings::Directgov::dg_number( undef, $test_url_parts );
 is( $dg_number, 'dg_064868', "A DG number can start with Dg_" );
 
+$test_url_parts->{path}     = '/en/groups/dg_digitalassets/@dg/@en/documents/digitalasset/dg_178842.htm';
+$dg_number   = Mappings::Directgov::dg_number( undef, $test_url_parts );
+is( undef, $dg_number, "URLs that do not end in the DG number are not canonicalised" );
+
 $test_url_parts->{path}     = '/en/D_064868';
 $dg_number   = Mappings::Directgov::dg_number( undef, $test_url_parts );
 is( undef, $dg_number, "A DG number must start with some form of DG_ " );
