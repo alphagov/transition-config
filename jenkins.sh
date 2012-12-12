@@ -90,7 +90,9 @@ done
 
 # generate sitemaps
 perl tools/sitemap.pl dist/directgov_mappings_source.csv 'www.direct.gov.uk' > dist/static/dg/sitemap.xml
+prove bin/test_sitemap.pl :: dist/static/dg/sitemap.xml www.direct.gov.uk
 perl tools/sitemap.pl dist/businesslink_mappings_source.csv 'www.businesslink.gov.uk' 'online.businesslink.gov.uk' > dist/static/bl/sitemap.xml
+prove bin/test_sitemap.pl :: dist/static/bl/sitemap.xml www.businesslink.gov.uk online.businesslink.gov.uk
 for site in ${REDIRECTOR_SITES[@]}; do
     [ $site = 'directgov' ] && continue
     [ $site = 'businesslink' ] && continue
@@ -99,6 +101,7 @@ for site in ${REDIRECTOR_SITES[@]}; do
         tools/sitemap.pl \
         dist/${site}_mappings_source.csv \
         www.${site}.gov.uk > dist/static/${site}/sitemap.xml
+    prove bin/test_sitemap.pl :: dist/static/${site}/sitemap.xml www.${site}.gov.uk
 done
 
 echo "Redirector build succeeded."
