@@ -9,7 +9,9 @@ class MappingFetcher
   def initialize(csv_url, mapping_name)
     @csv_url = csv_url
     @mapping_name = mapping_name
-    @admin_url_mappings = {}
+    @new_url_mappings = {
+      'tna' => ''
+    }
   end
 
   def remap_new_urls_using(admin_url_mapping_csv_file)
@@ -17,7 +19,7 @@ class MappingFetcher
 
     CSV.parse(data, headers: true, header_converters: [NilAsBlankConverter, :downcase]).each do |row|
       if row['admin url'] =~ /whitehall-admin/ && row['new url'] && !row['new url'].empty?
-        @admin_url_mappings[row['admin url']] = row['new url']
+        @new_url_mappings[row['admin url']] = row['new url']
       end
     end
   end
@@ -28,9 +30,9 @@ class MappingFetcher
       output_csv << ['Old Url','New Url','Status']
       i = 0
       rows = ensure_no_duplicates(
-        sanitize_urls(
-          remap_new_urls(
-            skip_rows_with_blank_or_invalid_old_url(input_csv))))
+        remap_new_urls(
+          skip_rows_with_blank_or_invalid_old_url(
+            sanitize_urls(input_csv))))
       rows.sort_by {|row| row['old url']}.each do |row|
         new_row = [
           row['old url'],
@@ -49,8 +51,14 @@ class MappingFetcher
     Enumerator.new do |yielder|
       rows.each do |row|
         new_url = remap_new_url(row['new url'])
-        row['new url'] = valid_destination_url?(new_url) ? new_url : ""
-        yielder << row
+        if !blank?(new_url) && !valid_destination_url?(new_url)
+          $stderr.puts "WARNING: invalid new url '#{new_url}'"
+          new_url = ""
+        end
+        yielder << {
+          'old url' => row['old url'],
+          'new url' => new_url
+        }
       end
     end
   end
@@ -58,9 +66,10 @@ class MappingFetcher
   def sanitize_urls(rows)
     Enumerator.new do |yielder|
       rows.each do |row|
-        row['old url'] = sanitize_url(row['old url'])
-        row['new url'] = sanitize_url(row['new url'])
-        yielder << row
+        yielder << {
+          'old url' => sanitize_url(row['old url']),
+          'new url' => sanitize_url(row['new url'])
+        }
       end
     end
   end
@@ -104,7 +113,7 @@ class MappingFetcher
   end
 
   def remap_new_url(new_url)
-    @admin_url_mappings[new_url] || new_url
+    @new_url_mappings[new_url] || new_url
   end
 
   def categorise_new_url(new_url)
@@ -126,7 +135,7 @@ class MappingFetcher
 
   def valid_destination_url?(url)
     must_not_be_whitehall_admin!(url)
-    !on_national_archives?(url) && !blank?(url) && !is_whitehall_admin?(url) && valid_url?(url)
+    !on_national_archives?(url) && !is_whitehall_admin?(url) && valid_url?(url)
   end
 
   def is_whitehall_admin?(url)
