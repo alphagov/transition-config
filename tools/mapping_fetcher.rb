@@ -6,12 +6,81 @@ require 'pathname'
 class MappingFetcher
   attr_reader :csv_url, :mapping_name
 
-  def initialize(csv_url, mapping_name)
-    @csv_url = csv_url
+  NilAsBlankConverter = ->(heading) { heading || "" }
+
+  def initialize(mapping_name)
     @mapping_name = mapping_name
     @new_url_mappings = {
       'tna' => ''
     }
+    @sources = []
+  end
+
+  def add_source(source)
+    @sources << source
+  end
+
+  class CsvSource
+
+    def input_csv
+      @input_csv ||= normalize_column_names(CSV.parse(read_data, headers: true, header_converters: [NilAsBlankConverter, :downcase]))
+    end
+
+    def normalize_column_names(rows)
+      Enumerator.new do |yielder|
+        rows.each_with_index do |row, i|
+          yielder << {
+            'source' => source,
+            'row_number' => i + 2,
+            'old url' => row['old url'],
+            'new url' => row['new url']
+          }
+        end
+      end
+    end
+  end
+
+  class RemoteCsvSource < CsvSource
+
+    def initialize(csv_url)
+      @csv_url = csv_url
+    end
+
+    def source
+      @csv_url
+    end
+
+    def read_data
+      do_request(@csv_url).body.force_encoding("UTF-8")
+    end
+
+    def do_request(url)
+      uri = URI.parse(url)
+      raise "url must be HTTP(S)" unless uri.is_a?(URI::HTTP)
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = (uri.is_a?(URI::HTTPS))
+      response = http.request_get(uri.path + "?" + uri.query)
+      raise "Error - got response #{response.code}" unless response.is_a?(Net::HTTPOK)
+      response
+    end
+  end
+
+  class LocalCsvSource < CsvSource
+    def initialize(path)
+      @path = path
+    end
+
+    def source
+      @path
+    end
+
+    def read_data
+      File.open(@path, 'r:utf-8') {|f| f.read}
+    end
+  end
+
+  def input_csv
+    @sources.map {|s| s.input_csv.to_a}.flatten(1)
   end
 
   def remap_new_urls_using(admin_url_mapping_csv_file)
@@ -52,10 +121,12 @@ class MappingFetcher
       rows.each do |row|
         new_url = remap_new_url(row['new url'])
         if !blank?(new_url) && !valid_destination_url?(new_url)
-          $stderr.puts "WARNING: invalid new url '#{new_url}'"
+          $stderr.puts "WARNING: Row #{row['source']} #{row['row_number']} - invalid new url '#{new_url}'"
           new_url = ""
         end
         yielder << {
+          'source' => row['source'],
+          'row_number' => row['row_number'],
           'old url' => row['old url'],
           'new url' => new_url
         }
@@ -67,6 +138,8 @@ class MappingFetcher
     Enumerator.new do |yielder|
       rows.each do |row|
         yielder << {
+          'source' => row['source'],
+          'row_number' => row['row_number'],
           'old url' => sanitize_url(row['old url']),
           'new url' => sanitize_url(row['new url'])
         }
@@ -78,9 +151,9 @@ class MappingFetcher
     Enumerator.new do |yielder|
       rows.each_with_index do |row, i|
         if blank?(row['old url'])
-          $stderr.puts "Row #{i+2}: skipping - blank old url"
+          $stderr.puts "Row #{row['source']} #{row['row_number']}: skipping - blank old url"
         elsif !valid_url?(row['old url'])
-          $stderr.puts "Row #{i+2}: skipping - invalid old url '#{row['old url']}'"
+          $stderr.puts "Row #{row['source']} #{row['row_number']}: skipping - invalid old url '#{row['old url']}'"
         else
           yielder << row
         end
@@ -93,7 +166,7 @@ class MappingFetcher
   end
 
   def non_duplicates(rows)
-    rows.group_by {|row| row['old url']}.reject { |old_url, cluster| cluster.size > 1}.map {|old_url, rows| rows.first}
+    rows.group_by {|row| row['old url']}.reject { |old_url, cluster| cluster.size > 1}.map {|old_url, rr| rr.first}
   end
 
   def prefer_page_destinations_over_assets(rows)
@@ -177,19 +250,4 @@ class MappingFetcher
 
   private
 
-  NilAsBlankConverter = ->(heading) { heading || "" }
-
-  def input_csv
-    @input_csv ||= CSV.parse(do_request(csv_url).body.force_encoding("UTF-8"), headers: true, header_converters: [NilAsBlankConverter, :downcase])
-  end
-
-  def do_request(url)
-    uri = URI.parse(url)
-    raise "url must be HTTP(S)" unless uri.is_a?(URI::HTTP)
-    http = Net::HTTP.new(uri.host, uri.port)
-    http.use_ssl = (uri.is_a?(URI::HTTPS))
-    response = http.request_get(uri.path + "?" + uri.query)
-    raise "Error - got response #{response.code}" unless response.is_a?(Net::HTTPOK)
-    response
-  end
 end
