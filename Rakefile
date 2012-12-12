@@ -1,4 +1,4 @@
-desc "Run all tests"
+desc "Pull down mappings, build redirections and run unit tests"
 task :default => :prerequisites do
   sh "./jenkins.sh"
 end
