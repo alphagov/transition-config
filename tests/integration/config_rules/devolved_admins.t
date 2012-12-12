@@ -8,9 +8,9 @@ require 'tests/integration/config_rules/get_response.pl';
 
 # Scotland
 my ( $response_code, $redirect_location) = get_response ( 'http://www.businesslink.gov.uk/bdotg/action/layer?r.l1=1081986989&r.s=tl&topicId=1087252345&site=202' );
-is( '301', $response_code, "A sample site=202 page redirects" );
-is( 'http://www.business.scotland.gov.uk/bdotg/action/layer?r.l1=1081986989&r.s=tl&topicId=1087252345&site=202', 
-	$redirect_location, "redirect is the equivalent page on business.scotland" );
+is( '301', $response_code, "A sample site=202 no longer redirects" );
+is( 'http://www.hmrc.gov.uk/agents/index.htm', 
+	$redirect_location, "site =202 no longer redirects to busness.scotland" );
 
 # Same one without site=202
 ( $response_code, $redirect_location) = get_response ( 'http://www.businesslink.gov.uk/bdotg/action/layer?r.l1=1081986989&r.s=tl&topicId=1087252345' );
