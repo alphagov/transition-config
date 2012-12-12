@@ -1,6 +1,6 @@
 my $test = Top_250::Ago->new();
 $test->{'force_production_redirector'} = 1;
-$test->input_file("tests/integration/test_data/top_250_ago_urls.csv");
+$test->input_file("tests/integration/test_data/sample_ago_urls.csv");
 $test->output_file("dist/ago_sample_test_output.csv");
 $test->output_error_file("dist/ago_sample_failures.csv");
 $test->run_tests();
