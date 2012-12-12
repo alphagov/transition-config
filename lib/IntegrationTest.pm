@@ -64,7 +64,7 @@ sub run_tests {
                     . "Actual Status,Actual New Url,New Url Status"
                         unless defined $self->{'output_has_no_header'};
 
-    say $output_error_log "Old Url,New Url,Status,Whole Tag,Test Result,"
+    say $output_error_log "Old Url,New Url,Expected Status,"
                           . "Actual Status,Actual New Url,New Url Status"
                               unless defined $self->{'output_has_no_header'};
     
@@ -75,7 +75,7 @@ sub run_tests {
         if ( $passed != -1 ) {
             my $response_status   = $response->code;
             my $location_header   = $response->header('location') // '';
-            my $redirected_status = 0;
+            my $redirected_status = 'no redirect followed';
             
             if ( defined $redirected_response ) {
                 $redirected_status = $redirected_response->code;
@@ -105,8 +105,6 @@ sub run_tests {
                         $row->{'Old Url'},
                         $row->{'New Url'} // '',
                         $row->{'Status'},
-                        $row->{'Whole Tag'} // '',
-                        $passed,
                         $response_status,
                         $location_header,
                         $redirected_status;
