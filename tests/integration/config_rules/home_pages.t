@@ -28,6 +28,11 @@ is( 'https://www.gov.uk', $redirect_location, "redirect is to  https://www.gov.u
 is( '301', $response_code, "Directgov homepage redirects" );
 is( 'https://www.gov.uk', $redirect_location, "redirect is to  https://www.gov.uk" );
 
+( $response_code, $redirect_location) = get_response ( 'http://www.direct.gov.uk/en' );
+is( '301', $response_code, "Directgov homepage redirects" );
+is( 'https://www.gov.uk', $redirect_location, "redirect is to  https://www.gov.uk" );
+
+
 
 done_testing();
 
