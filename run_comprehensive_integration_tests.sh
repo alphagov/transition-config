@@ -4,4 +4,10 @@ set -e
 set -x
 
 echo DEPLOY_TO=$DEPLOY_TO
-prove -lr tests/integration/ratified/ tests/integration/sample/ tests/integration/config_rules/ tools/test-log.pl
+
+prove -lr${CONCURRENT_TESTS:-}          \
+    tests/integration/config_rules/     \
+    tests/integration/ratified/         \
+    tests/integration/regression/       \
+    tests/integration/sample/           \
+    tools/test-log.pl
