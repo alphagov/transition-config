@@ -96,12 +96,13 @@ prove bin/test_sitemap.pl :: dist/static/bl/sitemap.xml www.businesslink.gov.uk 
 for site in ${REDIRECTOR_SITES[@]}; do
     [ $site = 'directgov' ] && continue
     [ $site = 'businesslink' ] && continue
-    
-    perl \
-        tools/sitemap.pl \
-        dist/${site}_mappings_source.csv \
-        www.${site}.gov.uk > dist/static/${site}/sitemap.xml
-    prove bin/test_sitemap.pl :: dist/static/${site}/sitemap.xml www.${site}.gov.uk
+    domain=`case "$site" in
+    mod) echo "www.mod.uk" ;;
+    *) echo "www.${site}.gov.uk" ;;
+    esac`
+
+    perl tools/sitemap.pl dist/${site}_mappings_source.csv $domain > dist/static/${site}/sitemap.xml
+    prove bin/test_sitemap.pl :: dist/static/${site}/sitemap.xml $domain
 done
 
 echo "Redirector build succeeded."
