@@ -159,12 +159,12 @@ sub test_closed_redirects {
     my $mapping_status = lc( $row->{'Whole Tag'} // 'closed' );
     
     if ( $mapping_status =~ m{\bclosed\b} ) {
-        return $self->is_redirect_response($row);
+        return $self->is_redirect_to_a_200_response($row);
     }
     
     return -1;
 }
-sub is_redirect_response {
+sub is_redirect_to_a_200_response {
     my $self = shift;
     my $row  = shift;
     

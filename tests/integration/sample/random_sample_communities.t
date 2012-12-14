@@ -19,10 +19,10 @@ use Test::More;
 sub test {
     my $self = shift;
     
-    my ( $passed, $response, $test_response ) = $self->is_redirect_response(@_);
+    my ( $passed, $response, $test_response ) = $self->test_closed_redirects(@_);
     
     if ( -1 == $passed ) {
-        ( $passed, $response, $test_response ) = $self->is_gone_response(@_);
+        ( $passed, $response, $test_response ) = $self->test_closed_gones(@_);
         if ( -1 == $passed ) {
             ( $passed, $response, $test_response ) = $self->is_ok_response(@_);
         }
