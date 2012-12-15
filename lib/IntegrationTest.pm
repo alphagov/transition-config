@@ -164,6 +164,46 @@ sub test_closed_redirects {
     
     return -1;
 }
+
+sub is_redirect_to_any_non_failure_response {
+    my $self = shift;
+    my $row  = shift;
+
+    if ( 301 == $row->{'Status'} ) {
+        my $old_url  = $row->{'Old Url'};
+        my $new_url  = $row->{'New Url'};
+        my $response = $self->get_response($row);
+        my $location = $response->header('location');
+
+        my $redirected_response_code = "wrong redirect location";
+        my $redirected_response;
+
+        if ( defined $location && $location eq $new_url ) {
+            $redirected_response = $self->{'ua'}->get($new_url);
+            $redirected_response_code = $redirected_response->code;
+        }
+
+        my $acceptable_response_code = 1
+            if $redirected_response_code == 200
+            || $redirected_response_code == 301
+            || $redirected_response_code == 302
+            || $redirected_response_code == 410;
+
+        my $passed = ok(
+            $acceptable_response_code,
+            "$old_url redirects to $new_url, which is 200"
+        );
+
+        return(
+            $passed,
+            $response,
+            $redirected_response
+        );
+    }
+
+    return -1;
+}
+
 sub is_redirect_to_a_200_response {
     my $self = shift;
     my $row  = shift;
