@@ -3,10 +3,10 @@ use warnings;
 use Test::More;
 use IntegrationTest;
 
-# redirect to 200
-
 my $integration_test = IntegrationTest->new( 'tests/unit/test_data/first_line_good.csv' );
 isa_ok( $integration_test, 'IntegrationTest' );
+
+# redirect to 200
 
 my $row = {
           'Status' => '410',
@@ -64,6 +64,18 @@ $row = {
 
 ($passed, $response, $redirected_response) = $integration_test->is_redirect_to_any_non_failure_response($row);
 is($passed, 1, '301 is a redirect response if it redirects to a 410');
+
+
+# chase redirects
+
+$row = {
+          'Status' => '301',
+          'Old Url' => 'http://www.direct.gov.uk/en/Governmentcitizensandrights/UKgovernment/PublicConsultations/DG_170463',
+          'New Url' => 'https://www.gov.uk/government/consultations',
+        };
+
+($passed, $response, $redirected_response) = $integration_test->is_redirect_to_a_200_or_410_eventually($row);
+is($passed, 1, '301 to redirect is a redirect response if it ends up at a 200');
 
 
 done_testing();
