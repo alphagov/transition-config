@@ -26,6 +26,17 @@ $row = {
 my ($passed, $response, $redirected_response) = $integration_test->is_redirect_to_a_200_response($row);
 is($passed, 1, '301 is a redirect response if it redirects to a 200');
 
+
+$row = {
+          'Status' => '301',
+          'Old Url' => 'http://www.direct.gov.uk/en/HomeAndCommunity/BuyingAndSellingYourHome/HomeBuyingSchemes/DG_4001398',
+          'New Url' => 'https://www.gov.uk/right-to-buy-buying-your-council-home',
+        };
+
+($passed, $response, $redirected_response) = $integration_test->is_redirect_to_a_200_response($row);
+is($passed, 1, '301 is a redirect response if it redirects to a 200');
+
+
 # redirect to any non-failure response
 
 $row = {

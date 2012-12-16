@@ -41,6 +41,11 @@ sub output_error_file {
 
     $self->{'output_error_file'} = shift;
 }
+sub output_redirects_file {
+    my $self = shift;
+
+    $self->{'output_redirects_file'} = shift;
+}
 
 sub run_tests {
     my $self = shift;
@@ -57,20 +62,30 @@ sub run_tests {
     open ( my $output_log, ">", $self->{'output_file'} )
         or die $self->{'output_file'} . ": $!";
     
-    open ( my $output_error_log, '>', $self->{'output_error_file'} )
-        or die $self->{'output_error_file'} . ": $!";
-    
     say $output_log "Old Url,New Url,Status,Whole Tag,Test Result,"
                     . "Actual Status,Actual New Url,New Url Status"
                         unless defined $self->{'output_has_no_header'};
 
     my $error_count = 0;
+    open ( my $output_error_log, '>', $self->{'output_error_file'} )
+        or die $self->{'output_error_file'} . ": $!";
+        
     say $output_error_log "Old Url,New Url,Expected Status,"
                           . "Actual Status,Actual New Url,New Url Status"
                               unless defined $self->{'output_has_no_header'};
     
+    my $output_redirects_log;
+    my $redirects_count = 0;
+    if ( defined $self->{'output_redirects_file'} ) {
+        open ( $output_redirects_log, ">", $self->{'output_redirects_file'} )
+            or die $self->{'output_redirects_file'} . ": $!";
+        say $output_redirects_log "Old Url,New Url,Expected Status,"
+                            . "Actual Status,Actual New Url,New Url Status"
+                                unless defined $self->{'output_has_no_header'};
+    }
+
     while ( my $row = $csv->getline_hr( $fh ) ) {
-        my( $passed, $response, $redirected_response )
+        my( $passed, $response, $redirected_response, $chased_redirect )
             = $self->test($row);
         
         if ( $passed != -1 ) {
@@ -111,13 +126,30 @@ sub run_tests {
                         $location_header,
                         $redirected_status;
             }
+            
+            if ( $chased_redirect && defined $self->{'output_redirects_file'} ) {
+                $redirects_count++;
+                say $output_redirects_log
+                    join ',',
+                        $row->{'Old Url'},
+                        $row->{'New Url'} // '',
+                        $row->{'Status'},
+                        $response_status,
+                        $location_header,
+                        $redirected_status;
+            }
         }
     }
 
-    # clean up error files if no actual errors occured
+    # clean up error/redirect files if no actual errors or redirects occured
     close $output_error_log;
     unlink $self->{'output_error_file'}
         unless $error_count;
+    if ( defined $self->{'output_redirects_file'} ) {
+        close $output_redirects_log;
+        unlink $self->{'output_redirects_file'}
+            unless $redirects_count;
+    }
 
     done_testing();
 }
@@ -164,6 +196,7 @@ sub test_closed_redirects {
     
     return -1;
 }
+
 sub test_finalised_redirects {
     my $self = shift;
     my $row  = shift;
@@ -228,15 +261,19 @@ sub is_redirect_to_a_200_or_410_eventually {
 
         my $redirected_response_code = "wrong redirect location";
         my $redirected_response;
-
+        
         my $max_redirects = 3;
-
+        my $chased_redirect = 0;
+        
         while ( $max_redirects && defined $location ) {
             $max_redirects--;
 
             $redirected_response      = $self->{'ua'}->get($location);
             $redirected_response_code = $redirected_response->code;
             $location                 = $redirected_response->header('location');
+            
+            $chased_redirect = 1
+ 	             if defined $location;
         }
 
         if ( defined $location && $location eq $new_url ) {
@@ -253,7 +290,8 @@ sub is_redirect_to_a_200_or_410_eventually {
         return(
             $passed,
             $response,
-            $redirected_response
+            $redirected_response,
+            $chased_redirect
         );
     }
 
