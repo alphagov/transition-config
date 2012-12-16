@@ -164,6 +164,17 @@ sub test_closed_redirects {
     
     return -1;
 }
+sub test_finalised_redirects {
+    my $self = shift;
+    my $row  = shift;
+
+    my $is_redirect_to_gov_uk = $row->{'New Url'} =~ m{^https://www.gov.uk};
+
+    return $self->is_redirect_to_a_200_or_410_eventually($row)
+        if $is_redirect_to_gov_uk;
+
+    return $self->is_redirect_to_any_non_failure_response($row);
+}
 
 
 sub is_redirect_to_any_non_failure_response {
