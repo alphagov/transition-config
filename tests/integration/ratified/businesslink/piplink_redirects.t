@@ -4,6 +4,7 @@ my $test = Businesslink::Ratified::Piplinks->new();
 $test->input_file("dist/businesslink_piplink_redirects_source.csv");
 $test->output_file("dist/businesslink_piplink_redirects_output.csv");
 $test->output_error_file("dist/businesslink_piplink_redirects_errors.csv");
+$test->output_redirects_file("dist/businesslink_piplink_redirects_chased.csv");
 $test->run_tests();
 exit;
 
@@ -20,5 +21,5 @@ use Test::More;
 sub test {
     my $self = shift;
     
-    $self->test_closed_redirects(@_);
+    $self->test_finalised_redirects(@_);
 }
