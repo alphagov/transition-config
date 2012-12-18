@@ -6,6 +6,7 @@ use LWP::UserAgent;
 use Test::More;
 use Text::CSV;
 use URI;
+require 'tests/integration/config_rules/get_response.pl';
 
 
 
@@ -62,5 +63,11 @@ while ( my $row = $csv->getline_hr( $fh ) ) {
         die "Unknown action: '$action' for $old_url";
     }
 }
+
+my ( $response_code, $redirect_location ) = get_response ( 'http://campaigns.direct.gov.uk/brand/toolkit/Toolkit_v3.4.1/Images/printlogo.gif' );
+is( '200', $response_code, "asset on campaigns server is a 200" );
+
+( $response_code, $redirect_location ) = get_response ( 'http://campaigns.direct.gov.uk/foo' );
+is( '404', $response_code, "non-existent asset on campaigns server is a 404" );
 
 done_testing();
