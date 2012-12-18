@@ -77,12 +77,16 @@ cp redirector/410_suggested_links.php dist/static/dg
 for site in ${REDIRECTOR_SITES[@]}; do
     [ $site = 'directgov' ] && continue
     [ $site = 'businesslink' ] && continue
+    domain=`case "$site" in
+    mod) echo "www.mod.uk" ;;
+    *) echo "www.${site}.gov.uk" ;;
+    esac`
     
-    touch dist/www.${site}.gov.uk.no_suggested_links.conf
+    touch dist/${domain}.no_suggested_links.conf
     
     cat \
         redirector/410_preamble.php \
-        dist/www.${site}.gov.uk.*suggested_links*.conf \
+        dist/${domain}.*suggested_links*.conf \
         redirector/410_header.php \
         redirector/static/${site}/410.html \
             > dist/static/${site}/410.php
