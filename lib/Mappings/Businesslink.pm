@@ -111,6 +111,10 @@ sub get_map_key {
     elsif ( defined $item ) {
         $key = "itemId=$item";
     }
+    elsif ( defined $query_string && $query_string =~ m{page=(\w+)} ) {
+        my $page = $1;
+        $key = "page=$page";
+    }
     
     return $key; 
 }

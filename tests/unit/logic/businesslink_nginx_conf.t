@@ -160,4 +160,17 @@ is( $businesslink_friendly_type_with_querystring, 'redirect_map',
 is( $businesslink_friendly_content_with_querystring, "~topicId=1073858865 http://www.gov.uk/testresult;\n", 
 	"A friendly URL does not contain a query string" );
 
+my $businesslink_page_redirect = {
+	'Old Url'	=> 'http://www.businesslink.gov.uk/bdotg/action/staticpage?page=Accessibility',
+	'New Url'	=> 'https://www.gov.uk/support/accessibility',
+	'Status'	=> 301,
+};
+( $redirect_host, $redirect_type, $redirect ) = $mappings->row_as_nginx_config($businesslink_page_redirect);
+is( $redirect_host, 'www.businesslink.gov.uk',
+	'Host that config applies to is businesslink' );
+is( $redirect_type, 'redirect_map',
+	'If host is businesslink and type is redirect, type of nginx block is redirect_map'  );
+is( $redirect, qq(~page=Accessibility https://www.gov.uk/support/accessibility;\n),
+    'Nginx config is as expected' );
+
 done_testing();
