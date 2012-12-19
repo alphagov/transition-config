@@ -20,6 +20,8 @@ my $names = $csv->getline(*STDIN);
 $csv->column_names(@$names);
 
 while (my $row = $csv->getline_hr(*STDIN)) {
+	$row->{'Old Url'} =~ s/,/%2C/g;
+	$row->{'New Url'} =~ s/,/%2C/g;
 	$urls{$row->{'Old Url'}} = $row;
 }
 
