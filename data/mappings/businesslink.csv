@@ -1,5 +1,4 @@
-Old Url,New Url,Status,Whole Tag,Suggested Links
-http://online.businesslink.gov.uk/bdotg/action/licenceLanding?itemId=1087430873&type=LICENCE,https://www.gov.uk/renting-business-property-tenant-responsibilities,301,Closed,
+"Old Url","New Url",Status,"Whole Tag","Suggested Links"
 http://elearning.businesslink.gov.uk/startingup/0003,http://www.hmrc.gov.uk/vat/forms-rates/rates/calculating.htm,301,Closed,
 http://elearning.businesslink.gov.uk/startingup/0005,https://www.gov.uk/vat-businesses,301,Closed,
 http://elearning.businesslink.gov.uk/startingup/0007,https://www.gov.uk/vat-record-keeping/vat-invoices,301,Closed,
@@ -409,6 +408,7 @@ http://online.businesslink.gov.uk/bdotg/action/licenceLanding?itemId=1074534868&
 http://online.businesslink.gov.uk/bdotg/action/licenceLanding?itemId=107532898&type=LICENCE,https://www.gov.uk/licence-finder,301,Closed,
 http://online.businesslink.gov.uk/bdotg/action/licenceLanding?itemId=10753290E&type=LICENCE,https://www.gov.uk/licence-finder,301,Closed,
 http://online.businesslink.gov.uk/bdotg/action/licenceLanding?itemId=1084128028&type=LICENCE,https://www.gov.uk/redress-scheme-registration-estate-agencies,301,Closed,
+http://online.businesslink.gov.uk/bdotg/action/licenceLanding?itemId=1087430873&type=LICENCE,https://www.gov.uk/renting-business-property-tenant-responsibilities,301,Closed,
 http://online.businesslink.gov.uk/bdotg/action/logicToolPayloadPage?itemId=1077722970&type=BLTTOOL,https://www.gov.uk/bankruptcy,301,Closed,
 http://online.businesslink.gov.uk/bdotg/action/logicToolPayloadPage?itemId=1077731040&type=BLTTOOL,https://www.gov.uk/working-with-trade-unions,301,Closed,
 http://online.businesslink.gov.uk/bdotg/action/logicToolPayloadPage?itemId=1077834101&page=1&r.i=1077834101&r.l1=1073861169&r.l2=1073858827&r.l3=1075308586&r.t=BLTTOOL&type=BLTTOOL,,410,Closed,http://cimmarketingexpert.co.uk/
@@ -11190,7 +11190,7 @@ http://www.businesslink.gov.uk/bdotg/action/detail?itemId=1086331079&type=RESOUR
 http://www.businesslink.gov.uk/bdotg/action/detail?itemId=1086331113&type=RESOURCES,https://www.gov.uk/expenses-and-benefits-relocation,301,Closed,
 http://www.businesslink.gov.uk/bdotg/action/detail?itemId=1086331121&type=RESOURCES,https://www.gov.uk/expenses-and-benefits-relocation,301,Closed,
 http://www.businesslink.gov.uk/bdotg/action/detail?itemId=1086331125&type=RESOURCES,https://www.gov.uk/expenses-benefits-sporting-recreational-facilities,301,Closed,
-http://www.businesslink.gov.uk/bdotg/action/detail?itemId=1086331127&type=RESOURCES,https://www.gov.uk/expenses-benefits-subscriptions-professional-fees,301,Closed,	
+http://www.businesslink.gov.uk/bdotg/action/detail?itemId=1086331127&type=RESOURCES,https://www.gov.uk/expenses-benefits-subscriptions-professional-fees,301,Closed,"	"
 http://www.businesslink.gov.uk/bdotg/action/detail?itemId=1086331129&type=RESOURCES,https://www.gov.uk/expenses-benefits-sporting-recreational-facilities,301,Closed,
 http://www.businesslink.gov.uk/bdotg/action/detail?itemId=1086331132&type=RESOURCES,https://www.gov.uk/expenses-benefits-sporting-recreational-facilities,301,Closed,
 http://www.businesslink.gov.uk/bdotg/action/detail?itemId=1086331134&type=RESOURCES,https://www.gov.uk/expenses-benefits-subscriptions-professional-fees,301,Closed,
@@ -23270,14 +23270,14 @@ http://www.businesslink.gov.uk/bdotg/action/sectorsLMLicenceRegArea?regulationAr
 http://www.businesslink.gov.uk/bdotg/action/sectorsLMLicenceRegArea?regulationArea=Copyright,https://www.gov.uk/licence-finder,301,Closed,
 http://www.businesslink.gov.uk/bdotg/action/sectorsLMLicenceRegArea?regulationArea=Data+protection,https://www.gov.uk/licence-finder,301,Closed,
 http://www.businesslink.gov.uk/bdotg/action/sectorsLMLicenceRegArea?regulationArea=Distribution+and+storage,https://www.gov.uk/licence-finder,301,Closed,
+http://www.businesslink.gov.uk/bdotg/action/sectorsLMLicenceRegArea?regulationArea=Environment,https://www.gov.uk/licence-finder,301,Closed,
 http://www.businesslink.gov.uk/bdotg/action/sectorsLMLicenceRegArea?regulationArea=Environment%20and%20waste,https://www.gov.uk/licence-finder,301,Closed,
 http://www.businesslink.gov.uk/bdotg/action/sectorsLMLicenceRegArea?regulationArea=Environment+and+waste,https://www.gov.uk/licence-finder,301,Closed,
-http://www.businesslink.gov.uk/bdotg/action/sectorsLMLicenceRegArea?regulationArea=Environment,https://www.gov.uk/licence-finder,301,Closed,
 http://www.businesslink.gov.uk/bdotg/action/sectorsLMLicenceRegArea?regulationArea=Health%20and%20safety,https://www.gov.uk/licence-finder,301,Closed,
 http://www.businesslink.gov.uk/bdotg/action/sectorsLMLicenceRegArea?regulationArea=Hospitality%2C+leisure+and+entertainment,https://www.gov.uk/licence-finder,301,Closed,
+http://www.businesslink.gov.uk/bdotg/action/sectorsLMLicenceRegArea?regulationArea=Professional,https://www.gov.uk/licence-finder,301,Closed,
 http://www.businesslink.gov.uk/bdotg/action/sectorsLMLicenceRegArea?regulationArea=Professional%20services,https://www.gov.uk/licence-finder,301,Closed,
 http://www.businesslink.gov.uk/bdotg/action/sectorsLMLicenceRegArea?regulationArea=Professional+services,https://www.gov.uk/licence-finder,301,Closed,
-http://www.businesslink.gov.uk/bdotg/action/sectorsLMLicenceRegArea?regulationArea=Professional,https://www.gov.uk/licence-finder,301,Closed,
 http://www.businesslink.gov.uk/bdotg/action/sectorsLMLicenceRegArea?regulationArea=Retail%20and%20wholesale,https://www.gov.uk/licence-finder,301,Closed,
 http://www.businesslink.gov.uk/bdotg/action/sectorsLMLicenceRegArea?regulationArea=Retail+and+wholesale,https://www.gov.uk/licence-finder,301,Closed,
 http://www.businesslink.gov.uk/bdotg/action/sectorsLMLicenceRegArea?regulationArea=Social+and+welfare,https://www.gov.uk/licence-finder,301,Closed,
