@@ -26,7 +26,7 @@ while (my $row = $csv->getline_hr(*STDIN)) {
 #
 #  write folded mappings ..
 #
-$csv->combine($names);
+$csv->combine(@$names);
 print $csv->string() . "\n";
 
 foreach my $url (sort keys %urls) {
