@@ -1,5 +1,3 @@
-use Test::More;
-
 my $test = Businesslink::Ratified::Piplinks->new();
 $test->input_file("dist/businesslink_piplink_redirects_source.csv");
 $test->output_file("dist/businesslink_piplink_redirects_output.csv");
