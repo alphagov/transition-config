@@ -19,9 +19,6 @@ rm -rf dist/*
 # copy the mappings source files to dist
 TEST_FILES=''
 for site in ${REDIRECTOR_SITES[@]}; do
-    # no mapping source for directgov as yet
-    [ $site = 'directgov' ] && continue
-    
     cp data/mappings/${site}.csv dist/${site}_mappings_source.csv
     
     test_file="tests/unit/sources/${site}_valid_lines.t"
@@ -29,9 +26,9 @@ for site in ${REDIRECTOR_SITES[@]}; do
     TEST_FILES="${TEST_FILES} ${test_file}"
 done
 
-# fetch directgov
-echo 'Fetching directgov from the migratorator'
-curl "https://${MIGRATORATOR_AUTH}@migratorator.production.alphagov.co.uk/mappings.csv" > dist/directgov_mappings_source.csv
+# Directgov mappings are finalised so no need to do this unless required
+# pending a discussion of how the migratorator will be used in future, commenting this out for possible later removal
+# curl "https://${MIGRATORATOR_AUTH}@migratorator.production.alphagov.co.uk/mappings.csv" > dist/directgov_mappings_source.csv
 
 # copy extra businesslink piplinks
 cp data/businesslink_piplink_redirects_source.csv dist
