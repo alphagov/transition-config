@@ -18,5 +18,5 @@ use Test::More;
 sub test {
     my $self = shift;
 
-    $self->test_closed_redirects(@_);
+    $self->test_finalised_redirects(@_);
 }
