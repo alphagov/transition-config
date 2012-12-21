@@ -7,9 +7,9 @@ declare -a REDIRECTOR_SITES=(
 )
 
 declare -a REDIRECTED_SITES=(
-	directgov
-    businesslink
     ago
+    businesslink
+	directgov
 )
 
 declare -a IN_PROGRESS_SITES=(
