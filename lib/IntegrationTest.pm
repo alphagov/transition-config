@@ -234,9 +234,9 @@ sub is_redirect_to_any_non_failure_response {
             || $redirected_response_code == 302
             || $redirected_response_code == 410
             || $location =~ /voa.gov.uk/; 
-            # The voa site intermittently returns 500s, causing the integration
-            # and regresstion tests to fail. A better overall approach to testing
-            # is a better solution, this is an interim.
+            # The voa site intermittently returns 500s, causing the integration 
+            # and regresstion tests to fail. A better overall approach to testing 
+            # is a better solution, this is an interim. 
 
         my $passed = ok(
             $acceptable_response_code,
