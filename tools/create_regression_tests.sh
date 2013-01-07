@@ -2,7 +2,7 @@
 
 generate_template() {
 	local package_name=$1
-	local name=$1
+	local name=$(echo "$package_name" | tr [:upper:] [:lower:])
 	local path="$(pwd)/tests/redirects/${name}"
 	mkdir -p $path
 	cat > "${path}/gone.t" <<EOF
