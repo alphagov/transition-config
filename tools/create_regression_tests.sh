@@ -3,7 +3,7 @@
 generate_regression_test() {
 	local package_name=$1
 	local name=$(echo "$package_name" | tr [:upper:] [:lower:])
-	local path="$(pwd)/tests/redirects/${name}"
+	local path="$(pwd)/tests/regression/${name}"
 	mkdir -p $path
 	cat > "${path}/gone.t" <<EOF
 my \$test = ${package_name}::Finalised->new();
