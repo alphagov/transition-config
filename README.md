@@ -119,7 +119,15 @@ redirector.
 
 When all the mappings are complete, correct and passing the integration tests, you can make them finalised. 
 
-This entails moving the site in sites.sh from IN_PROGRESS_SITES to REDIRECTED_SITES and creating the regression tests. Currently creating the regression test involves copying one of the ones in tests/redirects and renaming the site, but plans are afoot to automate at least that and tools/create_regression_tests.sh is the first step towards that.
+This entails moving the site in sites.sh from IN_PROGRESS_SITES to REDIRECTED_SITES and creating the regression tests. 
+
+To create the regression test:
+
+source tools/create_regression_test.sh
+generate_regression_test $Name_of_site
+
+$Name_of_site here should be with an initial capital, e.g. Directgov.
+
 
 Note that the tests in redirects/ are slightly different to the integration tests - the redirect tests call the method test_finalised_redirects rather than test_closed_redirects. This means that they do not fail if the 301 location is not a 200. Redirects to non-GOV.UK sites are tested for a successful response (i.e. 200, 301, 302 or 410) and redirects to GOV.UK are chased (max 3 redirects) to ensure they end up eventually at a 200 or 410.
 

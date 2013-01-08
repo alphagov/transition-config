@@ -3,9 +3,9 @@
 generate_regression_test() {
 	local package_name=$1
 	local name=$(echo "$package_name" | tr [:upper:] [:lower:])
-	local path="$(pwd)/tests/regression/${name}"
+	local path="$(pwd)/tests/regression/"
 	mkdir -p $path
-	cat > "${path}/gone.t" <<EOF
+	cat > "${path}/${name}.t" <<EOF
 my \$test = ${package_name}::Finalised->new();
 \$test->input_file("dist/${name}_mappings_source.csv");
 \$test->output_file("dist/${name}_all_tested.csv");
