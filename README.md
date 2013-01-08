@@ -123,7 +123,7 @@ This entails moving the site in sites.sh from IN_PROGRESS_SITES to REDIRECTED_SI
 
 To create the regression test:
 
-source tools/create_regression_test.sh
+source tools/generate_tests.sh
 generate_regression_test $Name_of_site
 
 $Name_of_site here should be with an initial capital, e.g. Directgov.
