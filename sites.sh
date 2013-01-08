@@ -1,8 +1,5 @@
-declare -a REDIRECTOR_SITES=(
-    directgov
-    businesslink
+declare -a IN_PROGRESS_SITES=(
     communities
-    ago
     mod
 )
 
@@ -10,9 +7,4 @@ declare -a REDIRECTED_SITES=(
     ago
     businesslink
 	directgov
-)
-
-declare -a IN_PROGRESS_SITES=(
-	communities
-    mod
 )

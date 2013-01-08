@@ -10,18 +10,18 @@ prove -lj4 tests/unit/logic/*.t
 
 echo "Creating fresh copies of data sources in dist directory"
 rm -rf dist/*
-for site in ${REDIRECTOR_SITES[@]}; do
+for site in ${IN_PROGRESS_SITES[@]} ${REDIRECTED_SITES[@]}; do
     cp data/mappings/${site}.csv dist/${site}_mappings_source.csv
 done
 cp data/businesslink_piplink_redirects_source.csv dist
 
-echo "Testing sources are valid..."
-for site in ${REDIRECTOR_SITES[@]}; do
+echo "Testing sources are valid for sites where mapping is still in progress..."
+for site in ${IN_PROGRESS_SITES[@]}; do
     prove -l tests/unit/sources/${site}_valid_lines.t
 done
 
 echo "Creating mappings from sources..."
-for site in ${REDIRECTOR_SITES[@]}; do
+for site in ${IN_PROGRESS_SITES[@]} ${REDIRECTED_SITES[@]}; do
     perl -Ilib create_mappings.pl dist/${site}_mappings_source.csv
 done
 
@@ -55,7 +55,7 @@ cat \
         > dist/static/dg/410.php
 cp redirector/410_suggested_links.php dist/static/dg
 
-for site in ${REDIRECTOR_SITES[@]}; do
+for site in ${IN_PROGRESS_SITES[@]} ${REDIRECTED_SITES[@]}; do
     [ $site = 'directgov' ] && continue
     [ $site = 'businesslink' ] && continue
     domain=`case "$site" in
@@ -78,7 +78,7 @@ perl tools/sitemap.pl dist/directgov_mappings_source.csv 'www.direct.gov.uk' > d
 prove bin/test_sitemap.pl :: dist/static/dg/sitemap.xml www.direct.gov.uk
 perl tools/sitemap.pl dist/businesslink_mappings_source.csv 'www.businesslink.gov.uk' 'online.businesslink.gov.uk' > dist/static/bl/sitemap.xml
 prove bin/test_sitemap.pl :: dist/static/bl/sitemap.xml www.businesslink.gov.uk online.businesslink.gov.uk
-for site in ${REDIRECTOR_SITES[@]}; do
+for site in ${IN_PROGRESS_SITES[@]} ${REDIRECTED_SITES[@]}; do
     [ $site = 'directgov' ] && continue
     [ $site = 'businesslink' ] && continue
     domain=`case "$site" in
