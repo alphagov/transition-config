@@ -42,7 +42,14 @@ It should be sorted on the Old Url column (this makes diffs between commits more
 
 #### Valid Lines
 
-Add a valid lines test script: tests/logic/sources/WEBSITE_valid_lines.t, using one of the others as a template. This will be automated but is currently a manual step. It is required because jenkins.sh tests all the mappings before attempting to build. 
+Add a valid lines test script:
+
+    source tools/generate_tests.sh
+    generate_valid_lines_test $Name_of_site
+
+$Name_of_site here should be with an initial capital, e.g. Directgov.
+
+This is required because jenkins.sh tests all the mappings before attempting to build. 
 
 #### Subset test 
 
