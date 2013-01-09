@@ -9,7 +9,7 @@ Name,Subdomains,Host,Leave,redirect URL
 ,benefitsadviser.direct.gov.uk,66.54.40.85,Leave,
 ,benefitsadvisor.direct.gov.uk,66.54.40.85,Leave,
 ,beplantwise.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Other redirect destination,https://secure.fera.defra.gov.uk/nonnativespecies/beplantwise/
-Your future wallet,betterfuture.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,TBC,
+Your future wallet,betterfuture.direct.gov.uk,Other redirect destination,https://www.gov.uk/browse/working/workplace-personal-pensions
 Apply for a Blue Badge online,bluebadge.direct.gov.uk,152.114.70.62,Leave,
 ,bluebadge2.direct.gov.uk,,Leave,
 ,brand.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,TBC,
