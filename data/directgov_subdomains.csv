@@ -12,7 +12,7 @@ Name,Subdomains,Host,Leave,redirect URL
 Your future wallet,betterfuture.direct.gov.uk,Other redirect destination,https://www.gov.uk/browse/working/workplace-personal-pensions
 Apply for a Blue Badge online,bluebadge.direct.gov.uk,152.114.70.62,Leave,
 ,bluebadge2.direct.gov.uk,,Leave,
-,brand.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,TBC,
+,brand.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Redirect to GONE,
 ,bursarymap.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Redirect to GONE,
 ,businesslink.innovate.direct.gov.uk,94.236.94.60,Leave,
 ,buyerbeware.direct.gov.uk,steria-dg-prod.lbwa.ntt.net,Redirect to GONE,
