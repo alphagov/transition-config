@@ -30,13 +30,13 @@ It should be sorted on the Old Url column (this makes diffs between commits more
 
 1.  Add WEBSITE to `sites.sh`.
 
-1.  Copy the static assets from `redirector/static/_skeleton` to
-    `redirector/static/WEBSITE` and edit as necessary.
-    
-    *   `404.html` – add the date, department name and the new homepage (e.g. https://www.gov.uk/dclg)
-    *   `410.html` – add the date, department name, new homepage, the National Archives timestamp and the old website address (this is for the National Archives link creation - for example, for DCLG the timestamp is 20120919132719 and the website is www.communities.gov.uk)
-    *   `gone.css` - this does not require any change
+1. Create the static assets
 
+    source tools/generate_static_assets.sh
+    generate_404_page $department_name $redirection_date $department_full_name $new_department_homepage
+    generate_410_page $department_name $redirection_date $department_full_name $new_department_homepage $national_archives_timestamp $old_website_address
+
+Also copy gone.css.
 
 ### Create the required tests
 
