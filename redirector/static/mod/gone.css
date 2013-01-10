@@ -71,3 +71,7 @@ header.page-header .legacy-site-logo {
 header.page-header hgroup h1 {
 
 }
+
+header.page-header.businesslink .legacy-site-logo {
+  background: #0077B6 url(/businesslink-logo.png) no-repeat 5em 50%;
+}
