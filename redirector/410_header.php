@@ -7,5 +7,5 @@
     <!--[if lt IE 9]>
     <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <link href="../gone.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="/gone.css" media="screen" rel="stylesheet" type="text/css">
   </head>
