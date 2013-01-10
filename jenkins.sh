@@ -3,27 +3,31 @@
 set -e
 mkdir -p dist
 
-source sites.sh
-
 echo "Running unit tests..."
 prove -lj4 tests/unit/logic/*.t
 
-echo "Creating fresh copies of data sources in dist directory"
+echo "Creating fresh copies of data sources in dist directory..."
 rm -rf dist/*
-for site in ${IN_PROGRESS_SITES[@]} ${REDIRECTED_SITES[@]}; do
+
+while IFS=, read site redirected           
+do 
     cp data/mappings/${site}.csv dist/${site}_mappings_source.csv
-done
-cp data/businesslink_piplink_redirects_source.csv dist
+done < sites.csv
+cp data/businesslink_piplink_redirects_source.csv dist #could put this in sites.csv with some indicator?
 
 echo "Testing sources are valid for sites where mapping is still in progress..."
-for site in ${IN_PROGRESS_SITES[@]}; do
-    prove -l tests/unit/sources/${site}_valid_lines.t
-done
+while IFS=, read site redirected
+do           
+    if [ $redirected == N ]; then
+        prove -l tests/unit/sources/${site}_valid_lines.t
+    fi
+done < sites.csv
 
 echo "Creating mappings from sources..."
-for site in ${IN_PROGRESS_SITES[@]} ${REDIRECTED_SITES[@]}; do
+while IFS=, read site redirected           
+do 
     perl -Ilib create_mappings.pl dist/${site}_mappings_source.csv
-done
+done < sites.csv
 
 echo "Copying configuration to dist directory..."
 rsync -a redirector/. dist/.
@@ -55,7 +59,8 @@ cat \
         > dist/static/dg/410.php
 cp redirector/410_suggested_links.php dist/static/dg
 
-for site in ${IN_PROGRESS_SITES[@]} ${REDIRECTED_SITES[@]}; do
+while IFS=, read site redirected           
+do 
     [ $site = 'directgov' ] && continue
     [ $site = 'businesslink' ] && continue
     domain=`case "$site" in
@@ -71,14 +76,15 @@ for site in ${IN_PROGRESS_SITES[@]} ${REDIRECTED_SITES[@]}; do
         redirector/410_header.php \
         redirector/static/${site}/410.html \
             > dist/static/${site}/410.php
-done
+done < sites.csv
 
 echo "Generating sitemaps..."
 perl tools/sitemap.pl dist/directgov_mappings_source.csv 'www.direct.gov.uk' > dist/static/dg/sitemap.xml
 prove bin/test_sitemap.pl :: dist/static/dg/sitemap.xml www.direct.gov.uk
 perl tools/sitemap.pl dist/businesslink_mappings_source.csv 'www.businesslink.gov.uk' 'online.businesslink.gov.uk' > dist/static/bl/sitemap.xml
 prove bin/test_sitemap.pl :: dist/static/bl/sitemap.xml www.businesslink.gov.uk online.businesslink.gov.uk
-for site in ${IN_PROGRESS_SITES[@]} ${REDIRECTED_SITES[@]}; do
+while IFS=, read site redirected           
+do 
     [ $site = 'directgov' ] && continue
     [ $site = 'businesslink' ] && continue
     domain=`case "$site" in
@@ -88,6 +94,6 @@ for site in ${IN_PROGRESS_SITES[@]} ${REDIRECTED_SITES[@]}; do
 
     perl tools/sitemap.pl dist/${site}_mappings_source.csv $domain > dist/static/${site}/sitemap.xml
     prove bin/test_sitemap.pl :: dist/static/${site}/sitemap.xml $domain
-done
+done < sites.csv
 
 echo "Redirector build succeeded."
