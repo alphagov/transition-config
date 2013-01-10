@@ -27,7 +27,7 @@ generate_404_page() {
 
         <article role="article" class="group">
 
-          <p>On $date_of_redirection the website for the $department_name was replaced by <a href='http://www.gov.uk/$new_department_homepage'>gov.uk/$new_department_homepage</a>, which is now the best place to find government services and information.</p>
+          <p>On $date_of_redirection the website for the $department_name was replaced by <a href='http://www.gov.uk/$new_department_homepage'>gov.uk/$new_department_homepage</a>. <a href='https://www.gov.uk'>GOV.UK</a> is now the best place to find government services and information.</p>
 
         </article>
       </div>
