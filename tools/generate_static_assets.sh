@@ -3,9 +3,9 @@
 generate_404_page() {
 	local name=$1
 	local date_of_redirection=$2
-    local department_name=$3
-    local new_department_homepage=$4
-    local path="$(pwd)/redirector/static/$name/"
+  local department_name=$3
+  local new_department_homepage=$4
+  local path="$(pwd)/redirector/static/$name/"
 	mkdir -p $path
 	cat > "${path}/404.html" <<EOF
 <!DOCTYPE html>
@@ -40,15 +40,15 @@ EOF
 }
 
 generate_410_page(){
-    local name=$1
-    local date_of_redirection=$2
-    local department_name=$3
-    local new_department_homepage=$4
-    local national_archives_timestamp=$5
-    local old_website_address=$6
-    local path="$(pwd)/redirector/static/$name/"
-    mkdir -p $path #what happens if it's already there?
-    cat > "${path}/410.html" <<EOF
+  local name=$1
+  local date_of_redirection=$2
+  local department_name=$3
+  local new_department_homepage=$4
+  local national_archives_timestamp=$5
+  local old_department_homepage=$6
+  local path="$(pwd)/redirector/static/$name/"
+  mkdir -p $path 
+  cat > "${path}/410.html" <<EOF
   <body>
     <section id="content" role="main" class="group">
       <div class="gone-container">
@@ -67,7 +67,7 @@ generate_410_page(){
 
           <p>Essential government services and information can be found at <a href='https://www.gov.uk'>GOV.UK</a>.</p>
 
-          <p>A copy of the page you were looking for can be found in <a href="http://webarchive.nationalarchives.gov.uk/$national_archives_timestamp/$old_website_address<?= $_SERVER['REQUEST_URI'] ?>">The UK Government Web Archive</a>, however it will not be updated after $date_of_redirection.</p>
+          <p>A copy of the page you were looking for can be found in <a href="http://webarchive.nationalarchives.gov.uk/$national_archives_timestamp/$old_department_homepage<?= $_SERVER['REQUEST_URI'] ?>">The UK Government Web Archive</a>, however it will not be updated after $date_of_redirection.</p>
 
 <?php include '410_suggested_links.php'; ?>
 

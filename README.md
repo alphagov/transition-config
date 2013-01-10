@@ -14,14 +14,15 @@ Adding a new website
 the site being added (eg 'communities' for the site `www.communities.gov.uk`).
 
 ### Create the mappings CSV
+    
+    source tools/generate_configuration.sh 
+    generate_mappings_source $name $old_department_homepage $new_department_homepage
 
-Create a file `data/mappings/WEBSITE.csv` containing three columns:
+This creates a file in data/mappings with four columns - Old Url, Status (i.e. 301 or 410), New Url (if 301), Archive Link (e.g. for friendly URLs).
 
-* `Old Url` – the original URL
-* `Status` – either 301 (when redirecting to a new page) or 410 (when the page has gone)
-* `New Url` – optional when the `Status` is 410
+It also creates a redirect from the old department homepage to the new one.
 
-It should be sorted on the Old Url column (this makes diffs between commits more readable).
+This is the file that you should populate with your mappings. It should be sorted on the Old Url column (this makes diffs between commits more readable).
 
 ### Create the site in the repository
 
