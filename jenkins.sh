@@ -30,6 +30,7 @@ cat \
     redirector/410_preamble.php \
     dist/www.businesslink.gov.uk.*suggested_links*.conf \
     dist/www.ukwelcomes.businesslink.gov.uk.suggested_links_map.conf \
+    dist/elearning.businesslink.gov.uk.*suggested_links*.conf \
     redirector/410_header.php \
     redirector/static/bl/410.html \
         > dist/static/bl/410.php
