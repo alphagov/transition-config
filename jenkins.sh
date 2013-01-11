@@ -6,22 +6,19 @@ mkdir -p dist
 echo "Running unit tests..."
 prove -lj4 tests/unit/logic/*.t
 
-echo "Creating fresh copies of data sources in dist directory..."
 rm -rf dist/*
 
-while IFS=, read site rest
+while IFS=, read site redirected st
 do 
     cp data/mappings/${site}.csv dist/${site}_mappings_source.csv
-done < sites.csv
-cp data/businesslink_piplink_redirects_source.csv dist #could put this in sites.csv with some indicator?
-
-echo "Testing sources are valid for sites where mapping is still in progress..."
-while IFS=, read site redirected rest
-do           
     if [ $redirected == N ]; then
+        echo "Testing sources are valid for in progress site $site..."
         prove -l tests/unit/sources/${site}_valid_lines.t
     fi
 done < sites.csv
+
+#special case number one...
+cp data/businesslink_piplink_redirects_source.csv dist #could put this in sites.csv with some indicator?
 
 echo "Creating mappings from sources..."
 while IFS=, read site rest
