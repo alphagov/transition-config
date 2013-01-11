@@ -8,22 +8,18 @@ prove -lj4 tests/unit/logic/*.t
 
 rm -rf dist/*
 
-while IFS=, read site redirected st
+while IFS=, read site redirected generate_mappings rest
 do 
     cp data/mappings/${site}.csv dist/${site}_mappings_source.csv
     if [ $redirected == N ]; then
         echo "Testing sources are valid for in progress site $site..."
         prove -l tests/unit/sources/${site}_valid_lines.t
     fi
-done < sites.csv
+    if [ $generate_mappings == Y ]; then
+        echo "Creating mappings from $site source..."
+        perl -Ilib create_mappings.pl dist/${site}_mappings_source.csv
+    fi
 
-#special case number one...
-cp data/businesslink_piplink_redirects_source.csv dist #could put this in sites.csv with some indicator?
-
-echo "Creating mappings from sources..."
-while IFS=, read site rest
-do 
-    perl -Ilib create_mappings.pl dist/${site}_mappings_source.csv
 done < sites.csv
 
 echo "Copying configuration to dist directory..."
@@ -60,6 +56,7 @@ while IFS=, read site rest
 do 
     [ $site = 'directgov' ] && continue
     [ $site = 'businesslink' ] && continue
+    [ $site = 'businesslink_piplinks' ] && continue
     domain=`case "$site" in
     mod) echo "www.mod.uk" ;;
     *) echo "www.${site}.gov.uk" ;;
@@ -84,6 +81,7 @@ while IFS=, read site rest
 do 
     [ $site = 'directgov' ] && continue
     [ $site = 'businesslink' ] && continue
+    [ $site = 'businesslink_piplinks' ] && continue   
     domain=`case "$site" in
     mod) echo "www.mod.uk" ;;
     *) echo "www.${site}.gov.uk" ;;

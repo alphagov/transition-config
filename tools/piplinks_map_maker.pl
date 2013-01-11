@@ -13,7 +13,7 @@ open( my $fh, "<", $input )
 my $names = $csv->getline( $fh );
 $csv->column_names( @$names );
 
-my %authority;
+my %authority;businesslink_piplink_mappings_source
 my %licence;
 my %interaction;
 my @tests;
@@ -108,7 +108,7 @@ sub output_nginx_maps {
     say {$nginx_maps} '}';
 }
 sub output_integration_test_data {
-    open my $test_data, '>', 'data/businesslink_piplink_redirects_source.csv';
+    open my $test_data, '>', 'data/businesslink_piplink_mappings_source.csv';
     say {$test_data} 'Old Url,New Url,Status,Whole Tag';
     
     foreach my $test ( @tests ) {

@@ -1,3 +1,4 @@
 dist/
 tmp_test_run_output/
 ._*
+test.sh

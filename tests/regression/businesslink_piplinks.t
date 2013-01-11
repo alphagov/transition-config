@@ -1,5 +1,5 @@
 my $test = Businesslink::Piplinks::Finalised->new();
-$test->input_file("dist/businesslink_piplink_redirects_source.csv");
+$test->input_file("dist/businesslink_piplink_mappings_source.csv");
 $test->output_file("dist/businesslink_piplink_all_tested.csv");
 $test->output_error_file("dist/businesslink_piplink_errors.csv");
 $test->output_redirects_file("dist/businesslink_piplink_redirects_chased.csv");
