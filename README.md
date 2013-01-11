@@ -10,8 +10,17 @@ keeping our old websites on the internet, because [cool URIs don't change][cool]
 Adding a new website
 --------------------
 
+Add the site to sites.csv.
+
+Site: this is the name of the site, eg 'communities' for the site `www.communities.gov.uk`
+Redirected: this will be N. When the mappings are correct and finalised, you will change this to Y.
+Old department homepage: e.g. http://www.communities.gov.uk
+New department homepage: e.g. communities (NB. Is this always the name? Can we then leave it out? Or, should we actually put, on the 410 pages, the new URL, e.g https://www.gov.uk/government/organisations/department-for-communities-and-local-government)
+Redirection date: the date the site will be switched over (this is for information on 410 pages)
+National Archives timestamp: this is required for the link on the 410 page
+
 **n.b.** during these instructions WEBSITE should be replaced with the name of
-the site being added (eg 'communities' for the site `www.communities.gov.uk`).
+the site being added (eg 'communities' for the site ).
 
 ### Create the mappings CSV
     
@@ -123,11 +132,12 @@ production.
 Once they pass, you can now proceed to switching the domains to the 
 redirector.
 
-### When mappings are finalised
+When mappings are finalised
+---------------------------
 
 When all the mappings are complete, correct and passing the integration tests, you can make them finalised. 
 
-This entails moving the site in sites.sh from IN_PROGRESS_SITES to REDIRECTED_SITES and creating the regression tests. 
+This entails moving the site in sites.sh from IN_PROGRESS_SITES to REDIRECTED_SITES and creating the regression tests, and setting redirected to Y in sites.csv.
 
 To create the regression test:
 
