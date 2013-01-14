@@ -49,9 +49,9 @@ cat \
     dist/www.direct.gov.uk.*suggested_links*.conf \
     dist/www.direct.gov.uk.archive_links.conf \
     redirector/410_header.php \
-    redirector/static/dg/410.html \
-        > dist/static/dg/410.php
-cp redirector/410_suggested_links.php dist/static/dg
+    redirector/static/directgov/410.html \
+        > dist/static/directgov/410.php
+cp redirector/410_suggested_links.php dist/static/directgov
 
 while IFS=, read site rest
 do 
@@ -74,8 +74,8 @@ do
 done < sites.csv
 
 echo "Generating sitemaps..."
-perl tools/sitemap.pl dist/directgov_mappings_source.csv 'www.direct.gov.uk' > dist/static/dg/sitemap.xml
-prove bin/test_sitemap.pl :: dist/static/dg/sitemap.xml www.direct.gov.uk
+perl tools/sitemap.pl dist/directgov_mappings_source.csv 'www.direct.gov.uk' > dist/static/directgov/sitemap.xml
+prove bin/test_sitemap.pl :: dist/static/directgov/sitemap.xml www.direct.gov.uk
 perl tools/sitemap.pl dist/businesslink_mappings_source.csv 'www.businesslink.gov.uk' 'online.businesslink.gov.uk' > dist/static/bl/sitemap.xml
 prove bin/test_sitemap.pl :: dist/static/bl/sitemap.xml www.businesslink.gov.uk online.businesslink.gov.uk
 while IFS=, read site rest
