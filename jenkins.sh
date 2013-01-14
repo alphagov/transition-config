@@ -32,9 +32,9 @@ cat \
     dist/www.ukwelcomes.businesslink.gov.uk.suggested_links_map.conf \
     dist/elearning.businesslink.gov.uk.*suggested_links*.conf \
     redirector/410_header.php \
-    redirector/static/bl/410.html \
-        > dist/static/bl/410.php
-cp redirector/410_suggested_links.php dist/static/bl
+    redirector/static/businesslink/410.html \
+        > dist/static/businesslink/410.php
+cp redirector/410_suggested_links.php dist/static/businesslink
 
 cat \
     redirector/410_preamble.php \
@@ -76,8 +76,8 @@ done < sites.csv
 echo "Generating sitemaps..."
 perl tools/sitemap.pl dist/directgov_mappings_source.csv 'www.direct.gov.uk' > dist/static/directgov/sitemap.xml
 prove bin/test_sitemap.pl :: dist/static/directgov/sitemap.xml www.direct.gov.uk
-perl tools/sitemap.pl dist/businesslink_mappings_source.csv 'www.businesslink.gov.uk' 'online.businesslink.gov.uk' > dist/static/bl/sitemap.xml
-prove bin/test_sitemap.pl :: dist/static/bl/sitemap.xml www.businesslink.gov.uk online.businesslink.gov.uk
+perl tools/sitemap.pl dist/businesslink_mappings_source.csv 'www.businesslink.gov.uk' 'online.businesslink.gov.uk' > dist/static/businesslink/sitemap.xml
+prove bin/test_sitemap.pl :: dist/static/businesslink/sitemap.xml www.businesslink.gov.uk online.businesslink.gov.uk
 while IFS=, read site rest
 do 
     [ $site = 'directgov' ] && continue
