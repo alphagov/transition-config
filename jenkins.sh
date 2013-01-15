@@ -51,7 +51,7 @@ cat \
     redirector/410_header.php \
     redirector/static/businesslink/410.html \
         > dist/static/businesslink/410.php
-cp redirector/410_suggested_links.php dist/static/businesslink
+cp redirector/410_suggested_links.php dist/static/elearning
 
 #improve
 cat \
