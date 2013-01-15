@@ -29,24 +29,24 @@ foreach my $url ( '/', '/blah', '/some/url', '/who?eric=bananaman' ) {
         = get_response( "http://www.jobseekers.direct.gov.uk${url}" );
     is( $response_code, 301, "http://www.jobseekers.direct.gov.uk${url}" );
     is( $redirect_location,
-        'https://www.gov.uk/jobs-jobsearch',
-        'redirect from jobseekers to jobs-jobsearch'
+        'https://www.gov.uk/jobsearch',
+        'redirect from jobseekers to jobsearch'
     );
     
     ( $response_code, $redirect_location )
         = get_response( "http://jobseekers.direct.gov.uk${url}" );
     is( $response_code, 301, "http://jobseekers.direct.gov.uk${url}" );
     is( $redirect_location,
-        'https://www.gov.uk/jobs-jobsearch',
-        'redirect from jobseekers to jobs-jobsearch'
+        'https://www.gov.uk/jobsearch',
+        'redirect from jobseekers to jobsearch'
     );
     
     ( $response_code, $redirect_location )
         = get_response( "http://jobseeker.direct.gov.uk${url}" );
     is( $response_code, 301, "http://jobseeker.direct.gov.uk${url}" );
     is( $redirect_location,
-        'https://www.gov.uk/jobs-jobsearch',
-        'redirect from jobseekers to jobs-jobsearch'
+        'https://www.gov.uk/jobsearch',
+        'redirect from jobseekers to jobsearch'
     );
 }
 
