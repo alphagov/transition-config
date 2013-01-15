@@ -49,8 +49,8 @@ cat \
     redirector/410_preamble.php \
     dist/elearning.businesslink.gov.uk.*suggested_links*.conf \
     redirector/410_header.php \
-    redirector/static/businesslink/410.html \
-        > dist/static/businesslink/410.php
+    redirector/static/elearning/410.html \
+        > dist/static/elearning/410.php
 cp redirector/410_suggested_links.php dist/static/elearning
 
 #improve
