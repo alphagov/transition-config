@@ -26,16 +26,34 @@ echo "Copying configuration to dist directory..."
 rsync -a redirector/. dist/.
 
 echo "Creating 410 pages..."
+#businesslink
 cat \
     redirector/410_preamble.php \
     dist/www.businesslink.gov.uk.*suggested_links*.conf \
+    redirector/410_header.php \
+    redirector/static/businesslink/410.html \
+        > dist/static/businesslink/410.php
+cp redirector/410_suggested_links.php dist/static/businesslink
+
+#ukwelcomes
+cat \
+    redirector/410_preamble.php \
     dist/www.ukwelcomes.businesslink.gov.uk.suggested_links_map.conf \
+    redirector/410_header.php \
+    redirector/static/businesslink/410.html \
+        > dist/static/businesslink/410.php
+cp redirector/410_suggested_links.php dist/static/businesslink
+
+#elearning
+cat \
+    redirector/410_preamble.php \
     dist/elearning.businesslink.gov.uk.*suggested_links*.conf \
     redirector/410_header.php \
     redirector/static/businesslink/410.html \
         > dist/static/businesslink/410.php
 cp redirector/410_suggested_links.php dist/static/businesslink
 
+#improve
 cat \
     redirector/410_preamble.php \
     dist/improve.businesslink.gov.uk.*suggested_links*.conf \
@@ -44,6 +62,7 @@ cat \
         > dist/static/improve/410.php
 cp redirector/410_suggested_links.php dist/static/improve
 
+#directgov - note difference here is archive links
 cat \
     redirector/410_preamble.php \
     dist/www.direct.gov.uk.*suggested_links*.conf \
@@ -64,10 +83,14 @@ do
     esac`
     
     touch dist/${domain}.no_suggested_links.conf
+    touch dist/${domain}.no_archive_links.conf 
+    #have the ones that don't have suggested links create them
+    #do same with archive links
     
     cat \
         redirector/410_preamble.php \
         dist/${domain}.*suggested_links*.conf \
+        dist/${domain}.*archive_links*.conf \
         redirector/410_header.php \
         redirector/static/${site}/410.html \
             > dist/static/${site}/410.php
