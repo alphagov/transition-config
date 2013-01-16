@@ -29,32 +29,25 @@ echo "Copying configuration to dist directory..."
 rsync -a redirector/. dist/.
 
 echo "Creating 410 pages..."
-#directgov - note difference here is archive links
-cat \
-    redirector/410_preamble.php \
-    dist/www.direct.gov.uk.*suggested_links*.conf \
-    dist/www.direct.gov.uk.archive_links.conf \
-    redirector/410_header.php \
-    redirector/static/directgov/410.html \
-        > dist/static/directgov/410.php
-cp redirector/410_suggested_links.php dist/static/directgov
-
 (
     while IFS=, read site redirected generate_mappings old_homepage rest
     do
-    [ $site = 'directgov' ] && continue
-    [ $site = 'businesslink_piplinks' ] && continue
-    
-        if [ ! -f dist/${old_homepage}.location_suggested_links.conf -a ! -f dist/${old_homepage}.location_suggested_links.conf ]; then
-            touch dist/${old_homepage}.no_suggested_links.conf
+        if [ $generate_mappings == Y ]; then
+            if [ ! -f dist/${old_homepage}.location_suggested_links.conf -a ! -f dist/${old_homepage}.location_suggested_links.conf ]; then
+                touch dist/${old_homepage}.no_suggested_links.conf
+            fi
+            if [ ! -f dist/$old_homepage}.*archive_links.conf ]; then
+                touch dist/${old_homepage}.no_archive_links.conf
+            fi
+            cat \
+                redirector/410_preamble.php \
+                dist/${old_homepage}.*suggested_links*.conf \
+                dist/${old_homepage}.*archive_links.conf \
+                redirector/410_header.php \
+                redirector/static/${site}/410.html \
+                    > dist/static/${site}/410.php
+            cp redirector/410_suggested_links.php dist/static/${site}    
         fi
-        cat \
-            redirector/410_preamble.php \
-            dist/${old_homepage}.*suggested_links*.conf \
-            redirector/410_header.php \
-            redirector/static/${site}/410.html \
-                > dist/static/${site}/410.php
-        cp redirector/410_suggested_links.php dist/static/${site}    
     done
 ) < sites.csv
 
