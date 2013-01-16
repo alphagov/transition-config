@@ -10,6 +10,9 @@ rm -rf dist/*
 
 while IFS=, read site redirected generate_mappings rest
 do 
+    #baby steps - these are still in BL data
+    [ $site = 'elearning' ] && continue
+    [ $site = 'ukwelcomes' ] && continue
     cp data/mappings/${site}.csv dist/${site}_mappings_source.csv
     if [ $redirected == N ]; then
         echo "Testing sources are valid for in progress site $site..."
@@ -26,14 +29,28 @@ echo "Copying configuration to dist directory..."
 rsync -a redirector/. dist/.
 
 echo "Creating 410 pages..."
-#businesslink
+#directgov - note difference here is archive links
 cat \
     redirector/410_preamble.php \
-    dist/www.businesslink.gov.uk.*suggested_links*.conf \
+    dist/www.direct.gov.uk.*suggested_links*.conf \
+    dist/www.direct.gov.uk.archive_links.conf \
     redirector/410_header.php \
-    redirector/static/businesslink/410.html \
-        > dist/static/businesslink/410.php
-cp redirector/410_suggested_links.php dist/static/businesslink
+    redirector/static/directgov/410.html \
+        > dist/static/directgov/410.php
+cp redirector/410_suggested_links.php dist/static/directgov
+
+(
+    while IFS=, read site redirected generate_mappings old_homepage rest
+    do
+        if [ ! -f dist/${old_homepage}.location_suggested_links.conf -a ! -f dist/${old_homepage}.location_suggested_links.conf ]; then
+            echo $site
+            touch dist/${old_homepage}.no_suggested_links.conf
+        fi
+    done
+) < sites.csv
+
+#businesslink
+
 
 #ukwelcomes
 cat \
@@ -62,27 +79,20 @@ cat \
         > dist/static/improve/410.php
 cp redirector/410_suggested_links.php dist/static/improve
 
-#directgov - note difference here is archive links
-cat \
-    redirector/410_preamble.php \
-    dist/www.direct.gov.uk.*suggested_links*.conf \
-    dist/www.direct.gov.uk.archive_links.conf \
-    redirector/410_header.php \
-    redirector/static/directgov/410.html \
-        > dist/static/directgov/410.php
-cp redirector/410_suggested_links.php dist/static/directgov
+
 
 while IFS=, read site rest
 do 
     [ $site = 'directgov' ] && continue
     [ $site = 'businesslink' ] && continue
     [ $site = 'businesslink_piplinks' ] && continue
+    [ $site = 'elearning' ] && continue
+    [ $site = 'ukwelcomes' ] && continue
     domain=`case "$site" in
     mod) echo "www.mod.uk" ;;
     *) echo "www.${site}.gov.uk" ;;
     esac`
     
-    touch dist/${domain}.no_suggested_links.conf
     touch dist/${domain}.no_archive_links.conf 
     #have the ones that don't have suggested links create them
     #do same with archive links
@@ -105,7 +115,9 @@ while IFS=, read site rest
 do 
     [ $site = 'directgov' ] && continue
     [ $site = 'businesslink' ] && continue
-    [ $site = 'businesslink_piplinks' ] && continue   
+    [ $site = 'businesslink_piplinks' ] && continue
+    [ $site = 'elearning' ] && continue
+    [ $site = 'ukwelcomes' ] && continue   
     domain=`case "$site" in
     mod) echo "www.mod.uk" ;;
     *) echo "www.${site}.gov.uk" ;;
