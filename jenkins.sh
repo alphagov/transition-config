@@ -6,7 +6,9 @@ mkdir -p dist
 echo "Running unit tests..."
 prove -lj4 tests/unit/logic/*.t
 
+echo "Copying configuration to dist directory..."
 rm -rf dist/*
+rsync -a redirector/. dist/.
 
 while IFS=, read site redirected generate_mappings rest
 do 
@@ -24,9 +26,6 @@ do
         perl -Ilib create_mappings.pl dist/${site}_mappings_source.csv
     fi
 done < sites.csv
-
-echo "Copying configuration to dist directory..."
-rsync -a redirector/. dist/.
 
 echo "Creating 410 pages..."
 (
