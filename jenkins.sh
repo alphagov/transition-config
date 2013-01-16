@@ -36,13 +36,13 @@ echo "Creating 410 pages..."
             if [ ! -f dist/${old_homepage}.location_suggested_links.conf -a ! -f dist/${old_homepage}.location_suggested_links.conf ]; then
                 touch dist/${old_homepage}.no_suggested_links.conf
             fi
-            if [ ! -f dist/$old_homepage}.*archive_links.conf ]; then
-                touch dist/${old_homepage}.no_archive_links.conf
+            if [ ! -f dist/${old_homepage}.archive_links.conf ]; then
+                touch dist/${old_homepage}.archive_links.conf
             fi
             cat \
                 redirector/410_preamble.php \
                 dist/${old_homepage}.*suggested_links*.conf \
-                dist/${old_homepage}.*archive_links.conf \
+                dist/${old_homepage}.archive_links.conf \
                 redirector/410_header.php \
                 redirector/static/${site}/410.html \
                     > dist/static/${site}/410.php
