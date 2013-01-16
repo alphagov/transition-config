@@ -1,6 +1,8 @@
 ago,Y,Y,www.ago.gov.uk,ago,13th December 2012,20120816224015
-businesslink,Y,Y,www.businesslink.gov.uk,N,17th October 2012,20120823131012
-businesslink_piplinks,Y,N
-communities,N,Y
-directgov,Y,Y
-mod,N,Y
+businesslink,Y,Y,www.businesslink.gov.uk,,17th October 2012,20120823131012
+businesslink_piplinks,Y,N,,,,
+communities,N,Y,www.communities.gov.uk,communities,,,
+elearning,Y,Y,elearning.businesslink.gov.uk,elearning,,,
+directgov,Y,Y,
+mod,N,Y,www.mod.uk,mod,,,
+ukwelcomes,Y,Y,www.ukwelcomes.businesslink.gov.uk,ukwelcomes,,,
