@@ -1,11 +1,11 @@
 #!/bin/sh
 
 generate_404_page() {
-	local name=$1
-	local date_of_redirection=$2
+	local site=$1
+	local redirection_date=$2
   local department_name=$3
-  local new_department_homepage=$4
-  local path="$(pwd)/redirector/static/$name/"
+  local new_homepage=$4
+  local path="$(pwd)/redirector/static/$site/"
 	mkdir -p $path
 	cat > "${path}/404.html" <<EOF
 <!DOCTYPE html>
@@ -27,7 +27,7 @@ generate_404_page() {
 
         <article role="article" class="group">
 
-          <p>On $date_of_redirection the website for the $department_name was replaced by <a href='http://www.gov.uk/$new_department_homepage'>gov.uk/$new_department_homepage</a>. <a href='https://www.gov.uk'>GOV.UK</a> is now the best place to find government services and information.</p>
+          <p>On $redirection_date the website for the $department_name was replaced by <a href='http://www.gov.uk/$new_homepage'>gov.uk/$new_homepage</a>. <a href='https://www.gov.uk'>GOV.UK</a> is now the best place to find government services and information.</p>
 
         </article>
       </div>
@@ -40,13 +40,13 @@ EOF
 }
 
 generate_410_page(){
-  local name=$1
-  local date_of_redirection=$2
+  local site=$1
+  local redirection_date=$2
   local department_name=$3
-  local new_department_homepage=$4
+  local new_homepage=$4
   local national_archives_timestamp=$5
-  local old_department_homepage=$6
-  local path="$(pwd)/redirector/static/$name/"
+  local old_homepage=$6
+  local path="$(pwd)/redirector/static/$site/"
   mkdir -p $path 
   cat > "${path}/410.html" <<EOF
   <body>
@@ -61,13 +61,13 @@ generate_410_page(){
 
         <article role="article" class="group">
 
-          <p>On $date_of_redirection the website for the $department_name was replaced by <a href='https://www.gov.uk/$new_department_homepage'>gov.uk/$new_department_homepage</a>.</p>
+          <p>On $redirection_date the website for the $department_name was replaced by <a href='https://www.gov.uk/$new_homepage'>gov.uk/$new_homepage</a>.</p>
 
           <p>GOV.UK does not cover every piece of content that used to be found on the website for the $department_name. The page you are looking for is probably one of these.</p>
 
           <p>Essential government services and information can be found at <a href='https://www.gov.uk'>GOV.UK</a>.</p>
 
-          <p>A copy of the page you were looking for can be found in <a href="http://webarchive.nationalarchives.gov.uk/$national_archives_timestamp/$old_department_homepage<?= $_SERVER['REQUEST_URI'] ?>">The UK Government Web Archive</a>, however it will not be updated after $date_of_redirection.</p>
+          <p>A copy of the page you were looking for can be found in <a href="http://webarchive.nationalarchives.gov.uk/$national_archives_timestamp/$old_homepage<?= $_SERVER['REQUEST_URI'] ?>">The UK Government Web Archive</a>, however it will not be updated after $redirection_date.</p>
 
 <?php include '410_suggested_links.php'; ?>
 

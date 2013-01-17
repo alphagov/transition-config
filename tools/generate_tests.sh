@@ -2,11 +2,11 @@
 
 generate_valid_lines_test() {
 	local package_name=$1
-	local name=$(echo "$package_name" | tr [:upper:] [:lower:])
+	local site=$(echo "$package_name" | tr [:upper:] [:lower:])
 	local path="$(pwd)/tests/unit/sources"
 	mkdir -p $path
-    cat > "${path}/${name}_valid_lines.t" <<EOF
-my \$test = ${package_name}::Source->new('dist/${name}_mappings_source.csv');
+    cat > "${path}/${site}_valid_lines.t" <<EOF
+my \$test = ${package_name}::Source->new('dist/${site}_mappings_source.csv');
 \$test->run_tests();
 exit;
 
@@ -31,15 +31,15 @@ EOF
 
 generate_regression_test() {
 	local package_name=$1
-	local name=$(echo "$package_name" | tr [:upper:] [:lower:])
+	local site=$(echo "$package_name" | tr [:upper:] [:lower:])
 	local path="$(pwd)/tests/regression/"
 	mkdir -p $path
-	cat > "${path}/${name}.t" <<EOF
+	cat > "${path}/${site}.t" <<EOF
 my \$test = ${package_name}::Finalised->new();
-\$test->input_file("dist/${name}_mappings_source.csv");
-\$test->output_file("dist/${name}_all_tested.csv");
-\$test->output_error_file("dist/${name}_errors.csv");
-\$test->output_redirects_file("dist/${name}_redirects_chased.csv");
+\$test->input_file("dist/${site}_mappings_source.csv");
+\$test->output_file("dist/${site}_all_tested.csv");
+\$test->output_error_file("dist/${site}_errors.csv");
+\$test->output_redirects_file("dist/${site}_redirects_chased.csv");
 \$test->run_tests();
 exit;
 
