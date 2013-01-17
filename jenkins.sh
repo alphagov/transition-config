@@ -12,10 +12,6 @@ rsync -a redirector/. dist/.
 
 while IFS=, read site redirected generate_mappings rest
 do 
-    #baby steps - these are still in BL data
-    [ $site = 'elearning' ] && continue
-    [ $site = 'ukwelcomes' ] && continue
-    [ $site = 'improve' ] && continue
     cp data/mappings/${site}.csv dist/${site}_mappings_source.csv
     if [ $redirected == N ]; then
         echo "Testing sources are valid for in progress site $site..."
