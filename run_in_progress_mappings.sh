@@ -12,7 +12,7 @@ echo DEPLOY_TO=$DEPLOY_TO
     do
     	if [ $redirected == N ]; then
             prove -l tests/unit/sources/${site}_valid_lines.t
-			#prove -l tests/in_progress/${site}/
+			prove -l tests/in_progress/${site}/
         fi
     done
 ) < sites.csv
