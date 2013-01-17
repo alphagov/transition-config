@@ -1,12 +1,12 @@
-my $test = Communities::Ratified::Redirects->new();
+my $test = Communities::In_Progress::Redirects->new();
 $test->input_file("dist/communities_mappings_source.csv");
-$test->output_file("dist/communities_redirects_output.csv");
+$test->output_file("dist/communities_redirects_output.csv"); 
 $test->output_error_file("dist/communities_redirects_errors.csv");
 $test->run_tests();
 exit;
 
 
-package Communities::Ratified::Redirects;
+package Communities::In_Progress::Redirects;
 use base 'IntegrationTest';
 
 use v5.10;
@@ -20,3 +20,4 @@ sub test {
     
     $self->test_closed_redirects(@_);
 }
+

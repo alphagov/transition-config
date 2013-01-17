@@ -40,8 +40,6 @@ This is the file that you should populate with your mappings. It should be sorte
 1.  In the `redirector` directory, create a new configuration file containing
     the nginx server block(s) needed for the site.
 
-1.  Add WEBSITE to `sites.sh`.
-
 1. Create the static assets
 
     source tools/generate_static_assets.sh
@@ -72,11 +70,19 @@ It doesn't need to be 250, and it can just be a random sample, but ideally it wo
 
 You can run this test using `prove -l tests/integration/sample/top_250_WEBSITE.t` but it will not pass until the redirector is deployed.
 
-#### Complete test
+#### In Progress test
 
 This is a full integration test which is run on a nightly basis
 
+    source tools/generate_tests.sh
+    generate_in_progress_gone_test Communities
+    generate_in_progress_redirection_test Communities
+
 Create test scripts at `tests/integration/ratified/WEBSITE/` you can base them on the tests in `tests/integration/ratified/directgov/`
+
+#### Regression test
+
+You don't need this until the transition is complete but you might as well create it now.
 
 ### Dry-run the post-commit build
 
@@ -138,6 +144,8 @@ When mappings are finalised
 When all the mappings are complete, correct and passing the integration tests, you can make them finalised. 
 
 This entails moving the site in sites.sh from IN_PROGRESS_SITES to REDIRECTED_SITES and creating the regression tests, and setting redirected to Y in sites.csv.
+
+Create the regression test if you haven't done so already.
 
 To create the regression test:
 
