@@ -44,9 +44,6 @@ echo "Generating sitemaps..."
 while IFS=, read site redirected generate_mappings old_homepage rest
 do 
     [ $site = 'businesslink_piplinks' ] && continue
-    [ $site = 'elearning' ] && continue
-    [ $site = 'ukwelcomes' ] && continue
-    [ $site = 'improve' ] && continue   
     
     perl tools/sitemap.pl dist/${site}_mappings_source.csv $old_homepage > dist/static/${site}/sitemap.xml
     prove bin/test_sitemap.pl :: dist/static/${site}/sitemap.xml $old_homepage
