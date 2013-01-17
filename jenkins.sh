@@ -9,15 +9,16 @@ prove -lj4 tests/unit/logic/*.t
 echo "Copying configuration to dist directory..."
 rm -rf dist/*
 rsync -a redirector/. dist/.
-
-while IFS=, read site redirected generate_mappings old_homepage rest
-do 
-    cp data/mappings/${site}.csv dist/${site}_mappings_source.csv
-    if [ $redirected == N ]; then
-        echo "Testing sources are valid for in progress site $site..."
-        prove -l tests/unit/sources/${site}_valid_lines.t
-    fi
-    if [ $generate_mappings == Y ]; then
+(
+    IFS=,
+    read titles
+    while read site redirected old_homepage rest
+    do
+        cp data/mappings/${site}.csv dist/${site}_mappings_source.csv
+        if [ $redirected == N ]; then
+            echo "Testing sources are valid for in progress site $site..."
+            prove -l tests/unit/sources/${site}_valid_lines.t
+        fi
         echo "Creating mappings from $site source..."
         perl -Ilib create_mappings.pl dist/${site}_mappings_source.csv
 
@@ -43,7 +44,7 @@ do
 
         echo "Testing sitemap for $site..."
         prove bin/test_sitemap.pl :: dist/static/${site}/sitemap.xml $old_homepage 
-    fi
-done < sites.csv
+    done
+) < sites.csv
 
 echo "Redirector build succeeded."

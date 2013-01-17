@@ -14,14 +14,15 @@ Add the site to sites.csv.
 
 * Site: this is the name of the site, eg 'communities' for the site `www.communities.gov.uk`
 * Redirected: this will be N. When the mappings are correct and finalised, you will change this to Y.
-* Generate mappings: in almost all cases, this will be Y. The exceptions are cases where the mappings have been generated outside this process and will not ever need regeneration - eg businesslink_piplink, lrc
-* Old department homepage: e.g. http://www.communities.gov.uk
-* New department homepage: e.g. communities (NB. Is this always the name? Can we then leave it out? Or, should we actually put, on the 410 pages, the new URL, e.g https://www.gov.uk/government/organisations/department-for-communities-and-local-government)
+* Old homepage: e.g. http://www.communities.gov.uk
+* New homepage: e.g. communities (NB. Is this always the name? Can we then leave it out? Or, should we actually put, on the 410 pages, the new URL, e.g https://www.gov.uk/government/organisations/department-for-communities-and-local-government)
 * Redirection date: the date the site will be switched over (this is for information on 410 pages)
 * National Archives timestamp: this is required for the link on the 410 page
 
 **n.b.** during these instructions WEBSITE should be replaced with the name of
 the site being added (eg 'communities' for the site ).
+
+NB It is possible to generate mappings outside of this process, e.g. businesslink_piplinks, lrc. For help with making sure they are included, speak to a member of the Transition team
 
 ### Create the mappings CSV
     

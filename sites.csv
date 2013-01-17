@@ -1,9 +1,9 @@
-ago,Y,Y,www.ago.gov.uk,ago,13th December 2012,20120816224015
-businesslink,Y,Y,www.businesslink.gov.uk,,17th October 2012,20120823131012
-businesslink_piplinks,Y,N,,,,
-communities,N,Y,www.communities.gov.uk,communities,,,
-elearning,Y,Y,elearning.businesslink.gov.uk,elearning,,,
-directgov,Y,Y,www.direct.gov.uk,,,
-improve,Y,Y,improve.businesslink.gov.uk,improve,,,
-mod,N,Y,www.mod.uk,mod,,,
-ukwelcomes,Y,Y,www.ukwelcomes.businesslink.gov.uk,ukwelcomes,,,
+name,redirected,old homepage,new homepage,redirection date,national archives timestamp
+ago,Y,www.ago.gov.uk,ago,13th December 2012,20120816224015
+businesslink,Y,www.businesslink.gov.uk,,17th October 2012,20120823131012
+communities,N,www.communities.gov.uk,communities,,,
+elearning,Y,elearning.businesslink.gov.uk,elearning,,,
+directgov,Y,www.direct.gov.uk,,,
+improve,Y,improve.businesslink.gov.uk,improve,,,
+mod,N,www.mod.uk,mod,,,
+ukwelcomes,Y,www.ukwelcomes.businesslink.gov.uk,ukwelcomes,,,
