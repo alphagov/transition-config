@@ -10,6 +10,8 @@ keeping our old websites on the internet, because [cool URIs don't change][cool]
 Adding a new website
 --------------------
 
+### Initial steps
+
 Add the site to sites.csv.
 
 * Site: this is the name of the site, eg `communities` for the site `www.communities.gov.uk`
@@ -40,12 +42,12 @@ This is the file that you should populate with your mappings. It should be sorte
 1. Create the 404 and 410 pages. 
 
     source tools/generate_static_assets.sh
-    generate_404_page $department_name $redirection_date $department_full_name $new_department_homepage
-    generate_410_page $department_name $redirection_date $department_full_name $new_department_homepage $national_archives_timestamp $old_website_address
+    
+    generate_404_page $site $redirection_date $department_full_name $new_homepage
+    
+    generate_410_page $site $redirection_date $department_full_name $new_homepage $national_archives_timestamp $old_homepage
 
-### Create the required tests
-
-#### Valid Lines
+### Create Valid Lines Test
 
 Add a valid lines test script:
 
@@ -55,8 +57,19 @@ Add a valid lines test script:
 $Name_of_site here should be with an initial capital, e.g. Directgov.
 
 This is required because jenkins.sh tests all the mappings before attempting to build. 
+You can test this at this point by running ./jenkins.sh
 
-#### Subset test 
+### Commit
+
+Before committing, run `./jenkins.sh`. If this fails it will stop anyone else deploying so do not commit if so.
+
+A jenkins commit will kick off the Redirector build, followed by the Redirector-deploy (which only deploys to preview), then followed by the Redirector-Integration-Subset. 
+
+You should make sure that these tests all pass before you deploy to production.
+
+### Before You Finish
+
+#### Create a Subset test 
 
 This is a quick test of the most important urls which will be run on every deployment.
 
@@ -67,7 +80,7 @@ It doesn't need to be 250, and it can just be a random sample, but ideally it wo
 
 You can run this test using `prove -l tests/integration/sample/top_250_WEBSITE.t` but it will not pass until the redirector is deployed.
 
-#### In Progress test
+#### Create In Progress test
 
 This is a full integration test which is run on a nightly basis
 
@@ -75,7 +88,7 @@ This is a full integration test which is run on a nightly basis
     generate_in_progress_gone_test Communities
     generate_in_progress_redirection_test Communities
 
-#### Regression test
+#### Create Regression test
 
 You don't need this until the transition is complete but you might as well create it now.
 
@@ -84,18 +97,8 @@ You don't need this until the transition is complete but you might as well creat
 
 $Name_of_site here should be with an initial capital, e.g. Directgov.    
 
-### Dry-run the post-commit build
 
-Before committing, run `./jenkins.sh`. (If this fails it will stop anyone else deploying.)
-
-### Deploy the redirector to preview
-
-A jenkins commit will kick off the Redirector build, followed by the Redirector-deploy (which only deploys to preview), 
-then followed by the Redirector-Integration-Subset. 
-
-You should make sure that these tests all pass before you deploy to production. 
-
-### Deploy the redirector to production
+### Deploying the redirector to production
 
 You must deploy the redirector to production before altering puppet.
 
