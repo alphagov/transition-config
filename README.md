@@ -12,22 +12,19 @@ Adding a new website
 
 Add the site to sites.csv.
 
-* Site: this is the name of the site, eg 'communities' for the site `www.communities.gov.uk`
+* Site: this is the name of the site, eg `communities` for the site `www.communities.gov.uk`
 * Redirected: this will be N. When the mappings are correct and finalised, you will change this to Y.
 * Old homepage: e.g. http://www.communities.gov.uk
 * New homepage: e.g. communities (NB. Is this always the name? Can we then leave it out? Or, should we actually put, on the 410 pages, the new URL, e.g https://www.gov.uk/government/organisations/department-for-communities-and-local-government)
 * Redirection date: the date the site will be switched over (this is for information on 410 pages)
 * National Archives timestamp: this is required for the link on the 410 page
 
-**n.b.** during these instructions WEBSITE should be replaced with the name of
-the site being added (eg 'communities' for the site ).
-
-NB It is possible to generate mappings outside of this process, e.g. businesslink_piplinks, lrc. For help with making sure they are included, speak to a member of the Transition team
+**NB** It is possible to generate mappings outside of this process, e.g. businesslink_piplinks, lrc. For help with making sure they are included, speak to a member of the Transition team
 
 ### Create the mappings CSV
     
     source tools/generate_configuration.sh 
-    generate_mappings_source $name $old_department_homepage $new_department_homepage
+    generate_mappings_source $site $old_homepage $new_homepage
 
 This creates a file in data/mappings with four columns - Old Url, Status (i.e. 301 or 410), New Url (if 301), Archive Link (e.g. for friendly URLs).
 
@@ -40,7 +37,7 @@ This is the file that you should populate with your mappings. It should be sorte
 1.  In the `redirector` directory, create a new configuration file containing
     the nginx server block(s) needed for the site.
 
-1. Create the static assets
+1. Create the 404 and 410 pages. 
 
     source tools/generate_static_assets.sh
     generate_404_page $department_name $redirection_date $department_full_name $new_department_homepage
@@ -78,18 +75,18 @@ This is a full integration test which is run on a nightly basis
     generate_in_progress_gone_test Communities
     generate_in_progress_redirection_test Communities
 
-Create test scripts at `tests/integration/ratified/WEBSITE/` you can base them on the tests in `tests/integration/ratified/directgov/`
-
 #### Regression test
 
 You don't need this until the transition is complete but you might as well create it now.
 
+    source tools/generate_tests.sh
+    generate_regression_test $Name_of_site
+
+$Name_of_site here should be with an initial capital, e.g. Directgov.    
+
 ### Dry-run the post-commit build
 
-Run `bash jenkins.sh` before committing and pushing the new site to confirm
-that it doesn't break, which would stop anyone from deploying.
-
-The last line output by `jenkins.sh` is "Redirector build succeeded."
+Before committing, run `./jenkins.sh`. (If this fails it will stop anyone else deploying.)
 
 ### Deploy the redirector to preview
 
@@ -124,7 +121,7 @@ all links are actually being redirected.
 
     export DEPLOY_TO=preview
     prove -l tests/integration/sample/top_250_WEBSITE.t
-    prove -l tests/integration/ratified/WEBSITE/
+    prove -l tests/integration/in_progress/WEBSITE/
 
 ### Test against production
 
@@ -133,7 +130,7 @@ production.
 
     export DEPLOY_TO=production
     prove -l tests/integration/sample/top_250_WEBSITE.t
-    prove -l tests/integration/ratified/WEBSITE/
+    prove -l tests/integration/in_progress/WEBSITE/
 
 Once they pass, you can now proceed to switching the domains to the 
 redirector.
@@ -143,18 +140,6 @@ When mappings are finalised
 
 When all the mappings are complete, correct and passing the integration tests, you can make them finalised. 
 
-This entails moving the site in sites.sh from IN_PROGRESS_SITES to REDIRECTED_SITES and creating the regression tests, and setting redirected to Y in sites.csv.
+This entails setting redirected to Y in sites.csv and creating the regression test (instructions above) if you haven't done so already.
 
-Create the regression test if you haven't done so already.
-
-To create the regression test:
-
-    source tools/generate_tests.sh
-    generate_regression_test $Name_of_site
-
-$Name_of_site here should be with an initial capital, e.g. Directgov.
-
-
-Note that the tests in redirects/ are slightly different to the integration tests - the redirect tests call the method test_finalised_redirects rather than test_closed_redirects. This means that they do not fail if the 301 location is not a 200. Redirects to non-GOV.UK sites are tested for a successful response (i.e. 200, 301, 302 or 410) and redirects to GOV.UK are chased (max 3 redirects) to ensure they end up eventually at a 200 or 410.
-
-This is so changing slugs that are handled correctly do not break the regression tests. Lists of chased redirects are output by the Jenkins job so these can easily be updated.
+The regression tests allow redirections to 301s, 302s and 410s as well as 200s. Redirects to GOV.UK are chased (max 3 redirects) to ensure they end up eventually at a 200 or 410. This is so changing slugs that are handled correctly do not break the regression tests. Lists of chased redirects are output by the Jenkins job so these can easily be updated.
