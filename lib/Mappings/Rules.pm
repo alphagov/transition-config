@@ -62,6 +62,18 @@ sub new {
 }
 
 sub get_config_rule_type {
+    # logic should be something like:
+    # if there is no query string and it is Directgov then go to Directgov
+    #else stay here - normal location - i.e. BL FURLs as well
+    #if there is a query string and it is Businesslink or UKWelcomes
+        #go to those specific rules
+    #Otherwise go to the generic query string
+    
+    #So we should have: Generic Location
+    # DG specific Location
+    # Generic Query String
+    # BL  specific Query String    
+    
     my $config_rule_type = shift;
     my $host = shift;
 
