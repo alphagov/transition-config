@@ -21,6 +21,4 @@ my $mappings = Mappings->new( 'tests/unit/test_data/not_sorted.csv' );
 isa_ok( $mappings, 'Mappings' );
 
 my $configs = $mappings->entire_csv_as_nginx_config();
-use Data::Dumper;
-print Dumper $configs;
 is( $configs->{'www.direct.gov.uk'}{'location'}, NGINX_CONFIG, 'nginx config is sorted' );
