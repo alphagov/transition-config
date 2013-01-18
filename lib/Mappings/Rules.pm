@@ -12,10 +12,8 @@ use URI::Split  qw( uri_split uri_join );
 
 my %HOSTNAME_MAPPINGS = (
     'www.businesslink.gov.uk'                   => 'Businesslink',
-    'online.businesslink.gov.uk'                => 'Businesslink',
     'www.ukwelcomes.businesslink.gov.uk'        => 'Businesslink',
-    'businesslink.gov.uk'                       => 'Businesslink',
-
+    
     'www.direct.gov.uk'                         => 'Directgov',
     'direct.gov.uk'                             => 'Directgov',
     
