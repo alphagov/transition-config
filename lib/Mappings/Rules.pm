@@ -18,10 +18,6 @@ my %HOSTNAME_MAPPINGS = (
     'direct.gov.uk'                             => 'Directgov',
     
     # ignore these for now
-    'tariff.businesslink.gov.uk'                => 'Ignore',
-    'tariff.nibusinessingo.co.uk'               => 'Ignore',
-    'tariff.business.scotland.gov.uk'           => 'Ignore',
-    'tariff.business.wales.gov.uk'              => 'Ignore',
     'www.business.gov.uk'                       => 'Ignore',
     'www.business.scotland.gov.uk'              => 'Ignore',
     'www.contractsfinder.businesslink.gov.uk'   => 'Ignore',
