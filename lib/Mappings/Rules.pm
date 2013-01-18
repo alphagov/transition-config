@@ -35,13 +35,7 @@ sub new {
     if ( defined $query && !length $query ) {
         $query = undef;
     }
-    my $actual_class = $class;
-    
-    if ( defined $host ) {
-        $actual_class = defined $HOSTNAME_MAPPINGS{$host}
-                            ? "Mappings::$HOSTNAME_MAPPINGS{$host}"
-                            : $class;
-    }
+    my $config_rule_type = get_config_rule_type( $class, $host );
 
     my $self = {
         old_url          => $row->{'Old Url'},
@@ -62,9 +56,21 @@ sub new {
         
         duplicates => $duplicate_key_cache,
     };
-    bless $self, $actual_class;
+    bless $self, $config_rule_type;
     
     return $self;
+}
+
+sub get_config_rule_type {
+    my $config_rule_type = shift;
+    my $host = shift;
+
+    if ( defined $host ) {
+        $config_rule_type = defined $HOSTNAME_MAPPINGS{$host}
+                            ? "Mappings::$HOSTNAME_MAPPINGS{$host}"
+                            : $config_rule_type;
+    }
+    return $config_rule_type;
 }
 
 sub as_nginx_config {

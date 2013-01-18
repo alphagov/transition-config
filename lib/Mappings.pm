@@ -75,9 +75,9 @@ sub row_as_nginx_config {
     my $self = shift;
     my $row  = shift; 
     
-    my $rules = Mappings::Rules->new( $row, $self->{'duplicate_key_errors'} );
-    return unless defined $rules;
-    return $rules->as_nginx_config();
+    my $config_rule = Mappings::Rules->new( $row, $self->{'duplicate_key_errors'} );
+    return unless defined $config_rule;
+    return $config_rule->as_nginx_config();
 }
 
 
