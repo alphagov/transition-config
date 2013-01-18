@@ -146,3 +146,9 @@ When all the mappings are complete, correct and passing the integration tests, y
 This entails setting redirected to Y in sites.csv and creating the regression test (instructions above) if you haven't done so already.
 
 The regression tests allow redirections to 301s, 302s and 410s as well as 200s. Redirects to GOV.UK are chased (max 3 redirects) to ensure they end up eventually at a 200 or 410. This is so changing slugs that are handled correctly do not break the regression tests. Lists of chased redirects are output by the Jenkins job so these can easily be updated.
+
+
+Assets
+------
+
+Assets other than the 4xx pages are stored in s3. Currently this only applies to Directgov and Businesslink - refer to the repos assets-directgov and assets-businesslink for more info on how this is handled.
