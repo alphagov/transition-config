@@ -35,7 +35,6 @@ sub new {
     if ( defined $query && !length $query ) {
         $query = undef;
     }
-    my $config_rule_type = get_config_rule_type( $class, $host );
 
     my $self = {
         old_url          => $row->{'Old Url'},
@@ -56,6 +55,7 @@ sub new {
         
         duplicates => $duplicate_key_cache,
     };
+    my $config_rule_type = get_config_rule_type( $class, $host, $query );
     bless $self, $config_rule_type;
     
     return $self;
@@ -76,6 +76,7 @@ sub get_config_rule_type {
     
     my $config_rule_type = shift;
     my $host = shift;
+    my $query = shift;
 
     if ( defined $host ) {
         $config_rule_type = defined $HOSTNAME_MAPPINGS{$host}
