@@ -78,10 +78,9 @@ sub get_config_rule_type {
     my $host = shift;
     my $query = shift;
 
-    if ( defined $host ) {
-        $config_rule_type = defined $HOSTNAME_MAPPINGS{$host}
-                            ? "Mappings::$HOSTNAME_MAPPINGS{$host}"
-                            : $config_rule_type;
+    # If it is a special case...
+    if ( defined $host && defined $HOSTNAME_MAPPINGS{$host} ) {
+        $config_rule_type = "Mappings::$HOSTNAME_MAPPINGS{$host}";
     }
     return $config_rule_type;
 }
