@@ -6,6 +6,7 @@ use warnings;
 
 use Mappings::Businesslink;
 use Mappings::Directgov;
+use Mappings::MapConfig;
 
 use URI::Split  qw( uri_split uri_join );
 
@@ -81,6 +82,13 @@ sub get_config_rule_type {
     # If it is a special case...
     if ( defined $host && defined $HOSTNAME_MAPPINGS{$host} ) {
         $config_rule_type = "Mappings::$HOSTNAME_MAPPINGS{$host}";
+    }
+    # Otherwise...
+    elsif ( defined $query ) {
+        $config_rule_type = "Mappings::MapConfig";
+    }
+    else {
+        # Just use this one - but I think this should be explicit too. 
     }
     return $config_rule_type;
 }

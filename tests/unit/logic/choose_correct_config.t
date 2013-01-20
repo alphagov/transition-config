@@ -52,15 +52,15 @@ is( $redirect_type, 'location',
 	'If host is businesslink and there is no query string, it is assumed to be a FURL'  );
 
 my $unspecified_redirect = { 
-	'Old Url'	=> 'http://www.example.gov.uk/bdotg/action/detail?itemId=1081930072&type=PIP',
+	'Old Url'	=> 'http://www.example.gov.uk/bdotg/action/detail?itemId=101181930072&type=PIP',
 	'New Url'	=> 'https://www.gov.uk/get-information-about-a-company',
 	'Status'	=> 301, 
 };
 ( $redirect_host, $redirect_type, $redirect ) = $mappings->row_as_nginx_config($unspecified_redirect);
 is( $redirect_host, 'www.example.gov.uk', 
 	'Host that config applies to is example' );
-is( $redirect_type, 'location',
-	'If host is unspecified and url has query string, type of nginx block is assumed to be location (for now)'  );
+is( $redirect_type, 'redirect_map',
+	'If host is unspecified and url has query string, type of nginx block is map'  );
 
 $unspecified_redirect = { 
 	'Old Url'	=> 'http://www.example.gov.uk/bdotg/action/detail1',

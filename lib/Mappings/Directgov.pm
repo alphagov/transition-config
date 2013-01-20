@@ -4,6 +4,8 @@ use strict;
 use warnings;
 use base 'Mappings::Rules';
 
+
+
 sub actual_nginx_config {
     my $self = shift;
 
