@@ -29,6 +29,8 @@ generate_404_page() {
 
           <p>On $redirection_date the website for the $department_name was replaced by <a href='http://www.gov.uk/$new_homepage'>gov.uk/$new_homepage</a>. <a href='https://www.gov.uk'>GOV.UK</a> is now the best place to find government services and information.</p>
 
+          <p>A copy of the page you were looking for may be found in <a href='http://webarchive.nationalarchives.gov.uk/'>The UK Government Web Archive</a>.</p>
+
         </article>
       </div>
     </section>
