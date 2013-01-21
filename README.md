@@ -36,6 +36,8 @@ It also creates a redirect from the old department homepage to the new one.
 
 This is the file that you should populate with your mappings. It should be sorted on the Old Url column (this makes diffs between commits more readable).
 
+**NB** The Old Urls must start with the old homepage that you have set in sites.csv (it will accept http or https). So mod mappings must start with http://www.mod.uk or https://www.mod.uk. Any mappings that do not conform to this will generate a warning on build, be moved into a file called mod_incorrect.txt and must be handled manually.
+
 ### Create the site in the repository
 
 1.  In the `redirector` directory, create a new configuration file containing
