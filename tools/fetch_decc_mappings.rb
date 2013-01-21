@@ -10,8 +10,8 @@ fetcher = MappingFetcher.new("decc")
   harvester: 'https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDF4SGR6TTBVd0Q1M2dlbmxZTWpSeFE&single=true&gid=3&output=csv',
   furls: 'https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDF4SGR6TTBVd0Q1M2dlbmxZTWpSeFE&single=true&gid=6&output=csv',
   manual: 'https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDF4SGR6TTBVd0Q1M2dlbmxZTWpSeFE&single=true&gid=0&output=csv',
-  analytics: 'https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDF4SGR6TTBVd0Q1M2dlbmxZTWpSeFE&single=true&gid=4&output=csv',
   sitemap: 'https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDF4SGR6TTBVd0Q1M2dlbmxZTWpSeFE&single=true&gid=8&output=csv',
+  analytics: 'https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDF4SGR6TTBVd0Q1M2dlbmxZTWpSeFE&single=true&gid=4&output=csv',
   other: 'https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDF4SGR6TTBVd0Q1M2dlbmxZTWpSeFE&single=true&gid=10&output=csv'
 }.each do |_, url|
   fetcher.add_source(MappingFetcher::RemoteCsvSource.new(url))
