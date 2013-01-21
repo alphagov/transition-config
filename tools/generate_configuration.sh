@@ -7,7 +7,7 @@ generate_mappings_source() {
 	local path="$(pwd)/data/mappings"
 	mkdir -p $path
 	cat > "${path}/${site}.csv" <<EOF
-Old Url,Status,New Url,Archive Link
+Old Url,Status,New Url,Suggested Link,Archive Link
 $old_homepage,301,https://www.gov.uk/$new_homepage,
 EOF
 

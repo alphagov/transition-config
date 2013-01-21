@@ -9,12 +9,27 @@ prove -lj4 tests/unit/logic/*.t
 echo "Copying configuration to dist directory..."
 rm -rf dist/*
 rsync -a redirector/. dist/.
+(( warnings = 0 ))
+
 (
     IFS=,
     read titles
     while read site redirected old_homepage rest
     do
-        cp data/mappings/${site}.csv dist/${site}_mappings_source.csv
+        echo "Check for incorrect domains..."
+        awk < data/mappings/${site}.csv -F, '$1 !~ /^"?https?:\/\/'${old_homepage}'/' > dist/${site}_incorrect.csv
+        count=$(cat dist/${site}_incorrect.csv | wc -l)
+        if [ $count -gt 1 ] ; then
+            echo "WARNING===>There are incorrect domains in data/mappings/${site}.csv"
+            echo "WARNING===>These have been saved in dist/${site}_incorrect.csv and config will not be generated"
+            (( warnings++ ))
+            echo "Creating a mappings_source that doesn't contain those domains..."
+            head -1 data/mappings/${site}.csv >  dist/${site}_mappings_source.csv
+            awk < data/mappings/${site}.csv -F, '$1 ~ /^"?https?:\/\/'${old_homepage}'/' >> dist/${site}_mappings_source.csv
+        else
+            rm dist/${site}_incorrect.csv
+            cp data/mappings/${site}.csv dist/${site}_mappings_source.csv
+        fi
         if [ $redirected == N ]; then
             echo "Testing sources are valid for in progress site $site..."
             prove -l tests/unit/sources/${site}_valid_lines.t
@@ -47,4 +62,4 @@ rsync -a redirector/. dist/.
     done
 ) < sites.csv
 
-echo "Redirector build succeeded."
+echo "Redirector build succeeded with ${warnings} warnings."

@@ -28,7 +28,9 @@ Add the site to sites.csv.
     source tools/generate_configuration.sh 
     generate_mappings_source $site $old_homepage $new_homepage
 
-This creates a file in data/mappings with four columns - Old Url, Status (i.e. 301 or 410), New Url (if 301), Archive Link (e.g. for friendly URLs).
+This creates a file in data/mappings with five columns - Old Url, Status (i.e. 301 or 410), New Url (if 301),Suggested Links (for 410 pages), Archive Link (e.g. for friendly URLs).
+
+**NB** Old Url must be the first column. The others can appear in any order. Old Url and Status are mandatory and must have values. It is mandatory to have a New Url column but it may be empty (when Status is 410). The other columns are optional.
 
 It also creates a redirect from the old department homepage to the new one.
 
