@@ -9,7 +9,7 @@ prove -lj4 tests/unit/logic/*.t
 echo "Copying configuration to dist directory..."
 rm -rf dist/*
 rsync -a redirector/. dist/.
-(( warnings = 0 ))
+warnings=0
 
 (
     IFS=,
@@ -22,7 +22,7 @@ rsync -a redirector/. dist/.
         if [ $count -gt 1 ] ; then
             echo "WARNING===>There are incorrect domains in data/mappings/${site}.csv"
             echo "WARNING===>These have been saved in dist/${site}_incorrect.csv and config will not be generated"
-            (( warnings++ ))
+            warnings=`expr $warnings + 1`
             echo "Creating a mappings_source that doesn't contain those domains..."
             head -1 data/mappings/${site}.csv >  dist/${site}_mappings_source.csv
             awk < data/mappings/${site}.csv -F, '$1 ~ /^"?https?:\/\/'${old_homepage}'/' >> dist/${site}_mappings_source.csv
