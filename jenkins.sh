@@ -61,7 +61,7 @@ warnings=0
         prove bin/test_sitemap.pl :: dist/static/${site}/sitemap.xml $old_homepage 
     done
     if [ $warnings -gt 0 ]; then
-        echo "WARNINGS==>There are $warnings warnings."
+        echo "WARNINGS===>There are $warnings warnings."
     fi
 ) < sites.csv
 
