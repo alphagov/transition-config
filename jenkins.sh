@@ -60,6 +60,9 @@ warnings=0
         echo "Testing sitemap for $site..."
         prove bin/test_sitemap.pl :: dist/static/${site}/sitemap.xml $old_homepage 
     done
+    if [ $warnings -gt 0 ]; then
+        echo "WARNINGS==>There are $warnings warnings."
+    fi
 ) < sites.csv
 
-echo "Redirector build succeeded with ${warnings} warnings."
+echo "Redirector build succeeded."
