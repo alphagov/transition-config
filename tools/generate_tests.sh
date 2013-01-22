@@ -2,7 +2,7 @@
 
 generate_valid_lines_test() {
 	local package_name=$1
-	local site=$(echo "$package_name" | tr [:upper:] [:lower:])
+	local site=$(echo "$package_name" | tr '[:upper:]' '[:lower:]')
 	local path="$(pwd)/tests/unit/sources"
 	mkdir -p $path
     cat > "${path}/${site}_valid_lines.t" <<EOF
