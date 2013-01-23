@@ -1,93 +1,11 @@
-package Mappings::Rules;
+package Mappings::LocationConfig;
 
-use v5.10;
 use strict;
 use warnings;
-
-use Mappings::Businesslink;
-use Mappings::Directgov;
-use Mappings::LocationConfig;
-use Mappings::MapConfig;
-
-use URI::Split  qw( uri_split uri_join );
-
-my %HOSTNAME_MAPPINGS = (
-    'www.businesslink.gov.uk'                   => 'Businesslink',
-    'www.ukwelcomes.businesslink.gov.uk'        => 'Businesslink',
-    
-    'www.direct.gov.uk'                         => 'Directgov',
-    'direct.gov.uk'                             => 'Directgov',
-);
+use base 'Mappings::Rules';
 
 
 
-sub new {
-    my $class = shift;
-    my $row   = shift;
-    my $duplicate_key_cache = shift;
-    
-    return unless defined $row;
-
-    # strip potential trailing whitespace from urls
-    $row->{'New Url'} =~ s{\s+$}{};
-    $row->{'Old Url'} =~ s{\s+$}{};
-    
-    my( $scheme, $host, $path, $query, $frag ) = uri_split $row->{'Old Url'};
-    # uri_split counts a ? with nothing after it as having a query string.
-    if ( defined $query && !length $query ) {
-        $query = undef;
-    }
-
-    my $self = {
-        old_url          => $row->{'Old Url'},
-        old_url_parts    => {
-            scheme => $scheme,
-            host   => $host,
-            path   => $path,
-            query  => $query,
-            frag   => $frag,
-        },
-
-        dg_number => '',
-        new_url   => $row->{'New Url'},
-        status    => $row->{'Status'},
-        whole_tag => $row->{'Whole Tag'},
-        suggested => $row->{'Suggested Links'},
-        archive_link => $row->{'Archive Link'},
-        
-        duplicates => $duplicate_key_cache,
-    };
-    my $config_rule_type = get_config_rule_type( $class, $host, $query );
-    bless $self, $config_rule_type;
-    
-    return $self;
-}
-
-sub get_config_rule_type {
-    my $config_rule_type = shift;
-    my $host = shift;
-    my $query = shift;
-
-    # Let's be specific:
-    # If it has a query string and is a Businesslink or UK Welcomes host call the BL config
-        # Otherwise it just calls back to this location config
-    
-    # If it is a directgov host and it has a dg_number call the dg number DG config
-        # Otherwise it just calls back to this location config
-
-    # If it is a special case...
-    if ( defined $host && defined $HOSTNAME_MAPPINGS{$host} ) {
-        $config_rule_type = "Mappings::$HOSTNAME_MAPPINGS{$host}";
-    }
-    # Otherwise...
-    elsif ( defined $query ) {
-        $config_rule_type = "Mappings::MapConfig";
-    }
-    else {
-        $config_rule_type = "Mappings::LocationConfig";
-    }
-    return $config_rule_type;
-}
 sub as_nginx_config {
     my $self = shift;
     
@@ -201,35 +119,29 @@ sub location_config {
         $archive_link
     );
 }
-sub get_archive_link {
+sub get_suggested_link {
     my $self     = shift;
     my $location = shift;
     
-    return unless defined $self->{'archive_link'} && length $self->{'archive_link'};
+    return unless defined $self->{'suggested'} && length $self->{'suggested'};
     
     # strip trailing slashes for predictable matching in 410 page code
     $location =~ s{/$}{};
     
-    return "\$archive_links['$location'] = \"$self->{'archive_link'}\";\n";
-}
-sub escape_characters {
-    my $self   = shift;
-    my $string = shift;
+    my $links;
+    foreach my $line ( split /\n/, $self->{'suggested'} ) {
+        $line = $self->escape_characters($line);
+        
+        my( $url, $text ) = split / +/, $line, 2;
+        $text = $self->presentable_url($url)
+            unless defined $text && length $text;
+        $links .= "<a href='${url}'>${text}</a>";
+        
+        # we only ever use the first link
+        last;
+    }
     
-    $string =~ s{"}{''}g;
-    $string =~ s{<}{&lt;}g;
-    $string =~ s{>}{&gt;}g;
-    
-    return $string;
-}
-sub presentable_url {
-    my $self = shift;
-    my $url  = shift;
-    
-    $url =~ s{^https?://(?:www\.)?}{};
-    $url =~ s{/$}{};
-    
-    return $url;
+    return "\$location_suggested_links['${location}'] = \"${links}\";\n";
 }
 
 1;

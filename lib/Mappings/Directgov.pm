@@ -107,6 +107,30 @@ sub dg_location_config {
         $archive_link
     );
 }
+sub get_suggested_link {
+    my $self     = shift;
+    my $location = shift;
+    
+    return unless defined $self->{'suggested'} && length $self->{'suggested'};
+    
+    # strip trailing slashes for predictable matching in 410 page code
+    $location =~ s{/$}{};
+    
+    my $links;
+    foreach my $line ( split /\n/, $self->{'suggested'} ) {
+        $line = $self->escape_characters($line);
+        
+        my( $url, $text ) = split / +/, $line, 2;
+        $text = $self->presentable_url($url)
+            unless defined $text && length $text;
+        $links .= "<a href='${url}'>${text}</a>";
+        
+        # we only ever use the first link
+        last;
+    }
+    
+    return "\$location_suggested_links['${location}'] = \"${links}\";\n";
+}
 
 
 1;

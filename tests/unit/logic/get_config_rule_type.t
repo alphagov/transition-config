@@ -51,7 +51,7 @@ $test_url_parts->{host}     = 'www.example.gov.uk';
 $test_url_parts->{path}     = '/anything';
 $test_url_parts->{query}    = undef;
 $config_rule_type   = Mappings::Rules::get_config_rule_type( undef, $test_url_parts->{host}, $test_url_parts->{query} );
-is( undef, $config_rule_type, 
+is( 'Mappings::LocationConfig', $config_rule_type, 
 	"If URL has no query string and unmentioned host then is location generic" );
 
 
