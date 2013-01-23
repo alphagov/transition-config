@@ -16,7 +16,6 @@ my %HOSTNAME_MAPPINGS = (
     'www.ukwelcomes.businesslink.gov.uk'        => 'Businesslink',
     
     'www.direct.gov.uk'                         => 'Directgov',
-    'direct.gov.uk'                             => 'Directgov',
 );
 
 
