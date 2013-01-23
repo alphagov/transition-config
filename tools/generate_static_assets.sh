@@ -69,7 +69,7 @@ generate_410_page(){
 
           <p>Essential government services and information can be found at <a href='https://www.gov.uk'>GOV.UK</a>.</p>
 
-          <p>A copy of the page you were looking for can be found in <a href="http://webarchive.nationalarchives.gov.uk/$national_archives_timestamp/$old_homepage<?= $_SERVER['REQUEST_URI'] ?>">The UK Government Web Archive</a>, however it will not be updated after $redirection_date.</p>
+          <p>A copy of the page you were looking for can be found in <a href="http://webarchive.nationalarchives.gov.uk/$national_archives_timestamp/$old_homepage<?= \$_SERVER['REQUEST_URI'] ?>">The UK Government Web Archive</a>, however it will not be updated after $redirection_date.</p>
 
 <?php include '410_suggested_links.php'; ?>
 
