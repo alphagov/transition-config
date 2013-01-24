@@ -1,6 +1,7 @@
 desc "Pull down mappings, build redirections and run unit tests"
 task :default => :prerequisites do
   sh "./jenkins.sh"
+  sh "ruby -I. tests/tools/*.rb"
 end
 
 task :prerequisites => [:required_perl_modules, :required_binaries]

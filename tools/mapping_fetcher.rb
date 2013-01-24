@@ -189,6 +189,7 @@ class MappingFetcher
   end
 
   def remap_new_url(new_url)
+    #p "REMAP: #{new_url} => FOUND? #{@new_url_mappings[new_url] || 'no'}"
     @new_url_mappings[new_url] || new_url
   end
 
@@ -254,7 +255,11 @@ class MappingFetcher
   end
 
   def sanitize_url(url)
-    url && url.gsub(" ", "%20")
+    url && url.
+      gsub(" ", "%20").
+      sub(/(%20)+$/, "").
+      gsub("&amp;", "&").
+      gsub(/^([^\(]*)\)/, '\1')
   end
 
   def output_file
