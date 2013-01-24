@@ -22,7 +22,8 @@ warnings=0
         count=$(cat dist/${site}_incorrect.txt | wc -l)
         if [ $count -gt 1 ] ; then
             echo "WARNING===>There are incorrect domains in data/mappings/${site}.csv"
-            echo "WARNING===>These have been saved in dist/${site}_incorrect.txt and config will not be generated"
+            echo "WARNING===>These have been saved in dist/${site}_incorrect.txt"
+            echo "WARNING===>Config will not be generated for the invalid host names. Valid config from that file will be generated."
             warnings=`expr $warnings + 1`
             echo "Creating a mappings_source that doesn't contain those domains..."
             head -1 data/mappings/${site}.csv >  dist/${site}_mappings_source.csv
