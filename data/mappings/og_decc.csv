@@ -364,7 +364,7 @@ http://og.decc.gov.uk/en/olgs/cms/enviroment/permits_stats.aspx,,410
 http://og.decc.gov.uk/en/olgs/cms/environment//leg_guidance/onshore/onshore.aspx,,410
 http://og.decc.gov.uk/en/olgs/cms/environment/about_the_offs/about_the_o/,,410
 http://og.decc.gov.uk/en/olgs/cms/environment/about_the_offs/about_the_offs.aspx,https://www.gov.uk/government/policies/providing-regulation-and-licensing-of-energy-industries-and-infrastructure/supporting-pages/environmental-regulation-of-offshore-oil-gas-activities,301
-http://og.decc.gov.uk/en/olgs/cms/environment/about_the_offs/aerial/aerial.aspx,,410
+http://og.decc.gov.uk/en/olgs/cms/environment/about_the_offs/aerial/aerial.aspx,https://www.gov.uk/government/policies/providing-regulation-and-licensing-of-energy-industries-and-infrastructure/supporting-pages/environmental-regulation-of-offshore-oil-gas-activities,301
 http://og.decc.gov.uk/en/olgs/cms/environment/about_the_offs/aerial/baoac/baoac.aspx,,410
 http://og.decc.gov.uk/en/olgs/cms/environment/about_the_offs/elgin_gig/elgin_gig.aspx,,410
 http://og.decc.gov.uk/en/olgs/cms/environment/about_the_offs/enviro_inspect/2006/2006.aspx,,410
@@ -409,12 +409,11 @@ http://og.decc.gov.uk/en/olgs/cms/environment/leg_guidance/eu_ets/eu_ets.aspx,ht
 http://og.decc.gov.uk/en/olgs/cms/environment/leg_guidance/f_gas/f_gas.aspx,https://www.gov.uk/oil-and-gas-legislation-on-emissions-and-releases,301
 http://og.decc.gov.uk/en/olgs/cms/environment/leg_guidance/f_gas/f_gas.aspx.,,410
 http://og.decc.gov.uk/en/olgs/cms/environment/leg_guidance/fepa/fepa.aspx,https://www.gov.uk/oil-and-gas-offshore-environmental-legislation,301
-http://og.decc.gov.uk/en/olgs/cms/environment/leg_guidance/frc/frc.aspx,,410
-http://og.decc.gov.uk/en/olgs/cms/environment/leg_guidance/frc/frc.aspx#,https://www.gov.uk/oil-and-gas-legislation-on-emissions-and-releases,301
+http://og.decc.gov.uk/en/olgs/cms/environment/leg_guidance/frc/frc.aspx,https://www.gov.uk/oil-and-gas-legislation-on-emissions-and-releases,301
 http://og.decc.gov.uk/en/olgs/cms/environment/leg_guidance/frc/frc.aspx#.,,410
 http://og.decc.gov.uk/en/olgs/cms/environment/leg_guidance/guid_ppd/guid_ppd.aspx,https://www.gov.uk/oil-and-gas-operatorship,301
 http://og.decc.gov.uk/en/olgs/cms/environment/leg_guidance/habitats/habitats.aspx,https://www.gov.uk/oil-and-gas-offshore-environmental-legislation,301
-http://og.decc.gov.uk/en/olgs/cms/environment/leg_guidance/leg_guidance.aspx,https://www.gov.uk/oil-and-gas-offshore-environmental-legislation,301
+http://og.decc.gov.uk/en/olgs/cms/environment/leg_guidance/leg_guidance.aspx,https://www.gov.uk/oil-and-gas-offshore-environmental-legislation#the-energy-act-2008-part-4a-consent-to-locate,301
 http://og.decc.gov.uk/en/olgs/cms/environment/leg_guidance/mercury/mercury.aspx,https://www.gov.uk/oil-and-gas-legislation-on-emissions-and-releases,301
 http://og.decc.gov.uk/en/olgs/cms/environment/leg_guidance/msf/msf.aspx,,410
 http://og.decc.gov.uk/en/olgs/cms/environment/leg_guidance/ocr/ocr.aspx,https://www.gov.uk/oil-and-gas-offshore-environmental-legislation,301
@@ -636,7 +635,7 @@ http://og.decc.gov.uk/en/olgs/cms/licences/licensing_guid/legislative_ba/model_c
 http://og.decc.gov.uk/en/olgs/cms/licences/licensing_guid/licence_assign.aspx,,410
 http://og.decc.gov.uk/en/olgs/cms/licences/licensing_guid/licence_assign/licence_assign.aspx,,410
 http://og.decc.gov.uk/en/olgs/cms/licences/licensing_guid/licence_extens/licence_extens.aspx,,410
-http://og.decc.gov.uk/en/olgs/cms/licences/licensing_guid/licensing_guid.aspx,,410
+http://og.decc.gov.uk/en/olgs/cms/licences/licensing_guid/licensing_guid.aspx,https://www.gov.uk/oil-and-gas-petroleum-licensing-guidance,301
 http://og.decc.gov.uk/en/olgs/cms/licences/licensing_guid/pears/pears.aspx,,410
 http://og.decc.gov.uk/en/olgs/cms/licences/licensing_guid/pears/pears_intro/pears_intro.aspx,,410
 http://og.decc.gov.uk/en/olgs/cms/licences/licensing_guid/progressing/progressing.aspx,https://www.gov.uk/oil-and-gas-petroleum-licensing-guidance,301
@@ -8775,6 +8774,9 @@ http://og.decc.gov.uk/w3c/,,410
 http://og.decc.gov.uk/waste/,,410
 http://og.decc.gov.uk/wons/wdep0100.qrywell,,410
 http://og.decc.gov.uk/xhtml1/,,410
+http://www.og.decc.gov.uk/information/bb_updates/chapters/Table3_2_pwrec.doc,https://www.gov.uk/oil-and-gas-petroleum-operations-notices,301
 https://og.decc.gov.uk/EIP.htm,https://tools.og.decc.gov.uk/EIP.htm,301
 https://og.decc.gov.uk/fields/field_partners.txt,https://www.gov.uk/oil-and-gas-fields-and-field-development,301
 https://og.decc.gov.uk/pprs/report1.xls,https://www.gov.uk/oil-and-gas-petroleum-operations-notices,301
+https://www.og.decc.gov.uk/fields/field_partners.txt,https://www.gov.uk/oil-and-gas-fields-and-field-development,301
+https://www.og.decc.gov.uk/pprs/report1.xls,https://www.gov.uk/oil-and-gas-petroleum-operations-notices,301
