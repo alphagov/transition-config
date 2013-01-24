@@ -4,6 +4,7 @@ set -e
 mkdir -p dist
 
 echo "Running unit tests..."
+ruby -I. tests/tools/*.rb
 prove -lj4 tests/unit/logic/*.t
 
 echo "Copying configuration to dist directory..."
