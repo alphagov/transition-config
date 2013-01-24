@@ -11,7 +11,7 @@ use Mappings::MapConfig;
 
 use URI::Split  qw( uri_split uri_join );
 
-my %HOSTNAME_MAPPINGS = (
+my %SPECIAL_CASE_HOSTS = (
     'www.businesslink.gov.uk'                   => 'Businesslink',
     'www.ukwelcomes.businesslink.gov.uk'        => 'Businesslink',
     
@@ -66,24 +66,28 @@ sub get_config_rule_type {
     my $config_rule_type = shift;
     my $host = shift;
     my $query = shift;
-
-    # Let's be specific:
-    # If it has a query string and is a Businesslink or UK Welcomes host call the BL config
-        # Otherwise it just calls back to this location config
     
-    # If it is a directgov host and it has a dg_number call the dg number DG config
-        # Otherwise it just calls back to this location config
-
-    # If it is a special case...
-    if ( defined $host && defined $HOSTNAME_MAPPINGS{$host} ) {
-        $config_rule_type = "Mappings::$HOSTNAME_MAPPINGS{$host}";
+    my $special_case_host;
+    if ( defined $host && defined $SPECIAL_CASE_HOSTS{$host} ) {
+        $special_case_host = $SPECIAL_CASE_HOSTS{$host};
     }
-    # Otherwise...
-    elsif ( defined $query ) {
-        $config_rule_type = "Mappings::MapConfig";
+
+    if ( defined $query ) {
+        if ( $special_case_host && $special_case_host eq 'Businesslink' ) {
+            $config_rule_type = "Mappings::Businesslink";
+        }
+        else {
+            $config_rule_type = "Mappings::MapConfig";
+        }
     }
     else {
-        $config_rule_type = "Mappings::LocationConfig";
+        # Should be: If it is a directgov host and it has a dg_number call the dg number DG config
+        if ( $special_case_host && $special_case_host eq 'Directgov' ) {
+            $config_rule_type = "Mappings::Directgov";
+        }
+        else {
+            $config_rule_type = "Mappings::LocationConfig";
+        }
     }
     return $config_rule_type;
 }

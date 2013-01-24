@@ -26,8 +26,8 @@ $directgov_redirect = {
 ( $redirect_host, $redirect_type, $redirect ) = $mappings->row_as_nginx_config($directgov_redirect);
 is( $redirect_host, 'www.direct.gov.uk', 
 	'Host that config applies to is directgov' );
-is( $redirect_type, 'location',
-	'Directgov is always location, query string or no' );
+is( $redirect_type, 'redirect_map',
+	'Directgov is no longer always location, query string or no' );
 
 my $businesslink_redirect = { 
 	'Old Url'	=> 'http://www.businesslink.gov.uk/bdotg/action/detail?itemId=1081930072&type=PIP',

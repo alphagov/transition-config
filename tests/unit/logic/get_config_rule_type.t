@@ -23,15 +23,15 @@ $test_url_parts->{host}     = 'www.businesslink.gov.uk';
 $test_url_parts->{path}     = '/bdotg/action/layer';
 $test_url_parts->{query}    = undef;
 $config_rule_type   = Mappings::Rules::get_config_rule_type( undef, $test_url_parts->{host}, $test_url_parts->{query} );
-is( 'Mappings::Businesslink', $config_rule_type, 
-	"If URL has no query string and Businesslink host then is BL specific (for now...)" );
+is( 'Mappings::LocationConfig', $config_rule_type, 
+	"If URL has no query string and Businesslink host then is generic location" );
 
 $test_url_parts->{host}     = 'www.direct.gov.uk';
 $test_url_parts->{path}     = '/anything';
 $test_url_parts->{query}    = 'something';
 $config_rule_type   = Mappings::Rules::get_config_rule_type( undef, $test_url_parts->{host}, $test_url_parts->{query} );
-is( 'Mappings::Directgov', $config_rule_type, 
-	"If URL has a query string and Directgov host then is DG specific" );
+is( 'Mappings::MapConfig', $config_rule_type, 
+	"If URL has a query string and Directgov host then is generic map config" );
 
 $test_url_parts->{host}     = 'www.direct.gov.uk';
 $test_url_parts->{path}     = '/anything';
