@@ -160,6 +160,20 @@ is( $businesslink_friendly_type_with_querystring, 'redirect_map',
 is( $businesslink_friendly_content_with_querystring, "~topicId=1073858865 http://www.gov.uk/testresult;\n", 
 	"A friendly URL does not contain a query string" );
 
+my $businesslink_friendly_url_with_empty_querystring = { 
+	'Old Url'	=> 'http://www.businesslink.gov.uk/tattoos?',
+	'New Url'	=> 'https://www.gov.uk/testresult',
+	'Status'	=> 301,
+	'Whole Tag'	=> 'Closed',
+};
+my( $host, $type, $line ) = $mappings->row_as_nginx_config($businesslink_friendly_url_with_empty_querystring);
+is( $host, 'www.businesslink.gov.uk', 
+	'Host that config applies to is businesslink' );
+is( $type, 'location',
+	"If there is a query string and it is empty then it is location"  );
+is( $line, "location ~* ^/tattoos/?\$ { return 301 https://www.gov.uk/testresult; }\n", 
+	"A friendly URL does not contain a query string" );
+
 my $businesslink_page_redirect = {
 	'Old Url'	=> 'http://www.businesslink.gov.uk/bdotg/action/staticpage?page=Accessibility',
 	'New Url'	=> 'https://www.gov.uk/support/accessibility',

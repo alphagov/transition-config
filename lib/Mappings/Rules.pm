@@ -32,10 +32,6 @@ sub new {
     $row->{'Old Url'} =~ s{\s+$}{};
     
     my( $scheme, $host, $path, $query, $frag ) = uri_split $row->{'Old Url'};
-    # uri_split counts a ? with nothing after it as having a query string.
-    if ( defined $query && !length $query ) {
-        $query = undef;
-    }
 
     my $self = {
         old_url          => $row->{'Old Url'},
@@ -72,7 +68,7 @@ sub get_config_rule_type {
         $special_case_host = $SPECIAL_CASE_HOSTS{$host};
     }
 
-    if ( defined $query ) {
+    if ( $query ) {
         if ( $special_case_host && $special_case_host eq 'Businesslink' ) {
             $config_rule_type = "Mappings::Businesslink";
         }
