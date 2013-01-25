@@ -42,6 +42,7 @@ This is the file that you should populate with your mappings. It should be sorte
 
 1.  In the `redirector` directory, create a new configuration file containing
     the nginx server block(s) needed for the site (see below).
+    **NB** You must create any files that you include, e.g. /var/apps/redirector/www.communities.gov.uk.location.conf - this can be empty, but if it doesn't exist, nginx will not be able to reload.
 
 1. Create the 404 and 410 pages. 
 
