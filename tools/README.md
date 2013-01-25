@@ -17,8 +17,8 @@ To be completed.
 #### Download a document mappings file
 
 This file is generated each night at 2am from the latest production data, and serves two purposes:
-* The conversion of "old urls" to "new urls"
-* The conversion of "new urls" to "admin urls"
+* The providing the mappings of "old urls" to "new urls"
+* The conversion of "admin urls" to publicly-consumable "new urls" 
 
 Download [this csv file (~15MB)](http://whitehall-admin.production.alphagov.co.uk/government/all_document_attachment_and_non_document_mappings.csv) and save as `document_mappings.csv` in the root of the redirect project.
 
