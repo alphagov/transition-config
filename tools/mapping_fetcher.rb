@@ -14,6 +14,7 @@ class MappingFetcher
       'tna' => ''
     }
     @sources = []
+    @reporter = Reporter.new
   end
 
   def add_source(source)
@@ -79,6 +80,37 @@ class MappingFetcher
     end
   end
 
+  class Reporter
+
+    def blank_old_url(row)
+    end
+
+    def invalid_old_url(row)
+      output [
+        row['old url'],
+        'invalid old url',
+        row['source'],
+        row['row_number']
+      ]
+    end
+
+    def invalid_new_url(row, new_url)
+      output [
+        new_url,
+        'invalid new url',
+        row['source'],
+        row['row_number']
+      ]
+    end
+
+    def new_url_is_admin_url(url)
+    end
+
+    def output(fields)
+      $stderr.puts fields.join(',')
+    end
+  end
+
   def input_csv
     @sources.map {|s| s.input_csv.to_a}.flatten(1)
   end
@@ -116,13 +148,17 @@ class MappingFetcher
     end
   end
 
+  def national_archive?(url)
+    url == "TNA"
+  end
+
   def remap_new_urls(rows)
     Enumerator.new do |yielder|
       rows.each do |row|
         new_url = remap_new_url(row['new url'])
         new_url = ensure_new_url_uses_https_for_govuk(new_url)
         if !blank?(new_url) && !valid_destination_url?(new_url)
-          $stderr.puts "WARNING: Row #{row['source']} #{row['row_number']} - invalid new url '#{new_url}'"
+          @reporter.invalid_new_url(row, new_url) unless national_archive?(new_url)
           new_url = ""
         end
         yielder << {
@@ -152,9 +188,9 @@ class MappingFetcher
     Enumerator.new do |yielder|
       rows.each_with_index do |row, i|
         if blank?(row['old url'])
-          $stderr.puts "Row #{row['source']} #{row['row_number']}: skipping - blank old url"
+          @reporter.blank_old_url(row)
         elsif !valid_url?(row['old url'])
-          $stderr.puts "Row #{row['source']} #{row['row_number']}: skipping - invalid old url '#{row['old url']}'"
+          @reporter.invalid_old_url(row)
         else
           yielder << row
         end
@@ -230,7 +266,7 @@ class MappingFetcher
   end
 
   def must_not_be_whitehall_admin!(url)
-    $stderr.puts "Destination urls must not be whitehall-admin - '#{url}'" if is_whitehall_admin?(url)
+    @reporter.new_url_is_admin_url(url) if is_whitehall_admin?(url)
   end
 
   def blank?(url)

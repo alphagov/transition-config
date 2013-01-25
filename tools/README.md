@@ -17,8 +17,9 @@ To be completed.
 #### Download a document mappings file
 
 This file is generated each night at 2am from the latest production data, and serves two purposes:
-* The providing the mappings of "old urls" to "new urls"
-* The conversion of "admin urls" to publicly-consumable "new urls" 
+
+* The providing of mappings from "old urls" to "new urls"
+* The conversion of "admin urls" to publicly-consumable "new urls"
 
 Download [this csv file (~15MB)](http://whitehall-admin.production.alphagov.co.uk/government/all_document_attachment_and_non_document_mappings.csv) and save as `document_mappings.csv` in the root of the redirect project.
 
@@ -32,7 +33,9 @@ From the root of the project, run `./tools/generate-redirects.sh <department>`
 
 eg `./tools/generate-redirects.sh decc`
 
-This will regenerate files we keep checked in in `data/mappings/`.
+This will regenerate files we keep checked in in `data/mappings/`. Any warnings or errors in the url formats are sent to $stderr in the following form:
+
+    error url,error name,source file url,source file row number
 
 #### View changes and check in
 
