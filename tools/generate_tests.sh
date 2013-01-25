@@ -3,9 +3,9 @@
 generate_valid_lines_test() {
 	local package_name=$1
 	local site=$(echo "$package_name" | tr '[:upper:]' '[:lower:]')
-	local path="$(pwd)/tests/unit/sources"
-	mkdir -p $path
-    cat > "${path}/${site}_valid_lines.t" <<EOF
+	local source_path="$(pwd)/tests/unit/sources"
+	mkdir -p $source_path
+    cat > "${source_path}/${site}_valid_lines.t" <<EOF
 my \$test = ${package_name}::Source->new('dist/${site}_mappings_source.csv');
 \$test->run_tests();
 exit;
@@ -32,9 +32,9 @@ EOF
 generate_regression_test() {
 	local package_name=$1
 	local site=$(echo "$package_name" | tr [:upper:] [:lower:])
-	local path="$(pwd)/tests/regression/"
-	mkdir -p $path
-	cat > "${path}/${site}.t" <<EOF
+	local source_path="$(pwd)/tests/regression/"
+	mkdir -p $source_path
+	cat > "${source_path}/${site}.t" <<EOF
 my \$test = ${package_name}::Finalised->new();
 \$test->input_file("dist/${site}_mappings_source.csv");
 \$test->output_file("dist/${site}_all_tested.csv");
@@ -55,24 +55,24 @@ use Test::More;
 
 sub test {
     my \$self = shift;
-    
-    my ( \$passed, 
-    	\$response, 
-    	\$redirected_response, 
+
+    my ( \$passed,
+    	\$response,
+    	\$redirected_response,
     	\$chased_redirects ) = \$self->test_closed_gones(@_);
 
     #i.e. it is not a 410
-    if ( -1 == \$passed ) { 
-    	( \$passed, 
-    	\$response, 
-    	\$redirected_response, 
+    if ( -1 == \$passed ) {
+    	( \$passed,
+    	\$response,
+    	\$redirected_response,
     	\$chased_redirects ) = \$self->test_finalised_redirects(@_);
     }
 
-    return ( \$passed, 
-    	\$response, 
-    	\$redirected_response, 
-    	\$chased_redirects ); 
+    return ( \$passed,
+    	\$response,
+    	\$redirected_response,
+    	\$chased_redirects );
 }
 
 EOF
@@ -82,12 +82,12 @@ EOF
 generate_in_progress_gone_test(){
     local package_name=$1
     local site=$(echo "$package_name" | tr [:upper:] [:lower:])
-    local path="$(pwd)/tests/integration/in_progress"
-    mkdir -p $path/${site}
-    cat > "${path}/${site}/gone.t" <<EOF
+    local source_path="$(pwd)/tests/integration/in_progress"
+    mkdir -p $source_path/${site}
+    cat > "${source_path}/${site}/gone.t" <<EOF
 my \$test = $package_name::In_Progress::Gone->new();
 \$test->input_file("dist/${site}_mappings_source.csv");
-\$test->output_file("dist/${site}_gone_output.csv"); 
+\$test->output_file("dist/${site}_gone_output.csv");
 \$test->output_error_file("dist/${site}_gone_errors.csv");
 \$test->run_tests();
 exit;
@@ -104,7 +104,7 @@ use Test::More;
 
 sub test {
     my \$self = shift;
-    
+
     \$self->test_closed_gones(@_);
 }
 
@@ -115,12 +115,12 @@ EOF
 generate_in_progress_redirection_test(){
     local package_name=$1
     local site=$(echo "$package_name" | tr [:upper:] [:lower:])
-    local path="$(pwd)/tests/integration/in_progress"
-    mkdir -p $path/${site}
-    cat > "${path}/${site}/redirects.t" <<EOF
+    local source_path="$(pwd)/tests/integration/in_progress"
+    mkdir -p $source_path/${site}
+    cat > "${source_path}/${site}/redirects.t" <<EOF
 my \$test = $package_name::In_Progress::Redirects->new();
 \$test->input_file("dist/${site}_mappings_source.csv");
-\$test->output_file("dist/${site}_redirects_output.csv"); 
+\$test->output_file("dist/${site}_redirects_output.csv");
 \$test->output_error_file("dist/${site}_redirects_errors.csv");
 \$test->run_tests();
 exit;
@@ -137,7 +137,7 @@ use Test::More;
 
 sub test {
     my \$self = shift;
-    
+
     \$self->test_closed_redirects(@_);
 }
 
