@@ -20,9 +20,17 @@ fi
 
 echo "Generating mappings..."
 
+# First let's extract the mappings by domain
+domain=`cat ./sites.csv | grep "^$department" | cut -d ',' -f3`
+
 set -e
-$make_mappings_file
+echo "Fetching mappings for $domain..."
+./tools/extract-mappings.rb $domain < ./document_mappings.csv | $make_mappings_file
+
+echo "Folding mappings..."
 ./tools/fold-mappings.rb < $mappings_out > $folded_mappings
+
+echo "Putting folded file in place..."
 mv $folded_mappings $mappings_out
 
 echo "Done"

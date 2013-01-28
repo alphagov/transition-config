@@ -5,7 +5,7 @@ base_dir = File.expand_path("..", File.dirname(__FILE__))
 require_relative "mapping_fetcher"
 fetcher = MappingFetcher.new("scotlandoffice")
 
-fetcher.add_source(MappingFetcher::LocalCsvSource.new(base_dir + "/tools/scotland_supplemental_data/mappings_of_imported_scotland_docs.csv"))
+fetcher.add_source(MappingFetcher::StringCsvSource.new($stdin))
 # Note if there are duplicates then the FIRST mapping is used, so order matters here
 {
   'Harvester Data' => 'https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdE5Wa2ZvR25hOEx3bEk5dmc4Z0RZVXc&single=true&gid=3&output=csv',

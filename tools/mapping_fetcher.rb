@@ -80,6 +80,20 @@ class MappingFetcher
     end
   end
 
+  class StringCsvSource < CsvSource
+    def initialize(data)
+      @data = data
+    end
+
+    def source
+      'passed in string'
+    end
+
+    def read_data
+      @data
+    end
+  end
+
   class Reporter
 
     def blank_old_url(row)
