@@ -61,7 +61,7 @@ class MappingFetcher
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = (uri.is_a?(URI::HTTPS))
       response = http.request_get(uri.path + "?" + uri.query)
-      raise "Error - got response #{response.code}" unless response.is_a?(Net::HTTPOK)
+      raise "Error - got response #{response.code} on #{url}" unless response.is_a?(Net::HTTPOK)
       response
     end
   end
