@@ -55,7 +55,7 @@ warnings=0
             rm dist/${site}_incorrect.txt
             cp data/mappings/${site}.csv dist/${site}_mappings_source.csv
         fi
-        if [ $redirected == N ]; then
+        if [ $redirected = N ]; then
             status "Testing sources are valid for in progress site $site..."
             prove -l tests/unit/sources/${site}_valid_lines.t
         fi
