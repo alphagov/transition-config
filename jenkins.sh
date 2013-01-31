@@ -83,7 +83,7 @@ warnings=0
         perl tools/sitemap.pl dist/${site}_mappings_source.csv $old_homepage > dist/static/${site}/sitemap.xml
 
         status "Testing sitemap for $site..."
-        # prove bin/test_sitemap.pl :: dist/static/${site}/sitemap.xml $old_homepage 
+        prove tools/test_sitemap.pl :: dist/static/${site}/sitemap.xml $old_homepage
     done
     if [ $warnings -gt 0 ]; then
         warning "WARNINGS===>There are $warnings warnings."

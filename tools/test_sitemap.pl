@@ -1,4 +1,9 @@
 #!/usr/bin/env perl
+
+#
+#  test a sitemap.xml file is valid
+#
+
 use v5.10;
 use strict;
 use warnings;
@@ -7,7 +12,10 @@ use Test::More;
 use XML::Parser;
 use URI;
 
-my $sitemap_file    = shift;
+my $sitemap_file = shift;
+
+die "usage: $0 sitemap.xml [hostname ..]" unless($sitemap_file);
+
 my %valid_hostnames;
 
 map { $valid_hostnames{$_} = 1 } @ARGV;
@@ -23,8 +31,6 @@ my $xml_parser    = new XML::Parser(
     );
 my $url_in_tag;
 
-
-
 $xml_parser->parsefile($sitemap_file, ErrorContext => 3)
     or die;
 
@@ -32,16 +38,15 @@ done_testing();
 exit;
 
 
-
 sub handle_start_tag {
     my $parser     = shift;
     my $tag        = shift;
     my %attributes = @_;
-    
+
     my $depth        = $parser->depth();
     my $expected_tag = $expected_tags[$depth];
     my $namespace    = $parser->namespace($tag);
-    
+
     is(
         $namespace,
         'http://www.sitemaps.org/schemas/sitemap/0.9',
@@ -52,19 +57,20 @@ sub handle_start_tag {
         $expected_tag,
         'tag is correct'
     );
-    
+
     undef $url_in_tag;
 }
+
 sub handle_end_tag {
     my $parser = shift;
     my $tag    = shift;
-    
+
     if ( 'loc' eq $tag ) {
         $url_in_tag =~ s{^ \s* (.*) \s* $}{$1}x;
-        
+
         my $uri = URI->new($url_in_tag);
         my $hostname = $uri->host;
-        
+
         ok(
             $uri->scheme =~ m{^ http s? $}x,
             'scheme is either http or https'
@@ -75,9 +81,10 @@ sub handle_end_tag {
         );
     }
 }
+
 sub handle_non_markup {
     my $parser = shift;
     my $string = shift;
-    
+
     $url_in_tag .= $string;
 }
