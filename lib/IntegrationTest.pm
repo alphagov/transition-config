@@ -47,7 +47,7 @@ sub output_redirects_file {
     $self->{'output_redirects_file'} = shift;
 }
 
-sub run_tests {
+sub run_some_tests {
     my $self = shift;
 
     my $csv = Text::CSV->new( { binary => 1 } ) 
@@ -151,8 +151,16 @@ sub run_tests {
             unless $redirects_count;
     }
 
+}
+
+sub run_tests {
+
+    my $self = shift;
+    $self->run_some_tests();
     done_testing();
 }
+
+
 
 sub get_response {
     my $self = shift;
