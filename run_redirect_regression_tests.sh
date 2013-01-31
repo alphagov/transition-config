@@ -7,7 +7,6 @@ echo DEPLOY_TO=$DEPLOY_TO
 prove -l tests/integration/config_rules/     \
     	tests/integration/regression/   	 \
 	    tests/integration/sample/           \
-		tools/test-log.pl					 \
 		tests/regression/businesslink_piplinks.t
 
 (

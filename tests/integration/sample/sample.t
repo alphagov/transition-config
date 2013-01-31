@@ -1,7 +1,7 @@
 use Test::More;
 
 #
-#  test the mappings in the data/samples/*.csv files
+#  test the mappings cited in the data/samples directory
 #
 
 foreach my $file (<data/samples/*.csv>) {

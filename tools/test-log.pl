@@ -23,7 +23,7 @@ $redirector_host = 'http://redirector.production.alphagov.co.uk'
 my $ua = LWP::UserAgent->new( max_redirect => 0 ),
 
 my $csv = Text::CSV->new( { binary => 1 } );
-open my $fh, '<', 'data/lrc_tests.csv';
+open my $fh, '<-';
 my $names = $csv->getline( $fh );
 $csv->column_names( @$names );
 
