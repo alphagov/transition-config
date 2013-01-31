@@ -23,8 +23,8 @@ Add the site to data/sites.csv.
 **NB** It is possible to generate mappings outside of this process, e.g. businesslink_piplinks, lrc. For help with making sure they are included, speak to a member of the Transition team
 
 ### Create the mappings CSV
-    
-    source tools/generate_configuration.sh 
+
+    source tools/generate_configuration.sh
     generate_mappings_source $site $old_homepage $new_homepage
 
 This creates a file in data/mappings with five columns - Old Url, Status (i.e. 301 or 410), New Url (if 301),Suggested Links (for 410 pages), Archive Link (e.g. for friendly URLs).
@@ -43,12 +43,12 @@ This is the file that you should populate with your mappings. It should be sorte
     the nginx server block(s) needed for the site (see below).
     **NB** You must create any files that you include, e.g. /var/apps/redirector/www.communities.gov.uk.location.conf - this can be empty, but if it doesn't exist, nginx will not be able to reload.
 
-1. Create the 404 and 410 pages. 
+1. Create the 404 and 410 pages.
 
     source tools/generate_static_assets.sh
-    
+
     generate_404_page $site $redirection_date $department_full_name $new_homepage
-    
+
     generate_410_page $site $redirection_date $department_full_name $new_homepage $national_archives_timestamp $old_homepage
 
 ### Create Valid Lines Test
@@ -60,20 +60,20 @@ Add a valid lines test script:
 
 $Name_of_site here should be with an initial capital, e.g. Directgov.
 
-This is required because jenkins.sh tests all the mappings before attempting to build. 
+This is required because jenkins.sh tests all the mappings before attempting to build.
 You can test this at this point by running ./jenkins.sh
 
 ### Commit
 
 Before committing, run `./jenkins.sh`. If this fails it will stop anyone else deploying so do not commit if so.
 
-A jenkins commit will kick off the Redirector build, followed by the Redirector-deploy (which only deploys to preview), then followed by the Redirector-Integration-Subset. 
+A jenkins commit will kick off the Redirector build, followed by the Redirector-deploy (which only deploys to preview), then followed by the Redirector-Integration-Subset.
 
 You should make sure that these tests all pass before you deploy to production.
 
 ### Before You Finish
 
-#### Create a Subset test 
+#### Create a Subset test
 
 A pick list test of the most important urls to be tested on each deployment in the `data/subsets/` directory.
 
@@ -86,7 +86,7 @@ You don't need this until the transition is complete but you might as well creat
     source tools/generate_tests.sh
     generate_regression_test $Name_of_site
 
-$Name_of_site here should be with an initial capital, e.g. Directgov.    
+$Name_of_site here should be with an initial capital, e.g. Directgov.
 
 
 ### Deploying the redirector to production
@@ -126,13 +126,13 @@ production.
     prove -l tests/integration/sample/top_250_WEBSITE.t
     prove -l tests/integration/in_progress/WEBSITE/
 
-Once they pass, you can now proceed to switching the domains to the 
+Once they pass, you can now proceed to switching the domains to the
 redirector.
 
 When mappings are finalised
 ---------------------------
 
-When all the mappings are complete, correct and passing the integration tests, you can make them finalised. 
+When all the mappings are complete, correct and passing the integration tests, you can make them finalised.
 
 This entails setting redirected to Y in sites.csv and creating the regression test (instructions above) if you haven't done so already.
 
