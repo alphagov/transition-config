@@ -210,4 +210,4 @@ This assumes the old URLs are path only. If the old URLs might also be matched o
 Assets
 ------
 
-Assets other than the 4xx pages are stored in s3. Currently this only applies to Directgov and Businesslink - refer to the repos assets-directgov and assets-businesslink for more info on how this is handled.
+Directgov and Businesslink assets are stored in GitHub and deployed via s3,  see [assets-directgov](https://github.com/alphagov/assets-directgov) and [assets-businesslink](https://github.com/alphagov/assets-businesslink).
