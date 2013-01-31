@@ -141,71 +141,15 @@ The regression tests allow redirections to 301s, 302s and 410s as well as 200s. 
 Nginx configuration file
 ------------------------
 
-The basic config file looks like this:
-
-    server {
-        server_name     www.decc.gov.uk
-                        aka.decc.gov.uk;
+Create an Nginx conf file for each domain, clone an existing simple configuration such as scotlandoffice.conf. 
+Where source URLs containing a query\_string which is significant, a map using regular expressions will be needed
+For an example of a map see the BusinessLink configuration.
 
 
-        root            /var/apps/redirector/static/decc;
-        include         /var/apps/redirector/common_nginx_settings.conf;
-        include         /var/apps/redirector/common_status_pages.conf;
+Akamai
+------
 
-
-        # always redirect "homepage" to GOV.UK
-        location = /           { return 301 https://www.gov.uk/government/organisations/department-of-energy-climate-change; }
-
-        # location config
-        include /var/apps/redirector/www.decc.gov.uk.location.conf;
-    }
-
-This assumes the old URLs are path only. If the old URLs might also be matched on query string, you need to include maps, like this:
-
-    # generated redirects based on the query string
-    map $query_string $decc_new_url {
-        include /var/apps/redirector/www.decc.gov.uk.redirect_map.conf;
-    }
-
-    # generated gone responses based on the query string
-    map $query_string $decc_gone {
-        include /var/apps/redirector/www.decc.gov.uk.gone_map.conf;
-    }
-
-
-    server {
-        server_name     www.decc.gov.uk
-                        aka.decc.gov.uk;
-
-
-        root            /var/apps/redirector/static/decc;
-        include         /var/apps/redirector/common_nginx_settings.conf;
-        include         /var/apps/redirector/common_status_pages.conf;
-
-
-        # always redirect "homepage" to GOV.UK
-        location = /           { return 301 https://www.gov.uk/government/organisations/department-of-energy-climate-change; }
-
-        # location config
-        include /var/apps/redirector/www.decc.gov.uk.location.conf;
-
-        # 301 Moved Permanently
-        if ( $decc_new_url ) {
-            return 301 $decc_new_url;
-        }
-
-        location / {
-            # if not / and not a matching redirect, try static assets, else 404
-            try_files $uri $uri.html =404;
-            add_header 'cache-control' 'public, max-age=86400';
-
-            # 410 Gone
-            if ( $decc_gone ) {
-                return 410;
-            }
-        }
-    }
-
+The redirector is deployed behind Akamai. The domain should be added as a property to the Akamai redirector configuration.
 
 Assets
 ------
