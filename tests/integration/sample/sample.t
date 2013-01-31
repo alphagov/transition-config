@@ -4,7 +4,7 @@ use Test::More;
 #  test the mappings cited in the data/samples directory
 #
 
-foreach my $file (<data/samples/*.csv>) {
+foreach my $file (<data/subsets/*.csv>) {
 
 	my $name = $file;
 	$name =~ s/^.*\/(\w*).csv$/$1/;
