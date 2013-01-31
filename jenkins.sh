@@ -88,6 +88,6 @@ warnings=0
     if [ $warnings -gt 0 ]; then
         warning "WARNINGS===>There are $warnings warnings."
     fi
-) < sites.csv
+) < data/sites.csv
 
 ok "Redirector build succeeded."

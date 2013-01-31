@@ -19,4 +19,4 @@ prove -l tests/integration/config_rules/ \
 			prove -l tests/regression/${site}.t
 		fi
 	done
-) < sites.csv
+) < data/sites.csv

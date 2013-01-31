@@ -21,7 +21,7 @@ fi
 echo "Generating mappings..."
 
 # First let's extract the mappings by domain
-domain=`cat ./sites.csv | grep "^$department" | cut -d ',' -f3`
+domain=`cat data/sites.csv | grep "^$department" | cut -d ',' -f3`
 
 set -e
 echo "Fetching mappings for $domain..."

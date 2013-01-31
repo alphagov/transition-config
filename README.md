@@ -11,7 +11,7 @@ Adding a new website
 
 ### Initial steps
 
-Add the site to sites.csv.
+Add the site to data/sites.csv.
 
 * Site: this is the name of the site, eg `communities` for the site `www.communities.gov.uk`
 * Redirected: this will be N. When the mappings are correct and finalised, you will change this to Y.
