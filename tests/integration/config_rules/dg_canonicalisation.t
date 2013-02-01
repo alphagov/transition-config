@@ -29,29 +29,5 @@ is( 'https://www.gov.uk/find-your-local-park', $redirect_location, "redirect is 
 is( '301', $response_code, "Link with really anything in there redirects" );
 is( 'https://www.gov.uk/find-your-local-park', $redirect_location, "redirect is to  https://www.gov.uk/find-your-local-park" );
 
-( $response_code, $redirect_location) = get_response ( 'http://www.direct.gov.uk/Environmentandgreenerliving/Greenertravel/Enjoyingthecountryside/DG_064868' );
-is( '404', $response_code, "Link without /en does not redirect" );
-
-( $response_code, $redirect_location) = get_response ( 'http://www.direct.gov.uk/en/Environmentandgreenerliving/Greenertravel/Enjoyingthecountryside/DG_064868.html' );
-is( '404', $response_code, "Link that doesn't end in the DG number does not redirect" );
-
-( $response_code, $redirect_location) = get_response ( 'http://www.direct.gov.uk/cy/Environmentandgreenerliving/Greenertravel/Enjoyingthecountryside/DG_064868' );
-is( '404', $response_code, "Link with /cy does not redirect" );
-
-( $response_code, $redirect_location) = get_response ( 'http://www.direct.gov.uk/enblah/DG_064868' );
-is( '404', $response_code, "/en/ has to be whole segment" );
-
-( $response_code, $redirect_location) = get_response ( 'http://www.direct.gov.uk/en/blahDG_064868' );
-is( '404', $response_code, "DG number has to be whole segment" );
-
-( $response_code, $redirect_location) = get_response ( 'http://www.direct.gov.uk/en/DG_064868blah' );
-is( '404', $response_code, "DG number has to be whole segment" );
-
-( $response_code, $redirect_location) = get_response ( 'http://www.direct.gov.uk/en/blahDG_064868blah' );
-is( '404', $response_code, "DG number has to be whole segment" );
-
-( $response_code, $redirect_location) = get_response ( 'http://www.direct.gov.uk/blah/en/DG_064868' );
-is( '404', $response_code, "URL has to start with /en" );
-
 
 done_testing();
