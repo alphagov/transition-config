@@ -1,0 +1,5 @@
+Old Url,New Url,Status
+http://www.dclg.gov.uk/,http://www.communities.gov.uk,301
+http://www.dclg.gov.uk/blah,http://www.communities.gov.uk,301
+http://www.dclg.gov.uk/some/url,http://www.communities.gov.uk,301
+http://www.dclg.gov.uk/who?eric=bananaman,http://www.communities.gov.uk,301
