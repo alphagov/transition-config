@@ -1,10 +1,11 @@
+#!/usr/bin/env perl
+
 use Test::More;
 
 #
-#  test the mappings cited in the data/samples directory
+#  test the mappings cited in CSV files
 #
-
-foreach my $file (<data/subsets/*.csv>) {
+foreach my $file (@ARGV) {
 
 	my $name = $file;
 	$name =~ s/^.*\/(\w*).csv$/$1/;
