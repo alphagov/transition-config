@@ -1,4 +1,8 @@
 Old Url,New Url,Status
+http://ukwelcomes.businesslink.gov.uk,https://www.gov.uk/uk-welcomes-business,301
+http://ukwelcomes.businesslink.gov.uk/bdotg/action/piplink?agency_id=875&service_id=16200010001&site=2000,https://www.gov.uk/apply-for-a-licence/temporary-event-notice/cheshire-west-and-chester/apply-1,301
+http://www.ukwelcomes.businesslink.gov.uk,https://www.gov.uk/uk-welcomes-business,301
+http://www.ukwelcomes.businesslink.gov.uk/500.html,https://www.gov.uk/uk-welcomes-business,301
 http://www.ukwelcomes.businesslink.gov.uk/bdotg/action/detail?itemId=1083989403&type=RESOURCES&site=2000,,410
 http://www.ukwelcomes.businesslink.gov.uk/bdotg/action/detail?itemId=1083989408&type=RESOURCES&site=2000,,410
 http://www.ukwelcomes.businesslink.gov.uk/bdotg/action/detail?itemId=1083989412&type=RESOURCES&site=2000,,410
@@ -7,11 +11,11 @@ http://www.ukwelcomes.businesslink.gov.uk/bdotg/action/detail?itemId=1083989420&
 http://www.ukwelcomes.businesslink.gov.uk/bdotg/action/detail?itemId=1083989460&type=RESOURCES&site=2000,https://www.gov.uk/uk-visa-sponsorship-employers/before-you-can-sponsor-an-employee,301
 http://www.ukwelcomes.businesslink.gov.uk/bdotg/action/detail?itemId=1083989465&type=RESOURCES&site=2000,https://www.gov.uk/uk-visa-sponsorship-employers/before-you-can-sponsor-an-employee,301
 http://www.ukwelcomes.businesslink.gov.uk/bdotg/action/detail?itemId=1083989468&type=RESOURCES&site=2000,https://www.gov.uk/uk-visa-sponsorship-employers/before-you-can-sponsor-an-employee,301
+http://www.ukwelcomes.businesslink.gov.uk/bdotg/action/detail?itemId=1083989836&type=RESOURCES&site=2000,https://www.gov.uk/uk-welcomes-business,301
 http://www.ukwelcomes.businesslink.gov.uk/bdotg/action/detail?itemId=1083990455&type=RESOURCES&site=2000,http://www.hse.gov.uk/,301
 http://www.ukwelcomes.businesslink.gov.uk/bdotg/action/detail?itemId=1083990462&type=RESOURCES&site=2000,https://www.gov.uk/managing-your-waste-an-overview,301
-http://www.ukwelcomes.businesslink.gov.uk/bdotg/action/detail?itemId=1083989836&type=RESOURCES&site=2000,https://www.gov.uk/uk-welcomes-business,301
-http://www.ukwelcomes.businesslink.gov.uk/xxxx,https://www.gov.uk/uk-welcomes-business,301
 http://www.ukwelcomes.businesslink.gov.uk/bdotg/action/detail?xxxx,https://www.gov.uk/uk-welcomes-business,301
-http://www.ukwelcomes.businesslink.gov.uk/500.html,https://www.gov.uk/uk-welcomes-business,301
 http://www.ukwelcomes.businesslink.gov.uk/bdotg/action/licenceLIMLanding,https://www.gov.uk/licence-finder,301
 http://www.ukwelcomes.businesslink.gov.uk/bdotg/action/licenceSelectLocation,https://www.gov.uk/licence-finder,301
+http://www.ukwelcomes.businesslink.gov.uk/bdotg/action/piplink?agency_id=875&service_id=16200010001&site=2000,https://www.gov.uk/apply-for-a-licence/temporary-event-notice/cheshire-west-and-chester/apply-1,301
+http://www.ukwelcomes.businesslink.gov.uk/xxxx,https://www.gov.uk/uk-welcomes-business,301
