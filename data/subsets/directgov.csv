@@ -1,5 +1,8 @@
 Old Url,New Url,Status
+http://www.direct.gov.uk,https://www.gov.uk,301
+http://www.direct.gov.uk/,https://www.gov.uk,301
 http://www.direct.gov.uk/dr_consum_dg/groups/dg_digitalassets/@dg/@en/documents/digitalasset/dg_072644.pdf,,200
+http://www.direct.gov.uk/en,https://www.gov.uk,301
 http://www.direct.gov.uk/en/BritonsLivingAbroad/index.htm,https://www.gov.uk/browse/driving/passports-travelling-abroad,301
 http://www.direct.gov.uk/en/COTAResultPage/index.htm,,410
 http://www.direct.gov.uk/en/CaringForSomeone/MoneyMatters/CarersAllowance/index.htm,https://www.gov.uk/carers-allowance,301
