@@ -51,18 +51,6 @@ This is the file that you should populate with your mappings. It should be sorte
 
     generate_410_page $site $redirection_date $department_full_name $new_homepage $national_archives_timestamp $old_homepage
 
-### Create Valid Lines Test
-
-Add a valid lines test script:
-
-    source tools/generate_tests.sh
-    generate_valid_lines_test $Name_of_site
-
-$Name_of_site here should be with an initial capital, e.g. Directgov.
-
-This is required because jenkins.sh tests all the mappings before attempting to build.
-You can test this at this point by running ./jenkins.sh
-
 ### Commit
 
 Before committing, run `./jenkins.sh`. If this fails it will stop anyone else deploying so do not commit if so.
