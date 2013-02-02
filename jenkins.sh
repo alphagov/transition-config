@@ -55,10 +55,10 @@ warnings=0
             rm dist/${site}_incorrect.txt
             cp data/mappings/${site}.csv dist/${site}_mappings_source.csv
         fi
-        if [ $redirected = N ]; then
-            status "Testing sources are valid for in progress site $site..."
-            prove -l tests/unit/sources/${site}_valid_lines.t
-        fi
+
+        status "Testing mappings are in a valid format ..."
+        prove -l tools/validate_csv.pl :: dist/${site}_mappings_source.csv
+
         status "Creating mappings from $site source..."
         perl -Ilib tools/create_mappings.pl dist/${site}_mappings_source.csv
 

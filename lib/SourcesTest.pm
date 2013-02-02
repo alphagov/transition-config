@@ -38,8 +38,6 @@ sub run_tests {
     while ( my $row = $csv->getline_hr( $fh ) ) {
         $self->test($row);
     }
-
-    done_testing();
 }
 
 sub test_source_line {
