@@ -1,12 +1,12 @@
-name,redirected,old homepage,new homepage,redirection date,national archives timestamp
-ago,Y,www.ago.gov.uk,ago,13th December 2012,20120816224015
-businesslink,Y,www.businesslink.gov.uk,,17th October 2012,20120823131012
-communities,N,www.communities.gov.uk,communities,,,
-decc,N,www.decc.gov.uk,decc,,,
-directgov,Y,www.direct.gov.uk,,,
-elearning,Y,elearning.businesslink.gov.uk,elearning,,,
-improve,Y,improve.businesslink.gov.uk,improve,,,
-mod,N,www.mod.uk,mod,,,
-og_decc,N,og.decc.gov.uk,og_decc,,,
-scotlandoffice,N,www.scotlandoffice.gov.uk,scotlandoffice,,30th January 2013,
-ukwelcomes,Y,www.ukwelcomes.businesslink.gov.uk,ukwelcomes,,,
+Site,Domain,Redirection Date,TNA Timestamp
+ago,www.ago.gov.uk,13th December 2012,20120816224015
+businesslink,www.businesslink.gov.uk,17th October 2012,20120823131012
+communities,www.communities.gov.uk,15th November 2012,0120919132719
+decc,www.decc.gov.uk,decc,23rd January 2013,20121217150421
+directgov,www.direct.gov.uk,17th October 2012,20121015000000
+elearning,elearning.businesslink.gov.uk,17th October 2012,20120823131012
+improve,improve.businesslink.gov.uk,17th October 2012,20120823131012
+mod,www.mod.uk,13th December 2012,20121026065214
+og_decc,og.decc.gov.uk,23rd January 2013,20121217150421
+scotlandoffice,www.scotlandoffice.gov.uk,30th January 2013,20130130150421
+ukwelcomes,www.ukwelcomes.businesslink.gov.uk,17th October 2012,20120823131012
