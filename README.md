@@ -58,21 +58,16 @@ Directgov and Businesslink assets are stored in GitHub and deployed via s3,  see
     export DEPLOY_TO=preview
     ./run_subset_integration_tests.sh
 
-### Deploy the redirector to production
-
-Ensure the redirector has been deployed before running puppet to avoid the risk of breaking the redirector due to missing nginx config files.
-
-### Add the website to puppet
-
-Deploy the redirector to production before altering puppet.
-
-Add the new config file(s) to the puppet repository, in the file `modules/govuk/manifests/apps/redirector.pp`.
-Deploy puppet to preview to activate the website's configuration with nginx.
-
 ### Test against production
 
     export DEPLOY_TO=production
     ./run_redirect_regression_tests.sh
+
+### Puppet
+
+Ensure the redirector has been fully deployed before a puppet run to avoid the risk of breaking the redirector due to missing nginx config files.
+Run puppet to activate the website's configuration with nginx.
+
 
 ### Akamai
 
