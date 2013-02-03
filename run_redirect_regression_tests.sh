@@ -1,26 +1,11 @@
 #!/bin/bash
 
-set -x
+set -e -x
 
-: DEPLOY_TO=$DEPLOY_TO
+csv=dist/full_urls.csv
 
-prove -l tests/integration/config_rules/ \
-	tests/integration/regression/ \
-	tests/regression/businesslink_piplinks.t
+# find all mappings and tests
+# relies upon lines begining with Old Url are sorted ahead of those begining with http://
+cat data/mappings/subsets/*.csv data/subsets/*.csv | sort | uniq > $csv
 
-for csv in data/subsets/*.csv
-do
-	prove -l tools/test_csv.pl :: $csv
-done
-
-(
-	IFS=,
-	read titles
-	while read site redirected rest
-	do
-		if [ $redirected == Y ]; then
-			prove -l tests/unit/sources/${site}_valid_lines.t
-			prove -l tests/regression/${site}.t
-		fi
-	done
-) < data/sites.csv
+prove -l tools/test_csv.pl :: $csv
