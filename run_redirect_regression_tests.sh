@@ -1,11 +1,23 @@
-#!/bin/bash
+#!/bin/sh
 
-set -e -x
+set -e
 
-csv=dist/full_urls.csv
+. tools/messages.sh
+
+status "DEPLOY_TO=$DEPLOY_TO"
+
+csv="dist/full_urls.csv"
+
+status "Combining all known mappings into $csv ..."
 
 # find all mappings and tests
-# relies upon lines begining with Old Url are sorted ahead of those begining with http://
-cat data/mappings/subsets/*.csv data/subsets/*.csv | sort | uniq > $csv
+cat data/mappings/*.csv data/tests/subsets/*.csv | sort | uniq | egrep -v '^Old Url' | {
+
+	echo "Old Url,New Url,Status,Suggested Links,Archive Link"
+	cat
+
+} > $csv
+
+status "Testing $csv ..."
 
 prove -l tools/test_csv.pl :: $csv
