@@ -36,11 +36,11 @@ Once live they are maintained in this repository.
 
     $ ./jenkins.sh
 
-### Create a Subset test
+### Create a subset test
 
 Create a list of the most important urls to be tested on each website in the `data/tests/subsets/` directory.
 
-### Create Regression test
+### Add to the full tests
 
 Create a list of URLs to be tested in addition to those listed in the mappings and subsets in the `data/tests/full/` directory.
 
