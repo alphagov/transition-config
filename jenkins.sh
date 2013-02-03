@@ -25,7 +25,7 @@ rsync -a redirector/. dist/.
         if [ $count -gt 1 ] ; then
             warning "There are incorrect domains in data/mappings/${site}.csv - see dist/${site}_incorrect.txt"
 
-            status "Creating a mappings_source that doesn't contain  those domains ..."
+            status "Creating a mappings_source excluding incorrect domains ..."
             head -1 data/mappings/${site}.csv >  dist/${site}_mappings_source.csv
             awk < data/mappings/${site}.csv -F, '$1 ~ /^"?https?:\/\/'${domain}'/' >> dist/${site}_mappings_source.csv
         else
