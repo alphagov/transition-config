@@ -12,7 +12,9 @@ Add the site to data/sites.csv.
 * `Site` — friendly name for the site
 * `Domain` — primary domain for site
 * `Redirection Date` — planned go live date
-* `TNA Timestamp` — timestamp of the last good National Archives capture.
+* `TNA Timestamp` — timestamp of the last good National Archives capture
+* `Title` — site title for 410 page
+* `New Site` — URL for 410 page
 
 ### Create mappings
 
