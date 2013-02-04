@@ -1,3 +1,5 @@
+#!/usr/bin/env perl
+
 use Modern::Perl;
 use Text::CSV;
 
