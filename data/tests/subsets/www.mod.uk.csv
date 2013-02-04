@@ -1,6 +1,7 @@
 Old Url,New Url,Status
 http://www.mod.uk/DefenceInternet/Home/,https://www.gov.uk/government/organisations/ministry-of-defence,301
-http://www.mod.uk/DefenceInternet/DefenceNews/,,410
+http://www.mod.uk/DefenceInternet/DefenceNews,https://www.gov.uk/government/organisations/ministry-of-defence,301
+http://www.mod.uk/DefenceInternet/DefenceNews/,https://www.gov.uk/government/organisations/ministry-of-defence,301
 http://www.mod.uk/gone.css,,200
 http://www.mod.uk/defenceinternet/home/index.htm,,410
 http://www.mod.uk/DefenceInternet/DefenceNews,https://www.gov.uk/government/organisations/ministry-of-defence,301
