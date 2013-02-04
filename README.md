@@ -15,6 +15,7 @@ Add the site to data/sites.csv.
 * `TNA Timestamp` — timestamp of the last good National Archives capture
 * `Title` — site title for 410 page
 * `New Site` — URL for 410 page
+* `Mirrors` — space separated list of alias domains
 
 ### Create mappings
 

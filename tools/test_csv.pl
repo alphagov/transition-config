@@ -8,7 +8,9 @@ use Test::More;
 foreach my $file (@ARGV) {
 
 	my $name = $file;
-	$name =~ s/^.*\/(\w*).csv$/$1/;
+	$name =~ s/^.*\/([\w\.]*).csv$/$1/;
+
+	say STDERR "$file :: $name";
 
 	my $test = SampleTests->new();
 	$test->{'force_production_redirector'} = 1;
