@@ -27,11 +27,11 @@ warning () {
 }
 
 report () {
-    if [ $erros -gt 0 ]; then
-        error "There were $errors errors."
+    if [ $errors -gt 0 ]; then
+        error "There were $errors errors." >&2
     fi
 
     if [ $warnings -gt 0 ]; then
-        warning "There were $warnings warnings."
+        warning "There were $warnings warnings." >&2
     fi
 }
