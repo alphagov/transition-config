@@ -65,4 +65,9 @@ rsync -a redirector/. dist/.
     report
 ) < data/sites.csv
 
+status=$?
+if [ $status -ne 0 ] ; then
+	error "Redirector build failed" 
+	exit $status
+fi
 ok "Redirector build succeeded."
