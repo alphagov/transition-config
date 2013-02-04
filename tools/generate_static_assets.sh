@@ -1,13 +1,26 @@
 #!/bin/sh
 
-generate_404_page() {
-	local site=$1
-	local redirection_date=$2
-  local department_name=$3
-  local new_homepage=$4
-  local path="$(pwd)/redirector/static/$site/"
-	mkdir -p $path
-	cat > "${path}/404.html" <<EOF
+#
+#  generate 410, 404 and other static assets for a site
+#
+
+
+#
+#  generate 404 page
+#
+site=$1
+
+redirection_date=$2
+department_name=$3
+new_homepage=$4
+national_archives_timestamp=$5
+old_homepage=$6
+
+path=dist/static/$site/"
+
+mkdir -p $path
+
+cat > "${path}/404.html" <<EOF
 <!DOCTYPE html>
 <html class="no-branding">
   <head>
@@ -36,18 +49,10 @@ generate_404_page() {
     </section>
   </body>
 </html>
-
 EOF
 
 }
 
-generate_410_page(){
-  local site=$1
-  local redirection_date=$2
-  local department_name=$3
-  local new_homepage=$4
-  local national_archives_timestamp=$5
-  local old_homepage=$6
   local path="$(pwd)/redirector/static/$site/"
   mkdir -p $path 
   cat > "${path}/410.html" <<EOF
@@ -78,7 +83,19 @@ generate_410_page(){
     </section>
   </body>
 </html>
-
 EOF
 
-}
+
+touch dist/${domain}.suggested_links.conf
+touch dist/${domain}.archive_links.conf
+
+cat \
+    redirector/410_preamble.php \
+    dist/${domain}.*suggested_links*.conf \
+    dist/${domain}.archive_links.conf \
+    redirector/410_header.php \
+    redirector/static/${site}/410.html \
+	> dist/static/${site}/410.php
+
+cp redirector/410_suggested_links.php dist/static/${site}
+
