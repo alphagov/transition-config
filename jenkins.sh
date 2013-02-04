@@ -18,7 +18,7 @@ rsync -a redirector/. dist/.
     read titles
     while read site domain rest_of_line
     do
-        status "Check for incorrect domains ..."
+        status "Check for $site incorrect domains ..."
         awk < data/mappings/${site}.csv -F, '$1 !~ /^"?https?:\/\/'${domain}'/' > dist/${site}_incorrect.txt
         count=$(cat dist/${site}_incorrect.txt | wc -l)
 
@@ -33,7 +33,7 @@ rsync -a redirector/. dist/.
             cp data/mappings/${site}.csv dist/${site}_mappings_source.csv
         fi
 
-        status "Testing mappings are in a valid format ..."
+        status "Testing $site mappings are in a valid format ..."
         prove -l tools/validate_csv.pl :: dist/${site}_mappings_source.csv
 
         status "Creating mappings from $site source ..."
