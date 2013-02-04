@@ -4897,7 +4897,7 @@ http://www.direct.gov.uk/en/Motoring/OwningAVehicle/HowToTaxYourVehicle/DG_40221
 http://www.direct.gov.uk/en/Motoring/OwningAVehicle/HowToTaxYourVehicle/DG_10012524,https://www.gov.uk/calculate-vehicle-tax-rates,301,,
 http://www.direct.gov.uk/en/MoneyTaxAndBenefits/BenefitsTaxCreditsAndOtherSupport/BeginnersGuideToBenefits/DG_10018558,,410,,
 http://www.direct.gov.uk/en/MoneyTaxAndBenefits/Taxes/SelfAssessmentYourTaxReturn/Fileyourtaxreturnonline/DG_10013651,https://www.gov.uk/self-assessment-tax-returns/overview,301,,
-http://www.direct.gov.uk/en/DisabledPeople/Employmentsupport/LookingForWork/DG_4000314,https://www.gov.uk/looking-for-work-if-youre-disabled/looking-for-a-job,301,,
+http://www.direct.gov.uk/en/DisabledPeople/Employmentsupport/LookingForWork/DG_4000314,https://www.gov.uk/looking-for-work-if-disabled/looking-for-a-job,301,,
 http://www.direct.gov.uk/en/Motoring/DriverLicensing/CaravansTrailersCommercialVehicles/DG_4022564,https://www.gov.uk/towing-with-car/driving-licence-rules-and-what-you-can-tow,301,,
 http://www.direct.gov.uk/en/Nl1/Newsroom/PreBudgetReport2009/DG_183031,,410,,
 http://www.direct.gov.uk/en/Nl1/Newsroom/PreBudgetReport2009/DG_183035,,410,,
@@ -7256,7 +7256,7 @@ http://www.direct.gov.uk/studentfinance2012,https://www.gov.uk/student-finance,3
 http://www.direct.gov.uk/studentfinance_repaying_your_student_loans,https://www.gov.uk/student-finance/repayments,301,,
 http://www.direct.gov.uk/studentfinanceassessment,,410,,http://webarchive.nationalarchives.gov.uk/20121015000000/www.direct.gov.uk/en/EducationAndLearning/UniversityAndHigherEducation/StudentFinance/DG_181283
 http://www.direct.gov.uk/studentfinanceassessments,,410,,http://webarchive.nationalarchives.gov.uk/20121015000000/www.direct.gov.uk/en/EducationAndLearning/UniversityAndHigherEducation/StudentFinance/DG_181283
-http://www.direct.gov.uk/studentfinancecalculator,"http://www.studentfinance.direct.gov.uk/portal/page?_pageid=153,4680136&_dad=portal&_schema=PORTAL",content-type:alias site:directgov source:aliases status:closed reviewed:no destination:content,
+http://www.direct.gov.uk/studentfinancecalculator,http://www.studentfinance.direct.gov.uk/portal/page?_pageid=153%2C4680136&_dad=portal&_schema=PORTAL,301,,
 http://www.direct.gov.uk/studentfinancechanges,https://www.gov.uk/student-finance-register-login,301,,
 http://www.direct.gov.uk/studentfinancecontinuing,https://www.gov.uk/browse/education/student-finance,301,,
 http://www.direct.gov.uk/studentfinanceevidence,https://www.gov.uk/student-finance-evidence,301,,
