@@ -19,8 +19,6 @@ tools/lrc_map_maker.pl data/lrc_transactions_source.csv > dist/lrc_map.conf
 status "generating piplinks_maps.conf ..."
 tools/piplinks_map_maker.pl data/piplinks_url_map_source.csv > dist/piplinks_maps.conf
 
-exit
-
 status "Processing data/sites.csv ..."
 (
     IFS=,
