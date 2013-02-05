@@ -49,15 +49,13 @@ sub test_source_line {
     return if $mapping_status && $mapping_status !~ m{\bclosed\b};
 
     my $old_url = $row->{'Old Url'};
+    my $new_url = $row->{'New Url'};
 
     ok($old_url ne '#REF!', "Old Url '${old_url}' should not be '#REF!'");
     ok($old_url =~ m{^https?://}, "Old Url '${old_url}' should be a full URL");
 
     my $old_uri = URI->new($old_url);
     is($old_uri, $old_url, "Old Url '${old_url}' should be a valid URL");
-
-    my $new_url = $row->{'New Url'};
-    ok($new_url !~ m{^http://www.gov.uk}, "'${old_url}' points to '${new_url}' - should point to HTTPS");
 
     my $status = $row->{'Status'} // '';
 
