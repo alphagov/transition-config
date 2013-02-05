@@ -52,7 +52,7 @@ sub new {
         
         duplicates => $duplicate_key_cache,
     };
-    my $config_rule_type = get_config_rule_type( $class, $host, $query );
+    my $config_rule_type = get_config_rule_type( $class, $host, $path, $query );
     bless $self, $config_rule_type;
     
     return $self;
@@ -61,6 +61,7 @@ sub new {
 sub get_config_rule_type {
     my $config_rule_type = shift;
     my $host = shift;
+    my $path = shift;
     my $query = shift;
     
     my $special_case_host;
@@ -78,7 +79,7 @@ sub get_config_rule_type {
     }
     else {
         # Should be: If it is a directgov host and it has a dg_number call the dg number DG config
-        if ( $special_case_host && $special_case_host eq 'Directgov' ) {
+        if ( $special_case_host && $special_case_host eq 'Directgov' && has_dg_number( $path ) ) {
             $config_rule_type = "Mappings::Directgov";
         }
         else {
@@ -86,6 +87,16 @@ sub get_config_rule_type {
         }
     }
     return $config_rule_type;
+}
+sub has_dg_number {
+    my $path = shift;
+    
+    my $lc_old_url = lc $path;
+
+    if ( $lc_old_url =~ m{^/en/} && $lc_old_url =~ m{/(dg_\d+)$} ) {
+        return 1;
+    }
+    return 0;
 }
 sub as_nginx_config {
     my $self = shift;

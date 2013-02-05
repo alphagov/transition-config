@@ -8,15 +8,8 @@ use base 'Mappings::Rules';
 
 sub actual_nginx_config {
     my $self = shift;
-
-    my $dg_number = $self->dg_number($self->{'old_url_parts'});
-    if ( defined $dg_number ) {
-        $self->{'dg_number'} = $dg_number;
-
-        return $self->dg_location_config();
-    }
-
-    return $self->location_config();
+    
+    return $self->dg_location_config();
 }
 
 
@@ -52,23 +45,24 @@ sub dg_location_config {
         $config = "$self->{'old_url'}\n";
     }
     elsif ( 'closed' eq $mapping_status ) {
+        my $dg_number = $self->dg_number($self->{'old_url_parts'});
         if ( '410' eq $self->{'status'} ) {
             if ( defined $self->{'whole_tag'} && $self->{'whole_tag'} =~ m{gone-welsh} ) {
                 # 410 Gone Welsh (actually a 301 to the Why No Welsh page)
-                $config = "location ~* ^/en/(.*/)?$self->{'dg_number'}\$ { return 301 https://www.gov.uk/cymraeg; }\n"
+                $config = "location ~* ^/en/(.*/)?$dg_number\$ { return 301 https://www.gov.uk/cymraeg; }\n"
             }
             else {
                 # 410 Gone
-                $config = "location ~* ^/en/(.*/)?$self->{'dg_number'}\$ { return 410; }\n";
+                $config = "location ~* ^/en/(.*/)?$dg_number\$ { return 410; }\n";
                 $suggested_links_type = 'location_suggested_links';
-                $suggested_links = $self->get_suggested_link( $self->{'dg_number'} );
-                $archive_link = $self->get_archive_link( $self->{'dg_number'} );
+                $suggested_links = $self->get_suggested_link( $dg_number );
+                $archive_link = $self->get_archive_link( $dg_number );
             }
         }
         elsif ( '301' eq $self->{'status'} ) {
             # 301 Moved Permanently
             if ( length $self->{'new_url'} ) {
-                $config = "location ~* ^/en/(.*/)?$self->{'dg_number'}\$ { return 301 $self->{'new_url'}; }\n";
+                $config = "location ~* ^/en/(.*/)?$dg_number\$ { return 301 $self->{'new_url'}; }\n";
 
             }
             else {
@@ -78,7 +72,7 @@ sub dg_location_config {
         }
         elsif ( '302' eq $self->{'status'} || 'awaiting-content' eq $mapping_status ) {
             # 302 Moved Temporarily
-            $config = "location ~* ^/en/(.*/)?$self->{'dg_number'}\$ { return 302 https://www.gov.uk; }\n";
+            $config = "location ~* ^/en/(.*/)?$dg_number\$ { return 302 https://www.gov.uk; }\n";
         }
     }
     elsif ( 'awaiting-content' eq $mapping_status ) {
