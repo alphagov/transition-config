@@ -104,6 +104,7 @@ EOF
 touch dist/${domain}.suggested_links.conf
 touch dist/${domain}.archive_links.conf
 cp redirector/410_suggested_links.php $path
+cp redirector/favicon.ico $path
 
 cat \
     redirector/410_preamble.php \
