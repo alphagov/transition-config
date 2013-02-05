@@ -75,13 +75,6 @@ sub location_config {
         $config_or_error_type   = 'unresolved';
         $config = "$self->{'old_url'}\n";
     }
-    # online.businesslink, businesslink and ukwelcomes should all go into the same server block
-    # as www.businesslink. Special-cased for now
-    if ( 'online.businesslink.gov.uk' eq $self->{'old_url_parts'}{'host'} 
-        || 'www.ukwelcomes.businesslink.gov.uk' eq $self->{'old_url_parts'}{'host'} 
-        || 'businesslink.gov.uk' eq $self->{'old_url_parts'}{'host'} ) {
-        $self->{'old_url_parts'}{'host'} = 'www.businesslink.gov.uk';
-    }
     
     $self->{'duplicates'}{$duplicate_entry_key} = 1;
         
