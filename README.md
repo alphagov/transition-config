@@ -32,7 +32,7 @@ Once live they are maintained in this repository.
 
 ### Create the Nginx server
 
-1. In the `redirector` source directory, create nginx server blocks needed for the site using one of the existing sites as a template. Ensure any included dependencies exist.
+1. In the `redirector/configs` source directory, create nginx server blocks needed for the site using one of the existing sites as a template. Ensure any included dependencies exist.
 2. Create the 404 and 410 pages using `tools/generate_static_assets.sh` (This will be replaced with templates and a build step in jenkins.sh)
 
 ### Build
@@ -65,12 +65,6 @@ Directgov and Businesslink assets are stored in GitHub and deployed via s3,  see
 
     export DEPLOY_TO=production
     ./run_redirect_regression_tests.sh
-
-### Puppet
-
-Ensure the redirector has been fully deployed before a puppet run to avoid the risk of breaking the redirector due to missing nginx config files.
-Run puppet to activate the website's configuration with nginx.
-
 
 ### Akamai
 
