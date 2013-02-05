@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-use Test::More tests=>18;
+use Test::More tests=>16;
 use Mappings;
 
 
@@ -33,23 +33,6 @@ is( $gone_type, 'location',
 	'If host is Directgov and type is gone, type of nginx block is location'  );
 is( $gone, qq(location ~* ^/en/(.*/)?dg_10011810\$ { return 410; }\n),
     'Nginx config is as expected' );
-
-
-my $directgov_redirect_awaiting_content = { 
-	'Old Url'	=> 'http://www.direct.gov.uk/en/TravelAndTransport/Passports/Howtochangethenameonyourpassport/DG_174165',
-	'New Url'	=> '',
-	'Status'	=> 301,
-	'Whole Tag'	=> 'content-type:article section:travel-and-transport site:directgov source:mapping-exercise status:awaiting-content destination:content',
-};
-my( $awaiting_content_host, $awaiting_content_type, $awaiting_content ) = $mappings->row_as_nginx_config($directgov_redirect_awaiting_content);
-is( $awaiting_content_host, 'www.direct.gov.uk', 
-	'Host that config applies to is Directgov' );
-is( $awaiting_content_type, 'location',
-	'If host is Directgov and type is awaiting content, type of nginx block is location'  );
-# is( $awaiting_content, qq(location ~* ^/en/(.*/)?dg_174165\$ { return 302 https://www.gov.uk; }\n),
-    # 'Nginx config is as expected' );
-
-
 
 my $directgov_no_url_open = { 
 	'Old Url'	=> 'http://www.direct.gov.uk/en/TravelAndTransport/Passports/Howtochangethenameonyourpassport/DG_174167',

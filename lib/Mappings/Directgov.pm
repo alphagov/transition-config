@@ -75,10 +75,6 @@ sub dg_location_config {
             $config = "location ~* ^/en/(.*/)?$dg_number\$ { return 302 https://www.gov.uk; }\n";
         }
     }
-    elsif ( 'awaiting-content' eq $mapping_status ) {
-        # 302 Moved Temporarily
-        $config = "location ~* ^/en/(.*/)?$self->{'dg_number'}\$ { return 302 https://www.gov.uk; }\n";
-    }
     else {
         $config_or_error_type   = 'unresolved';
         $config = "$self->{'old_url'}\n";
