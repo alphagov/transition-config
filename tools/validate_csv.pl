@@ -5,10 +5,10 @@
 #
 use Test::More;
 
-foreach my $file (@ARGV) {
-	my $test = ValidateCSV->new($file);
-	$test->run_tests();
-}
+my $file = shift;
+my $domain = shift // "";
+my $test = ValidateCSV->new($file, $domain);
+$test->run_tests();
 
 done_testing();
 exit;
@@ -28,9 +28,11 @@ use URI;
 sub new {
     my $class = shift;
     my $file  = shift;
+    my $domain  = shift;
 
     my $self = {
             input_file => $file,
+            domain => $domain,
         };
     bless $self, $class;
 
@@ -70,12 +72,16 @@ sub check_url {
 sub test_source_line {
     my $self = shift;
     my $row  = shift;
+    my $domain = $self->{domain};
 
     my $old_url = $row->{'Old Url'} // '';
     my $new_url = $row->{'New Url'} // '';
     my $status = $row->{'Status'} // '';
 
     $self->check_url('Old Url', $old_url);
+
+
+    ok($old_url =~ m{^https?://$domain}, "old url [$old_url] domain not [$domain] line $.");
 
     if ( "301" eq $status) {
         $self->check_url('New Url', $new_url);
