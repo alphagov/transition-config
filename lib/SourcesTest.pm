@@ -40,34 +40,35 @@ sub run_tests {
     }
 }
 
+sub check_url {
+    my ($self, $name, $url) = @_;
+
+    ok($url =~ m{^https?://}, "$name '${url}' should be a full URL");
+
+    my $uri = URI->new($old_url);
+    is($old_uri, $old_url, "Old Url '${old_url}' should be a valid URL");
+
+    return $uri;
+}
+
 sub test_source_line {
     my $self = shift;
     my $row  = shift;
 
-    my $old_url = $row->{'Old Url'};
-    my $new_url = $row->{'New Url'};
+    my $old_url = $row->{'Old Url'} // '';
+    my $new_url = $row->{'New Url'} // '';
     my $status = $row->{'Status'} // '';
 
-    ok($old_url ne '#REF!', "Old Url '${old_url}' should not be '#REF!'");
-    ok($old_url =~ m{^https?://}, "Old Url '${old_url}' should be a full URL");
-
-    my $old_uri = URI->new($old_url);
-    is($old_uri, $old_url, "Old Url '${old_url}' should be a valid URL");
+    $self->check_url('Old Url', $old_url);
 
     if ( "301" eq $status) {
-        ok(($new_url ne ''), "missing new_url for 301");
-
-        my $new_uri = URI->new($new_url);
-
-        ok($new_url =~ m{^https?://}, "${new_url} (from ${old_url}) should be a full URL");
-        is($new_uri, $new_url, "${new_url} (from ${old_url}) should be a valid URL"
-        );
+        $self->check_url('New Url', $new_url);
     } elsif ( "410" eq $status) {
-        ok($new_url eq '', "unexpected New Url for 410: $new_url");
+        ok($new_url eq '', "unexpected New Url for 410: [$new_url] line $.");
     } elsif ( "200" eq $status) {
-        ok($new_url eq '', "unexpected New Url for 200: $new_url");
+        ok($new_url eq '', "unexpected New Url for 200: [$new_url] line $.");
     } else {
-       fail('unexpected Status code: "' . $status . '" csv line ' . $.);
+       fail("unexpected Status code: [$status] line $.");
     }
 }
 
