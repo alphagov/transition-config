@@ -9,7 +9,7 @@ use Text::CSV;
 use HTTP::Request;
 use LWP::UserAgent;
 use URI;
-
+use Carp;
 
 sub new {
     my $class = shift;
@@ -58,8 +58,9 @@ sub test_source_line {
         "Old Url '${old_url}' should be a full URL"
     );
 
-    # strip leading/trailing whitespace before comparing
+    # trim
     $old_url =~ s{^\s*(.*?)\s*$}{$1};
+
     my $old_uri = URI->new($old_url);
     is(
         $old_uri,
@@ -73,9 +74,14 @@ sub test_source_line {
         "'${old_url}' points to '${new_url}' - should point to HTTPS"
     );
 
-    if ( "301" eq $row->{'Status'} && $new_url ne '' ) {
-        # strip leading/trailing whitespace before comparing
-        $new_url =~ s{^\s*(.*?)\s*$}{$1};
+    my $status = $row->{'Status'} // '';
+
+    #trim
+    $new_url =~ s{^\s*(.*?)\s*$}{$1};
+
+    if ( "301" eq $status) {
+        ok(($new_url ne ''), "missing new_url for 301");
+
         my $new_uri = URI->new($new_url);
 
         ok(
@@ -87,6 +93,12 @@ sub test_source_line {
             $new_url,
             "${new_url} (from ${old_url}) should be a valid URL"
         );
+    } elsif ( "410" eq $status) {
+        ok($new_url eq '', "unexpected New Url for 410: $new_url");
+    } elsif ( "200" eq $status) {
+        ok($new_url eq '', "unexpected New Url for 200: $new_url");
+    } else {
+       fail('unexpected Status code: "' . $status . '" csv line ' . $.);
     }
 }
 
