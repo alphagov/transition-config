@@ -15,10 +15,7 @@ sub actual_nginx_config {
 
 sub location_config {
     my $self = shift;
-    
-    # assume mappings are closed unless otherwise stated
-    my $mapping_status = 'closed';
-    
+        
     my $config_or_error_type = 'location';
     my $duplicate_entry_key  = $self->{'old_url_parts'}{'host'} . $self->{'old_url_parts'}{'path'};
     my $suggested_links_type;
@@ -52,28 +49,20 @@ sub location_config {
         $config_or_error_type = 'duplicate_entry_error';
         $config = "$self->{'old_url'}\n";
     }
-    elsif ( 'closed' eq $mapping_status ) {
-        if ( '410' eq $self->{'status'} ) {
-            # 410 Gone
-            $config = "location ~* ^${old_url}/?\$ { return 410; }\n";
-            $suggested_links_type = 'location_suggested_links';
-            $suggested_links = $self->get_suggested_link( $self->{'old_url_parts'}{'path'} );
-            $archive_link = $self->get_archive_link( $self->{'old_url_parts'}{'path'} );
-        }
-        elsif ( '301' eq $self->{'status'} ) {
-            # 301 Moved Permanently
-            if ( length $new_url ) {
-                $config = "location ~* ^${old_url}/?\$ { return 301 $new_url; }\n";
-            }
-            else {
-                $config_or_error_type   = 'no_destination_error';
-                $config = "$self->{'old_url'}\n";
-            }
-        }
+    elsif ( '410' eq $self->{'status'} ) {
+        $config = "location ~* ^${old_url}/?\$ { return 410; }\n";
+        $suggested_links_type = 'location_suggested_links';
+        $suggested_links = $self->get_suggested_link( $self->{'old_url_parts'}{'path'} );
+        $archive_link = $self->get_archive_link( $self->{'old_url_parts'}{'path'} );
     }
-    else {
-        $config_or_error_type   = 'unresolved';
-        $config = "$self->{'old_url'}\n";
+    elsif ( '301' eq $self->{'status'} ) {
+        if ( length $new_url ) {
+            $config = "location ~* ^${old_url}/?\$ { return 301 $new_url; }\n";
+        }
+        else {
+            $config_or_error_type   = 'no_destination_error';
+            $config = "$self->{'old_url'}\n";
+        }
     }
     
     $self->{'duplicates'}{$duplicate_entry_key} = 1;

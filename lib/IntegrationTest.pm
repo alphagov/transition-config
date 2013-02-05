@@ -195,13 +195,7 @@ sub test_closed_redirects {
     my $self = shift;
     my $row  = shift;
     
-    my $mapping_status = 'closed';
-    
-    if ( $mapping_status =~ m{\bclosed\b} ) {
-        return $self->is_redirect_to_a_200_response($row);
-    }
-    
-    return -1;
+    return $self->is_redirect_to_a_200_response($row);
 }
 
 sub test_finalised_redirects {
@@ -346,13 +340,7 @@ sub test_closed_gones {
     my $self = shift;
     my $row  = shift;
     
-    my $mapping_status = 'closed';
-    
-    if ( $mapping_status =~ m{\bclosed\b} ) {
-        return $self->is_gone_response($row);
-    }
-    
-    return -1;
+    return $self->is_gone_response($row);
 }
 sub is_gone_response {
     my $self = shift;

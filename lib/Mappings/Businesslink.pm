@@ -14,9 +14,6 @@ sub actual_nginx_config {
     my $config_line;
     my $suggested_links;
     my $archive_link;
-    my $mapping_status = '';
-
-    $mapping_status = 'closed';
 
     my $map_key = $self->get_map_key( $self->{'old_url_parts'} );
     if ( defined $map_key ) {

@@ -14,10 +14,6 @@ sub actual_nginx_config {
     my $config_line;
     my $suggested_links;
     my $archive_link;
-    my $mapping_status = '';
-    
-
-    $mapping_status = 'closed';
     
     my $map_key = $self->{'old_url_parts'}{'query'};
     if ( defined $map_key ) {
@@ -26,7 +22,6 @@ sub actual_nginx_config {
             $config_line = $self->{'old_url'} . "\n";
         }
         elsif ( '410' eq $self->{'status'} ) {
-            # 410 Gone
             $config_or_error_type = 'gone_map';
             $config_line = "~${map_key} 410;\n";
             $suggested_links_type = 'suggested_links_map';
@@ -35,7 +30,6 @@ sub actual_nginx_config {
         }
         elsif ( '301' eq $self->{'status'} ) {
             if ( length $self->{'new_url'}) {
-                # 301 Moved Permanently
                 $config_or_error_type   = 'redirect_map';
                 $config_line = "~${map_key} $self->{'new_url'};\n";
             } 
