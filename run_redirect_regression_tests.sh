@@ -11,12 +11,17 @@ csv="dist/full_urls.csv"
 status "Combining all known mappings into $csv ..."
 
 # find all mappings and tests
-cat data/mappings/*.csv data/tests/popular/*.csv data/tests/subsets/*.csv | sed 's/"//g' | sort | uniq | egrep -v '^Old Url' | {
+mkdir -p dist
+cat data/mappings/*.csv \
+	data/tests/full/*.csv \
+	data/tests/popular/*.csv \
+	data/tests/subsets/*.csv \
+	| sed 's/"//g' | sort | uniq | egrep -v '^Old Url' | (
 
 	echo "Old Url,New Url,Status,Suggested Link,Archive Link"
 	cat
 
-} > $csv
+) > $csv
 
 status "Testing $csv ..."
 
