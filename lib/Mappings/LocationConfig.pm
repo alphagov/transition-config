@@ -18,8 +18,8 @@ sub location_config {
         
     my $config_or_error_type = 'location';
     my $duplicate_entry_key  = $self->{'old_url_parts'}{'host'} . $self->{'old_url_parts'}{'path'};
-    my $suggested_links_type;
-    my $suggested_links;
+    my $suggested_link_type;
+    my $suggested_link;
     my $archive_link;
     my $config;
     
@@ -51,8 +51,8 @@ sub location_config {
     }
     elsif ( '410' eq $self->{'status'} ) {
         $config = "location ~* ^${old_url}/?\$ { return 410; }\n";
-        $suggested_links_type = 'location_suggested_links';
-        $suggested_links = $self->get_suggested_link( $self->{'old_url_parts'}{'path'} );
+        $suggested_link_type = 'location_suggested_link';
+        $suggested_link = $self->get_suggested_link( $self->{'old_url_parts'}{'path'} );
         $archive_link = $self->get_archive_link( $self->{'old_url_parts'}{'path'} );
     }
     elsif ( '301' eq $self->{'status'} ) {
@@ -71,8 +71,8 @@ sub location_config {
         $self->{'old_url_parts'}{'host'},
         $config_or_error_type,
         $config,
-        $suggested_links_type,
-        $suggested_links,
+        $suggested_link_type,
+        $suggested_link,
         $archive_link
     );
 }
@@ -98,7 +98,7 @@ sub get_suggested_link {
         last;
     }
     
-    return "\$location_suggested_links['${location}'] = \"${links}\";\n";
+    return "\$location_suggested_link['${location}'] = \"${links}\";\n";
 }
 
 1;

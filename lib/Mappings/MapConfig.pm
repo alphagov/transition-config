@@ -10,9 +10,9 @@ sub actual_nginx_config {
     my $self = shift;
     
     my $config_or_error_type;
-    my $suggested_links_type;
+    my $suggested_link_type;
     my $config_line;
-    my $suggested_links;
+    my $suggested_link;
     my $archive_link;
     
     my $map_key = $self->{'old_url_parts'}{'query'};
@@ -24,8 +24,8 @@ sub actual_nginx_config {
         elsif ( '410' eq $self->{'status'} ) {
             $config_or_error_type = 'gone_map';
             $config_line = "~${map_key} 410;\n";
-            $suggested_links_type = 'suggested_links_map';
-            $suggested_links = $self->get_suggested_link($map_key, 1);
+            $suggested_link_type = 'suggested_link_map';
+            $suggested_link = $self->get_suggested_link($map_key, 1);
             $archive_link = $self->get_archive_link($map_key);
         }
         elsif ( '301' eq $self->{'status'} ) {
@@ -49,8 +49,8 @@ sub actual_nginx_config {
         $self->{'old_url_parts'}{'host'},
         $config_or_error_type,
         $config_line,
-        $suggested_links_type,
-        $suggested_links,
+        $suggested_link_type,
+        $suggested_link,
         $archive_link
     );
    
@@ -76,9 +76,9 @@ sub get_suggested_link {
         last;
     }
     
-    return "\$query_suggested_links['${lookup}'] = \"${links}\";\n"
+    return "\$query_suggested_link['${lookup}'] = \"${links}\";\n"
         if defined $is_map;
-    return "\$location_suggested_links['${lookup}'] = \"${links}\";\n";
+    return "\$location_suggested_link['${lookup}'] = \"${links}\";\n";
 }
 
 1;

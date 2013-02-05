@@ -37,10 +37,10 @@ is( $redirect,
     qq(location ~* ^/en/Dl1/?\$ { return 410; }\n),
     'Nginx gone does not contain double slashes' );
 is( $suggested_map,
-    'location_suggested_links',
+    'location_suggested_link',
     'Suggested links are bob' );
 is( $suggested_link,
-    qq(\$location_suggested_links['/en/Dl1'] = "<a href='https://www.google.com'>google.com</a>";\n),
+    qq(\$location_suggested_link['/en/Dl1'] = "<a href='https://www.google.com'>google.com</a>";\n),
     'Suggested link to Google');
 
 done_testing();
