@@ -93,7 +93,7 @@ cat > "${path}/410.html" <<EOF
       }
   }
 ?>
-          <p>A copy of the page you were looking for can be found in <a href="<?= $archive_link ?>">The National Archives</a>, however it will not be updated after $redirection_date.</p>
+          <p>A copy of the page you were looking for can be found in <a href="<?= \$archive_link ?>">The National Archives</a>, however it will not be updated after $redirection_date.</p>
 
 <?php include '410_suggested_links.php'; ?>
 
