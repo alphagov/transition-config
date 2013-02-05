@@ -15,6 +15,9 @@ tna_timestamp="$4"
 title="$5"
 new_site="$6"
 
+new_homepage=$(echo "$new_site" | sed 's/^https*:\/\///')
+archive_link="http://webarchive.nationalarchives.gov.uk/$tna_timestamp/http://$domain"
+
 #
 #  ensure static directory exists
 #
@@ -44,9 +47,9 @@ cat > "${path}/404.html" <<EOF
 
         <article role="article" class="group">
 
-          <p>On $redirection_date the $title website was replaced by <a href='$new_site'>$new_homepage</a>. <a href='https://www.gov.uk'>GOV.UK</a> is now the best place to find government services and information.</p>
-
-          <p>A copy of the page you were looking for may be found in <a href='http://webarchive.nationalarchives.gov.uk/'>The UK Government Web Archive</a>.</p>
+          <p>On $redirection_date the $title website was replaced by <a href='$new_site'>$new_homepage</a>.</p>
+          <p><a href='https://www.gov.uk'>GOV.UK</a> is now the best place to find essential government services and information.</p>
+          <p>A copy of the page you were looking for may be found in <a href="$archive_link">The National Archives</a>.</p>
 
         </article>
       </div>
@@ -72,14 +75,11 @@ cat > "${path}/410.html" <<EOF
 
         <article role="article" class="group">
 
-          <p>On $redirection_date the $title website was replaced by <a href='$new_site'>gov.uk/$new_homepage</a>. <a href='https://www.gov.uk'>GOV.UK</a> is now the best place to find government services and information.</p>
-
-          <p>GOV.UK does not cover every piece of content that used to be found on the $title website, and the page you are looking for is probably one of these.</p>
-
-          <p>Essential government services and information can be found at <a href='https://www.gov.uk'>GOV.UK</a>.</p>
+          <p>On $redirection_date the $title website was replaced by <a href='$new_site'>$new_homepage</a>.</p>
+          <p><a href='https://www.gov.uk'>GOV.UK</a> is now the best place to find essential government services and information.</p>
 
 <?php
-  \$archive_link = "http://webarchive.nationalarchives.gov.uk/$tna_timestamp/http://$domain" . \$_SERVER['REQUEST_URI'];
+  \$archive_link = '$archive_link' . \$_SERVER['REQUEST_URI'];
 
   if ( isset( \$archive_links[\$uri_without_slash] ) ) {
       \$archive_link = \$archive_links[\$uri_without_slash];
@@ -93,7 +93,7 @@ cat > "${path}/410.html" <<EOF
       }
   }
 ?>
-          <p>A copy of the page you were looking for can be found in <a href="<?= \$archive_link ?>">The National Archives</a>, however it will not be updated after $redirection_date.</p>
+          <p>A copy of the page you were looking for may be found in <a href="<?= \$archive_link ?>">The National Archives</a>, however it will not be updated after $redirection_date.</p>
 
 <?php include '410_suggested_links.php'; ?>
 
