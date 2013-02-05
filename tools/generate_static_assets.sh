@@ -38,7 +38,7 @@ cat > "${path}/404.html" <<EOF
   <body>
     <section id="content" role="main" class="group">
       <div class="gone-container">
-        <header class="page-header group">
+        <header class="page-header group $site">
           <div class="legacy-site-logo"></div>
           <hgroup>
             <h1>The $title website title has been replaced by GOV.UK</h1>
@@ -66,7 +66,7 @@ cat > "${path}/410.html" <<EOF
   <body>
     <section id="content" role="main" class="group">
       <div class="gone-container">
-        <header class="page-header group">
+        <header class="page-header group $site">
           <div class="legacy-site-logo"></div>
           <hgroup>
             <h1>The $title website has been replaced</h1>
