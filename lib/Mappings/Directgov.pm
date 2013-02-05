@@ -29,9 +29,6 @@ sub dg_location_config {
     
     # assume mappings are closed unless otherwise stated
     my $mapping_status = 'closed';
-    if ( defined $self->{'whole_tag'} && $self->{'whole_tag'} =~ m{status:(\S+)} ) {
-        $mapping_status = $1;
-    }
     
     my $config_or_error_type = 'location';
     my $duplicate_entry_key  = $self->{'old_url_parts'}{'path'};
@@ -47,17 +44,11 @@ sub dg_location_config {
     elsif ( 'closed' eq $mapping_status ) {
         my $dg_number = $self->dg_number($self->{'old_url_parts'});
         if ( '410' eq $self->{'status'} ) {
-            if ( defined $self->{'whole_tag'} && $self->{'whole_tag'} =~ m{gone-welsh} ) {
-                # 410 Gone Welsh (actually a 301 to the Why No Welsh page)
-                $config = "location ~* ^/en/(.*/)?$dg_number\$ { return 301 https://www.gov.uk/cymraeg; }\n"
-            }
-            else {
-                # 410 Gone
-                $config = "location ~* ^/en/(.*/)?$dg_number\$ { return 410; }\n";
-                $suggested_links_type = 'location_suggested_links';
-                $suggested_links = $self->get_suggested_link( $dg_number );
-                $archive_link = $self->get_archive_link( $dg_number );
-            }
+            # 410 Gone
+            $config = "location ~* ^/en/(.*/)?$dg_number\$ { return 410; }\n";
+            $suggested_links_type = 'location_suggested_links';
+            $suggested_links = $self->get_suggested_link( $dg_number );
+            $archive_link = $self->get_archive_link( $dg_number );
         }
         elsif ( '301' eq $self->{'status'} ) {
             # 301 Moved Permanently

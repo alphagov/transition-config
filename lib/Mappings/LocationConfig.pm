@@ -17,11 +17,7 @@ sub location_config {
     my $self = shift;
     
     # assume mappings are closed unless otherwise stated
-    my $mapping_status = $self->{'whole_tag'} // 'closed';
-    if ( defined $self->{'whole_tag'} && $self->{'whole_tag'} =~ m{status:(\S+)} ) {
-        $mapping_status = $1;
-    }
-    $mapping_status = lc $mapping_status;
+    my $mapping_status = 'closed';
     
     my $config_or_error_type = 'location';
     my $duplicate_entry_key  = $self->{'old_url_parts'}{'host'} . $self->{'old_url_parts'}{'path'};

@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-use Test::More tests=>25;
+use Test::More tests=>16;
 use Mappings;
 
 
@@ -60,51 +60,6 @@ is( $gone_type, 'location',
 is( $gone, qq(location ~* ^/en/Dl1/Directories\\.html/?\$ { return 410; }\n),
     'Nginx config is as expected' );
 
-
-my $directgov_redirect_awaiting_content = { 
-	'Old Url'	=> 'http://www.direct.gov.uk/en/TravelAndTransport/Passports/Howtochangethenameonyourpassport.html',
-	'New Url'	=> '',
-	'Status'	=> 301,
-	'Whole Tag'	=> 'content-type:article section:travel-and-transport site:directgov source:mapping-exercise status:awaiting-content destination:content',
-};
-my( $awaiting_content_host, $awaiting_content_type, $awaiting_content ) = $mappings->row_as_nginx_config($directgov_redirect_awaiting_content);
-is( $awaiting_content_host, 'www.direct.gov.uk', 
-	'Host that config applies to is Directgov' );
-is( $awaiting_content_type, 'location',
-	'If host is Directgov and type is awaiting content, type of nginx block is location'  );
-is( $awaiting_content, qq(location ~* ^/en/TravelAndTransport/Passports/Howtochangethenameonyourpassport\\.html/?\$ { return 302 https://www.gov.uk; }\n),
-    'Nginx config is as expected' );
-
-
-
-my $directgov_no_url_open = { 
-	'Old Url'	=> 'http://www.direct.gov.uk/en/TravelAndTransport/Passports/Howtochangethenameonyourpassporttest.html',
-	'New Url'	=> '',
-	'Status'	=> 301,
-	'Whole Tag'	=> 'content-type:article section:travel-and-transport site:directgov source:mapping-exercise status:open destination:content',
-};
-my( $no_new_url_open_host, $no_new_url_open_type, $no_new_url_open_content ) = $mappings->row_as_nginx_config($directgov_no_url_open);
-is( $no_new_url_open_host, 'www.direct.gov.uk', 
-	'Host that config applies to is Directgov' );
-is( $no_new_url_open_type, 'unresolved',
-	"If status is 301, whole tag 'status' is open, and there is no new url, this should be flagged as unresolved."  );
-is( $no_new_url_open_content, "http://www.direct.gov.uk/en/TravelAndTransport/Passports/Howtochangethenameonyourpassporttest.html\n",
-    'The unresolved file will be populated with the URL.' );
-
-
-my $directgov_no_url_closed = { 
-	'Old Url'	=> 'http://www.direct.gov.uk/en/TravelAndTransport/Passports/Howtochangethenameonyourdrivinglicence.html',
-	'New Url'	=> '',
-	'Status'	=> 301,
-	'Whole Tag'	=> 'content-type:article section:travel-and-transport site:directgov source:mapping-exercise status:closed destination:content',
-};
-my( $no_new_url_closed_host, $no_new_url_closed_type, $no_new_url_closed_content ) = $mappings->row_as_nginx_config($directgov_no_url_closed);
-is( $no_new_url_closed_host, 'www.direct.gov.uk', 
-	'Host that config applies to is Directgov' );
-is( $no_new_url_closed_type, 'no_destination_error',
-	"If status is 301, whole tag 'status' is closed, and there is no new url, this is a 'no destination' error."  );
-is( $no_new_url_closed_content, "http://www.direct.gov.uk/en/TravelAndTransport/Passports/Howtochangethenameonyourdrivinglicence.html\n",
-    "The 'no destination' error file will be populated with the URL." );
 
 my $empty_row = undef;
 my( $n_host, $no_type, $no_more ) = $mappings->row_as_nginx_config($empty_row);

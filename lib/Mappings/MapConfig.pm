@@ -17,8 +17,7 @@ sub actual_nginx_config {
     my $mapping_status = '';
     
 
-    $mapping_status = lc $self->{'whole_tag'}
-        if defined $self->{'whole_tag'};
+    $mapping_status = 'closed';
     
     my $map_key = $self->{'old_url_parts'}{'query'};
     if ( defined $map_key ) {

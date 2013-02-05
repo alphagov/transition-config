@@ -44,7 +44,6 @@ sub new {
         },
         new_url   => $row->{'New Url'},
         status    => $row->{'Status'},
-        whole_tag => $row->{'Whole Tag'},
         suggested => $row->{'Suggested Link'},
         archive_link => $row->{'Archive Link'},
         
