@@ -32,8 +32,8 @@ Once live they are maintained in this repository.
 
 ### Create the Nginx server
 
-1. In the `redirector/configs` source directory, create nginx server blocks needed for the site using one of the existing sites as a template. Ensure any included dependencies exist.
-2. Create the 404 and 410 pages using `tools/generate_static_assets.sh` (This will be replaced with templates and a build step in jenkins.sh)
+Create an nginx server block for the site using one of the existing `redirector/configs` sites as a template.
+Ensure any included dependencies exist.
 
 ### Build
 
