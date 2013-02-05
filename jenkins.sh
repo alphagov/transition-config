@@ -13,6 +13,9 @@ rm -rf dist
 mkdir -p dist
 rsync -a redirector/. dist/.
 
+status "generating lrc_map.conf ..."
+tools/lrc_map_maker.pl data/lrc_transactions_source.csv > dist/lrc_map.conf
+
 status "Processing data/sites.csv ..."
 (
     IFS=,
@@ -32,9 +35,7 @@ status "Processing data/sites.csv ..."
         perl -Ilib tools/create_mappings.pl $mappings
 
         status "Creating static assets for $site ... "
-	set -x
         tools/generate_static_assets.sh "$site" "$domain" "$redirection_date" "$tna_timestamp" "$title" "$new_site"
-	set +x
 
         status "Creating sitemap for $site ..."
         perl tools/sitemap.pl $mappings $domain > $sitemap
