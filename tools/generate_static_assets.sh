@@ -66,7 +66,7 @@ cat > "${path}/410.html" <<EOF
         <header class="page-header group">
           <div class="legacy-site-logo"></div>
           <hgroup>
-            <h1>The website for the $department_name has been replaced</h1>
+            <h1>The $title website has been replaced</h1>
           </hgroup>
         </header>
 
