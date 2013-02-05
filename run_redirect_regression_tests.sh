@@ -13,7 +13,7 @@ status "Combining all known mappings into $csv ..."
 # find all mappings and tests
 cat data/mappings/*.csv data/tests/popular/*.csv data/tests/subsets/*.csv | sed 's/"//g' | sort | uniq | egrep -v '^Old Url' | {
 
-	echo "Old Url,New Url,Status,Suggested Links,Archive Link"
+	echo "Old Url,New Url,Status,Suggested Link,Archive Link"
 	cat
 
 } > $csv

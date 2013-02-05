@@ -24,7 +24,7 @@ A CSV file in the data/mappings directory containing:
 * `Old Url` — the http or https Url to be redirected
 * `New Url` — the destination Url for a 301
 * `Status` — 301 for a redirect, 410 for a page which is being deprecated
-* `Suggested Links` — an optional suggested link for the 410 page
+* `Suggested Link` — an optional suggested link for the 410 page
 * `Archive Link` — an alternative link to The National Archives for the 410 page
 
 During development, mappings are usually generated from spreadsheets, or using scripts.

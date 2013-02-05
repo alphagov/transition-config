@@ -11,7 +11,7 @@ my $directgov_redirect = {
     'Old Url'   => 'http://www.direct.gov.uk/en/MoneyTaxAndBenefits/TaxCredits/Gettingstarted/',
     'New Url'   => 'https://www.gov.uk/working-tax-credit/overview',
     'Status'    => 301,
-    'Suggested Links' => 'https://www.google.com',
+    'Suggested Link' => 'https://www.google.com',
 };
 my( $redirect_host, $redirect_type, $redirect, $suggested_map, $suggested_link ) = $mappings->row_as_nginx_config($directgov_redirect);
 is( $redirect_host, 'www.direct.gov.uk', 
@@ -26,7 +26,7 @@ my $directgov_gone = {
     'Old Url'   => 'http://www.direct.gov.uk/en/Dl1/',
     'New Url'   => '',
     'Status'    => 410, 
-    'Suggested Links' => 'https://www.google.com',
+    'Suggested Link' => 'https://www.google.com',
 };
 ( $redirect_host, $redirect_type, $redirect, $suggested_map, $suggested_link ) = $mappings->row_as_nginx_config($directgov_gone);
 is( $redirect_host, 'www.direct.gov.uk', 
