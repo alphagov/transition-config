@@ -59,6 +59,8 @@ sub run_tests {
 sub check_url {
     my ($self, $name, $url) = @_;
 
+    $url =~ s/\|/%7C/g;
+
     ok($url =~ m{^https?://}, "$name '$url' should be a full URI line $.");
 
     ok($url !~ m{,}, "bare comma in $name $url line $.");
@@ -79,7 +81,6 @@ sub test_source_line {
     my $status = $row->{'Status'} // '';
 
     $self->check_url('Old Url', $old_url);
-
 
     ok($old_url =~ m{^https?://$domain}, "old url [$old_url] domain not [$domain] line $.");
 
