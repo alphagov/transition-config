@@ -69,15 +69,7 @@ sub location_config {
                 $config_or_error_type   = 'no_destination_error';
                 $config = "$self->{'old_url'}\n";
             }
-        } 
-        elsif ( '302' eq $self->{'status'} || 'awaiting-content' eq $mapping_status ) {
-            # 302 Moved Temporarily
-            $config = "location ~* ^${old_url}/?\$ { return 302 https://www.gov.uk; }\n";
         }
-    }
-    elsif ( 'awaiting-content' eq $mapping_status ) {
-        # 302 Moved Temporarily
-        $config = "location ~* ^${old_url}/?\$ { return 302 https://www.gov.uk; }\n";
     }
     else {
         $config_or_error_type   = 'unresolved';
