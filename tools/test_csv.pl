@@ -30,7 +30,7 @@ use base 'IntegrationTest';
 sub test {
     my $self = shift;
 
-    my ( $passed, $response, $test_response ) = $self->test_closed_redirects(@_);
+    my ( $passed, $response, $test_response ) = $self->test_finalised_redirects(@_);
 
     if ( -1 == $passed ) {
     	( $passed, $response, $test_response ) = $self->test_closed_gones(@_);
