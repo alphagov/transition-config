@@ -79,7 +79,7 @@ cat > "${path}/410.html" <<EOF
           <p>Essential government services and information can be found at <a href='https://www.gov.uk'>GOV.UK</a>.</p>
 
 <?php
-  \$archive_link = "http://webarchive.nationalarchives.gov.uk/$tna_timestamp/http://$domain" + \$_SERVER['REQUEST_URI'];
+  \$archive_link = "http://webarchive.nationalarchives.gov.uk/$tna_timestamp/http://$domain" . \$_SERVER['REQUEST_URI'];
 
   if ( isset( \$archive_links[\$uri_without_slash] ) ) {
       \$archive_link = \$archive_links[\$uri_without_slash];
