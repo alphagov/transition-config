@@ -42,8 +42,6 @@ sub new {
             query  => $query,
             frag   => $frag,
         },
-
-        dg_number => '',
         new_url   => $row->{'New Url'},
         status    => $row->{'Status'},
         whole_tag => $row->{'Whole Tag'},
