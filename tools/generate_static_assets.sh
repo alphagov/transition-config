@@ -78,7 +78,22 @@ cat > "${path}/410.html" <<EOF
 
           <p>Essential government services and information can be found at <a href='https://www.gov.uk'>GOV.UK</a>.</p>
 
-          <p>A copy of the page you were looking for can be found in <a href="http://webarchive.nationalarchives.gov.uk/$national_archives_timestamp/http://$domain<?= \$_SERVER['REQUEST_URI'] ?>">The UK Government Web Archive</a>, however it will not be updated after $redirection_date.</p>
+<?php
+  \$archive_link = "http://webarchive.nationalarchives.gov.uk/$tna_timestamp/http://$domain" + \$_SERVER['REQUEST_URI'];
+
+  if ( isset( \$archive_links[\$uri_without_slash] ) ) {
+      \$archive_link = \$archive_links[\$uri_without_slash];
+  }
+
+  preg_match( "/dg_\d+/i", \$uri_without_slash, \$matches );
+  if ( isset(\$matches[0]) ) {
+      \$match = strtolower(\$matches[0]);
+      if ( isset( \$archive_links[\$match] ) ) {
+          \$archive_link = \$archive_links[\$match];
+      }
+  }
+?>
+          <p>A copy of the page you were looking for can be found in <a href="<?= $archive_link ?>">The National Archives</a>, however it will not be updated after $redirection_date.</p>
 
 <?php include '410_suggested_links.php'; ?>
 
