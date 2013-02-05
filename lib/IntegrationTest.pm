@@ -62,7 +62,7 @@ sub run_some_tests {
     open ( my $output_log, ">", $self->{'output_file'} )
         or die $self->{'output_file'} . ": $!";
     
-    say $output_log "Old Url,New Url,Status,Whole Tag,Test Result,"
+    say $output_log "Old Url,New Url,Status,Test Result,"
                     . "Actual Status,Actual New Url,New Url Status"
                         unless defined $self->{'output_has_no_header'};
 
@@ -109,7 +109,6 @@ sub run_some_tests {
                     $row->{'Old Url'},
                     $row->{'New Url'} // '',
                     $row->{'Status'},
-                    $row->{'Whole Tag'} // '',
                     $passed,
                     $response_status,
                     $location_header,
@@ -196,7 +195,7 @@ sub test_closed_redirects {
     my $self = shift;
     my $row  = shift;
     
-    my $mapping_status = lc( $row->{'Whole Tag'} // 'closed' );
+    my $mapping_status = 'closed';
     
     if ( $mapping_status =~ m{\bclosed\b} ) {
         return $self->is_redirect_to_a_200_response($row);
@@ -347,7 +346,7 @@ sub test_closed_gones {
     my $self = shift;
     my $row  = shift;
     
-    my $mapping_status = lc( $row->{'Whole Tag'} // 'closed' );
+    my $mapping_status = 'closed';
     
     if ( $mapping_status =~ m{\bclosed\b} ) {
         return $self->is_gone_response($row);
