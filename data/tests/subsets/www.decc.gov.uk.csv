@@ -1,6 +1,6 @@
 Old Url,New Url,Status
 http://www.decc.gov.uk/en/content/news/categories/Statements/Statements.aspx,,410
-http://www.decc.gov.uk/,https://www.gov.uk/decc,301
+http://www.decc.gov.uk/,https://www.gov.uk/government/organisations/department-of-energy-climate-change,301
 http://www.decc.gov.uk/en/content/cms/funding/funding_ops/innovation/innov_fund/heatstorage/heatstorage.aspx,https://www.gov.uk/government/publications/advanced-heat-storage-competition,301
 http://www.decc.gov.uk/en/rss/?id=1208,,410
 http://www.decc.gov.uk/en/content/news/categories/releases/releases.aspx,https://www.gov.uk/government/announcements?keywords=&announcement_type_option=all&topics%5B%5D=all&departments%5B%5D=department-of-energy-climate-change&direction=before&date=2013-02-01,301
@@ -15,7 +15,6 @@ http://www.decc.gov.uk/en/content/cms/tackling/green_deal/green_deal.aspx,https:
 http://www.decc.gov.uk/en/content/cms/statistics/energy_stats/source/oil/oil.aspx,https://www.gov.uk/government/organisations/department-of-energy-climate-change/series/oil-statistics,301
 http://www.decc.gov.uk/consultations/Default.aspx?status=26&area=0,https://www.gov.uk/government/publications?keywords=&publication_filter_option=consultations&topics%5B%5D=all&departments%5B%5D=department-of-energy-climate-change&direction=before&date=2013-02-01,301
 http://www.decc.gov.uk/en/content/cms/emissions/crc_efficiency/crc_efficiency.aspx,https://www.gov.uk/crc-energy-efficiency-scheme,301
-http://www.decc.gov.uk/en/content/cms/legislation/energybill2012/energybill2012.aspx,https://www.gov.uk/government/organisations/department-of-energy-climate-change/document_series/energy-bill,301
 http://www.decc.gov.uk/en/content/cms/statistics/energy_stats/source/electricity/electricity.aspx,https://www.gov.uk/government/organisations/department-of-energy-climate-change/series/electricity-statistics,301
 http://www.decc.gov.uk/en/content/cms/statistics/energy_stats/source/gas/gas.aspx,https://www.gov.uk/government/organisations/department-of-energy-climate-change/series/gas-statistics,301
 http://www.decc.gov.uk/en/windspeed/default.aspx,http://tools.decc.gov.uk/en/windspeed/default.aspx,301
@@ -48,6 +47,10 @@ http://www.decc.gov.uk/assets/decc/legislation/energybill/540-energy-security-bi
 http://www.decc.gov.uk/en/content/cms/statistics/energy_stats/regional/road_transport/road_transport.aspx,https://www.gov.uk/government/organisations/department-of-energy-climate-change/series/road-transport-consumption-at-regional-and-local-level,301
 http://www.decc.gov.uk/assets/decc/statistics/source/coal/et2_5.xls,https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/69932/et2_5.xls,301
 http://www.decc.gov.uk/assets/decc/statistics/source/electricity/et5_4.xls,https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/69942/et5_4.xls,301
-http://www.decc.gov.uk/assets/decc/statistics/source/prices/qep411.xls,https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/49389/qep411.xls,301
 http://www.decc.gov.uk/assets/decc/statistics/source/prices/qep411.xls,https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/69866/qep_411.xls,301
+http://www.decc.gov.uk/download/viewer?url=http://www.decc.gov.uk/assets/decc/statistics/source/prices/qep411.xls,,410
 http://www.decc.gov.uk/en/content/cms/tackling/green_deal/greendeal_guid/greendeal_guid.aspx,,410
+http://www.decc.gov.uk/en/content/cms/legislation/legislation.aspx,http://www.legislation.gov.uk/,301
+http://www.decc.gov.uk/publications/basket.aspx?filetype=4&filepath=11%2fstats%2fenergy%2fenergy-source%2f6368-weekly-solar-pv-installation-and-capacity-based-on.xls&minwidth=true,,410
+http://www.decc.gov.uk/en/content/cms/tackling/green_deal/gd_customer/gd_cashback/gd_cashback.aspx,,410
+http://www.decc.gov.uk/en/content/cms/statistics/publications/trends/trends.aspx,https://www.gov.uk/government/organisations/department-of-energy-climate-change/series/energy-trends,301
