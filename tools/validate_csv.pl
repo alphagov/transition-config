@@ -7,7 +7,10 @@ use Test::More;
 
 my $file = shift;
 my $domain = shift // "";
+my $whitelist = shift // "data/whitelist.csv";
 my $test = ValidateCSV->new($file, $domain);
+
+$test->load_whitelist($whitelist);
 $test->run_tests();
 
 done_testing();
@@ -34,8 +37,8 @@ sub new {
             input_file => $file,
             domain => $domain,
         };
-    bless $self, $class;
 
+    bless $self, $class;
     return $self;
 }
 
@@ -85,7 +88,8 @@ sub test_source_line {
     ok($old_url =~ m{^https?://$domain}, "old url [$old_url] domain not [$domain] line $.");
 
     if ( "301" eq $status) {
-        $self->check_url('New Url', $new_url);
+        my $uri = $self->check_url('New Url', $new_url);
+        ok($self->{whitelist}->{$uri->host}, "host " . $uri->host . " not in whitelist line $.");
     } elsif ( "410" eq $status) {
         ok($new_url eq '', "unexpected New Url for 410: [$new_url] line $.");
     } elsif ( "200" eq $status) {
@@ -98,4 +102,15 @@ sub test_source_line {
 sub test {
     my $self = shift;
     $self->test_source_line(@_);
+}
+
+sub load_whitelist {
+    my $self = shift;
+    my $filename = shift;
+    local *FILE;
+    open(FILE, "< $filename") or die "unable to open whitelist $filename";
+    while (<FILE>) {
+        chomp;
+        $self->{whitelist}->{$_} = 1;
+    }
 }
