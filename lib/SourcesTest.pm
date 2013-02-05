@@ -44,20 +44,15 @@ sub test_source_line {
     my $self = shift;
     my $row  = shift;
 
-    # only test closed sources
-    my $mapping_status = lc($row->{'Whole Tag'} // '');
-    return if $mapping_status && $mapping_status !~ m{\bclosed\b};
-
     my $old_url = $row->{'Old Url'};
     my $new_url = $row->{'New Url'};
+    my $status = $row->{'Status'} // '';
 
     ok($old_url ne '#REF!', "Old Url '${old_url}' should not be '#REF!'");
     ok($old_url =~ m{^https?://}, "Old Url '${old_url}' should be a full URL");
 
     my $old_uri = URI->new($old_url);
     is($old_uri, $old_url, "Old Url '${old_url}' should be a valid URL");
-
-    my $status = $row->{'Status'} // '';
 
     if ( "301" eq $status) {
         ok(($new_url ne ''), "missing new_url for 301");
