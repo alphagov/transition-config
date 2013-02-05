@@ -1,12 +1,11 @@
 #!/usr/bin/env perl
 
-use Modern::Perl;
+use strict;
 use Text::CSV;
-
 
 my $input = shift or die "Usage: piplinks_map_maker.pl <piplinks csv file>\n";
 
-my $csv = Text::CSV->new( { binary => 1 } ) 
+my $csv = Text::CSV->new( { binary => 1 } )
     or die "Cannot use CSV: ".Text::CSV->error_diag();
 
 open( my $fh, "<", $input )
@@ -15,10 +14,11 @@ open( my $fh, "<", $input )
 my $names = $csv->getline( $fh );
 $csv->column_names( @$names );
 
-my %authority;businesslink_piplinks_mappings_source
+my %authority;
 my %licence;
 my %interaction;
 my @tests;
+my $verbose = 0;
 
 while ( my $row = $csv->getline_hr( $fh ) ) {
     my $agency_id     = $row->{'AgencyId'};
@@ -26,7 +26,7 @@ while ( my $row = $csv->getline_hr( $fh ) ) {
     my $licence_slug  = fix_slug( $row->{'LicenceSlug'} );
     my $service_id    = $row->{'ServiceId'};
     my $interact_slug = fix_slug( $row->{'InteractionSlug'} );
-    
+
     if ( defined $authority{$agency_id} ) {
         die "die unless $authority{$agency_id} eq $authority"
             unless $authority{$agency_id} eq $authority;
@@ -34,11 +34,11 @@ while ( my $row = $csv->getline_hr( $fh ) ) {
     else {
         $authority{$agency_id} = $authority;
     }
-    
+
     $service_id =~ m{^(\d+)(\d\d\d\d)$};
     my $licence = $1;
     my $interaction = $2;
-    
+
     if ( defined $licence{$licence} ) {
         die "die unless $licence{$licence} eq $licence_slug"
             unless $licence{$licence} eq $licence_slug;
@@ -46,7 +46,7 @@ while ( my $row = $csv->getline_hr( $fh ) ) {
     else {
         $licence{$licence} = $licence_slug;
     }
-    
+
     if ( defined $interaction{$interaction} ) {
         die "die unless $interaction{$interaction} eq $interact_slug"
             unless $interaction{$interaction} eq $interact_slug;
@@ -54,7 +54,7 @@ while ( my $row = $csv->getline_hr( $fh ) ) {
     else {
         $interaction{$interaction} = $interact_slug;
     }
-    
+
     push @tests, {
         old => sprintf( 'http://www.businesslink.gov.uk/bdotg/action/piplink?agency_id=%d&service_id=%d',
                             $agency_id, $service_id ),
@@ -64,15 +64,18 @@ while ( my $row = $csv->getline_hr( $fh ) ) {
 }
 
 output_nginx_maps();
+
 output_integration_test_data();
 exit;
 
 
 sub fix_slug {
     my $slug = shift;
-    
-    say STDERR "bad slug $slug"
-        if $slug =~ m{[^a-z0-9-]};
+
+    if ($verbose) {
+        say STDERR "bad slug $slug" if $slug =~ m{[^a-z0-9-]}
+    }
+
     $slug =~ s{ }{-}g;
     $slug =~ s{&}{and}g;
     $slug =~ s{'}{}g;
@@ -80,17 +83,17 @@ sub fix_slug {
     $slug =~ s{-+}{-}g;
     $slug =~ s{-+$}{}g;
     $slug =~ s{^-+}{}g;
-    
+
     # "special" case
     $slug =~ s{sex-establishment-sex-cinema}{sex-establishment---sex-cinema};
     $slug =~ s{domestic-energy-assessor-existing-buildings}{domestic-energy-assessor---existing-buildings};
     $slug =~ s{registration-carrier-broker-of-controlled-waste}{registration-carrier---broker-of-controlled-waste};
-    
+
     return $slug;
 }
 sub output_nginx_maps {
-    open my $nginx_maps, '>', 'redirector/piplinks_maps.conf';
-    
+    open(my $nginx_maps, '>&', \*STDOUT);
+
     say {$nginx_maps} 'map $query_string $map_authority {';
     foreach my $auth ( sort { $b <=> $a } keys %authority ) {
         say {$nginx_maps} "    ~agency_id=$auth\\b $authority{$auth};";
@@ -109,12 +112,12 @@ sub output_nginx_maps {
     }
     say {$nginx_maps} '}';
 }
+
 sub output_integration_test_data {
-    open my $test_data, '>', 'data/businesslink_piplinks_mappings_source.csv';
+    open my $test_data, '>', 'data/tests/full/piplinks.csv';
     say {$test_data} 'Old Url,New Url,Status';
-    
+
     foreach my $test ( @tests ) {
-        say {$test_data} sprintf '"%s","%s",301',
-                                        $test->{'old'}, $test->{'new'};
+        say {$test_data} sprintf '%s,%s,301', $test->{'old'}, $test->{'new'};
     }
 }
