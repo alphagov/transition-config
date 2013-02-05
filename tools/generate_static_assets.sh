@@ -4,12 +4,14 @@
 #  generate 410, 404 and other static assets for a site
 #
 
+set -e -x
 
 #
 #  generate 404 page
 #
-site=$1
 
+awk -F, '$1 == "'$1'" { print }' data/sites.csv | while read site domain redirection_dateTNA Timestamp,Title,New Site,Aliases
+do
 redirection_date=$2
 department_name=$3
 new_homepage=$4
@@ -53,9 +55,9 @@ EOF
 
 }
 
-  local path="$(pwd)/redirector/static/$site/"
-  mkdir -p $path 
-  cat > "${path}/410.html" <<EOF
+local path="$(pwd)/redirector/static/$site/"
+mkdir -p $path
+cat > "${path}/410.html" <<EOF
   <body>
     <section id="content" role="main" class="group">
       <div class="gone-container">
@@ -98,4 +100,4 @@ cat \
 	> dist/static/${site}/410.php
 
 cp redirector/410_suggested_links.php dist/static/${site}
-
+done

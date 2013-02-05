@@ -33,22 +33,6 @@ is( $gone_type, 'gone_map',
 is( $gone, qq(~topicId=1073858975 410;\n),
     'Nginx config is as expected' );
 
-
-my $businesslink_redirect_awaiting_content = { 
-	'Old Url'	=> 'http://www.businesslink.gov.uk/bdotg/action/layer?topicId=1073858854',
-	'New Url'	=> '',
-	'Status'	=> 302,
-	'Whole Tag'	=> 'Awaiting-content',
-};
-my( $awaiting_content_host, $awaiting_content_type, $awaiting_content ) = $mappings->row_as_nginx_config($businesslink_redirect_awaiting_content);
-is( $awaiting_content_host, 'www.businesslink.gov.uk', 
-	'Host that config applies to is businesslink' );
-is( $awaiting_content_type, 'awaiting_content_map',
-	"If status is 302 and whole tag 'status' is 'awaiting content', type of nginx block is awaiting_content_map"  );
-is( $awaiting_content, qq(~topicId=1073858854 https://www.gov.uk/browse/business/maritime;\n),
-    'Nginx config is as expected' );
-
-
 my $businesslink_redirect_no_destination = { 
 	'Old Url'	=> 'http://www.businesslink.gov.uk/bdotg/action/layer?topicId=1073858859',
 	'New Url'	=> '',
@@ -58,8 +42,6 @@ my $businesslink_redirect_no_destination = {
 my( $no_destination_host, $no_destination_content_type, $no_destination_content ) = $mappings->row_as_nginx_config($businesslink_redirect_no_destination);
 is( $no_destination_host, 'www.businesslink.gov.uk', 
 	'Host that config applies to is businesslink' );
-is( $no_destination_content_type, 'no_destination_error',
-	"If status is 301 and whole tag 'status' is 'awaiting content' and there is no new url type of nginx block is no destinatinon error"  );
 is( $no_destination_content, qq(http://www.businesslink.gov.uk/bdotg/action/layer?topicId=1073858859\n),
     'Nginx config is as expected' );
 
@@ -72,11 +54,6 @@ my $businesslink_redirect_awaiting_publication = {
 my( $awaiting_publication_host, $awaiting_publication_type, $awaiting_publication ) = $mappings->row_as_nginx_config($businesslink_redirect_awaiting_publication);
 is( $awaiting_publication_host, 'www.businesslink.gov.uk', 
 	'Host that config applies to is businesslink' );
-is( $awaiting_publication_type, 'awaiting_content_map',
-	"If status is 302 type of nginx block is awaiting_content_map"  );
-is( $awaiting_publication, qq(~topicId=1073858860 https://www.gov.uk/browse/business/maritime;\n),
-    'Nginx config is as expected' );
-
 
 my $businesslink_no_new_url_open = { 
 	'Old Url'	=> 'http://www.businesslink.gov.uk/bdotg/action/layer?topicId=1073858858',
