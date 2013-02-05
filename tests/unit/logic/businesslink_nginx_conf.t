@@ -33,56 +33,6 @@ is( $gone_type, 'gone_map',
 is( $gone, qq(~topicId=1073858975 410;\n),
     'Nginx config is as expected' );
 
-my $businesslink_redirect_no_destination = { 
-	'Old Url'	=> 'http://www.businesslink.gov.uk/bdotg/action/layer?topicId=1073858859',
-	'New Url'	=> '',
-	'Status'	=> 301,
-	'Whole Tag'	=> 'Awaiting-content',
-};
-my( $no_destination_host, $no_destination_content_type, $no_destination_content ) = $mappings->row_as_nginx_config($businesslink_redirect_no_destination);
-is( $no_destination_host, 'www.businesslink.gov.uk', 
-	'Host that config applies to is businesslink' );
-is( $no_destination_content, qq(http://www.businesslink.gov.uk/bdotg/action/layer?topicId=1073858859\n),
-    'Nginx config is as expected' );
-
-my $businesslink_redirect_awaiting_publication = { 
-	'Old Url'	=> 'http://www.businesslink.gov.uk/bdotg/action/layer?topicId=1073858860',
-	'New Url'	=> 'https://www.gov.uk/get-information-about-a-company',
-	'Status'	=> 302,
-	'Whole Tag'	=> 'Awaiting-publication',
-};
-my( $awaiting_publication_host, $awaiting_publication_type, $awaiting_publication ) = $mappings->row_as_nginx_config($businesslink_redirect_awaiting_publication);
-is( $awaiting_publication_host, 'www.businesslink.gov.uk', 
-	'Host that config applies to is businesslink' );
-
-my $businesslink_no_new_url_open = { 
-	'Old Url'	=> 'http://www.businesslink.gov.uk/bdotg/action/layer?topicId=1073858858',
-	'New Url'	=> '',
-	'Status'	=> 301,
-	'Whole Tag'	=> 'Open',
-};
-my( $no_new_url_open_host, $no_new_url_open_type, $no_new_url_open_content ) = $mappings->row_as_nginx_config($businesslink_no_new_url_open);
-is( $no_new_url_open_host, 'www.businesslink.gov.uk', 
-	'Host that config applies to is businesslink' );
-is( $no_new_url_open_type, 'no_destination_error',
-	"If status is 301, whole tag 'status' is Open, and there is no new url, this is a 'no destination' error."  );
-is( $no_new_url_open_content, "http://www.businesslink.gov.uk/bdotg/action/layer?topicId=1073858858\n",
-    "The 'no destination' file will be populated with the URL." );
-
-my $businesslink_no_new_url_closed = { 
-	'Old Url'	=> 'http://www.businesslink.gov.uk/bdotg/action/layer?topicId=107385889',
-	'New Url'	=> '',
-	'Status'	=> 301,
-	'Whole Tag'	=> 'Closed',
-};
-my( $no_new_url_closed_host, $no_new_url_closed_type, $no_new_url_closed_content ) = $mappings->row_as_nginx_config($businesslink_no_new_url_closed);
-is( $no_new_url_closed_host, 'www.businesslink.gov.uk', 
-	'Host that config applies to is businesslink' );
-is( $no_new_url_closed_type, 'no_destination_error',
-	"If status is 301, whole tag 'status' is Closed, and there is no new url, this is a 'no destination' error."  );
-is( $no_new_url_closed_content, "http://www.businesslink.gov.uk/bdotg/action/layer?topicId=107385889\n",
-    "The 'no destination' error file will be populated with the URL." );
-
 my $empty_row = undef;
 my( $n_host, $no_type, $no_more ) = $mappings->row_as_nginx_config($empty_row);
 ok( !defined $n_host,                      'no host when EOF' );
@@ -94,7 +44,6 @@ my $businesslink_friendly_url = {
 	'Old Url'	=> 'http://www.businesslink.gov.uk/tattoopeircingelectrolysis',
 	'New Url'	=> '',
 	'Status'	=> 410,
-	'Whole Tag'	=> 'Closed',
 };
 my( $businesslink_friendly_url_host, $businesslink_friendly_url_type, 
 	$businesslink_friendly_url_content ) = $mappings->row_as_nginx_config($businesslink_friendly_url);
@@ -110,7 +59,6 @@ $businesslink_friendly_url = {
 	'Old Url'	=> 'http://www.businesslink.gov.uk/yorkshire',
 	'New Url'	=> 'https://www.gov.uk/yorkshire',
 	'Status'	=> 301,
-	'Whole Tag'	=> 'Closed',
 };
 ( $businesslink_friendly_url_host, $businesslink_friendly_url_type, 
 	$businesslink_friendly_url_content ) = $mappings->row_as_nginx_config($businesslink_friendly_url);
@@ -126,7 +74,6 @@ my $businesslink_friendly_url_with_querystring = {
 	'Old Url'	=> 'http://www.businesslink.gov.uk/tattoopeircingelectrolysis?topicId=1073858865',
 	'New Url'	=> 'http://www.gov.uk/testresult',
 	'Status'	=> 301,
-	'Whole Tag'	=> 'Closed',
 };
 my( $businesslink_friendly_host_with_querystring, $businesslink_friendly_type_with_querystring, 
 	$businesslink_friendly_content_with_querystring ) = $mappings->row_as_nginx_config($businesslink_friendly_url_with_querystring);
@@ -141,7 +88,6 @@ my $businesslink_friendly_url_with_empty_querystring = {
 	'Old Url'	=> 'http://www.businesslink.gov.uk/tattoos?',
 	'New Url'	=> 'https://www.gov.uk/testresult',
 	'Status'	=> 301,
-	'Whole Tag'	=> 'Closed',
 };
 my( $host, $type, $line ) = $mappings->row_as_nginx_config($businesslink_friendly_url_with_empty_querystring);
 is( $host, 'www.businesslink.gov.uk', 

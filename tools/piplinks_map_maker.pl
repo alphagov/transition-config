@@ -111,10 +111,10 @@ sub output_nginx_maps {
 }
 sub output_integration_test_data {
     open my $test_data, '>', 'data/businesslink_piplinks_mappings_source.csv';
-    say {$test_data} 'Old Url,New Url,Status,Whole Tag';
+    say {$test_data} 'Old Url,New Url,Status';
     
     foreach my $test ( @tests ) {
-        say {$test_data} sprintf '"%s","%s",301,Closed',
+        say {$test_data} sprintf '"%s","%s",301',
                                         $test->{'old'}, $test->{'new'};
     }
 }

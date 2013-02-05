@@ -49,6 +49,6 @@ cat data/lrc-redirects-sorted.txt |
 		print "$url $status $count $new\n";
 
 	' | {
-		echo "Old Url,New Url,Status,Count,Whole Tag"
-		awk '{ print "\"" $1 "\"," $4 "," $2 "," $3 ",Closed" }'
+		echo "Old Url,New Url,Status,Count"
+		awk '{ print "\"" $1 "\"," $4 "," $2 "," $3 }'
 	} > dist
