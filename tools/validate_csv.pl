@@ -111,6 +111,7 @@ sub load_whitelist {
     open(FILE, "< $filename") or die "unable to open whitelist $filename";
     while (<FILE>) {
         chomp;
-        $self->{whitelist}->{$_} = 1;
+        $_ =~ s/\s*\#.*$//;
+        $self->{whitelist}->{$_} = 1 if ($_);
     }
 }
