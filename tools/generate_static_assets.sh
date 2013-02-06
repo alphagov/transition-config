@@ -116,7 +116,7 @@ EOF
 #
 #  assemble 410 php file
 #
-touch dist/${domain}.suggested_links.conf
+touch dist/${domain}.suggested_link.conf
 touch dist/${domain}.archive_links.conf
 cp redirector/410_suggested_links.php $path
 cp redirector/favicon.ico $path
@@ -124,7 +124,7 @@ cp redirector/gone.css dist/static
 
 cat \
     redirector/410_preamble.php \
-    dist/${domain}.*suggested_links*.conf \
+    dist/${domain}.*suggested_link*.conf \
     dist/${domain}.archive_links.conf \
     redirector/410_header.php \
     $path/410.html \
