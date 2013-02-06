@@ -13,16 +13,16 @@ use URI;
 
 sub new {
     my $class = shift;
-    
+
     my $self = {
         ua => LWP::UserAgent->new( max_redirect => 0 ),
     };
     bless $self, $class;
-    
+
     my $host_type = $ENV{'DEPLOY_TO'} // 'preview';
     $self->{'use_redirector'} = 1
         if 'preview' eq $host_type;
-    
+
     return $self;
 }
 
@@ -31,16 +31,19 @@ sub input_file {
 
     $self->{'input_file'} = shift;
 }
+
 sub output_file {
     my $self = shift;
 
     $self->{'output_file'} = shift;
 }
+
 sub output_error_file {
     my $self = shift;
 
     $self->{'output_error_file'} = shift;
 }
+
 sub output_redirects_file {
     my $self = shift;
 
@@ -50,10 +53,10 @@ sub output_redirects_file {
 sub run_some_tests {
     my $self = shift;
 
-    my $csv = Text::CSV->new( { binary => 1 } ) 
+    my $csv = Text::CSV->new( { binary => 1 } )
         or die "Cannot use CSV: ".Text::CSV->error_diag();
 
-    open( my $fh, "<", $self->{'input_file'} ) 
+    open( my $fh, "<", $self->{'input_file'} )
         or die $self->{'input_file'} . ": $!";
 
     my $names = $csv->getline( $fh );
@@ -61,7 +64,7 @@ sub run_some_tests {
 
     open ( my $output_log, ">", $self->{'output_file'} )
         or die $self->{'output_file'} . ": $!";
-    
+
     say $output_log "Old Url,New Url,Status,Test Result,"
                     . "Actual Status,Actual New Url,New Url Status"
                         unless defined $self->{'output_has_no_header'};
@@ -69,11 +72,11 @@ sub run_some_tests {
     my $error_count = 0;
     open ( my $output_error_log, '>', $self->{'output_error_file'} )
         or die $self->{'output_error_file'} . ": $!";
-        
+
     say $output_error_log "Old Url,New Url,Expected Status,"
                           . "Actual Status,Actual New Url,New Url Status"
                               unless defined $self->{'output_has_no_header'};
-    
+
     my $output_redirects_log;
     my $redirects_count = 0;
     if ( defined $self->{'output_redirects_file'} ) {
@@ -87,24 +90,24 @@ sub run_some_tests {
     while ( my $row = $csv->getline_hr( $fh ) ) {
         my( $passed, $response, $redirected_response, $chased_redirect )
             = $self->test($row);
-        
+
         if ( $passed != -1 ) {
             my $response_status   = $response->code;
             my $location_header   = $response->header('location') // '';
             my $redirected_status = 'no redirect followed';
-            
+
             if ( defined $redirected_response ) {
                 $redirected_status = $redirected_response->code;
                 my $is_redirect = 301 == $redirected_status
                                   || 302 == $redirected_status;
-                
+
                 if ( $is_redirect ) {
                     $location_header =
                         $redirected_response->header('location');
                 }
             }
-            
-            say $output_log 
+
+            say $output_log
                 join ',',
                     $row->{'Old Url'},
                     $row->{'New Url'} // '',
@@ -113,7 +116,7 @@ sub run_some_tests {
                     $response_status,
                     $location_header,
                     $redirected_status;
-            
+
             if ( $passed == 0 ) {
                 $error_count++;
                 say $output_error_log
@@ -125,7 +128,7 @@ sub run_some_tests {
                         $location_header,
                         $redirected_status;
             }
-            
+
             if ( $chased_redirect && defined $self->{'output_redirects_file'} ) {
                 $redirects_count++;
                 say $output_redirects_log
@@ -159,19 +162,17 @@ sub run_tests {
     done_testing();
 }
 
-
-
 sub get_response {
     my $self = shift;
     my $row  = shift;
-    
+
     my $request;
     if ( $self->{'use_redirector'} ) {
         my $old_uri        = URI->new( $row->{'Old Url'} );
         my $redirector_url = sprintf '%s%s',
                                 'http://redirector.preview.alphagov.co.uk',
                                 $old_uri->path_query;
-        
+
         $request = HTTP::Request->new( 'GET', $redirector_url );
         $request->header( 'Host', $old_uri->host );
     }
@@ -180,21 +181,21 @@ sub get_response {
         my $redirector_url = sprintf '%s%s',
                                 'http://redirector.production.alphagov.co.uk',
                                 $old_uri->path_query;
-        
+
         $request = HTTP::Request->new( 'GET', $redirector_url );
         $request->header( 'Host', $old_uri->host );
     }
     else {
         $request = HTTP::Request->new( 'GET', $row->{'Old Url'} );
     }
-    
+
     return $self->{'ua'}->request($request);
 }
 
 sub test_closed_redirects {
     my $self = shift;
     my $row  = shift;
-    
+
     return $self->is_redirect_to_a_200_response($row);
 }
 
@@ -235,10 +236,7 @@ sub is_redirect_to_any_non_failure_response {
             || $redirected_response_code == 302
             || $redirected_response_code == 410;
 
-        my $passed = ok(
-            $acceptable_response_code,
-            "$old_url redirects to $new_url, which is 200"
-        );
+        my $passed = ok($acceptable_response_code, "$old_url redirects to $new_url, which is 200");
 
         return(
             $passed,
@@ -262,19 +260,19 @@ sub is_redirect_to_a_200_or_410_eventually {
 
         my $redirected_response_code = "wrong redirect location";
         my $redirected_response;
-        
+
         my $max_redirects = 3;
         my $chased_redirect = 0;
-        
+
         while ( $max_redirects && defined $location ) {
             $max_redirects--;
 
             $redirected_response      = $self->{'ua'}->get($location);
             $redirected_response_code = $redirected_response->code;
             $location                 = $redirected_response->header('location');
-            
+
             $chased_redirect = 1
- 	             if defined $location;
+                 if defined $location;
         }
 
         if ( defined $location && $location eq $new_url ) {
@@ -282,11 +280,7 @@ sub is_redirect_to_a_200_or_410_eventually {
             $redirected_response_code = $redirected_response->code;
         }
 
-        my $passed = is(
-            $redirected_response_code,
-            200,
-            "$old_url redirects to $new_url, which is 200"
-        );
+        my $passed = is($redirected_response_code, 200, "$old_url redirects to $new_url, which is 200");
 
         return(
             $passed,
@@ -302,65 +296,60 @@ sub is_redirect_to_a_200_or_410_eventually {
 sub is_redirect_to_a_200_response {
     my $self = shift;
     my $row  = shift;
-    
+
     if ( 301 == $row->{'Status'} ) {
         my $old_url  = $row->{'Old Url'};
         my $new_url  = $row->{'New Url'};
         my $response = $self->get_response($row);
         my $location = $response->header('location');
-        
+
         my $redirected_response_code = "wrong redirect location";
         my $redirected_response;
-        
+
         if ( defined $location && $location eq $new_url ) {
             $redirected_response = $self->{'ua'}->get($new_url);
             $redirected_response_code = $redirected_response->code;
         }
-        
-        my $passed = is(
-            $redirected_response_code,
-            200,
-            "$old_url redirects to $new_url, which is 200"
-        );
-        
+
+        my $passed = is($redirected_response_code, 200, "$old_url redirects to $new_url, which is 200");
+
         return(
             $passed,
             $response,
             $redirected_response
         );
     }
-    
+
     return -1;
 }
+
 sub test_closed_gones {
     my $self = shift;
     my $row  = shift;
-    
+
     return $self->is_gone_response($row);
 }
+
 sub is_gone_response {
     my $self = shift;
     my $row  = shift;
-    
+
     if ( 410 == $row->{'Status'} ) {
         my $response = $self->get_response($row);
         my $old_url  = $row->{'Old Url'};
-        
-        my $passed = is(
-                $response->code,
-                410,
-                "$old_url returns 410"
-            );
-        
+
+        my $passed = is($response->code, 410, "$old_url returns 410");
+
         return(
             $passed,
             $response,
             undef
         );
     }
-    
+
     return -1;
 }
+
 sub is_ok_response {
     my $self = shift;
     my $row  = shift;
@@ -369,11 +358,7 @@ sub is_ok_response {
         my $response = $self->get_response($row);
         my $old_url  = $row->{'Old Url'};
 
-        my $passed = is(
-                $response->code,
-                200,
-                "$old_url returns 200"
-            );
+        my $passed = is($response->code, 200, "$old_url returns 200");
 
         return(
             $passed,
@@ -384,6 +369,7 @@ sub is_ok_response {
 
     return -1;
 }
+
 sub is_valid_redirector_response {
     my $self = shift;
     my $row  = shift;
@@ -394,7 +380,7 @@ sub is_valid_redirector_response {
 
     my $old_url  = $row->{'Old Url'};
 
-    my $passed = ok( $valid_response, "$old_url returns $response_code" );
+    my $passed = ok($valid_response, "$old_url returns $response_code");
 
     return(
         $passed,
