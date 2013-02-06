@@ -1,3 +1,6 @@
+#
+#  whitelist of domains which may be used in a New Url
+#
 2050-calculator-tool.decc.gov.uk
 army.mod.uk
 batransandbareports.voa.gov.uk
@@ -19,7 +22,6 @@ drugdrive.direct.gov.uk
 dsa.dft.gov.uk
 dvla.gov.uk
 edomero.defra.gov.uk
-edon.businesslink.gov.uk
 ehmipeach.defra.gov.uk
 epetitions.direct.gov.uk
 esdal.dft.gov.uk
@@ -27,9 +29,7 @@ ewf.companieshouse.gov.uk
 foodanddrink.nsacademy.co.uk
 graduatetalentpool.direct.gov.uk
 hes.decc.gov.uk
-improve.businesslink.gov.uk
 jobsstatic.civilservice.gov.uk
-jobwarehouse.businesslink.gov.uk
 local.direct.gov.uk
 los.dwp.gov.uk
 mps-academy.co.uk
@@ -40,7 +40,6 @@ nationalcareersservice.direct.gov.uk
 nationalcitizenservice.direct.gov.uk
 nsa-ccskills.co.uk
 oft-tools.oft.gov.uk
-online.businesslink.gov.uk
 online.contractsfinder.businesslink.gov.uk
 online.hmrc.gov.uk
 payandworkrights.direct.gov.uk
@@ -81,7 +80,6 @@ www.business.gov.uk
 www.businessadviceday.gov.uk
 www.businesslink.gov.uk
 www.businesslink.innovateuk.org
-www.businesslink.org
 www.cabinetoffice.gov.uk
 www.capt.org.uk
 www.chevening.org

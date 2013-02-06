@@ -7,7 +7,7 @@ use Test::More;
 
 my $file = shift;
 my $domain = shift // "";
-my $whitelist = shift // "data/whitelist.csv";
+my $whitelist = shift // "data/whitelist.txt";
 my $test = ValidateCSV->new($file, $domain);
 
 $test->load_whitelist($whitelist);
@@ -85,17 +85,18 @@ sub test_source_line {
 
     $self->check_url('Old Url', $old_url);
 
-    ok($old_url =~ m{^https?://$domain}, "old url [$old_url] domain not [$domain] line $.");
+    ok($old_url =~ m{^https?://$domain}, "Old Url [$old_url] domain not [$domain] line $.");
 
     if ( "301" eq $status) {
         my $uri = $self->check_url('New Url', $new_url);
-        ok($self->{whitelist}->{$uri->host}, "host " . $uri->host . " not in whitelist line $.");
+        my $host = $uri->host;
+        ok($self->{whitelist}->{$host}, "New Url [$new_url] host [$host] not whiltelist line $.");
     } elsif ( "410" eq $status) {
-        ok($new_url eq '', "unexpected New Url for 410: [$new_url] line $.");
+        ok($new_url eq '', "unexpected New Url [$new_url] for 410 line $.");
     } elsif ( "200" eq $status) {
-        ok($new_url eq '', "unexpected New Url for 200: [$new_url] line $.");
+        ok($new_url eq '', "unexpected New Url [$new_url] for 200 line $.");
     } else {
-       fail("unexpected Status code: [$status] line $.");
+       fail("invalid Status [$status] for Old Url [$old_url] line $.");
     }
 }
 
