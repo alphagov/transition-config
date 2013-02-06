@@ -8,15 +8,15 @@ status "Running unit tests ..."
 ruby -I. tests/tools/*.rb
 prove -lj4 tests/unit/logic/*.t
 
-status "Copying configuration to dist directory ..."
+status "Copying configuration to dist ..."
 rm -rf dist
 mkdir -p dist
 rsync -a redirector/. dist/.
 
-status "generating lrc_map.conf ..."
+status "Generating lrc_map.conf ..."
 tools/lrc_map_maker.pl data/lrc_transactions_source.csv > dist/lrc_map.conf
 
-status "generating piplinks_maps.conf ..."
+status "Generating piplinks_maps.conf ..."
 tools/piplinks_map_maker.pl data/piplinks_url_map_source.csv > dist/piplinks_maps.conf
 
 status "Processing data/sites.csv ..."
@@ -29,9 +29,18 @@ status "Processing data/sites.csv ..."
         sitemap=dist/static/${site}/sitemap.xml
         cp data/mappings/${site}.csv $mappings
 
-        status ":: $site :: $title :: $domain ::"
+        status
+        status ":: site: $site"
+        status ":: domain: $domain"
+        status ":: redirection_date: $redirection_date"
+        status ":: tna_timestamp: $tna_timestamp"
+        status ":: title: $title"
+        status ":: new_site: $new_site"
+        status ":: aliases: $aliases"
+        status ":: mappings: $mappings"
+        status
 
-        status "Testing $site mappings are in a valid format ..."
+        status "Validating mappings file for $site ..."
         prove -l tools/validate_csv.pl :: $mappings
 
         status "Creating mappings for $site ..."
