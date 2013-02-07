@@ -13,6 +13,8 @@ my %seen = ();
         chomp;
         my ($old, $new, $status) = split(/,/);
 
+	my $line = $_;
+
         my $url = $old;
         $url =~ s/\?*$//;
         $url =~ s/\/*$//;
@@ -20,13 +22,17 @@ my %seen = ();
         if ($seen{$url}) {
 		if ($new eq $seen{$url}->{new} && $status eq $seen{$url}->{status}) {
 			say STDERR "ditching $url line $.";
-			next;;
+			next;
 		} else {
 			say STDERR "leaving $url line $.";
+
+			# print canonical url, so sortable
+			$line =~ s/^[^,]*,//;
+			$line = "$url,$line";
 		}
         }
 
-	say $_;
+	say "$line";
 
         $seen{$url} = {
 		'new' => $new,
