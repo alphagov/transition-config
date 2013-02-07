@@ -10,6 +10,8 @@ my $domain = shift // "";
 my $whitelist = shift // "data/whitelist.txt";
 my $test = ValidateCSV->new($file, $domain);
 
+my $http_only = 1;
+
 $test->load_whitelist($whitelist);
 $test->run_tests();
 
@@ -83,13 +85,17 @@ sub test_source_line {
     my $new_url = $row->{'New Url'} // '';
     my $status = $row->{'Status'} // '';
 
-    $self->check_url('Old Url', $old_url);
+    my $old_uri = $self->check_url('Old Url', $old_url);
+
+    my $scheme = $old_uri->scheme;
+
+    is($scheme, 'http', "Old Url scheme [$scheme] must be [http] line $.") if ($http_only);
 
     ok($old_url =~ m{^https?://$domain}, "Old Url [$old_url] domain not [$domain] line $.");
 
     if ( "301" eq $status) {
-        my $uri = $self->check_url('New Url', $new_url);
-        my $host = $uri->host;
+        my $new_uri = $self->check_url('New Url', $new_url);
+        my $host = $new_uri->host;
         ok($self->{whitelist}->{$host}, "New Url [$new_url] host [$host] not whiltelist line $.");
     } elsif ( "410" eq $status) {
         ok($new_url eq '', "unexpected New Url [$new_url] for 410 line $.");
