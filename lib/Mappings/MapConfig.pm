@@ -29,14 +29,8 @@ sub actual_nginx_config {
             $archive_link = $self->get_archive_link($map_key);
         }
         elsif ( '301' eq $self->{'status'} ) {
-            if ( length $self->{'new_url'}) {
-                $config_or_error_type   = 'redirect_map';
-                $config_line = "~${map_key} $self->{'new_url'};\n";
-            } 
-            else {
-                $config_or_error_type = 'no_destination_error';
-                $config_line = "$self->{'old_url'}\n";
-            }
+            $config_or_error_type   = 'redirect_map';
+            $config_line = "~${map_key} $self->{'new_url'};\n";
         }
         $self->{'duplicates'}{$map_key} = 1;
     }
@@ -53,8 +47,6 @@ sub actual_nginx_config {
         $suggested_link,
         $archive_link
     );
-   
-    
 }
 
 1;

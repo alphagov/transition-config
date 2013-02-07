@@ -56,13 +56,7 @@ sub location_config {
         $archive_link = $self->get_archive_link( $self->{'old_url_parts'}{'path'} );
     }
     elsif ( '301' eq $self->{'status'} ) {
-        if ( length $new_url ) {
-            $config = "location ~* ^${old_url}/?\$ { return 301 $new_url; }\n";
-        }
-        else {
-            $config_or_error_type   = 'no_destination_error';
-            $config = "$self->{'old_url'}\n";
-        }
+        $config = "location ~* ^${old_url}/?\$ { return 301 $new_url; }\n";
     }
     
     $self->{'duplicates'}{$duplicate_entry_key} = 1;

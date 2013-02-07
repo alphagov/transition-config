@@ -28,7 +28,7 @@ sub dg_location_config {
     my $self = shift;
     
     my $config_or_error_type = 'location';
-    my $duplicate_entry_key  = $self->{'old_url_parts'}{'path'};
+    my $duplicate_entry_key  = $self->{'old_url_parts'}{'host'} . $self->{'old_url_parts'}{'path'};
     my $suggested_link_type;
     my $suggested_link;
     my $archive_link;
@@ -46,17 +46,8 @@ sub dg_location_config {
         $archive_link = $self->get_archive_link( $dg_number, 0 );
     }
     elsif ( '301' eq $self->{'status'} ) {
-        if ( length $self->{'new_url'} ) {
-            $config = "location ~* ^/en/(.*/)?$dg_number\$ { return 301 $self->{'new_url'}; }\n";
-
-        }
-        else {
-            $config_or_error_type   = 'no_destination_error';
-            $config = "$self->{'old_url'}\n";
-        }
+        $config = "location ~* ^/en/(.*/)?$dg_number\$ { return 301 $self->{'new_url'}; }\n";
     }
-    
-   
     $self->{'duplicates'}{$duplicate_entry_key} = 1;
         
     return(
