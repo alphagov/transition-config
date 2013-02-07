@@ -49,8 +49,7 @@ sub dg_location_config {
     elsif ( '301' eq $self->{'status'} ) {
         $config = "location ~* ^/en/(.*/)?$dg_number\$ { return 301 $self->{'new_url'}; }\n";
     }
-    
-   
+       
     $self->{'duplicates'}{$duplicate_entry_key} = 1;
         
     return(

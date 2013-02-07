@@ -33,6 +33,17 @@ is( $gone_type, 'gone_map',
 is( $gone, qq(~topicId=1073858975 410;\n),
     'Nginx config is as expected' );
 
+my $businesslink_no_map_key = { 
+	'Old Url'	=> 'http://www.businesslink.gov.uk/bdotg/action/layer?&r.s=tl&r.l1=1073861197&r.lc=en&tcId=1073858975',
+	'New Url'	=> '',
+	'Status'	=> 410, 
+};
+my( $no_key_host, $no_key_type, $no_map_key ) = $mappings->row_as_nginx_config($businesslink_no_map_key);
+is( $no_key_host, 'www.businesslink.gov.uk', 
+	'Host that config applies to is businesslink' );
+is( $no_key_type, 'no_map_key_error',
+	'If map key cannot be found type of nginx block is gone_map'  );
+
 my $empty_row = undef;
 my( $n_host, $no_type, $no_more ) = $mappings->row_as_nginx_config($empty_row);
 ok( !defined $n_host,                      'no host when EOF' );

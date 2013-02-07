@@ -16,7 +16,13 @@ sub actual_nginx_config {
     my $archive_link;
     
     my $map_key = $self->{'old_url_parts'}{'query'};
-    if ( defined $map_key ) {
+
+    if ( !defined $map_key ) {
+        $config_or_error_type = 'no_map_key_error'; 
+        $config_line = "$self->{'old_url'}\n"; 
+    }
+
+    else {
         if ( defined $self->{'duplicates'}{$map_key} ) {
             $config_or_error_type = 'duplicate_entry_error';
             $config_line = $self->{'old_url'} . "\n";
@@ -34,11 +40,7 @@ sub actual_nginx_config {
         }
         $self->{'duplicates'}{$map_key} = 1;
     }
-    else {
-        $config_or_error_type = 'no_map_key_error'; 
-        $config_line = "$self->{'old_url'}\n"; 
-    }
-    
+        
     return(
         $self->{'old_url_parts'}{'host'},
         $config_or_error_type,
