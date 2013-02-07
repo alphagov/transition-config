@@ -18,6 +18,7 @@ my $domain = shift // "";
 my $whitelist_filename = shift // "data/whitelist.txt";
 my $http_only = 1;
 my %whitelist = ();
+my %seen = ();
 
 load_whitelist($whitelist_filename);
 
@@ -56,6 +57,10 @@ sub test_row {
 
     ok($old_url =~ m{^https?://$domain}, "Old Url [$old_url] domain not [$domain] line $.");
 
+    my $c14n = c14n_url($old_url);
+    ok(!defined($seen{$c14n}), "Old Url [$old_url] line $. is a duplicate of line " . ($seen{$c14n} // ""));
+    $seen{$c14n} = $.;
+
     if ( "301" eq $status) {
         my $new_uri = check_url('New Url', $new_url);
         my $host = $new_uri->host;
@@ -82,6 +87,13 @@ sub check_url {
     is($uri, $url, "$name '$url' should be a valid URI line $.");
 
     return $uri;
+}
+
+sub c14n_url {
+    my ($url) = @_;
+    $url =~ s/\?*$//;
+    $url =~ s/\/*$//;
+    return $url;
 }
 
 sub load_whitelist {
