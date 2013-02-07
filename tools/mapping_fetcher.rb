@@ -8,13 +8,13 @@ class MappingFetcher
 
   NilAsBlankConverter = ->(heading) { heading || "" }
 
-  def initialize(mapping_name)
+  def initialize(mapping_name, reporter = Reporter.new)
     @mapping_name = mapping_name
     @new_url_mappings = {
       'tna' => ''
     }
     @sources = []
-    @reporter = Reporter.new
+    @reporter = reporter
   end
 
   def add_source(source)
@@ -118,6 +118,15 @@ class MappingFetcher
     end
 
     def new_url_is_admin_url(url)
+    end
+
+    def circular_dependency(url, row)
+      output [
+        url,
+        'circular dependency',
+        row['source'],
+        row['row_number']
+      ]
     end
 
     def output(fields)
@@ -244,15 +253,27 @@ class MappingFetcher
     @new_url_mappings[new_url] || new_url
   end
 
+  class CircularDependency < Struct.new(:url)
+    def handle_result(yielder, reporter, row)
+      reporter.circular_dependency(url, row)
+    end
+  end
+
+  class UrlChainCompleted < Struct.new(:url)
+    def handle_result(yielder, reporter, row)
+      yielder << {
+        'source' => row['source'],
+        'row_number' => row['row_number'],
+        'old url' => row['old url'],
+        'new url' => url
+      }
+    end
+  end
+
   def follow_url_chains(rows)
     Enumerator.new do |yielder|
       rows.each do |row|
-        yielder << {
-          'source' => row['source'],
-          'row_number' => row['row_number'],
-          'old url' => row['old url'],
-          'new url' => follow_url_chain(row['new url'], rows)
-        }
+        follow_url_chain(row, rows).handle_result(yielder, @reporter, row)
       end
     end
   end
@@ -263,12 +284,15 @@ class MappingFetcher
     end
   end
 
-  def follow_url_chain(url, rows)
+  def follow_url_chain(row, rows)
     mapping = rows_as_mapping(rows)
-    while(mapping.include?(url))
-      url = mapping[url]
+    urls = [row['new url']]
+    while(mapping.include?(urls.last))
+      new_url = mapping[urls.last]
+      return CircularDependency.new(new_url) if urls.include?(new_url)
+      urls << new_url
     end
-    url
+    UrlChainCompleted.new(urls.last)
   end
 
   def ensure_new_url_uses_https_for_govuk(new_url)
