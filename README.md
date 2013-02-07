@@ -3,11 +3,9 @@ Redirector
 
 Nginx configuration and supporting tools and tests for the redirector, an Ngnix server used to redirect old websites being moved to GOV.UK.
 
-## Adding a new website
+## Sites
 
-### List the site
-
-Add the site to data/sites.csv.
+A list of sites in data/sites.csv:
 
 * `Site` — friendly name for the site
 * `Domain` — primary domain for site
@@ -17,9 +15,9 @@ Add the site to data/sites.csv.
 * `New Site` — URL for 410 page
 * `Mirrors` — space separated list of alias domains
 
-### Create mappings
+## Mappings
 
-A CSV file in the data/mappings directory containing:
+A CSV file in the data/mappings directory for each site containing:
 
 * `Old Url` — the http or https Url to be redirected
 * `New Url` — the destination Url for a 301
@@ -30,42 +28,39 @@ A CSV file in the data/mappings directory containing:
 During development, mappings are usually generated from spreadsheets, or using scripts.
 Once live they are maintained in this repository.
 
-### Create the Nginx server
+## Server config
 
-Create an nginx server block for the site using one of the existing `redirector/configs` sites as a template.
-Ensure any included dependencies exist.
+An nginx server block for each site in the `redirector/configs` directory.
 
-### Build
+## Build
 
     $ ./jenkins.sh
 
-### Create a subset test
+## Tests
 
-Create a list of the most important urls to be tested on each website in the `data/tests/subsets/` directory.
+A list of the most important urls to be tested on each website in the `data/tests/subsets/` directory.
 
-### Add to the full tests
-
-Create a list of URLs to be tested in addition to those listed in the mappings and subsets in the `data/tests/full/` directory.
-
-### Assets
+## Assets
 
 Directgov and Businesslink assets are stored in GitHub and deployed via s3,  see [assets-directgov](https://github.com/alphagov/assets-directgov) and [assets-businesslink](https://github.com/alphagov/assets-businesslink).
+
+## Test
 
 ### Test in a virtual
 
     export DEPLOY_TO=dev
-    ./run_subset_integration_tests.sh
+    ./smoke_tests.sh
 
 ### Test against preview
 
     export DEPLOY_TO=preview
-    ./run_subset_integration_tests.sh
+    ./smoke_tests.sh
 
 ### Test against production
 
     export DEPLOY_TO=production
-    ./run_redirect_regression_tests.sh
+    ./full_tests.sh
 
-### Akamai
+## Akamai
 
 The redirector is deployed behind Akamai. The domain should be added as a property to the Akamai redirector configuration before changing the DNS of websites being redirected.

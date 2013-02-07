@@ -227,62 +227,6 @@ sub get_response {
     return $self->{'ua'}->request($request);
 }
 
-sub test_closed_redirects {
-    my $self = shift;
-    my $row  = shift;
-
-    return $self->is_redirect_to_a_200_response($row);
-}
-
-sub test_finalised_redirects {
-    my $self = shift;
-    my $row  = shift;
-
-    my $is_redirect_to_gov_uk = $row->{'New Url'} =~ m{^https://www.gov.uk};
-
-    return $self->is_redirect_to_a_200_or_410_eventually($row)
-        if $is_redirect_to_gov_uk;
-
-    return $self->is_redirect_to_any_non_failure_response($row);
-}
-
-
-sub is_redirect_to_any_non_failure_response {
-    my $self = shift;
-    my $row  = shift;
-
-    if ( 301 == $row->{'Status'} ) {
-        my $old_url  = $row->{'Old Url'};
-        my $new_url  = $row->{'New Url'};
-        my $response = $self->get_response($row);
-        my $location = $response->header('location');
-
-        my $redirected_response_code = "wrong redirect location";
-        my $redirected_response;
-
-        if ( defined $location && $location eq $new_url ) {
-            $redirected_response = $self->{'ua'}->get($new_url);
-            $redirected_response_code = $redirected_response->code;
-        }
-
-        my $acceptable_response_code = 1
-            if $redirected_response_code == 200
-            || $redirected_response_code == 301
-            || $redirected_response_code == 302
-            || $redirected_response_code == 410;
-
-        my $passed = ok($acceptable_response_code, "$old_url redirects to $new_url, which is 200");
-
-        return(
-            $passed,
-            $response,
-            $redirected_response
-        );
-    }
-
-    return -1;
-}
-
 sub is_redirect_to_a_200_or_410_eventually {
     my $self = shift;
     my $row  = shift;
@@ -315,43 +259,13 @@ sub is_redirect_to_a_200_or_410_eventually {
             $redirected_response_code = $redirected_response->code;
         }
 
-        my $passed = is($redirected_response_code, 200, "$old_url redirects to $new_url, which is 200");
+        my $passed = is($redirected_response_code, 200, "$old_url redirects to $new_url, which is 200 line $.");
 
         return(
             $passed,
             $response,
             $redirected_response,
             $chased_redirect
-        );
-    }
-
-    return -1;
-}
-
-sub is_redirect_to_a_200_response {
-    my $self = shift;
-    my $row  = shift;
-
-    if ( 301 == $row->{'Status'} ) {
-        my $old_url  = $row->{'Old Url'};
-        my $new_url  = $row->{'New Url'};
-        my $response = $self->get_response($row);
-        my $location = $response->header('location');
-
-        my $redirected_response_code = "wrong redirect location";
-        my $redirected_response;
-
-        if ( defined $location && $location eq $new_url ) {
-            $redirected_response = $self->{'ua'}->get($new_url);
-            $redirected_response_code = $redirected_response->code;
-        }
-
-        my $passed = is($redirected_response_code, 200, "$old_url redirects to $new_url, which is 200");
-
-        return(
-            $passed,
-            $response,
-            $redirected_response
         );
     }
 
@@ -373,13 +287,9 @@ sub is_gone_response {
         my $response = $self->get_response($row);
         my $old_url  = $row->{'Old Url'};
 
-        my $passed = is($response->code, 410, "$old_url returns 410");
+        my $passed = is($response->code, 410, "$old_url returns 410 line $.");
 
-        return(
-            $passed,
-            $response,
-            undef
-        );
+        return($passed, $response, undef);
     }
 
     return -1;
@@ -393,35 +303,12 @@ sub is_ok_response {
         my $response = $self->get_response($row);
         my $old_url  = $row->{'Old Url'};
 
-        my $passed = is($response->code, 200, "$old_url returns 200");
+        my $passed = is($response->code, 200, "$old_url returns 200 line $.");
 
-        return(
-            $passed,
-            $response,
-            undef
-        );
+        return($passed, $response, undef);
     }
 
     return -1;
-}
-
-sub is_valid_redirector_response {
-    my $self = shift;
-    my $row  = shift;
-
-    my $response = $self->get_response($row);
-    my $response_code = $response->code;
-    my $valid_response = ( 410 == $response_code || 301 == $response_code || 302 == $response_code || 200 == $response_code );
-
-    my $old_url  = $row->{'Old Url'};
-
-    my $passed = ok($valid_response, "$old_url returns $response_code");
-
-    return(
-        $passed,
-        $response,
-        undef
-    );
 }
 
 sub test {
@@ -436,11 +323,7 @@ sub test {
     	}
     }
 
-    return (
-    	$passed,
-    	$response,
-    	$test_response
-    );
+    return ($passed, $response, $test_response);
 }
 
 1;
