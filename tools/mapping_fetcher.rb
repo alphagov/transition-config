@@ -144,10 +144,11 @@ class MappingFetcher
       puts "Writing #{mapping_name} mappings to #{output_file}"
       output_csv << ['Old Url','New Url','Status']
       i = 0
-      rows = ensure_no_duplicates(
-        remap_new_urls(
-          skip_rows_with_blank_or_invalid_old_url(
-            sanitize_urls(input_csv))))
+      rows = follow_url_chains(
+        ensure_no_duplicates(
+          remap_new_urls(
+            skip_rows_with_blank_or_invalid_old_url(
+              sanitize_urls(input_csv)))))
       rows.sort_by {|row| row['old url']}.each do |row|
         new_row = [
           row['old url'],
@@ -241,6 +242,33 @@ class MappingFetcher
   def remap_new_url(new_url)
     #p "REMAP: #{new_url} => FOUND? #{@new_url_mappings[new_url] || 'no'}"
     @new_url_mappings[new_url] || new_url
+  end
+
+  def follow_url_chains(rows)
+    Enumerator.new do |yielder|
+      rows.each do |row|
+        yielder << {
+          'source' => row['source'],
+          'row_number' => row['row_number'],
+          'old url' => row['old url'],
+          'new url' => follow_url_chain(row['new url'], rows)
+        }
+      end
+    end
+  end
+
+  def rows_as_mapping(rows)
+    rows.inject({}) do |output, row|
+      output.tap { |hash| hash[row['old url']] = row['new url'] }
+    end
+  end
+
+  def follow_url_chain(url, rows)
+    mapping = rows_as_mapping(rows)
+    while(mapping.include?(url))
+      url = mapping[url]
+    end
+    url
   end
 
   def ensure_new_url_uses_https_for_govuk(new_url)
