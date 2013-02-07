@@ -9,18 +9,31 @@ use warnings;
 
 use Test::More;
 use Text::CSV;
+use Getopt::Long;
+use Pod::Usage;
 use HTTP::Request;
 use LWP::UserAgent;
 use URI;
 
-my $filename = shift;
-my $domain = shift // "";
-my $whitelist_filename = shift // "data/whitelist.txt";
-my $http_only = 1;
-my %whitelist = ();
+my $duplicates;
+my $https;
+my $help;
+my %hosts = ();
 my %seen = ();
 
-load_whitelist($whitelist_filename);
+GetOptions(
+    "duplicates|d"  => \$duplicates,
+    "https|h"  => \$https,
+    'help|?' => \$help,
+) or pod2usage(1);
+
+my $filename = shift // "";
+my $domain = shift // "";
+my $whitelist = shift // "data/whitelist.txt";
+
+pod2usage(2) if ($help);
+
+load_whitelist($whitelist);
 
 test_file($filename);
 
@@ -53,18 +66,21 @@ sub test_row {
 
     my $scheme = $old_uri->scheme;
 
-    is($scheme, 'http', "Old Url scheme [$scheme] must be [http] line $.") if ($http_only);
+    my $s = ($https) ? "s?" : "";
+    ok($scheme =~ m{^http$s$}, "Old Url [$old_url] scheme [$scheme] must be [http] line $.");
 
     ok($old_url =~ m{^https?://$domain}, "Old Url [$old_url] domain not [$domain] line $.");
 
-    my $c14n = c14n_url($old_url);
-    ok(!defined($seen{$c14n}), "Old Url [$old_url] line $. is a duplicate of line " . ($seen{$c14n} // ""));
-    $seen{$c14n} = $.;
+    if ($duplicates) {
+        my $c14n = c14n_url($old_url);
+        ok(!defined($seen{$c14n}), "Old Url [$old_url] line $. is a duplicate of line " . ($seen{$c14n} // ""));
+        $seen{$c14n} = $.;
+    }
 
     if ( "301" eq $status) {
         my $new_uri = check_url('New Url', $new_url);
         my $host = $new_uri->host;
-        ok($whitelist{$host}, "New Url [$new_url] host [$host] not whiltelist line $.");
+        ok($hosts{$host}, "New Url [$new_url] host [$host] not whiltelist line $.");
     } elsif ( "410" eq $status) {
         ok($new_url eq '', "unexpected New Url [$new_url] for 410 line $.");
     } elsif ( "200" eq $status) {
@@ -103,6 +119,23 @@ sub load_whitelist {
     while (<FILE>) {
         chomp;
         $_ =~ s/\s*\#.*$//;
-        $whitelist{$_} = 1 if ($_);
+        $hosts{$_} = 1 if ($_);
     }
 }
+__END__
+
+=head1 NAME
+
+validate_csv - validate a redirector mappings style CSV file
+
+=head1 SYNOPSIS
+
+prove tools/validate_csv.pl [options] [file ...]
+
+Options:
+
+    -d, --duplicates  check for duplicate Old Urls
+    -h, --https       allow Old Urls to be https
+    -?, --help        print usage
+
+=cut
