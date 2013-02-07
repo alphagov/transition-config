@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 if [ "$#" = "0" ]; then
     echo "Usage: $0 department-name http_user http_pass"
     exit 1
@@ -30,7 +32,9 @@ echo "Fetching mappings for $domain..."
 echo "Folding mappings..."
 ./tools/fold-mappings.rb < $mappings_out > $folded_mappings
 
-echo "Putting folded file in place..."
-mv $folded_mappings $mappings_out
+echo "Sorting and putting folded file in place..."
+sort -u $folded_mappings > $mappings_out
+
+rm $folded_mappings
 
 echo "Done"
