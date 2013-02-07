@@ -35,6 +35,8 @@ pod2usage(2) if ($help);
 
 load_whitelist($whitelist);
 
+check_unquoted($filename);
+
 test_file($filename);
 
 done_testing();
@@ -51,6 +53,7 @@ sub test_file {
     $csv->column_names(@$names);
 
     while (my $row = $csv->getline_hr($fh)) {
+        ok(!$csv->is_quoted(1), "value quoted $.");
         test_row($row);
     }
 }
@@ -122,6 +125,14 @@ sub load_whitelist {
         $hosts{$_} = 1 if ($_);
     }
 }
+
+sub check_unquoted {
+    my $filename = shift;
+    open(FILE, "< $filename") or die "unable to open whitelist $filename";
+    my $contents = do { local $/; <FILE> };
+    ok($contents !~ /["']/, "file [$filename] contains quotes");
+}
+
 __END__
 
 =head1 NAME
