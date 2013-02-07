@@ -40,6 +40,18 @@ class TestDaisyChainRedirector < MiniTest::Unit::TestCase
     ]
   end
 
+  def test_follows_redirect_more_than_one_step
+    assert_redirects [
+      {'old url' => 'http://example.com/old', 'new url' => 'http://example.com/old-middle'},
+      {'old url' => 'http://example.com/old-middle', 'new url' => 'http://example.com/old-target'},
+      {'old url' => 'http://example.com/old-target', 'new url' => 'https://gov.uk/new'}
+    ], to: [
+      {'old url' => 'http://example.com/old', 'new url' => 'https://gov.uk/new'},
+      {'old url' => 'http://example.com/old-middle', 'new url' => 'https://gov.uk/new'},
+      {'old url' => 'http://example.com/old-target', 'new url' => 'https://gov.uk/new'}
+    ]
+  end
+
   def test_does_not_follow_circular_redirects
     assert_redirects [
       {'old url' => 'http://example.com/old', 'new url' => 'http://example.com/old-target'},
