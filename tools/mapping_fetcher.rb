@@ -271,9 +271,10 @@ class MappingFetcher
   end
 
   def follow_url_chains(rows)
+    mapping = rows_as_mapping(rows)
     Enumerator.new do |yielder|
       rows.each do |row|
-        follow_url_chain(row, rows).handle_result(yielder, @reporter, row)
+        follow_url_chain(row, mapping).handle_result(yielder, @reporter, row)
       end
     end
   end
@@ -284,8 +285,7 @@ class MappingFetcher
     end
   end
 
-  def follow_url_chain(row, rows)
-    mapping = rows_as_mapping(rows)
+  def follow_url_chain(row, mapping)
     urls = [row['new url']]
     while(mapping.include?(urls.last))
       new_url = mapping[urls.last]
