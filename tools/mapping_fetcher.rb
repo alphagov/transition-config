@@ -309,7 +309,8 @@ class MappingFetcher
       gsub(" ", "%20").
       sub(/(%20)+$/, "").
       gsub("&amp;", "&").
-      gsub(/^([^\(]*)\)/, '\1')
+      gsub(/^([^\(]*)\)/, '\1').
+      gsub(",", "%2C")
   end
 
   def output_file

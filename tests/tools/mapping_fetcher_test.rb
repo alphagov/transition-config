@@ -29,4 +29,8 @@ class TestUrlCleaner < MiniTest::Unit::TestCase
     assert_sanitize_url "http://gov.uk/?foo(bar)", "http://gov.uk/?foo(bar)"
     assert_sanitize_url "http://gov.uk/?foobar)", "http://gov.uk/?foobar"
   end
+
+  def test_sanitize_url_replaces_commas_with_urlencoded_verison
+    assert_sanitize_url "http://gov.uk/?foo=bar,baz,quux", "http://gov.uk/?foo=bar%2Cbaz%2Cquux"
+  end
 end
