@@ -56,29 +56,5 @@ sub actual_nginx_config {
    
     
 }
-sub get_suggested_link {
-    my $self   = shift;
-    my $lookup = shift;
-    my $is_map = shift;
-    
-    return unless defined $self->{'suggested'} && length $self->{'suggested'};
-    
-    my $links;
-    foreach my $line ( split /\n/, $self->{'suggested'} ) {
-        $line = $self->escape_characters($line);
-        
-        my( $url, $text ) = split / /, $line, 2;
-        $text = $self->presentable_url($url)
-            unless defined $text;
-        $links .= "<a href='${url}'>${text}</a>";
-        
-        # we only ever use the first link
-        last;
-    }
-    
-    return "\$query_suggested_link['${lookup}'] = \"${links}\";\n"
-        if defined $is_map;
-    return "\$location_suggested_link['${lookup}'] = \"${links}\";\n";
-}
 
 1;

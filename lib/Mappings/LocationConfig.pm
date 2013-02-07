@@ -52,7 +52,7 @@ sub location_config {
     elsif ( '410' eq $self->{'status'} ) {
         $config = "location ~* ^${old_url}/?\$ { return 410; }\n";
         $suggested_link_type = 'location_suggested_link';
-        $suggested_link = $self->get_suggested_link( $self->{'old_url_parts'}{'path'} );
+        $suggested_link = $self->get_suggested_link( $self->{'old_url_parts'}{'path'}, 0 );
         $archive_link = $self->get_archive_link( $self->{'old_url_parts'}{'path'} );
     }
     elsif ( '301' eq $self->{'status'} ) {
@@ -75,30 +75,6 @@ sub location_config {
         $suggested_link,
         $archive_link
     );
-}
-sub get_suggested_link {
-    my $self     = shift;
-    my $location = shift;
-    
-    return unless defined $self->{'suggested'} && length $self->{'suggested'};
-    
-    # strip trailing slashes for predictable matching in 410 page code
-    $location =~ s{/$}{};
-    
-    my $links;
-    foreach my $line ( split /\n/, $self->{'suggested'} ) {
-        $line = $self->escape_characters($line);
-        
-        my( $url, $text ) = split / +/, $line, 2;
-        $text = $self->presentable_url($url)
-            unless defined $text && length $text;
-        $links .= "<a href='${url}'>${text}</a>";
-        
-        # we only ever use the first link
-        last;
-    }
-    
-    return "\$location_suggested_link['${location}'] = \"${links}\";\n";
 }
 
 1;

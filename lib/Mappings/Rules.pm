@@ -106,6 +106,33 @@ sub as_nginx_config {
 
     return $self->actual_nginx_config();
 }
+sub get_suggested_link {
+    my $self   = shift;
+    my $lookup = shift;
+    my $is_map = shift;
+    
+    return unless defined $self->{'suggested'} && length $self->{'suggested'};
+    
+    # strip trailing slashes for predictable matching in 410 page code
+    $lookup =~ s{/$}{};
+
+    my $links;
+    foreach my $line ( split /\n/, $self->{'suggested'} ) {
+        $line = $self->escape_characters($line);
+        
+        my( $url, $text ) = split / /, $line, 2;
+        $text = $self->presentable_url($url)
+            unless defined $text;
+        $links .= "<a href='${url}'>${text}</a>";
+        
+        # we only ever use the first link
+        last;
+    }
+    
+    return "\$query_suggested_link['${lookup}'] = \"${links}\";\n"
+        if $is_map;
+    return "\$location_suggested_link['${lookup}'] = \"${links}\";\n";
+}
 sub get_archive_link {
     my $self     = shift;
     my $location = shift;
