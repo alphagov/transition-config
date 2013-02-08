@@ -9,10 +9,10 @@ use base 'Mappings::Rules';
 sub actual_nginx_config {
     my $self = shift;
     
-    return $self->dg_location_config();
+    return $self->location_config();
 }
 
-sub dg_location_config {
+sub location_config {
     my $self = shift;
     
     my $config_or_error_type = 'location';
