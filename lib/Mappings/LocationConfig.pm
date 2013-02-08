@@ -32,13 +32,13 @@ sub location_config {
         $config = "$self->{'old_url'}\n";
     }
     elsif ( '410' eq $self->{'status'} ) {
-        $config = "location ~* ^${location_key}/?\$ { return 410; }\n";
+        $config = "location ~* ^${location_key}\$ { return 410; }\n";
         $suggested_link_type = 'location_suggested_link';
         $suggested_link = $self->get_suggested_link( $location_key, 0 );
         $archive_link = $self->get_archive_link( $location_key );
     }
     elsif ( '301' eq $self->{'status'} ) {
-        $config = "location ~* ^${location_key}/?\$ { return 301 $self->{'new_url'}; }\n";
+        $config = "location ~* ^${location_key}\$ { return 301 $self->{'new_url'}; }\n";
     }
     
     $self->{'duplicates'}{$duplicate_entry_key} = 1;
@@ -72,6 +72,9 @@ sub get_location_key {
     
     # strip trailing slashes, as they are added as optional in nginx
     $path =~ s{/$}{};
+
+    # add optional trailing slash
+    $path = $path . "/?";
 
     return $path;
 }

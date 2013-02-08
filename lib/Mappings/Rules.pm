@@ -114,7 +114,7 @@ sub get_suggested_link {
     return unless defined $self->{'suggested'} && length $self->{'suggested'};
     
     # strip trailing slashes for predictable matching in 410 page code
-    $lookup =~ s{/$}{};
+    $lookup =~ s{/\?$}{};
 
     my $links;
     foreach my $line ( split /\n/, $self->{'suggested'} ) {
@@ -140,7 +140,7 @@ sub get_archive_link {
     return unless defined $self->{'archive_link'} && length $self->{'archive_link'};
     
     # strip trailing slashes for predictable matching in 410 page code
-    $location =~ s{/$}{};
+    $location =~ s{/\?$}{};
     
     return "\$archive_links['$location'] = \"$self->{'archive_link'}\";\n";
 }
