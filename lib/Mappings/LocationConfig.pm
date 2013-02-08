@@ -26,10 +26,6 @@ sub location_config {
     my $location_key = $self->get_location_key($path);
 
     my $duplicate_entry_key  = $self->{'old_url_parts'}{'host'} . $self->{'old_url_parts'}{'path'};
-
-    # escape characters with nginx config meaning in the destination
-    my $new_url = $self->{'new_url'};
-    $new_url =~ s{;}{\\;}g;
     
     if ( defined $self->{'duplicates'}{$duplicate_entry_key} ) {
         $config_or_error_type = 'duplicate_entry_error';
@@ -42,7 +38,7 @@ sub location_config {
         $archive_link = $self->get_archive_link( $location_key );
     }
     elsif ( '301' eq $self->{'status'} ) {
-        $config = "location ~* ^${location_key}/?\$ { return 301 $new_url; }\n";
+        $config = "location ~* ^${location_key}/?\$ { return 301 $self->{'new_url'}; }\n";
     }
     
     $self->{'duplicates'}{$duplicate_entry_key} = 1;
