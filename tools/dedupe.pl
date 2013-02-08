@@ -27,10 +27,13 @@ my %seen = ();
 			next;
 		} else {
 			if ($status eq $seen{$url}->{status}) {
-				say STDERR "leaving $url line $.";
+				say STDERR "leaving duplicate $url [new url differs] line $.";
 			} else {
-				say STDERR "leaving $url [status differs] line $.";
+				say STDERR "leaving duplicate $url [status differs] line $.";
 			}
+			say STDERR "> " . $line;
+			say STDERR "> " . $seen{$url}->{line};
+			say STDERR "";
 		}
         }
 
@@ -39,5 +42,6 @@ my %seen = ();
         $seen{$url} = {
 		'new' => $new,
 		'status' => $status,
+		'line' => $line,
         };
     }
