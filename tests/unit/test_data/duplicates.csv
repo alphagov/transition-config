@@ -1,0 +1,9 @@
+Old Url,New Url,Status,Stuff
+http://example.com/1,http://foo/1,301
+http://example.com/1,http://foo/1,301
+http://example.com/2,,410
+http://example.com/2,http://foo/2,301
+http://example.com/3,http://foo/3,301
+http://example.com/3,,410
+http://example.com/4,http://snark.com,301
+http://example.com/4,http://snork.com,301

@@ -29,7 +29,6 @@ foreach my $file (@ARGV) {
 	say STDERR "$file :: $name";
 
 	my $test = SampleTests->new();
-	$test->{'force_production_redirector'} = 1;
 	$test->input_file($file);
 	$test->output_file("dist/${name}_test_output.csv");
 	$test->output_error_file("dist/${name}_failures.csv");
@@ -54,9 +53,10 @@ sub new {
     };
     bless $self, $class;
 
-    my $host_type = $ENV{'DEPLOY_TO'} // 'preview';
-    $self->{'use_redirector'} = 1
-        if 'preview' eq $host_type;
+    my $env = $ENV{'DEPLOY_TO'} // 'preview';
+
+    # should be a command line option 'host'
+    $self->{'redirector'} = $env . "alphagov.co.uk";
 
     return $self;
 }
@@ -202,25 +202,14 @@ sub get_response {
     my $row  = shift;
 
     my $request;
-    if ( $self->{'use_redirector'} ) {
+
+    if ($self->{'redirector'}) {
         my $old_uri        = URI->new( $row->{'Old Url'} );
-        my $redirector_url = sprintf '%s%s',
-                                'http://redirector.preview.alphagov.co.uk',
-                                $old_uri->path_query;
+        my $redirector_url = $self->{redirector} . $old_uri->path_query;
 
         $request = HTTP::Request->new( 'GET', $redirector_url );
         $request->header( 'Host', $old_uri->host );
-    }
-    elsif ( $self->{'force_production_redirector'} ) {
-        my $old_uri        = URI->new( $row->{'Old Url'} );
-        my $redirector_url = sprintf '%s%s',
-                                'http://redirector.production.alphagov.co.uk',
-                                $old_uri->path_query;
-
-        $request = HTTP::Request->new( 'GET', $redirector_url );
-        $request->header( 'Host', $old_uri->host );
-    }
-    else {
+    } else {
         $request = HTTP::Request->new( 'GET', $row->{'Old Url'} );
     }
 
