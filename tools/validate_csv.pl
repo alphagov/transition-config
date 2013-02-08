@@ -110,8 +110,10 @@ sub check_url {
 
 sub c14n_url {
     my ($url) = @_;
+    $url = lc($url);
     $url =~ s/\?*$//;
     $url =~ s/\/*$//;
+    $url =~ s/\#*$//;
     return $url;
 }
 
