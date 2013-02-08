@@ -8,13 +8,6 @@ use base 'Mappings::Rules';
 
 sub actual_nginx_config {
     my $self = shift;
-
-    return $self->location_config();
-}
-
-
-sub location_config {
-    my $self = shift;
         
     my $config_or_error_type = 'location';
     my $suggested_link_type;

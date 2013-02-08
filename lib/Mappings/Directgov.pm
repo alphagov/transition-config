@@ -6,11 +6,6 @@ use base 'Mappings::LocationConfig';
 
 
 
-sub actual_nginx_config {
-    my $self = shift;
-    
-    return $self->location_config();
-}
 sub get_location_key {
     my $self = shift;
     my $path = shift;
