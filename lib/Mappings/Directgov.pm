@@ -31,13 +31,13 @@ sub dg_location_config {
         $config = "$self->{'old_url'}\n";
     }
     elsif ( '410' eq $self->{'status'} ) {
-        $config = "location ~* ^/en/(.*/)?$location_key\$ { return 410; }\n";
+        $config = "location ~* ^$location_key\$ { return 410; }\n";
         $suggested_link_type = 'location_suggested_link';
         $suggested_link = $self->get_suggested_link( $location_key, 0 );
         $archive_link = $self->get_archive_link( $location_key, 0 );
     }
     elsif ( '301' eq $self->{'status'} ) {
-        $config = "location ~* ^/en/(.*/)?$location_key\$ { return 301 $self->{'new_url'}; }\n";
+        $config = "location ~* ^$location_key\$ { return 301 $self->{'new_url'}; }\n";
     }
        
     $self->{'duplicates'}{$duplicate_entry_key} = 1;
@@ -54,7 +54,9 @@ sub dg_location_config {
 sub get_location_key {
     my $self = shift;
     my $path = shift;
-    $self->dg_number($path);
+    
+    my $dg_number = $self->dg_number($path);
+    my $location_key = "/en/(.*/)?$dg_number";
 }
 sub dg_number {
     my $self = shift;
