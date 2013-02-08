@@ -17,30 +17,16 @@ sub location_config {
     my $self = shift;
         
     my $config_or_error_type = 'location';
-    my $duplicate_entry_key  = $self->{'old_url_parts'}{'host'} . $self->{'old_url_parts'}{'path'};
     my $suggested_link_type;
     my $suggested_link;
     my $archive_link;
     my $config;
     
-    # remove %-encoding in source mappings for nginx
-    my $old_url = $self->{'old_url_parts'}{'path'};
-    $old_url =~ s/%([0-9A-Fa-f]{2})/chr(hex($1))/eg;
-    
-    # escape characters with regexp meaning
-    $old_url =~ s{\(}{\\(}g;
-    $old_url =~ s{\)}{\\)}g;
-    $old_url =~ s{\.}{\\.}g;
-    $old_url =~ s{\*}{\\*}g;
-    
-    # escape charaters with nginx config meaning
-    $old_url =~ s{ }{\\ }g;
-    $old_url =~ s{\t}{\\\t}g;
-    $old_url =~ s{;}{\\;}g;
-    
-    # strip trailing slashes, as they are added as optional in nginx
-    $old_url =~ s{/$}{};
-    
+    my $path = $self->{'old_url_parts'}{'path'};
+    my $location_key = $self->get_location_key($path);
+
+    my $duplicate_entry_key  = $self->{'old_url_parts'}{'host'} . $self->{'old_url_parts'}{'path'};
+
     # escape characters with nginx config meaning in the destination
     my $new_url = $self->{'new_url'};
     $new_url =~ s{;}{\\;}g;
@@ -50,13 +36,13 @@ sub location_config {
         $config = "$self->{'old_url'}\n";
     }
     elsif ( '410' eq $self->{'status'} ) {
-        $config = "location ~* ^${old_url}/?\$ { return 410; }\n";
+        $config = "location ~* ^${location_key}/?\$ { return 410; }\n";
         $suggested_link_type = 'location_suggested_link';
-        $suggested_link = $self->get_suggested_link( $self->{'old_url_parts'}{'path'}, 0 );
-        $archive_link = $self->get_archive_link( $self->{'old_url_parts'}{'path'} );
+        $suggested_link = $self->get_suggested_link( $location_key, 0 );
+        $archive_link = $self->get_archive_link( $location_key );
     }
     elsif ( '301' eq $self->{'status'} ) {
-        $config = "location ~* ^${old_url}/?\$ { return 301 $new_url; }\n";
+        $config = "location ~* ^${location_key}/?\$ { return 301 $new_url; }\n";
     }
     
     $self->{'duplicates'}{$duplicate_entry_key} = 1;
@@ -69,6 +55,30 @@ sub location_config {
         $suggested_link,
         $archive_link
     );
+}
+sub get_location_key {
+    my $self = shift;
+    my $path = shift;
+
+
+    # remove %-encoding in source mappings for nginx
+    $path =~ s/%([0-9A-Fa-f]{2})/chr(hex($1))/eg;
+    
+    # escape characters with regexp meaning
+    $path =~ s{\(}{\\(}g;
+    $path =~ s{\)}{\\)}g;
+    $path =~ s{\.}{\\.}g;
+    $path =~ s{\*}{\\*}g;
+    
+    # escape charaters with nginx config meaning
+    $path =~ s{ }{\\ }g;
+    $path =~ s{\t}{\\\t}g;
+    $path =~ s{;}{\\;}g;
+    
+    # strip trailing slashes, as they are added as optional in nginx
+    $path =~ s{/$}{};
+
+    return $path;
 }
 
 1;

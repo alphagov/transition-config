@@ -12,18 +12,6 @@ sub actual_nginx_config {
     return $self->dg_location_config();
 }
 
-
-sub dg_number {
-    my $self = shift;
-    my $parts = shift;
-    
-    my $lc_old_url = lc $parts->{'path'};
-
-    if ( $lc_old_url =~ m{^/en/} && $lc_old_url =~ m{/(dg_\d+)$} ) {
-        return $1;
-    }
-    return;
-}
 sub dg_location_config {
     my $self = shift;
     
@@ -32,22 +20,24 @@ sub dg_location_config {
     my $suggested_link;
     my $archive_link;
     my $config;
-    
-    my $dg_number = $self->dg_number($self->{'old_url_parts'});
-    my $duplicate_entry_key  = $dg_number;
+
+    my $path = $self->{'old_url_parts'}{'path'};
+    my $location_key = $self->get_location_key($path);
+
+    my $duplicate_entry_key  = $location_key;
     
     if ( defined $self->{'duplicates'}{$duplicate_entry_key} ) {
         $config_or_error_type = 'duplicate_entry_error';
         $config = "$self->{'old_url'}\n";
     }
     elsif ( '410' eq $self->{'status'} ) {
-        $config = "location ~* ^/en/(.*/)?$dg_number\$ { return 410; }\n";
+        $config = "location ~* ^/en/(.*/)?$location_key\$ { return 410; }\n";
         $suggested_link_type = 'location_suggested_link';
-        $suggested_link = $self->get_suggested_link( $dg_number, 0 );
-        $archive_link = $self->get_archive_link( $dg_number, 0 );
+        $suggested_link = $self->get_suggested_link( $location_key, 0 );
+        $archive_link = $self->get_archive_link( $location_key, 0 );
     }
     elsif ( '301' eq $self->{'status'} ) {
-        $config = "location ~* ^/en/(.*/)?$dg_number\$ { return 301 $self->{'new_url'}; }\n";
+        $config = "location ~* ^/en/(.*/)?$location_key\$ { return 301 $self->{'new_url'}; }\n";
     }
        
     $self->{'duplicates'}{$duplicate_entry_key} = 1;
@@ -60,6 +50,22 @@ sub dg_location_config {
         $suggested_link,
         $archive_link
     );
+}
+sub get_location_key {
+    my $self = shift;
+    my $path = shift;
+    $self->dg_number($path);
+}
+sub dg_number {
+    my $self = shift;
+    my $path = shift;
+    
+    my $lc_path = lc $path;
+
+    if ( $lc_path =~ m{^/en/} && $lc_path =~ m{/(dg_\d+)$} ) {
+        return $1;
+    }
+    return;
 }
 
 
