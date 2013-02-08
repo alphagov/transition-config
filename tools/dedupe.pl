@@ -13,13 +13,17 @@ my %seen = ();
         chomp;
         my ($old, $new, $status) = split(/,/);
 
-        my $url = $old;
+	# c14n url
+	my $url = $old;
         $url =~ s/\?*$//;
         $url =~ s/\/*$//;
+        $url =~ s/\#*$//;
 
 	my $line = $_;
 	$line =~ s/^[^,]*,//;
 	$line = "$url,$line";
+
+	$url = lc($url);
 
         if ($seen{$url}) {
 		if ($new eq $seen{$url}->{new} && $status eq $seen{$url}->{status}) {
