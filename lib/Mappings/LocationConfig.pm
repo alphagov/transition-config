@@ -25,7 +25,7 @@ sub location_config {
     my $path = $self->{'old_url_parts'}{'path'};
     my $location_key = $self->get_location_key($path);
 
-    my $duplicate_entry_key  = $self->{'old_url_parts'}{'host'} . $self->{'old_url_parts'}{'path'};
+    my $duplicate_entry_key  = $self->{'old_url_parts'}{'path'};
     
     if ( defined $self->{'duplicates'}{$duplicate_entry_key} ) {
         $config_or_error_type = 'duplicate_entry_error';
@@ -55,7 +55,6 @@ sub location_config {
 sub get_location_key {
     my $self = shift;
     my $path = shift;
-
 
     # remove %-encoding in source mappings for nginx
     $path =~ s/%([0-9A-Fa-f]{2})/chr(hex($1))/eg;
