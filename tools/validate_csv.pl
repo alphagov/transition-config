@@ -15,6 +15,7 @@ use HTTP::Request;
 use LWP::UserAgent;
 use URI;
 
+my $canonical;
 my $duplicates;
 my $https;
 my $help;
@@ -22,6 +23,7 @@ my %hosts = ();
 my %seen = ();
 
 GetOptions(
+    "canonical|c"  => \$canonical,
     "duplicates|d"  => \$duplicates,
     "https|h"  => \$https,
     'help|?' => \$help,
@@ -69,13 +71,19 @@ sub test_row {
 
     my $scheme = $old_uri->scheme;
 
+
     my $s = ($https) ? "s?" : "";
     ok($scheme =~ m{^http$s$}, "Old Url [$old_url] scheme [$scheme] must be [http] line $.");
 
     ok($old_url =~ m{^https?://$domain}, "Old Url [$old_url] domain not [$domain] line $.");
 
+    my $c14n = c14n_url($old_url);
+
+    if ($canonical) {
+        is($old_url, $c14n, "Old Url [$old_url] is not canonical [$c14n] line $.");
+    }
+
     if ($duplicates) {
-        my $c14n = c14n_url($old_url);
         ok(!defined($seen{$c14n}), "Old Url [$old_url] line $. is a duplicate of line " . ($seen{$c14n} // ""));
         $seen{$c14n} = $.;
     }
@@ -147,6 +155,7 @@ prove tools/validate_csv.pl [options] [file ...]
 
 Options:
 
+    -c, --canonical   check for canonical Old Urls
     -d, --duplicates  check for duplicate Old Urls
     -h, --https       allow Old Urls to be https
     -?, --help        print usage
