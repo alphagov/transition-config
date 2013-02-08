@@ -15,8 +15,8 @@ sub actual_nginx_config {
     my $suggested_link;
     my $archive_link;
     
-    my $map_key = $self->{'old_url_parts'}{'query'};
-
+    my $map_key = $self->get_map_key( $self->{'old_url_parts'} );
+    
     if ( !defined $map_key ) {
         $config_or_error_type = 'no_map_key_error'; 
         $config_line = "$self->{'old_url'}\n"; 
@@ -49,6 +49,14 @@ sub actual_nginx_config {
         $suggested_link,
         $archive_link
     );
+}
+sub get_map_key {
+    my $self         = shift;
+    my $parts        = shift;
+    
+    my $query_string = $parts->{'query'};
+    
+    return $query_string; 
 }
 
 1;
