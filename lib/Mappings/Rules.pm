@@ -94,18 +94,6 @@ sub has_dg_number {
     }
     return 0;
 }
-sub as_nginx_config {
-    my $self = shift;
-    
-    # default checks for sane input
-    return( 'no_host', 'no_source_url', "$self->{'new_url'}\n" )
-        if !defined $self->{'old_url'} || !length $self->{'old_url'};
-    
-    return( $self->{'old_url_parts'}{'host'}, 'no_status', "$self->{'old_url'}\n" )
-        if !defined $self->{'status'} || !length $self->{'status'};
-
-    return $self->actual_nginx_config();
-}
 sub get_suggested_link {
     my $self   = shift;
     my $lookup = shift;

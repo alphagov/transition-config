@@ -77,7 +77,7 @@ sub row_as_nginx_config {
     
     my $config_rule = Mappings::Rules->new( $row, $self->{'duplicate_key_errors'} );
     return unless defined $config_rule;
-    return $config_rule->as_nginx_config();
+    return $config_rule->actual_nginx_config();
 }
 
 
