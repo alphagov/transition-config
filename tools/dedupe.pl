@@ -64,8 +64,8 @@ while (<STDIN>) {
 #
 #  print lines, sorted
 #
+say $titles;
 open(OUT, "|sort");
-say OUT $titles;
 foreach my $url (keys %seen) {
      say OUT $seen{$url}->{line};
 }
