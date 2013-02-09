@@ -6,6 +6,7 @@ set -e
 
 status "Running unit tests ..."
 ruby -I. tests/tools/*.rb
+tests/tools/*.sh
 prove -lj4 tests/unit/logic/*.t
 
 status "Copying configuration to dist ..."
