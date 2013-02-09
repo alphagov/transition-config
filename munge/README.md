@@ -29,9 +29,9 @@ Download [this csv file (~15MB)](http://whitehall-admin.production.alphagov.co.u
 
 Ensure that the source google doc is set up and the most recent version is published to CSV (ask Robin or Pete to do this.)
 
-From the root of the project, run `./tools/generate-redirects.sh <department>`
+From the root of the project, run `./munge/generate-redirects.sh <department>`
 
-eg `./tools/generate-redirects.sh decc`
+eg `./munge/generate-redirects.sh decc`
 
 This will regenerate files we keep checked in in `data/mappings/`. Any warnings or errors in the url formats are sent to $stderr in the following form:
 

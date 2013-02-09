@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 
-require 'tools/mapping_fetcher'
+require 'munge/mapping_fetcher'
 
 class TestUrlCleaner < MiniTest::Unit::TestCase
   def setup

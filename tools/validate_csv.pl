@@ -79,7 +79,7 @@ sub test_row {
 
     my $c14n = c14n_url($old_url);
 
-    if ($canonical) {
+    if (!$canonical) {
         is($old_url, $c14n, "Old Url [$old_url] is not canonical [$c14n] line $.");
     }
 
@@ -155,7 +155,7 @@ prove tools/validate_csv.pl [options] [file ...]
 
 Options:
 
-    -c, --canonical   check for canonical Old Urls
+    -c, --canonical   don't check for canonical Old Urls
     -d, --duplicates  check for duplicate Old Urls
     -h, --https       allow Old Urls to be https
     -?, --help        print usage

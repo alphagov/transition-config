@@ -3,6 +3,10 @@
 #
 #  filter obvious duplicates from CSV
 #
+#  usage:
+#
+#  $ tools/dedupe.pl < mappings.csv > output.csv
+#
 use v5.10;
 use strict;
 use warnings;

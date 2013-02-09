@@ -5,7 +5,7 @@ set -e
 . tools/messages.sh
 
 status "Running unit tests ..."
-ruby -I. tests/tools/*.rb
+ruby -I. munge/tests/*.rb
 tests/tools/*.sh
 prove -lj4 tests/unit/logic/*.t
 
@@ -19,10 +19,10 @@ whitelist=dist/whitelist.txt export whitelist
 cp data/whitelist.txt $whitelist
 
 status "Generating lrc_map.conf ..."
-tools/lrc_map_maker.pl data/lrc_transactions_source.csv > dist/lrc_map.conf
+tools/generate_lrc.pl data/lrc_transactions_source.csv > dist/lrc_map.conf
 
 status "Generating piplinks_maps.conf ..."
-tools/piplinks_map_maker.pl data/piplinks_url_map_source.csv > dist/piplinks_maps.conf
+tools/generate_piplinks.pl data/piplinks_url_map_source.csv > dist/piplinks_maps.conf
 
 status "Processing data/sites.csv ..."
 (
@@ -49,13 +49,13 @@ status "Processing data/sites.csv ..."
         prove tools/validate_csv.pl :: $mappings $domain $whitelist
 
         status "Creating mappings for $site ..."
-        perl -Ilib tools/create_mappings.pl $mappings
+        perl -Ilib tools/generate_mappings.pl $mappings
 
         status "Creating static assets for $site ... "
         tools/generate_static_assets.sh "$site" "$domain" "$redirection_date" "$tna_timestamp" "$title" "$new_site"
 
         status "Creating sitemap for $site ..."
-        perl tools/sitemap.pl $mappings $domain > $sitemap
+        tools/generate_sitemap.pl $mappings $domain > $sitemap
 
         status "Testing sitemap for $site ..."
         prove tools/test_sitemap.pl :: $sitemap $domain

@@ -12,7 +12,7 @@ if [ ! -f ./document_mappings.csv ]; then
 fi
 
 department=$1
-make_mappings_file="./tools/fetch_${department}_mappings.rb"
+make_mappings_file="./munge/fetch_${department}_mappings.rb"
 mappings_out="./data/mappings/${department}.csv"
 folded_mappings="./${department}-folded.csv"
 if [ ! -f "$make_mappings_file" -o ! -f "$mappings_out" ]; then
@@ -27,10 +27,10 @@ domain=`cat data/sites.csv | grep "^$department" | cut -d ',' -f3`
 
 set -e
 echo "Fetching mappings for $domain..."
-./tools/extract-mappings.rb $domain < ./document_mappings.csv | $make_mappings_file
+./munge/extract-mappings.rb $domain < ./document_mappings.csv | $make_mappings_file
 
 echo "Folding mappings..."
-./tools/fold-mappings.rb < $mappings_out > $folded_mappings
+./munge/fold-mappings.rb < $mappings_out > $folded_mappings
 
 echo "Sorting and putting folded file in place..."
 sort -u $folded_mappings > $mappings_out
