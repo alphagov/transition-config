@@ -25,4 +25,4 @@ cat data/mappings/*.csv \
 
 status "Testing $mappings ..."
 
-prove -l tools/test_mappings.pl :: $mappings
+prove -l tools/test_mappings.pl :: $@ $mappings
