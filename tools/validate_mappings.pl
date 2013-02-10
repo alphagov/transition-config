@@ -1,7 +1,7 @@
 #!/usr/bin/env perl
 
 #
-#  validate CSV file format
+#  validate a redirector mappings format CSV file
 #
 use v5.10;
 use strict;
@@ -15,17 +15,17 @@ use HTTP::Request;
 use LWP::UserAgent;
 use URI;
 
-my $canonical;
-my $duplicates;
-my $https;
+my $skip_canonical;
+my $check_duplicates;
+my $allow_http;
 my $help;
 my %hosts = ();
 my %seen = ();
 
 GetOptions(
-    "canonical|c"  => \$canonical,
-    "duplicates|d"  => \$duplicates,
-    "https|h"  => \$https,
+    "skip-canonical|c"  => \$skip_canonical,
+    "check-duplicates|d"  => \$check_duplicates,
+    "allow-http|h"  => \$allow_http,
     'help|?' => \$help,
 ) or pod2usage(1);
 
@@ -72,18 +72,18 @@ sub test_row {
     my $scheme = $old_uri->scheme;
 
 
-    my $s = ($https) ? "s?" : "";
+    my $s = ($allow_http) ? "" : "s?";
     ok($scheme =~ m{^http$s$}, "Old Url [$old_url] scheme [$scheme] must be [http] line $.");
 
     ok($old_url =~ m{^https?://$domain}, "Old Url [$old_url] domain not [$domain] line $.");
 
     my $c14n = c14n_url($old_url);
 
-    if (!$canonical) {
+    unless (!$skip_canonical) {
         is($old_url, $c14n, "Old Url [$old_url] is not canonical [$c14n] line $.");
     }
 
-    if ($duplicates) {
+    if ($check_duplicates) {
         ok(!defined($seen{$c14n}), "Old Url [$old_url] line $. is a duplicate of line " . ($seen{$c14n} // ""));
         $seen{$c14n} = $.;
     }
@@ -147,17 +147,17 @@ __END__
 
 =head1 NAME
 
-validate_csv - validate a redirector mappings style CSV file
+validate_csv - validate a redirector mappings format CSV file
 
 =head1 SYNOPSIS
 
-prove tools/validate_csv.pl [options] [file ...]
+prove tools/validate_csv.pl :: [options] [file ...]
 
 Options:
 
-    -c, --canonical   don't check for canonical Old Urls
-    -d, --duplicates  check for duplicate Old Urls
-    -h, --https       allow Old Urls to be https
-    -?, --help        print usage
+    -c, --skip-canonical        don't check for canonical Old Urls
+    -d, --check-duplicates      check for duplicate Old Urls
+    -h, --allow-http            allow Old Urls to be http
+    -?, --help                  print usage
 
 =cut
