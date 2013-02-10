@@ -8,6 +8,8 @@ use strict;
 use warnings;
 use Getopt::Long;
 use Pod::Usage;
+use LWP::UserAgent;
+use URI;
 
 require 'lib/c14n.pl';
 
@@ -15,14 +17,18 @@ my $titles;
 my %seen = ();
 my $uniq = 0;
 my $no_output;
+my $use_actual;
 my $help;
 
 GetOptions(
     'no-output|n' => \$no_output,
+    'use-actual|a' => \$use_actual,
     'help|?' => \$help,
 ) or pod2usage(1);
 
 pod2usage(2) if ($help);
+
+my $ua = LWP::UserAgent->new(max_redirect => 0);
 
 while (<STDIN>) {
     chomp;
@@ -41,32 +47,52 @@ while (<STDIN>) {
     $line =~ s/^[^,]*,//;
     $line = "$url,$line";
 
-    my $key = $url;
+    if (!$seen{$url}) {
+        $seen{$url} = { new => $new, status => $status, line => $line };
+        next;
+    }
 
-    if ($seen{$url}) {
-        if ($new eq $seen{$url}->{new} && $status eq $seen{$url}->{status}) {
-            say STDERR "skipping $url line $.";
-            next;
-        } elsif ($status eq 410 && $seen{$url}->{status} eq "301") {
-            say STDERR "skipping 410 $url for duplicate 301 line $.";
-            next;
-        } elsif ($status eq 301 && $seen{$url}->{status} eq "410") {
-            say STDERR "replacing 410 $url with 301 line $.";
-        } else {
-            say STDERR "leaving $status $url duplicates differ line $.";
-            $key = "#" . $uniq++;
+    if ($new eq $seen{$url}->{new} && $status eq $seen{$url}->{status}) {
+        say STDERR "skipping $url line $.";
+        next;
+    }
 
-            say STDERR "> " . $line;
-            say STDERR "> " . $seen{$url}->{line};
-            say STDERR "";
+    if ($status eq 410 && $seen{$url}->{status} eq "301") {
+        say STDERR "skipping 410 $url for duplicate 301 line $.";
+        next;
+    }
+
+    if ($status eq 301 && $seen{$url}->{status} eq "410") {
+        say STDERR "replacing 410 $url with 301 line $.";
+        $seen{$url} = { new => $new, status => $status, line => $line };
+        next;
+    }
+
+    if ($use_actual) {
+        my $request = HTTP::Request->new('GET', $old);
+        my $response = $ua->request($request);
+        my $actual_new = $response->header('location');
+        my $actual_status = $response->code;
+
+        if ($actual_status =~ /^(200|301|410)$/) {
+            my @fields = split(/,/, $line);
+            shift @fields; # Old Url
+            shift @fields; # New Url
+            shift @fields; # Status
+            $line = "$url,$actual_new,$actual_status," . join(',', @fields);
+            say STDERR "using actual $line line $.";
+            $seen{$url} = { new => $new, status => $status, line => $line };
+            next;
         }
     }
 
-    $seen{$key} = {
-        'new' => $new,
-        'status' => $status,
-        'line' => $line,
-    };
+    say STDERR "leaving $status $url duplicates differ line $.";
+    my $key = "#" . $uniq++;
+    $seen{$key} = { new => $new, status => $status, line => $line };
+
+    say STDERR "> " . $line;
+    say STDERR "> " . $seen{$url}->{line};
+    say STDERR "";
 }
 
 #
@@ -94,6 +120,7 @@ tools/dedupe_mappings.pl [options] < mappings
 Options:
 
     -n, --no-output     no output, just check
+    -a, --use-actual    use the current, actual redirection to resolve conflicts
     -?, --help          print usage
 
 =cut
