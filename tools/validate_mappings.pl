@@ -16,7 +16,7 @@ use LWP::UserAgent;
 use URI;
 
 my $skip_canonical;
-my $check_duplicates;
+my $allow_duplicates;
 my $allow_https;
 my $whitelist = "data/whitelist.txt";
 my $host = "";
@@ -26,7 +26,7 @@ my $help;
 
 GetOptions(
     "skip-canonical|c"  => \$skip_canonical,
-    "check-duplicates|d"  => \$check_duplicates,
+    "allow-duplicates|d"  => \$allow_duplicates,
     "allow-https|s"  => \$allow_https,
     "host|h=s"  => \$host,
     "whitelist|w=s"  => \$whitelist,
@@ -83,7 +83,7 @@ sub test_row {
         is($old_url, $c14n, "Old Url [$old_url] is not canonical [$c14n] $context");
     }
 
-    if ($check_duplicates) {
+    unless ($allow_duplicates) {
         ok(!defined($seen{$c14n}), "Old Url [$old_url] $context is a duplicate of line " . ($seen{$c14n} // ""));
         $seen{$c14n} = $.;
     }
@@ -156,7 +156,7 @@ prove tools/validate_csv.pl :: [options] [file ...]
 Options:
 
     -c, --skip-canonical        don't check for canonical Old Urls
-    -d, --check-duplicates      check for duplicate Old Urls
+    -d, --allow-duplicates      allow duplicate Old Urls
     -h, --host host             constrain Old Urls to host
     -s, --allow-https           allow https in Old Urls
     -w, --whitelist filename    constrain New Urls to those in a whitelist
