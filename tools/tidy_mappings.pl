@@ -1,19 +1,28 @@
 #!/usr/bin/env perl
 
 #
-#  filter obvious duplicates from CSV
-#
-#  usage:
-#
-#  $ tools/dedupe.pl < mappings.csv > output.csv
+#  tidy_mappings - canonicalise and remove duplicate redirector mappings
 #
 use v5.10;
 use strict;
 use warnings;
+use Getopt::Long;
+use Pod::Usage;
+
+require 'lib/c14n.pl';
 
 my $titles;
 my %seen = ();
 my $uniq = 0;
+my $no_output;
+my $help;
+
+GetOptions(
+    'no-output|n' => \$no_output,
+    'help|?' => \$help,
+) or pod2usage(1);
+
+pod2usage(2) if ($help);
 
 while (<STDIN>) {
     chomp;
@@ -25,12 +34,7 @@ while (<STDIN>) {
 
     my ($old, $new, $status) = split(/,/);
 
-    # c14n url
-    my $url = $old;
-    $url = lc($url);
-    $url =~ s/\?*$//;
-    $url =~ s/\/*$//;
-    $url =~ s/\#*$//;
+    my $url = c14n_url($old);
 
     # line to be printed
     my $line = $_;
@@ -68,9 +72,28 @@ while (<STDIN>) {
 #
 #  print lines, sorted
 #
-say $titles;
-open(OUT, "|sort");
-foreach my $url (keys %seen) {
-     say OUT $seen{$url}->{line};
+unless ($no_output) {
+    say $titles;
+    open(OUT, "|sort");
+    foreach my $url (keys %seen) {
+         say OUT $seen{$url}->{line};
+    }
+    close(OUT);
 }
-close(OUT);
+
+__END__
+
+=head1 NAME
+
+tidy_mappings - canonicalise and remove duplicate redirector mappings
+
+=head1 SYNOPSIS
+
+tools/dedupe_mappings.pl [options] < mappings
+
+Options:
+
+    -n, --no-output     no output, just check
+    -?, --help          print usage
+
+=cut

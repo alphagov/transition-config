@@ -19,6 +19,8 @@ use HTTP::Request;
 use LWP::UserAgent;
 use URI;
 
+require 'lib/c14n.pl';
+
 my $env = $ENV{'DEPLOY_TO'} // "dev";
 my $host;
 my $real;
@@ -34,6 +36,8 @@ GetOptions(
     'mapping|m' => \$mappings,
     'help|?' => \$help,
 ) or pod2usage(1);
+
+pod2usage(2) if ($help);
 
 $host //= "redirector.$env.alphagov.co.uk";
 
