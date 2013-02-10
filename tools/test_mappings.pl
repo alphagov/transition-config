@@ -20,16 +20,22 @@ use LWP::UserAgent;
 use URI;
 
 my $env = $ENV{'DEPLOY_TO'} // "dev";
-my $host = "http://redirector.$env.alphagov.co.uk";
+my $host;
+my $real;
 my $skip_assets = 0;
 my $mappings = 0;
 my $help;
 
 GetOptions(
     'skip-assets|a' => \$skip_assets,
-    'mapping|m' => \$mappings,,
+    'env|e=s' => \$env,
+    'host|h=s' => \$host,
+    'real|r' => \$real,
+    'mapping|m' => \$mappings,
     'help|?' => \$help,
 ) or pod2usage(1);
+
+$host //= "redirector.$env.alphagov.co.uk";
 
 my $ua = LWP::UserAgent->new(max_redirect => 0);
 
@@ -73,7 +79,9 @@ sub test_mapping {
 
     my $uri = URI->new($url);
 
-    my $request = HTTP::Request->new('GET', $host . $uri->path_query);
+    my $get = $real ? $url : $uri->scheme . "://" . $host . $uri->path_query;
+
+    my $request = HTTP::Request->new('GET', $get);
     $request->header('Host', $uri->host);
 
     my $response = $ua->request($request);
@@ -100,6 +108,9 @@ prove tools/test_mappings.pl :: [options] [filename ...] | [mapping ...]
 Options:
 
     -a, --skip-assets       ignore mappings which expect a 200 response
+    -e, --environment env   override DEPLOY_TO environment dev|preview|production|...
+    -h, --host hostname     specifiy redirector hostname
+    -r, --real              test with real hostnames from mapping urls
     -m, --mappings          treat args are a series of mapping lines
     -?, --help              print usage
 
