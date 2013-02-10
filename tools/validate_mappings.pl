@@ -27,7 +27,7 @@ my $help;
 GetOptions(
     "skip-canonical|c"  => \$skip_canonical,
     "check-duplicates|d"  => \$check_duplicates,
-    "allow-https|s"  => \$allowhttps,
+    "allow-https|s"  => \$allow_https,
     "host|h=s"  => \$host,
     "whitelist|w=s"  => \$whitelist,
     'help|?' => \$help,
@@ -57,60 +57,60 @@ sub test_file {
     $csv->column_names(@$names);
 
     while (my $row = $csv->getline_hr($fh)) {
-        test_row($row);
+        test_row("$filename line $.", $row);
     }
 }
 
 sub test_row {
-    my $row  = shift;
+    my ($context, $row)  = @_;
 
     my $old_url = $row->{'Old Url'} // '';
     my $new_url = $row->{'New Url'} // '';
     my $status = $row->{'Status'} // '';
 
-    my $old_uri = check_url('Old Url', $old_url);
+    my $old_uri = check_url($context, 'Old Url', $old_url);
 
     my $scheme = $old_uri->scheme;
 
     my $s = ($allow_https) ? "s?": "";
-    ok($scheme =~ m{^http$s$}, "Old Url [$old_url] scheme [$scheme] must be [http] line $.");
+    ok($scheme =~ m{^http$s$}, "Old Url [$old_url] scheme [$scheme] must be [http] $context");
 
-    ok($old_url =~ m{^https?://$host}, "Old Url [$old_url] host not [$host] line $.");
+    ok($old_url =~ m{^https?://$host}, "Old Url [$old_url] host not [$host] $context");
 
     my $c14n = c14n_url($old_url);
 
     unless (!$skip_canonical) {
-        is($old_url, $c14n, "Old Url [$old_url] is not canonical [$c14n] line $.");
+        is($old_url, $c14n, "Old Url [$old_url] is not canonical [$c14n] $context");
     }
 
     if ($check_duplicates) {
-        ok(!defined($seen{$c14n}), "Old Url [$old_url] line $. is a duplicate of line " . ($seen{$c14n} // ""));
+        ok(!defined($seen{$c14n}), "Old Url [$old_url] $context is a duplicate of line " . ($seen{$c14n} // ""));
         $seen{$c14n} = $.;
     }
 
     if ( "301" eq $status) {
-        my $new_uri = check_url('New Url', $new_url);
+        my $new_uri = check_url($context, 'New Url', $new_url);
         my $new_host = $new_uri->host;
-        ok($hosts{$new_host}, "New Url [$new_url] host [$new_host] not whiltelist line $.");
+        ok($hosts{$new_host}, "New Url [$new_url] host [$new_host] not whiltelist $context");
     } elsif ( "410" eq $status) {
-        ok($new_url eq '', "unexpected New Url [$new_url] for 410 line $.");
+        ok($new_url eq '', "unexpected New Url [$new_url] for 410 $context");
     } elsif ( "200" eq $status) {
-        ok($new_url eq '', "unexpected New Url [$new_url] for 200 line $.");
+        ok($new_url eq '', "unexpected New Url [$new_url] for 200 $context");
     } else {
        fail("invalid Status [$status] for Old Url [$old_url] line $.");
     }
 }
 
 sub check_url {
-    my ($name, $url) = @_;
+    my ($context, $name, $url) = @_;
 
     # | is valid in our Urls
     $url =~ s/\|/%7C/g;
 
-    ok($url =~ m{^https?://}, "$name '$url' should be a full URI line $.");
+    ok($url =~ m{^https?://}, "$name '$url' should be a full URI $context");
 
     my $uri = URI->new($url);
-    is($uri, $url, "$name '$url' should be a valid URI line $.");
+    is($uri, $url, "$name '$url' should be a valid URI $context");
 
     return $uri;
 }
