@@ -24,8 +24,7 @@ mkdir -p dist
     } < data/sites.csv
 
     cat data/tests/full/*.csv \
-        data/tests/popular/*.csv \
-        data/tests/subsets/*.csv \
+        data/tests/subsets/*.csv
 
 } | sed 's/"//g' | sort | uniq | egrep -v '^Old Url' | (
 
