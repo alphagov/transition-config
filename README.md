@@ -17,9 +17,9 @@ A list of sites in data/sites.csv:
 
 ## Mappings
 
-A CSV file in the data/mappings directory for each site containing:
+A CSV file in `data/mappings` for each site containing:
 
-* `Old Url` — the http or https Url to be redirected
+* `Old Url` — the Url to be redirected in canonical form
 * `New Url` — the destination Url for a 301
 * `Status` — 301 for a redirect, 410 for a page which is being deprecated
 * `Suggested Link` — an optional suggested link for the 410 page
@@ -28,23 +28,28 @@ A CSV file in the data/mappings directory for each site containing:
 During development, mappings are usually generated from spreadsheets, or using scripts.
 Once live they are maintained in this repository.
 
+`New Url` values may only contain a hostname cited in `data/whitelist.txt`.
+
 ## Server config
 
-An nginx server block for each site in the `redirector/configs` directory.
+An nginx server block for each site in `redirector/configs`.
 
 ## Build
 
     $ ./jenkins.sh
 
-## Tests
+## Dist
 
-A list of the most important urls to be tested on each website in the `data/tests/subsets/` directory.
+Nginx configuration is generated in `dist`.
+
 
 ## Assets
 
 Directgov and Businesslink assets are stored in GitHub and deployed via s3,  see [assets-directgov](https://github.com/alphagov/assets-directgov) and [assets-businesslink](https://github.com/alphagov/assets-businesslink).
 
 ## Test
+
+A list of the most important urls to be tested on each website in `data/tests/subsets/`.
 
 ### Test in a virtual
 
