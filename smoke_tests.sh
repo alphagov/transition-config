@@ -8,4 +8,4 @@ status DEPLOY_TO=$DEPLOY_TO
 
 status "Testing CSV files from data/test/subsets ..."
 
-prove -l tools/test_csv.pl :: data/tests/subsets/*.csv
+prove -l tools/test_mappings.pl :: data/tests/subsets/*.csv

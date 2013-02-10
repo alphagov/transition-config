@@ -6,9 +6,9 @@ set -e
 
 status "DEPLOY_TO=$DEPLOY_TO"
 
-csv="dist/full_urls.csv"
+mappings="dist/full_tests_mappings.csv"
 
-status "Combining all known mappings into $csv ..."
+status "Combining all known mappings into $mappings ..."
 
 # find all mappings and tests
 mkdir -p dist
@@ -21,8 +21,8 @@ cat data/mappings/*.csv \
 	echo "Old Url,New Url,Status,Suggested Link,Archive Link"
 	cat
 
-) > $csv
+) > $mappings
 
-status "Testing $csv ..."
+status "Testing $mappings ..."
 
-prove -l tools/test_csv.pl :: $csv
+prove -l tools/test_mappings.pl :: $mappings

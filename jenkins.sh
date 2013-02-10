@@ -46,7 +46,7 @@ status "Processing data/sites.csv ..."
         status
 
         status "Validating mappings file for $site ..."
-        prove tools/validate_csv.pl :: $mappings $domain $whitelist
+        prove tools/validate_mappings.pl :: $mappings $domain $whitelist
 
         status "Creating mappings for $site ..."
         perl -Ilib tools/generate_mappings.pl $mappings
