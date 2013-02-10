@@ -14,7 +14,7 @@ my $test_url_parts = {
 
 $test_url_parts->{host}     = 'www.businesslink.gov.uk';
 $test_url_parts->{path}     = '/bdotg/action/layer';
-$test_url_parts->{query}    = '=en&itemId=1081128808&lang=en&topicId=1081128739&type=RESOURCES';
+$test_url_parts->{query}    = '=en&itemid=1081128808&lang=en&topicid=1081128739&type=RESOURCES';
 my $config_rule_type   = Mappings::Rules::get_config_rule_type( undef, $test_url_parts->{host}, $test_url_parts->{path}, $test_url_parts->{query} );
 is( 'Mappings::Businesslink', $config_rule_type, 
 	"If URL has query string and Businesslink host then is BL specific" );

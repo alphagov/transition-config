@@ -30,7 +30,7 @@ is( $redirect_type, 'redirect_map',
 	'Directgov is no longer always location, query string or no' );
 
 my $businesslink_redirect = { 
-	'Old Url'	=> 'http://www.businesslink.gov.uk/bdotg/action/detail?itemId=1081930072&type=PIP',
+	'Old Url'	=> 'http://www.businesslink.gov.uk/bdotg/action/detail?itemid=1081930072&type=PIP',
 	'New Url'	=> 'https://www.gov.uk/get-information-about-a-company',
 	'Status'	=> 301, 
 };
@@ -52,7 +52,7 @@ is( $redirect_type, 'location',
 	'If host is businesslink and there is no query string, it is assumed to be a FURL'  );
 
 my $unspecified_redirect = { 
-	'Old Url'	=> 'http://www.example.gov.uk/bdotg/action/detail?itemId=101181930072&type=PIP',
+	'Old Url'	=> 'http://www.example.gov.uk/bdotg/action/detail?itemid=101181930072&type=PIP',
 	'New Url'	=> 'https://www.gov.uk/get-information-about-a-company',
 	'Status'	=> 301, 
 };

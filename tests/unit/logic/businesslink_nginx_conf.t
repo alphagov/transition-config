@@ -8,7 +8,7 @@ my $mappings = Mappings->new( 'tests/unit/test_data/first_line_good.csv' );
 isa_ok( $mappings, 'Mappings' );
 
 my $businesslink_redirect = { 
-	'Old Url'	=> 'http://www.businesslink.gov.uk/bdotg/action/detail?itemId=1081930072&type=PIP',
+	'Old Url'	=> 'http://www.businesslink.gov.uk/bdotg/action/detail?itemid=1081930072&type=PIP',
 	'New Url'	=> 'https://www.gov.uk/get-information-about-a-company',
 	'Status'	=> 301, 
 };
@@ -17,11 +17,11 @@ is( $redirect_host, 'www.businesslink.gov.uk',
 	'Host that config applies to is businesslink' );
 is( $redirect_type, 'redirect_map',
 	'If host is businesslink and type is redirect, type of nginx block is redirect_map'  );
-is( $redirect, qq(~itemId=1081930072 https://www.gov.uk/get-information-about-a-company;\n),
+is( $redirect, qq(~*itemid=1081930072 https://www.gov.uk/get-information-about-a-company;\n),
     'Nginx config is as expected' );
 
 my $businesslink_gone = { 
-	'Old Url'	=> 'http://www.businesslink.gov.uk/bdotg/action/layer?&r.s=tl&r.l1=1073861197&r.lc=en&topicId=1073858975',
+	'Old Url'	=> 'http://www.businesslink.gov.uk/bdotg/action/layer?&r.s=tl&r.l1=1073861197&r.lc=en&topicid=1073858975',
 	'New Url'	=> '',
 	'Status'	=> 410, 
 };
@@ -30,11 +30,11 @@ is( $gone_host, 'www.businesslink.gov.uk',
 	'Host that config applies to is businesslink' );
 is( $gone_type, 'gone_map',
 	'If host is businesslink and type is gone, type of nginx block is gone_map'  );
-is( $gone, qq(~topicId=1073858975 410;\n),
+is( $gone, qq(~*topicid=1073858975 410;\n),
     'Nginx config is as expected' );
 
 my $businesslink_no_map_key = { 
-	'Old Url'	=> 'http://www.businesslink.gov.uk/bdotg/action/layer?&r.s=tl&r.l1=1073861197&r.lc=en&tcId=1073858975',
+	'Old Url'	=> 'http://www.businesslink.gov.uk/bdotg/action/layer?&r.s=tl&r.l1=1073861197&r.lc=en&tcid=1073858975',
 	'New Url'	=> '',
 	'Status'	=> 410, 
 };
@@ -82,7 +82,7 @@ is( $businesslink_friendly_url_content, "location ~* ^/yorkshire/?\$ { return 30
 
 
 my $businesslink_friendly_url_with_querystring = { 
-	'Old Url'	=> 'http://www.businesslink.gov.uk/tattoopeircingelectrolysis?topicId=1073858865',
+	'Old Url'	=> 'http://www.businesslink.gov.uk/tattoopeircingelectrolysis?topicid=1073858865',
 	'New Url'	=> 'http://www.gov.uk/testresult',
 	'Status'	=> 301,
 };
@@ -92,7 +92,7 @@ is( $businesslink_friendly_host_with_querystring, 'www.businesslink.gov.uk',
 	'Host that config applies to is businesslink' );
 is( $businesslink_friendly_type_with_querystring, 'redirect_map',
 	"If there is a query string, then it should to go a map, even if it looks like a friendly url"  );
-is( $businesslink_friendly_content_with_querystring, "~topicId=1073858865 http://www.gov.uk/testresult;\n", 
+is( $businesslink_friendly_content_with_querystring, "~*topicid=1073858865 http://www.gov.uk/testresult;\n", 
 	"A friendly URL does not contain a query string" );
 
 my $businesslink_friendly_url_with_empty_querystring = { 
@@ -118,7 +118,7 @@ is( $redirect_host, 'www.businesslink.gov.uk',
 	'Host that config applies to is businesslink' );
 is( $redirect_type, 'redirect_map',
 	'If host is businesslink and type is redirect, type of nginx block is redirect_map'  );
-is( $redirect, qq(~page=Accessibility https://www.gov.uk/support/accessibility;\n),
+is( $redirect, qq(~*page=Accessibility https://www.gov.uk/support/accessibility;\n),
     'Nginx config is as expected' );
 
 done_testing();

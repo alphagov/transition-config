@@ -129,7 +129,7 @@ is( $host, 'www.decc.gov.uk',
 	'Host that config applies to is decc' );
 is( $config_type, 'gone_map',
 	'query string & gone = gone map' );
-is( $config_line, qq(~filter=allcountiesengland&country=england 410;\n), 'Nginx config is as expected' );
+is( $config_line, qq(~*filter=allcountiesengland&country=england 410;\n), 'Nginx config is as expected' );
 
 
 $decc_mapping = { 
@@ -142,7 +142,7 @@ is( $host, 'www.decc.gov.uk',
 	'Host that config applies to is decc' );
 is( $config_type, 'gone_map',
 	'query string & gone = gone map' );
-is( $config_line, qq(~status=0&area=0&pagenumber=9 410;\n), 'Nginx config is as expected' );
+is( $config_line, qq(~*status=0&area=0&pagenumber=9 410;\n), 'Nginx config is as expected' );
 
 $decc_mapping = { 
 	'Old Url'	=> 'http://www.decc.gov.uk/default.aspx?lpa_id=y9507',
@@ -154,7 +154,7 @@ is( $host, 'www.decc.gov.uk',
 	'Host that config applies to is decc' );
 is( $config_type, 'gone_map',
 	'query string & gone = gone map' );
-is( $config_line, qq(~lpa_id=y9507 410;\n), 'Nginx config is as expected' );
+is( $config_line, qq(~*lpa_id=y9507 410;\n), 'Nginx config is as expected' );
 
 
 $decc_mapping = { 
@@ -167,7 +167,7 @@ is( $host, 'www.decc.gov.uk',
 	'Host that config applies to is decc' );
 is( $config_type, 'gone_map',
 	'query string & gone = gone map' );
-is( $config_line, qq(~url=http://www.decc.gov.uk/assets/decc/11/consultation/ro-banding/5936-renewables-obligation-consultation-the-government.pdf 410;\n), 'Nginx config is as expected' );
+is( $config_line, qq(~*url=http://www.decc.gov.uk/assets/decc/11/consultation/ro-banding/5936-renewables-obligation-consultation-the-government.pdf 410;\n), 'Nginx config is as expected' );
 
 
 # DECC Map block redirect
@@ -182,7 +182,7 @@ is( $host, 'www.decc.gov.uk',
 	'Host that config applies to is decc' );
 is( $config_type, 'redirect_map',
 	'query string & redirect = redirect map' );
-is( $config_line, qq(~filter=allcountiesengland&country=scotland https://gov.uk/test-page;\n), 'Nginx config is as expected' );
+is( $config_line, qq(~*filter=allcountiesengland&country=scotland https://gov.uk/test-page;\n), 'Nginx config is as expected' );
 
 
 $decc_mapping = { 
@@ -195,7 +195,7 @@ is( $host, 'www.decc.gov.uk',
 	'Host that config applies to is decc' );
 is( $config_type, 'redirect_map',
 	'query string & redirect = redirect map' );
-is( $config_line, qq(~status=1&area=0&pagenumber=9 https://gov.uk/test-page;\n), 'Nginx config is as expected' );
+is( $config_line, qq(~*status=1&area=0&pagenumber=9 https://gov.uk/test-page;\n), 'Nginx config is as expected' );
 
 
 $decc_mapping = { 
@@ -208,7 +208,7 @@ is( $host, 'www.decc.gov.uk',
 	'Host that config applies to is decc' );
 is( $config_type, 'redirect_map',
 	'query string & redirect = redirect map' );
-is( $config_line, qq(~lpa_id=y7707 https://gov.uk/test-page;\n), 'Nginx config is as expected' );
+is( $config_line, qq(~*lpa_id=y7707 https://gov.uk/test-page;\n), 'Nginx config is as expected' );
 
 
 $decc_mapping = { 
@@ -221,6 +221,6 @@ is( $host, 'www.decc.gov.uk',
 	'Host that config applies to is decc' );
 is( $config_type, 'redirect_map',
 	'query string & redirect = redirect map' );
-is( $config_line, qq(~url=http://www.decc.gov.uk/assets/decc/11/test/ro-banding/5936-renewables-obligation-consultation-the-government.pdf https://gov.uk/test-page;\n), 'Nginx config is as expected' );
+is( $config_line, qq(~*url=http://www.decc.gov.uk/assets/decc/11/test/ro-banding/5936-renewables-obligation-consultation-the-government.pdf https://gov.uk/test-page;\n), 'Nginx config is as expected' );
 
 done_testing();

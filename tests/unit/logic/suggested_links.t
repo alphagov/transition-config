@@ -12,8 +12,8 @@ my %expected = (
             'location_suggested_link' => qq(\$location_suggested_link['/16-19bursary'] = "<a href='http://www.dwp.gov.uk'>Department for &lt;b&gt;''Work and Pensions''&lt;/b&gt;</a>";\n),
         },
         'www.businesslink.gov.uk' => {
-            'gone_map' => qq(~topicId=1073858783 410;\n),
-            'suggested_link_map' => qq(\$query_suggested_link['topicId=1073858783'] = "<a href='http://www.hmrc.gov.uk'>HMRC</a>";\n),
+            'gone_map' => qq(~*topicid=1073858783 410;\n),
+            'suggested_link_map' => qq(\$query_suggested_link['topicid=1073858783'] = "<a href='http://www.hmrc.gov.uk'>HMRC</a>";\n),
         },
     );
 

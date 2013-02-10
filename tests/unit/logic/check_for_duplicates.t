@@ -93,7 +93,7 @@ is( $redirect, qq(location ~* ^/tax/?\$ { return 301 https://www.gov.uk/working-
 # 	'Trailing slash counts as duplicate_entry_error' );
 
 $mapping = { 
-	'Old Url'	=> 'http://www.businesslink.gov.uk/bdotg/action/detail?itemId=1073789114&type=RESOURCES',
+	'Old Url'	=> 'http://www.businesslink.gov.uk/bdotg/action/detail?itemid=1073789114&type=RESOURCES',
 	'New Url'	=> 'https://www.gov.uk/running-a-limited-company/directors-responsibilities',
 	'Status'	=> 301, 
 };
@@ -102,12 +102,12 @@ is( $redirect_host, 'www.businesslink.gov.uk',
 	'Host that config applies to is businesslink' );
 is( $redirect_type, 'redirect_map',
 	'Type is redirect_map' );
-is( $redirect, qq(~itemId=1073789114 https://www.gov.uk/running-a-limited-company/directors-responsibilities;\n),
+is( $redirect, qq(~*itemid=1073789114 https://www.gov.uk/running-a-limited-company/directors-responsibilities;\n),
     'Nginx config is as expected' );
 
 
 $mapping = { 
-	'Old Url'	=> 'http://www.businesslink.gov.uk/bdotg/action/detail/blah?type=RESOURCES&itemId=1073789114',
+	'Old Url'	=> 'http://www.businesslink.gov.uk/bdotg/action/detail/blah?type=RESOURCES&itemid=1073789114',
 	'New Url'	=> 'https://www.gov.uk/running-a-limited-company/directors-responsibilities',
 	'Status'	=> 301, 
 };
@@ -115,7 +115,7 @@ $mapping = {
 is( $redirect_host, 'www.businesslink.gov.uk', 
 	'Host that config applies to is businesslink' );
 is( $redirect_type, 'duplicate_entry_error',
-	'duplicate itemId for Businesslink is duplicate' );
+	'duplicate itemid for Businesslink is duplicate' );
 
 
 

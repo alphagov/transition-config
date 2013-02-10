@@ -12,43 +12,43 @@ use URI::Split  qw( uri_split uri_join );
 sub new {
     my $class    = shift;
     my $csv_file = shift;
-    
+
     my $self = {};
     bless $self, $class;
-    
+
     $self->{'duplicate_key_errors'} = {};
-    
+
     $self->{'csv'} = Text::CSV->new({ binary => 1 });
     open $self->{'csv_handle'}, '<:encoding(utf8)', $csv_file
         or return undef;
-    
+
     $self->{'column_names'} = $self->read_column_names();
     return unless scalar @{$self->{'column_names'}};
     return unless $self->has_mandatory_columns();
-    
+
     return $self;
 }
 
 sub entire_csv_as_nginx_config {
     my $self = shift;
-    
+
     my %configs;
-    
+
     while ( my $row = $self->get_row() ) {
         my( $host, $rule_map, $rule, $suggested_map, $suggested, $archive_link )
             = $self->row_as_nginx_config($row);
-        
+
         if ( defined $host && defined $rule_map && defined $rule ) {
             $configs{$host}{$rule_map} = []
                 unless defined $configs{$host}{$rule_map};
             push @{ $configs{$host}{$rule_map} }, $rule;
-            
+
             if ( defined $suggested_map && defined $suggested ) {
                 $configs{$host}{$suggested_map} = []
                     unless defined $configs{$host}{$suggested_map};
                 push @{ $configs{$host}{$suggested_map} }, $suggested;
             }
-            
+
             if ( defined $archive_link ) {
                 $configs{$host}{'archive_links'} = []
                     unless defined $configs{$host}{'archive_links'};
@@ -56,7 +56,7 @@ sub entire_csv_as_nginx_config {
             }
         }
     }
-    
+
     foreach my $host ( keys %configs ) {
         foreach my $map ( keys %{ $configs{$host} } ) {
             if ( 'location' eq $map ) {
@@ -68,18 +68,18 @@ sub entire_csv_as_nginx_config {
             }
         }
     }
-    
+
     return \%configs;
 }
+
 sub row_as_nginx_config {
     my $self = shift;
-    my $row  = shift; 
-    
+    my $row  = shift;
+
     my $config_rule = Mappings::Rules->new( $row, $self->{'duplicate_key_errors'} );
     return unless defined $config_rule;
     return $config_rule->actual_nginx_config();
 }
-
 
 sub get_row {
     my $self = shift;
@@ -88,16 +88,17 @@ sub get_row {
 
 sub read_column_names {
     my $self = shift;
-    
+
     my $names = $self->{'csv'}->getline( $self->{'csv_handle'} );
     return unless scalar @$names;
-    
+
     $self->{'csv'}->column_names( @$names );
     return $names;
 }
+
 sub has_mandatory_columns {
     my $self = shift;
-    
+
     my $has_status  = 0;
     my $has_old_url = 0;
     my $has_new_url = 0;
@@ -106,7 +107,7 @@ sub has_mandatory_columns {
         $has_old_url = 1 if 'Old Url' eq $col;
         $has_new_url = 1 if 'New Url' eq $col;
     }
-    
+
     return 1 if $has_status && $has_old_url && $has_new_url;
     return 0;
 }
