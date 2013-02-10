@@ -19,7 +19,7 @@ use HTTP::Request;
 use LWP::UserAgent;
 use URI;
 
-my $env = $ENV{'DEPLOY_TO'} // "preview";
+my $env = $ENV{'DEPLOY_TO'} // "dev";
 my $host = "http://redirector.$env.alphagov.co.uk";
 my $skip_assets = 0;
 my $mappings = 0;
