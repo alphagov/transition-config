@@ -22,17 +22,25 @@ use URI;
 my $env = $ENV{'DEPLOY_TO'} // "preview";
 my $host = "http://redirector.$env.alphagov.co.uk";
 my $skip_assets = 0;
+my $mappings = 0;
 my $help;
 
 GetOptions(
     'skip-assets|a' => \$skip_assets,
+    'mapping|m' => \$mappings,,
     'help|?' => \$help,
 ) or pod2usage(1);
 
 my $ua = LWP::UserAgent->new(max_redirect => 0);
 
-foreach my $filename (@ARGV) {
-    test_csv($filename);
+if ($mappings) {
+    foreach my $mapping (@ARGV) {
+        test_mapping('', split(',', $mapping));
+    }
+} else {
+    foreach my $filename (@ARGV) {
+        test_csv($filename);
+    }
 }
 
 done_testing();
@@ -55,13 +63,13 @@ sub test_csv {
             $row->{'Status'},
         );
 
-        test_mapping($filename, $url, $location, $status);
+        test_mapping("$filename line $.", $url, $location, $status);
     }
     close($fh);
 }
 
 sub test_mapping {
-    my ($filename, $url, $location, $status) = @_;
+    my ($context, $url, $location, $status) = @_;
 
     my $uri = URI->new($url);
 
@@ -72,10 +80,10 @@ sub test_mapping {
 
     return if ($skip_assets && $status eq '200');
 
-    is($response->code, $status, "${url} status $filename line $.");
+    is($response->code, $status, "${url} status $context");
 
     if ($location || $response->header('location')) {
-        is($response->header('location'), $location, "[$url] location $filename line $.");
+        is($response->header('location'), $location, "[$url] location $context");
     }
 }
 
@@ -83,15 +91,16 @@ __END__
 
 =head1 NAME
 
-test_mappings - test a redirector mappings format CSV file
+test_mappings - test redirector mappings
 
 =head1 SYNOPSIS
 
-prove tools/test_mappings.pl :: [options] [file ...]
+prove tools/test_mappings.pl :: [options] [filename ...] | [mapping ...]
 
 Options:
 
-    -a, --skip-assets   ignore mappings which expect a 200 response
-    -?, --help          print usage
+    -a, --skip-assets       ignore mappings which expect a 200 response
+    -m, --mappings          treat args are a series of mapping lines
+    -?, --help              print usage
 
 =cut
