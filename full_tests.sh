@@ -12,11 +12,22 @@ status "Combining all known mappings into $mappings ..."
 
 # find all mappings and tests
 mkdir -p dist
-cat data/mappings/*.csv \
-	data/tests/full/*.csv \
-	data/tests/popular/*.csv \
-	data/tests/subsets/*.csv \
-	| sed 's/"//g' | sort | uniq | egrep -v '^Old Url' | (
+
+{
+    {
+        IFS=,
+        read titles
+        while read site rest
+        do
+            cat data/mappings/$site.csv
+        done
+    } < data/sites.csv
+
+    cat data/tests/full/*.csv \
+        data/tests/popular/*.csv \
+        data/tests/subsets/*.csv \
+
+} | sed 's/"//g' | sort | uniq | egrep -v '^Old Url' | (
 
 	echo "Old Url,New Url,Status,Suggested Link,Archive Link"
 	cat
