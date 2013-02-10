@@ -28,7 +28,7 @@ status "Processing data/sites.csv ..."
 (
     IFS=,
     read titles
-    while read site domain redirection_date tna_timestamp title new_site aliases rest
+    while read site host redirection_date tna_timestamp title new_site aliases rest
     do
         mappings=dist/${site}_mappings_source.csv
         sitemap=dist/static/${site}/sitemap.xml
@@ -36,7 +36,7 @@ status "Processing data/sites.csv ..."
 
         status
         status ":: site: $site"
-        status ":: domain: $domain"
+        status ":: host: $host"
         status ":: redirection_date: $redirection_date"
         status ":: tna_timestamp: $tna_timestamp"
         status ":: title: $title"
@@ -46,19 +46,19 @@ status "Processing data/sites.csv ..."
         status
 
         status "Validating mappings file for $site ..."
-        prove tools/validate_mappings.pl :: $mappings $domain $whitelist
+        prove tools/validate_mappings.pl :: --host $host --whitelist $whitelist $mappings
 
         status "Creating mappings for $site ..."
         perl -Ilib tools/generate_mappings.pl $mappings
 
         status "Creating static assets for $site ... "
-        tools/generate_static_assets.sh "$site" "$domain" "$redirection_date" "$tna_timestamp" "$title" "$new_site"
+        tools/generate_static_assets.sh "$site" "$host" "$redirection_date" "$tna_timestamp" "$title" "$new_site"
 
         status "Creating sitemap for $site ..."
-        tools/generate_sitemap.pl $mappings $domain > $sitemap
+        tools/generate_sitemap.pl $mappings $host > $sitemap
 
         status "Testing sitemap for $site ..."
-        prove tools/test_sitemap.pl :: $sitemap $domain
+        prove tools/test_sitemap.pl :: $sitemap $host
     done
     report
 ) < data/sites.csv

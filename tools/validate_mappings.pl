@@ -17,29 +17,31 @@ use URI;
 
 my $skip_canonical;
 my $check_duplicates;
-my $allow_http;
-my $help;
+my $allow_https;
+my $whitelist = "data/whitelist.txt";
+my $host = "";
 my %hosts = ();
 my %seen = ();
+my $help;
 
 GetOptions(
     "skip-canonical|c"  => \$skip_canonical,
     "check-duplicates|d"  => \$check_duplicates,
-    "allow-http|h"  => \$allow_http,
+    "allow-https|s"  => \$allowhttps,
+    "host|h=s"  => \$host,
+    "whitelist|w=s"  => \$whitelist,
     'help|?' => \$help,
 ) or pod2usage(1);
-
-my $filename = shift // "";
-my $domain = shift // "";
-my $whitelist = shift // "data/whitelist.txt";
 
 pod2usage(2) if ($help);
 
 load_whitelist($whitelist);
 
-check_unquoted($filename);
-
-test_file($filename);
+foreach my $filename (@ARGV) {
+    %seen = ();
+    check_unquoted($filename);
+    test_file($filename);
+}
 
 done_testing();
 
@@ -55,7 +57,6 @@ sub test_file {
     $csv->column_names(@$names);
 
     while (my $row = $csv->getline_hr($fh)) {
-        ok(!$csv->is_quoted(1), "value quoted $.");
         test_row($row);
     }
 }
@@ -71,11 +72,10 @@ sub test_row {
 
     my $scheme = $old_uri->scheme;
 
-
-    my $s = ($allow_http) ? "" : "s?";
+    my $s = ($allow_https) ? "s?": "";
     ok($scheme =~ m{^http$s$}, "Old Url [$old_url] scheme [$scheme] must be [http] line $.");
 
-    ok($old_url =~ m{^https?://$domain}, "Old Url [$old_url] domain not [$domain] line $.");
+    ok($old_url =~ m{^https?://$host}, "Old Url [$old_url] host not [$host] line $.");
 
     my $c14n = c14n_url($old_url);
 
@@ -90,8 +90,8 @@ sub test_row {
 
     if ( "301" eq $status) {
         my $new_uri = check_url('New Url', $new_url);
-        my $host = $new_uri->host;
-        ok($hosts{$host}, "New Url [$new_url] host [$host] not whiltelist line $.");
+        my $new_host = $new_uri->host;
+        ok($hosts{$new_host}, "New Url [$new_url] host [$new_host] not whiltelist line $.");
     } elsif ( "410" eq $status) {
         ok($new_url eq '', "unexpected New Url [$new_url] for 410 line $.");
     } elsif ( "200" eq $status) {
@@ -104,11 +104,10 @@ sub test_row {
 sub check_url {
     my ($name, $url) = @_;
 
+    # | is valid in our Urls
     $url =~ s/\|/%7C/g;
 
     ok($url =~ m{^https?://}, "$name '$url' should be a full URI line $.");
-
-    ok($url !~ m{,}, "bare comma in $name $url line $.");
 
     my $uri = URI->new($url);
     is($uri, $url, "$name '$url' should be a valid URI line $.");
@@ -122,6 +121,7 @@ sub c14n_url {
     $url =~ s/\?*$//;
     $url =~ s/\/*$//;
     $url =~ s/\#*$//;
+    $url =~ s/,/%2C/;
     return $url;
 }
 
@@ -157,7 +157,9 @@ Options:
 
     -c, --skip-canonical        don't check for canonical Old Urls
     -d, --check-duplicates      check for duplicate Old Urls
-    -h, --allow-http            allow Old Urls to be http
+    -h, --host host             constrain Old Urls to host
+    -s, --allow-https           allow https in Old Urls
+    -w, --whitelist filename    constrain New Urls to those in a whitelist
     -?, --help                  print usage
 
 =cut
