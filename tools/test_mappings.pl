@@ -1,329 +1,97 @@
 #!/usr/bin/env perl
 
 #
-#  command to test a single CSV file
-#  - currently a Perl test, so has the rather strange usage:
+#  test a redirector mappings format CSV file
 #
-#  $ prove tools/test_csv.pl :: data/mappings/file.csv ...
-#
-#  TBD: 
-#  - refactor into a conventional unix command with switches
-#  - make error messages human readable
-#  - output files in sensible place
-#
+# TBD: follow and check redirect
+# TBD: create csv files for reports
+# TBD: check 410 content for archive and suggested links
 
 use v5.10;
 use strict;
 use warnings;
 
 use Test::More;
-
-#
-#  test the mappings cited in CSV files
-#
-foreach my $file (@ARGV) {
-
-	my $name = $file;
-	$name =~ s/^.*\/([\w\.]*).csv$/$1/;
-
-	say STDERR "$file :: $name";
-
-	my $test = SampleTests->new();
-	$test->{'force_production_redirector'} = 1;
-	$test->input_file($file);
-	$test->output_file("dist/${name}_test_output.csv");
-	$test->output_error_file("dist/${name}_failures.csv");
-	$test->run_some_tests();
-}
-
-done_testing();
-
-package SampleTests;
-
-use Test::More;
 use Text::CSV;
+use Getopt::Long;
+use Pod::Usage;
 use HTTP::Request;
 use LWP::UserAgent;
 use URI;
 
-sub new {
-    my $class = shift;
+my $env = $ENV{'DEPLOY_TO'} // "preview";
+my $host = "http://redirector.$env.alphagov.co.uk";
+my $skip_assets = 0;
+my $help;
 
-    my $self = {
-        ua => LWP::UserAgent->new( max_redirect => 0 ),
-    };
-    bless $self, $class;
+GetOptions(
+    'skip-assets|a' => \$skip_assets,
+    'help|?' => \$help,
+) or pod2usage(1);
 
-    my $host_type = $ENV{'DEPLOY_TO'} // 'preview';
-    $self->{'use_redirector'} = 1
-        if 'preview' eq $host_type;
+my $ua = LWP::UserAgent->new(max_redirect => 0);
 
-    return $self;
+foreach my $filename (@ARGV) {
+    test_csv($filename);
 }
 
-sub input_file {
-    my $self = shift;
+done_testing();
+exit;
 
-    $self->{'input_file'} = shift;
-}
+sub test_csv {
+    my ($filename) = @_;
+    my $csv = Text::CSV->new({ binary => 1 });
 
-sub output_file {
-    my $self = shift;
+    open my $fh, "<$filename" or die "unable to open $filename";
 
-    $self->{'output_file'} = shift;
-}
+    my $names = $csv->getline($fh);
+    $csv->column_names(@$names);
 
-sub output_error_file {
-    my $self = shift;
+    while (my $row = $csv->getline_hr($fh)) {
 
-    $self->{'output_error_file'} = shift;
-}
-
-sub output_redirects_file {
-    my $self = shift;
-
-    $self->{'output_redirects_file'} = shift;
-}
-
-sub run_some_tests {
-    my $self = shift;
-
-    my $csv = Text::CSV->new( { binary => 1 } )
-        or die "Cannot use CSV: ".Text::CSV->error_diag();
-
-    open( my $fh, "<", $self->{'input_file'} )
-        or die $self->{'input_file'} . ": $!";
-
-    my $names = $csv->getline( $fh );
-    $csv->column_names( @$names );
-
-    open ( my $output_log, ">", $self->{'output_file'} )
-        or die $self->{'output_file'} . ": $!";
-
-    say $output_log "Old Url,New Url,Status,Test Result,"
-                    . "Actual Status,Actual New Url,New Url Status"
-                        unless defined $self->{'output_has_no_header'};
-
-    my $error_count = 0;
-    open ( my $output_error_log, '>', $self->{'output_error_file'} )
-        or die $self->{'output_error_file'} . ": $!";
-
-    say $output_error_log "Old Url,New Url,Expected Status,"
-                          . "Actual Status,Actual New Url,New Url Status"
-                              unless defined $self->{'output_has_no_header'};
-
-    my $output_redirects_log;
-    my $redirects_count = 0;
-    if ( defined $self->{'output_redirects_file'} ) {
-        open ( $output_redirects_log, ">", $self->{'output_redirects_file'} )
-            or die $self->{'output_redirects_file'} . ": $!";
-        say $output_redirects_log "Old Url,New Url,Expected Status,"
-                            . "Actual Status,Actual New Url,New Url Status"
-                                unless defined $self->{'output_has_no_header'};
-    }
-
-    while ( my $row = $csv->getline_hr( $fh ) ) {
-        my( $passed, $response, $redirected_response, $chased_redirect )
-            = $self->test($row);
-
-        if ( $passed != -1 ) {
-            my $response_status   = $response->code;
-            my $location_header   = $response->header('location') // '';
-            my $redirected_status = 'no redirect followed';
-
-            if ( defined $redirected_response ) {
-                $redirected_status = $redirected_response->code;
-                my $is_redirect = 301 == $redirected_status
-                                  || 302 == $redirected_status;
-
-                if ( $is_redirect ) {
-                    $location_header =
-                        $redirected_response->header('location');
-                }
-            }
-
-            say $output_log
-                join ',',
-                    $row->{'Old Url'},
-                    $row->{'New Url'} // '',
-                    $row->{'Status'},
-                    $passed,
-                    $response_status,
-                    $location_header,
-                    $redirected_status;
-
-            if ( $passed == 0 ) {
-                $error_count++;
-                say $output_error_log
-                    join ',',
-                        $row->{'Old Url'},
-                        $row->{'New Url'} // '',
-                        $row->{'Status'},
-                        $response_status,
-                        $location_header,
-                        $redirected_status;
-            }
-
-            if ( $chased_redirect && defined $self->{'output_redirects_file'} ) {
-                $redirects_count++;
-                say $output_redirects_log
-                    join ',',
-                        $row->{'Old Url'},
-                        $row->{'New Url'} // '',
-                        $row->{'Status'},
-                        $response_status,
-                        $location_header,
-                        $redirected_status;
-            }
-        }
-    }
-
-    # clean up error/redirect files if no actual errors or redirects occured
-    close $output_error_log;
-    unlink $self->{'output_error_file'}
-        unless $error_count;
-    if ( defined $self->{'output_redirects_file'} ) {
-        close $output_redirects_log;
-        unlink $self->{'output_redirects_file'}
-            unless $redirects_count;
-    }
-
-}
-
-sub run_tests {
-
-    my $self = shift;
-    $self->run_some_tests();
-    done_testing();
-}
-
-sub get_response {
-    my $self = shift;
-    my $row  = shift;
-
-    my $request;
-    if ( $self->{'use_redirector'} ) {
-        my $old_uri        = URI->new( $row->{'Old Url'} );
-        my $redirector_url = sprintf '%s%s',
-                                'http://redirector.preview.alphagov.co.uk',
-                                $old_uri->path_query;
-
-        $request = HTTP::Request->new( 'GET', $redirector_url );
-        $request->header( 'Host', $old_uri->host );
-    }
-    elsif ( $self->{'force_production_redirector'} ) {
-        my $old_uri        = URI->new( $row->{'Old Url'} );
-        my $redirector_url = sprintf '%s%s',
-                                'http://redirector.production.alphagov.co.uk',
-                                $old_uri->path_query;
-
-        $request = HTTP::Request->new( 'GET', $redirector_url );
-        $request->header( 'Host', $old_uri->host );
-    }
-    else {
-        $request = HTTP::Request->new( 'GET', $row->{'Old Url'} );
-    }
-
-    return $self->{'ua'}->request($request);
-}
-
-sub is_redirect_to_a_200_or_410_eventually {
-    my $self = shift;
-    my $row  = shift;
-
-    if ( 301 == $row->{'Status'} ) {
-        my $old_url  = $row->{'Old Url'};
-        my $new_url  = $row->{'New Url'};
-        my $response = $self->get_response($row);
-        my $location = $response->header('location');
-
-        my $redirected_response_code = "wrong redirect location";
-        my $redirected_response;
-
-        my $max_redirects = 3;
-        my $chased_redirect = 0;
-
-        while ( $max_redirects && defined $location ) {
-            $max_redirects--;
-
-            $redirected_response      = $self->{'ua'}->get($location);
-            $redirected_response_code = $redirected_response->code;
-            $location                 = $redirected_response->header('location');
-
-            $chased_redirect = 1
-                 if defined $location;
-        }
-
-        if ( defined $location && $location eq $new_url ) {
-            $redirected_response = $self->{'ua'}->get($new_url);
-            $redirected_response_code = $redirected_response->code;
-        }
-
-        my $passed = is($redirected_response_code, 200, "$old_url redirects to $new_url, which is 200 line $.");
-
-        return(
-            $passed,
-            $response,
-            $redirected_response,
-            $chased_redirect
+        my ($url, $location, $status) = (
+            $row->{'Old Url'},
+            $row->{'New Url'},
+            $row->{'Status'},
         );
+
+        test_mapping($filename, $url, $location, $status);
     }
-
-    return -1;
+    close($fh);
 }
 
-sub test_closed_gones {
-    my $self = shift;
-    my $row  = shift;
+sub test_mapping {
+    my ($filename, $url, $location, $status) = @_;
 
-    return $self->is_gone_response($row);
-}
+    my $uri = URI->new($url);
 
-sub is_gone_response {
-    my $self = shift;
-    my $row  = shift;
+    my $request = HTTP::Request->new('GET', $host . $uri->path_query);
+    $request->header('Host', $uri->host);
 
-    if ( 410 == $row->{'Status'} ) {
-        my $response = $self->get_response($row);
-        my $old_url  = $row->{'Old Url'};
+    my $response = $ua->request($request);
 
-        my $passed = is($response->code, 410, "$old_url returns 410 line $.");
+    return if ($skip_assets && $status eq '200');
 
-        return($passed, $response, undef);
+    is($response->code, $status, "${url} status $filename line $.");
+
+    if ($location || $response->header('location')) {
+        is($response->header('location'), $location, "[$url] location $filename line $.");
     }
-
-    return -1;
 }
 
-sub is_ok_response {
-    my $self = shift;
-    my $row  = shift;
+__END__
 
-    if ( 200 == $row->{'Status'} ) {
-        my $response = $self->get_response($row);
-        my $old_url  = $row->{'Old Url'};
+=head1 NAME
 
-        my $passed = is($response->code, 200, "$old_url returns 200 line $.");
+test_mappings - test a redirector mappings format CSV file
 
-        return($passed, $response, undef);
-    }
+=head1 SYNOPSIS
 
-    return -1;
-}
+prove tools/test_mappings.pl :: [options] [file ...]
 
-sub test {
-    my $self = shift;
+Options:
 
-    my ( $passed, $response, $test_response ) = $self->is_redirect_to_a_200_or_410_eventually(@_);
+    -a, --skip-assets   ignore mappings which expect a 200 response
+    -?, --help          print usage
 
-    if ( -1 == $passed ) {
-    	( $passed, $response, $test_response ) = $self->test_closed_gones(@_);
-    	if ( -1 == $passed ) {
-    		( $passed, $response, $test_response ) = $self->is_ok_response(@_);
-    	}
-    }
-
-    return ($passed, $response, $test_response);
-}
-
-1;
+=cut
