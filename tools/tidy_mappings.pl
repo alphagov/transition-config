@@ -19,12 +19,14 @@ my $uniq = 0;
 my $no_output;
 my $use_actual;
 my $allow_query_string;
+my $trump;
 my $help;
 
 GetOptions(
     'no-output|n' => \$no_output,
     'use-actual|a' => \$use_actual,
     "allow-query_string|q"  => \$allow_query_string,
+    "trump|t"  => \$trump,
     'help|?' => \$help,
 ) or pod2usage(1);
 
@@ -48,6 +50,11 @@ while (<STDIN>) {
     my $line = $_;
     $line =~ s/^[^,]*,//;
     $line = "$url,$line";
+
+    if ($trump) {
+        $seen{$url} = { new => $new, status => $status, line => $line };
+        next;
+    }
 
     if (!$seen{$url}) {
         $seen{$url} = { new => $new, status => $status, line => $line };
@@ -124,6 +131,7 @@ Options:
     -n, --no-output             no output, just check
     -a, --use-actual            use the current, actual redirection to resolve conflicts
     -q, --allow-query_string    allow query-string in Old Urls
+    -t, --trump                 later mappings overwrite earlier ones
     -?, --help                  print usage
 
 =cut
