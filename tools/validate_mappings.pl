@@ -19,6 +19,7 @@ my $skip_canonical;
 my $allow_duplicates;
 my $allow_query_string;
 my $allow_https;
+my $disallow_embedded_urls;
 my $whitelist = "data/whitelist.txt";
 my $host = "";
 my %hosts = ();
@@ -30,6 +31,7 @@ GetOptions(
     "allow-duplicates|d"  => \$allow_duplicates,
     "allow-query-string|q"  => \$allow_query_string,
     "allow-https|s"  => \$allow_https,
+    "disallow-embedded-urls|u"  => \$disallow_embedded_urls,
     "host|h=s"  => \$host,
     "whitelist|w=s"  => \$whitelist,
     'help|?' => \$help,
@@ -80,6 +82,10 @@ sub test_row {
 
     unless ($allow_query_string) {
         ok(!$old_uri->query, "Old Url [$old_url] query string not allowed $context");
+    }
+
+    if ($disallow_embedded_urls) {
+        ok($old_url !~ /^http[^\?]*http/, "Old Url [$old_url] contains another Url $context");
     }
 
     my $scheme = $old_uri->scheme;
@@ -153,20 +159,21 @@ __END__
 
 =head1 NAME
 
-validate_csv - validate a redirector mappings format CSV file
+validate_mappings - validate a redirector mappings format CSV file
 
 =head1 SYNOPSIS
 
-prove tools/validate_csv.pl :: [options] [file ...]
+prove tools/validate_mappings.pl :: [options] [file ...]
 
 Options:
 
-    -c, --skip-canonical        don't check for canonical Old Urls
-    -d, --allow-duplicates      allow duplicate Old Urls
-    -h, --host host             constrain Old Urls to host
-    -s, --allow-https           allow https in Old Urls
-    -q, --allow-query-string    allow query-string in Old Urls
-    -w, --whitelist filename    constrain New Urls to those in a whitelist
-    -?, --help                  print usage
+    -c, --skip-canonical            don't check for canonical Old Urls
+    -d, --allow-duplicates          allow duplicate Old Urls
+    -h, --host host                 constrain Old Urls to host
+    -s, --allow-https               allow https in Old Urls
+    -q, --allow-query-string        allow query-string in Old Urls
+    -u, --disallow-embedded-urls    disallow Urls in Old Urls
+    -w, --whitelist filename        constrain New Urls to those in a whitelist
+    -?, --help                      print usage
 
 =cut
