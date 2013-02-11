@@ -18,11 +18,13 @@ my %seen = ();
 my $uniq = 0;
 my $no_output;
 my $use_actual;
+my $allow_query_string;
 my $help;
 
 GetOptions(
     'no-output|n' => \$no_output,
     'use-actual|a' => \$use_actual,
+    "allow-query_string|q"  => \$allow_query_string,
     'help|?' => \$help,
 ) or pod2usage(1);
 
@@ -40,7 +42,7 @@ while (<STDIN>) {
 
     my ($old, $new, $status) = split(/,/);
 
-    my $url = c14n_url($old);
+    my $url = c14n_url($old, $allow_query_string);
 
     # line to be printed
     my $line = $_;
@@ -115,12 +117,13 @@ tidy_mappings - canonicalise and remove duplicate redirector mappings
 
 =head1 SYNOPSIS
 
-tools/dedupe_mappings.pl [options] < mappings
+tools/tidy_mappings.pl [options] < mappings
 
 Options:
 
-    -n, --no-output     no output, just check
-    -a, --use-actual    use the current, actual redirection to resolve conflicts
-    -?, --help          print usage
+    -n, --no-output             no output, just check
+    -a, --use-actual            use the current, actual redirection to resolve conflicts
+    -q, --allow-query_string    allow query-string in Old Urls
+    -?, --help                  print usage
 
 =cut

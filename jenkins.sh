@@ -28,7 +28,7 @@ status "Processing data/sites.csv ..."
 (
     IFS=,
     read titles
-    while read site host redirection_date tna_timestamp title new_site aliases rest
+    while read site host redirection_date tna_timestamp title new_site aliases validate_options rest
     do
         mappings=dist/${site}_mappings_source.csv
         sitemap=dist/static/${site}/sitemap.xml
@@ -46,7 +46,9 @@ status "Processing data/sites.csv ..."
         status
 
         status "Validating mappings file for $site ..."
-        prove tools/validate_mappings.pl :: --host $host --whitelist $whitelist $mappings
+        set -x
+        prove tools/validate_mappings.pl :: --host $host --whitelist $whitelist $validate_options $mappings
+        set +x
 
         status "Creating mappings for $site ..."
         perl -Ilib tools/generate_mappings.pl $mappings

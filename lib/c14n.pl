@@ -2,12 +2,22 @@
 #  canonicalise a URL
 #
 sub c14n_url {
-    my ($url) = @_;
+    my ($url, $allow_query_string) = @_;
+
+    # all our nginx location and map matches are case-insensitive
+    # ordinarily a bad idea for resources, this and removes a lot of duplicate mappings
     $url = lc($url);
-    $url =~ s/\?*$//;
-    $url =~ s/\/*$//;
-    $url =~ s/\#*$//;
+
+    # remove query_string
+    unless ($allow_query_string) {
+        $url =~ s/\?.*$//;
+    }
+
+    # remove trailing insignificant characters
+    $url =~ s/[\?\/\#]*$//;
+
     $url =~ s/,/%2C/;
+
     return $url;
 }
 
