@@ -28,7 +28,7 @@ my $help;
 GetOptions(
     "skip-canonical|c"  => \$skip_canonical,
     "allow-duplicates|d"  => \$allow_duplicates,
-    "allow-query_string|q"  => \$allow_query_string,
+    "allow-query-string|q"  => \$allow_query_string,
     "allow-https|s"  => \$allow_https,
     "host|h=s"  => \$host,
     "whitelist|w=s"  => \$whitelist,
@@ -165,7 +165,7 @@ Options:
     -d, --allow-duplicates      allow duplicate Old Urls
     -h, --host host             constrain Old Urls to host
     -s, --allow-https           allow https in Old Urls
-    -q, --allow-query_string    allow query-string in Old Urls
+    -q, --allow-query-string    allow query-string in Old Urls
     -w, --whitelist filename    constrain New Urls to those in a whitelist
     -?, --help                  print usage
 
