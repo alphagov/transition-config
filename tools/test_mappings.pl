@@ -3,7 +3,6 @@
 #
 #  test a redirector mappings format CSV file
 #
-# TBD: follow and check redirect
 # TBD: create csv files for reports
 # TBD: check 410 content for archive and suggested links
 
@@ -25,6 +24,7 @@ my $env = $ENV{'DEPLOY_TO'} // "dev";
 my $host;
 my $real;
 my $skip_assets = 0;
+my $no_follow = 0;
 my $mappings = 0;
 my $help;
 
@@ -32,6 +32,7 @@ GetOptions(
     'skip-assets|a' => \$skip_assets,
     'env|e=s' => \$env,
     'host|h=s' => \$host,
+    'no-follow|n' => \$no_follow,
     'real|r' => \$real,
     'mapping|m' => \$mappings,
     'help|?' => \$help,
@@ -42,6 +43,7 @@ pod2usage(2) if ($help);
 $host //= "redirector.$env.alphagov.co.uk";
 
 my $ua = LWP::UserAgent->new(max_redirect => 0);
+my $follow = LWP::UserAgent->new(max_redirect => 3);
 
 if ($mappings) {
     foreach my $mapping (@ARGV) {
@@ -83,19 +85,32 @@ sub test_mapping {
 
     my $uri = URI->new($url);
 
+    # direct or via redirector?
     my $get = $real ? $url : $uri->scheme . "://" . $host . $uri->path_query;
 
+    # make request
     my $request = HTTP::Request->new('GET', $get);
     $request->header('Host', $uri->host);
-
     my $response = $ua->request($request);
+    my $response_location = $response->header('location') // '';
 
+    # skip assets?
     return if ($skip_assets && $status eq '200');
 
+    # check response
     is($response->code, $status, "${url} status $context");
 
-    if ($location || $response->header('location')) {
-        is($response->header('location'), $location, "[$url] location $context");
+    if ($location || $response_location) {
+        is($response_location, $location, "[$url] location $context");
+    }
+
+    # follow redirect
+    unless ($no_follow) {
+        if ($location && $response_location && $location eq $response->header('location')) {
+            my $request = HTTP::Request->new('GET', $location);
+            my $response = $follow->request($request);
+            is($response->code, 200, "followed redirect $context");
+        }
     }
 }
 
@@ -114,6 +129,7 @@ Options:
     -a, --skip-assets       ignore mappings which expect a 200 response
     -e, --environment env   override DEPLOY_TO environment dev|preview|production|...
     -h, --host hostname     specifiy redirector hostname
+    -n, --no-follow         don't follow a redirect to check New Url
     -r, --real              test with real hostnames from mapping urls
     -m, --mappings          treat args are a series of mapping lines
     -?, --help              print usage
