@@ -17,6 +17,7 @@ use URI;
 
 my $skip_canonical;
 my $allow_duplicates;
+my $allow_query_string;
 my $allow_https;
 my $whitelist = "data/whitelist.txt";
 my $host = "";
@@ -27,6 +28,7 @@ my $help;
 GetOptions(
     "skip-canonical|c"  => \$skip_canonical,
     "allow-duplicates|d"  => \$allow_duplicates,
+    "allow-query_string|q"  => \$allow_query_string,
     "allow-https|s"  => \$allow_https,
     "host|h=s"  => \$host,
     "whitelist|w=s"  => \$whitelist,
@@ -70,18 +72,22 @@ sub test_row {
 
     my $old_uri = check_url($context, 'Old Url', $old_url);
 
+    my $c14n = c14n_url($old_url);
+
+    unless (!$skip_canonical) {
+        is($old_url, $c14n, "Old Url [$old_url] is not canonical [$c14n] $context");
+    }
+
+    unless ($allow_query_string) {
+        ok(!$old_uri->query, "Old Url [$old_url] query string not allowed $context");
+    }
+
     my $scheme = $old_uri->scheme;
 
     my $s = ($allow_https) ? "s?": "";
     ok($scheme =~ m{^http$s$}, "Old Url [$old_url] scheme [$scheme] must be [http] $context");
 
     ok($old_url =~ m{^https?://$host}, "Old Url [$old_url] host not [$host] $context");
-
-    my $c14n = c14n_url($old_url);
-
-    unless (!$skip_canonical) {
-        is($old_url, $c14n, "Old Url [$old_url] is not canonical [$c14n] $context");
-    }
 
     unless ($allow_duplicates) {
         ok(!defined($seen{$c14n}), "Old Url [$old_url] $context is a duplicate of line " . ($seen{$c14n} // ""));
@@ -159,6 +165,7 @@ Options:
     -d, --allow-duplicates      allow duplicate Old Urls
     -h, --host host             constrain Old Urls to host
     -s, --allow-https           allow https in Old Urls
+    -q, --allow-query_string    allow query-string in Old Urls
     -w, --whitelist filename    constrain New Urls to those in a whitelist
     -?, --help                  print usage
 
