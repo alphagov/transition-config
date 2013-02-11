@@ -47,16 +47,8 @@ sub handle_start_tag {
     my $expected_tag = $expected_tags[$depth];
     my $namespace    = $parser->namespace($tag);
 
-    is(
-        $namespace,
-        'http://www.sitemaps.org/schemas/sitemap/0.9',
-        'namespace is correct'
-    );
-    is(
-        $tag,
-        $expected_tag,
-        'tag is correct'
-    );
+    is($namespace, 'http://www.sitemaps.org/schemas/sitemap/0.9', 'namespace is correct');
+    is($tag, $expected_tag, 'tag is correct');
 
     undef $url_in_tag;
 }
@@ -71,14 +63,8 @@ sub handle_end_tag {
         my $uri = URI->new($url_in_tag);
         my $hostname = $uri->host;
 
-        ok(
-            $uri->scheme =~ m{^ http s? $}x,
-            'scheme is either http or https'
-        );
-        ok(
-            defined $valid_hostnames{$hostname},
-            "hostname $hostname is valid"
-        );
+        ok($uri->scheme =~ m{^ http s? $}x, 'scheme is either http or https');
+        ok(defined $valid_hostnames{$hostname}, "hostname $hostname is valid");
     }
 }
 
