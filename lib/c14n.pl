@@ -13,6 +13,9 @@ sub c14n_url {
         $url =~ s/\?.*$//;
     }
 
+    # remove fragment identifier
+    $url =~ s/\#.*$//;
+
     # remove trailing insignificant characters
     $url =~ s/[\?\/\#]*$//;
 
