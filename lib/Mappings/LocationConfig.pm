@@ -45,14 +45,18 @@ sub actual_nginx_config {
         $archive_link
     );
 }
+
 sub get_location_key {
     my $self = shift;
     my $path = shift;
 
     # remove %-encoding in source mappings for nginx
+    # changing %-encoding back into real characters - why?
     $path =~ s/%([0-9A-Fa-f]{2})/chr(hex($1))/eg;
     
     # escape characters with regexp meaning
+    # do need to do this - where should we do this?
+    # should also do this for map config
     $path =~ s{\(}{\\(}g;
     $path =~ s{\)}{\\)}g;
     $path =~ s{\.}{\\.}g;
@@ -63,9 +67,6 @@ sub get_location_key {
     $path =~ s{\t}{\\\t}g;
     $path =~ s{;}{\\;}g;
     
-    # strip trailing slashes, as they are added as optional in nginx
-    $path =~ s{/$}{};
-
     # add optional trailing slash
     $path = $path . "/?";
 
