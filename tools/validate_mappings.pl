@@ -60,6 +60,9 @@ sub test_file {
     my $names = $csv->getline($fh);
     $csv->column_names(@$names);
 
+    my $line = join(",", @$names);
+    ok($line =~ /^Old Url,New Url,Status(,?$|,)/, "incorrect column names [$line]");
+
     while (my $row = $csv->getline_hr($fh)) {
         test_row("$filename line $.", $row);
     }
