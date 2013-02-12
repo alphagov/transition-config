@@ -109,7 +109,8 @@ sub test_mapping {
         if ($location && $response_location && $location eq $response->header('location')) {
             my $request = HTTP::Request->new('GET', $location);
             my $response = $follow->request($request);
-            is($response->code, 200, "followed redirect $context");
+            my $code = $response->code;
+            ok($code =~ /^(200|410)/, "followed redirect to [$location] which is [$code] $context");
         }
     }
 }
