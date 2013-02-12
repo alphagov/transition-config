@@ -106,7 +106,7 @@ sub test_row {
     if ( "301" eq $status) {
         my $new_uri = check_url($context, 'New Url', $new_url);
         my $new_host = $new_uri->host;
-        ok($hosts{$new_host}, "New Url [$new_url] host [$new_host] not whiltelist $context");
+        ok($hosts{$new_host}, "New Url [$new_url] host [$new_host] not whitelist $context");
     } elsif ( "410" eq $status) {
         ok($new_url eq '', "unexpected New Url [$new_url] for 410 $context");
     } elsif ( "200" eq $status) {

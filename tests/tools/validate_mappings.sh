@@ -30,7 +30,7 @@ errors
 
 diff /tmp/validate.errors - <<!
 #   Failed test 'invalid Status [404] for Old Url [http://example.com/invalid-status] line 3'
-#   Failed test 'New Url [https://whatfettle.com] host [whatfettle.com] not whiltelist /tmp/validate.in line 6'
+#   Failed test 'New Url [https://whatfettle.com] host [whatfettle.com] not whitelist /tmp/validate.in line 6'
 #   Failed test 'Old Url [http://EXAMPLE.COM/bad-capitals] is not canonical [http://example.com/bad-capitals] /tmp/validate.in line 8'
 #          got: 'http://EXAMPLE.COM/bad-capitals'
 #     expected: 'http://example.com/bad-capitals'
