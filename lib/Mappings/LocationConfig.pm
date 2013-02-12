@@ -67,9 +67,6 @@ sub get_location_key {
     $path =~ s{\t}{\\\t}g;
     $path =~ s{;}{\\;}g;
 
-    # strip trailing slashes, as they are added as optional in nginx
-    $path =~ s{/$}{};
-
     # add optional trailing slash
     $path = $path . "/?";
 
