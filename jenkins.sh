@@ -4,9 +4,13 @@ set -e
 
 . tools/messages.sh
 
-status "Running unit tests ..."
+status "Testing tools ..."
+for t in tests/tools/*.sh ; do $t ; done
+
+status "Testing munge ..."
 ruby -I. munge/tests/*.rb
-tests/tools/*.sh
+
+status "Testing logic ..."
 prove -lj4 tests/unit/logic/*.t
 
 status "Copying configuration to dist ..."
