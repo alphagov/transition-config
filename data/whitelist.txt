@@ -1,6 +1,5 @@
 #
 #  whitelist of domains which may be used in a New Url
-#
 2050-calculator-tool.decc.gov.uk
 army.mod.uk
 batransandbareports.voa.gov.uk
@@ -83,6 +82,7 @@ www.businesslink.innovateuk.org
 www.cabinetoffice.gov.uk
 www.capt.org.uk
 www.chevening.org
+www.civilservice.gov.uk
 www.cnpa.police.uk
 www.communities.gov.uk
 www.companieshouse.gov.uk
@@ -93,6 +93,7 @@ www.decc.gov.uk
 www.defra.gov.uk
 www.dft.gov.uk
 www.direct.gov.uk
+www.dpm.cabinetoffice.gov.uk
 www.dvla.gov.uk
 www.dwp.gov.uk
 www.eblex.org.uk
