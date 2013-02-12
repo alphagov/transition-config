@@ -76,7 +76,7 @@ sub test_row {
 
     my $c14n = c14n_url($old_url);
 
-    unless (!$skip_canonical) {
+    unless ($skip_canonical) {
         is($old_url, $c14n, "Old Url [$old_url] is not canonical [$c14n] $context");
     }
 
