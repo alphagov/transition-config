@@ -8,18 +8,18 @@ use base 'Mappings::Rules';
 
 sub actual_nginx_config {
     my $self = shift;
-        
+
     my $config_or_error_type = 'location';
     my $suggested_link_type;
     my $suggested_link;
     my $archive_link;
     my $config;
-    
+
     my $path = $self->{'old_url_parts'}{'path'};
     my $location_key = $self->get_location_key($path);
 
     my $duplicate_entry_key  = $location_key;
-    
+
     if ( defined $self->{'duplicates'}{$duplicate_entry_key} ) {
         $config_or_error_type = 'duplicate_entry_error';
         $config = "$self->{'old_url'}\n";
@@ -33,9 +33,9 @@ sub actual_nginx_config {
     elsif ( '301' eq $self->{'status'} ) {
         $config = "location ~* ^${location_key}\$ { return 301 $self->{'new_url'}; }\n";
     }
-    
+
     $self->{'duplicates'}{$duplicate_entry_key} = 1;
-        
+ 
     return(
         $self->{'old_url_parts'}{'host'},
         $config_or_error_type,
@@ -53,7 +53,7 @@ sub get_location_key {
     # remove %-encoding in source mappings for nginx
     # changing %-encoding back into real characters - why?
     $path =~ s/%([0-9A-Fa-f]{2})/chr(hex($1))/eg;
-    
+
     # escape characters with regexp meaning
     # do need to do this - where should we do this?
     # should also do this for map config
@@ -61,12 +61,15 @@ sub get_location_key {
     $path =~ s{\)}{\\)}g;
     $path =~ s{\.}{\\.}g;
     $path =~ s{\*}{\\*}g;
-    
+
     # escape charaters with nginx config meaning
     $path =~ s{ }{\\ }g;
     $path =~ s{\t}{\\\t}g;
     $path =~ s{;}{\\;}g;
-    
+
+    # strip trailing slashes, as they are added as optional in nginx
+    $path =~ s{/$}{};
+
     # add optional trailing slash
     $path = $path . "/?";
 
