@@ -8,7 +8,7 @@ if [ "$#" = "0" ]; then
 fi
 
 if [ ! -f ./document_mappings.csv ]; then
-    wget https://$2:$3@whitehall-admin.production.alphagov.co.uk/government/document_mappings.csv
+    wget https://$2:$3@whitehall-admin.production.alphagov.co.uk/government/all_document_attachment_and_non_document_mappings.csv
 fi
 
 department=$1
