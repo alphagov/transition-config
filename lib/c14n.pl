@@ -19,6 +19,9 @@ sub c14n_url {
     # remove trailing insignificant characters
     $url =~ s/[\?\/\#]*$//;
 
+    # escape problematic characters
+    $url =~ s/"/%22/;
+    $url =~ s/'/%27/;
     $url =~ s/,/%2C/;
 
     return $url;
