@@ -17,13 +17,15 @@ sites="data/sites.csv"
 
 while test $# -gt 0 ; do
     case "$1" in
-    -n|--name) shift; name="$1 " ;;
-    -s|--sites) shift; sites="$1" ;;
+    -n|--name) shift; name="$1 " ; shift ; continue;;
+    -s|--sites) shift; sites="$1" ; shift ; continue;;
     -\?|-h|--help) usage ;;
     --) break ;;
+    -*) usage ;;
     esac
-    shift; break
+    break
 done
+
 
 #
 #  hosts from sites.csv
