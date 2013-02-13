@@ -161,11 +161,13 @@ class MappingFetcher
               sanitize_urls(input_csv)))))
       rows.sort_by {|row| row['old url']}.each do |row|
         status = row ['status']
+        if status != '418'
+          status = blank?(row['new url']) ? "410" : "301"
+        end
         new_row = [
           row['old url'],
           row['new url'],
-          status,
-          blank?(row['new url']) ? "410" : "301"
+          status
         ]
         validate_row!(new_row)
         output_csv << new_row
