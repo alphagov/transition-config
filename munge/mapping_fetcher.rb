@@ -34,7 +34,8 @@ class MappingFetcher
             'source' => source,
             'row_number' => i + 2,
             'old url' => row['old url'],
-            'new url' => row['new url']
+            'new url' => row['new url'],
+            'status'  => row['status']
           }
         end
       end
@@ -159,10 +160,14 @@ class MappingFetcher
             skip_rows_with_blank_or_invalid_old_url(
               sanitize_urls(input_csv)))))
       rows.sort_by {|row| row['old url']}.each do |row|
+        status = row ['status']
+        if status != '418'
+          status = blank?(row['new url']) ? "410" : "301"
+        end
         new_row = [
           row['old url'],
           row['new url'],
-          blank?(row['new url']) ? "410" : "301"
+          status
         ]
         validate_row!(new_row)
         output_csv << new_row
@@ -189,7 +194,8 @@ class MappingFetcher
           'source' => row['source'],
           'row_number' => row['row_number'],
           'old url' => row['old url'],
-          'new url' => new_url
+          'new url' => new_url,
+          'status'  => row['status']
         }
       end
     end
@@ -202,7 +208,8 @@ class MappingFetcher
           'source' => row['source'],
           'row_number' => row['row_number'],
           'old url' => sanitize_url(row['old url']),
-          'new url' => sanitize_url(row['new url'])
+          'new url' => sanitize_url(row['new url']),
+          'status' => sanitize_url(row['status'])
         }
       end
     end
@@ -265,7 +272,8 @@ class MappingFetcher
         'source' => row['source'],
         'row_number' => row['row_number'],
         'old url' => row['old url'],
-        'new url' => url
+        'new url' => url,
+        'status'  => row['status']
       }
     end
   end
