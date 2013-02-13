@@ -6,6 +6,10 @@ set -e
 
 status DEPLOY_TO=$DEPLOY_TO
 
-status "Testing CSV files from data/test/subsets ..."
+dir="data/tests/subsets"
 
-prove -l tools/test_mappings.pl :: $@ data/tests/subsets/*.csv
+status "Checking test coverage ..."
+tools/test_coverage.sh --name $dir --sites data/sites.csv $dir/*
+
+status "Testing CSV files from $dir ..."
+prove -l tools/test_mappings.pl :: $@ $dir/*.csv
