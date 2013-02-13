@@ -103,7 +103,7 @@ sub test_row {
         $seen{$c14n} = $.;
     }
 
-    if ( "301" eq $status) {
+    if ( "301" eq $status || "418" eq $status ) {
         my $new_uri = check_url($context, 'New Url', $new_url);
         my $new_host = $new_uri->host;
         ok($hosts{$new_host}, "New Url [$new_url] host [$new_host] not whitelist $context");
