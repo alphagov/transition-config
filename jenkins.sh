@@ -36,6 +36,7 @@ status "Processing data/sites.csv ..."
     do
         mappings=dist/${site}_mappings_source.csv
         sitemap=dist/static/${site}/sitemap.xml
+        conf=dist/configs/${site}.conf
         cp data/mappings/${site}.csv $mappings
 
         status
@@ -50,9 +51,12 @@ status "Processing data/sites.csv ..."
         status
 
         status "Validating mappings file for $site ..."
-        set -x
         prove tools/validate_mappings.pl :: --host $host --whitelist $whitelist $validate_options $mappings
-        set +x
+
+        if [ ! -f $conf ] ; then
+            status "Creating nginx config for $site ... "
+            tools/generate_nginx_conf.sh "$site" "$host" "$aliases" > $conf
+        fi
 
         status "Creating mappings for $site ..."
         perl -Ilib tools/generate_mappings.pl $mappings
