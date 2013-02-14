@@ -27,11 +27,12 @@ mappings=$(
 cut -d, -f2 "$sites" |
     while read host
     do
-        echo "http://$host/facicon.ico,,200"
         echo "http://$host/robots.txt,,200"
         echo "http://$host/sitemap.xml,,200"
-        echo "http://$host/404.php,,404"
-        echo "http://$host/410.php,,410"
+
+        #TBD: echo "http://$host/facicon.ico,,200"
+        #TBD: echo "http://$host/404,,404"
+        #TBD: echo "http://$host/410,,410"
     done)
 
 prove tools/test_mappings.pl :: -m "$@" $mappings
