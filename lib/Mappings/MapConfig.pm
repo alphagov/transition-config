@@ -27,6 +27,10 @@ sub actual_nginx_config {
             $config_or_error_type = 'duplicate_entry_error';
             $config_line = $self->{'old_url'} . "\n";
         }
+        elsif ( '418' eq $self->{'status'} ) {
+            $config_or_error_type = 'awaiting_content_map';
+            $config_line = "~*${map_key} 418;\n";
+        }
         elsif ( '410' eq $self->{'status'} ) {
             $config_or_error_type = 'gone_map';
             $config_line = "~*${map_key} 410;\n";

@@ -24,6 +24,9 @@ sub actual_nginx_config {
         $config_or_error_type = 'duplicate_entry_error';
         $config = "$self->{'old_url'}\n";
     }
+    elsif ( '418' eq $self->{'status'} ) {
+        $config = "location ~* ^${location_key}\$ { return 418; }\n";
+    }
     elsif ( '410' eq $self->{'status'} ) {
         $config = "location ~* ^${location_key}\$ { return 410; }\n";
         $suggested_link_type = 'location_suggested_link';
