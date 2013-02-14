@@ -9,8 +9,6 @@ status "DEPLOY_TO=$DEPLOY_TO"
 mappings="dist/full_tests_mappings.csv"
 
 status "Combining all known mappings into $mappings ..."
-
-# find all mappings and tests
 mkdir -p dist
 
 {
@@ -33,9 +31,11 @@ mkdir -p dist
 
 ) > $mappings
 
-status "Testing $mappings ..."
-
 status "Checking test coverage ..."
 tools/test_coverage.sh --name "$mappings" --sites data/sites.csv $mappings
 
+status "Testing static assets ..."
+tools/test_static_assets.sh --sites data/sites.csv
+
+status "Testing $mappings ..."
 prove -l tools/test_mappings.pl :: $@ $mappings
