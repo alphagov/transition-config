@@ -5,7 +5,6 @@ require 'csv'
 abort "Usage: #{__FILE__} http://example.com < document_mappings.csv" unless ARGV.size > 0
 
 def include_row?(row)
-  # 'Whole Tag' is because attachments are currently in the wrong format
   ['published', 'draft', 'submitted', 'Closed'].include?(row['State'])
 end
 
