@@ -30,8 +30,8 @@ set -e
 echo "Fetching mappings for $domain..."
 ./munge/extract-mappings.rb $domain < ./document_mappings.csv | $make_mappings_file
 
-echo "Folding mappings..."
-./munge/fold-mappings.rb < $mappings_out > $folded_mappings
+echo "Folding and tidying mappings..."
+cat $mappings_out | ./munge/fold-mappings.rb | ./tools/tidy_mappings.pl > $folded_mappings
 
 echo "Sorting and putting folded file in place..."
 sort -u $folded_mappings > $mappings_out
