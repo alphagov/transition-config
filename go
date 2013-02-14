@@ -9,7 +9,7 @@ host=redirector.dev.alphagov.co.uk
 #
 #  build
 #
-jenkins.sh
+time jenkins.sh
 
 #
 #  copy dist/conf to /etc/nginx/sites-enabled
@@ -18,9 +18,9 @@ jenkins.sh
 #
 #  restart nginx
 #
-ssh $host sudo /etc/init.d/nginx restart
+time ssh $host sudo /etc/init.d/nginx restart
 
 #
 #  smoke tests
 #
-smoke_tests.sh --host $host --skip-assets
+time smoke_tests.sh --host $host --skip-assets
