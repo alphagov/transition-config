@@ -128,3 +128,8 @@ We start with a blank set and patch each of these files on top of each other.
 * 410 if invalid new (easy)
 * fold (following redirects in the file) (split out from munge?)
 * sort -u (easy)
+
+## Current process for munging Scotland (very manual)
+
+* munge, then remove all rows where the old url has a query string, then remove any that have mailto, then tidy
+
