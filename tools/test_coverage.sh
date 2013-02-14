@@ -41,7 +41,7 @@ cat "$@" |
     sed -e 's/^http:\/\///' -e 's/\/.*$//' |
     sort -u |
     grep -v "Old Url" |
-    comm -3 $hosts - |
+    comm -2 -3 $hosts - |
     sed -e 's/[ 	]//g' -e 's/^/> /'
 )
 
