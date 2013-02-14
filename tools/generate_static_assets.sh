@@ -58,6 +58,37 @@ cat > "${path}/404.html" <<EOF
 </html>
 EOF
 
+#  generate 418 page
+#
+cat > "${path}/418.html" <<EOF
+<!DOCTYPE html>
+<html class="no-branding">
+  <head>
+    <meta charset="utf-8">
+    <title>This page is awaiting content</title>
+    <link href="/gone.css" media="screen" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <section id="content" role="main" class="group">
+      <div class="gone-container">
+        <header class="page-header group $site">
+          <div class="legacy-site-logo"></div>
+          <hgroup>
+            <h1>This $title page is awaiting content on GOV.UK</h1>
+          </hgroup>
+        </header>
+
+        <article role="article" class="group">
+
+          <p>On $redirection_date the $title website will be replaced by <a href='$new_site'>$new_homepage</a>.</p>
+          <p>This page is currently awaiting content and is yet to be published.</p>
+
+        </article>
+      </div>
+    </section>
+  </body>
+</html>
+EOF
 
 #
 #  generate 410 page content
