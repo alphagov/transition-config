@@ -98,10 +98,10 @@ sub test_mapping {
     return if ($skip_assets && $status eq '200');
 
     # check response
-    is($response->code, $status, "${url} status $context");
+    is($response->code, $status, "${url} unexpected status $context");
 
     if ($location || $response_location) {
-        is($response_location, $location, "[$url] location $context");
+        is($response_location, $location, "[$url] unexpected location $context");
     }
 
     # follow redirect
