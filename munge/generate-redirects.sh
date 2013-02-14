@@ -25,13 +25,15 @@ echo "Generating mappings..."
 # First let's extract the mappings by domain
 # This assumes domain (host) is second column in sites.csv - brittle
 domain=`cat data/sites.csv | grep "^$department" | cut -d ',' -f2`
+# This assumes validate options is 8th column in sites.csv - brittle
+validate_options=`cat data/sites.csv | grep "^$department" | cut -d ',' -f8`
 
 set -e
 echo "Fetching mappings for $domain..."
 ./munge/extract-mappings.rb $domain < ./document_mappings.csv | $make_mappings_file
 
-echo "Folding and tidying mappings..."
-cat $mappings_out | ./munge/fold-mappings.rb | ./tools/tidy_mappings.pl > $folded_mappings
+echo "Folding and tidying mappings... (with $validate_options)"
+cat $mappings_out | ./munge/fold-mappings.rb | ./tools/tidy_mappings.pl $validate_options > $folded_mappings
 
 echo "Sorting and putting folded file in place..."
 sort -u $folded_mappings > $mappings_out
