@@ -25,7 +25,7 @@ my $help;
 GetOptions(
     'no-output|n' => \$no_output,
     'use-actual|a' => \$use_actual,
-    "allow-query_string|q"  => \$allow_query_string,
+    "allow-query-string|q"  => \$allow_query_string,
     "trump|t"  => \$trump,
     'help|?' => \$help,
 ) or pod2usage(1);
@@ -130,7 +130,7 @@ Options:
 
     -n, --no-output             no output, just check
     -a, --use-actual            use the current, actual redirection to resolve conflicts
-    -q, --allow-query_string    allow query-string in Old Urls
+    -q, --allow-query-string    allow query-string in Old Urls
     -t, --trump                 later mappings overwrite earlier ones
     -?, --help                  print usage
 
