@@ -26,13 +26,16 @@ mkdir -p dist
     cat data/tests/full/*.csv \
         data/tests/subsets/*.csv
 
-} | sed 's/"//g' | sort | uniq | egrep -v '^Old Url' | (
+} | egrep -v '^Old Url' | sort -u | (
 
-	echo "Old Url,New Url,Status,Suggested Link,Archive Link"
-	cat
+    echo "Old Url,New Url,Status,Suggested Link,Archive Link"
+    cat
 
 ) > $mappings
 
 status "Testing $mappings ..."
+
+status "Checking test coverage ..."
+tools/test_coverage.sh --name "$mappings" --sites data/sites.csv $mappings
 
 prove -l tools/test_mappings.pl :: $@ $mappings
