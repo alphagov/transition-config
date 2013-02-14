@@ -1,3 +1,67 @@
+
+# Process
+
+## Current process of creating source csv files
+
+The input data is a series of csv files for each department (latest takes precedence):
+
+* Any other ??
+* Analytics old -> nothing
+* Sitemap old -> new
+* Manual old -> new
+* Furls old -> old
+* Whitehall old -> new
+
+We start with a blank set and patch each of these files on top of each other.
+
+1. Sanitizes url:
+
+* space encoding
+* removing all spaces
+* &amp; -> &
+* removes extra close parentheses
+* encodes commas
+
+2. skips blanks or invalid old urls
+
+* has to have a scheme and pass URI.parse
+
+3. deduping
+
+4. remaps
+
+* admin urls -> public urls
+* ensures that gov.uk urls use https
+* if invalid new url, then 410s
+
+5. folding
+6. sort -u
+
+## Possible command line chain
+
+* fetch CSVs:
+  * Any Other
+  * Analytics
+  * Sitemap
+  * Manual mappings
+  * Furls
+  * Harvester
+  * Whitehall
+  * Patches
+* concat together in from least reliable to most reliable (need fetch)
+* sanitize (1 above) (split out from munge)
+* skip blank or invalid old (split out from munge)
+* tidy --overwrite (also c14n's) (Paul)
+* admin -> public (split out from munge)
+* govuk -> https (easy)
+* 410 if invalid new (easy)
+* fold (following redirects in the file) (split out from munge?)
+* sort -u (easy)
+
+## Current process for munging Scotland (very manual)
+
+* munge, then remove all rows where the old url has a query string, then remove any that have mailto, then tidy
+
 # Redirector fetch process
 
 ## How to set up a new department
