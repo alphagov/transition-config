@@ -17,7 +17,7 @@ class TestDaisyChainRedirector < MiniTest::Unit::TestCase
 
   def setup
     @reporter = Reporter.new
-    @fetcher = MappingFetcher.new("decc", @reporter)
+    @fetcher = MappingFetcher.new(@reporter)
   end
 
   def assert_redirects(rows, options)
