@@ -2,16 +2,46 @@
 
 set -e
 
+cmd=$(basename $0)
+sites="data/sites.csv"
+tests="y"
+validation="y"
+
+usage() {
+    echo "usage: $cmd [opts] [mappings.csv ...]" >&2
+    echo "    [-s|--sites $sites] sites file" >&2
+    echo "    [-n|--skip-validation]      skip validation" >&2
+    echo "    [-t|--skip-tests]           skip tests" >&2
+    echo "    [-v|--verbose]              verbose" >&2
+    echo "    [-?|--help]                 print usage" >&2
+    exit 1
+}
+
+while test $# -gt 0 ; do
+    case "$1" in
+    -s|--sites) shift; sites="$1" ; shift ; continue ;;
+    -v|--verbose) set -x ; shift; continue ;;
+    -n|--skip-validation) validation=""; shift; continue ;;
+    -t|--skip-tests) tests=""; shift;;
+    -\?|-h|--help) usage ;;
+    --) break ;;
+    -*) usage ;;
+    esac
+    break
+done
+
 . tools/messages.sh
 
-status "Testing tools ..."
-for t in tests/tools/*.sh ; do $t ; done
+if [ -n "$tests" ] ; then
+    status "Testing tools ..."
+    for t in tests/tools/*.sh ; do $t ; done
 
-status "Testing munge ..."
-rake test
+    status "Testing munge ..."
+    rake test
 
-status "Testing logic ..."
-prove -lj4 tests/unit/logic/*.t
+    status "Testing logic ..."
+    prove -lj4 tests/unit/logic/*.t
+fi
 
 status "Copying configuration to dist ..."
 rm -rf dist
@@ -50,8 +80,10 @@ status "Processing data/sites.csv ..."
         status ":: mappings: $mappings"
         status
 
-        status "Validating mappings file for $site ..."
-        prove tools/validate_mappings.pl :: --host $host --whitelist $whitelist $validate_options $mappings
+        if [ -n "$validate" ] ; then
+            status "Validating mappings file for $site ..."
+            prove tools/validate_mappings.pl :: --host $host --whitelist $whitelist $validate_options $mappings
+        fi
 
         if [ ! -f $conf ] ; then
             status "Creating nginx config for $site ... "
@@ -67,11 +99,13 @@ status "Processing data/sites.csv ..."
         status "Creating sitemap for $site ..."
         tools/generate_sitemap.pl $mappings $host > $sitemap
 
-        status "Testing sitemap for $site ..."
-        prove tools/test_sitemap.pl :: $sitemap $host
+        if [ -n "$validate" ] ; then
+            status "Testing sitemap for $site ..."
+            prove tools/test_sitemap.pl :: $sitemap $host
+        fi
     done
     report
-) < data/sites.csv
+) < $sites
 
 # report on success
 status=$?
