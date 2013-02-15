@@ -4,7 +4,7 @@ if ( isset( $location_suggested_link[$uri_without_slash] ) ) {
     $suggested_link = $location_suggested_link[$uri_without_slash];
 }
 
-preg_match( "/(item|topic)Id=\d+/", $uri_without_slash, $matches );
+preg_match( "/(item|topic)id=\d+/i", $uri_without_slash, $matches );
 if ( isset($matches[0]) && isset($query_suggested_link[$matches[0]]) ) {
     $suggested_link = $query_suggested_link[$matches[0]];
 }
