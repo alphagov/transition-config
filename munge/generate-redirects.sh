@@ -8,13 +8,13 @@ if [ "$#" = "0" ]; then
 fi
 
 if [ ! -f ./document_mappings.csv ]; then
+    echo "Fetching document_mappings.csv from production whitehall servers..."
     wget -O ./document_mappings.csv https://$2:$3@whitehall-admin.production.alphagov.co.uk/government/all_document_attachment_and_non_document_mappings.csv
 fi
 
 department=$1
 make_mappings_file="./munge/fetch_${department}_mappings.rb"
 mappings_out="./data/mappings/${department}.csv"
-folded_mappings="./${department}-folded.csv"
 if [ ! -f "$make_mappings_file" -o ! -f "$mappings_out" ]; then
     echo "Error: $department does not exist"
     exit 1
@@ -32,12 +32,12 @@ set -e
 echo "Fetching mappings for $domain..."
 ./munge/extract-mappings.rb $domain < ./document_mappings.csv | $make_mappings_file
 
-echo "Folding and tidying mappings... (with $validate_options)"
-cat $mappings_out | ./munge/fold-mappings.rb | ./tools/tidy_mappings.pl $validate_options > $folded_mappings
+echo "Folding, tidying, sorting mappings... (with options: $validate_options)"
+cat $mappings_out | ./munge/fold-mappings.rb | ./tools/tidy_mappings.pl $validate_options | sort -u > $mappings_out.tmp
 
-echo "Sorting and putting folded file in place..."
-sort -u $folded_mappings > $mappings_out
+mv $mappings_out{.tmp,}
 
-rm $folded_mappings
+echo "Validating mappings..."
+prove tools/validate_mappings.pl :: --host $domain --whitelist data/whitelist.txt $validate_options $mappings_out
 
 echo "Done"
