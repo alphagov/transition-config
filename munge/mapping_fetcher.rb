@@ -3,10 +3,11 @@ require 'uri'
 require 'net/http'
 require 'pathname'
 
+require_relative 'csv_source'
+require_relative 'reporter'
+
 class MappingFetcher
   attr_reader :csv_url, :mapping_name
-
-  NilAsBlankConverter = ->(heading) { heading || "" }
 
   def initialize(mapping_name, reporter = Reporter.new)
     @mapping_name = mapping_name
@@ -19,120 +20,6 @@ class MappingFetcher
 
   def add_source(source)
     @sources << source
-  end
-
-  class CsvSource
-
-    def input_csv
-      @input_csv ||= normalize_column_names(CSV.parse(read_data, headers: true, header_converters: [NilAsBlankConverter, :downcase]))
-    end
-
-    def normalize_column_names(rows)
-      Enumerator.new do |yielder|
-        rows.each_with_index do |row, i|
-          yielder << {
-            'source' => source,
-            'row_number' => i + 2,
-            'old url' => row['old url'],
-            'new url' => row['new url'],
-            'status'  => row['status']
-          }
-        end
-      end
-    end
-  end
-
-  class RemoteCsvSource < CsvSource
-
-    def initialize(csv_url)
-      @csv_url = csv_url
-    end
-
-    def source
-      @csv_url
-    end
-
-    def read_data
-      do_request(@csv_url).body.force_encoding("UTF-8")
-    end
-
-    def do_request(url)
-      uri = URI.parse(url)
-      raise "url must be HTTP(S)" unless uri.is_a?(URI::HTTP)
-      http = Net::HTTP.new(uri.host, uri.port)
-      http.use_ssl = (uri.is_a?(URI::HTTPS))
-      response = http.request_get(uri.path + "?" + uri.query)
-      raise "Error - got response #{response.code} on #{url}" unless response.is_a?(Net::HTTPOK)
-      response
-    end
-  end
-
-  class LocalCsvSource < CsvSource
-    def initialize(path)
-      @path = path
-    end
-
-    def source
-      @path
-    end
-
-    def read_data
-      File.open(@path, 'r:utf-8') {|f| f.read}
-    end
-  end
-
-  class StringCsvSource < CsvSource
-    def initialize(data)
-      @data = data
-    end
-
-    def source
-      'passed in string'
-    end
-
-    def read_data
-      @data
-    end
-  end
-
-  class Reporter
-
-    def blank_old_url(row)
-    end
-
-    def invalid_old_url(row)
-      output [
-        row['old url'],
-        'invalid old url',
-        row['source'],
-        row['row_number']
-      ]
-    end
-
-    def invalid_new_url(row, new_url)
-      output [
-        new_url,
-        'invalid new url',
-        row['source'],
-        row['row_number']
-      ]
-    end
-
-    def new_url_is_admin_url(url)
-    end
-
-    def circular_dependency(url, row)
-      output [
-        url,
-        'circular dependency',
-        row['source'],
-        row['row_number']
-      ]
-    end
-
-    def output(fields)
-      $stderr.puts fields.join(',')
-    end
   end
 
   def input_csv
@@ -376,7 +263,4 @@ class MappingFetcher
   def output_file
     Pathname.new(File.dirname(__FILE__)) + ".." + "data/mappings/#{mapping_name}.csv"
   end
-
-  private
-
 end

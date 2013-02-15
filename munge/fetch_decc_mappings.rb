@@ -5,7 +5,7 @@ base_dir = File.expand_path("..", File.dirname(__FILE__))
 require_relative "mapping_fetcher"
 fetcher = MappingFetcher.new("decc")
 
-fetcher.add_source(MappingFetcher::LocalCsvSource.new(base_dir + "/munge/decc_supplemental_data/mappings_of_imported_decc_docs.csv"))
+fetcher.add_source(LocalCsvSource.new(base_dir + "/munge/decc_supplemental_data/mappings_of_imported_decc_docs.csv"))
 # Note if there are duplicates then the FIRST mapping is used, so order matters here
 {
   harvester: 'https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDF4SGR6TTBVd0Q1M2dlbmxZTWpSeFE&single=true&gid=3&output=csv',
@@ -15,7 +15,7 @@ fetcher.add_source(MappingFetcher::LocalCsvSource.new(base_dir + "/munge/decc_su
   analytics: 'https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDF4SGR6TTBVd0Q1M2dlbmxZTWpSeFE&single=true&gid=4&output=csv',
   other: 'https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDF4SGR6TTBVd0Q1M2dlbmxZTWpSeFE&single=true&gid=10&output=csv'
 }.each do |_, url|
-  fetcher.add_source(MappingFetcher::RemoteCsvSource.new(url))
+  fetcher.add_source(RemoteCsvSource.new(url))
 end
 
 # download this from https://whitehall-admin.production.alphagov.co.uk/government/document_mappings.csv
