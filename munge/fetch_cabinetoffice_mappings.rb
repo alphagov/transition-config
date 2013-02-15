@@ -18,4 +18,4 @@ fetcher.add_source(StringCsvSource.new($stdin))
   fetcher.add_source(RemoteCsvSource.new(url))
 end
 
-puts fetcher.fetch
+fetcher.fetch

@@ -38,6 +38,7 @@ class RemoteCsvSource < CsvSource
   end
 
   def do_request(url)
+    $stderr.puts "Reading CSV from #{url}..."
     uri = URI.parse(url)
     raise "url must be HTTP(S)" unless uri.is_a?(URI::HTTP)
     http = Net::HTTP.new(uri.host, uri.port)
@@ -58,6 +59,7 @@ class LocalCsvSource < CsvSource
   end
 
   def read_data
+    $stderr.puts "Reading CSV from #{@path}..."
     File.open(@path, 'r:utf-8') {|f| f.read}
   end
 end

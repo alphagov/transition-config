@@ -37,7 +37,7 @@ class MappingFetcher
 
   def fetch
     headers = ['old url', 'new url', 'status', 'source', 'row_number']
-    CSV.generate do |csv|
+    CSV do |csv|
       csv << headers
       input_csv.each do |line|
         csv << headers.map {|header| line[header] }
