@@ -49,7 +49,9 @@ sub try_url {
     # direct or via redirector?
     my $get = $real ? $url : $uri->scheme . "://" . $host . $uri->path_query;
 
-    my $cmd =  "curl -v -H 'host: " . $uri->host . "' '$get'";
+    my $flags = $verbose ? "-v" : "";
+    my $cmd =  "curl $flags -H 'host: " . $uri->host . "' '$get'";
+    say "+ $cmd";
 
     if ($curl_cmd) {
         exec($cmd);
