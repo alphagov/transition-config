@@ -74,14 +74,14 @@ cat > "${path}/418.html" <<EOF
         <header class="page-header group $site">
           <div class="legacy-site-logo"></div>
           <hgroup>
-            <h1>This $title page is awaiting content on GOV.UK</h1>
+            <h1>This $title page is moving to GOV.UK but has not yet been published.</h1>
           </hgroup>
         </header>
 
         <article role="article" class="group">
 
-          <p>On $redirection_date the $title website will be replaced by <a href='$new_site'>$new_homepage</a>.</p>
-          <p>This page is currently awaiting content and is yet to be published.</p>
+          <p>The $title website is being replaced by <a href='$new_site'>$new_homepage</a>.</p>
+          <p><a href='https://www.gov.uk'>GOV.UK</a> is now the best place to find essential government services and information.</p>
 
         </article>
       </div>
