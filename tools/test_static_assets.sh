@@ -25,6 +25,7 @@ done
 
 mappings=$(
 cut -d, -f2 "$sites" |
+    tail -n +2 |
     while read host
     do
         echo "http://$host/robots.txt,,200"
