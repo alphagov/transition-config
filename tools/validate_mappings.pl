@@ -30,7 +30,7 @@ GetOptions(
     "skip-canonical|c"  => \$skip_canonical,
     "allow-duplicates|d"  => \$allow_duplicates,
     "allow-query-string|q"  => \$allow_query_string,
-    "allow-https|s"  => \$allow_https,
+    "allow-https|t"  => \$allow_https,
     "disallow-embedded-urls|u"  => \$disallow_embedded_urls,
     "host|h=s"  => \$host,
     "whitelist|w=s"  => \$whitelist,
@@ -173,7 +173,7 @@ Options:
     -c, --skip-canonical            don't check for canonical Old Urls
     -d, --allow-duplicates          allow duplicate Old Urls
     -h, --host host                 constrain Old Urls to host
-    -s, --allow-https               allow https in Old Urls
+    -t, --allow-https               allow https in Old Urls
     -q, --allow-query-string        allow query-string in Old Urls
     -u, --disallow-embedded-urls    disallow Urls in Old Urls
     -w, --whitelist filename        constrain New Urls to those in a whitelist
