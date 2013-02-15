@@ -38,7 +38,7 @@ else
 fi
 
 echo "Munging, folding, tidying, sorting mappings... (with options: $validate_options)"
-cat fetch.$department.csv | ./munge/munge.rb document_mappings.csv | ./munge/fold-mappings.rb | ./tools/tidy_mappings.pl $validate_options | sort -u > $mappings_out.tmp
+cat fetch.$department.csv | ./munge/munge.rb document_mappings.csv | ./munge/strip-empty-quotes-and-whitespace.rb | ./tools/tidy_mappings.pl $validate_options > $mappings_out.tmp
 
 mv $mappings_out{.tmp,}
 
