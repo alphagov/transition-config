@@ -37,12 +37,18 @@ else
   echo "(In order to do a fresh munge you will need to remove this file)"
 fi
 
-echo "Munging, folding, tidying, sorting mappings... (with options: $validate_options)"
-cat fetch.$department.csv | ./munge/munge.rb document_mappings.csv | ./munge/strip-empty-quotes-and-whitespace.rb | ./tools/tidy_mappings.pl $validate_options > $mappings_out.tmp
+echo "Munging and tidying mappings... (with options: $validate_options)"
+cat fetch.$department.csv |
+  ./munge/munge.rb document_mappings.csv |
+  ./munge/strip-empty-quotes-and-whitespace.rb |
+  ./munge/reverse-csv.rb |
+  ./tools/tidy_mappings.pl --trump $validate_options > $mappings_out.tmp
 
 mv $mappings_out{.tmp,}
 
 echo "Validating mappings..."
-prove tools/validate_mappings.pl :: --host $domain --whitelist data/whitelist.txt $validate_options $mappings_out
+validate="prove tools/validate_mappings.pl :: --host $domain --whitelist data/whitelist.txt $validate_options $mappings_out"
+echo $validate
+$validate
 
 echo "Done"
