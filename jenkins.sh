@@ -37,7 +37,7 @@ if [ -n "$tests" ] ; then
     for t in tests/tools/*.sh ; do $t ; done
 
     status "Testing munge ..."
-    rake test
+    rake -f munge/Rakefile test
 
     status "Testing logic ..."
     prove -lj4 tests/unit/logic/*.t
