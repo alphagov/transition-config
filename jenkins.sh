@@ -8,7 +8,7 @@ status "Testing tools ..."
 for t in tests/tools/*.sh ; do $t ; done
 
 status "Testing munge ..."
-ruby -I. munge/tests/*.rb
+rake test
 
 status "Testing logic ..."
 prove -lj4 tests/unit/logic/*.t

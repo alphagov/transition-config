@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 
-require 'munge/mapping_fetcher'
+require_relative '../mapping_fetcher'
 
 class TestDaisyChainRedirector < MiniTest::Unit::TestCase
   class Reporter
