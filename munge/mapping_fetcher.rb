@@ -7,10 +7,9 @@ require_relative 'csv_source'
 require_relative 'reporter'
 
 class MappingFetcher
-  attr_reader :csv_url, :mapping_name
+  attr_reader :csv_url
 
-  def initialize(mapping_name, reporter = Reporter.new)
-    @mapping_name = mapping_name
+  def initialize(reporter = Reporter.new)
     @new_url_mappings = {
       'tna' => ''
     }
@@ -36,16 +35,16 @@ class MappingFetcher
     end
   end
 
-  def fetch
-    CSV.open(output_file, "w:utf-8") do |output_csv|
-      puts "Writing #{mapping_name} mappings to #{output_file}"
+  def fetch(input)
+    CSV.generate do |output_csv|
+      $stderr.puts "Writing mappings"
       output_csv << ['Old Url','New Url','Status']
       i = 0
       rows = follow_url_chains(
         ensure_no_duplicates(
           remap_new_urls(
             skip_rows_with_blank_or_invalid_old_url(
-              sanitize_urls(input_csv)))))
+              sanitize_urls(input)))))
       rows.sort_by {|row| row['old url']}.each do |row|
         status = row ['status']
         if status != '418'
@@ -60,7 +59,7 @@ class MappingFetcher
         output_csv << new_row
         i += 1
       end
-      puts "Wrote #{i} mappings"
+      $stderr.puts "Wrote #{i} mappings"
     end
   end
 
@@ -258,9 +257,5 @@ class MappingFetcher
       gsub("&amp;", "&").
       gsub(/^([^\(]*)\)/, '\1').
       gsub(",", "%2C")
-  end
-
-  def output_file
-    Pathname.new(File.dirname(__FILE__)) + ".." + "data/mappings/#{mapping_name}.csv"
   end
 end

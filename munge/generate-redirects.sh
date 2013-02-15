@@ -7,7 +7,7 @@ if [ "$#" = "0" ]; then
     exit 1
 fi
 
-if [ ! -f ./document_mappings.csv ]; then
+if [ ! -s ./document_mappings.csv ]; then
     echo "Fetching document_mappings.csv from production whitehall servers..."
     wget -O ./document_mappings.csv https://$2:$3@whitehall-admin.production.alphagov.co.uk/government/all_document_attachment_and_non_document_mappings.csv
 fi
@@ -29,11 +29,16 @@ domain=`cat data/sites.csv | grep "^$department" | cut -d ',' -f2`
 validate_options=`cat data/sites.csv | grep "^$department" | cut -d ',' -f8`
 
 set -e
-echo "Fetching mappings for $domain..."
-./munge/extract-mappings.rb $domain < ./document_mappings.csv | $make_mappings_file
+if [[ ! -s fetch.$department.csv ]]; then
+  echo "Fetching mappings for $domain into fetch.$department.csv..."
+  ./munge/extract-mappings.rb $domain < ./document_mappings.csv | $make_mappings_file > fetch.$department.csv
+else
+  echo "Using EXISTING fetch.$department.csv file to generate redirects"
+  echo "(In order to do a fresh munge you will need to remove this file)"
+fi
 
-echo "Folding, tidying, sorting mappings... (with options: $validate_options)"
-cat $mappings_out | ./munge/fold-mappings.rb | ./tools/tidy_mappings.pl $validate_options | sort -u > $mappings_out.tmp
+echo "Munging, folding, tidying, sorting mappings... (with options: $validate_options)"
+cat fetch.$department.csv | ./munge/munge.rb document_mappings.csv | ./munge/fold-mappings.rb | ./tools/tidy_mappings.pl $validate_options | sort -u > $mappings_out.tmp
 
 mv $mappings_out{.tmp,}
 

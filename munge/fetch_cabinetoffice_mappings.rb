@@ -1,11 +1,11 @@
 #!/usr/bin/env ruby -w
 
-base_dir = File.expand_path("..", File.dirname(__FILE__))
+require 'csv'
+require_relative 'mapping_fetcher'
 
-require_relative "mapping_fetcher"
-fetcher = MappingFetcher.new("cabinetoffice")
+fetcher = MappingFetcher.new
 
-fetcher.add_source(MappingFetcher::StringCsvSource.new($stdin))
+fetcher.add_source(StringCsvSource.new($stdin))
 # Note if there are duplicates then the FIRST mapping is used, so order matters here
 {
   'Harvester Data' => 'https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdFh0UHJ4RXEzUm1UMDFCSlJESEhFcEE&output=csv&gid=3',
@@ -15,9 +15,15 @@ fetcher.add_source(MappingFetcher::StringCsvSource.new($stdin))
   'Analytics' => 'https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdFh0UHJ4RXEzUm1UMDFCSlJESEhFcEE&output=csv&gid=8',
   'Any other URLs' => 'https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdFh0UHJ4RXEzUm1UMDFCSlJESEhFcEE&output=csv&gid=10'
 }.each do |_, url|
-  fetcher.add_source(MappingFetcher::RemoteCsvSource.new(url))
+  fetcher.add_source(RemoteCsvSource.new(url))
 end
 
-# download this from https://whitehall-admin.production.alphagov.co.uk/government/document_mappings.csv
-fetcher.remap_new_urls_using(base_dir + "/document_mappings.csv")
-fetcher.fetch
+headers = ['old url', 'new url', 'status', 'source', 'row_number']
+output = CSV.generate do |csv|
+  csv << headers
+  fetcher.input_csv.each do |line|
+    csv << headers.map {|header| line[header] }
+  end
+end
+
+puts output
