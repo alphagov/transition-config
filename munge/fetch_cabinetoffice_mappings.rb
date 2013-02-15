@@ -18,12 +18,4 @@ fetcher.add_source(StringCsvSource.new($stdin))
   fetcher.add_source(RemoteCsvSource.new(url))
 end
 
-headers = ['old url', 'new url', 'status', 'source', 'row_number']
-output = CSV.generate do |csv|
-  csv << headers
-  fetcher.input_csv.each do |line|
-    csv << headers.map {|header| line[header] }
-  end
-end
-
-puts output
+puts fetcher.fetch
