@@ -3,9 +3,10 @@
 base_dir = File.expand_path("..", File.dirname(__FILE__))
 
 require_relative "mapping_fetcher"
-fetcher = MappingFetcher.new("og_decc")
+fetcher = MappingFetcher.new
 
 # Note if there are duplicates then the FIRST mapping is used, so order matters here
+fetcher.add_source(StringCsvSource.new($stdin))
 {
   harvester: 'https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdE12clZ0NENINUFrcHNkenZiU1ZmQnc&single=true&gid=3&output=csv',
   furls: 'https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdE12clZ0NENINUFrcHNkenZiU1ZmQnc&single=true&gid=6&output=csv',
@@ -17,6 +18,4 @@ fetcher = MappingFetcher.new("og_decc")
   fetcher.add_source(MappingFetcher::RemoteCsvSource.new(url))
 end
 
-# download this from https://whitehall-admin.production.alphagov.co.uk/government/document_mappings.csv
-fetcher.remap_new_urls_using(base_dir + "/document_mappings.csv")
 fetcher.fetch
