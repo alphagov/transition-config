@@ -5,7 +5,7 @@ set -e
 cmd=$(basename $0)
 sites="data/sites.csv"
 tests="y"
-validation="y"
+validate="y"
 
 usage() {
     echo "usage: $cmd [opts] [mappings.csv ...]" >&2
@@ -21,7 +21,7 @@ while test $# -gt 0 ; do
     case "$1" in
     -s|--sites) shift; sites="$1" ; shift ; continue ;;
     -v|--verbose) set -x ; shift; continue ;;
-    -n|--skip-validation) validation=""; shift; continue ;;
+    -n|--skip-validation) validate=""; shift; continue ;;
     -t|--skip-tests) tests=""; shift;;
     -\?|-h|--help) usage ;;
     --) break ;;
