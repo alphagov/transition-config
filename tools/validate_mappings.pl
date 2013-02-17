@@ -15,6 +15,8 @@ use HTTP::Request;
 use LWP::UserAgent;
 use URI;
 
+require 'lib/c14n.pl';
+
 my $skip_canonical;
 my $allow_duplicates;
 my $allow_query_string;
@@ -77,7 +79,7 @@ sub test_row {
 
     my $old_uri = check_url($context, 'Old Url', $old_url);
 
-    my $c14n = c14n_url($old_url);
+    my $c14n = c14n_url($old_url, $allow_query_string);
 
     unless ($skip_canonical) {
         is($old_url, $c14n, "Old Url [$old_url] is not canonical [$c14n] $context");
@@ -128,16 +130,6 @@ sub check_url {
     is($uri, $url, "$name '$url' should be a valid URI $context");
 
     return $uri;
-}
-
-sub c14n_url {
-    my ($url) = @_;
-    $url = lc($url);
-    $url =~ s/\?*$//;
-    $url =~ s/\/*$//;
-    $url =~ s/\#*$//;
-    $url =~ s/,/%2C/;
-    return $url;
 }
 
 sub load_whitelist {
