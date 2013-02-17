@@ -23,6 +23,7 @@ http://example.com/empty-fragid#,,410
 http://example.com/empty-fragid-on-slash/#,,410
 http://example.com/empty-fragid-on-query/?#,,410
 http://example.com/empty-fragid-on-query-slash/?#,,410
+http://example.com/418-without-a-new-url,,418
 !
 tools/validate_mappings.pl /tmp/validate.in > /tmp/validate.out 2> /tmp/validate.err
 
@@ -55,6 +56,7 @@ diff /tmp/validate.errors - <<!
 #   Failed test 'Old Url [http://example.com/empty-fragid-on-query-slash/?\#] is not canonical [http://example.com/empty-fragid-on-query-slash] /tmp/validate.in line 15'
 #          got: 'http://example.com/empty-fragid-on-query-slash/?#'
 #     expected: 'http://example.com/empty-fragid-on-query-slash'
+#   Failed test '418 New Url [] should be a full URI /tmp/validate.in line 16'
 !
 
 [ $? -ne 0 ] && { echo "$0: FAIL" ; exit 2; }

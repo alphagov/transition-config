@@ -105,10 +105,12 @@ sub test_row {
         $seen{$c14n} = $.;
     }
 
-    if ( "301" eq $status || "418" eq $status ) {
-        my $new_uri = check_url($context, 'New Url', $new_url);
-        my $new_host = $new_uri->host;
-        ok($hosts{$new_host}, "New Url [$new_url] host [$new_host] not whitelist $context");
+    if ($status =~ /^301|418$/) {
+        my $new_uri = check_url($context, "$status New Url", $new_url);
+        if ($new_uri) {
+            my $new_host = $new_uri->host;
+            ok($hosts{$new_host}, "New Url [$new_url] host [$new_host] not whitelist $context");
+        }
     } elsif ( "410" eq $status) {
         ok($new_url eq '', "unexpected New Url [$new_url] for 410 $context");
     } elsif ( "200" eq $status) {
@@ -124,7 +126,7 @@ sub check_url {
     # | is valid in our Urls
     $url =~ s/\|/%7C/g;
 
-    ok($url =~ m{^https?://}, "$name '$url' should be a full URI $context");
+    ok($url =~ m{^https?://}, "$name [$url] should be a full URI $context");
 
     my $uri = URI->new($url);
     is($uri, $url, "$name '$url' should be a valid URI $context");
