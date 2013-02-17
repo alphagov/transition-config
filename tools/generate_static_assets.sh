@@ -3,19 +3,19 @@
 #
 #  generate 410, 404 and other static assets for a site
 #
+# tools/generate_static_assets.sh "$site" "$host" "$redirection_date" "$tna_timestamp" "$title" "$furl" "$new_url"
 
 set -e
-
-# "$site" "$domain" "$redirection_date" "$tna_timestamp" "$title" "$new_site"
 
 site="$1"
 domain="$2"
 redirection_date="$3"
 tna_timestamp="$4"
 title="$5"
-new_site="$6"
+furl="$6"
+new_url="$7"
 
-new_homepage=$(echo "$new_site" | sed 's/^https*:\/\///')
+homepage=$(echo "$furl" | sed 's/^https*:\/\///')
 archive_link="http://webarchive.nationalarchives.gov.uk/$tna_timestamp/http://$domain"
 
 #
@@ -47,7 +47,7 @@ cat > "${path}/404.html" <<EOF
 
         <article role="article" class="group">
 
-          <p>On $redirection_date the $title website was replaced by <a href='$new_site'>$new_homepage</a>.</p>
+          <p>On $redirection_date the $title website was replaced by <a href='$new_url'>$homepage</a>.</p>
           <p><a href='https://www.gov.uk'>GOV.UK</a> is now the best place to find essential government services and information.</p>
           <p>A copy of the page you were looking for may be found in <a href="$archive_link">The National Archives</a>.</p>
 
@@ -80,7 +80,7 @@ cat > "${path}/418.html" <<EOF
 
         <article role="article" class="group">
 
-          <p>The $title website is being replaced by <a href='$new_site'>$new_homepage</a>.</p>
+          <p>The $title website is being replaced by <a href='$new_url'>$homepage</a>.</p>
           <p><a href='https://www.gov.uk'>GOV.UK</a> is now the best place to find essential government services and information.</p>
 
         </article>
@@ -106,7 +106,7 @@ cat > "${path}/410.html" <<EOF
 
         <article role="article" class="group">
 
-          <p>On $redirection_date the $title website was replaced by <a href='$new_site'>$new_homepage</a>.</p>
+          <p>On $redirection_date the $title website was replaced by <a href='$new_url'>$homepage</a>.</p>
           <p><a href='https://www.gov.uk'>GOV.UK</a> is now the best place to find essential government services and information.</p>
 
 <?php
@@ -160,6 +160,5 @@ cat \
     redirector/410_header.php \
     $path/410.html \
     > $path/410.php
-
 
 exit
