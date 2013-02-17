@@ -34,7 +34,7 @@ GetOptions(
     'host|h=s' => \$host,
     'no-follow|n' => \$no_follow,
     'real|r' => \$real,
-    'mapping|m' => \$mappings,
+    'mappings|m' => \$mappings,
     'help|?' => \$help,
 ) or pod2usage(1);
 
