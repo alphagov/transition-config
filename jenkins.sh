@@ -52,6 +52,10 @@ status "Copying whitelist to dist ..."
 whitelist=dist/whitelist.txt export whitelist
 cp data/whitelist.txt $whitelist
 
+if [ -n "$validate" ] ; then
+    prove tools/validate_sites.pl :: $sites
+fi
+
 status "Generating lrc_map.conf ..."
 tools/generate_lrc.pl data/lrc_transactions_source.csv > dist/lrc_map.conf
 
@@ -62,7 +66,7 @@ status "Processing data/sites.csv ..."
 (
     IFS=,
     read titles
-    while read site host redirection_date tna_timestamp title new_site aliases validate_options rest
+    while read site host redirection_date tna_timestamp title furl aliases validate_options new_url rest
     do
         mappings=dist/${site}_mappings_source.csv
         sitemap=dist/static/${site}/sitemap.xml
@@ -75,7 +79,8 @@ status "Processing data/sites.csv ..."
         status ":: redirection_date: $redirection_date"
         status ":: tna_timestamp: $tna_timestamp"
         status ":: title: $title"
-        status ":: new_site: $new_site"
+        status ":: furl: $furl"
+        status ":: new_url: $new_url"
         status ":: aliases: $aliases"
         status ":: mappings: $mappings"
         status
@@ -94,7 +99,7 @@ status "Processing data/sites.csv ..."
         perl -Ilib tools/generate_mappings.pl $mappings
 
         status "Creating static assets for $site ... "
-        tools/generate_static_assets.sh "$site" "$host" "$redirection_date" "$tna_timestamp" "$title" "$new_site"
+        tools/generate_static_assets.sh "$site" "$host" "$redirection_date" "$tna_timestamp" "$title" "$furl" "$new_url"
 
         status "Creating sitemap for $site ..."
         tools/generate_sitemap.pl $mappings $host > $sitemap
