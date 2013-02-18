@@ -46,7 +46,7 @@ sub test_file {
     $csv->column_names(@$names);
 
     my $line = join(",", @$names);
-    ok($line =~ /^Site,Host,Redirection Date,TNA Timestamp,Title,FURL,Aliases,Validate Options,New Url,Status(,?$|,)/, "incorrect column names [$line]");
+    ok($line =~ /^Site,Host,Redirection Date,TNA Timestamp,Title,FURL,Aliases,Validate Options,New Url(,?$|,)/, "incorrect column names [$line]");
 
     while (my $row = $csv->getline_hr($fh)) {
         my $site = $row->{'Site'} // '';
@@ -87,9 +87,6 @@ sub test_row {
 
     my $new_url = $row->{'New Url'} // '';
     check_new_url($context, 'New Url', $new_url);
-
-    my $status = $row->{'Status'} // '';
-    ok($status =~ /^(301|410)$/, "invalid status [$status] $context");
 }
 
 sub check_new_url {

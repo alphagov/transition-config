@@ -25,12 +25,12 @@ while test $# -gt 0 ; do
 done
 
 mappings=$(IFS=,
-cut -d, -f 2,6,9,10 "$sites" |
+cut -d, -f 2,6,9 "$sites" |
     tail -n +2 |
-    while read host furl new_url status
+    while read host furl new_url
     do
-        echo "http://$host,$new_url,$status"
-        echo "http://$host/,$new_url,$status"
+        echo "http://$host,$new_url,301"
+        echo "http://$host/,$new_url,301"
         echo "http://$host/robots.txt,,200"
         echo "http://$host/sitemap.xml,,200"
 
