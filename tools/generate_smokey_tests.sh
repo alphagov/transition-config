@@ -64,7 +64,7 @@ do
             fi
 
             case "$host" in
-            www.direct.gov.uk|www.businesslink.gov.uk|www.mod.uk|www.cabinetoffice.gov.uk|www.hmrc.gov.uk) priority=urgent;;
+            www.direct.gov.uk) priority=urgent;;
             $domain) priority=high;;
             *) priority=normal;;
             esac
