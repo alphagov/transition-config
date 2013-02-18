@@ -4,3 +4,4 @@ tmp_test_run_output/
 ._*
 test.sh
 document_mappings.csv
+fetch.*
