@@ -56,6 +56,9 @@ if [ -n "$validate" ] ; then
     prove tools/validate_sites.pl :: $sites
 fi
 
+status "Generating tests for Smokey"
+tools/generate_smokey_tests.sh --sites $sites > dist/redirector.feature
+
 status "Generating lrc_map.conf ..."
 tools/generate_lrc.pl data/lrc_transactions_source.csv > dist/lrc_map.conf
 
