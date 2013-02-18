@@ -29,16 +29,17 @@ domain=`cat data/sites.csv | grep "^$department" | cut -d ',' -f2`
 validate_options=`cat data/sites.csv | grep "^$department" | cut -d ',' -f8`
 
 set -e
-if [[ ! -s fetch.$department.csv ]]; then
-  echo "Fetching mappings for $domain into fetch.$department.csv..."
-  ./munge/extract-mappings.rb $domain < ./document_mappings.csv | $make_mappings_file > fetch.$department.csv
+prefetched_file=./fetch.$department.csv
+if [[ ! -s $prefetched_file ]]; then
+  echo "Fetching mappings for $domain into $prefetched_file..."
+  ./munge/extract-mappings.rb $domain < ./document_mappings.csv | $make_mappings_file > $prefetched_file
 else
-  echo "Using EXISTING fetch.$department.csv file to generate redirects"
+  echo "Using EXISTING $prefetched_file file to generate redirects"
   echo "(In order to do a fresh munge you will need to remove this file)"
 fi
 
 echo "Munging and tidying mappings... (with options: $validate_options)"
-cat fetch.$department.csv |
+cat $prefetched_file |
   ./munge/munge.rb document_mappings.csv |
   ./munge/strip-empty-quotes-and-whitespace.rb |
   ./munge/reverse-csv.rb |
