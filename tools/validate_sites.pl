@@ -105,6 +105,7 @@ sub check_unquoted {
     open(FILE, "< $filename") or die "unable to open whitelist $filename";
     my $contents = do { local $/; <FILE> };
     ok($contents !~ /["']/, "file [$filename] contains quotes");
+    ok($contents !~ /\t/, "file [$filename] contains tab characters");
 }
 
 sub check_host {

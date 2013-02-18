@@ -27,14 +27,14 @@ done
 #
 #  sites.csv
 #
-#  1     2   3                4             5     6             7  8
-#  Site,Host,Redirection Date,TNA Timestamp,Title,New Site,Aliases,Validate Options
+#  1     2   3                4             5     6    7
+#  Site,Host,Redirection Date,TNA Timestamp,Title,FURL,Aliases, ...
 #
 
 cat "$sites" | 
     tail -n +2 |
     cut -d , -f 2,7 |
-    sed -e 's/,/ /g' -e 's/[	 ][	 ]*/\
+    sed -e 's/,/ /g' -e 's/  */\
 /g' |
     sed -e '/^ *$/d' |
     sort -u
