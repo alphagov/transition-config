@@ -20,9 +20,9 @@ sub c14n_url {
     $url =~ s/[\?\/\#]*$//;
 
     # escape problematic characters
-    $url =~ s/"/%22/;
-    $url =~ s/'/%27/;
-    $url =~ s/,/%2C/;
+    $url =~ s/"/%22/g;
+    $url =~ s/'/%27/g;
+    $url =~ s/,/%2C/g;
 
     return $url;
 }
