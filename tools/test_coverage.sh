@@ -21,7 +21,7 @@ while test $# -gt 0 ; do
     -n|--name) shift; name="$1 " ; shift ; continue;;
     -s|--sites) shift; sites="$1" ; shift ; continue;;
     -\?|-h|--help) usage ;;
-    --) break ;;
+    --) shift ; break ;;
     -*) usage ;;
     esac
     break

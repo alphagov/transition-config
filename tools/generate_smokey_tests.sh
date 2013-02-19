@@ -22,7 +22,7 @@ while test $# -gt 0 ; do
     -t|--today) shift; today="$1" ; shift ; continue;;
     -v|--verbose) shift; verbose=y ; continue;;
     -\?|-h|--help) usage ;;
-    --) break ;;
+    --) shift ; break ;;
     -*) usage ;;
     esac
     break

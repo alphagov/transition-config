@@ -17,7 +17,7 @@ while test $# -gt 0 ; do
     case "$1" in
     -s|--sites) shift; sites="$1" ; shift ; continue;;
     -\?|-h|--help) usage ;;
-    --) break ;;
+    --) shift ; break ;;
     -*) usage ;;
     esac
     break

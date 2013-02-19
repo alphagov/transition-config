@@ -18,7 +18,7 @@ while test $# -gt 0 ; do
     case "$1" in
     -s|--sites) shift; sites="$1" ; shift ; continue;;
     -\?|-h|--help) usage ;;
-    --) break ;;
+    --) shift ; break ;;
     -*) usage ;;
     esac
     break
@@ -31,6 +31,7 @@ cut -d, -f 2,6,9 "$sites" |
     do
         echo "http://$host,$new_url,301"
         echo "http://$host/,$new_url,301"
+        #echo "$furl,$new_url,301"
         echo "http://$host/robots.txt,,200"
         echo "http://$host/sitemap.xml,,200"
 
@@ -39,6 +40,8 @@ cut -d, -f 2,6,9 "$sites" |
         #TBD: echo "http://$host/410,,410"
     done) 
 
-    prove tools/test_mappings.pl :: -m $mappings
+    set -x
+    prove tools/test_mappings.pl :: "$@" -m $mappings
+    set +x
 
 exit 0
