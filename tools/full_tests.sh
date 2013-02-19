@@ -21,8 +21,10 @@ mkdir -p dist
         done
     } < data/sites.csv
 
-    cat data/tests/full/*.csv \
-        data/tests/subsets/*.csv
+    # contains many issues so commented out, pending review ..
+    # cat data/tests/full/*.csv
+
+    cat data/tests/subsets/*.csv
 
 } | egrep -v '^Old Url' | sort -u | (
 
