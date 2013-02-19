@@ -5,6 +5,7 @@
 #
 cmd=$(basename $0)
 sites="data/sites.csv"
+tmpfile="tmp/static_assets.csv"
 
 set -e
 usage() {
@@ -24,24 +25,29 @@ while test $# -gt 0 ; do
     break
 done
 
-mappings=$(IFS=,
+(
+echo "Old Url,New Url,Status"
+IFS=,
 cut -d, -f 2,6,9 "$sites" |
     tail -n +2 |
     while read host furl new_url
     do
+        # home page redirect
         echo "http://$host,$new_url,301"
         echo "http://$host/,$new_url,301"
         #echo "$furl,$new_url,301"
+
+        # static assets
         echo "http://$host/robots.txt,,200"
         echo "http://$host/sitemap.xml,,200"
+        echo "http://$host/favicon.ico,,200"
+        echo "http://$host/gone.css,,200"
 
-        #TBD: echo "http://$host/facicon.ico,,200"
         #TBD: echo "http://$host/404,,404"
         #TBD: echo "http://$host/410,,410"
-    done) 
+    done
+) > $tmpfile
 
-    set -x
-    prove tools/test_mappings.pl :: "$@" -m $mappings
-    set +x
+prove tools/test_mappings.pl :: "$@" $tmpfile
 
 exit 0
