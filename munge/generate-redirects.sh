@@ -1,55 +1,85 @@
-#!/bin/bash
+#!/bin/sh
 
 set -e
 
-if [ "$#" = "0" ]; then
-    echo "Usage: $0 department-name http_user http_pass"
+sites="data/sites.csv"
+whitelist="data/whitelist.txt"
+tmpdir="tmp"
+document_url='https://whitehall-admin.production.alphagov.co.uk/government/all_document_attachment_and_non_document_mappings.csv'
+document_file="tmp/document_mappings.csv"
+user="$WHITEHALL_AUTH"
+fetch="y"
+verbose=""
+
+usage() {
+    echo "usage: $cmd [opts] site" >&2
+    echo "    [-n|--no-fetch]             don't fetch site mappings" >&2
+    echo "    [-s|--sites $sites] sites file" >&2
+    echo "    [-u|--user user:password]   basic authentication credentials for curl" >&2
+    echo "    [-w,--whitelist filename]   constrain New Urls to those in a whitelist"
+    echo "    [-?|--help]                 print usage" >&2
     exit 1
+}
+
+while test $# -gt 0 ; do
+    case "$1" in
+    -n|--no-fetch) shift ; fetch="" ; continue;;
+    -s|--sites) shift; sites="$1" ; shift ; continue;;
+    -u|--user) shift; today="$1" ; shift ; continue;;
+    -w|--whitelist) shift; whitelist="$1" ; shift ; continue;;
+    -\?|-h|--help) usage ;;
+    --) break ;;
+    -*) usage ;;
+    esac
+    break
+done
+
+. tools/messages.sh
+
+site=$1 ; [ -z "$site" ] && usage
+mappings="./data/mappings/${site}.csv"
+
+host=$(awk -F, '$1 == "'$site'" { print $2 }' $sites)
+validate_options=$(awk -F, '$1 == "'$site'" { print $8 }' $sites)
+fetch_cmd="./munge/fetch_${site}_mappings.rb"
+fetch_file="$tmpdir/fetch.$site.csv"
+
+if [ ! -d "$tmpdir" ] ; then
+    set -x
+    mkdir -p "$tmpdir"
+    set +x
 fi
 
-if [ ! -s ./document_mappings.csv ]; then
-    echo "Fetching document_mappings.csv from production whitehall servers..."
-    wget -O ./document_mappings.csv https://$2:$3@whitehall-admin.production.alphagov.co.uk/government/all_document_attachment_and_non_document_mappings.csv
+if [ ! -s "$document_file" ]; then
+    status "Fetching $document_file from production ..."
+    set -x
+    curl -s -u "$user" "$document_url" > $document_file
+    set +x
 fi
 
-department=$1
-make_mappings_file="./munge/fetch_${department}_mappings.rb"
-mappings_out="./data/mappings/${department}.csv"
-if [ ! -f "$make_mappings_file" -o ! -f "$mappings_out" ]; then
-    echo "Error: $department does not exist"
-    exit 1
+status "Generating mappings ..."
+
+if [ -n "$fetch" ]; then
+    status "Fetching mappings for $host ..."
+    set -x
+    ./munge/extract-mappings.rb $host < "$document_file" | "$fetch_cmd" > "$fetch_file"
+    set +x
 fi
 
-echo "Generating mappings..."
+status "Munging and tidying mappings ..."
+set -x
+cat $fetch_file |
+    ./munge/munge.rb $document_file |
+    ./munge/strip-empty-quotes-and-whitespace.rb |
+    ./munge/reverse-csv.rb |
+    ./tools/tidy_mappings.pl --trump $validate_options > ${mappings}_tmp
 
-# First let's extract the mappings by domain
-# This assumes domain (host) is second column in sites.csv - brittle
-domain=`cat data/sites.csv | grep "^$department" | cut -d ',' -f2`
-# This assumes validate options is 8th column in sites.csv - brittle
-validate_options=`cat data/sites.csv | grep "^$department" | cut -d ',' -f8`
+mv ${mappings}_tmp ${mappings}
+set +x
 
-set -e
-prefetched_file=./fetch.$department.csv
-if [[ ! -s $prefetched_file ]]; then
-  echo "Fetching mappings for $domain into $prefetched_file..."
-  ./munge/extract-mappings.rb $domain < ./document_mappings.csv | $make_mappings_file > $prefetched_file
-else
-  echo "Using EXISTING $prefetched_file file to generate redirects"
-  echo "(In order to do a fresh munge you will need to remove this file)"
-fi
+status "Validating mappings ..."
+set -x
+prove tools/validate_mappings.pl :: --host "$host" --whitelist "$whitelist" $validate_options $mappings
+set +x
 
-echo "Munging and tidying mappings... (with options: $validate_options)"
-cat $prefetched_file |
-  ./munge/munge.rb document_mappings.csv |
-  ./munge/strip-empty-quotes-and-whitespace.rb |
-  ./munge/reverse-csv.rb |
-  ./tools/tidy_mappings.pl --trump $validate_options > $mappings_out.tmp
-
-mv $mappings_out{.tmp,}
-
-echo "Validating mappings..."
-validate="prove tools/validate_mappings.pl :: --host $domain --whitelist data/whitelist.txt $validate_options $mappings_out"
-echo $validate
-$validate
-
-echo "Done"
+status "Done"
