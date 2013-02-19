@@ -85,7 +85,9 @@ This file is generated each night at 2am from the latest production data, and se
 * The providing of mappings from "old urls" to "new urls"
 * The conversion of "admin urls" to publicly-consumable "new urls"
 
-Download [this csv file (~15MB)](http://whitehall-admin.production.alphagov.co.uk/government/all_document_attachment_and_non_document_mappings.csv) and save as `document_mappings.csv` in the root of the redirect project.
+Download [this csv file (~15MB)](http://whitehall-admin.production.alphagov.co.uk/government/all_document_attachment_and_non_document_mappings.csv) and save as `document_mappings.csv` in the root of the redirect project:
+
+    curl -u username:password 'http://whitehall-admin.production.alphagov.co.uk/government/all_document_attachment_and_non_document_mappings.csv' > document_mappings.csv
 
 **NOTE:** we've recently changed the mappings file we use, to ensure that we also can map things that aren't documents from admin urls to new urls.
 

@@ -14,8 +14,10 @@ carboncalculator.direct.gov.uk
 carfueldata.dft.gov.uk
 ceo.decc.gov.uk
 coal.decc.gov.uk
+communitylife.cabinetoffice.gov.uk
 corwm.decc.gov.uk
 customs.hmrc.gov.uk
+data.gov.uk
 dlcu.homeoffice.gov.uk
 drugdrive.direct.gov.uk
 dsa.dft.gov.uk
@@ -27,6 +29,7 @@ esdal.dft.gov.uk
 ewf.companieshouse.gov.uk
 foodanddrink.nsacademy.co.uk
 graduatetalentpool.direct.gov.uk
+gps.cabinetoffice.gov.uk
 hes.decc.gov.uk
 jobsstatic.civilservice.gov.uk
 local.direct.gov.uk
@@ -99,9 +102,11 @@ www.dwp.gov.uk
 www.eblex.org.uk
 www.eca-water.gov.uk
 www.econsultation.decc.gov.uk
+www.electoralcommission.org.uk
 www.environment-agency.gov.uk
 www.fco.gov.uk
 www.fsa.gov.uk
+www.getsafeonline.org
 www.gov.uk
 www.greendealorb.co.uk
 www.highways.gov.uk
@@ -132,6 +137,7 @@ www.nsasocialcare.co.uk
 www.nuclear.nsacademy.co.uk
 www.number10.gov.uk
 www.oft.gov.uk
+www.parliament.uk
 www.people1st.co.uk
 www.planningportal.gov.uk
 www.police.uk
