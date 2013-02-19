@@ -69,6 +69,11 @@ fi
 status "Munging and tidying mappings ..."
 set -x
 cat $fetch_file |
+
+        # specific bad characters appearing in cabinetoffice scrape
+        # TBD: fix these closer to source
+        sed -e 's/£/%25A3/g' -e 's/–/%u2013/g' |
+
     ./munge/munge.rb $document_file |
     ./munge/strip-empty-quotes-and-whitespace.rb |
     ./munge/reverse-csv.rb |
