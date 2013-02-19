@@ -19,10 +19,15 @@ sub c14n_url {
     # remove trailing insignificant characters
     $url =~ s/[\?\/\#]*$//;
 
-    # escape problematic characters
+    # escape characters problematic in CSV
     $url =~ s/"/%22/g;
     $url =~ s/'/%27/g;
     $url =~ s/,/%2C/g;
+
+    # escape characters problematic in a regex
+    $url =~ s/\|/%7C/g;
+    $url =~ s/\[/%5B/g;
+    $url =~ s/\]/%5D/g;
 
     return $url;
 }
