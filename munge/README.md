@@ -111,7 +111,7 @@ It's useful to search through for any `301s` that are being removed as a sanity 
 
 If there are warnings about an unstable `redirector` build, there will be errors in the redirect files.
 
-Look [here](http://ci.alphagov.co.uk/view/Transition/job/redirector/lastSuccessfulBuild/artifact/dist/) for any files named `<department>_incorrect.txt` (eg `og_decc_incorrect.txt`) - this will give you the list of links to fix in the source google doc.
+Look [here](http://ci.alphagov.co.uk/view/Transition/job/redirector/lastSuccessfulBuild/artifact/dist/) for any files named `<department>_incorrect.txt` (eg `decc_og_incorrect.txt`) - this will give you the list of links to fix in the source google doc.
 
 #### Deploy
 
