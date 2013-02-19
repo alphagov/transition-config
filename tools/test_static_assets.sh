@@ -25,6 +25,8 @@ while test $# -gt 0 ; do
     break
 done
 
+mkdir -p $(dirname $tmpfile)
+
 (
 echo "Old Url,New Url,Status"
 IFS=,
