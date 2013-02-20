@@ -6,7 +6,7 @@ sites="data/sites.csv"
 whitelist="data/whitelist.txt"
 cache="./cache"
 document_url='https://whitehall-admin.production.alphagov.co.uk/government/all_document_attachment_and_non_document_mappings.csv'
-document_file="tmp/document_mappings.csv"
+document_file="cache/document_mappings.csv"
 user="$WHITEHALL_AUTH"
 fetch="y"
 verbose=""
@@ -50,14 +50,16 @@ if [ ! -d "$cache" ] ; then
     set +x
 fi
 
+
 if [ ! -s "$document_file" ]; then
+    # TBD: - use wget --timestamping for caching this
     status "Fetching $document_file from production ..."
     set -x
     curl -s -u "$user" "$document_url" > $document_file
     set +x
 fi
 
-status "Generating mappings ..."
+
 if [ -n "$fetch" ]; then
     status "Fetching mappings for $site ..."
     set -x
@@ -65,11 +67,31 @@ if [ -n "$fetch" ]; then
     set +x
 fi
 
+
+status "Extracting mappings from Whitehall ..."
+# 1       2       3      4         5    6         7
+# Old Url,New Url,Status,Whole Tag,Slug,Admin Url,State
+site_whitehall="$cache/$site/_whitehall.csv"
+grep "^\"*https*://$host[/,]" $document_file |
+    sed 's/""//g' |
+    cut -d , -f 1,2,3 > $site_whitehall
+
+
 status "Concatenating mappings ..."
-files=$(awk -F, "\$1 == \"$site\" { print \"$cache/$site/\" \$2 \".csv\" }" $fetch_list)
-set -x
-cat $files > $all_file
-set +x
+(
+    set -x
+    all_files=$(awk -F, "\$1 == \"$site\" { print \"$cache/$site/\" \$2 \".csv\" }" $fetch_list)
+    set +x
+
+    echo "Old Url,New Url,Status,Suggested Link,Archive Link"
+    for file in $all_files $site_whitehall
+    do
+        set -x
+        tail -n +2 "$file"
+        set +x
+    done
+) > $all_file
+
 
 status "Munging and tidying mappings ..."
 set -x
@@ -82,9 +104,11 @@ cat $all_file |
 mv ${mappings}_tmp ${mappings}
 set +x
 
+
 status "Validating mappings ..."
 set -x
 prove tools/validate_mappings.pl :: --host "$host" --whitelist "$whitelist" $validate_options $mappings
 set +x
+
 
 status "Done"
