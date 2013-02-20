@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby -w
+#!/usr/bin/env ruby
 
 # A test script to check the 418 propagation
 # Committing as is. Can be made into a proper test if required, or removed after completion of story separating munge into pipeline

@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby -w
+#!/usr/bin/env ruby
 
 base_dir = File.expand_path("..", File.dirname(__FILE__))
 harvester_results_url = "https://docs.google.com/spreadsheet/pub?key=0AiP6zL-gKn64dHd5MXB5Q0h4SFRIQ3huRDBIb29nY2c&single=true&gid=3&output=csv"
