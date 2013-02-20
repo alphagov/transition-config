@@ -8,7 +8,7 @@
 set -e
 
 site="$1"
-domain="$2"
+host="$2"
 redirection_date="$3"
 tna_timestamp="$4"
 title="$5"
@@ -16,8 +16,7 @@ furl="$6"
 new_url="$7"
 
 homepage="www.gov.uk$furl"
-furl="https://www.gov.uk$furl"
-archive_link="http://webarchive.nationalarchives.gov.uk/$tna_timestamp/http://$domain"
+archive_link="http://webarchive.nationalarchives.gov.uk/$tna_timestamp/http://$host"
 
 #
 #  ensure static directory exists
@@ -142,22 +141,22 @@ EOF
 cat > $path/robots.txt <<EOF
 User-agent: *
 Disallow:
-Sitemap: http://$domain/sitemap.xml
+Sitemap: http://$host/sitemap.xml
 EOF
 
 #
 #  assemble 410 php file
 #
-touch dist/${domain}.suggested_link.conf
-touch dist/${domain}.archive_links.conf
+touch dist/${site}.suggested_link.conf
+touch dist/${site}.archive_links.conf
 cp redirector/410_suggested_links.php $path
 cp redirector/favicon.ico $path
 cp redirector/gone.css dist/static
 
 cat \
     redirector/410_preamble.php \
-    dist/${domain}.*suggested_link*.conf \
-    dist/${domain}.archive_links.conf \
+    dist/${site}.*suggested_link*.conf \
+    dist/${site}.archive_links.conf \
     redirector/410_header.php \
     $path/410.html \
     > $path/410.php
