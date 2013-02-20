@@ -66,9 +66,8 @@ status "Generating piplinks_maps.conf ..."
 tools/generate_piplinks.pl data/piplinks_url_map_source.csv > dist/piplinks_maps.conf
 
 status "Processing data/sites.csv ..."
-(
-    IFS=,
-    read titles
+IFS=,
+tail -n +2 $sites |
     while read site host redirection_date tna_timestamp title furl aliases validate_options new_url rest
     do
         mappings=dist/${site}_mappings_source.csv
@@ -112,6 +111,5 @@ status "Processing data/sites.csv ..."
             prove tools/test_sitemap.pl :: $sitemap $host
         fi
     done
-) < $sites
 
 exit $?
