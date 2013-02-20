@@ -57,4 +57,24 @@ http://www.decc.gov.uk,https://www.gov.uk/government/policies/boosting-private-s
 
 [ $? -ne 0 ] && { echo "$0: WARNING: This is a known issue with capitalisation causing trumping not to work" ; }
 
+# test: ensure that we fold mappings correctly
+
+cat > $fetched_data <<!
+old url,new url,status,source,row_number
+http://www.decc.gov.uk/foo,http://www.decc.gov.uk/bar,,passed in string,3
+http://www.decc.gov.uk/bar,http://www.decc.gov.uk/quux,,passed in string,4
+http://www.decc.gov.uk/quux,https://gov.uk/this-is-the-end-target,,passed in string,5
+!
+
+run_merge
+
+diff $output - <<!
+Old Url,New Url,Status
+http://www.decc.gov.uk/bar,https://gov.uk/this-is-the-end-target,301
+http://www.decc.gov.uk/foo,https://gov.uk/this-is-the-end-target,301
+http://www.decc.gov.uk/quux,https://gov.uk/this-is-the-end-target,301
+!
+
+[ $? -ne 0 ] && { echo "$0: FAIL" ; exit 1; }
+
 echo "$0: OK"
