@@ -5,3 +5,4 @@ tmp_test_run_output/
 test.sh
 document_mappings.csv
 fetch.*
+/cache
