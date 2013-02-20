@@ -13,7 +13,7 @@ function run_merge {
   ./tools/fold-mappings.rb |
   ./munge/strip-empty-quotes-and-whitespace.rb |
   ./munge/reverse-csv.rb |
-  ./tools/tidy_mappings.pl --trump $validate_options > $output 2> /dev/null
+  ./tools/tidy_mappings.pl --trump > $output 2> /dev/null
 }
 
 cat > $test_document_mappings <<!
@@ -45,18 +45,17 @@ http://www.decc.gov.uk/foo,https://gov.uk/this-is-foo,301
 cat > $fetched_data <<!
 old url,new url,status,source,row_number
 http://www.decc.gov.uk/foo,https://gov.uk/this-is-foo,,passed in string,3
-http://www.decc.gov.uk/Foo,https://gov.uk/this-should-not-appear-as-foo-as-capitalised,,passed in string,3
-http://www.decc.gov.uk/foo,https://gov.uk/this-is-foo,301
+http://www.decc.gov.uk/FOO,https://gov.uk/this-should-not-appear-as-foo-as-capitalised,,passed in string,3
 !
 
 run_merge
 
 diff $output - <<!
 Old Url,New Url,Status
-http://www.decc.gov.uk,https://www.gov.uk/government/policies/remapped-public-url,301
+http://www.decc.gov.uk/foo,https://gov.uk/this-is-foo,301
 !
 
-[ $? -ne 0 ] && { echo "$0: WARNING: This is a known issue with capitalisation causing trumping not to work" ; }
+[ $? -ne 0 ] && { echo "$0: FAIL" ; exit 1; }
 
 # test: ensure that we fold mappings correctly
 
