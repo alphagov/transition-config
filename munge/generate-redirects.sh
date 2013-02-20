@@ -70,6 +70,7 @@ status "Munging and tidying mappings ..."
 set -x
 cat $fetch_file |
     ./munge/munge.rb $document_file |
+    ./tools/fold-mappings.rb |
     ./munge/strip-empty-quotes-and-whitespace.rb |
     ./munge/reverse-csv.rb |
     ./tools/tidy_mappings.pl --trump $validate_options > ${mappings}_tmp

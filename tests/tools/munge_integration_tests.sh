@@ -10,6 +10,7 @@ output='/tmp/munge_test.out'
 function run_merge {
   cat $fetched_data |
   ./munge/munge.rb $test_document_mappings 2>/dev/null |
+  ./tools/fold-mappings.rb |
   ./munge/strip-empty-quotes-and-whitespace.rb |
   ./munge/reverse-csv.rb |
   ./tools/tidy_mappings.pl --trump $validate_options > $output 2> /dev/null
@@ -17,7 +18,7 @@ function run_merge {
 
 cat > $test_document_mappings <<!
 Old Url,New Url,Status,Whole Tag,Slug,Admin Url,State
-"",https://www.gov.uk/government/policies/boosting-private-sector-employment-in-england,"",Open,boosting-private-sector-employment-in-england,https://whitehall-admin.production.alphagov.co.uk/government/admin/policy_advisory_groups/88/edit,archived
+"",https://www.gov.uk/government/policies/remapped-public-url,"",Open,remapped-public-url,https://whitehall-admin.production.alphagov.co.uk/government/admin/policy_advisory_groups/88/edit,archived
 !
 
 cat > $fetched_data <<!
@@ -33,7 +34,7 @@ run_merge
 
 diff $output - <<!
 Old Url,New Url,Status
-http://www.decc.gov.uk,https://www.gov.uk/government/policies/boosting-private-sector-employment-in-england,301
+http://www.decc.gov.uk,https://www.gov.uk/government/policies/remapped-public-url,301
 http://www.decc.gov.uk/foo,https://gov.uk/this-is-foo,301
 !
 
@@ -52,7 +53,7 @@ run_merge
 
 diff $output - <<!
 Old Url,New Url,Status
-http://www.decc.gov.uk,https://www.gov.uk/government/policies/boosting-private-sector-employment-in-england,301
+http://www.decc.gov.uk,https://www.gov.uk/government/policies/remapped-public-url,301
 !
 
 [ $? -ne 0 ] && { echo "$0: WARNING: This is a known issue with capitalisation causing trumping not to work" ; }

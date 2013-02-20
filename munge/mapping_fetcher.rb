@@ -48,9 +48,9 @@ class MappingFetcher
   def munge(input)
     CSV.generate do |output_csv|
       $stderr.puts "Writing mappings"
-      output_csv << ['Old Url','New Url','Status']
+      output_csv << ['Old Url', 'New Url', 'Status']
       i = 0
-      rows = follow_url_chains(ensure_no_duplicates(remap_new_urls(skip_rows_with_blank_or_invalid_old_url(sanitize_urls(input)))))
+      rows = ensure_no_duplicates(remap_new_urls(skip_rows_with_blank_or_invalid_old_url(sanitize_urls(input))))
       rows.sort_by {|row| row['old url']}.each do |row|
         status = row ['status']
         if status != '418'
