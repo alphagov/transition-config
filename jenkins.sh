@@ -60,10 +60,10 @@ status "Generating tests for Smokey"
 tools/generate_smokey_tests.sh --sites $sites > dist/redirector.feature
 
 status "Generating lrc_map.conf ..."
-tools/generate_lrc.pl data/lrc_transactions_source.csv > dist/lrc_map.conf
+tools/generate_lrc.pl data/lrc.csv > dist/lrc_map.conf
 
 status "Generating piplinks_maps.conf ..."
-tools/generate_piplinks.pl data/piplinks_url_map_source.csv > dist/piplinks_maps.conf
+tools/generate_piplinks.pl data/piplinks.csv > dist/piplinks_maps.conf
 
 status "Processing data/sites.csv ..."
 IFS=,
