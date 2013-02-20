@@ -78,6 +78,9 @@ sub test_row {
     ok(str2time($tna_time), "invalid TNA timestamp time [$tna_timestamp] [$tna_time] $context");
 
     my $furl = $row->{'FURL'} // '';
+    ok($furl =~ /^\/[a-z0-9-]+$/, "invalid furl [$furl] $context") if ($furl);
+
+    $furl = "https://www.gov.uk$furl";
     check_new_url($context, 'FURL', $furl);
 
     my $aliases = $row->{'Aliases'} // '';

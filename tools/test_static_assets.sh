@@ -37,7 +37,9 @@ cut -d, -f 2,6,9 "$sites" |
         # home page redirect
         echo "http://$host,$new_url,301"
         echo "http://$host/,$new_url,301"
-        #echo "$furl,$new_url,301"
+
+        # not yet deployed
+        # echo "https://www.gov.uk$furl,$new_url,301"
 
         # static assets
         echo "http://$host/robots.txt,,200"

@@ -15,7 +15,8 @@ title="$5"
 furl="$6"
 new_url="$7"
 
-homepage=$(echo "$furl" | sed 's/^https*:\/\///')
+homepage="www.gov.uk$furl"
+furl="https://www.gov.uk$furl"
 archive_link="http://webarchive.nationalarchives.gov.uk/$tna_timestamp/http://$domain"
 
 #
