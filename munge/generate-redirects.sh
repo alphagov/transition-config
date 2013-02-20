@@ -25,7 +25,7 @@ while test $# -gt 0 ; do
     case "$1" in
     -n|--no-fetch) shift ; fetch="" ; continue;;
     -s|--sites) shift; sites="$1" ; shift ; continue;;
-    -u|--user) shift; today="$1" ; shift ; continue;;
+    -u|--user) shift; user="$1" ; shift ; continue;;
     -w|--whitelist) shift; whitelist="$1" ; shift ; continue;;
     -\?|-h|--help) usage ;;
     --) break ;;
