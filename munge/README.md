@@ -85,21 +85,25 @@ This file is generated each night at 2am from the latest production data, and se
 * The providing of mappings from "old urls" to "new urls"
 * The conversion of "admin urls" to publicly-consumable "new urls"
 
-Download [this csv file (~15MB)](http://whitehall-admin.production.alphagov.co.uk/government/all_document_attachment_and_non_document_mappings.csv) and save as `document_mappings.csv` in the root of the redirect project.
-
-**NOTE:** we've recently changed the mappings file we use, to ensure that we also can map things that aren't documents from admin urls to new urls.
+If you have an old CSV file, ensure you have deleted it - the below process will download it automatically.
 
 #### Generate the redirects
 
 Ensure that the source google doc is set up and the most recent version is published to CSV (ask Robin or Pete to do this.)
 
-From the root of the project, run `./munge/generate-redirects.sh <department>`
+From the root of the project, run `./munge/generate-redirects.sh -w data/whitelist.txt -s data/sites.txt -u user:pass <department>`
 
-eg `./munge/generate-redirects.sh decc`
+eg `./munge/generate-redirects.sh -w data/whitelist.txt -s data/sites.txt -u foo:bar decc`
 
 This will regenerate files we keep checked in in `data/mappings/`. Any warnings or errors in the url formats are sent to $stderr in the following form:
 
     error url,error name,source file url,source file row number
+
+This script will also run the `./tools/tidy_mappings.pl` script for you.
+
+*NOTE:* The googledoc files are fetched and stored temporarily as part of this process. If you want to generate the redirects without fetching the googledocs again, then use the `-n` switch.
+
+The `-u` switch is used to fetch the document mappings from Whitehall. The credentials are generally known to Whitehall team members: if in doubt, ask.
 
 #### View changes and check in
 
