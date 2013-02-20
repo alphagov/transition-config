@@ -21,6 +21,10 @@ class TestUrlCleaner < MiniTest::Unit::TestCase
     assert_sanitize_url "http://gov.uk/path with spaces%20%20", "http://gov.uk/path%20with%20spaces"
   end
 
+  def test_sanitize_url_removes_leading_spaces
+    assert_sanitize_url " http://gov.uk/path", "http://gov.uk/path"
+  end
+
   def test_sanitize_url_replaces_rogue_escaped_amps_with_real_ones
     assert_sanitize_url "http://gov.uk/?foo&amp;bar", "http://gov.uk/?foo&bar"
   end

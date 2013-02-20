@@ -260,6 +260,7 @@ class MappingFetcher
     url && url.
       gsub(" ", "%20").
       sub(/(%20)+$/, "").
+      sub(/^(%20)+/, "").
       gsub("&amp;", "&").
       gsub(/^([^\(]*)\)/, '\1').
       gsub(",", "%2C")
