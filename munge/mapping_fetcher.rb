@@ -52,14 +52,10 @@ class MappingFetcher
       i = 0
       rows = ensure_no_duplicates(remap_new_urls(skip_rows_with_blank_or_invalid_old_url(sanitize_urls(input))))
       rows.each do |row|
-        status = row ['status']
-        if status != '418'
-          status = blank?(row['new url']) ? "410" : "301"
-        end
         new_row = [
           row['old url'],
           row['new url'],
-          status
+          row['status']
         ]
         validate_row!(new_row)
         output_csv << new_row

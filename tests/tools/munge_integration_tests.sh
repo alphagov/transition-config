@@ -7,10 +7,11 @@ test_document_mappings='/tmp/munge_test_document_mappings.csv'
 fetched_data='/tmp/munge_test_fetched_data.csv'
 output='/tmp/munge_test.out'
 
-function run_merge {
+function run_munge {
   cat $fetched_data |
   ./munge/munge.rb $test_document_mappings 2>/dev/null |
   ./tools/fold-mappings.rb |
+  ./tools/choose-status.rb |
   ./munge/strip-empty-quotes-and-whitespace.rb |
   ./munge/reverse-csv.rb |
   ./tools/tidy_mappings.pl --trump > $output 2> /dev/null
@@ -30,7 +31,7 @@ http://www.decc.gov.uk/foo?,https://gov.uk/this-should-not-appear-as-foo,,passed
 http://www.decc.gov.uk/foo#,https://gov.uk/this-should-not-appear-as-foo,,passed in string,3
 !
 
-run_merge
+run_munge
 
 diff $output - <<!
 Old Url,New Url,Status
@@ -48,7 +49,7 @@ http://www.decc.gov.uk/foo,https://gov.uk/this-is-foo,,passed in string,3
 http://www.decc.gov.uk/FOO,https://gov.uk/this-should-not-appear-as-foo-as-capitalised,,passed in string,3
 !
 
-run_merge
+run_munge
 
 diff $output - <<!
 Old Url,New Url,Status
@@ -66,13 +67,31 @@ http://www.decc.gov.uk/bar,http://www.decc.gov.uk/quux,,passed in string,4
 http://www.decc.gov.uk/quux,https://gov.uk/this-is-the-end-target,,passed in string,5
 !
 
-run_merge
+run_munge
 
 diff $output - <<!
 Old Url,New Url,Status
 http://www.decc.gov.uk/bar,https://gov.uk/this-is-the-end-target,301
 http://www.decc.gov.uk/foo,https://gov.uk/this-is-the-end-target,301
 http://www.decc.gov.uk/quux,https://gov.uk/this-is-the-end-target,301
+!
+
+[ $? -ne 0 ] && { echo "$0: FAIL" ; exit 1; }
+
+# test: ensure we capture the status correctly when it changes
+
+cat > $fetched_data <<!
+old url,new url,status,source,row_number
+http://www.decc.gov.uk/foo,http://www.decc.gov.uk/bar,,passed in string,3
+http://www.decc.gov.uk/bar,,410,passed in string,4
+!
+
+run_munge
+
+diff $output - <<!
+Old Url,New Url,Status
+http://www.decc.gov.uk/bar,,410
+http://www.decc.gov.uk/foo,,410
 !
 
 [ $? -ne 0 ] && { echo "$0: FAIL" ; exit 1; }
