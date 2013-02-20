@@ -22,7 +22,7 @@ while test $# -gt 0 ; do
     -s|--sites) shift; sites="$1" ; shift ; continue ;;
     -v|--verbose) set -x ; shift; continue ;;
     -n|--skip-validation) validate=""; shift; continue ;;
-    -t|--skip-tests) tests=""; shift;;
+    -t|--skip-tests) tests=""; shift; continue ;;
     -\?|-h|--help) usage ;;
     --) break ;;
     -*) usage ;;
@@ -112,13 +112,6 @@ status "Processing data/sites.csv ..."
             prove tools/test_sitemap.pl :: $sitemap $host
         fi
     done
-    report
 ) < $sites
 
-# report on success
-status=$?
-if [ $status -ne 0 ] ; then
-	error "Redirector build failed" 
-	exit $status
-fi
-ok "Redirector build succeeded."
+exit $?

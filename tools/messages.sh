@@ -1,6 +1,3 @@
-errors=0
-warnings=0
-
 ANSI_RED="\033[31m"
 ANSI_GREEN="\033[32m"
 ANSI_YELLOW="\033[33m"
@@ -18,20 +15,19 @@ ok () {
 
 error () {
   echo "${ANSI_RED}${ANSI_BOLD}ERROR:${ANSI_RESET} ${ANSI_RED}${@}${ANSI_RESET}" >&2
-  errors=`expr $errors + 1`
 }
 
 warning () {
   echo "${ANSI_YELLOW}${ANSI_BOLD}WARNING:${ANSI_RESET} ${ANSI_YELLOW}${@}${ANSI_RESET}" >&2
-  warnings=`expr $warnings + 1`
 }
 
 report () {
-    if [ $errors -gt 0 ]; then
-        error "There were $errors errors." >&2
+    status=$?
+    if [ $status -ne 0 ] ; then
+        error "failed" 
+        exit $status
     fi
-
-    if [ $warnings -gt 0 ]; then
-        warning "There were $warnings warnings." >&2
-    fi
+    ok "succeeded."
 }
+
+trap "report" EXIT
