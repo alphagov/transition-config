@@ -81,10 +81,10 @@ http://www.direct.gov.uk,https://www.gov.uk,301,foo,bar,baz
 #
 tools/tidy_mappings.pl --trump > /tmp/tidy-t.out 2> /tmp/tidy-t.err <<!
 Old Url,New Url,Status,More,Stuff
-http://example.com/1,http://foo/1,301
-http://example.com/1,http://foo/2,301
+http://example.com/f,http://foo/1,301
+http://example.com/F,http://foo/2,301
 http://example.com/2,http://bar/1,301
-http://example.com/1,http://foo/3,301
+http://example.com/f,http://foo/3,301
 http://example.com/2,,410
 http://example.com/3,,410
 !
@@ -96,9 +96,9 @@ diff /tmp/tidy-t.err - <<!
 
 diff /tmp/tidy-t.out - <<!
 Old Url,New Url,Status,More,Stuff
-http://example.com/1,http://foo/3,301
 http://example.com/2,,410
 http://example.com/3,,410
+http://example.com/f,http://foo/3,301
 !
 
 
