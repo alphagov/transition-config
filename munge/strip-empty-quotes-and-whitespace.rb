@@ -6,11 +6,11 @@ input = CSV.parse($stdin, headers: true).collect { |row|
   [row['Old Url'], (row['New Url'] == "" ? nil : row['New Url']), row['Status']]
 }
 
-folded_csv = CSV.generate do |csv|
+output_csv = CSV.generate do |csv|
   csv << ["Old Url", "New Url", "Status"]
   input.each do |row|
     csv << row.map {|x| x.respond_to?(:strip) ? x.strip : nil }
   end
 end
 
-puts folded_csv
+puts output_csv
