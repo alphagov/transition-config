@@ -34,7 +34,7 @@ done
 
 if [ -n "$tests" ] ; then
     status "Testing tools ..."
-    for t in tests/tools/*.sh ; do $t ; done
+    for t in tests/tools/*.sh ; do set -x ; $t ; set +x ; done
 
     status "Testing munge ..."
     rake -f munge/Rakefile test
