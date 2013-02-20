@@ -4,7 +4,7 @@ set -e
 
 sites="data/sites.csv"
 whitelist="data/whitelist.txt"
-tmpdir="tmp"
+cache="./cache"
 document_url='https://whitehall-admin.production.alphagov.co.uk/government/all_document_attachment_and_non_document_mappings.csv'
 document_file="tmp/document_mappings.csv"
 user="$WHITEHALL_AUTH"
@@ -41,12 +41,12 @@ mappings="./data/mappings/${site}.csv"
 
 host=$(awk -F, '$1 == "'$site'" { print $2 }' $sites)
 validate_options=$(awk -F, '$1 == "'$site'" { print $8 }' $sites)
-fetch_cmd="./munge/fetch_${site}_mappings.rb"
-fetch_file="$tmpdir/fetch.$site.csv"
+fetch_list="data/fetch.csv"
+all_file="$cache/$site/_all.csv"
 
-if [ ! -d "$tmpdir" ] ; then
+if [ ! -d "$cache" ] ; then
     set -x
-    mkdir -p "$tmpdir"
+    mkdir -p "$cache"
     set +x
 fi
 
@@ -58,21 +58,25 @@ if [ ! -s "$document_file" ]; then
 fi
 
 status "Generating mappings ..."
-
 if [ -n "$fetch" ]; then
-    status "Fetching mappings for $host ..."
+    status "Fetching mappings for $site ..."
     set -x
-    ./munge/extract-mappings.rb $host < "$document_file" | "$fetch_cmd" > "$fetch_file"
+    tools/fetch_mappings.sh --fetch "$fetch_list" --cache-dir "$cache" "$site"
     set +x
 fi
 
+status "Concatenating mappings ..."
+files=$(awk -F, "\$1 == \"$site\" { print \"$cache/$site/\" \$2 \".csv\" }" $fetch_list)
+set -x
+cat $files > $all_file
+set +x
+
 status "Munging and tidying mappings ..."
 set -x
-cat $fetch_file |
+cat $all_file |
     ./munge/munge.rb $document_file |
     ./tools/fold-mappings.rb |
     ./munge/strip-empty-quotes-and-whitespace.rb |
-    ./munge/reverse-csv.rb |
     ./tools/tidy_mappings.pl --trump $validate_options > ${mappings}_tmp
 
 mv ${mappings}_tmp ${mappings}
