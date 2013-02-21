@@ -5,8 +5,8 @@ set -e
 sites="data/sites.csv"
 whitelist="data/whitelist.txt"
 cache="./cache"
-document_url='https://whitehall-admin.production.alphagov.co.uk/government/all_document_attachment_and_non_document_mappings.csv'
-document_file="cache/document_mappings.csv"
+whitehall_url='https://whitehall-admin.production.alphagov.co.uk/government/all_document_attachment_and_non_document_mappings.csv'
+whitehall="cache/whitehall.csv"
 user="$WHITEHALL_AUTH"
 fetch="y"
 verbose=""
@@ -51,11 +51,11 @@ if [ ! -d "$cache" ] ; then
 fi
 
 
-if [ ! -s "$document_file" ]; then
+if [ ! -s "$whitehall" ]; then
     # TBD: - use wget --timestamping for caching this
-    status "Fetching $document_file from production ..."
+    status "Fetching $whitehall from production ..."
     set -x
-    curl -s -u "$user" "$document_url" > $document_file
+    curl -s -u "$user" "$whitehall_url" > $whitehall
     set +x
 fi
 
@@ -72,7 +72,7 @@ status "Extracting mappings from Whitehall ..."
 # 1       2       3      4         5    6         7
 # Old Url,New Url,Status,Whole Tag,Slug,Admin Url,State
 site_whitehall="$cache/$site/_whitehall.csv"
-grep "^\"*https*://$host[/,]" $document_file |
+grep "^\"*https*://$host[/,]" $whitehall |
     sed 's/""//g' |
     cut -d , -f 1,2,3 > $site_whitehall
 
@@ -96,7 +96,7 @@ status "Concatenating mappings ..."
 status "Munging and tidying mappings ..."
 set -x
 cat $all_file |
-    ./munge/munge.rb $document_file |
+    ./munge/munge.rb $whitehall |
     ./tools/fold-mappings.rb |
     ./tools/choose-status.rb |
     ./munge/strip-empty-quotes-and-whitespace.rb |
