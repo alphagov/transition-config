@@ -3,7 +3,8 @@
 # tests that admin urls are mapped to public
 # and that urls which appear first trump older urls
 
-. ./tools/env
+# Ensure sort behaviour is consistent
+export LC_ALL=C
 
 test_document_mappings='/tmp/munge_test_document_mappings.csv'
 fetched_data='/tmp/munge_test_fetched_data.csv'
@@ -41,7 +42,7 @@ http://www.decc.gov.uk,https://www.gov.uk/government/policies/remapped-public-ur
 http://www.decc.gov.uk/foo,https://gov.uk/this-is-foo,301
 !
 
-[ $? -ne 0 ] && { error "$0: FAIL" ; exit 1; }
+[ $? -ne 0 ] && { echo "$0: FAIL" ; exit 1; }
 
 # test: ensure that different cases are treated correctly with trumping
 
@@ -58,7 +59,7 @@ Old Url,New Url,Status
 http://www.decc.gov.uk/foo,https://gov.uk/this-is-foo,301
 !
 
-[ $? -ne 0 ] && { error "$0: FAIL" ; exit 1; }
+[ $? -ne 0 ] && { echo "$0: FAIL" ; exit 1; }
 
 # test: ensure that we fold mappings correctly
 
@@ -78,7 +79,7 @@ http://www.decc.gov.uk/foo,https://gov.uk/this-is-the-end-target,301
 http://www.decc.gov.uk/quux,https://gov.uk/this-is-the-end-target,301
 !
 
-[ $? -ne 0 ] && { error "$0: FAIL" ; exit 1; }
+[ $? -ne 0 ] && { echo "$0: FAIL" ; exit 1; }
 
 # test: ensure we capture the status correctly when it changes
 
@@ -96,4 +97,6 @@ http://www.decc.gov.uk/bar,,410
 http://www.decc.gov.uk/foo,,410
 !
 
-[ $? -ne 0 ] && { error "$0: FAIL" ; exit 1; }
+[ $? -ne 0 ] && { echo "$0: FAIL" ; exit 1; }
+
+echo "$0: OK"
