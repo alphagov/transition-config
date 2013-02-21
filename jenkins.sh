@@ -102,8 +102,8 @@ tail -n +2 $sites |
             tools/generate_nginx_conf.sh --site "$site" --homepage "$homepage" "$host" $aliases > $conf
         fi
 
-        status "Creating mappings for $site ..."
-        tools/generate_mappings.pl $mappings
+        status "Creating nginx maps for $site ..."
+        tools/generate_maps.pl $mappings
 
         status "Creating static assets for $site ... "
         tools/generate_static_assets.sh "$site" "$host" "$redirection_date" "$tna_timestamp" "$title" "$furl" "$homepage"
