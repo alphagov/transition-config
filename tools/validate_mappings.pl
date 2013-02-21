@@ -16,22 +16,24 @@ use LWP::UserAgent;
 use URI;
 
 require 'lib/c14n.pl';
+require 'lib/lists.pl';
 
 my $skip_canonical;
 my $allow_duplicates;
 my $allow_query_string;
 my $allow_https;
 my $disallow_embedded_urls;
+my $blacklist = "data/blacklist.txt";
 my $whitelist = "data/whitelist.txt";
-my $blacklist = "";
+my $ignore_blacklist;
+my $ignore_whitelist;
 my $host = "";
-my %hosts = ();
 my %seen = ();
-my %paths = ();
 my $help;
 
 GetOptions(
     "blacklist|b=s"  => \$blacklist,
+    "ignore-blacklist|B"  => \$ignore_blacklist,
     "skip-canonical|c"  => \$skip_canonical,
     "allow-duplicates|d"  => \$allow_duplicates,
     "allow-query-string|q"  => \$allow_query_string,
@@ -39,14 +41,14 @@ GetOptions(
     "disallow-embedded-urls|u"  => \$disallow_embedded_urls,
     "host|h=s"  => \$host,
     "whitelist|w=s"  => \$whitelist,
+    "ignore-whitelist|W"  => \$ignore_whitelist,
     'help|?' => \$help,
 ) or pod2usage(1);
 
 pod2usage(2) if ($help);
 
-load_whitelist($whitelist) if ($whitelist);
-load_blacklist($blacklist) if ($blacklist);
-$paths{''} = 1;
+my %hosts = load_whitelist($whitelist) unless ($ignore_whitelist);
+my %paths = load_blacklist($blacklist) unless ($ignore_blacklist);
 
 foreach my $filename (@ARGV) {
     %seen = ();
@@ -142,28 +144,6 @@ sub check_url {
     return $uri;
 }
 
-sub load_whitelist {
-    my $filename = shift;
-    local *FILE;
-    open(FILE, "< $filename") or die "unable to open whitelist $filename";
-    while (<FILE>) {
-        chomp;
-        $_ =~ s/\s*\#.*$//;
-        $hosts{$_} = 1 if ($_);
-    }
-}
-
-sub load_blacklist {
-    my $filename = shift;
-    local *FILE;
-    open(FILE, "< $filename") or die "unable to open blacklist $filename";
-    while (<FILE>) {
-        chomp;
-        $_ =~ s/\s*\#.*$//;
-        $paths{$_} = 1 if ($_);
-    }
-}
-
 sub check_unquoted {
     my $filename = shift;
     open(FILE, "< $filename") or die "unable to open whitelist $filename";
@@ -183,14 +163,16 @@ prove tools/validate_mappings.pl :: [options] [file ...]
 
 Options:
 
-    -b, --blacklist filename        constrain Old Url paths to those not the blacklist file
+    -b, --blacklist filename        constrain Old Url paths to those not given the blacklist file
+    -B, --ignore-blacklist          ignore the blacklist file
     -c, --skip-canonical            don't check for canonical Old Urls
     -d, --allow-duplicates          allow duplicate Old Urls
     -h, --host host                 constrain Old Urls to host
     -t, --allow-https               allow https in Old Urls
     -q, --allow-query-string        allow query-string in Old Urls
     -u, --disallow-embedded-urls    disallow Urls in Old Urls
-    -w, --whitelist filename        constrain New Urls to those in the whitelist file
+    -w, --whitelist filename        constrain New Urls to those in given whitelist file
+    -W, --ignore-whitelist          ignore the whitelist file
     -?, --help                      print usage
 
 =cut
