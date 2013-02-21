@@ -52,6 +52,10 @@ status "Copying whitelist to dist ..."
 whitelist=dist/whitelist.txt export whitelist
 cp data/whitelist.txt $whitelist
 
+status "Copying blacklist to dist ..."
+blacklist=dist/blacklist.txt export blacklist
+cp data/blacklist.txt $blacklist
+
 if [ -n "$validate" ] ; then
     prove tools/validate_sites.pl :: $sites
 fi
@@ -90,7 +94,7 @@ tail -n +2 $sites |
 
         if [ -n "$validate" ] ; then
             status "Validating mappings file for $site ..."
-            prove tools/validate_mappings.pl :: --host $host --whitelist $whitelist $validate_options $mappings
+            prove tools/validate_mappings.pl :: --host $host --whitelist $whitelist --blacklist $blacklist $validate_options $mappings
         fi
 
         if [ ! -f $conf ] ; then

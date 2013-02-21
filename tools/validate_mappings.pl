@@ -23,12 +23,15 @@ my $allow_query_string;
 my $allow_https;
 my $disallow_embedded_urls;
 my $whitelist = "data/whitelist.txt";
+my $blacklist = "";
 my $host = "";
 my %hosts = ();
 my %seen = ();
+my %paths = ();
 my $help;
 
 GetOptions(
+    "blacklist|b=s"  => \$blacklist,
     "skip-canonical|c"  => \$skip_canonical,
     "allow-duplicates|d"  => \$allow_duplicates,
     "allow-query-string|q"  => \$allow_query_string,
@@ -41,7 +44,9 @@ GetOptions(
 
 pod2usage(2) if ($help);
 
-load_whitelist($whitelist);
+load_whitelist($whitelist) if ($whitelist);
+load_blacklist($blacklist) if ($blacklist);
+$paths{''} = 1;
 
 foreach my $filename (@ARGV) {
     %seen = ();
@@ -98,6 +103,9 @@ sub test_row {
     my $s = ($allow_https) ? "s?": "";
     ok($scheme =~ m{^http$s$}, "Old Url [$old_url] scheme [$scheme] must be [http] $context");
 
+    my $old_path = $old_uri->path;
+    ok(!$paths{$old_path}, "Old Url [$old_url] path [$old_path] is blacklisted $context");
+
     ok($old_url =~ m{^https?://$host}, "Old Url [$old_url] host not [$host] $context");
 
     unless ($allow_duplicates) {
@@ -145,6 +153,17 @@ sub load_whitelist {
     }
 }
 
+sub load_blacklist {
+    my $filename = shift;
+    local *FILE;
+    open(FILE, "< $filename") or die "unable to open blacklist $filename";
+    while (<FILE>) {
+        chomp;
+        $_ =~ s/\s*\#.*$//;
+        $paths{$_} = 1 if ($_);
+    }
+}
+
 sub check_unquoted {
     my $filename = shift;
     open(FILE, "< $filename") or die "unable to open whitelist $filename";
@@ -164,13 +183,14 @@ prove tools/validate_mappings.pl :: [options] [file ...]
 
 Options:
 
+    -b, --blacklist filename        constrain Old Url paths to those not the blacklist file
     -c, --skip-canonical            don't check for canonical Old Urls
     -d, --allow-duplicates          allow duplicate Old Urls
     -h, --host host                 constrain Old Urls to host
     -t, --allow-https               allow https in Old Urls
     -q, --allow-query-string        allow query-string in Old Urls
     -u, --disallow-embedded-urls    disallow Urls in Old Urls
-    -w, --whitelist filename        constrain New Urls to those in a whitelist
+    -w, --whitelist filename        constrain New Urls to those in the whitelist file
     -?, --help                      print usage
 
 =cut

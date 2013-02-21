@@ -93,4 +93,27 @@ diff /tmp/validate.errors - <<!
 
 [ $? -ne 0 ] && { echo "$0: FAIL" ; exit 2; }
 
+#
+#  blacklisted paths
+#
+cat > /tmp/validate.in <<!
+Old Url,New Url,Status
+http://example.com,,410
+http://example.com/robots.txt,https://www.gov.uk/new,301
+http://example.com/sitemap.xml,https://www.gov.uk/new,301
+http://example.com/an-ok/path,https://www.gov.uk/new,301
+!
+tools/validate_mappings.pl --blacklist data/blacklist.txt /tmp/validate.in > /tmp/validate.out 2> /tmp/validate.err
+
+errors
+
+diff /tmp/validate.errors - <<!
+#   Failed test 'Old Url [http://example.com] path [] is blacklisted /tmp/validate.in line 2'
+#   Failed test 'Old Url [http://example.com/robots.txt] path [/robots.txt] is blacklisted /tmp/validate.in line 3'
+#   Failed test 'Old Url [http://example.com/sitemap.xml] path [/sitemap.xml] is blacklisted /tmp/validate.in line 4'
+!
+
+[ $? -ne 0 ] && { echo "$0: FAIL" ; exit 2; }
+
+
 echo "$0: OK"
