@@ -83,7 +83,7 @@ status "Extracting mappings from Whitehall ..."
 status "Concatenating mappings ..."
 (
     set -x
-    all_files=$(tail -r $fetch_list | awk -F, "\$1 == \"$site\" { print \"$cache/$site/\" \$2 \".csv\" }")
+    all_files=$(perl -e 'print reverse <>' $fetch_list | awk -F, "\$1 == \"$site\" { print \"$cache/$site/\" \$2 \".csv\" }")
     set +x
 
     echo "old url,new url,status,source,row_number"
