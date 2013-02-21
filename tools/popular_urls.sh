@@ -5,7 +5,7 @@
 #
 #set -e
 
-. tools/messages.sh
+. tools/env
 
 totals="$1"
 [ -z "$totals" ] && error "usage: $(basename $0) totals.csv [max-lines]" && exit 2

@@ -34,7 +34,7 @@ while test $# -gt 0 ; do
     break
 done
 
-. tools/messages.sh
+. tools/env
 
 site=$1 ; [ -z "$site" ] && usage
 mappings="./data/mappings/${site}.csv"

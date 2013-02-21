@@ -2,7 +2,7 @@
 
 set -e
 
-. tools/messages.sh
+. tools/env
 
 status "DEPLOY_TO=$DEPLOY_TO"
 

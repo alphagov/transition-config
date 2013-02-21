@@ -30,7 +30,7 @@ while test $# -gt 0 ; do
     break
 done
 
-. tools/messages.sh
+. tools/env
 
 if [ -n "$tests" ] ; then
     status "Testing tools ..."
