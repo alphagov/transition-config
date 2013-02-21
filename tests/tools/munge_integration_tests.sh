@@ -35,7 +35,6 @@ run_munge
 
 diff $output - <<!
 Old Url,New Url,Status
-http://www.decc.gov.uk,https://www.gov.uk/government/policies/remapped-public-url,301
 http://www.decc.gov.uk/foo,https://gov.uk/this-is-foo,301
 !
 

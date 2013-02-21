@@ -14,6 +14,11 @@ http://example.com/3,http://foo/3,301
 http://example.com/3,,410
 http://example.com/4,http://snark.com,301
 http://example.com/4,http://snork.com,301
+http://example.com,http://homepage-is-blacklisted.com,301
+http://example.com/robots.txt,http://robots-txt--is-blacklisted.com,301
+http://example.com/sitemap.xml,http://sitemap--is-blacklisted.com,301
+http://example.com/favicon.ico,http://favicon--is-blacklisted.com,301
+http://example.com/robots.txt/allowed,http://shouldnt-be-blacklisted.com,301
 !
 
 diff /tmp/tidy.err - <<!
@@ -24,6 +29,10 @@ leaving 301 http://example.com/4 duplicates differ line 10
 > http://example.com/4,http://snork.com,301
 > http://example.com/4,http://snark.com,301
 
+skipping blacklisted path [] line 11
+skipping blacklisted path [/robots.txt] line 12
+skipping blacklisted path [/sitemap.xml] line 13
+skipping blacklisted path [/favicon.ico] line 14
 !
 
 [ $? -ne 0 ] && { echo "$0: FAIL" ; exit 1; }
@@ -36,6 +45,7 @@ http://example.com/3,http://foo/3,301
 http://example.com/4,http://snark.com,301
 http://example.com/4,http://snork.com,301
 http://example.com/5,http://snork.com,301
+http://example.com/robots.txt/allowed,http://shouldnt-be-blacklisted.com,301
 !
 
 [ $? -ne 0 ] && { echo "$0: FAIL" ; exit 2; }
@@ -43,7 +53,7 @@ http://example.com/5,http://snork.com,301
 #
 #  actual
 #
-tools/tidy_mappings.pl --use-actual > /tmp/tidy-a.out 2> /tmp/tidy-a.err <<!
+tools/tidy_mappings.pl --ignore-blacklist --use-actual > /tmp/tidy-a.out 2> /tmp/tidy-a.err <<!
 Old Url,New Url,Status,More,Stuff
 http://example.com/1,http://foo/1,301
 http://example.com/1,http://foo/1,301

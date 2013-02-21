@@ -12,17 +12,22 @@ use LWP::UserAgent;
 use URI;
 
 require 'lib/c14n.pl';
+require 'lib/lists.pl';
 
 my $titles;
 my %seen = ();
 my $uniq = 0;
 my $no_output;
 my $use_actual;
+my $blacklist = "data/blacklist.txt";
+my $ignore_blacklist;
 my $allow_query_string;
 my $trump;
 my $help;
 
 GetOptions(
+    "blacklist|b=s"  => \$blacklist,
+    "ignore-blacklist|B"  => \$ignore_blacklist,
     'no-output|n' => \$no_output,
     'use-actual|a' => \$use_actual,
     "allow-query-string|q"  => \$allow_query_string,
@@ -31,6 +36,8 @@ GetOptions(
 ) or pod2usage(1);
 
 pod2usage(2) if ($help);
+
+my %paths = load_blacklist($blacklist) unless ($ignore_blacklist);
 
 my $ua = LWP::UserAgent->new(max_redirect => 0);
 
@@ -50,6 +57,13 @@ while (<STDIN>) {
     my $line = $_;
     $line =~ s/^[^,]*,//;
     $line = "$url,$line";
+
+    my $old_path = $url;
+    $old_path =~ s/^http:\/\/[^\/]*//;
+    if ($paths{$old_path}) {
+        say STDERR "skipping blacklisted path [$old_path] line $.";
+        next;
+    }
 
     if ($trump) {
         $seen{$url} = { new => $new, status => $status, line => $line };
