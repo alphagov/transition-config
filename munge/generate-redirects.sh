@@ -73,21 +73,22 @@ status "Extracting mappings from Whitehall ..."
 # 1       2       3      4         5    6         7
 # Old Url,New Url,Status,Whole Tag,Slug,Admin Url,State
 {
-    echo "Old Url,New Url,Status,Suggested Link,Archive Link" > $site_whitehall
+    echo "old url,new url,status,source,row_number"
     grep -E "^\"*https*://$host[/,]" $whitehall |
         sed 's/""//g' |
-        cut -d , -f 1,2,3 
+        cut -d , -f 1,2,3
 } > $site_whitehall
 
 
 status "Concatenating mappings ..."
 (
     set -x
-    all_files=$(awk -F, "\$1 == \"$site\" { print \"$cache/$site/\" \$2 \".csv\" }" $fetch_list)
+    all_files=$(tail -r $fetch_list | awk -F, "\$1 == \"$site\" { print \"$cache/$site/\" \$2 \".csv\" }")
     set +x
 
-    echo "Old Url,New Url,Status,Suggested Link,Archive Link"
-    for file in $all_files $site_whitehall
+    echo "old url,new url,status,source,row_number"
+    #for file in $all_files $site_whitehall
+    for file in $site_whitehall $all_files
     do
         set -x
         tail -n +2 "$file"
@@ -103,6 +104,7 @@ cat $all_file |
     ./tools/fold-mappings.rb |
     ./tools/choose-status.rb |
     ./munge/strip-empty-quotes-and-whitespace.rb |
+    ./munge/reverse-csv.rb |
     ./tools/tidy_mappings.pl --trump $validate_options > ${mappings}_tmp
 
 mv ${mappings}_tmp ${mappings}
