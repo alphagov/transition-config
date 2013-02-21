@@ -103,7 +103,7 @@ tail -n +2 $sites |
         fi
 
         status "Creating mappings for $site ..."
-        perl -Ilib tools/generate_mappings.pl $mappings
+        tools/generate_mappings.pl $mappings
 
         status "Creating static assets for $site ... "
         tools/generate_static_assets.sh "$site" "$host" "$redirection_date" "$tna_timestamp" "$title" "$furl" "$homepage"

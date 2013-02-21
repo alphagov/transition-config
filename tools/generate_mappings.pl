@@ -1,14 +1,15 @@
 #!/usr/bin/env perl
 
 #
-#  create mappings
+#  generate mappings
 #
+use lib './lib';
 use strict;
 use warnings;
 use Mappings;
 
 my $csv = shift;
-die "Usage: create_mappings.pl mappings.csv" unless defined $csv;
+die "Usage: generate_mappings.pl mappings.csv" unless defined $csv;
 
 my $mappings = Mappings->new( $csv );
 die "$csv: not a valid CSV"
