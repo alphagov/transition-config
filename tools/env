@@ -1,3 +1,12 @@
+#
+#  uniform collation sequences
+#
+export LANG=C
+
+#
+#  helpers to print in colour
+#  - only work in /bin/sh, would much prefer to use set -x and $PS4
+#
 ANSI_RED="\033[31m"
 ANSI_GREEN="\033[32m"
 ANSI_YELLOW="\033[33m"
@@ -21,10 +30,13 @@ warning () {
   echo "${ANSI_YELLOW}${ANSI_BOLD}WARNING:${ANSI_RESET} ${ANSI_YELLOW}${@}${ANSI_RESET}" >&2
 }
 
+#
+#  report on exit
+#
 report () {
     status=$?
     if [ $status -ne 0 ] ; then
-        error "failed" 
+        error "FAILED" 
         exit $status
     fi
     ok "succeeded."
