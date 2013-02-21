@@ -34,8 +34,8 @@ warning () {
 #  report on exit
 #
 report () {
-    set +x
     status=$?
+    set +x
     if [ $status -ne 0 ] ; then
         error "FAILED" 
         exit $status
