@@ -7,8 +7,6 @@ test_document_mappings='/tmp/munge_test_document_mappings.csv'
 fetched_data='/tmp/munge_test_fetched_data.csv'
 output='/tmp/munge_test.out'
 
-exit 0
-
 run_munge () {
   cat $fetched_data |
   ./munge/munge.rb $test_document_mappings 2>/dev/null |
