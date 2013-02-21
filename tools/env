@@ -1,7 +1,7 @@
 #
 #  uniform collation sequences
 #
-export LANG=LC_ALL
+export LC_ALL=C
 
 #
 #  helpers to print in colour
