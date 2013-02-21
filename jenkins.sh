@@ -77,6 +77,7 @@ tail -n +2 $sites |
         mappings=dist/${site}_mappings_source.csv
         sitemap=dist/static/${site}/sitemap.xml
         conf=dist/configs/${site}.conf
+        locations=dist/${host}.location.conf
         cp data/mappings/${site}.csv $mappings
 
         status
@@ -103,6 +104,7 @@ tail -n +2 $sites |
         fi
 
         status "Creating nginx maps for $site ..."
+        touch $locations
         tools/generate_maps.pl $mappings
 
         status "Creating static assets for $site ... "
