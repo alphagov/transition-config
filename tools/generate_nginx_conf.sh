@@ -6,9 +6,30 @@
 
 set -e
 
-# "$site" "$host" "$aliases"
+cmd=$(basename $0)
+homepage="https://www.gov.uk"
+site="site"
 
-site="$1" ; shift
+usage() {
+    echo "usage: $cmd [opts] host [alias ...]" >&2
+    echo "    [-h|--homepage url]         location for /" >&2
+    echo "    [-s|--site site]            site name" >&2
+    echo "    [-?|--help]                 print usage" >&2
+    exit 1
+}
+
+while test $# -gt 0 ; do
+    case "$1" in
+    -h|--homepage) shift; homepage="$1" ; shift ; continue ;;
+    -s|--site) shift; site="$1" ; shift ; continue ;;
+    -\?|-h|--help) usage ;;
+    --) shift ; break ;;
+    -*) usage ;;
+    esac
+    break
+done
+
+[ $# -lt 1 ] && usage
 host="$1" ; shift
 
 cat <<!
@@ -27,13 +48,17 @@ do
     echo "$tab$aka\c"
     sep="\n$tab"
 done
+
 echo ";"
+echo
 
 cat <<!
     root            /var/apps/redirector/static/$site;
     include         /var/apps/redirector/common_nginx_settings.conf;
     include         /var/apps/redirector/common_status_pages.conf;
     include         /var/apps/redirector/$host.location.conf;
+
+    location = /    { return 301 $homepage; }
 }
 !
 

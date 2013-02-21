@@ -3,7 +3,7 @@
 #
 #  simplest
 #
-tools/generate_nginx_conf.sh foo www.foo.com > /tmp/generate.out 2> /tmp/generate.err
+tools/generate_nginx_conf.sh --homepage "http://www.bar.com" --site foo www.foo.com > /tmp/generate.out 2> /tmp/generate.err
 
 diff /tmp/generate.err - <<!
 !
@@ -14,10 +14,13 @@ diff /tmp/generate.out - <<!
 server {
     server_name     www.foo.com
                     aka.foo.com;
+
     root            /var/apps/redirector/static/foo;
     include         /var/apps/redirector/common_nginx_settings.conf;
     include         /var/apps/redirector/common_status_pages.conf;
     include         /var/apps/redirector/www.foo.com.location.conf;
+
+    location = /    { return 301 http://www.bar.com; }
 }
 !
 
@@ -26,7 +29,7 @@ server {
 #
 #  simple
 #
-tools/generate_nginx_conf.sh foo www.foo.com www.bar.com bar.foo.com > /tmp/generate.out 2> /tmp/generate.err
+tools/generate_nginx_conf.sh --homepage http://www.snork.com/foo --site foo www.foo.com www.bar.com bar.foo.com > /tmp/generate.out 2> /tmp/generate.err
 
 diff /tmp/generate.err - <<!
 !
@@ -41,10 +44,13 @@ server {
                     aka.bar.com
                     bar.foo.com
                     aka-bar.foo.com;
+
     root            /var/apps/redirector/static/foo;
     include         /var/apps/redirector/common_nginx_settings.conf;
     include         /var/apps/redirector/common_status_pages.conf;
     include         /var/apps/redirector/www.foo.com.location.conf;
+
+    location = /    { return 301 http://www.snork.com/foo; }
 }
 !
 

@@ -68,7 +68,7 @@ tools/generate_piplinks.pl data/piplinks.csv > dist/piplinks_maps.conf
 status "Processing data/sites.csv ..."
 IFS=,
 tail -n +2 $sites |
-    while read site host redirection_date tna_timestamp title furl aliases validate_options new_url rest
+    while read site host redirection_date tna_timestamp title furl aliases validate_options homepage rest
     do
         mappings=dist/${site}_mappings_source.csv
         sitemap=dist/static/${site}/sitemap.xml
@@ -82,8 +82,9 @@ tail -n +2 $sites |
         status ":: tna_timestamp: $tna_timestamp"
         status ":: title: $title"
         status ":: furl: $furl"
-        status ":: new_url: $new_url"
         status ":: aliases: $aliases"
+        status ":: validate_options: $validate_options"
+        status ":: homepage: $homepage"
         status ":: mappings: $mappings"
         status
 
@@ -94,14 +95,14 @@ tail -n +2 $sites |
 
         if [ ! -f $conf ] ; then
             status "Creating nginx config for $site ... "
-            tools/generate_nginx_conf.sh "$site" "$host" "$aliases" > $conf
+            tools/generate_nginx_conf.sh --site "$site" --homepage "$homepage" "$host" $aliases > $conf
         fi
 
         status "Creating mappings for $site ..."
         perl -Ilib tools/generate_mappings.pl $mappings
 
         status "Creating static assets for $site ... "
-        tools/generate_static_assets.sh "$site" "$host" "$redirection_date" "$tna_timestamp" "$title" "$furl" "$new_url"
+        tools/generate_static_assets.sh "$site" "$host" "$redirection_date" "$tna_timestamp" "$title" "$furl" "$homepage"
 
         status "Creating sitemap for $site ..."
         tools/generate_sitemap.pl $mappings $host > $sitemap
