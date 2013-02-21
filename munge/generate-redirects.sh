@@ -93,8 +93,9 @@ status "Concatenating mappings ..."
         set -x
         tail -n +2 "$file"
         set +x
+        echo
     done
-) > $all_file
+) | sed -e '/^$/d' > $all_file
 
 
 status "Munging and tidying mappings ..."
