@@ -42,8 +42,8 @@ pod2usage(2) if ($help);
 
 $host //= "redirector.$env.alphagov.co.uk";
 
-my $ua = LWP::UserAgent->new(max_redirect => 0);
-my $follow = LWP::UserAgent->new(max_redirect => 3);
+my $ua = LWP::UserAgent->new(max_redirect => 0, timeout => 5);
+my $follow = LWP::UserAgent->new(max_redirect => 3, timeout => 5);
 
 if ($mappings) {
     foreach my $mapping (@ARGV) {
