@@ -43,6 +43,7 @@ host=$(awk -F, '$1 == "'$site'" { print $2 }' $sites)
 validate_options=$(awk -F, '$1 == "'$site'" { print $8 }' $sites)
 fetch_list="data/fetch.csv"
 all_file="$cache/$site/_all.csv"
+site_whitehall="$cache/$site/_whitehall.csv"
 
 if [ ! -d "$cache" ] ; then
     set -x
@@ -71,10 +72,12 @@ fi
 status "Extracting mappings from Whitehall ..."
 # 1       2       3      4         5    6         7
 # Old Url,New Url,Status,Whole Tag,Slug,Admin Url,State
-site_whitehall="$cache/$site/_whitehall.csv"
-grep "^\"*https*://$host[/,]" $whitehall |
-    sed 's/""//g' |
-    cut -d , -f 1,2,3 > $site_whitehall
+{
+    echo "Old Url,New Url,Status,Suggested Link,Archive Link" > $site_whitehall
+    grep -E "^\"*https*://$host[/,]" $whitehall |
+        sed 's/""//g' |
+        cut -d , -f 1,2,3 
+} > $site_whitehall
 
 
 status "Concatenating mappings ..."
