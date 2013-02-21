@@ -17,7 +17,8 @@ usage() {
 
 while test $# -gt 0 ; do
     case "$1" in
-    -s|--sites) shift; sites="$1" ; shift ; continue;;
+    -c|--cache-dir) shift; cache="$1" ; shift ; continue;;
+    -s|--fetch) shift; fetch="$1" ; shift ; continue;;
     -\?|-h|--help) usage ;;
     --) shift ; break ;;
     -*) usage ;;
