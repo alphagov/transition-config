@@ -3,9 +3,6 @@
 # tests that admin urls are mapped to public
 # and that urls which appear first trump older urls
 
-# Ensure sort behaviour is consistent
-export LC_ALL=C
-
 test_document_mappings='/tmp/munge_test_document_mappings.csv'
 fetched_data='/tmp/munge_test_fetched_data.csv'
 output='/tmp/munge_test.out'

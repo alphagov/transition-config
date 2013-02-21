@@ -109,7 +109,7 @@ while (<STDIN>) {
 #
 unless ($no_output) {
     say $titles;
-    open(OUT, "|sort");
+    open(OUT, "|./tools/csort");
     foreach my $url (keys %seen) {
          say OUT $seen{$url}->{line};
     }

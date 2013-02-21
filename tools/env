@@ -1,10 +1,5 @@
-#
-#  uniform collation sequences
-#
-export LC_ALL=C
-
-#
 #  helpers to print in colour
+#
 #  - only work in /bin/sh, would much prefer to use set -x and $PS4
 #
 ANSI_RED="\033[31m"
@@ -37,7 +32,7 @@ report () {
     status=$?
     set +x
     if [ $status -ne 0 ] ; then
-        error "FAILED" 
+        error "FAILED"
         exit $status
     fi
     ok "succeeded."
