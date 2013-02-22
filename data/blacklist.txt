@@ -5,3 +5,4 @@
 /robots.txt
 /sitemap.xml
 /favicon.ico
+/gone.css
