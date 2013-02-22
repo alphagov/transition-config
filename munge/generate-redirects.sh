@@ -7,16 +7,22 @@ whitelist="data/whitelist.txt"
 cache="./cache"
 whitehall_url='https://whitehall-admin.production.alphagov.co.uk/government/all_document_attachment_and_non_document_mappings.csv'
 whitehall="cache/whitehall.csv"
+fetch_list="data/fetch.csv"
 user="$WHITEHALL_AUTH"
 fetch="y"
 verbose=""
+mappings_dir='./data/mappings'
 
 usage() {
     echo "usage: $cmd [opts] site" >&2
     echo "    [-n|--no-fetch]             don't fetch site mappings" >&2
-    echo "    [-s|--sites $sites] sites file" >&2
+    echo "    [-s|--sites filename] sites file (default: $sites)" >&2
     echo "    [-u|--user user:password]   basic authentication credentials for curl" >&2
-    echo "    [-w,--whitelist filename]   constrain New Urls to those in a whitelist"
+    echo "    [-w,--whitelist filename]   constrain New Urls to those in a whitelist (default: $whitelist)" >&2
+    echo "    [-W,--whitehall filename]   use this file as the whitehall input file (default: $whitehall)" >&2
+    echo "    [-C,--cache directory]      use this directory for caching (default: $cache)" >&2
+    echo "    [-F,--fetch-list filename]  use this file as the fetch list (default: $fetch_list)"
+    echo "    [-o,--output directory]     write mappings output file to this directory (default: $mappings_dir)"
     echo "    [-?|--help]                 print usage" >&2
     exit 1
 }
@@ -27,6 +33,10 @@ while test $# -gt 0 ; do
     -s|--sites) shift; sites="$1" ; shift ; continue;;
     -u|--user) shift; user="$1" ; shift ; continue;;
     -w|--whitelist) shift; whitelist="$1" ; shift ; continue;;
+    -W|--whitehall) shift; whitehall="$1" ; shift ; continue;;
+    -C|--cache) shift; cache="$1" ; shift ; continue;;
+    -F|--fetch-list) shift; fetch_list="$1" ; shift ; continue;;
+    -o|--output) shift; mappings_dir="$1" ; shift ; continue;;
     -\?|-h|--help) usage ;;
     --) break ;;
     -*) usage ;;
@@ -37,11 +47,10 @@ done
 . tools/env
 
 site=$1 ; [ -z "$site" ] && usage
-mappings="./data/mappings/${site}.csv"
 
+mappings="${mappings_dir}/${site}.csv"
 host=$(awk -F, '$1 == "'$site'" { print $2 }' $sites)
 validate_options=$(awk -F, '$1 == "'$site'" { print $8 }' $sites)
-fetch_list="data/fetch.csv"
 all_file="$cache/$site/_all.csv"
 site_whitehall="$cache/$site/_whitehall.csv"
 
