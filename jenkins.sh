@@ -4,6 +4,8 @@ set -e
 
 cmd=$(basename $0)
 sites="data/sites.csv"
+whitelist="data/whitelist.txt"
+blacklist="data/blacklist.txt"
 tests="y"
 validate="y"
 IFS=,
@@ -46,7 +48,6 @@ fi
 
 status "Creating dist directory ..."
 rm -rf dist
-mkdir -p dist/mappings
 
 status "Copying configuration to dist ..."
 mkdir -p dist/configs
@@ -55,14 +56,6 @@ cp configs/* dist/configs
 status "Copying common nginx confing to dist ..."
 mkdir -p dist/common
 cp common/* dist/common
-
-status "Copying whitelist to dist ..."
-whitelist=dist/whitelist.txt export whitelist
-cp data/whitelist.txt $whitelist
-
-status "Copying blacklist to dist ..."
-blacklist=dist/blacklist.txt export blacklist
-cp data/blacklist.txt $blacklist
 
 if [ -n "$validate" ] ; then
     prove tools/validate_sites.pl :: $sites
@@ -86,11 +79,10 @@ status "Processing data/sites.csv ..."
 tail -n +2 $sites |
     while read site host redirection_date tna_timestamp title furl aliases validate_options homepage rest
     do
-        mappings=dist/mappings/${site}.csv
+        mappings=data/mappings/${site}.csv
         sitemap=dist/static/${site}/sitemap.xml
         conf=dist/configs/${site}.conf
         locations=dist/${host}.location.conf
-        cp data/mappings/${site}.csv $mappings
 
         status
         status ":: site: $site"
