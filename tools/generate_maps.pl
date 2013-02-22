@@ -10,9 +10,10 @@ use lib './lib';
 
 use Getopt::Long;
 use Pod::Usage;
+ use File::Path qw(mkpath);
 use Mappings;
 
-my $dir = "dist";
+my $dir = "dist/maps";
 my $help;
 
 GetOptions(
@@ -41,7 +42,8 @@ $types{'location'} = '' unless($types{'location'});
 foreach my $type (keys %types) {
 
     my $suffix = ($type =~ m{error$}) ? "s.txt" : ".conf";
-    my $path = "$dir/${site}.${type}${suffix}";
+    mkpath("$dir/$site/");
+    my $path = "$dir/$site/$type$suffix";
 
     say STDERR "creating $path";
 

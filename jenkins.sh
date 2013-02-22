@@ -47,6 +47,8 @@ status "Copying configuration to dist ..."
 rm -rf dist
 mkdir -p dist
 rsync -a redirector/. dist/.
+mkdir -p dist/mappings
+IFS=,
 
 status "Copying whitelist to dist ..."
 whitelist=dist/whitelist.txt export whitelist
@@ -63,18 +65,22 @@ fi
 status "Generating tests for Smokey"
 tools/generate_smokey_tests.sh --sites $sites > dist/redirector.feature
 
-status "Generating lrc_map.conf ..."
-tools/generate_lrc.pl data/lrc.csv > dist/lrc_map.conf
-
-status "Generating piplinks_maps.conf ..."
-tools/generate_piplinks.pl data/piplinks.csv > dist/piplinks_maps.conf
+status "Generating bespoke maps .."
+while read site map
+do
+    status "Generating $site map ..."
+    mkdir -p dist/maps/$site
+    tools/generate_$map.pl data/$map.csv > dist/maps/$site/$map.conf
+done <<!
+lrc,lrc
+businesslink,piplinks
+!
 
 status "Processing data/sites.csv ..."
-IFS=,
 tail -n +2 $sites |
     while read site host redirection_date tna_timestamp title furl aliases validate_options homepage rest
     do
-        mappings=dist/${site}_mappings_source.csv
+        mappings=dist/mappings/${site}.csv
         sitemap=dist/static/${site}/sitemap.xml
         conf=dist/configs/${site}.conf
         locations=dist/${host}.location.conf

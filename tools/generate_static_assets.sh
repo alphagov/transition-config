@@ -19,15 +19,18 @@ homepage="www.gov.uk$furl"
 archive_link="http://webarchive.nationalarchives.gov.uk/$tna_timestamp/http://$host"
 
 #
-#  ensure static directory exists
+#  ensure target directories exist
 #
-path=dist/static/$site/
-mkdir -p $path
+static=dist/static/$site
+mkdir -p $static
+
+lib=dist/static/$site
+mkdir -p $lib
 
 #
 #  generate 404 page
 #
-cat > "${path}/404.html" <<EOF
+cat > "$static/404.html" <<EOF
 <!DOCTYPE html>
 <html class="no-branding">
   <head>
@@ -60,7 +63,7 @@ EOF
 
 #  generate 418 page
 #
-cat > "${path}/418.html" <<EOF
+cat > "$static/418.html" <<EOF
 <!DOCTYPE html>
 <html class="no-branding">
   <head>
@@ -93,7 +96,7 @@ EOF
 #
 #  generate 410 page content
 #
-cat > "${path}/410.html" <<EOF
+cat > "$static/410.html" <<EOF
   <body>
     <section id="content" role="main" class="group">
       <div class="gone-container">
@@ -138,27 +141,31 @@ EOF
 #
 #  robots.txt
 #
-cat > $path/robots.txt <<EOF
+cat > $static/robots.txt <<EOF
 User-agent: *
 Disallow:
 Sitemap: http://$host/sitemap.xml
 EOF
 
 #
-#  assemble 410 php file
+#  other static assets
 #
-touch dist/${site}.suggested_link.conf
-touch dist/${site}.archive_links.conf
-cp redirector/410_suggested_links.php $path
-cp redirector/favicon.ico $path
+cp redirector/favicon.ico $static
 cp redirector/gone.css dist/static
 
-cat \
-    redirector/410_preamble.php \
-    dist/${site}.*suggested_link*.conf \
-    dist/${site}.archive_links.conf \
+#
+#  assemble 410 php file
+#
+touch $lib/suggested_link.conf
+touch $lib/archive_links.conf
+
+cp redirector/410_suggested_links.php $static
+
+cat redirector/410_preamble.php \
+    $lib/*suggested_link*.conf \
+    $lib/archive_links.conf \
     redirector/410_header.php \
-    $path/410.html \
-    > $path/410.php
+    $static/410.html \
+    > $static/410.php
 
 exit
