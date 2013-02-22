@@ -8,6 +8,21 @@
 
 set -e
 
+usage() {
+    echo "usage: $0 [opts] file1 [file2...]" >&2
+    echo "    [-?|--help]                 print usage" >&2
+    exit 1
+}
+
+while test $# -gt 0 ; do
+    case "$1" in
+    -\?|-h|--help) usage ;;
+    --) break ;;
+    -*) usage ;;
+    esac
+    break
+done
+
 (
   echo "old url,new url,status,source,row_number"
   for file in $@
