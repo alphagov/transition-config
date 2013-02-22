@@ -79,14 +79,7 @@ fi
 
 
 status "Extracting mappings from Whitehall ..."
-# 1       2       3      4         5    6         7
-# Old Url,New Url,Status,Whole Tag,Slug,Admin Url,State
-{
-    echo "old url,new url,status,source,row_number"
-    grep -E "^\"*https*://$host[/,]" $whitehall |
-        sed 's/""//g' |
-        cut -d , -f 1,2,3
-} > $site_whitehall
+./tools/extract-whitehall-mappings.sh $host < $whitehall > $site_whitehall
 
 status "Finding list of source files ..."
 set -x
