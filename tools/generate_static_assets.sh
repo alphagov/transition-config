@@ -24,9 +24,6 @@ archive_link="http://webarchive.nationalarchives.gov.uk/$tna_timestamp/http://$h
 static=dist/static/$site
 mkdir -p $static
 
-lib=dist/static/$site
-mkdir -p $lib
-
 #
 #  generate 404 page
 #
@@ -150,21 +147,21 @@ EOF
 #
 #  other static assets
 #
-cp redirector/favicon.ico $static
-cp redirector/gone.css dist/static
+cp static/favicon.ico $static
+cp static/gone.css dist/static
 
 #
 #  assemble 410 php file
 #
-touch $lib/suggested_link.conf
-touch $lib/archive_links.conf
+touch $static/suggested_link.conf
+touch $static/archive_links.conf
 
-cp redirector/410_suggested_links.php $static
+cp php/410_suggested_links.php $static
 
-cat redirector/410_preamble.php \
-    $lib/*suggested_link*.conf \
-    $lib/archive_links.conf \
-    redirector/410_header.php \
+cat php/410_preamble.php \
+    $static/*suggested_link*.conf \
+    $static/archive_links.conf \
+    php/410_header.php \
     $static/410.html \
     > $static/410.php
 

@@ -6,6 +6,7 @@ cmd=$(basename $0)
 sites="data/sites.csv"
 tests="y"
 validate="y"
+IFS=,
 
 usage() {
     echo "usage: $cmd [opts] [mappings.csv ...]" >&2
@@ -43,12 +44,17 @@ if [ -n "$tests" ] ; then
     prove -lj4 tests/unit/logic/*.t
 fi
 
-status "Copying configuration to dist ..."
+status "Creating dist directory ..."
 rm -rf dist
-mkdir -p dist
-rsync -a redirector/. dist/.
 mkdir -p dist/mappings
-IFS=,
+
+status "Copying configuration to dist ..."
+mkdir -p dist/configs
+cp configs/* dist/configs
+
+status "Copying common nginx confing to dist ..."
+mkdir -p dist/common
+cp common/* dist/common
 
 status "Copying whitelist to dist ..."
 whitelist=dist/whitelist.txt export whitelist

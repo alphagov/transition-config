@@ -16,8 +16,8 @@ server {
                     aka.foo.com;
 
     root            /var/apps/redirector/static/foo;
-    include         /var/apps/redirector/common_nginx_settings.conf;
-    include         /var/apps/redirector/common_status_pages.conf;
+    include         /var/apps/redirector/common/settings.conf;
+    include         /var/apps/redirector/common/status_pages.conf;
     include         /var/apps/redirector/maps/foo/location.conf;
 
     location = /    { return 301 http://www.bar.com; }
@@ -46,8 +46,8 @@ server {
                     aka-bar.foo.com;
 
     root            /var/apps/redirector/static/foo;
-    include         /var/apps/redirector/common_nginx_settings.conf;
-    include         /var/apps/redirector/common_status_pages.conf;
+    include         /var/apps/redirector/common/settings.conf;
+    include         /var/apps/redirector/common/status_pages.conf;
     include         /var/apps/redirector/maps/foo/location.conf;
 
     location = /    { return 301 http://www.snork.com/foo; }
