@@ -24,8 +24,8 @@ Old Url,New Url,Status,Whole Tag,Slug,Admin Url,State
 
 cat > $fetched_data <<!
 old url,new url,status,source,row_number
-http://www.decc.gov.uk,https://whitehall-admin.production.alphagov.co.uk/government/admin/policy_advisory_groups/88/edit,,passed in string,1
-http://www.decc.gov.uk,https://gov.uk/this-should-be-trumped-and-not-appear,,passed in string,2
+http://www.decc.gov.uk/bar,https://whitehall-admin.production.alphagov.co.uk/government/admin/policy_advisory_groups/88/edit,,passed in string,1
+http://www.decc.gov.uk/bar,https://gov.uk/this-should-be-trumped-and-not-appear,,passed in string,2
 http://www.decc.gov.uk/foo,https://gov.uk/this-is-foo,,passed in string,3
 http://www.decc.gov.uk/foo?,https://gov.uk/this-should-not-appear-as-foo,,passed in string,3
 http://www.decc.gov.uk/foo#,https://gov.uk/this-should-not-appear-as-foo,,passed in string,3
@@ -35,6 +35,7 @@ run_munge
 
 diff $output - <<!
 Old Url,New Url,Status
+http://www.decc.gov.uk/bar,https://www.gov.uk/government/policies/remapped-public-url,301
 http://www.decc.gov.uk/foo,https://gov.uk/this-is-foo,301
 !
 
