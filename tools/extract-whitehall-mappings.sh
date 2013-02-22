@@ -8,7 +8,7 @@
 set -e
 
 usage() {
-    echo "usage: $cmd [opts] host" >&2
+    echo "usage: $0 [opts] host" >&2
     echo "    [-?|--help]                 print usage" >&2
     exit 1
 }
