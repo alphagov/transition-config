@@ -24,8 +24,6 @@ done
 
 host=$1 ; [ -z "$host" ] && usage
 
-# 1       2       3      4         5    6         7
-# Old Url,New Url,Status,Whole Tag,Slug,Admin Url,State
 echo "old url,new url,status,source,row_number"
 grep -E "^\"*https*://$host[/,]" |
   sed 's/""//g' |
