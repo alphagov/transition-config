@@ -88,24 +88,13 @@ status "Extracting mappings from Whitehall ..."
         cut -d , -f 1,2,3
 } > $site_whitehall
 
+status "Finding list of source files ..."
+set -x
+all_files=$(perl -e 'print reverse <>' $fetch_list | awk -F, "\$1 == \"$site\" { print \"$cache/$site/\" \$2 \".csv\" }")
+set +x
 
 status "Concatenating mappings ..."
-(
-    set -x
-    all_files=$(perl -e 'print reverse <>' $fetch_list | awk -F, "\$1 == \"$site\" { print \"$cache/$site/\" \$2 \".csv\" }")
-    set +x
-
-    echo "old url,new url,status,source,row_number"
-    #for file in $all_files $site_whitehall
-    for file in $site_whitehall $all_files
-    do
-        set -x
-        tail -n +2 "$file"
-        set +x
-        echo
-    done
-) | sed -e '/^$/d' > $all_file
-
+./tools/csvcat.sh $site_whitehall $all_files > $all_file
 
 status "Munging and tidying mappings ..."
 set -x

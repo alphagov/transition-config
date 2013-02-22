@@ -36,7 +36,7 @@ mkdir -p $output_dir
 }
 
 teardown() {
-  rm $test_document_mappings $test_fetch_list $test_sites_list $fetched_data $output
+  rm -f $test_document_mappings $test_fetch_list $test_sites_list $fetched_data $output
   rm -fr $cache
   rm -fr $output_dir
 }
