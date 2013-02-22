@@ -18,7 +18,7 @@ server {
     root            /var/apps/redirector/static/foo;
     include         /var/apps/redirector/common_nginx_settings.conf;
     include         /var/apps/redirector/common_status_pages.conf;
-    include         /var/apps/redirector/www.foo.com.location.conf;
+    include         /var/apps/redirector/foo.location.conf;
 
     location = /    { return 301 http://www.bar.com; }
 }
@@ -48,7 +48,7 @@ server {
     root            /var/apps/redirector/static/foo;
     include         /var/apps/redirector/common_nginx_settings.conf;
     include         /var/apps/redirector/common_status_pages.conf;
-    include         /var/apps/redirector/www.foo.com.location.conf;
+    include         /var/apps/redirector/foo.location.conf;
 
     location = /    { return 301 http://www.snork.com/foo; }
 }

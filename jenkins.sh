@@ -104,8 +104,7 @@ tail -n +2 $sites |
         fi
 
         status "Creating nginx maps for $site ..."
-        touch $locations
-        tools/generate_maps.pl $mappings
+        tools/generate_maps.pl $site $mappings
 
         status "Creating static assets for $site ... "
         tools/generate_static_assets.sh "$site" "$host" "$redirection_date" "$tna_timestamp" "$title" "$furl" "$homepage"
