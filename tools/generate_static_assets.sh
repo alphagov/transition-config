@@ -74,7 +74,7 @@ cat > "${path}/418.html" <<EOF
         <header class="page-header group $site">
           <div class="legacy-site-logo"></div>
           <hgroup>
-            <h1>This $title page is moving to GOV.UK but has not yet been published.</h1>
+            <h1>This $title page is moving to GOV.UK but has not yet been published</h1>
           </hgroup>
         </header>
 
