@@ -19,7 +19,7 @@ homepage="www.gov.uk$furl"
 archive_link="http://webarchive.nationalarchives.gov.uk/$tna_timestamp/http://$host"
 
 #
-#  ensure target directories exist
+#  ensure target directory exists
 #
 static=dist/static/$site
 mkdir -p $static
@@ -58,6 +58,8 @@ cat > "$static/404.html" <<EOF
 </html>
 EOF
 
+
+#
 #  generate 418 page
 #
 cat > "$static/418.html" <<EOF
@@ -91,9 +93,41 @@ cat > "$static/418.html" <<EOF
 EOF
 
 #
-#  generate 410 page content
+#  generate 410 page
 #
-cat > "$static/410.html" <<EOF
+{
+    cat <<"EOF"
+<?php
+$location_suggested_links = array();
+$query_suggested_links = array();
+$archive_links = array();
+$uri_without_slash = rtrim( $_SERVER['REQUEST_URI'], '/' );
+EOF
+
+        # generated php files
+        maps=dist/maps/$site
+        for file in $maps/*suggested*.conf $maps/archive_links.conf
+        do
+            if [ -f $file ] ; then
+                echo "\n/* $file */"
+                cat $file
+            fi
+        done
+
+    cat <<"EOF"
+?><!DOCTYPE html>
+<html class="no-branding">
+  <head>
+    <meta charset="utf-8">
+    <title>This page has been archived</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <!--[if lt IE 9]>
+    <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link href="/gone.css" media="screen" rel="stylesheet" type="text/css">
+  </head>
+EOF
+    cat <<EOF
   <body>
     <section id="content" role="main" class="group">
       <div class="gone-container">
@@ -108,32 +142,59 @@ cat > "$static/410.html" <<EOF
 
           <p>On $redirection_date the $title website was replaced by <a href='$new_url'>$homepage</a>.</p>
           <p><a href='https://www.gov.uk'>GOV.UK</a> is now the best place to find essential government services and information.</p>
-
+EOF
+    cat <<"EOF"
 <?php
-  \$archive_link = '$archive_link' . \$_SERVER['REQUEST_URI'];
+  $archive_link = '$archive_link' . $_SERVER['REQUEST_URI'];
 
-  if ( isset( \$archive_links[\$uri_without_slash] ) ) {
-      \$archive_link = \$archive_links[\$uri_without_slash];
+  if (isset($archive_links[$uri_without_slash])) {
+      $archive_link = $archive_links[$uri_without_slash];
   }
 
-  preg_match( "/dg_\d+/i", \$uri_without_slash, \$matches );
-  if ( isset(\$matches[0]) ) {
-      \$match = strtolower(\$matches[0]);
-      if ( isset( \$archive_links[\$match] ) ) {
-          \$archive_link = \$archive_links[\$match];
+  preg_match( "/dg_\d+/i", $uri_without_slash, $matches );
+  if (isset($matches[0])) {
+      $match = strtolower($matches[0]);
+      if (isset( $archive_links[$match])) {
+          $archive_link = $archive_links[$match];
       }
   }
 ?>
+EOF
+    cat <<EOF
           <p>A copy of the page you were looking for may be found in <a href="<?= \$archive_link ?>">The National Archives</a>, however it will not be updated after $redirection_date.</p>
+EOF
+    cat <<"EOF"
+<?php
 
-<?php include '410_suggested_links.php'; ?>
+if ( isset( $location_suggested_link[$uri_without_slash] ) ) {
+    $suggested_link = $location_suggested_link[$uri_without_slash];
+}
 
+preg_match( "/(item|topic)id=\d+/i", $uri_without_slash, $matches );
+if ( isset($matches[0]) && isset($query_suggested_link[$matches[0]]) ) {
+    $suggested_link = $query_suggested_link[$matches[0]];
+}
+
+preg_match( "/dg_\d+/i", $uri_without_slash, $matches );
+if ( isset($matches[0]) ) {
+    $match = strtolower($matches[0]);
+    if ( isset( $location_suggested_link[$match] ) ) {
+        $suggested_link = $location_suggested_link[$match];
+    }
+}
+
+if ( isset($suggested_link) ) {
+    echo "<p>For more information on this topic you may want to visit $suggested_link.</p>";
+}
+
+?>
         </article>
       </div>
     </section>
   </body>
 </html>
 EOF
+} > $static/410.php
 
 #
 #  robots.txt
@@ -149,20 +210,5 @@ EOF
 #
 cp static/favicon.ico $static
 cp static/gone.css dist/static
-
-#
-#  assemble 410 php file
-#
-touch $static/suggested_link.conf
-touch $static/archive_links.conf
-
-cp php/410_suggested_links.php $static
-
-cat php/410_preamble.php \
-    $static/*suggested_link*.conf \
-    $static/archive_links.conf \
-    php/410_header.php \
-    $static/410.html \
-    > $static/410.php
 
 exit
