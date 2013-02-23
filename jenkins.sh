@@ -51,11 +51,7 @@ rm -rf dist
 
 status "Creating manifest ..."
 mkdir -p dist/etc
-{
-    echo $BUILD_TAG
-    echo
-    git log -1
-} > dist/etc/manifest
+tools/generate_manifest.sh > dist/etc/manifest
 
 status "Copying configuration to dist ..."
 mkdir -p dist/configs
