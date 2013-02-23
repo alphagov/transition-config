@@ -65,6 +65,10 @@ status "Copying common nginx confing to dist ..."
 mkdir -p dist/common
 cp common/* dist/common
 
+status "Copying common assets to dist ..."
+cp static/favicon.ico dist/static
+cp static/gone.css dist/static
+
 if [ -n "$validate" ] ; then
     prove tools/validate_sites.pl :: $sites
 fi

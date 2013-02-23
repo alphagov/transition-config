@@ -205,10 +205,4 @@ Disallow:
 Sitemap: http://$host/sitemap.xml
 EOF
 
-#
-#  other static assets
-#
-cp static/favicon.ico dist/static
-cp static/gone.css dist/static
-
 exit
