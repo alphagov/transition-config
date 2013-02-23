@@ -208,7 +208,7 @@ EOF
 #
 #  other static assets
 #
-cp static/favicon.ico $static
+cp static/favicon.ico dist/static
 cp static/gone.css dist/static
 
 exit
