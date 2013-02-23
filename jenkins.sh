@@ -62,7 +62,7 @@ if [ -n "$validate" ] ; then
 fi
 
 status "Generating tests for Smokey"
-tools/generate_smokey_tests.sh --sites $sites > dist/redirector.feature
+tools/generate_smokey_tests.sh --sites $sites > dist/etc/redirector.feature
 
 status "Generating bespoke maps .."
 while read site map
