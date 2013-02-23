@@ -1,5 +1,4 @@
-Redirector
-==========
+# Redirector
 
 Nginx configuration and supporting tools and tests for the redirector, an Ngnix server used to redirect old websites being moved to GOV.UK.
 
