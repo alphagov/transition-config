@@ -66,6 +66,7 @@ mkdir -p dist/common
 cp common/* dist/common
 
 status "Copying common assets to dist ..."
+mkdir -p dist/static
 cp static/favicon.ico dist/static
 cp static/gone.css dist/static
 
@@ -95,6 +96,7 @@ tail -n +2 $sites |
         sitemap=dist/static/${site}/sitemap.xml
         conf=dist/configs/${site}.conf
         locations=dist/${host}.location.conf
+        static=dist/static/$site
 
         status
         status ":: site: $site"
@@ -120,12 +122,14 @@ tail -n +2 $sites |
         fi
 
         status "Creating nginx maps for $site ..."
+        mkdir -p $static
         tools/generate_maps.pl $site $mappings
 
         status "Creating static assets for $site ... "
-        tools/generate_static_assets.sh "$site" "$host" "$redirection_date" "$tna_timestamp" "$title" "$furl" "$homepage"
-
-        status "Creating sitemap for $site ..."
+        tools/generate_404.sh "$site" "$host" "$redirection_date" "$tna_timestamp" "$title" "$furl" "$homepage" > $static/404.html
+        tools/generate_410.sh "$site" "$host" "$redirection_date" "$tna_timestamp" "$title" "$furl" "$homepage" > $static/410.html
+        tools/generate_418.sh "$site" "$host" "$redirection_date" "$tna_timestamp" "$title" "$furl" "$homepage" > $static/418.html
+        tools/generate_robots.sh "$host" > $static/robots.txt
         tools/generate_sitemap.pl $mappings $host > $sitemap
 
         if [ -n "$validate" ] ; then
