@@ -63,20 +63,23 @@ diff /tmp/validate.errors - <<!
 
 [ $? -ne 0 ] && { echo "$0: FAIL" ; exit 2; }
 
-# query strings allowed
+# if query strings are allowed, duplicate query strings are not
 
 cat > /tmp/validate.in <<!
 Old Url,New Url,Status,Stuff
 http://example.com/ok-301,https://www.gov.uk,301
 http://example.com/ok?query-string,,410
+http://example.com/ok?query-string,,410
 http://example.com/fine?query-string,,410
+http://example.com/ok?different-query-string-isnt-duplicate,,410
 !
 tools/validate_mappings.pl -q /tmp/validate.in > /tmp/validate.out 2> /tmp/validate.err
 
 errors
 
 diff /tmp/validate.errors - <<!
-#   Failed test 'Query String [query-string] /tmp/validate.in line 3 is a duplicate of line 2'
+#   Failed test 'Old Url [http://example.com/ok?query-string] /tmp/validate.in line 4 is a duplicate of line 3'
+#   Failed test 'Query String [query-string] /tmp/validate.in line 4 is a duplicate of line 2'
 !
 
 [ $? -ne 0 ] && { echo "$0: FAIL" ; exit 2; }
