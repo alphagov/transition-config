@@ -31,7 +31,7 @@ EOF
 
 # generated php files
 maps=dist/maps/$site
-for file in $maps/*suggested*.conf $maps/archive_links.conf
+for file in $maps/*.php
 do
     if [ -f $file ] ; then
         echo "\n/* $file */"

@@ -38,7 +38,16 @@ $types{'location'} = '' unless($types{'location'});
 
 foreach my $type (keys %types) {
 
-    my $suffix = ($type =~ m{error$}) ? "s.txt" : ".conf";
+    # guess suffix from the config name
+    my $suffix;
+    if ($type =~ m{error$}) {
+        $suffix = ".txt" 
+    } elsif ($type =~ /archive|suggested/) {
+        $suffix = ".php" 
+    } else {
+        $suffix = ".conf";
+    }
+
     my $path = "$dir/$type$suffix";
 
     say STDERR "creating $path";

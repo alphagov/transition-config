@@ -125,7 +125,7 @@ tail -n +2 $sites |
         status "Creating static assets for $site ... "
         mkdir -p $static
         tools/generate_404.sh "$site" "$host" "$redirection_date" "$tna_timestamp" "$title" "$furl" "$homepage" > $static/404.html
-        tools/generate_410.sh "$site" "$host" "$redirection_date" "$tna_timestamp" "$title" "$furl" "$homepage" > $static/410.html
+        tools/generate_410.sh "$site" "$host" "$redirection_date" "$tna_timestamp" "$title" "$furl" "$homepage" > $static/410.php
         tools/generate_418.sh "$site" "$host" "$redirection_date" "$tna_timestamp" "$title" "$furl" "$homepage" > $static/418.html
         tools/generate_robots.sh "$host" > $static/robots.txt
         tools/generate_sitemap.pl $mappings $host > $sitemap
