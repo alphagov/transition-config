@@ -111,9 +111,15 @@ sub test_row {
     ok($old_url =~ m{^https?://$host}, "Old Url [$old_url] host not [$host] $context");
 
     unless ($allow_duplicates) {
+        if ($allow_query_string && defined($old_uri->query)){
+            my $query_string = $old_uri->query;
+            ok(!defined($seen{$query_string}), "Query string [$query_string] $context is a duplicate of line " . ($seen{$query_string} // ""));
+            $seen{$query_string} = $.;
+        }
         ok(!defined($seen{$c14n}), "Old Url [$old_url] $context is a duplicate of line " . ($seen{$c14n} // ""));
         $seen{$c14n} = $.;
     }
+
 
     if ($status =~ /^301|418$/) {
         my $new_uri = check_url($context, "$status New Url", $new_url);
