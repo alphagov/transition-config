@@ -96,6 +96,7 @@ tail -n +2 $sites |
         sitemap=dist/static/${site}/sitemap.xml
         conf=dist/configs/${site}.conf
         locations=dist/${host}.location.conf
+        maps=dist/maps/$site
         static=dist/static/$site
 
         status
@@ -122,10 +123,11 @@ tail -n +2 $sites |
         fi
 
         status "Creating nginx maps for $site ..."
-        mkdir -p $static
-        tools/generate_maps.pl $site $mappings
+        mkdir -p $maps
+        tools/generate_maps.pl --dir $maps $mappings
 
         status "Creating static assets for $site ... "
+        mkdir -p $static
         tools/generate_404.sh "$site" "$host" "$redirection_date" "$tna_timestamp" "$title" "$furl" "$homepage" > $static/404.html
         tools/generate_410.sh "$site" "$host" "$redirection_date" "$tna_timestamp" "$title" "$furl" "$homepage" > $static/410.html
         tools/generate_418.sh "$site" "$host" "$redirection_date" "$tna_timestamp" "$title" "$furl" "$homepage" > $static/418.html

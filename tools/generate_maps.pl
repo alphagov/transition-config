@@ -23,11 +23,8 @@ GetOptions(
 
 pod2usage(2) if ($help);
 
-my ($site) = @ARGV;
-pod2usage(2) unless ($site);
-
-my $file = "data/mappings/$site.csv";
-
+my $file = shift or pod2usage(2);
+;
 my $mappings = Mappings->new($file);
 die "generate_maps: unable to process $file" unless defined $mappings;
 
@@ -42,8 +39,7 @@ $types{'location'} = '' unless($types{'location'});
 foreach my $type (keys %types) {
 
     my $suffix = ($type =~ m{error$}) ? "s.txt" : ".conf";
-    mkpath("$dir/$site/");
-    my $path = "$dir/$site/$type$suffix";
+    my $path = "$dir/$type$suffix";
 
     say STDERR "creating $path";
 
@@ -61,7 +57,7 @@ generate_maps.pl - generate nginx maps from a mappings format CSV file
 
 =head1 SYNOPSIS
 
-tools/generate_maps.pl :: [options] site [file]
+tools/generate_maps.pl :: [options] file
 
 Options:
 
