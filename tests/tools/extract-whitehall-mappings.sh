@@ -6,10 +6,10 @@ output='/tmp/test_extract_whitehall_mappings_output.csv'
 # test: ensure we only include domains from host, uses ssh, and we chop to three columns
 
 cat > $whitehall_file <<!
-Old Url,New Url,Status,Whole Tag,Slug,Admin Url,State
-http://example.com/foo,,,,,,
-https://example.com/uses-ssh,,,,,,
-http://notincluded.com/foo,,,,,,
+Old Url,New Url,Status,Slug,Admin Url,State
+http://example.com/foo,,,,,
+https://example.com/uses-ssh,,,,,
+http://notincluded.com/foo,,,,,
 !
 
 ./tools/extract-whitehall-mappings.sh example.com < $whitehall_file > $output
@@ -25,8 +25,8 @@ https://example.com/uses-ssh,,
 # test: remove empty quotes
 
 cat > $whitehall_file <<!
-Old Url,New Url,Status,Whole Tag,Slug,Admin Url,State
-http://example.com/foo,"",,,,,
+Old Url,New Url,Status,Slug,Admin Url,State
+http://example.com/foo,"",,,,
 !
 
 ./tools/extract-whitehall-mappings.sh example.com < $whitehall_file > $output

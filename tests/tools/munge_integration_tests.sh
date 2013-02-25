@@ -28,8 +28,8 @@ $test_site,www.example.com,13th December 2012,20120816224015,Test Website,/test,
 !
 
 cat > $test_document_mappings <<!
-Old Url,New Url,Status,Whole Tag,Slug,Admin Url,State
-"",https://www.gov.uk/government/policies/remapped-public-url,"",Open,remapped-public-url,https://whitehall-admin.production.alphagov.co.uk/government/admin/policy_advisory_groups/88/edit,archived
+Old Url,New Url,Status,Slug,Admin Url,State
+"",https://www.gov.uk/government/policies/remapped-public-url,"",remapped-public-url,https://whitehall-admin.production.alphagov.co.uk/government/admin/policy_advisory_groups/88/edit,archived
 !
 mkdir -p $cache/$test_site
 mkdir -p $output_dir
@@ -46,8 +46,8 @@ teardown() {
 setup
 
 cat >> $test_document_mappings <<!
-Old Url,New Url,Status,Whole Tag,Slug,Admin Url,State
-http://www.example.com/from-whitehall,https://www.gov.uk/from-whitehall,,,,https://whitehall-admin.production.alphagov.co.uk/government/admin/organisations/1/edit,
+Old Url,New Url,Status,Slug,Admin Url,State
+http://www.example.com/from-whitehall,https://www.gov.uk/from-whitehall,,,https://whitehall-admin.production.alphagov.co.uk/government/admin/organisations/1/edit,
 !
 
 cat > $fetched_data <<!
