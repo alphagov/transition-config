@@ -364,7 +364,7 @@ http://www.cabinetoffice.gov.uk/content/psn-compliance-status-19-march-2012-0,ht
 http://www.cabinetoffice.gov.uk/content/public-appointments,https://www.gov.uk/public-appointments,301
 http://www.cabinetoffice.gov.uk/content/public-appointments-vacancies,https://www.gov.uk/public-appointments,301
 http://www.cabinetoffice.gov.uk/content/public-bodies-and-appointments,https://www.gov.uk/public-bodies-reform,301
-http://www.cabinetoffice.gov.uk/content/public-bodies-reform,,410
+http://www.cabinetoffice.gov.uk/content/public-bodies-reform,https://www.gov.uk/public-bodies-reform,301
 http://www.cabinetoffice.gov.uk/content/public-emergency-alerts,https://www.gov.uk/resilient-communications,301
 http://www.cabinetoffice.gov.uk/content/public-sector-equality-duty,https://www.gov.uk/government/organisations/cabinet-office/about/equality-and-diversity,301
 http://www.cabinetoffice.gov.uk/content/public-sector-flex,https://www.gov.uk/government/publications/public-sector-flex,301
@@ -558,6 +558,7 @@ http://www.cabinetoffice.gov.uk/measuring-website-usage/web-analytics-tools,,410
 http://www.cabinetoffice.gov.uk/media/203634/gcn_ser_description.pdf,https://www.gov.uk/government/publications/public-services-network-documents,301
 http://www.cabinetoffice.gov.uk/media/203646/psn_common_req.pdf,https://www.gov.uk/government/publications/public-services-network-documents,301
 http://www.cabinetoffice.gov.uk/media/301253/puiblic_sector_uri.pdf,https://www.gov.uk/government/publications/designing-uri-sets-for-the-uk-public-sector,301
+http://www.cabinetoffice.gov.uk/media/308995/public_sector_uri.pdf,https://www.gov.uk/government/publications/designing-uri-sets-for-the-uk-public-sector,301
 http://www.cabinetoffice.gov.uk/media/407789/building-big-society.pdf,https://www.gov.uk/government/publications/building-the-big-society,301
 http://www.cabinetoffice.gov.uk/media/409088/pfg_coalition.pdf,https://www.gov.uk/government/publications/the-coalition-documentation,301
 http://www.cabinetoffice.gov.uk/media/420689/hmg-personnel-security-controls.pdf,https://www.gov.uk/government/publications/hmg-personnel-security-controls,301
@@ -1740,7 +1741,7 @@ http://www.cabinetoffice.gov.uk/resource-library/national-intelligence-machinery
 http://www.cabinetoffice.gov.uk/resource-library/national-recovery-guidance-additional-document-downloads,https://www.gov.uk/government/publications/national-recovery-guidance-additional-document-downloads,301
 http://www.cabinetoffice.gov.uk/resource-library/national-recovery-guidance-case-studies,https://www.gov.uk/government/publications/national-recovery-guidance-case-studies,301
 http://www.cabinetoffice.gov.uk/resource-library/national-recovery-guidance-generic-issues-social-media,https://www.gov.uk/government/publications/national-recovery-guidance-generic-issues-social-media,301
-http://www.cabinetoffice.gov.uk/resource-library/national-resilience-extranet-documents,https://www.gov.uk/government/publications/national-resilience-extranet-documents,301
+http://www.cabinetoffice.gov.uk/resource-library/national-resilience-extranet-documents,,410
 http://www.cabinetoffice.gov.uk/resource-library/national-risk-register,https://www.gov.uk/government/publications/national-risk-register-of-civil-emergencies,301
 http://www.cabinetoffice.gov.uk/resource-library/national-security-and-intelligence-structure-study,https://www.gov.uk/government/publications/national-security-and-intelligence-structure-study,301
 http://www.cabinetoffice.gov.uk/resource-library/national-security-strategy-strong-britain-age-uncertainty,https://www.gov.uk/government/publications/the-national-security-strategy-a-strong-britain-in-an-age-of-uncertainty,301
