@@ -23,6 +23,7 @@ require 'lib/c14n.pl';
 my $env = $ENV{'DEPLOY_TO'} // "dev";
 my $host;
 my $real;
+my $timeout = 5;
 my $skip_assets = 0;
 my $no_follow = 0;
 my $mappings = 0;
@@ -35,6 +36,7 @@ GetOptions(
     'no-follow|n' => \$no_follow,
     'real|r' => \$real,
     'mappings|m' => \$mappings,
+    'timeout|t=s' => \$timeout,
     'help|?' => \$help,
 ) or pod2usage(1);
 
@@ -42,8 +44,8 @@ pod2usage(2) if ($help);
 
 $host //= "redirector.$env.alphagov.co.uk";
 
-my $ua = LWP::UserAgent->new(max_redirect => 0, timeout => 5);
-my $follow = LWP::UserAgent->new(max_redirect => 3, timeout => 5);
+my $ua = LWP::UserAgent->new(max_redirect => 0, timeout => $timeout);
+my $follow = LWP::UserAgent->new(max_redirect => 3, timeout => $timeout);
 
 if ($mappings) {
     foreach my $mapping (@ARGV) {
@@ -132,6 +134,7 @@ Options:
     -h, --host hostname     specifiy redirector hostname
     -n, --no-follow         don't follow a redirect to check New Url
     -r, --real              test with real hostnames from mapping urls
+    -t, --timeout secs      HTTP timeout in seconds
     -m, --mappings          treat args are a series of mapping lines
     -?, --help              print usage
 
