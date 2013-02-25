@@ -100,7 +100,9 @@ sub test_mapping {
     return if ($skip_assets && $status eq '200');
 
     # check response
-    is($response->code, $status, "${url} unexpected status $context");
+    my $code = $response->code;
+    my $message = $response->message;
+    is($code, $status, "${url} unexpected status [$message] $context");
 
     if ($location || $response_location) {
         is($response_location, $location, "[$url] unexpected location $context");
@@ -112,7 +114,8 @@ sub test_mapping {
             my $request = HTTP::Request->new('GET', $location);
             my $response = $follow->request($request);
             my $code = $response->code;
-            ok($code =~ /^(200|410)/, "followed redirect to [$location] which is [$code] $context");
+            my $message = $response->message;
+            ok($code =~ /^(200|410)/, "followed redirect to [$location] which is [$code $message] $context");
         }
     }
 }
