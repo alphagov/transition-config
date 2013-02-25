@@ -63,6 +63,24 @@ diff /tmp/validate.errors - <<!
 
 [ $? -ne 0 ] && { echo "$0: FAIL" ; exit 2; }
 
+# query strings allowed
+
+cat > /tmp/validate.in <<!
+Old Url,New Url,Status,Stuff
+http://example.com/ok-301,https://www.gov.uk,301
+http://example.com/ok?query-string,,410
+http://example.com/fine?query-string,,410
+!
+tools/validate_mappings.pl -q /tmp/validate.in > /tmp/validate.out 2> /tmp/validate.err
+
+errors
+
+diff /tmp/validate.errors - <<!
+#   Failed test 'Query String [query-string] /tmp/validate.in line 3 is a duplicate of line 2'
+!
+
+[ $? -ne 0 ] && { echo "$0: FAIL" ; exit 2; }
+
 #
 #  wrong columns
 #
