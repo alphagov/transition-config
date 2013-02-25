@@ -77,7 +77,7 @@ tools/validate_mappings.pl -q /tmp/validate.in > /tmp/validate.out 2> /tmp/valid
 errors
 
 diff /tmp/validate.errors - <<!
-#   Failed test 'Query String [query-string] /tmp/validate.in line 4 is a duplicate of line 3'
+#   Failed test 'Query string [query-string] /tmp/validate.in line 4 is a duplicate of line 3'
 !
 
 [ $? -ne 0 ] && { echo "$0: FAIL" ; exit 2; }
