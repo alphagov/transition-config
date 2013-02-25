@@ -26,6 +26,12 @@ decc_og,manual,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdE12clZ0
 decc_og,furls,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdE12clZ0NENINUFrcHNkenZiU1ZmQnc&single=true&gid=6&output=csv
 decc_og,harvester,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdE12clZ0NENINUFrcHNkenZiU1ZmQnc&single=true&gid=3&output=csv
 fco,other,https://docs.google.com/spreadsheet/pub?key=0AiP6zL-gKn64dHMycTBlNjJrUV9CcVZGMGpHcERLYmc&output=csv
+hmrc,other,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDdJMGtTNnh4YzBubC1aN0ZrRTExTXc&single=true&gid=10&output=csv
+hmrc,analytics,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDdJMGtTNnh4YzBubC1aN0ZrRTExTXc&single=true&gid=8&output=csv
+hmrc,sitemap,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDdJMGtTNnh4YzBubC1aN0ZrRTExTXc&single=true&gid=4&output=csv
+hmrc,manual,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDdJMGtTNnh4YzBubC1aN0ZrRTExTXc&single=true&gid=0&output=csv
+hmrc,furls,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDdJMGtTNnh4YzBubC1aN0ZrRTExTXc&single=true&gid=6&output=csv
+hmrc,harvester,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDdJMGtTNnh4YzBubC1aN0ZrRTExTXc&single=true&gid=3&output=csv
 homeoffice,other,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdEpSWDRnVXhoQmZIdGs5LVdNMGcweUE&single=true&gid=10&output=csv
 homeoffice,analytics,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdEpSWDRnVXhoQmZIdGs5LVdNMGcweUE&single=true&gid=8&output=csv
 homeoffice,sitemap,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdEpSWDRnVXhoQmZIdGs5LVdNMGcweUE&single=true&gid=4&output=csv
