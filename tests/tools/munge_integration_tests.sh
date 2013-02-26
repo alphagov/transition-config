@@ -12,8 +12,8 @@ output="${output_dir}/${test_site}.csv"
 fetched_data="${cache}/${test_site}/${other_source}.csv"
 
 run_munge () {
-  ./munge/generate-redirects.sh -n -F $test_fetch_list -W $test_document_mappings -o $output_dir -C $cache -s $test_sites_list $test_site >/dev/null 2>&1
-  [ $? -ne 0 ] && { echo "$0: FAIL: munge exited with non-zero status" ; teardown ; exit 1; }
+  ./munge/generate-redirects.sh -n -F $test_fetch_list -W $test_document_mappings -o $output_dir -C $cache -s $test_sites_list $test_site > /tmp/munge.out 2> /tmp/munge.err
+  [ $? -ne 0 ] && { echo "$0: FAIL: munge exited with non-zero status" ; teardown ; fail; }
 }
 
 setup() {
@@ -41,6 +41,11 @@ teardown() {
   rm -fr $output_dir
 }
 
+fail () {
+    cat /tmp/munge.err
+    exit 1;
+}
+
 # test: ensure we take sources from fetch.csv and whitehall
 
 setup
@@ -63,7 +68,7 @@ http://www.example.com/from-googledoc,https://www.gov.uk/from-googledoc,301
 http://www.example.com/from-whitehall,https://www.gov.uk/from-whitehall,301
 !
 
-[ $? -ne 0 ] && { echo "$0: FAIL" ; teardown ; exit 1; }
+[ $? -ne 0 ] && { echo "$0: FAIL" ; teardown ; fail; }
 
 teardown
 
@@ -88,7 +93,7 @@ http://www.example.com/bar,https://www.gov.uk/government/policies/remapped-publi
 http://www.example.com/foo,https://www.gov.uk/this-is-foo,301
 !
 
-[ $? -ne 0 ] && { echo "$0: FAIL" ; teardown ; exit 1; }
+[ $? -ne 0 ] && { echo "$0: FAIL" ; teardown ; fail; }
 
 teardown
 
@@ -109,7 +114,7 @@ Old Url,New Url,Status
 http://www.example.com/foo,https://www.gov.uk/this-is-foo,301
 !
 
-[ $? -ne 0 ] && { echo "$0: FAIL" ; teardown ; exit 1; }
+[ $? -ne 0 ] && { echo "$0: FAIL" ; teardown ; fail; }
 
 teardown
 
@@ -133,7 +138,7 @@ http://www.example.com/foo,https://www.gov.uk/this-is-the-end-target,301
 http://www.example.com/quux,https://www.gov.uk/this-is-the-end-target,301
 !
 
-[ $? -ne 0 ] && { echo "$0: FAIL" ; teardown ; exit 1; }
+[ $? -ne 0 ] && { echo "$0: FAIL" ; teardown ; fail; }
 
 teardown
 
@@ -155,7 +160,7 @@ http://www.example.com/bar,,410
 http://www.example.com/foo,,410
 !
 
-[ $? -ne 0 ] && { echo "$0: FAIL" ; teardown ; exit 1; }
+[ $? -ne 0 ] && { echo "$0: FAIL" ; teardown ; fail; }
 
 teardown
 
