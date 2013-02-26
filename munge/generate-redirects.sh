@@ -60,8 +60,8 @@ if [ ! -d "$cache" ] ; then
     set +x
 fi
 
-
 status "Fetching $whitehall from production ..."
+mkdir -p $(dirname "$whitehall")
 [ -s "$whitehall" ] || rm -f "$whitehall"
 set -x
 curl -s -u "$user" "$whitehall_url" -z "$whitehall" -o "$whitehall"
