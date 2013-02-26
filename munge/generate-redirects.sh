@@ -61,13 +61,11 @@ if [ ! -d "$cache" ] ; then
 fi
 
 
-if [ ! -s "$whitehall" ]; then
-    # TBD: - use wget --timestamping for caching this
-    status "Fetching $whitehall from production ..."
-    set -x
-    curl -s -u "$user" "$whitehall_url" > $whitehall
-    set +x
-fi
+status "Fetching $whitehall from production ..."
+[ -s "$whitehall" ] || rm -f "$whitehall"
+set -x
+curl -s -u "$user" "$whitehall_url" -z "$whitehall" -o "$whitehall"
+set +x
 
 
 if [ -n "$fetch" ]; then
