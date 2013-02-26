@@ -5,7 +5,7 @@ sub c14n_url {
     my ($url, $allow_query_string) = @_;
 
     # all our nginx location and map matches are case-insensitive
-    # ordinarily a bad idea for resources, this and removes a lot of duplicate mappings
+    # ordinarily a bad idea for resources, this removes a lot of duplicate mappings
     $url = lc($url);
 
     # remove query_string

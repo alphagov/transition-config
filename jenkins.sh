@@ -36,6 +36,9 @@ done
 . tools/env
 
 if [ -n "$tests" ] ; then
+    status "Testing libs ..."
+    prove -lj4 tests/lib/*.t
+
     status "Testing tools ..."
     for t in tests/tools/*.sh ; do set -x ; $t ; set +x ; done
 
