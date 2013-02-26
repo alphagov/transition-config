@@ -1,10 +1,10 @@
 #!/bin/sh
 
-test_document_mappings='/tmp/test_whitehall.csv'
+test_document_mappings='cache/test_whitehall.csv'
 test_fetch_list='/tmp/fetch.csv'
 test_sites_list='/tmp/sites.csv'
 output_dir='/tmp/output'
-cache='/tmp/test_cache'
+cache='./cache'
 test_site='test'
 other_source='googledoc'
 
@@ -12,8 +12,12 @@ output="${output_dir}/${test_site}.csv"
 fetched_data="${cache}/${test_site}/${other_source}.csv"
 
 run_munge () {
-  ./munge/generate-redirects.sh -n -F $test_fetch_list -W $test_document_mappings -o $output_dir -C $cache -s $test_sites_list $test_site > /tmp/munge.out 2> /tmp/munge.err
-  [ $? -ne 0 ] && { echo "$0: FAIL: munge exited with non-zero status" ; teardown ; fail; }
+  ./munge/generate-redirects.sh -n -F $test_fetch_list -o $output_dir -s $test_sites_list $test_site > /tmp/munge.out 2> /tmp/munge.err
+  if [ $? -ne 0 ] ; then
+      cat /tmp/munge.err
+      echo "./munge/generate-redirects.sh failed: $?"
+      fail
+  fi
 }
 
 setup() {
@@ -37,12 +41,12 @@ mkdir -p $output_dir
 
 teardown() {
   rm -f $test_document_mappings $test_fetch_list $test_sites_list $fetched_data $output
-  rm -fr $cache
   rm -fr $output_dir
 }
 
 fail () {
-    cat /tmp/munge.err
+    echo "$0: FAIL" 
+    teardown
     exit 1;
 }
 
@@ -68,7 +72,7 @@ http://www.example.com/from-googledoc,https://www.gov.uk/from-googledoc,301
 http://www.example.com/from-whitehall,https://www.gov.uk/from-whitehall,301
 !
 
-[ $? -ne 0 ] && { echo "$0: FAIL" ; teardown ; fail; }
+[ $? -ne 0 ] && fail
 
 teardown
 
@@ -93,7 +97,7 @@ http://www.example.com/bar,https://www.gov.uk/government/policies/remapped-publi
 http://www.example.com/foo,https://www.gov.uk/this-is-foo,301
 !
 
-[ $? -ne 0 ] && { echo "$0: FAIL" ; teardown ; fail; }
+[ $? -ne 0 ] && fail
 
 teardown
 
@@ -114,7 +118,7 @@ Old Url,New Url,Status
 http://www.example.com/foo,https://www.gov.uk/this-is-foo,301
 !
 
-[ $? -ne 0 ] && { echo "$0: FAIL" ; teardown ; fail; }
+[ $? -ne 0 ] && fail
 
 teardown
 
@@ -138,7 +142,7 @@ http://www.example.com/foo,https://www.gov.uk/this-is-the-end-target,301
 http://www.example.com/quux,https://www.gov.uk/this-is-the-end-target,301
 !
 
-[ $? -ne 0 ] && { echo "$0: FAIL" ; teardown ; fail; }
+[ $? -ne 0 ] && fail
 
 teardown
 
@@ -160,7 +164,7 @@ http://www.example.com/bar,,410
 http://www.example.com/foo,,410
 !
 
-[ $? -ne 0 ] && { echo "$0: FAIL" ; teardown ; fail; }
+[ $? -ne 0 ] && fail
 
 teardown
 

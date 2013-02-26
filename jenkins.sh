@@ -42,9 +42,6 @@ if [ -n "$tests" ] ; then
     status "Testing tools ..."
     for t in tests/tools/*.sh ; do set -x ; $t ; set +x ; done
 
-    status "Testing munge ..."
-    rake -f munge/Rakefile test
-
     status "Testing logic ..."
     prove -lj4 tests/unit/logic/*.t
 fi
