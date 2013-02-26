@@ -8,6 +8,9 @@ sub c14n_url {
     # ordinarily a bad idea for resources, this removes a lot of duplicate mappings
     $url = lc($url);
 
+    # protocol should be http
+    $url =~ s/^https/http/;
+
     # remove query_string
     unless ($allow_query_string) {
         $url =~ s/\?.*$//;
