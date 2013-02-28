@@ -68,9 +68,11 @@ cat <<EOF
           <p>On $redirection_date the $title website was replaced by <a href='$new_url'>$homepage</a>.</p>
           <p><a href='https://www.gov.uk'>GOV.UK</a> is now the best place to find essential government services and information.</p>
 EOF
-cat <<"EOF"
+cat <<EOF
 <?php
-  $archive_link = '$archive_link' . $_SERVER['REQUEST_URI'];
+  \$archive_link = '$archive_link' . \$_SERVER['REQUEST_URI'];
+EOF
+cat <<"EOF"
 
   if (isset($archive_links[$uri_without_slash])) {
       $archive_link = $archive_links[$uri_without_slash];
