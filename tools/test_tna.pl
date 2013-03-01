@@ -34,8 +34,7 @@ while ( my $row = $csv->getline_hr( $fh ) ) {
 	my $request = HTTP::Request->new('GET', $tna_url);
 	my $ua = LWP::UserAgent->new(max_redirect => 0);
 	my $response = $ua->request($request);
-	my $tna_status = $response->status_line;
-	$tna_status =~ s/ .*$//;
+	my $tna_status = $response->code;
 
 	print "$old_url,$new_url,$status,$tna_status\n";
 }
