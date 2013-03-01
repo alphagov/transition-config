@@ -29,16 +29,21 @@ while ( my $row = $csv->getline_hr( $fh ) ) {
 	my $status = $row->{'Status'};
 
 	if ( $status == 410 ) {
-		# fetch Old Url from The National Archives
 		my $tna_url = "http://webarchive.nationalarchives.gov.uk/20120823131012/${old_url}";
 
 		my $request = HTTP::Request->new('GET', $tna_url);
-		my $ua = LWP::UserAgent->new(max_redirect => 0);
+		my $ua = LWP::UserAgent->new(max_redirect => 1);
 		my $response = $ua->request($request);
 		my $tna_status = $response->code;
 
 		if ( $tna_status == 404 ) {
 			print "$old_url,$new_url,$status,$tna_status\n";
+		}
+		elsif ( $tna_status == 200 ) {
+			my $response_body = $response->content;
+			if ( $response_body =~ /location\.replace/) {
+				print "$old_url,$new_url,$status,Location is replaced\n";
+			}
 		}
 	}
 }
