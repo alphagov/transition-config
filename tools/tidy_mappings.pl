@@ -51,7 +51,7 @@ while (<STDIN>) {
 
     my ($old, $new, $status) = split(/,/);
 
-    my $url = c14n_url($old, $allow_query_string);
+    my $url = c14n_url($old, $allow_query_string ? "*" : "");
 
     # line to be printed
     my $line = $_;

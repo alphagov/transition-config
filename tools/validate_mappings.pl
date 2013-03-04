@@ -86,7 +86,7 @@ sub test_row {
 
     my $old_uri = check_url($context, 'Old Url', $old_url);
 
-    my $c14n = c14n_url($old_url, $allow_query_string);
+    my $c14n = c14n_url($old_url, $allow_query_string ? "*" : "");
 
     unless ($skip_canonical) {
         is($old_url, $c14n, "Old Url [$old_url] is not canonical [$c14n] $context");

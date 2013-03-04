@@ -5,7 +5,7 @@
 use URI;
 
 sub c14n_url {
-    my ($url, $allow_query_string) = @_;
+    my ($url, $query_values) = @_;
 
     my $uri = URI->new($url);
     $url = URI->new($url)->canonical;
@@ -26,7 +26,7 @@ sub c14n_url {
     $url =~ s/\#.*$//;
 
     # remove trailing insignificant characters
-    $url =~ s/[\?\/\#]*$//;
+    $url =~ s/\/*$//;
 
     # escape characters problematic in CSV
     $url =~ s/"/%22/g;
@@ -38,7 +38,33 @@ sub c14n_url {
     $url =~ s/\[/%5b/g;
     $url =~ s/\]/%5d/g;
 
+    # add canonicalised query string
+    if ($query_values) {
+        my $query = c14n_query_string($uri->query, $query_values);
+        $url = "$url?$query" if ($query);
+    }
+
     return $url;
+}
+
+sub c14n_query_string {
+    my ($query, $query_values) = @_;
+
+    my $wildcard = $query_values eq '*';
+
+    # significant query values
+    my %significant = map { $_ => 1 } split(/[:,\s]+/, $query_values);
+
+    my @param; 
+
+    foreach my $pair (split(/[&;]/, $query)) {
+        # only keep significant query_string values
+        my $value = $pair;
+        $value =~ s/=.*$//;
+        push(@param, $pair) if ($significant{$value} || $wildcard);
+    }
+
+    return join('&', sort(@param));
 }
 
 1;
