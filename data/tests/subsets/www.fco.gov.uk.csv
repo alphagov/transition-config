@@ -1,3 +1,8 @@
 Old Url,New Url,Status
+<<<<<<< HEAD
 http://www.fco.gov.uk,https://www.gov.uk/government/organisations/foreign-and-commonwealth-office,301
 http://www.fco.gov.uk/,https://www.gov.uk/government/organisations/foreign-and-commonwealth-office,301
+=======
+http://www.fco.gov.uk,https://www.gov.uk/government/organisations/foreign-commonwealth-office,301
+http://www.fco.gov.uk/,https://www.gov.uk/government/organisations/foreign-commonwealth-office,301
+>>>>>>> 18cf1a02b597f1db077d08cc506a676b84b8ab2f
