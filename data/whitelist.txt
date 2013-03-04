@@ -76,6 +76,7 @@ wsr.pearsonvue.com
 wtl.defra.gov.uk
 www.2010.voa.gov.uk
 www.aboutmyvote.co.uk
+www.army.mod.uk
 www.armysecure.mod.uk
 www.betterregulation.gov.uk
 www.bis.gov.uk
