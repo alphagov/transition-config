@@ -7,12 +7,12 @@ use URI;
 sub c14n_url {
     my ($url, $allow_query_string) = @_;
 
+    my $uri = URI->new($url);
+    $url = URI->new($url)->canonical;
+
     # all our nginx location and map matches are case-insensitive
     # ordinarily a bad idea for resources, this removes a lot of duplicate mappings
     $url = lc($url);
-
-    my $uri = URI->new($url);
-    $url = URI->new($url)->canonical;
 
     # protocol should be http
     $url =~ s/^https/http/;
@@ -31,12 +31,12 @@ sub c14n_url {
     # escape characters problematic in CSV
     $url =~ s/"/%22/g;
     $url =~ s/'/%27/g;
-    $url =~ s/,/%2C/g;
+    $url =~ s/,/%2c/g;
 
     # escape some characters problematic in an nginx regex
-    $url =~ s/\|/%7C/g;
-    $url =~ s/\[/%5B/g;
-    $url =~ s/\]/%5D/g;
+    $url =~ s/\|/%7c/g;
+    $url =~ s/\[/%5b/g;
+    $url =~ s/\]/%5d/g;
 
     return $url;
 }
