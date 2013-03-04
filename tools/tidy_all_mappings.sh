@@ -42,7 +42,7 @@ tail -n +2 $sites |
 
         set -e -x
         tools/tidy_mappings.pl $options < $mappings > $tmpfile
-        set +
+        set +x
         mv $tmpfile $mappings
     done
 
