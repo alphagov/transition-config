@@ -23,7 +23,7 @@ improve,improve.businesslink.gov.uk,17th October 2012,20120823131012,Business Li
 lrc,lrc.businesslink.gov.uk,17th October 2012,20120823131012,Business Link,,,,https://www.gov.uk/browse/business
 mod,www.mod.uk,13th December 2012,20121026065214,Ministry of Defence,/mod,,,https://www.gov.uk/government/organisations/ministry-of-defence
 moj,www.justice.gov.uk,10th April 2013,20130128112038,Ministry of Justice,/moj,,,https://www.gov.uk/government/organisations/ministry-of-justice
-nio,www.nio.gov.uk,5th March 2013,20130128134220,Northern Ireland Office,/nio,,,https://www.gov.uk/government/organisations/northern-ireland-office
+nio,www.nio.gov.uk,5th March 2013,20130128134220,Northern Ireland Office,/nio,,--allow-query-string,https://www.gov.uk/government/organisations/northern-ireland-office
 number10,www.number10.gov.uk,30th April 2013,20130109092234,Number 10,,,,https://www.gov.uk/government/how-government-works
 oag,www.oag.gov.uk,27th February 2013,20121105225103,Advocate General for Scotland,/oag,www.advocategeneral.gov.uk,,https://www.gov.uk/government/organisations/office-of-the-advocate-general-for-scotland
 scotlandoffice,www.scotlandoffice.gov.uk,30th January 2013,20130130150421,Scotland Office,/scotland-office,,,https://www.gov.uk/government/organisations/scotland-office
