@@ -86,7 +86,7 @@ businesslink,piplinks
 
 status "Processing data/sites.csv ..."
 tail -n +2 $sites |
-    while read site host redirection_date tna_timestamp title furl aliases validate_options homepage rest
+    while read site host redirection_date tna_timestamp title furl aliases options homepage rest
     do
         mappings=data/mappings/${site}.csv
         sitemap=dist/static/${site}/sitemap.xml
@@ -103,14 +103,18 @@ tail -n +2 $sites |
         status ":: title: $title"
         status ":: furl: $furl"
         status ":: aliases: $aliases"
-        status ":: validate_options: $validate_options"
+        status ":: options: $options"
         status ":: homepage: $homepage"
         status ":: mappings: $mappings"
         status
 
         if [ -n "$validate" ] ; then
             status "Validating mappings file for $site ..."
-            prove tools/validate_mappings.pl :: --host $host --whitelist $whitelist --blacklist $blacklist $validate_options $mappings
+            IFS=" "
+            set -x
+            prove tools/validate_mappings.pl :: --host $host --whitelist $whitelist --blacklist $blacklist $options $mappings
+            set +x
+            IFS=,
         fi
 
         if [ ! -f $conf ] ; then

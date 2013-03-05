@@ -21,7 +21,7 @@ my $no_output;
 my $use_actual;
 my $blacklist = "data/blacklist.txt";
 my $ignore_blacklist;
-my $allow_query_string;
+my $query_string;
 my $trump;
 my $help;
 
@@ -30,7 +30,7 @@ GetOptions(
     "ignore-blacklist|B"  => \$ignore_blacklist,
     'no-output|n' => \$no_output,
     'use-actual|a' => \$use_actual,
-    "allow-query-string|q"  => \$allow_query_string,
+    "query-string|q=s"  => \$query_string,
     "trump|t"  => \$trump,
     'help|?' => \$help,
 ) or pod2usage(1);
@@ -51,7 +51,7 @@ while (<STDIN>) {
 
     my ($old, $new, $status) = split(/,/);
 
-    my $url = c14n_url($old, $allow_query_string ? "*" : "");
+    my $url = c14n_url($old, $query_string);
 
     # line to be printed
     my $line = $_;
@@ -144,7 +144,8 @@ Options:
 
     -n, --no-output             no output, just check
     -a, --use-actual            use the current, actual redirection to resolve conflicts
-    -q, --allow-query-string    allow query-string in Old Urls
+    -q, --query-string p1,p2    significant query-string parameters in Old Urls
+                                '*' allows any parameter, '-' leaves query-string as-is
     -t, --trump                 later mappings overwrite earlier ones
     -?, --help                  print usage
 

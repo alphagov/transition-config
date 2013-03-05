@@ -24,7 +24,7 @@ diff /tmp/validate.errors - <<!
 #  simple tests
 #
 cat > /tmp/validate.in <<!
-Site,Host,Redirection Date,TNA Timestamp,Title,FURL,Aliases,Validate Options,New Url,Status
+Site,Host,Redirection Date,TNA Timestamp,Title,FURL,Aliases,Options,New Url,Status
 example1,www.example1.gov.uk,13th December 2012,20120816224015,Department One,/example1,,,https://www.gov.uk/government/example1
 bad-site-name,www.example2.gov.uk,13th December 2012,20120816224015,Somebody&#39;s Office,/example2,,,https://www.gov.uk/government/example2
 example3,www.example3.gov.uk,13th December 2012,20120816224015,Department of Stuff&#44; Stuff &amp; Stuff,,,,https://www.gov.uk/government/example3

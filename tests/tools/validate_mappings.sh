@@ -72,7 +72,7 @@ http://example.com/ok?query-string,,410
 http://example.com/fine?query-string,,410
 http://example.com/ok?different-query-string-isnt-duplicate,,410
 !
-tools/validate_mappings.pl -q /tmp/validate.in > /tmp/validate.out 2> /tmp/validate.err
+tools/validate_mappings.pl -q '*' /tmp/validate.in > /tmp/validate.out 2> /tmp/validate.err
 
 errors
 

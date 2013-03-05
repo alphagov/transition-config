@@ -20,7 +20,7 @@ require 'lib/lists.pl';
 
 my $skip_canonical;
 my $allow_duplicates;
-my $allow_query_string;
+my $query_string;
 my $allow_https;
 my $disallow_embedded_urls;
 my $blacklist = "data/blacklist.txt";
@@ -36,7 +36,7 @@ GetOptions(
     "ignore-blacklist|B"  => \$ignore_blacklist,
     "skip-canonical|c"  => \$skip_canonical,
     "allow-duplicates|d"  => \$allow_duplicates,
-    "allow-query-string|q"  => \$allow_query_string,
+    "query-string|q=s"  => \$query_string,
     "allow-https|t"  => \$allow_https,
     "disallow-embedded-urls|u"  => \$disallow_embedded_urls,
     "host|h=s"  => \$host,
@@ -86,14 +86,10 @@ sub test_row {
 
     my $old_uri = check_url($context, 'Old Url', $old_url);
 
-    my $c14n = c14n_url($old_url, $allow_query_string ? "*" : "");
+    my $c14n = c14n_url($old_url, $query_string);
 
     unless ($skip_canonical) {
         is($old_url, $c14n, "Old Url [$old_url] is not canonical [$c14n] $context");
-    }
-
-    unless ($allow_query_string) {
-        ok(!$old_uri->query, "Old Url [$old_url] query string not allowed $context");
     }
 
     if ($disallow_embedded_urls) {
@@ -111,7 +107,7 @@ sub test_row {
     ok($old_url =~ m{^https?://$host}, "Old Url [$old_url] host not [$host] $context");
 
     unless ($allow_duplicates) {
-        if ($allow_query_string && defined($old_uri->query)){
+        if ($query_string && defined($old_uri->query)){
             my $query_string = $old_uri->query;
             ok(!defined($seen{$query_string}), "Query string [$query_string] $context is a duplicate of line " . ($seen{$query_string} // ""));
             $seen{$query_string} = $.;
@@ -175,7 +171,8 @@ Options:
     -d, --allow-duplicates          allow duplicate Old Urls
     -h, --host host                 constrain Old Urls to host
     -t, --allow-https               allow https in Old Urls
-    -q, --allow-query-string        allow query-string in Old Urls
+    -q, --query-string p1,p2        significant query-string parameters in Old Urls
+                                    '*' allows any parameter, '-' leaves query-string as-is
     -u, --disallow-embedded-urls    disallow Urls in Old Urls
     -w, --whitelist filename        constrain New Urls to those in given whitelist file
     -W, --ignore-whitelist          ignore the whitelist file

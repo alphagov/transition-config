@@ -40,10 +40,12 @@ tail -n +2 $sites |
         echo ":: mappings: $mappings"
         tmpfile=tmp/$$.$site.csv
 
+        IFS=" "
         set -e -x
         tools/tidy_mappings.pl $options < $mappings > $tmpfile
         set +x
         mv $tmpfile $mappings
+        IFS=,
     done
 
 exit $?

@@ -50,6 +50,11 @@ sub c14n_url {
 sub c14n_query_string {
     my ($query, $query_values) = @_;
 
+    # don't c14n query-string
+    if ($query_values eq '-') {
+        return $query;
+    }
+
     my $wildcard = $query_values eq '*';
 
     # significant query values

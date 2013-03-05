@@ -111,6 +111,24 @@ http://example.com/3,,410
 http://example.com/f,http://foo/3,301
 !
 
+#
+#  leave query-string as-id
+#
+tools/tidy_mappings.pl --query-string -  > /tmp/tidy-t.out 2> /tmp/tidy-t.err <<!
+Old Url,New Url,Status,More,Stuff
+http://example.com/f?foo=bar&snark=snork&a=22,http://foo/1,301
+!
+
+diff /tmp/tidy-t.err - <<!
+!
+
+[ $? -ne 0 ] && { echo "$0: FAIL" ; exit 1; }
+
+diff /tmp/tidy-t.out - <<!
+Old Url,New Url,Status,More,Stuff
+http://example.com/f?foo=bar&snark=snork&a=22,http://foo/1,301
+!
+
 
 [ $? -ne 0 ] && { echo "$0: FAIL" ; exit 2; }
 
