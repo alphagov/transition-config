@@ -44,7 +44,7 @@ cat <<"EOF"
 <html class="no-branding">
   <head>
     <meta charset="utf-8">
-    <title>This page has been archived</title>
+    <title>410 - Page Archived</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"> 
     <!--[if lt IE 9]>
     <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -59,7 +59,7 @@ cat <<EOF
         <header class="page-header group $site">
           <div class="legacy-site-logo"></div>
           <hgroup>
-            <h1>The $title website has been replaced</h1>
+            <h1>The $title website title has been replaced by <a href="https://www.gov.uk">GOV.UK</a></h1>
           </hgroup>
         </header>
 

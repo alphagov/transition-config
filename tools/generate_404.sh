@@ -27,7 +27,7 @@ cat <<EOF
 <html class="no-branding">
   <head>
     <meta charset="utf-8">
-    <title>This page is missing</title>
+    <title>404 - Not Found</title>
     <link href="/gone.css" media="screen" rel="stylesheet" type="text/css">
   </head>
   <body>
@@ -36,7 +36,7 @@ cat <<EOF
         <header class="page-header group $site">
           <div class="legacy-site-logo"></div>
           <hgroup>
-            <h1>The $title website title has been replaced by GOV.UK</h1>
+            <h1>The $title website title has been replaced by <a href="https://www.gov.uk">GOV.UK</a></h1>
           </hgroup>
         </header>
 

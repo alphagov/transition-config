@@ -26,7 +26,7 @@ cat <<EOF
 <html class="no-branding">
   <head>
     <meta charset="utf-8">
-    <title>This page is awaiting content</title>
+    <title>418 - Awaiting Content</title>
     <link href="/gone.css" media="screen" rel="stylesheet" type="text/css">
   </head>
   <body>
@@ -35,13 +35,13 @@ cat <<EOF
         <header class="page-header group $site">
           <div class="legacy-site-logo"></div>
           <hgroup>
-            <h1>This $title page is moving to GOV.UK but has not yet been published</h1>
+            <h1>This $title page is moving to <a href="https://www.gov.uk">GOV.UK</a> but has not yet been published</h1>
           </hgroup>
         </header>
 
         <article role="article" class="group">
 
-          <p>The $title website is being replaced by <a href='$new_url'>$homepage</a>.</p>
+          <p>The $title website is being replaced by <a href='$new_url'>$homepage</a> on $redirection_date.</p>
           <p><a href='https://www.gov.uk'>GOV.UK</a> is now the best place to find essential government services and information.</p>
 
         </article>
