@@ -58,8 +58,8 @@ foreach my $key (keys %count) {
     }
 }
 
-foreach my $name (keys %uniques) {
-    say $uniques{$name} . " $name"
+foreach my $name (sort keys %uniques) {
+    say $name
 }
 
 __END__
