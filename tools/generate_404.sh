@@ -36,7 +36,7 @@ cat <<EOF
         <header class="page-header group $site">
           <div class="legacy-site-logo"></div>
           <hgroup>
-            <h1>The $title website title has been replaced by <a href="https://www.gov.uk">GOV.UK</a></h1>
+            <h1>The $title website has been replaced by <a href="https://www.gov.uk">GOV.UK</a></h1>
           </hgroup>
         </header>
 
