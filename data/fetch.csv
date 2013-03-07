@@ -83,6 +83,12 @@ mod,sitemap,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdHB6d1R3a2F
 mod,manual,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdHB6d1R3a2FVZGdreHpvVXlaVTZOOGc&single=true&gid=0&output=csv
 mod,furls,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdHB6d1R3a2FVZGdreHpvVXlaVTZOOGc&single=true&gid=6&output=csv
 mod,harvester,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdHB6d1R3a2FVZGdreHpvVXlaVTZOOGc&single=true&gid=3&output=csv
+moj,other,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdGNVY0tmRllnYjBQZUR1Z1kxVDFkWUE&output=csv&gid=10
+moj,analytics,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdGNVY0tmRllnYjBQZUR1Z1kxVDFkWUE&output=csv&gid=8
+moj,sitemap,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdGNVY0tmRllnYjBQZUR1Z1kxVDFkWUE&output=csv&gid=4
+moj,manual,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdGNVY0tmRllnYjBQZUR1Z1kxVDFkWUE&output=csv&gid=0
+moj,furls,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdGNVY0tmRllnYjBQZUR1Z1kxVDFkWUE&output=csv&gid=6
+moj,harvester,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdGNVY0tmRllnYjBQZUR1Z1kxVDFkWUE&output=csv&gid=3
 nio,other,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdFU2REhWUHRWeHItYlB6U3VtT3ZkY3c&single=true&gid=10&output=csv
 nio,analytics,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdFU2REhWUHRWeHItYlB6U3VtT3ZkY3c&single=true&gid=8&output=csv
 nio,sitemap,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdFU2REhWUHRWeHItYlB6U3VtT3ZkY3c&single=true&gid=4&output=csv
