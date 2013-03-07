@@ -113,6 +113,12 @@ nio,sitemap,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdFU2REhWUHR
 nio,manual,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdFU2REhWUHRWeHItYlB6U3VtT3ZkY3c&single=true&gid=0&output=csv
 nio,furls,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdFU2REhWUHRWeHItYlB6U3VtT3ZkY3c&single=true&gid=6&output=csv
 nio,harvester,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdFU2REhWUHRWeHItYlB6U3VtT3ZkY3c&single=true&gid=3&output=csv
+no10,other,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDNVcjBCYUZWbGVMLWw3eEVGcS0yMkE&output=csv&gid=10
+no10,analytics,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDNVcjBCYUZWbGVMLWw3eEVGcS0yMkE&output=csv&gid=8
+no10,sitemap,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDNVcjBCYUZWbGVMLWw3eEVGcS0yMkE&output=csv&gid=4
+no10,manual,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDNVcjBCYUZWbGVMLWw3eEVGcS0yMkE&output=csv&gid=0
+no10,furls,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDNVcjBCYUZWbGVMLWw3eEVGcS0yMkE&output=csv&gid=6
+no10,harvester,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDNVcjBCYUZWbGVMLWw3eEVGcS0yMkE&output=csv&gid=3
 oag,other,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdG5UbnE3cjVMN2NSTGdKYkdFQjBKUHc&output=csv&gid=10
 oag,analytics,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdG5UbnE3cjVMN2NSTGdKYkdFQjBKUHc&output=csv&gid=8
 oag,sitemap,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdG5UbnE3cjVMN2NSTGdKYkdFQjBKUHc&output=csv&gid=4
