@@ -120,6 +120,7 @@ www.iaea.org
 www.ipo.gov.uk
 www.itskillsacademy.ac.uk
 www.legislation.gov.uk
+www.local.communities.gov.uk
 www.maa.mod.uk
 www.mod.uk
 www.moneyadviceservice.org.uk
@@ -138,6 +139,7 @@ www.nsare.org
 www.nsasocialcare.co.uk
 www.nuclear.nsacademy.co.uk
 www.number10.gov.uk
+www.official-documents.gov.uk
 www.oft.gov.uk
 www.parliament.uk
 www.people1st.co.uk
