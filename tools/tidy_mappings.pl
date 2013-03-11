@@ -9,6 +9,7 @@ use warnings;
 use Getopt::Long;
 use Pod::Usage;
 use LWP::UserAgent;
+use Text::CSV;
 use URI;
 
 require 'lib/c14n.pl';
@@ -16,11 +17,14 @@ require 'lib/lists.pl';
 
 my $titles;
 my %seen = ();
+my %known = ();
 my $uniq = 0;
 my $no_output;
 my $use_actual;
 my $blacklist = "data/blacklist.txt";
 my $ignore_blacklist;
+my $sites = "data/sites.csv";
+my $ignore_sites;
 my $query_string;
 my $trump;
 my $help;
@@ -31,6 +35,8 @@ GetOptions(
     'no-output|n' => \$no_output,
     'use-actual|a' => \$use_actual,
     "query-string|q=s"  => \$query_string,
+    "sites|s=s"  => \$sites,
+    "ignore-sites|S"  => \$ignore_sites,
     "trump|t"  => \$trump,
     'help|?' => \$help,
 ) or pod2usage(1);
@@ -38,6 +44,7 @@ GetOptions(
 pod2usage(2) if ($help);
 
 my %paths = load_blacklist($blacklist) unless ($ignore_blacklist);
+load_sites($sites, \%known) unless ($ignore_sites);
 
 my $ua = LWP::UserAgent->new(max_redirect => 0);
 
@@ -49,14 +56,22 @@ while (<STDIN>) {
         next;
     }
 
-    my ($old, $new, $status) = split(/,/);
+    my ($old, $new, $status, $rest) = split(/,/, $_, 4);
+    $status //= "410";
+    $rest //= "";
 
     my $url = c14n_url($old, $query_string);
 
+    my $known = $known{c14n_url($new, '-')};
+    if ($known) {
+        say STDERR "swapping new [$new] with known [$known] line $.";
+        $new = $known;
+    }
+
     # line to be printed
-    my $line = $_;
-    $line =~ s/^[^,]*,//;
-    $line = "$url,$line";
+    my @line = ( $url, $new, $status );
+    push @line, $rest if ($rest);
+    my $line = join(",", @line);
 
     my $old_path = $url;
     $old_path =~ s/^http:\/\/[^\/]*//;
@@ -130,6 +145,41 @@ unless ($no_output) {
     close(OUT);
 }
 
+#
+#  load furls from sites.csv
+#
+sub load_sites {
+    my $filename = shift;
+    my $known = shift;
+    my $csv = Text::CSV->new({ binary => 1 }) or die "Cannot use CSV: " . Text::CSV->error_diag();
+
+    open(my $fh, "<", $filename) or die "$filename: $!";
+
+    my $names = $csv->getline($fh);
+    $csv->column_names(@$names);
+
+    while (my $row = $csv->getline_hr($fh)) {
+        my $host = $row->{'Host'};
+        my $new = $row->{'New Url'};
+        my $aliases = $row->{'Aliases'};
+
+        # add hosts and aliases
+        foreach my $host (split(/\s+/, $aliases), $host) {
+            add_known($known, 'http://' . $host, $new);
+        }
+
+        # TBD: FURL should be a URL
+        add_known($known, "https://www.gov.uk" . $row->{'FURL'}, $new);
+
+    }
+}
+
+sub add_known {
+
+    my ($known, $url, $new) = @_;
+    $known->{c14n_url($url, "-")} = $new;
+}
+
 __END__
 
 =head1 NAME
@@ -142,10 +192,13 @@ tools/tidy_mappings.pl [options] < mappings
 
 Options:
 
-    -n, --no-output             no output, just check
     -a, --use-actual            use the current, actual redirection to resolve conflicts
+    -b, --blacklist filename    constrain Old Url paths to those not in the given blacklist file
+    -B, --ignore-blacklist      ignore the blacklist file
+    -n, --no-output             no output, just check
     -q, --query-string p1,p2    significant query-string parameters in Old Urls
                                 '*' allows any parameter, '-' leaves query-string as-is
+    -s, --sites filename        expand FURLs from sites file
     -t, --trump                 later mappings overwrite earlier ones
     -?, --help                  print usage
 
