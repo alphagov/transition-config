@@ -1,0 +1,8 @@
+#
+#  blacklist of paths which may not be used in an Old Url
+#
+/
+/robots.txt
+/sitemap.xml
+/favicon.ico
+/gone.css
