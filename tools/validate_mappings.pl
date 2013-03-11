@@ -165,7 +165,7 @@ prove tools/validate_mappings.pl :: [options] [file ...]
 
 Options:
 
-    -b, --blacklist filename        constrain Old Url paths to those not given the blacklist file
+    -b, --blacklist filename        constrain Old Url paths to those not in the given blacklist file
     -B, --ignore-blacklist          ignore the blacklist file
     -c, --skip-canonical            don't check for canonical Old Urls
     -d, --allow-duplicates          allow duplicate Old Urls
