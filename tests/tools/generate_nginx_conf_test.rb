@@ -14,16 +14,16 @@ class GenerateNginxConfTest < MiniTest::Unit::TestCase
     assert_match %r{location = /\s*{ return 301 http://www.bar.com; }}, server_declaration_contents
   end
 
-  def test_aka_prefix_created_for_hostname_with_www_prefix
+  def test_can_generate_nginx_vhost_aka_generated_for_each_www
+    server_declaration_contents = generate_nginx_config('http://www.bar.com', 'foo', 'www.foo.com', 'www.bar.com')
+
+    assert_match %r{server_name\s+www.foo.com\s+aka.foo.com\s+www.bar.com\s+aka.bar.com;}, server_declaration_contents
   end
 
-  def test_can_generate_nginx_vhost_multiple_aliases
-    stdout, stderr, status = Open3.capture3(%{ tools/generate_nginx_conf.sh --homepage http://www.snork.com/foo --site foo www.foo.com www.bar.com bar.foo.com})
+  def test_can_generate_nginx_vhost_aka_generated_for_non_www_host
+    server_declaration_contents = generate_nginx_config('http://www.bar.com', 'foo', 'foo.com')
 
-    assert_equal 0, status.exitstatus
-    assert_match %r{server_name\s+www.foo.com\s+aka.foo.com
-    
-    ;}, server_declaration_contents
+    assert_match %r{server_name\s+foo.com\s+aka-foo.com;}, server_declaration_contents
   end
 
   def parse_server_declaration(output)
