@@ -40,7 +40,7 @@ if [ -n "$tests" ] ; then
     prove -lj4 tests/lib/*.t
 
     status "Testing tools ..."
-    bundle install
+    bundle install --deployment
     bundle exec rake test
     for t in tests/tools/*.sh ; do set -x ; $t ; set +x ; done
 
