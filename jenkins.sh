@@ -93,7 +93,6 @@ tail -n +2 $sites |
         mappings=data/mappings/${site}.csv
         sitemap=dist/static/${site}/sitemap.xml
         conf=dist/configs/${site}.conf
-        locations=dist/${host}.location.conf
         maps=dist/maps/$site
         static=dist/static/$site
 
