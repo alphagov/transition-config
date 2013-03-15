@@ -2,7 +2,9 @@ tmp/
 dist/
 tmp_test_run_output/
 ._*
+.bundle
 test.sh
 document_mappings.csv
 fetch.*
 /cache
+vendor
