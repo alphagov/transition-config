@@ -76,6 +76,11 @@ $(validdir)/sites.valid:	$(validdir) $(sites) tools/validate_sites.pl
 $(validdir):;	mkdir -p $@
 
 #
+#  configs
+#
+$(configdir):;	mkdir -p $@
+
+#
 #  bespoke maps
 #
 maps::	dist/maps/lrc/lrc.conf dist/maps/businesslink/piplinks.conf
