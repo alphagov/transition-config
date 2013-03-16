@@ -27,6 +27,11 @@ staticdir=dist/static
 etcdir=dist/etc
 validdir=tmp
 
+#
+#  commands
+#
+MUSTACHE=bundle exec mustache
+
 .PHONY: init all ci dist config maps validate static etc
 
 #
@@ -146,7 +151,7 @@ clobber::
 init::	makefiles $(MAKEFILES)
 
 makefiles/%.mk:	%.yml
-	mustache $< templates/makefile.mustache > $@
+	$(MUSTACHE) $< templates/makefile.mustache > $@
 
 $(MAKEFILES):	templates/makefile.mustache
 
