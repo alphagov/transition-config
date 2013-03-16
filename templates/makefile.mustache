@@ -12,7 +12,7 @@ $(configdir)/{{site}}.conf:	$(configdir) $(mappingsdir)/{{site}}.csv
 	tools/generate_nginx_conf.sh --site "{{site}}" --homepage "{{homepage}}" "{{host}}" {{#aliases}}{{.}} {{/aliases}} > $@
 else 
 $(configdir)/{{site}}.conf:	$(configdir) configs/{{site}}.conf
-	cp configs/{{site}.conf $@
+	cp configs/{{site}}.conf $@
 endif
 
 #
