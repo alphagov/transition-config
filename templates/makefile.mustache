@@ -43,9 +43,9 @@ $(staticdir)/{{site}}/418.html:	$(sites) tools/generate_418.sh
 	@mkdir -p $(staticdir)/{{site}}
 	tools/generate_418.sh "{{site}}" "{{host}}" "{{redirection_date}}" "{{tna_timestamp}}" "{{title}}" "{{furl}}" "{{homepage}}" > $@
 
-$(staticdir)/{{site}}/robots.txt:	$(sites) tools/generate_robots.sh
+$(staticdir)/{{site}}/robots.txt:	$(sitesdir)/{{site}}.yml $(templatesdir)/robots.mustache
 	@mkdir -p $(staticdir)/{{site}}
-	tools/generate_robots.sh "{{site}}" "{{host}}" "{{redirection_date}}" "{{tna_timestamp}}" "{{title}}" "{{furl}}" "{{homepage}}" > $@
+	mustache $? > $@
 
 $(staticdir)/{{site}}/sitemap.xml:	$(sites) $(mappingsdir)/{{site}}.csv tools/generate_sitemap.pl
 	@mkdir -p $(staticdir)/{{site}}

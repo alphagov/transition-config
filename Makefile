@@ -7,6 +7,8 @@
 #
 mappingsdir=data/mappings
 sites=data/sites.csv
+sitesdir=data/sites
+templatesdir=templates
 whitelist=data/whitelist.txt
 blacklist=data/blacklist.txt
 SITES := $(wildcard data/sites/*.yml)
@@ -155,9 +157,9 @@ makefiles::	$(MAKEFILES)
 
 $(makedir)/%.mk:	%.yml
 	@mkdir -p $(makedir)
-	$(MUSTACHE) $< templates/makefile.mustache > $@
+	$(MUSTACHE) $< $(templatesdir)/makefile.mustache > $@
 
-$(MAKEFILES):	templates/makefile.mustache
+$(MAKEFILES):	$(templatesdir)/makefile.mustache
 
 prune::;	rm -rf $(makedir)
 
