@@ -2,6 +2,8 @@
 
 set -e
 
+bundle
+
 #
 #  bootstrap makefiles ..
 #
