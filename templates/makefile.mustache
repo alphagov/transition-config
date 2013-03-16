@@ -1,0 +1,73 @@
+#
+#  makefile generated for {{site}}
+#
+
+#
+#  nginx config
+#
+config::	$(configdir)/{{site}}.conf $(mapsdir)/{{site}}/location.conf
+
+ifeq ($(wildcard configs/{{site}}.conf),) 
+$(configdir)/{{site}}.conf:	$(configdir) $(mappingsdir)/{{site}}.csv
+	tools/generate_nginx_conf.sh --site "{{site}}" --homepage "{{homepage}}" "{{host}}" {{#aliases}}{{.}} {{/aliases}} > $@
+else 
+$(configdir)/{{site}}.conf:	$(configdir) configs/{{site}}.conf
+	cp $< $@
+endif
+
+#
+#  nginx maps
+#
+maps::	$(mapsdir)/{{site}}/location.conf
+
+$(mapsdir)/{{site}}/location.conf:	$(mapsdir)/{{site}} $(mappingsdir)/{{site}}.csv tools/generate_maps.pl
+	tools/generate_maps.pl --dir $(mapsdir)/{{site}} $(mappingsdir)/{{site}}.csv
+
+$(mapsdir)/{{site}}:;	mkdir -p $@
+
+#
+#  static assets
+#
+static::	$(staticdir)/{{site}}/404.html $(staticdir)/{{site}}/410.html $(staticdir)/{{site}}/418.html $(staticdir)/{{site}}/robots.txt $(staticdir)/{{site}}/sitemap.xml
+
+$(staticdir)/{{site}}/404.html:	$(sites) $(staticdir)/{{site}} tools/generate_404.sh
+	tools/generate_404.sh "{{site}}" "{{host}}" "{{redirection_date}}" "{{tna_timestamp}}" "{{title}}" "{{furl}}" "{{homepage}}" > $@
+
+$(staticdir)/{{site}}/410.html:	$(sites) $(staticdir)/{{site}} tools/generate_410.sh
+	tools/generate_410.sh "{{site}}" "{{host}}" "{{redirection_date}}" "{{tna_timestamp}}" "{{title}}" "{{furl}}" "{{homepage}}" > $@
+
+$(staticdir)/{{site}}/418.html:	$(sites) $(staticdir)/{{site}} tools/generate_418.sh
+	tools/generate_418.sh "{{site}}" "{{host}}" "{{redirection_date}}" "{{tna_timestamp}}" "{{title}}" "{{furl}}" "{{homepage}}" > $@
+
+$(staticdir)/{{site}}/robots.txt:	$(sites) $(staticdir)/{{site}} tools/generate_robots.sh
+	tools/generate_robots.sh "{{site}}" "{{host}}" "{{redirection_date}}" "{{tna_timestamp}}" "{{title}}" "{{furl}}" "{{homepage}}" > $@
+
+$(staticdir)/{{site}}/sitemap.xml:	$(staticdir)/{{site}} $(mappingsdir)/{{site}}.csv tools/generate_sitemap.pl
+	tools/generate_sitemap.pl $(mappingsdir)/{{site}}.csv {{host}} > $@
+
+$(staticdir)/{{site}}:;	mkdir -p $@
+
+#
+#  validate
+#
+validate::	$(validdir)/{{site}}.valid $(validdir)/{{site}}_sitemap.valid
+
+$(validdir)/{{site}}.valid:	$(mappingsdir)/{{site}}.csv tools/validate_mappings.pl
+	prove tools/validate_mappings.pl :: --host {{host}} --whitelist $(whitelist) --blacklist $(blacklist) {{options}} $(mappingsdir)/{{site}}.csv && touch $@
+
+$(validdir)/{{site}}_sitemap.valid:	$(staticdir)/{{site}}/sitemap.xml tools/test_sitemap.pl
+	rm -f $@
+	prove tools/test_sitemap.pl :: $(staticdir)/{{site}}/sitemap.xml {{host}} && touch $@
+
+#
+#  clean
+#
+clean::	clean_{{site}}
+clean_{{site}}:	clobber_{{site}}
+	rm -f $(validdir)/{{site}}*.valid
+
+#
+#  clobber
+#
+clobber::	clobber_{{site}}
+clobber_{{site}}:; rm -rf $(mapsdir)/{{site}} $(staticdir)/{{site}} $(configdir)/{{site}}.conf
