@@ -162,7 +162,7 @@ $(MAKEFILES):	templates/makefile.mustache
 
 makefiles:;	mkdir -p $@
 
-clean::;	rm -rf makefiles
+prune::;	rm -rf makefiles
 
 #
 #  generate sites yml
