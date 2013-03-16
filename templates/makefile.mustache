@@ -7,12 +7,12 @@
 #
 config::	$(configdir)/{{site}}.conf $(mapsdir)/{{site}}/location.conf
 
-ifeq ($(wildcard configs/{{site}}.conf),) 
+ifeq ($(wildcard configs/{{site}}.conf),)
 $(configdir)/{{site}}.conf:	$(configdir) $(mappingsdir)/{{site}}.csv
 	tools/generate_nginx_conf.sh --site "{{site}}" --homepage "{{homepage}}" "{{host}}" {{#aliases}}{{.}} {{/aliases}} > $@
 else 
 $(configdir)/{{site}}.conf:	$(configdir) configs/{{site}}.conf
-	cp $< $@
+	cp configs/{{site}.conf $@
 endif
 
 #
