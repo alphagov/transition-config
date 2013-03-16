@@ -20,6 +20,7 @@ MAKEFILES := $(patsubst data/sites/%.yml,makefiles/%.mk,$(SITES))
 #
 #  targets
 #
+makedir=makefiles
 configdir=dist/configs
 commondir=dist/common
 mapsdir=dist/maps
@@ -32,12 +33,12 @@ validdir=tmp
 #
 MUSTACHE=bundle exec mustache
 
-.PHONY: init all ci dist config maps validate static etc
+.PHONY: makefiles all ci dist config maps validate static etc prune
 
 #
-#  all
+#  default
 #
-all:	validate dist
+all:	dist
 	@:
 
 #
@@ -67,18 +68,12 @@ test::
 #
 #  validate
 #
-validate::	$(validdir) $(validdir)/sites.valid
+validate::	$(validdir)/sites.valid
 
-$(validdir)/sites.valid:	$(validdir) $(sites) tools/validate_sites.pl
-	rm -f $@
+$(validdir)/sites.valid:	$(sites) tools/validate_sites.pl
+	@rm -f $@
+	@mkdir -p $(validdir)/sites.valid
 	prove tools/validate_sites.pl :: $(sites) && touch $@
-
-$(validdir):;	mkdir -p $@
-
-#
-#  configs
-#
-$(configdir):;	mkdir -p $@
 
 #
 #  bespoke maps
@@ -86,39 +81,40 @@ $(configdir):;	mkdir -p $@
 maps::	dist/maps/lrc/lrc.conf dist/maps/businesslink/piplinks.conf
 
 # lrc map
-dist/maps/lrc/lrc.conf:	dist/maps/lrc data/lrc.csv tools/generate_lrc.pl
+$(mapsdir)/lrc/lrc.conf:	data/lrc.csv tools/generate_lrc.pl
+	@mkdir -p $(mapsdir)/lrc
 	tools/generate_lrc.pl data/lrc.csv > $@
 
 # piplinks map
-dist/maps/businesslink/piplinks.conf:	dist/maps/businesslink data/piplinks.csv tools/generate_piplinks.pl
-	mkdir -p dist/maps/businesslink
+$(mapsdir)/businesslink/piplinks.conf:	data/piplinks.csv tools/generate_piplinks.pl
+	@mkdir -p $(mapsdir)/businesslink
 	tools/generate_piplinks.pl data/piplinks.csv > $@
 
 #
 #  common config files
 #
-config::	dist/common/settings.conf dist/common/status_pages.conf
+config::	$(commondir)/settings.conf $(commondir)/status_pages.conf
 
-dist/common/settings.conf:	$(commondir) common/settings.conf
+$(commondir)/settings.conf:	common/settings.conf
+	@mkdir -p $(commondir)
 	cp common/settings.conf $@
 
-dist/common/status_pages.conf:	$(commondir) common/status_pages.conf
+$(commondir)/status_pages.conf:	common/status_pages.conf
+	@mkdir -p $(commondir)
 	cp common/status_pages.conf $@
-
-$(commondir):;	mkdir -p $@
 
 #
 #  static
 #
 static::	$(staticdir)/favicon.ico $(staticdir)/gone.css
 
-$(staticdir)/favicon.ico:	static/favicon.ico $(staticdir)
+$(staticdir)/favicon.ico:	static/favicon.ico
+	@mkdir -p $(staticdir)
 	cp $< $@
 
-$(staticdir)/gone.css:	static/gone.css $(staticdir)
+$(staticdir)/gone.css:	static/gone.css
+	@mkdir -p $(staticdir)
 	cp $< $@
-
-$(staticdir):;	mkdir -p $@
 
 #
 #  etc
@@ -126,9 +122,11 @@ $(staticdir):;	mkdir -p $@
 etc:: 	$(etcdir)/redirector.feature $(etcdir)/manifest
 
 $(etcdir)/manifest:	tools/generate_manifest.sh 
+	@mkdir -p $(etcdir)
 	tools/generate_manifest.sh > $@
 
-$(etcdir)/redirector.feature:	$(etcdir) $(sites) tools/generate_smokey_tests.sh
+$(etcdir)/redirector.feature:	$(sites) tools/generate_smokey_tests.sh
+	@mkdir -p $(etcdir)
 	tools/generate_smokey_tests.sh --sites $(sites) > $@
 
 $(etcdir):;	mkdir -p $@
@@ -153,16 +151,15 @@ clobber::
 #  bootstrap
 #  - should be run as a separate make
 #
-init::	makefiles $(MAKEFILES)
+makefiles::	$(MAKEFILES)
 
-makefiles/%.mk:	%.yml
+$(makedir)/%.mk:	%.yml
+	@mkdir -p $(makedir)
 	$(MUSTACHE) $< templates/makefile.mustache > $@
 
 $(MAKEFILES):	templates/makefile.mustache
 
-makefiles:;	mkdir -p $@
-
-prune::;	rm -rf makefiles
+prune::;	rm -rf $(makedir)
 
 #
 #  generate sites yml

@@ -13,7 +13,7 @@ bundle install --deployment
 #  bootstrap makefiles ..
 #
 make data/sites
-make init
+make makefiles
 
 #
 #  test, validate and build project ..
