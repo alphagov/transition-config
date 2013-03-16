@@ -1,11 +1,13 @@
 #!/bin/sh
 
-set -e
+set -e -x
+
+ruby -v
 
 #
 #  depends upon mustache
 #
-bundle
+bundle install --deployment
 
 #
 #  bootstrap makefiles ..
