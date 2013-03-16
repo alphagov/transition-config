@@ -53,7 +53,7 @@ foreach my $type (keys %types) {
     say STDERR "creating $path";
 
     my $handle;
-    open $handle, '>', "$path";
+    open $handle, '>', "$path" or die "unable to open $path: $!";
     print $handle $types{$type};
     close $handle;
 }
