@@ -2,7 +2,11 @@
 
 set -e
 
+#
+#  depends upon mustache
+#
 bundle
+export PATH=$PATH:vendor/bundle/ruby/1.9.1/bin
 
 #
 #  bootstrap makefiles ..
