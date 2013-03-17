@@ -57,9 +57,12 @@ while (<STDIN>) {
     }
 
     my ($old, $new, $status, $rest) = split(/,/, $_, 4);
+    $rest //= "";
+
     $status = "410" if (uc($status) eq "TNA");
     $status ||= $new ? "301" : "410";
-    $rest //= "";
+
+    $new = "" if ($status eq "410");
 
     my $url = c14n_url($old, $query_string);
 

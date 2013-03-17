@@ -23,6 +23,18 @@ class TidyMappingsTest < MiniTest::Unit::TestCase
     assert_equal "http://example.com/1,,410", lines[1]
   end
 
+  def test_blank_new_url_for_a_410
+    stdout = tidy_mappings([
+      "Old Url,New Url,Status,Stuff",
+      "http://example.com/1,http://foo.com,410",
+      "http://example.com/2,http://foo.com,TNA",
+      ])
+    lines = stdout.split("\n")
+    assert_equal 3, lines.size
+    assert_equal "http://example.com/1,,410", lines[1]
+    assert_equal "http://example.com/2,,410", lines[2]
+  end
+
   def test_default_301_status_with_a_new_url
     stdout = tidy_mappings([
       "Old Url,New Url,Status,Stuff",
