@@ -3,6 +3,36 @@ require 'minitest/autorun'
 require 'open3'
 
 class TidyMappingsTest < MiniTest::Unit::TestCase
+  def test_default_410_status_for_a_status_of_TNA
+    stdout = tidy_mappings([
+      "Old Url,New Url,Status,Stuff",
+      "http://example.com/1,,TNA"
+      ])
+    lines = stdout.split("\n")
+    assert_equal 2, lines.size
+    assert_equal "http://example.com/1,,410", lines[1]
+  end
+
+  def test_default_410_status_for_a_missing_new_url
+    stdout = tidy_mappings([
+      "Old Url,New Url,Status,Stuff",
+      "http://example.com/1,,",
+      ])
+    lines = stdout.split("\n")
+    assert_equal 2, lines.size
+    assert_equal "http://example.com/1,,410", lines[1]
+  end
+
+  def test_default_301_status_with_a_new_url
+    stdout = tidy_mappings([
+      "Old Url,New Url,Status,Stuff",
+      "http://example.com/1,http://foo/1,",
+      ])
+    lines = stdout.split("\n")
+    assert_equal 2, lines.size
+    assert_equal "http://example.com/1,http://foo/1,301", lines[1]
+  end
+
   def test_identical_mappings_are_skipped
     stdout = tidy_mappings([
       "Old Url,New Url,Status,Stuff",
