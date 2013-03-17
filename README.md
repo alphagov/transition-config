@@ -53,17 +53,17 @@ A list of the most important urls to be tested on each website in `data/tests/su
 ### Test in a virtual
 
     export DEPLOY_TO=dev
-    ./smoke_tests.sh
+    ./tools/smoke_tests.sh
 
 ### Test against preview
 
     export DEPLOY_TO=preview
-    ./smoke_tests.sh
+    ./tools/smoke_tests.sh
 
 ### Test against production
 
     export DEPLOY_TO=production
-    ./full_tests.sh
+    ./tools/full_tests.sh
 
 ## Akamai
 
