@@ -74,7 +74,7 @@ validate::	$(validdir)/sites.valid
 
 $(validdir)/sites.valid:	$(sites) tools/validate_sites.pl
 	@rm -f $@
-	mkdir -p $(validdir)
+	@mkdir -p $(validdir)
 	prove tools/validate_sites.pl :: $(sites) && touch $@
 
 #
