@@ -47,6 +47,7 @@ online.contractsfinder.businesslink.gov.uk
 online.hmrc.gov.uk
 payandworkrights.direct.gov.uk
 penaltynotice.direct.gov.uk
+protocol.fco.gov.uk
 publicappointments.cabinetoffice.gov.uk
 queensawards.bis.gov.uk
 reporting.direct.gov.uk
@@ -64,6 +65,7 @@ think.direct.gov.uk
 thisisabuse.direct.gov.uk
 tools.decc.gov.uk
 tools.og.decc.gov.uk
+treaties.fco.gov.uk
 ukcoe.fco.gov.uk
 ukinusa.fco.gov.uk
 uknato.fco.gov.uk
