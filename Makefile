@@ -169,3 +169,5 @@ prune::;	rm -rf $(makedir)
 #
 data/sites:	$(sites)
 	tools/explode_sites.sh
+
+prune::;	rm -rf data/sites
