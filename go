@@ -9,7 +9,7 @@ host=redirector.dev.alphagov.co.uk
 #
 #  build
 #
-time jenkins.sh "$@"
+make
 
 #
 #  copy dist/conf to /etc/nginx/sites-enabled
