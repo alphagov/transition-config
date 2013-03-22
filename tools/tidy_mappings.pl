@@ -57,6 +57,7 @@ while (<STDIN>) {
     }
 
     my ($old, $new, $status, $rest) = split(/,/, $_, 4);
+    $status //= "";
     $rest //= "";
 
     $status = "410" if (uc($status) eq "TNA");
