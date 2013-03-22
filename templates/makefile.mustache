@@ -11,7 +11,7 @@ config::	$(configdir)/{{site}}.conf $(mapsdir)/{{site}}/location.conf
 ifeq ($(wildcard configs/{{site}}.conf),)
 $(configdir)/{{site}}.conf:	$(mappingsdir)/{{site}}.csv
 	@mkdir -p $(configdir)
-	tools/generate_nginx_conf.sh --site "{{site}}" --homepage "{{homepage}}" "{{host}}" $({{site}}_aliases) > $@
+	tools/generate_nginx_conf.sh --site "{{{site}}}" --homepage "{{{homepage}}}" "{{{host}}}" $({{site}}_aliases) > $@
 else 
 $(configdir)/{{site}}.conf:	configs/{{site}}.conf
 	@mkdir -p $(configdir)
@@ -34,15 +34,15 @@ static::	$(staticdir)/{{site}}/404.html $(staticdir)/{{site}}/410.html $(staticd
 
 $(staticdir)/{{site}}/404.html:	$(sites) tools/generate_404.sh
 	@mkdir -p $(staticdir)/{{site}}
-	tools/generate_404.sh "{{site}}" "{{host}}" "{{redirection_date}}" "{{tna_timestamp}}" "{{title}}" "{{furl}}" "{{homepage}}" > $@
+	tools/generate_404.sh "{{{site}}}" "{{{host}}}" "{{{redirection_date}}}" "{{{tna_timestamp}}}" "{{{title}}}" "{{{furl}}}" "{{{homepage}}}" > $@
 
 $(staticdir)/{{site}}/410.html:	$(sites) tools/generate_410.sh
 	@mkdir -p $(staticdir)/{{site}}
-	tools/generate_410.sh "{{site}}" "{{host}}" "{{redirection_date}}" "{{tna_timestamp}}" "{{title}}" "{{furl}}" "{{homepage}}" > $@
+	tools/generate_410.sh "{{{site}}}" "{{{host}}}" "{{{redirection_date}}}" "{{{tna_timestamp}}}" "{{{title}}}" "{{{furl}}}" "{{{homepage}}}" > $@
 
 $(staticdir)/{{site}}/418.html:	$(sites) tools/generate_418.sh
 	@mkdir -p $(staticdir)/{{site}}
-	tools/generate_418.sh "{{site}}" "{{host}}" "{{redirection_date}}" "{{tna_timestamp}}" "{{title}}" "{{furl}}" "{{homepage}}" > $@
+	tools/generate_418.sh "{{{site}}}" "{{{host}}}" "{{{redirection_date}}}" "{{{tna_timestamp}}}" "{{{title}}}" "{{{furl}}}" "{{{homepage}}}" > $@
 
 $(staticdir)/{{site}}/robots.txt:	$(sitesdir)/{{site}}.yml $(templatesdir)/robots.mustache
 	@mkdir -p $(staticdir)/{{site}}
@@ -60,7 +60,7 @@ validate::	$(validdir)/{{site}}.valid $(validdir)/{{site}}_sitemap.valid
 $(validdir)/{{site}}.valid:	$(mappingsdir)/{{site}}.csv tools/validate_mappings.pl
 	@rm -f $@
 	@mkdir -p $(validdir)
-	prove tools/validate_mappings.pl :: --whitelist "$(whitelist)" --blacklist "$(blacklist)" --hosts "{{{host}}} $({{site}}_aliases)" {{options}} $(mappingsdir)/{{site}}.csv && touch $@
+	prove tools/validate_mappings.pl :: --whitelist "$(whitelist)" --blacklist "$(blacklist)" --hosts "{{{{host}}} $({{site}}_aliases)" {{options}} $(mappingsdir)/{{site}}.csv && touch $@
 
 $(validdir)/{{site}}_sitemap.valid:	$(staticdir)/{{site}}/sitemap.xml tools/test_sitemap.pl
 	@rm -f $@
