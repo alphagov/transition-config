@@ -28,7 +28,7 @@ commondir=dist/common
 mapsdir=dist/maps
 staticdir=dist/static
 etcdir=dist/etc
-validdir=tmp
+validdir=tmp/valid
 
 #
 #  commands
@@ -63,9 +63,6 @@ test::
 	bundle install --deployment
 	bundle exec rake test
 	for t in tests/tools/*.sh ; do set -x ; $$t ; set +x ; done
-
-test::
-	prove -lj4 tests/unit/logic/*.t
 
 #
 #  validate
