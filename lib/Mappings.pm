@@ -39,33 +39,28 @@ sub entire_csv_as_nginx_config {
             = $self->row_as_nginx_config($row);
 
         if ( defined $host && defined $rule_map && defined $rule ) {
-            $configs{$host}{$rule_map} = []
-                unless defined $configs{$host}{$rule_map};
-            push @{ $configs{$host}{$rule_map} }, $rule;
+            $configs{$rule_map} = [] unless defined $configs{$rule_map};
+            push @{$configs{$rule_map}}, $rule;
 
             if ( defined $suggested_map && defined $suggested ) {
-                $configs{$host}{$suggested_map} = []
-                    unless defined $configs{$host}{$suggested_map};
-                push @{ $configs{$host}{$suggested_map} }, $suggested;
+                $configs{$suggested_map} = [] unless defined $configs{$suggested_map};
+                push @{ $configs{$suggested_map} }, $suggested;
             }
 
             if ( defined $archive_link ) {
-                $configs{$host}{'archive_links'} = []
-                    unless defined $configs{$host}{'archive_links'};
-                push @{ $configs{$host}{'archive_links'} }, $archive_link;
+                $configs{'archive_links'} = [] unless defined $configs{'archive_links'};
+                push @{ $configs{'archive_links'}}, $archive_link;
             }
         }
     }
 
-    foreach my $host ( keys %configs ) {
-        foreach my $map ( keys %{ $configs{$host} } ) {
-            if ( 'location' eq $map ) {
-                # locations need to be sorted for b-tree insert efficiency
-                $configs{$host}{$map} = join '', sort @{ $configs{$host}{$map} };
-            }
-            else {
-                $configs{$host}{$map} = join '', @{ $configs{$host}{$map} };
-            }
+    foreach my $map ( keys %configs ) {
+        if ( 'location' eq $map ) {
+            # locations need to be sorted for b-tree insert efficiency
+            $configs{$map} = join '', sort @{ $configs{$map} };
+        }
+        else {
+            $configs{$map} = join '', @{ $configs{$map} };
         }
     }
 

@@ -30,13 +30,9 @@ die "generate_maps: unable to process $file" unless defined $mappings;
 
 my $configs = $mappings->entire_csv_as_nginx_config();
 
-my @hosts = keys %{$configs};
-die "multiple hostnames in $file\n" if (@hosts > 1);
+$configs->{'location'} = '' unless($configs->{'location'});
 
-my %types = @hosts ? %{$configs->{$hosts[0]}} : ();
-$types{'location'} = '' unless($types{'location'});
-
-foreach my $type (keys %types) {
+foreach my $type (keys %$configs) {
 
     # guess suffix from the config name
     my $suffix;
@@ -54,7 +50,7 @@ foreach my $type (keys %types) {
 
     my $handle;
     open $handle, '>', "$path" or die "unable to open $path: $!";
-    print $handle $types{$type};
+    print $handle $configs->{$type};
     close $handle;
 }
 

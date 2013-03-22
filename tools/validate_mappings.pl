@@ -27,7 +27,7 @@ my $blacklist = "data/blacklist.txt";
 my $whitelist = "data/whitelist.txt";
 my $ignore_blacklist;
 my $ignore_whitelist;
-my $host = "";
+my $hosts = "";
 my %seen = ();
 my $help;
 
@@ -39,7 +39,7 @@ GetOptions(
     "query-string|q=s"  => \$query_string,
     "allow-https|t"  => \$allow_https,
     "disallow-embedded-urls|u"  => \$disallow_embedded_urls,
-    "host|h=s"  => \$host,
+    "hosts|h=s"  => \$hosts,
     "whitelist|w=s"  => \$whitelist,
     "ignore-whitelist|W"  => \$ignore_whitelist,
     'help|?' => \$help,
@@ -49,6 +49,7 @@ pod2usage(2) if ($help);
 
 my %hosts = load_whitelist($whitelist) unless ($ignore_whitelist);
 my %paths = load_blacklist($blacklist) unless ($ignore_blacklist);
+my @hosts = split(' ', $hosts);
 
 foreach my $filename (@ARGV) {
     %seen = ();
@@ -104,7 +105,9 @@ sub test_row {
     my $old_path = $old_uri->path;
     ok(!$paths{$old_path}, "Old Url [$old_url] path [$old_path] is blacklisted $context");
 
-    ok($old_url =~ m{^https?://$host}, "Old Url [$old_url] host not [$host] $context");
+    if (@hosts) {
+        ok(exists {map { $_ => 1 } @hosts}->{$old_uri->host}, "Old Url [$old_url] host not one of [$hosts] $context");
+    }
 
     unless ($allow_duplicates) {
         if ($query_string && defined($old_uri->query)){
@@ -121,7 +124,7 @@ sub test_row {
         my $new_uri = check_url($context, "$status New Url", $new_url);
         if ($new_uri) {
             my $new_host = $new_uri->host;
-            ok($hosts{$new_host}, "New Url [$new_url] host [$new_host] not whitelist $context");
+            ok($hosts{$new_host}, "New Url [$new_url] host [$new_host] not in whitelist $context");
         }
     } elsif ( "410" eq $status) {
         ok($new_url eq '', "unexpected New Url [$new_url] for 410 $context");
@@ -169,7 +172,7 @@ Options:
     -B, --ignore-blacklist          ignore the blacklist file
     -c, --skip-canonical            don't check for canonical Old Urls
     -d, --allow-duplicates          allow duplicate Old Urls
-    -h, --host host                 constrain Old Urls to host
+    -h, --hosts host                constrain Old Urls to a member of a list of hosts
     -t, --allow-https               allow https in Old Urls
     -q, --query-string p1,p2        significant query-string parameters in Old Urls
                                     '*' allows any parameter, '-' leaves query-string as-is
