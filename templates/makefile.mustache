@@ -60,7 +60,7 @@ validate::	$(validdir)/{{site}}.valid $(validdir)/{{site}}_sitemap.valid
 $(validdir)/{{site}}.valid:	$(mappingsdir)/{{site}}.csv tools/validate_mappings.pl
 	@rm -f $@
 	@mkdir -p $(validdir)
-	prove tools/validate_mappings.pl :: --whitelist "$(whitelist)" --blacklist "$(blacklist)" --hosts "{{{{host}}} $({{site}}_aliases)" {{options}} $(mappingsdir)/{{site}}.csv && touch $@
+	prove tools/validate_mappings.pl :: --whitelist "$(whitelist)" --blacklist "$(blacklist)" --hosts "{{{host}}} $({{site}}_aliases)" {{options}} $(mappingsdir)/{{site}}.csv && touch $@
 
 $(validdir)/{{site}}_sitemap.valid:	$(staticdir)/{{site}}/sitemap.xml tools/test_sitemap.pl
 	@rm -f $@
