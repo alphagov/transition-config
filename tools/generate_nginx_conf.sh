@@ -58,7 +58,7 @@ cat <<!
     include         /var/apps/redirector/common/status_pages.conf;
     include         /var/apps/redirector/maps/$site/location.conf;
 
-    location = /    { return 301 ${homepage/&amp;/&}; }
+    location = /    { return 301 $homepage; }
 }
 !
 
