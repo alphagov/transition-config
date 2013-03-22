@@ -1,4 +1,3 @@
-#
 #  whitelist of domains which may be used in a New Url
 2050-calculator-tool.decc.gov.uk
 army.mod.uk
@@ -29,8 +28,8 @@ esdal.dft.gov.uk
 ewf.companieshouse.gov.uk
 foodanddrink.nsacademy.co.uk
 goc2012.culture.gov.uk
-graduatetalentpool.direct.gov.uk
 gps.cabinetoffice.gov.uk
+graduatetalentpool.direct.gov.uk
 hes.decc.gov.uk
 jobsstatic.civilservice.gov.uk
 local.direct.gov.uk
@@ -81,6 +80,7 @@ www.aboutmyvote.co.uk
 www.armysecure.mod.uk
 www.betterregulation.gov.uk
 www.bis.gov.uk
+www.britishcouncil.org
 www.business.gov.uk
 www.businessadviceday.gov.uk
 www.businesslink.gov.uk
@@ -105,6 +105,7 @@ www.dwp.gov.uk
 www.eblex.org.uk
 www.eca-water.gov.uk
 www.econsultation.decc.gov.uk
+www.educationuk.org
 www.electoralcommission.org.uk
 www.environment-agency.gov.uk
 www.fco.gov.uk
@@ -113,7 +114,6 @@ www.getsafeonline.org
 www.gov.uk
 www.greendealorb.co.uk
 www.highways.gov.uk
-www.homeoffice.gov.uk
 www.hm-treasury.gov.uk
 www.hmrc.gov.uk
 www.homeoffice.gov.uk
@@ -165,8 +165,11 @@ www.tools.culture.gov.uk
 www.transportdirect.info
 www.transportoffice.gov.uk
 www.tsoshop.co.uk
+www.ukba.homeoffice.gov.uk
 www.ukti.gov.uk
 www.veterans-uk.info
+www.visitbritain.com
+www.visitbritain.org
 www.voa.gov.uk
 www.vosa.gov.uk
 www.youtube.com
