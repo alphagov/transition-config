@@ -16,7 +16,7 @@ max="$2"
 
 # cat logs/redirector_*.gz | gzip -d -c | awk -F'   ' '{ print $5 " " $6 }' | sed 's/^/http:\//' | sort | uniq -c | awk '$1 > 2 { print $1 "," $2 "," $3 } ' | sort -rn  > tmp/totals.csv
 
-mkdir -p data/tests/popular
+mkdir -p data/tests
 
 cat $totals | sed -e 's/^[0-9 ]*,https*:\/\///' -e 's+/.*$++' -e '/^aka/d' | sort -u |
 

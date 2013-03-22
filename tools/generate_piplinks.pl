@@ -64,8 +64,6 @@ while ( my $row = $csv->getline_hr( $fh ) ) {
 }
 
 output_nginx_maps();
-
-output_integration_test_data();
 exit;
 
 
@@ -91,6 +89,7 @@ sub fix_slug {
 
     return $slug;
 }
+
 sub output_nginx_maps {
     open(my $nginx_maps, '>&', \*STDOUT);
 
@@ -111,13 +110,4 @@ sub output_nginx_maps {
         say {$nginx_maps} "    ~service_id=\\d+$interaction\\b $interaction{$interaction};";
     }
     say {$nginx_maps} '}';
-}
-
-sub output_integration_test_data {
-    open my $test_data, '>', 'data/tests/full/piplinks.csv';
-    say {$test_data} 'Old Url,New Url,Status';
-
-    foreach my $test ( @tests ) {
-        say {$test_data} sprintf '%s,%s,301', $test->{'old'}, $test->{'new'};
-    }
 }

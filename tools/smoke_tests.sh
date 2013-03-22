@@ -6,7 +6,7 @@ set -e
 
 status DEPLOY_TO=$DEPLOY_TO
 
-dir="data/tests/subsets"
+dir="data/subsets"
 
 status "Checking test coverage ..."
 tools/test_coverage.sh --name $dir --sites data/sites.csv $dir/*
