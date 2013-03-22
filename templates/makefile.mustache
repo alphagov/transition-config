@@ -46,7 +46,7 @@ $(staticdir)/{{site}}/418.html:	$(sites) tools/generate_418.sh
 
 $(staticdir)/{{site}}/robots.txt:	$(sitesdir)/{{site}}.yml $(templatesdir)/robots.mustache
 	@mkdir -p $(staticdir)/{{site}}
-	mustache $? > $@
+	bundle exec mustache $? > $@
 
 $(staticdir)/{{site}}/sitemap.xml:	$(sites) $(mappingsdir)/{{site}}.csv tools/generate_sitemap.pl
 	@mkdir -p $(staticdir)/{{site}}
