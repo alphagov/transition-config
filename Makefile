@@ -41,7 +41,7 @@ ERB=./bin/erb.rb
 #
 #  default
 #
-all:	init dist
+all:	makefiles dist
 	@:
 
 #
@@ -151,9 +151,7 @@ clobber::
 #  bootstrap
 #  - should be run as a separate make
 #
-init:	data/sites makefiles
-
-makefiles:	$(MAKEFILES)
+makefiles:	data/sites $(MAKEFILES)
 
 $(makedir)/%.mk:	%.yml
 	@mkdir -p $(makedir)
