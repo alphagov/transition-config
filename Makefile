@@ -33,7 +33,6 @@ validdir=tmp/valid
 #
 #  commands
 #
-MUSTACHE=bundle exec mustache
 ERB=./bin/erb.rb
 
 .PHONY: makefiles all ci dist config maps validate static etc prune
@@ -41,7 +40,7 @@ ERB=./bin/erb.rb
 #
 #  default
 #
-all:	makefiles dist
+all:	dist
 	@:
 
 #
@@ -121,9 +120,9 @@ $(staticdir)/gone.css:	static/gone.css
 #
 etc:: 	$(etcdir)/redirector.feature $(etcdir)/manifest
 
-$(etcdir)/manifest:	tools/generate_manifest.sh 
+$(etcdir)/manifest:	templates/manifest.erb
 	@mkdir -p $(etcdir)
-	tools/generate_manifest.sh > $@
+	$(ERB) templates/manifest.erb > $@
 
 $(etcdir)/redirector.feature:	$(sites) tools/generate_smokey_tests.sh
 	@mkdir -p $(etcdir)
@@ -151,7 +150,7 @@ clobber::
 #  bootstrap
 #  - should be run as a separate make
 #
-makefiles:	data/sites $(MAKEFILES)
+makefiles:	$(MAKEFILES)
 
 $(makedir)/%.mk:	%.yml
 	@mkdir -p $(makedir)
