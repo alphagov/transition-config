@@ -1,0 +1,11 @@
+server {
+    server_name     consultation.dfid.gov.uk
+                    aka-consultation.dfid.gov.uk;
+
+    include         /var/apps/redirector/common/settings.conf;
+
+    # default response
+    location / {
+        return 301 https://www.gov.uk/government/publications?publication_filter_option=consultations&departments%5B%5D=department-for-international-development;
+    }
+}
