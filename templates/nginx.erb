@@ -1,0 +1,18 @@
+server {
+    server_name<%
+    if aliases
+        [host, aliases].flatten.each do |a| 
+            aka = a.match(/^www/) ? a.gsub(/www/, 'aka') : 'aka-' + a
+%>
+        <%= a %>
+        <%= aka %><%
+        end
+    end %>;
+
+    root            /var/apps/redirector/static/<%=site%>;
+    include         /var/apps/redirector/common/settings.conf;
+    include         /var/apps/redirector/common/status_pages.conf;
+    include         /var/apps/redirector/maps/<%=site%>/location.conf;
+
+    location = /    { return 301 <%=homepage%>; }
+}

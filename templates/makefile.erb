@@ -20,9 +20,9 @@ config_<%=site%>::	\
 	$(mapsdir)/<%=site%>/location.conf
 
 ifeq ($(wildcard configs/<%=site%>.conf),)
-$(configdir)/<%=site%>.conf:	$(mappingsdir)/<%=site%>.csv
+$(configdir)/<%=site%>.conf:	$(sitesdir)/<%=site%>.yml templates/nginx.erb
 	@mkdir -p $(configdir)
-	tools/generate_nginx_conf.sh --site "<%=site%>" --homepage "<%=homepage%>" "<%=host%>" $(<%=site%>_aliases) > $@
+	$(ERB) -y $(sitesdir)/<%=site%>.yml templates/nginx.erb > $@
 else 
 $(configdir)/<%=site%>.conf:	configs/<%=site%>.conf
 	@mkdir -p $(configdir)
