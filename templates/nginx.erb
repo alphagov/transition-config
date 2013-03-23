@@ -1,12 +1,11 @@
 server {
     server_name<%
-    if aliases
-        [host, aliases].flatten.each do |a| 
-            aka = a.match(/^www/) ? a.gsub(/www/, 'aka') : 'aka-' + a
+    aliases = [] unless aliases
+    [host, aliases].flatten.each do |a| 
+        aka = a.match(/^www/) ? a.gsub(/www/, 'aka') : 'aka-' + a
 %>
         <%= a %>
         <%= aka %><%
-        end
     end %>;
 
     root            /var/apps/redirector/static/<%=site%>;
