@@ -5,10 +5,8 @@
 #
 #set -e
 
-. tools/env
-
 totals="$1"
-[ -z "$totals" ] && error "usage: $(basename $0) totals.csv [max-lines]" && exit 2
+[ -z "$totals" ] && echo "usage: $(basename $0) totals.csv [max-lines]" && exit 2
 
 max="$2"
 [ -z "$max" ] && max=250
@@ -26,11 +24,11 @@ cat $totals | sed -e 's/^[0-9 ]*,https*:\/\///' -e 's+/.*$++' -e '/^aka/d' | sor
 		cdomain=$(grep $domain data/sites.csv | awk -F, '{ print $2 }')
 
 		if [ -z "$site" ] ; then
-			error "unknown domain: $domain"
+			echo "unknown domain: $domain"
 			continue
 		fi
 
-		status "$domain $site ($cdomain)"
+		echo "$domain $site ($cdomain)"
 
 		cat $totals | awk -F, '$3 ~ /^(200|301|410)$/ && $2 ~ /https*:\/\/'$domain'/ { print $2 " " $3 " " $1 }' | head -$max |
 		{
@@ -47,7 +45,7 @@ cat $totals | sed -e 's/^[0-9 ]*,https*:\/\///' -e 's+/.*$++' -e '/^aka/d' | sor
 					mapping=$(grep -F -h "$mapping_url," data/mappings/*)
 
 					if [ -z "$mapping" ] ; then
-						warning "unknown mapping: $url $mapping_url"
+						echo "unknown mapping: $url $mapping_url"
 						continue
 					fi
 
@@ -60,5 +58,4 @@ cat $totals | sed -e 's/^[0-9 ]*,https*:\/\///' -e 's+/.*$++' -e '/^aka/d' | sor
 		} > data/tests/popular/$domain.csv
 	done
 
-report
 exit 0

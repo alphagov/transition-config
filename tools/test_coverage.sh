@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #
-#  check all domains mentioned in sites.csv file exist in a set of mappings files
+#  check all domains mentioned in sites exist in a set of mappings files
 #
 cmd=$(basename $0)
 name="mappings"
