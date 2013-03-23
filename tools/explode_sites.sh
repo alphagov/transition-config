@@ -22,7 +22,7 @@ host: $host
 redirect_date: $redirection_date
 tna_timestamp: $tna_timestamp
 title: $title
-furl: $furl
+furl: www.gov.uk$furl
 homepage: $homepage
 EOF
         if [ -n "$options" ] ; then
