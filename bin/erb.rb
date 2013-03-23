@@ -36,6 +36,7 @@ begin
     puts render_erb(ARGV[0], variables)
   else
     $stderr.puts options.help
+    exit(2)
   end
 rescue Errno::ENOENT => e
   $stderr.puts "ERROR: #{e}"
