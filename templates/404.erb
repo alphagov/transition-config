@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html class="no-branding">
+  <head>
+    <meta charset="utf-8">
+    <title>404 - Not Found</title>
+    <link href="/gone.css" media="screen" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <section id="content" role="main" class="group">
+      <div class="gone-container">
+        <header class="page-header group <%=site%>>
+          <div class="legacy-site-logo"></div>
+          <hgroup>
+            <h1>The <%=title%> website has been replaced by <a href="https://www.gov.uk">GOV.UK</a></h1>
+          </hgroup>
+        </header>
+
+        <article role="article" class="group">
+
+          <p>On <%=redirection_date%> the <%=title%> website was replaced by <a href='<%=new_url%>'>www.gov.uk<%=furl%></a>.</p>
+          <p><a href='https://www.gov.uk'>GOV.UK</a> is now the best place to find essential government services and information.</p>
+          <p>A copy of the page you were looking for may be found in <a href="http://webarchive.nationalarchives.gov.uk/<%=tna_timestamp%>/http://<%=host%>">The National Archives</a>.</p>
+
+        </article>
+      </div>
+    </section>
+  </body>
+</html>

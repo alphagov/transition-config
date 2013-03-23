@@ -1,45 +1,22 @@
-#!/bin/sh
-
-#
-#  generate 410 page for a site
-#
-#  usage: tools/generate_410.sh "$site" "$host" "$redirection_date" "$tna_timestamp" "$title" "$furl" "$new_url"
-
-set -e
-
-site="$1"
-host="$2"
-redirection_date="$3"
-tna_timestamp="$4"
-title="$5"
-furl="$6"
-new_url="$7"
-
-homepage="www.gov.uk$furl"
-archive_link="http://webarchive.nationalarchives.gov.uk/$tna_timestamp/http://$host"
-
-#
-#  generate 410 page
-#
-cat <<"EOF"
 <?php
 $location_suggested_links = array();
 $query_suggested_links = array();
 $archive_links = array();
 $uri_without_slash = rtrim( $_SERVER['REQUEST_URI'], '/' );
-EOF
 
 # generated php files
-maps=dist/maps/$site
-for file in $maps/*.php
-do
-    if [ -f $file ] ; then
-        echo "\n/* $file */"
-        cat $file
-    fi
-done
+<%= IO.popen('
+    site=' + site + '
+    maps=dist/maps/$site
+    for file in $maps/*.php
+    do
+        if [ -f $file ] ; then
+            echo "# $file"
+            cat $file
+        fi
+    done
+').readlines.join('') %>
 
-cat <<"EOF"
 ?><!DOCTYPE html>
 <html class="no-branding">
   <head>
@@ -51,28 +28,22 @@ cat <<"EOF"
     <![endif]-->
     <link href="/gone.css" media="screen" rel="stylesheet" type="text/css">
   </head>
-EOF
-cat <<EOF
   <body>
     <section id="content" role="main" class="group">
       <div class="gone-container">
         <header class="page-header group $site">
           <div class="legacy-site-logo"></div>
           <hgroup>
-            <h1>The $title website title has been replaced by <a href="https://www.gov.uk">GOV.UK</a></h1>
+            <h1>The <%=title%> website title has been replaced by <a href="https://www.gov.uk">GOV.UK</a></h1>
           </hgroup>
         </header>
 
         <article role="article" class="group">
 
-          <p>On $redirection_date the $title website was replaced by <a href='$new_url'>$homepage</a>.</p>
+          <p>On $redirection_date the $title website was replaced by <a href='$new_url'>www.gov.uk<%=furl%></a>.</p>
           <p><a href='https://www.gov.uk'>GOV.UK</a> is now the best place to find essential government services and information.</p>
-EOF
-cat <<EOF
 <?php
-  \$archive_link = '$archive_link' . \$_SERVER['REQUEST_URI'];
-EOF
-cat <<"EOF"
+  $archive_link = 'http://webarchive.nationalarchives.gov.uk/<%=tna_timestamp%>/http://<%=host%>' . $_SERVER['REQUEST_URI'];
 
   if (isset($archive_links[$uri_without_slash])) {
       $archive_link = $archive_links[$uri_without_slash];
@@ -86,11 +57,7 @@ cat <<"EOF"
       }
   }
 ?>
-EOF
-cat <<EOF
-          <p>A copy of the page you were looking for may be found in <a href="<?= \$archive_link ?>">The National Archives</a>, however it will not be updated after $redirection_date.</p>
-EOF
-cat <<"EOF"
+      <p>A copy of the page you were looking for may be found in <a href="<?= $archive_link ?>">The National Archives</a>, however it will not be updated after <%=redirection_date%>.</p>
 <?php
 
 if ( isset( $location_suggested_link[$uri_without_slash] ) ) {
@@ -120,6 +87,3 @@ if ( isset($suggested_link) ) {
     </section>
   </body>
 </html>
-EOF
-
-exit 0

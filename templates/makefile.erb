@@ -4,9 +4,20 @@
 <%=site%>_aliases=<%=[aliases].join(' ')%>
 
 #
+#  build individual site
+#
+<%=site%>::	<%=site%>_dist
+
+<%=site%>_dist:	<%=site%>_config <%=site%>_maps <%=site%>_static
+
+#
 #  nginx config
 #
-config::	$(configdir)/<%=site%>.conf $(mapsdir)/<%=site%>/location.conf
+config::	config_<%=site%>
+
+config_<%=site%>::	\
+	$(configdir)/<%=site%>.conf \
+	$(mapsdir)/<%=site%>/location.conf
 
 ifeq ($(wildcard configs/<%=site%>.conf),)
 $(configdir)/<%=site%>.conf:	$(mappingsdir)/<%=site%>.csv
@@ -21,7 +32,10 @@ endif
 #
 #  nginx maps
 #
-maps::	$(mapsdir)/<%=site%>/location.conf
+maps::	maps_<%=site%>
+
+maps_<%=site%>::	\
+	$(mapsdir)/<%=site%>/location.conf
 
 $(mapsdir)/<%=site%>/location.conf:	$(mappingsdir)/<%=site%>.csv tools/generate_maps.pl
 	@mkdir -p $(mapsdir)/<%=site%>
@@ -30,23 +44,30 @@ $(mapsdir)/<%=site%>/location.conf:	$(mappingsdir)/<%=site%>.csv tools/generate_
 #
 #  static assets
 #
-static::	$(staticdir)/<%=site%>/404.html $(staticdir)/<%=site%>/410.html $(staticdir)/<%=site%>/418.html $(staticdir)/<%=site%>/robots.txt $(staticdir)/<%=site%>/sitemap.xml
+static::	static_<%=site%>
 
-$(staticdir)/<%=site%>/404.html:	$(sites) tools/generate_404.sh
-	@mkdir -p $(staticdir)/<%=site%>
-	tools/generate_404.sh "<%=site%>" "<%=host%>" "<%=redirection_date%>" "<%=tna_timestamp%>" "<%=title%>" "<%=furl%>" "<%=homepage%>" > $@
+static_<%=site%>::	\
+	$(staticdir)/<%=site%>/404.html \
+	$(staticdir)/<%=site%>/410.html \
+	$(staticdir)/<%=site%>/418.html \
+	$(staticdir)/<%=site%>/robots.txt \
+	$(staticdir)/<%=site%>/sitemap.xml
 
-$(staticdir)/<%=site%>/410.html:	$(sites) tools/generate_410.sh
+$(staticdir)/<%=site%>/404.html:	$(sitesdir)/<%=site%>.yml templates/404.erb
 	@mkdir -p $(staticdir)/<%=site%>
-	tools/generate_410.sh "<%=site%>" "<%=host%>" "<%=redirection_date%>" "<%=tna_timestamp%>" "<%=title%>" "<%=furl%>" "<%=homepage%>" > $@
+	$(ERB) -y $(sitesdir)/<%=site%>.yml templates/404.erb > $@
 
-$(staticdir)/<%=site%>/418.html:	$(sites) tools/generate_418.sh
+$(staticdir)/<%=site%>/410.html:	$(sitesdir)/<%=site%>.yml templates/410.erb
 	@mkdir -p $(staticdir)/<%=site%>
-	tools/generate_418.sh "<%=site%>" "<%=host%>" "<%=redirection_date%>" "<%=tna_timestamp%>" "<%=title%>" "<%=furl%>" "<%=homepage%>" > $@
+	$(ERB) -y $(sitesdir)/<%=site%>.yml templates/410.erb > $@
 
-$(staticdir)/<%=site%>/robots.txt:	$(sitesdir)/<%=site%>.yml $(templatesdir)/robots.erb
+$(staticdir)/<%=site%>/418.html:	$(sitesdir)/<%=site%>.yml templates/418.erb
 	@mkdir -p $(staticdir)/<%=site%>
-	$(ERB) -y $(sitesdir)/<%=site%>.yml $(templatesdir)/robots.erb > $@
+	$(ERB) -y $(sitesdir)/<%=site%>.yml templates/418.erb > $@
+
+$(staticdir)/<%=site%>/robots.txt:	$(sitesdir)/<%=site%>.yml templates/robots.erb
+	@mkdir -p $(staticdir)/<%=site%>
+	$(ERB) -y $(sitesdir)/<%=site%>.yml templates/robots.erb > $@
 
 $(staticdir)/<%=site%>/sitemap.xml:	$(sites) $(mappingsdir)/<%=site%>.csv tools/generate_sitemap.pl
 	@mkdir -p $(staticdir)/<%=site%>
@@ -55,7 +76,11 @@ $(staticdir)/<%=site%>/sitemap.xml:	$(sites) $(mappingsdir)/<%=site%>.csv tools/
 #
 #  validate
 #
-validate::	$(validdir)/<%=site%>.valid $(validdir)/<%=site%>_sitemap.valid
+validate::	validate_<%=site%>
+
+validate_<%=site%>::	\
+	$(validdir)/<%=site%>.valid \
+	$(validdir)/<%=site%>_sitemap.valid
 
 $(validdir)/<%=site%>.valid:	$(mappingsdir)/<%=site%>.csv tools/validate_mappings.pl
 	@rm -f $@
