@@ -13,8 +13,7 @@ bundle install --deployment
 #  bootstrap makefiles ..
 #
 rm -rf makefiles
-make data/sites
-make makefiles
+make init
 
 #
 #  test, validate and build project ..
