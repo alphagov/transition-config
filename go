@@ -9,6 +9,8 @@ host=redirector.dev.alphagov.co.uk
 #
 #  build
 #
+make data/sites
+make makefiles
 make
 
 #
