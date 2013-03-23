@@ -2,7 +2,6 @@ GEM
   remote: http://rubygems.org/
   specs:
     minitest (4.7.0)
-    mustache (0.99.4)
     rake (10.0.3)
 
 PLATFORMS
@@ -10,5 +9,4 @@ PLATFORMS
 
 DEPENDENCIES
   minitest
-  mustache
   rake

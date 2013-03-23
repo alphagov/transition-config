@@ -34,13 +34,14 @@ validdir=tmp/valid
 #  commands
 #
 MUSTACHE=bundle exec mustache
+ERB=./bin/erb.rb
 
 .PHONY: makefiles all ci dist config maps validate static etc prune
 
 #
 #  default
 #
-all:	dist
+all:	makefiles dist
 	@:
 
 #
@@ -150,13 +151,13 @@ clobber::
 #  bootstrap
 #  - should be run as a separate make
 #
-makefiles::	$(MAKEFILES)
+makefiles:	$(MAKEFILES)
 
 $(makedir)/%.mk:	%.yml
 	@mkdir -p $(makedir)
-	$(MUSTACHE) $< $(templatesdir)/makefile.mustache > $@
+	$(ERB) -y $< $(templatesdir)/makefile.erb > $@
 
-$(MAKEFILES):	$(templatesdir)/makefile.mustache
+$(MAKEFILES):	$(templatesdir)/makefile.erb
 
 prune::;	rm -rf $(makedir)
 

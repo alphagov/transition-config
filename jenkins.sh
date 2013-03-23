@@ -12,6 +12,7 @@ bundle install --deployment
 #
 #  bootstrap makefiles ..
 #
+rm -rf makefiles
 make data/sites
 make makefiles
 
