@@ -23,8 +23,7 @@ my $no_output;
 my $use_actual;
 my $blacklist = "data/blacklist.txt";
 my $ignore_blacklist;
-my $known = "dist/mappings/furls.csv";
-my $ignore_known;
+my $known;
 my $query_string;
 my $trump;
 my $help;
@@ -35,8 +34,7 @@ GetOptions(
     'no-output|n' => \$no_output,
     'use-actual|a' => \$use_actual,
     "query-string|q=s"  => \$query_string,
-    "known|s=s"  => \$known,
-    "ignore-known|S"  => \$ignore_known,
+    "known|k=s"  => \$known,
     "trump|t"  => \$trump,
     'help|?' => \$help,
 ) or pod2usage(1);
@@ -44,7 +42,7 @@ GetOptions(
 pod2usage(2) if ($help);
 
 my %paths = load_blacklist($blacklist) unless ($ignore_blacklist);
-load_known($known, \%known) unless ($ignore_known);
+load_known($known, \%known) if ($known);
 
 my $ua = LWP::UserAgent->new(max_redirect => 0);
 
@@ -188,7 +186,7 @@ Options:
     -n, --no-output             no output, just check
     -q, --query-string p1,p2    significant query-string parameters in Old Urls
                                 '*' allows any parameter, '-' leaves query-string as-is
-    -s, --known filename        load known urls from another mapping
+    -k, --known filename        load known urls from another mapping
     -t, --trump                 later mappings overwrite earlier ones
     -?, --help                  print usage
 

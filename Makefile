@@ -62,7 +62,7 @@ test::
 test::
 	bundle install --deployment
 	bundle exec rake test
-	for t in tests/tools/*.sh ; do set -x ; $$t ; set +x ; done
+	for t in tests/tools/*.sh ; do set -e -x ; $$t ; set +x ; done
 
 #
 #  distributed mapping files
@@ -72,7 +72,7 @@ mappings::	\
 
 $(mappingsdist)/furls.csv:	$(sites) tools/generate_furls.sh
 	@mkdir -p $(mappingsdist)
-	tools/generate_furls.sh --sites $(sitesdir) > $@
+	tools/generate_furls.sh --known $(sitesdir) > $@
 
 #
 #  bespoke maps
