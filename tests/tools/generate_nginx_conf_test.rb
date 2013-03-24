@@ -19,7 +19,7 @@ class GenerateNginxConfTest < MiniTest::Unit::TestCase
     assert_match %r{root\s+/var/apps/redirector/static/foo;}, server_declaration
     assert_match %r{include\s+/var/apps/redirector/common/settings.conf;}, server_declaration
     assert_match %r{include\s+/var/apps/redirector/common/status_pages.conf;}, server_declaration
-    assert_match %r{include\s+/var/apps/redirector/maps/foo/location.conf;}, server_declaration
+    assert_match %r{include\s+/var/apps/redirector/maps/foo/www.example.com.conf;}, server_declaration
     assert_match %r{location = /\s*{ return 301 http://www.bar.com; }}, server_declaration
   end
 

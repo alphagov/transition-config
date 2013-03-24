@@ -40,7 +40,7 @@ ERB=./bin/erb.rb
 #
 #  default
 #
-all:	dist
+all:	test dist
 	@:
 
 #
