@@ -24,4 +24,4 @@ time ssh $host sudo /etc/init.d/nginx restart
 #
 #  smoke tests
 #
-time tools/smoke_tests.sh --host $host --skip-assets
+time tools/smoke_tests.sh --host $host --skip-assets --no-follow

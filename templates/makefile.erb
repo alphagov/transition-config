@@ -16,8 +16,7 @@
 config::	config_<%=site%>
 
 config_<%=site%>::	\
-	$(configdir)/<%=site%>.conf \
-	$(mapsdir)/<%=site%>/location.conf
+	$(configdir)/<%=site%>.conf
 
 ifeq ($(wildcard configs/<%=site%>.conf),)
 $(configdir)/<%=site%>.conf:	$(sitesdir)/<%=site%>.yml templates/nginx.erb
@@ -35,11 +34,21 @@ endif
 maps::	maps_<%=site%>
 
 maps_<%=site%>::	\
-	$(mapsdir)/<%=site%>/location.conf
+<% [servers].flatten.each do |host|
+        next unless host %>	$(mapsdir)/<%=site%>/<%=host%>.conf \
+<% end %>	$(mapsdir)/<%=site%>/<%=host%>.conf
 
-$(mapsdir)/<%=site%>/location.conf:	$(mappingsdir)/<%=site%>.csv tools/generate_maps.pl
+$(mapsdir)/<%=site%>/<%=host%>.conf:	$(mappingsdir)/<%=site%>.csv tools/generate_maps.pl
 	@mkdir -p $(mapsdir)/<%=site%>
 	tools/generate_maps.pl --dir $(mapsdir)/<%=site%> $(mappingsdir)/<%=site%>.csv
+	mv $(mapsdir)/<%=site%>/location.conf $@
+
+<% [servers].flatten.each do |host|
+        next unless host %>
+$(mapsdir)/<%=site%>/<%=host%>.conf:	$(mappingsdir)/<%=site%>.csv tools/generate_locations.pl
+	@mkdir -p $(mapsdir)/<%=site%>
+	tools/generate_locations.pl --host <%=host%> < $(mappingsdir)/<%=site%>.csv > $@
+<% end %>
 
 #
 #  static assets

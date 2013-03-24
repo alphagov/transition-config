@@ -41,6 +41,7 @@ ls -1 $sites/*.yml |
         site=$(basename $file .yml)
         host=$(grep "^host:" $file | sed 's/^.*: //')
         homepage=$(grep "^homepage:" $file | sed 's/^.*: //')
+        [ -z "$host" ] && continue
 
         # homepage redirect
         echo "http://$host,$homepage,301"
@@ -73,6 +74,8 @@ ls -1 $sites/*.yml |
         esac
 
         host=$(grep "^host:" $file | sed 's/^.*: //')
+        [ -z "$host" ] && continue
+
         tna_timestamp=$(grep "^tna_timestamp:" $file | sed 's/^.*: //')
 
         expected="http://webarchive.nationalarchives.gov.uk/$tna_timestamp/http://$host/410"

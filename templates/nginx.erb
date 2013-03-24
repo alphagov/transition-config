@@ -1,4 +1,6 @@
-server {
+<% [host, servers].flatten.each do |host|
+        next unless host
+%>server {
     server_name<%
     [host, aliases].flatten.each do |a|
         next unless a
@@ -11,7 +13,8 @@ server {
     root            /var/apps/redirector/static/<%=site%>;
     include         /var/apps/redirector/common/settings.conf;
     include         /var/apps/redirector/common/status_pages.conf;
-    include         /var/apps/redirector/maps/<%=site%>/location.conf;
+    include         /var/apps/redirector/maps/<%=site%>/<%=host%>.conf;
 
     location = /    { return 301 <%=homepage%>; }
 }
+<% end %>
