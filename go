@@ -9,9 +9,8 @@ host=redirector.dev.alphagov.co.uk
 #
 #  build
 #
-make data/sites
-make makefiles
-make
+time make makefiles
+time make
 
 #
 #  copy dist/conf to /etc/nginx/sites-enabled

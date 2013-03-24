@@ -1,0 +1,14 @@
+---
+site: ukwelcomes
+host: www.ukwelcomes.businesslink.gov.uk
+redirection_date: 17th October 2012
+tna_timestamp: 20120823131012
+title: Business Link
+furl: www.gov.uk
+homepage: https://www.gov.uk/uk-welcomes-business
+options: --query-string topicid:itemid
+aliases:
+  - upload.ukwelcomes.businesslink.gov.uk
+  - online.ukwelcomes.businesslink.gov.uk
+  - ukwelcomes.businesslink.gov.uk
+---

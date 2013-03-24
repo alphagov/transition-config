@@ -4,15 +4,16 @@ Nginx configuration and supporting tools and tests for the redirector, an Ngnix 
 
 ## Sites
 
-A list of sites in data/sites.csv:
+Each site is configured using a yaml file in the `data/sites` directory:
 
-* `Site` — friendly name for the site
-* `Domain` — primary domain for site
-* `Redirection Date` — planned go live date
-* `TNA Timestamp` — timestamp of the last good National Archives capture
-* `Title` — site title for 410 page
-* `New Site` — URL for 410 page
-* `Mirrors` — space separated list of alias domains
+* `site` — friendly name for the site
+* `host` — primary hostname for site
+* `redirection_date` — planned go live date
+* `tna_timestamp` — timestamp of the last good National Archives capture
+* `title` — site title for 410 page
+* `furl` — friendly URL displayed on error pages
+* `homepage` — URL for new site, used to redirect '/'
+* `aliases` — list of alias domains
 
 ## Mappings
 
@@ -34,6 +35,8 @@ Once live they are maintained in this repository.
 An nginx server block for each site in `redirector/configs`.
 
 ## Build
+
+The build is through [GNU Make](http://www.gnu.org/software/make/), to build the site:
 
     $ ./jenkins.sh
 
@@ -63,7 +66,7 @@ A list of the most important urls to be tested on each website in `data/tests/su
 ### Test against production
 
     export DEPLOY_TO=production
-    ./tools/full_tests.sh
+    ./tools/smoke_tests.sh
 
 ## Akamai
 

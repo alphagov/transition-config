@@ -10,6 +10,7 @@ use Getopt::Long;
 use Pod::Usage;
 use LWP::UserAgent;
 use Text::CSV;
+use YAML;
 use URI;
 
 require 'lib/c14n.pl';
@@ -44,7 +45,7 @@ GetOptions(
 pod2usage(2) if ($help);
 
 my %paths = load_blacklist($blacklist) unless ($ignore_blacklist);
-load_sites($sites, \%known) unless ($ignore_sites);
+#load_sites($sites, \%known) unless ($ignore_sites);
 
 my $ua = LWP::UserAgent->new(max_redirect => 0);
 

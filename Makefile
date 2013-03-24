@@ -6,18 +6,17 @@
 #  sources
 #
 mappingsdir=data/mappings
-sites=data/sites.csv
 sitesdir=data/sites
 templatesdir=templates
 whitelist=data/whitelist.txt
 blacklist=data/blacklist.txt
-SITES := $(wildcard data/sites/*.yml)
+sites := $(wildcard data/sites/*.yml)
 
 #
 #  generated makefiles
 #
 VPATH=data/sites
-MAKEFILES := $(patsubst data/sites/%.yml,makefiles/%.mk,$(SITES))
+MAKEFILES := $(patsubst data/sites/%.yml,makefiles/%.mk,$(sites))
 
 #
 #  targets
@@ -35,7 +34,7 @@ validdir=tmp/valid
 #
 ERB=./bin/erb.rb
 
-.PHONY: makefiles all ci dist config maps validate static etc prune
+.PHONY: makefiles all ci dist config maps validate static etc
 
 #
 #  default
@@ -65,19 +64,11 @@ test::
 	for t in tests/tools/*.sh ; do set -x ; $$t ; set +x ; done
 
 #
-#  validate
-#
-validate::	$(validdir)/sites.valid
-
-$(validdir)/sites.valid:	$(sites) tools/validate_sites.pl
-	@rm -f $@
-	@mkdir -p $(validdir)
-	prove tools/validate_sites.pl :: $(sites) && touch $@
-
-#
 #  bespoke maps
 #
-maps::	dist/maps/lrc/lrc.conf dist/maps/businesslink/piplinks.conf
+maps::	\
+	dist/maps/lrc/lrc.conf \
+	dist/maps/businesslink/piplinks.conf
 
 # lrc map
 $(mapsdir)/lrc/lrc.conf:	data/lrc.csv tools/generate_lrc.pl
@@ -92,7 +83,9 @@ $(mapsdir)/businesslink/piplinks.conf:	data/piplinks.csv tools/generate_piplinks
 #
 #  common config files
 #
-config::	$(commondir)/settings.conf $(commondir)/status_pages.conf
+config::	\
+	$(commondir)/settings.conf \
+	$(commondir)/status_pages.conf
 
 $(commondir)/settings.conf:	common/settings.conf
 	@mkdir -p $(commondir)
@@ -105,7 +98,9 @@ $(commondir)/status_pages.conf:	common/status_pages.conf
 #
 #  static
 #
-static::	$(staticdir)/favicon.ico $(staticdir)/gone.css
+static::	\
+	$(staticdir)/favicon.ico \
+	$(staticdir)/gone.css
 
 $(staticdir)/favicon.ico:	static/favicon.ico
 	@mkdir -p $(staticdir)
@@ -118,7 +113,10 @@ $(staticdir)/gone.css:	static/gone.css
 #
 #  etc
 #
-etc:: 	$(etcdir)/redirector.feature $(etcdir)/manifest
+etc:: 	\
+	$(etcdir)/manifest \
+	$(etcdir)/redirector.feature \
+	$(etcdir)/routes.txt
 
 $(etcdir)/manifest:	templates/manifest.erb
 	@mkdir -p $(etcdir)
@@ -126,7 +124,11 @@ $(etcdir)/manifest:	templates/manifest.erb
 
 $(etcdir)/redirector.feature:	$(sites) tools/generate_smokey_tests.sh
 	@mkdir -p $(etcdir)
-	tools/generate_smokey_tests.sh --sites $(sites) > $@
+	tools/generate_smokey_tests.sh --sites $(sitesdir) > $@
+
+$(etcdir)/routes.txt:	$(sites) tools/generate_routes.sh
+	@mkdir -p $(etcdir)
+	tools/generate_routes.sh --sites $(sitesdir) > $@
 
 $(etcdir):;	mkdir -p $@
 
@@ -158,13 +160,4 @@ $(makedir)/%.mk:	%.yml
 
 $(MAKEFILES):	$(templatesdir)/makefile.erb
 
-prune::;	rm -rf $(makedir)
-
-#
-#  generate sites yml
-#  - will become the canonical source, soon
-#
-data/sites:	$(sites)
-	tools/explode_sites.sh
-
-prune::;	rm -rf data/sites
+clean::;	rm -rf $(makedir)

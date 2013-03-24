@@ -69,7 +69,7 @@ $(staticdir)/<%=site%>/robots.txt:	$(sitesdir)/<%=site%>.yml templates/robots.er
 	@mkdir -p $(staticdir)/<%=site%>
 	$(ERB) -y $(sitesdir)/<%=site%>.yml templates/robots.erb > $@
 
-$(staticdir)/<%=site%>/sitemap.xml:	$(sites) $(mappingsdir)/<%=site%>.csv tools/generate_sitemap.pl
+$(staticdir)/<%=site%>/sitemap.xml:	$(mappingsdir)/<%=site%>.csv tools/generate_sitemap.pl
 	@mkdir -p $(staticdir)/<%=site%>
 	tools/generate_sitemap.pl $(mappingsdir)/<%=site%>.csv <%=host%> > $@
 

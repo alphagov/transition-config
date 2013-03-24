@@ -5,13 +5,13 @@
 #
 set -e
 cmd=$(basename $0)
-sites="data/sites.csv"
+sites="data/sites"
 dir="data/mappings"
 
 usage() {
     echo "usage: $cmd [opts]" >&2
     echo "    [-d|--dir $dir]    mappings directory" >&2
-    echo "    [-s|--sites $sites] sites file" >&2
+    echo "    [-s|--sites $sites] sites directory" >&2
     echo "    [-?|--help]                 print usage" >&2
     exit 1
 }
@@ -27,25 +27,25 @@ while test $# -gt 0 ; do
     break
 done
 
-IFS=,
-tail -n +2 $sites |
-    while read site host redirection_date tna_timestamp title furl aliases options homepage rest
+ls -1 $sites/*.yml |
+    while read file
     do
+        site=$(basename $file .yml)
         mappings=$dir/${site}.csv
+        options=$(grep "^options:" $file | sed 's/^.*: //')
 
         echo
         echo ":: site: $site"
-        echo ":: host: $host"
         echo ":: options: $options"
         echo ":: mappings: $mappings"
         tmpfile=tmp/$$.$site.csv
 
-        IFS=" "
+        continue
+
         set -e -x
         tools/tidy_mappings.pl $options < $mappings > $tmpfile
         set +x
         mv $tmpfile $mappings
-        IFS=,
     done
 
 exit $?

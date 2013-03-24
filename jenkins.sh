@@ -12,9 +12,6 @@ bundle install --deployment
 #
 #  bootstrap makefiles ..
 #
-rm -rf data/sites
-make data/sites
-
 rm -rf makefiles
 make makefiles
 

@@ -5,13 +5,13 @@
 #
 cmd=$(basename $0)
 name="mappings"
-sites="data/sites.csv"
+sites="data/sites"
 hosts='/tmp/coverage-hosts.txt'
 
 usage() {
     echo "usage: $cmd [opts] [mappings.csv ...]" >&2
     echo "    [-n|--name name]            name of mappings" >&2
-    echo "    [-s|--sites $sites] sites file" >&2
+    echo "    [-s|--sites $sites]     sites directory" >&2
     echo "    [-?|--help]                 print usage" >&2
     exit 1
 }
@@ -28,7 +28,7 @@ while test $# -gt 0 ; do
 done
 
 #
-#  hosts from sites.csv
+#  hosts from sites
 #
 tools/site_hosts.sh --sites "$sites" > $hosts
 
