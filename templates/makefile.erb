@@ -48,8 +48,8 @@ static::	static_<%=site%>
 
 static_<%=site%>::	\
 	$(staticdir)/<%=site%>/404.html \
-	$(staticdir)/<%=site%>/410.html \
-	$(staticdir)/<%=site%>/418.html \
+	$(staticdir)/<%=site%>/410.php \
+	$(staticdir)/<%=site%>/418.php \
 	$(staticdir)/<%=site%>/robots.txt \
 	$(staticdir)/<%=site%>/sitemap.xml
 
@@ -57,11 +57,11 @@ $(staticdir)/<%=site%>/404.html:	$(sitesdir)/<%=site%>.yml templates/404.erb
 	@mkdir -p $(staticdir)/<%=site%>
 	$(ERB) -y $(sitesdir)/<%=site%>.yml templates/404.erb > $@
 
-$(staticdir)/<%=site%>/410.html:	$(sitesdir)/<%=site%>.yml templates/410.erb
+$(staticdir)/<%=site%>/410.php:	$(sitesdir)/<%=site%>.yml templates/410.erb
 	@mkdir -p $(staticdir)/<%=site%>
 	$(ERB) -y $(sitesdir)/<%=site%>.yml templates/410.erb > $@
 
-$(staticdir)/<%=site%>/418.html:	$(sitesdir)/<%=site%>.yml templates/418.erb
+$(staticdir)/<%=site%>/418.php:	$(sitesdir)/<%=site%>.yml templates/418.erb
 	@mkdir -p $(staticdir)/<%=site%>
 	$(ERB) -y $(sitesdir)/<%=site%>.yml templates/418.erb > $@
 

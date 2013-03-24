@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php
+    $archive_link = 'http://webarchive.nationalarchives.gov.uk/<%=tna_timestamp%>/http://<%=host%>' . $_SERVER['REQUEST_URI'];
+?><!DOCTYPE html>
 <html class="no-branding">
   <head>
     <meta charset="utf-8">
@@ -8,16 +10,16 @@
   <body>
     <section id="content" role="main" class="group">
       <div class="gone-container">
-        <header class="page-header group <%=site%>>
+        <header class="page-header group <%=site%>">
           <div class="legacy-site-logo"></div>
           <hgroup>
-            <h1>This <%=title%> page is moving to <a href="https://www.gov.uk">GOV.UK</a> but has not yet been published</h1>
+            <h1>This <%=title%> page <a href="https://www.gov.uk">GOV.UK</a> has not yet been published</h1>
           </hgroup>
         </header>
 
         <article role="article" class="group">
-          <p>The <%=title%> website is being replaced by <a href='<%=new_url%>'><%=homepage%></a> on <%=redirection_date%>.</p>
-          <p><a href='https://www.gov.uk'>GOV.UK</a> is now the best place to find essential government services and information.</p>
+          <p>The <%=title%> website is being replaced by <a href='<%=new_url%>'><%=furl%></a> on <%=redirection_date%>.</p>
+          <p>A copy of the page you were looking for may be found in <a href="<?= $archive_link ?>">The National Archives</a>.</p>
         </article>
       </div>
     </section>

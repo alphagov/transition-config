@@ -19,7 +19,7 @@ cat <<EOF
 ---
 site: $site
 host: $host
-redirect_date: $redirection_date
+redirection_date: $redirection_date
 tna_timestamp: $tna_timestamp
 title: $title
 furl: www.gov.uk$furl
