@@ -96,6 +96,56 @@ $(commondir)/status_pages.conf:	common/status_pages.conf
 	cp common/status_pages.conf $@
 
 #
+#  hand-made  config files
+#
+config::	\
+	$(configdir)/directgov_campaigns.conf \
+	$(configdir)/directgov_subdomains.conf \
+	$(configdir)/dfid_consultation.conf \
+	$(configdir)/dh_mediacentre.conf \
+	$(configdir)/dh_publications.conf \
+	$(configdir)/events.conf \
+	$(configdir)/events_admin.conf \
+	$(configdir)/jobseekers.conf \
+	$(configdir)/tariff.conf
+
+$(configdir)/dfid_consultation.conf:	configs/dfid_consultation.conf
+	@mkdir -p $(configdir)
+	cp $< $@
+
+$(configdir)/dh_mediacentre.conf:	configs/dh_mediacentre.conf
+	@mkdir -p $(configdir)
+	cp $< $@
+
+$(configdir)/dh_publications.conf:	configs/dh_publications.conf
+	@mkdir -p $(configdir)
+	cp $< $@
+$(configdir)/directgov_campaigns.conf:	configs/directgov_campaigns.conf
+	@mkdir -p $(configdir)
+	cp $< $@
+
+$(configdir)/directgov_subdomains.conf:	configs/directgov_subdomains.conf
+	@mkdir -p $(configdir)
+	cp $< $@
+
+$(configdir)/events.conf:	configs/events.conf
+	@mkdir -p $(configdir)
+	cp $< $@
+
+$(configdir)/events_admin.conf:	configs/events_admin.conf
+	@mkdir -p $(configdir)
+	cp $< $@
+
+$(configdir)/jobseekers.conf:	configs/jobseekers.conf
+	@mkdir -p $(configdir)
+	cp $< $@
+
+$(configdir)/tariff.conf:	configs/tariff.conf
+	@mkdir -p $(configdir)
+	cp $< $@
+
+
+#
 #  static
 #
 static::	\
