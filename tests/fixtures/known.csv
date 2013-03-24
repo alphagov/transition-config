@@ -1,0 +1,3 @@
+Old Url,New Url,Status
+http://www.example.com,https://www.example.com/expanded/homepage,301
+http://www.example.com/furl,https://www.example.com/expanded/furl,301
