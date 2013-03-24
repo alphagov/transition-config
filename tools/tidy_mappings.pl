@@ -10,7 +10,6 @@ use Getopt::Long;
 use Pod::Usage;
 use LWP::UserAgent;
 use Text::CSV;
-use YAML;
 use URI;
 
 require 'lib/c14n.pl';
