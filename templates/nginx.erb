@@ -1,7 +1,7 @@
 server {
     server_name<%
-    aliases = [] unless aliases
-    [host, aliases].flatten.each do |a| 
+    [host, aliases].flatten.each do |a|
+        next unless a
         aka = a.match(/^www/) ? a.gsub(/www/, 'aka') : 'aka-' + a
 %>
         <%= a %>
