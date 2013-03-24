@@ -150,26 +150,15 @@ class TidyMappingsTest < MiniTest::Unit::TestCase
     assert_equal "http://example.com/1?id=34&token=99,http://foo/1,301", lines[1]
   end
 
-  def test_new_urls_which_are_furls_are_expanded_using_sites
+  def test_new_urls_which_are_a_known_host_homepage_are_expanded_using_known
     lines = tidy_mappings([
       "Old Url,New Url,Status,Stuff",
-      "http://example.com/1,https://www.gov.uk/dotnet,301"
-      ], sites: fixture_file("sites.csv"))
-    assert_equal 2, lines.size
-    assert_equal "http://example.com/1,https://new.example.net/example/net/long/url,301", lines[1]
-  end
-
-  def test_new_urls_which_are_a_known_host_homepage_are_expanded_using_sites
-    lines = tidy_mappings([
-      "Old Url,New Url,Status,Stuff",
-      "http://example.com/1,http://www.example.com/,301",
-      "http://example.com/2,http://www.example.net/,301",
-      "http://example.com/3,http://ano.example.net/,301",
-      ], sites: fixture_file("sites.csv"))
-    assert_equal 4, lines.size
-    assert_equal "http://example.com/1,https://new.example.com/example/com/long/url,301", lines[1]
-    assert_equal "http://example.com/2,https://new.example.net/example/net/long/url,301", lines[2]
-    assert_equal "http://example.com/3,https://new.example.net/example/net/long/url,301", lines[3]
+      "http://example.com/1,http://www.example.com/furl,301",
+      "http://example.com/2,http://www.example.com/,301",
+      ], known: fixture_file("known.csv"))
+    assert_equal 3, lines.size
+    assert_equal "http://example.com/1,https://www.example.com/expanded/furl,301", lines[1]
+    assert_equal "http://example.com/2,https://www.example.com/expanded/homepage,301", lines[2]
   end
 
 
@@ -185,8 +174,8 @@ class TidyMappingsTest < MiniTest::Unit::TestCase
     if args[:query_string]
       cmd << " --query-string #{args[:query_string]}"
     end
-    if args[:sites]
-      cmd << " --sites #{args[:sites]}"
+    if args[:known]
+      cmd << " --known #{args[:known]}"
     end
     if args[:trump]
       cmd << " --trump"

@@ -49,7 +49,9 @@ class GenerateNginxConfTest < MiniTest::Unit::TestCase
     tmp.close
     cmd = "bin/erb.rb -y #{tmp.path} templates/nginx.erb"
     stdout, stderr, status = Open3.capture3(cmd)
-    puts stderr if (stderr)
+    if status.exitstatus != 0
+      puts stderr
+    end
     assert_equal 0, status.exitstatus
     parse_server_declaration(stdout)
   end

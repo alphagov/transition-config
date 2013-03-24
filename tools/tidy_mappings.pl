@@ -24,8 +24,8 @@ my $no_output;
 my $use_actual;
 my $blacklist = "data/blacklist.txt";
 my $ignore_blacklist;
-my $sites = "data/sites.csv";
-my $ignore_sites;
+my $known = "dist/mappings/furls.csv";
+my $ignore_known;
 my $query_string;
 my $trump;
 my $help;
@@ -36,8 +36,8 @@ GetOptions(
     'no-output|n' => \$no_output,
     'use-actual|a' => \$use_actual,
     "query-string|q=s"  => \$query_string,
-    "sites|s=s"  => \$sites,
-    "ignore-sites|S"  => \$ignore_sites,
+    "known|s=s"  => \$known,
+    "ignore-known|S"  => \$ignore_known,
     "trump|t"  => \$trump,
     'help|?' => \$help,
 ) or pod2usage(1);
@@ -45,7 +45,7 @@ GetOptions(
 pod2usage(2) if ($help);
 
 my %paths = load_blacklist($blacklist) unless ($ignore_blacklist);
-#load_sites($sites, \%known) unless ($ignore_sites);
+load_known($known, \%known) unless ($ignore_known);
 
 my $ua = LWP::UserAgent->new(max_redirect => 0);
 
@@ -152,9 +152,9 @@ unless ($no_output) {
 }
 
 #
-#  load furls from sites.csv
+#  load known urls
 #
-sub load_sites {
+sub load_known {
     my $filename = shift;
     my $known = shift;
     my $csv = Text::CSV->new({ binary => 1 }) or die "Cannot use CSV: " . Text::CSV->error_diag();
@@ -165,25 +165,10 @@ sub load_sites {
     $csv->column_names(@$names);
 
     while (my $row = $csv->getline_hr($fh)) {
-        my $host = $row->{'Host'};
+        my $old = $row->{'Old Url'};
         my $new = $row->{'New Url'};
-        my $aliases = $row->{'Aliases'};
-
-        # add hosts and aliases
-        foreach my $host (split(/\s+/, $aliases), $host) {
-            add_known($known, 'http://' . $host, $new);
-        }
-
-        # TBD: FURL should be a URL
-        add_known($known, "https://www.gov.uk" . $row->{'FURL'}, $new);
-
+        $known->{c14n_url($old, "-")} = $new;
     }
-}
-
-sub add_known {
-
-    my ($known, $url, $new) = @_;
-    $known->{c14n_url($url, "-")} = $new;
 }
 
 __END__
@@ -204,7 +189,7 @@ Options:
     -n, --no-output             no output, just check
     -q, --query-string p1,p2    significant query-string parameters in Old Urls
                                 '*' allows any parameter, '-' leaves query-string as-is
-    -s, --sites filename        expand FURLs from sites file
+    -s, --known filename        load known urls from another mapping
     -t, --trump                 later mappings overwrite earlier ones
     -?, --help                  print usage
 

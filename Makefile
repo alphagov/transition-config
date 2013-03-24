@@ -16,7 +16,7 @@ sites := $(wildcard data/sites/*.yml)
 #  generated makefiles
 #
 VPATH=data/sites
-MAKEFILES := $(patsubst data/sites/%.yml,makefiles/%.mk,$(sites))
+makefiles := $(patsubst data/sites/%.yml,makefiles/%.mk,$(sites))
 
 #
 #  targets
@@ -28,13 +28,14 @@ mapsdir=dist/maps
 staticdir=dist/static
 etcdir=dist/etc
 validdir=tmp/valid
+mappingsdist=dist/mappings
 
 #
 #  commands
 #
 ERB=./bin/erb.rb
 
-.PHONY: makefiles all ci dist config maps validate static etc
+.PHONY: makefiles all ci dist config maps validate static etc mappings
 
 #
 #  default
@@ -50,7 +51,7 @@ ci:		test validate dist
 #
 #  dist
 #
-dist:	config maps static etc
+dist:	mappings config maps static etc
 
 #
 #  test
@@ -62,6 +63,16 @@ test::
 	bundle install --deployment
 	bundle exec rake test
 	for t in tests/tools/*.sh ; do set -x ; $$t ; set +x ; done
+
+#
+#  distributed mapping files
+#
+mappings::	\
+	$(mappingsdist)/furls.csv
+
+$(mappingsdist)/furls.csv:	$(sites) tools/generate_furls.sh
+	@mkdir -p $(mappingsdist)
+	tools/generate_furls.sh --sites $(sitesdir) > $@
 
 #
 #  bespoke maps
@@ -96,7 +107,7 @@ $(commondir)/status_pages.conf:	common/status_pages.conf
 	cp common/status_pages.conf $@
 
 #
-#  hand-made  config files
+#  bespoke config files
 #
 config::	\
 	$(configdir)/directgov_campaigns.conf \
@@ -202,12 +213,12 @@ clobber::
 #  bootstrap
 #  - should be run as a separate make
 #
-makefiles:	$(MAKEFILES)
+makefiles:	$(makefiles)
 
 $(makedir)/%.mk:	%.yml
 	@mkdir -p $(makedir)
 	$(ERB) -y $< $(templatesdir)/makefile.erb > $@
 
-$(MAKEFILES):	$(templatesdir)/makefile.erb
+$(makefiles):	$(templatesdir)/makefile.erb
 
 clean::;	rm -rf $(makedir)
