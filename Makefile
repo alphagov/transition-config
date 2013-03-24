@@ -72,7 +72,7 @@ mappings::	\
 
 $(mappingsdist)/furls.csv:	$(sites) tools/generate_furls.sh
 	@mkdir -p $(mappingsdist)
-	tools/generate_furls.sh --known $(sitesdir) > $@
+	tools/generate_furls.sh --sites $(sitesdir) > $@
 
 #
 #  bespoke maps
