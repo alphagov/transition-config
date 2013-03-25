@@ -88,7 +88,9 @@ $(staticdir)/<%=site%>/sitemap.xml:	$(mappingsdir)/<%=site%>.csv tools/generate_
 validate::	validate_<%=site%>
 
 validate_<%=site%>::	\
-	$(validdir)/<%=site%>.valid \
+	$(validdir)/<%=site%>.valid
+
+validate_sitemaps:: \
 	$(validdir)/<%=site%>_sitemap.valid
 
 $(validdir)/<%=site%>.valid:	$(mappingsdir)/<%=site%>.csv tools/validate_mappings.pl
