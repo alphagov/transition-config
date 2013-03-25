@@ -2,17 +2,19 @@
 
 set -e -x
 
-ruby -v
-
 #
 #  depends upon mustache
 #
 bundle install --deployment
 
 #
+#  clean dist
+#
+rm -rf dist makefiles
+
+#
 #  bootstrap makefiles ..
 #
-rm -rf makefiles
 make makefiles
 
 #
