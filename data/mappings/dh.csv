@@ -3,7 +3,7 @@ http://www.dh.gov.uk/aboutus,https://www.gov.uk/government/organisations/departm
 http://www.dh.gov.uk/actsandbills,https://www.gov.uk/government/publications?keywords=&publication_filter_option=corporate-reports&topics%5B%5D=all&departments%5B%5D=department-of-health,301
 http://www.dh.gov.uk/adultsocialcare,https://www.gov.uk/government/policies/making-sure-health-and-social-care-services-work-together,301
 http://www.dh.gov.uk/advanceletters,https://www.gov.uk/government/publications?keywords=&publication_filter_option=corporate-reports&topics%5B%5D=all&departments%5B%5D=department-of-health,301
-http://www.dh.gov.uk/ahpbulletin,,410
+http://www.dh.gov.uk/ahpbulletin,http://ahp.dh.gov.uk/,301
 http://www.dh.gov.uk/airpollution,,410
 http://www.dh.gov.uk/alcohol,https://www.gov.uk/government/policies/reducing-harmful-drinking,301
 http://www.dh.gov.uk/alcoholmisuse,https://www.gov.uk/government/policies/reducing-harmful-drinking,301
@@ -12,7 +12,7 @@ http://www.dh.gov.uk/anne-milton,https://www.gov.uk/government/people/anne-milto
 http://www.dh.gov.uk/annualreports,https://www.gov.uk/government/publications?keywords=&publication_filter_option=corporate-reports&topics%5B%5D=all&departments%5B%5D=department-of-health,301
 http://www.dh.gov.uk/antibioticresistance,https://www.gov.uk/government/topics/public-health,301
 http://www.dh.gov.uk/asylumseekers,,410
-http://www.dh.gov.uk/barrycockroft,,410
+http://www.dh.gov.uk/barrycockroft,http://barrycockroft.dh.gov.uk,301
 http://www.dh.gov.uk/bmementalhealth,https://www.gov.uk/government/policies/making-mental-health-services-more-effective-and-accessible--2,301
 http://www.dh.gov.uk/bulletins,,410
 http://www.dh.gov.uk/bulletinslibrary,,410
@@ -45,7 +45,7 @@ http://www.dh.gov.uk/dementia,https://www.gov.uk/government/policies/improving-c
 http://www.dh.gov.uk/dental,,410
 http://www.dh.gov.uk/dentistry,,410
 http://www.dh.gov.uk/diabetes,,410
-http://www.dh.gov.uk/dignityincare,,410
+http://www.dh.gov.uk/dignityincare,http://www.dignityincare.org.uk/,301
 http://www.dh.gov.uk/directions,https://www.gov.uk/government/publications?keywords=&publication_filter_option=all&topics%5B%5D=all&departments%5B%5D=department-of-health,301
 http://www.dh.gov.uk/directors,https://www.gov.uk/government/organisations/department-of-health#management,301
 http://www.dh.gov.uk/discontinuedmedicines,,410
@@ -53,8 +53,8 @@ http://www.dh.gov.uk/dr_consum_dh/groups/dh_digitalassets/@dh/@ab/documents/digi
 http://www.dh.gov.uk/dr_consum_dh/groups/dh_digitalassets/@dh/@en/@ps/documents/digitalasset/dh_115297.pdf,,410
 http://www.dh.gov.uk/eaga,https://www.gov.uk/government/policy-advisory-groups/expert-advisory-group-on-aids,301
 http://www.dh.gov.uk/ecbulletin,,410
-http://www.dh.gov.uk/econsultations,,410
-http://www.dh.gov.uk/emergency,,410
+http://www.dh.gov.uk/econsultations,http://consultations.dh.gov.uk/,301
+http://www.dh.gov.uk/emergency,http://emergency.dh.gov.uk,301
 http://www.dh.gov.uk/emergencycare,,410
 http://www.dh.gov.uk/emergencyplanning,https://www.gov.uk/government/policies/planning-for-health-emergencies,301
 http://www.dh.gov.uk/en/consultations/liveconsultations/dh_134221,,410
@@ -619,7 +619,6 @@ http://www.dh.gov.uk/en/publicationsandstatistics/publications/publicationspolic
 http://www.dh.gov.uk/en/publicationsandstatistics/publications/publicationspolicyandguidance/dh_118130,https://www.gov.uk/government/publications/department-of-health-response-to-the-publics-comments-on-the-coalition,301
 http://www.dh.gov.uk/en/publicationsandstatistics/publications/publicationspolicyandguidance/dh_118218,https://www.gov.uk/government/publications/procurement-guide-for-commissioners-of-nhs-funded-services,301
 http://www.dh.gov.uk/en/publicationsandstatistics/publications/publicationspolicyandguidance/dh_118221,https://www.gov.uk/government/publications/principles-and-rules-for-cooperation-and-competition,301
-http://www.dh.gov.uk/en/publicationsandstatistics/publications/publicationspolicyandguidance/dh_118373,,410
 http://www.dh.gov.uk/en/publicationsandstatistics/publications/publicationspolicyandguidance/dh_118493,https://www.gov.uk/government/publications/continuing-care-for-veterans,301
 http://www.dh.gov.uk/en/publicationsandstatistics/publications/publicationspolicyandguidance/dh_118591,https://www.gov.uk/government/publications/departmental-board-annual-reports,301
 http://www.dh.gov.uk/en/publicationsandstatistics/publications/publicationspolicyandguidance/dh_118602,https://www.gov.uk/government/publications/equity-and-excellence-liberating-the-nhs-executive-summary,301
@@ -628,7 +627,7 @@ http://www.dh.gov.uk/en/publicationsandstatistics/publications/publicationspolic
 http://www.dh.gov.uk/en/publicationsandstatistics/publications/publicationspolicyandguidance/dh_118807,https://www.gov.uk/government/publications/annual-independent-review-of-the-uk-governments-global-health-strategy,301
 http://www.dh.gov.uk/en/publicationsandstatistics/publications/publicationspolicyandguidance/dh_118810,https://www.gov.uk/government/publications/end-of-life-care-strategy-second-annual-report,301
 http://www.dh.gov.uk/en/publicationsandstatistics/publications/publicationspolicyandguidance/dh_118818,https://www.gov.uk/government/publications/manual-for-cancer-services-2008-psychological-support-measures,301
-http://www.dh.gov.uk/en/publicationsandstatistics/publications/publicationspolicyandguidance/dh_118928,,410
+http://www.dh.gov.uk/en/publicationsandstatistics/publications/publicationspolicyandguidance/dh_118928,http://www.chooseandbook.nhs.uk/,301
 http://www.dh.gov.uk/en/publicationsandstatistics/publications/publicationspolicyandguidance/dh_119129,https://www.gov.uk/government/publications/cross-border-transfers-of-patients-under-the-mental-health-act,301
 http://www.dh.gov.uk/en/publicationsandstatistics/publications/publicationspolicyandguidance/dh_119130,https://www.gov.uk/government/publications/section-67-of-the-mental-health-act,301
 http://www.dh.gov.uk/en/publicationsandstatistics/publications/publicationspolicyandguidance/dh_119164,https://www.gov.uk/government/publications/engagement-exercises-to-seek-views-on-possibilities-for-introducing-independent-prescribing-responsibilities-for-physiotherapists-and-podiatrists,301
@@ -1300,7 +1299,7 @@ http://www.dh.gov.uk/en/publicationsandstatistics/statistics/statisticalworkarea
 http://www.dh.gov.uk/endoflifecare,https://www.gov.uk/government/policies/improving-care-for-people-at-the-end-of-their-life,301
 http://www.dh.gov.uk/enhancedrecovery,,410
 http://www.dh.gov.uk/estatesalerts,,410
-http://www.dh.gov.uk/extracare,,410
+http://www.dh.gov.uk/extracare,http://www.extracare.dh.gov.uk,301
 http://www.dh.gov.uk/eyecare,,410
 http://www.dh.gov.uk/fabricatedurlfornewsaspubs/http///www/dh/gov/uk/health/2011/08/the-month-issue-46,https://www.gov.uk/government/publications/the-month-issue-46-august-2011,301
 http://www.dh.gov.uk/fabricatedurlfornewsaspubs/http///www/dh/gov/uk/health/2011/09/medical-directors%e2%80%99-bulletin-issue-116-september-2011,https://www.gov.uk/government/publications/medical-directors-bulletin-issue-116-september-2011,301
@@ -1544,7 +1543,7 @@ http://www.dh.gov.uk/foi,https://www.gov.uk/government/publications?keywords=&pu
 http://www.dh.gov.uk/foireleases,https://www.gov.uk/government/publications?keywords=&publication_filter_option=foi-releases&topics%5B%5D=all&departments%5B%5D=department-of-health,301
 http://www.dh.gov.uk/francisinquiry,https://www.gov.uk/government/policies/protecting-patients-and-adults-in-vulnerable-situations-from-avoidable-harm,301
 http://www.dh.gov.uk/freedomofinformation,https://www.gov.uk/government/publications?keywords=&publication_filter_option=foi-releases&topics%5B%5D=all&departments%5B%5D=department-of-health,301
-http://www.dh.gov.uk/gpbulletin,,410
+http://www.dh.gov.uk/gpbulletin,http://gp.dh.gov.uk/,301
 http://www.dh.gov.uk/greenbook,https://www.gov.uk/government/organisations/public-health-england/series/immunisation-against-infectious-disease-the-green-book,301
 http://www.dh.gov.uk/hcai,,410
 http://www.dh.gov.uk/health/2011/07/apply-now-for-funding,https://www.gov.uk/government/news/apply-now-for-funding-to-support-voluntary-projects-in-health-and-social-care,301
@@ -1815,7 +1814,7 @@ http://www.dh.gov.uk/health/2011/11/caring-for-our-future-personalisation,https:
 http://www.dh.gov.uk/health/2011/11/caring-for-our-future-webchat-responses,https://www.gov.uk/government/news/caring-for-our-future-webchat-responses,301
 http://www.dh.gov.uk/health/2011/11/caring-for-our-future-workshop,https://www.gov.uk/government/news/caring-for-our-future-workshop,301
 http://www.dh.gov.uk/health/2011/11/caring-for-our-future-workshop-3,https://www.gov.uk/government/news/caring-for-our-future-workshop-3,301
-http://www.dh.gov.uk/health/2011/11/caring-for-our-future-workshop-videos,,410
+http://www.dh.gov.uk/health/2011/11/caring-for-our-future-workshop-videos,http://caringforourfuture.dh.gov.uk/2011/11/18/sharing-emerging-thinking,301
 http://www.dh.gov.uk/health/2011/11/cdo-update-autumn,https://www.gov.uk/government/news/chief-dental-officer-autumn-newsletter,301
 http://www.dh.gov.uk/health/2011/11/ce-conf-webcast,https://www.gov.uk/government/news/watch-andrew-lansley-and-sir-david-nicholson-live-today-at-nhs-chief-executives-conference,301
 http://www.dh.gov.uk/health/2011/11/children-want-parents-to-quit-smoking,https://www.gov.uk/government/news/all-children-really-want-this-christmas-is-their-parents-to-quit-smoking--2,301
@@ -3016,7 +3015,7 @@ http://www.dh.gov.uk/health/about-us/arms-length-bodies/chre,,410
 http://www.dh.gov.uk/health/about-us/arms-length-bodies/cqc,,410
 http://www.dh.gov.uk/health/about-us/bms-dh-e-tendering-portal,https://www.gov.uk/government/organisations/department-of-health/about/procurement,301
 http://www.dh.gov.uk/health/about-us/cavendish-review,https://www.gov.uk/government/policies/treating-patients-and-service-users-with-respect-dignity-and-compassion,301
-http://www.dh.gov.uk/health/about-us/dh-bloggers,,410
+http://www.dh.gov.uk/health/about-us/dh-bloggers,http://conversations.dh.gov.uk/,301
 http://www.dh.gov.uk/health/about-us/directorates,https://www.gov.uk/government/organisations/department-of-health/about/complaints-procedure,301
 http://www.dh.gov.uk/health/about-us/directorates/boards-and-committees,https://www.gov.uk/government/organisations/department-of-health/about/our-governance,301
 http://www.dh.gov.uk/health/about-us/directorates/boards-and-committees/arc,https://www.gov.uk/government/organisations/department-of-health/about/our-governance,301
@@ -3120,7 +3119,7 @@ http://www.dh.gov.uk/health/about-us/public-bodies-2/advisory-bodies/sexual-heal
 http://www.dh.gov.uk/health/about-us/public-bodies-2/advisory-bodies/spi-m,https://www.gov.uk/government/policy-advisory-groups/scientific-pandemic-influenza-subgroup-on-modelling,301
 http://www.dh.gov.uk/health/about-us/public-bodies-2/bsac,https://www.gov.uk/government/policy-advisory-groups/bowel-screening-advisory-committee,301
 http://www.dh.gov.uk/health/accessibility,https://www.gov.uk/support/accessibility,301
-http://www.dh.gov.uk/health/agenda-calculator,,410
+http://www.dh.gov.uk/health/agenda-calculator,http://dh.firstactuarial.co.uk/default.aspx,301
 http://www.dh.gov.uk/health/category/accea,https://www.gov.uk/government/organisations/advisory-committee-on-clinical-excellence-awards,301
 http://www.dh.gov.uk/health/category/ageing,https://www.gov.uk/government/topics/public-health,301
 http://www.dh.gov.uk/health/category/alistair-burns,,410
@@ -3226,7 +3225,7 @@ http://www.dh.gov.uk/health/category/publications/bulletins/cfm-bulletin,,410
 http://www.dh.gov.uk/health/category/publications/bulletins/cno-bulletin,,410
 http://www.dh.gov.uk/health/category/publications/bulletins/medical-directors-bulletin,,410
 http://www.dh.gov.uk/health/category/publications/bulletins/ncp-bulletin,,410
-http://www.dh.gov.uk/health/category/publications/bulletins/phrd-bulletin,,410
+http://www.dh.gov.uk/health/category/publications/bulletins/phrd-bulletin,http://responsibilitydeal.dh.gov.uk/,301
 http://www.dh.gov.uk/health/category/publications/bulletins/quarter,,410
 http://www.dh.gov.uk/health/category/publications/bulletins/the-month,,410
 http://www.dh.gov.uk/health/category/publications/bulletins/theweek,,410
@@ -3569,7 +3568,7 @@ http://www.dh.gov.uk/health/nhs-te-forum,,410
 http://www.dh.gov.uk/health/policy,https://www.gov.uk/government/organisations/department-of-health/about,301
 http://www.dh.gov.uk/health/privacy-and-cookies,https://www.gov.uk/support/privacy-policy,301
 http://www.dh.gov.uk/health/rss-feeds,https://www.gov.uk/support,301
-http://www.dh.gov.uk/health/services-calculator,,410
+http://www.dh.gov.uk/health/services-calculator,http://dh.firstactuarial.co.uk/doctors.aspx,301
 http://www.dh.gov.uk/health/tag/abortion,,410
 http://www.dh.gov.uk/health/tag/accea,,410
 http://www.dh.gov.uk/health/tag/accountability,,410
@@ -4024,7 +4023,7 @@ http://www.dh.gov.uk/health/tag/winterbourne-view,,410
 http://www.dh.gov.uk/health/tag/workforce,,410
 http://www.dh.gov.uk/health/tag/young-people,https://www.gov.uk/government/policies/giving-all-children-a-healthy-start-in-life,301
 http://www.dh.gov.uk/health/terms-and-conditions,https://www.gov.uk/support/terms-conditions,301
-http://www.dh.gov.uk/healthandcare,,410
+http://www.dh.gov.uk/healthandcare,http://healthandcare.dh.gov.uk/,301
 http://www.dh.gov.uk/healthassessment,,410
 http://www.dh.gov.uk/healthcare,https://www.gov.uk/government/policies/making-the-nhs-more-efficient-and-less-bureaucratic,301
 http://www.dh.gov.uk/healthcareentitlement,,410
@@ -4036,7 +4035,7 @@ http://www.dh.gov.uk/healthvisitors,https://www.gov.uk/government/policies/givin
 http://www.dh.gov.uk/healthyliving,https://www.gov.uk/government/topics/public-health,301
 http://www.dh.gov.uk/healthystart,https://www.gov.uk/government/policies/giving-all-children-a-healthy-start-in-life,301
 http://www.dh.gov.uk/help,https://www.gov.uk/support,301
-http://www.dh.gov.uk/helpwithhealthcosts,,410
+http://www.dh.gov.uk/helpwithhealthcosts,http://www.nhs.uk/NHSEngland/Healthcosts/Pages/help-with-health-costs.aspx,301
 http://www.dh.gov.uk/hepa,https://www.gov.uk/government/organisations/public-health-england/series/immunisation-against-infectious-disease-the-green-book,301
 http://www.dh.gov.uk/hepc,https://www.gov.uk/government/organisations/public-health-england/series/immunisation-against-infectious-disease-the-green-book,301
 http://www.dh.gov.uk/highqualitycareforall,,410
@@ -4047,13 +4046,13 @@ http://www.dh.gov.uk/imca,,410
 http://www.dh.gov.uk/immunisation,https://www.gov.uk/government/organisations/public-health-england/series/immunisation-against-infectious-disease-the-green-book,301
 http://www.dh.gov.uk/infantfeeding,https://www.gov.uk/government/policies/giving-all-children-a-healthy-start-in-life,301
 http://www.dh.gov.uk/influenza,,410
-http://www.dh.gov.uk/informationrevolution,,410
-http://www.dh.gov.uk/informationstrategy,,410
+http://www.dh.gov.uk/informationrevolution,http://informationstrategy.dh.gov.uk/,301
+http://www.dh.gov.uk/informationstrategy,http://informationstrategy.dh.gov.uk,301
 http://www.dh.gov.uk/initialguide,,410
 http://www.dh.gov.uk/innovation,https://www.gov.uk/government/policies/increasing-research-and-innovation-in-health-and-social-care,301
 http://www.dh.gov.uk/integratedcare,,410
 http://www.dh.gov.uk/international,,410
-http://www.dh.gov.uk/karenmiddleton,,410
+http://www.dh.gov.uk/karenmiddleton,http://karenmiddleton.dh.gov.uk,301
 http://www.dh.gov.uk/lac,https://www.gov.uk/government/publications?keywords=&publication_filter_option=all&topics%5B%5D=all&departments%5B%5D=department-of-health,301
 http://www.dh.gov.uk/lassl,,410
 http://www.dh.gov.uk/learningdisabilities,,410
@@ -4065,8 +4064,8 @@ http://www.dh.gov.uk/links,,410
 http://www.dh.gov.uk/liveconsultations,https://www.gov.uk/government/publications?keywords=&publication_filter_option=consultations&topics%5B%5D=all&departments%5B%5D=department-of-health,301
 http://www.dh.gov.uk/longtermconditions,https://www.gov.uk/government/policies/improving-quality-of-life-for-people-with-long-term-conditions,301
 http://www.dh.gov.uk/lpsa,,410
-http://www.dh.gov.uk/mahmoodadil,,410
-http://www.dh.gov.uk/mandate,,410
+http://www.dh.gov.uk/mahmoodadil,http://mahmoodadil.dh.gov.uk,301
+http://www.dh.gov.uk/mandate,http://mandate.dh.gov.uk/,301
 http://www.dh.gov.uk/maternity,https://www.gov.uk/government/policies/giving-all-children-a-healthy-start-in-life,301
 http://www.dh.gov.uk/mdbulletin,,410
 http://www.dh.gov.uk/medicinesupply,,410
@@ -4075,7 +4074,7 @@ http://www.dh.gov.uk/mentalhealth,https://www.gov.uk/government/policies/making-
 http://www.dh.gov.uk/ministers,https://www.gov.uk/government/organisations/department-of-health#ministers,301
 http://www.dh.gov.uk/mpi,,410
 http://www.dh.gov.uk/mumps,,410
-http://www.dh.gov.uk/ncqf,,410
+http://www.dh.gov.uk/ncqf,http://www.ncqf.dh.gov.uk/,301
 http://www.dh.gov.uk/never-events,https://www.gov.uk/government/policies/making-the-nhs-more-efficient-and-less-bureaucratic,301
 http://www.dh.gov.uk/news,https://www.gov.uk/government/announcements?keywords=&announcement_type_option=all&topics%5B%5D=all&departments%5B%5D=department-of-health,301
 http://www.dh.gov.uk/nhscharges,,410
@@ -4101,7 +4100,7 @@ http://www.dh.gov.uk/patientsurvey,,410
 http://www.dh.gov.uk/paymentbyresults,https://www.gov.uk/government/policies/making-the-nhs-more-efficient-and-less-bureaucratic,301
 http://www.dh.gov.uk/pbr,https://www.gov.uk/government/policies/making-the-nhs-more-efficient-and-less-bureaucratic,301
 http://www.dh.gov.uk/pensions,,410
-http://www.dh.gov.uk/personalhealthbudgets,,410
+http://www.dh.gov.uk/personalhealthbudgets,http://www.personalhealthbudgets.dh.gov.uk/,301
 http://www.dh.gov.uk/pharmacistprescribing,,410
 http://www.dh.gov.uk/pharmregs,,410
 http://www.dh.gov.uk/pl,,410
@@ -7011,7 +7010,7 @@ http://www.dh.gov.uk/prod_consum_dh/groups/dh_digitalassets/documents/digitalass
 http://www.dh.gov.uk/prod_consum_dh/groups/dh_digitalassets/documents/digitalasset/dh_133874.pdf,https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/153129/dh_133874.pdf.pdf,301
 http://www.dh.gov.uk/prod_consum_dh/groups/dh_digitalassets/documents/digitalasset/dh_134597.pdf,https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/152409/dh_134597.pdf.pdf,301
 http://www.dh.gov.uk/programmebudgeting,,410
-http://www.dh.gov.uk/providerbulletin,,410
+http://www.dh.gov.uk/providerbulletin,http://providerbulletin.dh.gov.uk,301
 http://www.dh.gov.uk/publications,https://www.gov.uk/government/publications?keywords=&publication_filter_option=all&topics%5B%5D=all&departments%5B%5D=department-of-health,301
 http://www.dh.gov.uk/publicationsandstatistics,https://www.gov.uk/government/publications?keywords=&publication_filter_option=all&topics%5B%5D=all&departments%5B%5D=department-of-health,301
 http://www.dh.gov.uk/publicationscheme,https://www.gov.uk/government/organisations/department-of-health/about/publication-scheme,301
@@ -7036,7 +7035,7 @@ http://www.dh.gov.uk/sexualhealth,,410
 http://www.dh.gov.uk/si,,410
 http://www.dh.gov.uk/socialcare,https://www.gov.uk/government/policies/making-sure-health-and-social-care-services-work-together,301
 http://www.dh.gov.uk/socialcareassessment,,410
-http://www.dh.gov.uk/socialcarebulletin,,410
+http://www.dh.gov.uk/socialcarebulletin,http://socialcarebulletin.dh.gov.uk/,301
 http://www.dh.gov.uk/socialcarecommissioning,,410
 http://www.dh.gov.uk/socialcarefunding,https://www.gov.uk/government/policies/making-sure-health-and-social-care-services-work-together,301
 http://www.dh.gov.uk/socialcarereform,https://www.gov.uk/government/policies/making-sure-health-and-social-care-services-work-together,301
@@ -7055,17 +7054,16 @@ http://www.dh.gov.uk/swineflutreatmentphase,,410
 http://www.dh.gov.uk/swinefluvaccinationprogramme,,410
 http://www.dh.gov.uk/swinefluvaccinetools,,410
 http://www.dh.gov.uk/tcs,,410
-http://www.dh.gov.uk/teithwyr,,410
+http://www.dh.gov.uk/teithwyr,http://www.nhs.uk/nhsengland/Healthcareabroad/pages/Healthcareabroad.aspx,301
 http://www.dh.gov.uk/tenders,https://www.gov.uk/government/organisations/department-of-health/about/procurement,301
-http://www.dh.gov.uk/terms,,410
 http://www.dh.gov.uk/thirdsectorfundingreview,,410
 http://www.dh.gov.uk/tobacco,https://www.gov.uk/government/policies/reducing-smoking,301
 http://www.dh.gov.uk/transparency,https://www.gov.uk/government/publications?keywords=&publication_filter_option=transparency-data&topics%5B%5D=all&departments%5B%5D=department-of-health,301
-http://www.dh.gov.uk/traveller,,410
-http://www.dh.gov.uk/travellers,,410
+http://www.dh.gov.uk/traveller,http://www.nhs.uk/nhsengland/Healthcareabroad/pages/Healthcareabroad.aspx,301
+http://www.dh.gov.uk/travellers,http://www.nhs.uk/nhsengland/Healthcareabroad/pages/Healthcareabroad.aspx,301
 http://www.dh.gov.uk/tuberculosis,,410
 http://www.dh.gov.uk/valuingpeoplenow,,410
 http://www.dh.gov.uk/vascular,,410
-http://www.dh.gov.uk/vivbennett,,410
+http://www.dh.gov.uk/vivbennett,http://vivbennett.dh.gov.uk,301
 http://www.dh.gov.uk/vte,,410
 http://www.dh.gov.uk/whatsnew,https://www.gov.uk/government/organisations/department-of-health,301
