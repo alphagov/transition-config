@@ -40,7 +40,7 @@ $uri_without_slash = rtrim( $_SERVER['REQUEST_URI'], '/' );
 
         <article role="article" class="group">
 
-          <p>On <%=redirection_date%> the <%=title%> website was replaced by <a href='<%=new_url%>'><%=furl%></a>.</p>
+          <p>On <%=redirection_date%> the <%=title%> website was replaced by <a href='<%=homepage%>'><%=furl%></a>.</p>
           <p><a href='https://www.gov.uk'>GOV.UK</a> is now the best place to find essential government services and information.</p>
 <?php
   $archive_link = 'http://webarchive.nationalarchives.gov.uk/<%=tna_timestamp%>/http://<%=host%>' . $_SERVER['REQUEST_URI'];
