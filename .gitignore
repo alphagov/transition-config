@@ -9,3 +9,5 @@ fetch.*
 /cache
 vendor
 makefiles
+errs.txt
+missing.csv
