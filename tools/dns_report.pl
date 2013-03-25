@@ -25,9 +25,9 @@ while (<>) {
 
 sub ttl {
     my $secs = shift;
-    return ($secs / 3600) . " hours" if ($secs > 3600);
-    return              1 . " hour " if ($secs == 3600);
-    return   ($secs / 60) . " mins " if ($secs > 60);
-    return              1 . " min  " if ($secs == 60);
-    return          $secs . " secs ";
+    return int($secs / 3600) . " hours" if ($secs > 3600);
+    return                 1 . " hour " if ($secs == 3600);
+    return   int($secs / 60) . " mins " if ($secs > 60);
+    return                 1 . " min  " if ($secs == 60);
+    return             $secs . " secs ";
 }
