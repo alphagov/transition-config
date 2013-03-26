@@ -19,7 +19,8 @@ time make
 #
 #  restart nginx
 #
-time ssh $host sudo /etc/init.d/nginx restart
+ssh $host sudo /etc/init.d/nginx stop
+time ssh $host sudo /etc/init.d/nginx start
 
 #
 #  smoke tests
