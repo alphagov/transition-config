@@ -1,0 +1,5 @@
+---
+host: two.local
+aliases:
+    - alias1.two.local
+    - alias2.two.local

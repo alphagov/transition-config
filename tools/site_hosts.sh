@@ -29,6 +29,7 @@ done
 cat $sites/*.yml |
     egrep -h '^(host:|  *-)' |
     sed -e 's/^host: //' -e 's/  *- *//' |
+    grep -v ':' |
     sort -u |
     while read host
     do
