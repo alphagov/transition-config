@@ -2,7 +2,7 @@
 
 test_document_mappings='cache/test_whitehall.csv'
 test_fetch_list='/tmp/fetch.csv'
-test_sites_list='/tmp/sites.csv'
+test_sites_directory='/tmp/sites'
 output_dir='/tmp/output'
 cache='./cache'
 test_site='test'
@@ -12,7 +12,7 @@ output="${output_dir}/${test_site}.csv"
 fetched_data="${cache}/${test_site}/${other_source}.csv"
 
 run_munge () {
-  ./munge/generate-redirects.sh -n -F $test_fetch_list -o $output_dir -s $test_sites_list $test_site > /tmp/munge.out 2> /tmp/munge.err
+  ./munge/generate-redirects.sh -n -F $test_fetch_list -o $output_dir -s $test_sites_directory -W "$test_document_mappings" $test_site > /tmp/munge.out 2> /tmp/munge.err
   if [ $? -ne 0 ] ; then
       cat /tmp/munge.err
       echo "./munge/generate-redirects.sh failed: $?"
@@ -21,31 +21,41 @@ run_munge () {
 }
 
 setup() {
+mkdir -p $cache/$test_site
+mkdir -p $output_dir
+
 cat > $test_fetch_list <<!
 Site,Name,Source
 $test_site,$other_source,https://example.com
 !
 
-cat > $test_sites_list <<!
-Site,Host,Redirection Date,TNA Timestamp,Title,FURL,Aliases,Validate Options,New Url
-$test_site,www.example.com,13th December 2012,20120816224015,Test Website,/test,,,https://www.gov.uk/government/organisations/test-organisation
+mkdir -p $test_sites_directory
+cat > "$test_sites_directory/$test_site.yml" <<!
+---
+site: $test_site
+host: www.example.com
+redirection_date: 13th December 2012
+tna_timestamp: 20120816224015
+title: Test Website
+furl: www.gov.uk/test
+homepage: https://www.gov.uk/government/organisations/test-organisation
+---
 !
 
 cat > $test_document_mappings <<!
 Old Url,New Url,Status,Slug,Admin Url,State
 "",https://www.gov.uk/government/policies/remapped-public-url,"",remapped-public-url,https://whitehall-admin.production.alphagov.co.uk/government/admin/policy_advisory_groups/88/edit,archived
 !
-mkdir -p $cache/$test_site
-mkdir -p $output_dir
 }
 
 teardown() {
-  rm -f $test_document_mappings $test_fetch_list $test_sites_list $fetched_data $output
+  rm -f $test_document_mappings $test_fetch_list $fetched_data $output
+  rm -fr $test_sites_directory
   rm -fr $output_dir
 }
 
 fail () {
-    echo "$0: FAIL" 
+    echo "$0: FAIL"
     teardown
     exit 1;
 }

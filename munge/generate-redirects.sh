@@ -2,7 +2,7 @@
 
 set -e
 
-sites="data/sites.csv"
+sites_directory="data/sites"
 whitelist="data/whitelist.txt"
 cache="./cache"
 whitehall_url='https://whitehall-admin.production.alphagov.co.uk/government/all_document_attachment_and_non_document_mappings.csv'
@@ -16,7 +16,7 @@ mappings_dir='./data/mappings'
 usage() {
     echo "usage: $cmd [opts] site" >&2
     echo "    [-n|--no-fetch]             don't fetch site mappings" >&2
-    echo "    [-s|--sites filename] sites file (default: $sites)" >&2
+    echo "    [-s|--sites filename] sites file (default: $sites_directory)" >&2
     echo "    [-u|--user user:password]   basic authentication credentials for curl" >&2
     echo "    [-w,--whitelist filename]   constrain New Urls to those in a whitelist (default: $whitelist)" >&2
     echo "    [-W,--whitehall filename]   use this file as the whitehall input file (default: $whitehall)" >&2
@@ -30,7 +30,7 @@ usage() {
 while test $# -gt 0 ; do
     case "$1" in
     -n|--no-fetch) shift ; fetch="" ; continue;;
-    -s|--sites) shift; sites="$1" ; shift ; continue;;
+    -s|--sites) shift; sites_directory="$1" ; shift ; continue;;
     -u|--user) shift; user="$1" ; shift ; continue;;
     -w|--whitelist) shift; whitelist="$1" ; shift ; continue;;
     -W|--whitehall) shift; whitehall="$1" ; shift ; continue;;
@@ -44,13 +44,11 @@ while test $# -gt 0 ; do
     break
 done
 
-. tools/env
-
 site=$1 ; [ -z "$site" ] && usage
 
 mappings="${mappings_dir}/${site}.csv"
-host=$(awk -F, '$1 == "'$site'" { print $2 }' $sites)
-validate_options=$(awk -F, '$1 == "'$site'" { print $8 }' $sites)
+host=`ruby -ryaml -e'puts YAML.load_file("'$sites_directory'/'$site.yml'")["host"]'`
+validate_options=`ruby -ryaml -e'puts YAML.load_file("'$sites_directory'/'$site.yml'")["validate_options"]'`
 all_file="$cache/$site/_all.csv"
 site_whitehall="$cache/$site/_whitehall.csv"
 
@@ -60,34 +58,33 @@ if [ ! -d "$cache" ] ; then
     set +x
 fi
 
-status "Fetching $whitehall from production ..."
-mkdir -p $(dirname "$whitehall")
-[ -s "$whitehall" ] || rm -f "$whitehall"
-set -x
-curl -s -u "$user" "$whitehall_url" -z "$whitehall" -o "$whitehall"
-set +x
-
-
 if [ -n "$fetch" ]; then
-    status "Fetching mappings for $site ..."
+    echo "Fetching $whitehall from production ..."
+    mkdir -p $(dirname "$whitehall")
+    [ -s "$whitehall" ] || rm -f "$whitehall"
+    set -x
+    curl -s -u "$user" "$whitehall_url" -z "$whitehall" -o "$whitehall"
+    set +x
+
+    echo "Fetching mappings for $site ..."
     set -x
     tools/fetch_mappings.sh --fetch "$fetch_list" --cache-dir "$cache" "$site"
     set +x
 fi
 
 
-status "Extracting mappings from Whitehall ..."
+echo "Extracting mappings from Whitehall ..."
 ./tools/extract-whitehall-mappings.sh $host < $whitehall > $site_whitehall
 
-status "Finding list of source files ..."
+echo "Finding list of source files ..."
 set -x
 all_files=$(perl -e 'print reverse <>' $fetch_list | awk -F, "\$1 == \"$site\" { print \"$cache/$site/\" \$2 \".csv\" }")
 set +x
 
-status "Concatenating mappings ..."
+echo "Concatenating mappings ..."
 ./tools/csvcat.sh $site_whitehall $all_files > $all_file
 
-status "Munging and tidying mappings ..."
+echo "Munging and tidying mappings ..."
 set -x
 cat $all_file |
     ./munge/munge.rb $whitehall |
@@ -101,10 +98,10 @@ mv ${mappings}_tmp ${mappings}
 set +x
 
 
-status "Validating mappings ..."
+echo "Validating mappings ..."
 set -x
 prove tools/validate_mappings.pl :: --host "$host" --whitelist "$whitelist" $validate_options $mappings
 set +x
 
 
-status "Done"
+echo "Done"

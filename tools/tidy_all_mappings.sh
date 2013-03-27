@@ -32,15 +32,13 @@ ls -1 $sites/*.yml |
     do
         site=$(basename $file .yml)
         mappings=$dir/${site}.csv
-        options=$(grep "^options:" $file | sed 's/^.*: //')
+        options=$(grep "^options:" $file | sed 's/^options: //')
 
         echo
         echo ":: site: $site"
         echo ":: options: $options"
         echo ":: mappings: $mappings"
         tmpfile=tmp/$$.$site.csv
-
-        continue
 
         set -e -x
         tools/tidy_mappings.pl $options < $mappings > $tmpfile
