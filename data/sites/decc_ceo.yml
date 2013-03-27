@@ -1,11 +1,7 @@
 ---
 site: decc_ceo
 host: ceo.decc.gov.uk
-<<<<<<< HEAD
-redirection_date: 27rd January 2013
-=======
 redirection_date: 23rd January 2013
->>>>>>> 3ee32203f7df3f37074011f18adec84f85724eb1
 tna_timestamp: 20121220093401
 title: Department of Energy and Climate Change
 furl: www.gov.uk/decc
