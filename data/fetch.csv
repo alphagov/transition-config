@@ -56,8 +56,8 @@ dft,harvester,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdHA4VFRCR
 dfid,other,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdGN2NHdSV3pOM1JqOWxIUUY2ME5vSnc&output=csv&gid=10
 dfid,analytics,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdGN2NHdSV3pOM1JqOWxIUUY2ME5vSnc&output=csv&gid=8
 dfid,sitemap,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdGN2NHdSV3pOM1JqOWxIUUY2ME5vSnc&output=csv&gid=4
-dfid,manual,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdGN2NHdSV3pOM1JqOWxIUUY2ME5vSnc&single=true&gid=15&output=csv
 dfid,manual,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdGN2NHdSV3pOM1JqOWxIUUY2ME5vSnc&output=csv&gid=0
+dfid,r4d,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdGN2NHdSV3pOM1JqOWxIUUY2ME5vSnc&single=true&gid=15&output=csv
 dfid,furls,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdGN2NHdSV3pOM1JqOWxIUUY2ME5vSnc&output=csv&gid=6
 dfid,harvester,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdGN2NHdSV3pOM1JqOWxIUUY2ME5vSnc&output=csv&gid=3
 dh,other,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdFdQejdmb1NzNXNJdG00VGd6NEw0RUE&output=csv&gid=10
