@@ -78,18 +78,18 @@ $(mappingsdist)/furls.csv:	$(sites) tools/generate_furls.sh
 #  bespoke maps
 #
 maps::	\
-	dist/maps/lrc/lrc.conf \
+	dist/maps/businesslink_lrc/lrc.conf \
 	dist/maps/businesslink/piplinks.conf
 
 # lrc map
-$(mapsdir)/lrc/lrc.conf:	data/lrc.csv tools/generate_lrc.pl
-	@mkdir -p $(mapsdir)/lrc
-	tools/generate_lrc.pl data/lrc.csv > $@
+$(mapsdir)/businesslink_lrc/lrc.conf:	data/businesslink_lrc.csv tools/generate_lrc.pl
+	@mkdir -p $(mapsdir)/businesslink_lrc
+	tools/generate_lrc.pl data/businesslink_lrc.csv > $@
 
 # piplinks map
-$(mapsdir)/businesslink/piplinks.conf:	data/piplinks.csv tools/generate_piplinks.pl
+$(mapsdir)/businesslink/piplinks.conf:	data/businesslink_piplinks.csv tools/generate_piplinks.pl
 	@mkdir -p $(mapsdir)/businesslink
-	tools/generate_piplinks.pl data/piplinks.csv > $@
+	tools/generate_piplinks.pl data/businesslink_piplinks.csv > $@
 
 #
 #  common config files
@@ -107,18 +107,26 @@ $(commondir)/status_pages.conf:	common/status_pages.conf
 	cp common/status_pages.conf $@
 
 #
-#  bespoke config files
+#  additional config files
 #
 config::	\
+	$(configdir)/businesslink_events.conf \
+	$(configdir)/businesslink_events_admin.conf \
+	$(configdir)/businesslink_tariff.conf \
 	$(configdir)/directgov_campaigns.conf \
+	$(configdir)/directgov_jobseekers.conf \
 	$(configdir)/directgov_subdomains.conf \
-	$(configdir)/dfid_consultation.conf \
-	$(configdir)/events.conf \
-	$(configdir)/events_admin.conf \
-	$(configdir)/jobseekers.conf \
-	$(configdir)/tariff.conf
+	$(configdir)/dfid_consultation.conf
 
-$(configdir)/dfid_consultation.conf:	configs/dfid_consultation.conf
+$(configdir)/businesslink_events.conf:	configs/businesslink_events.conf
+	@mkdir -p $(configdir)
+	cp $< $@
+
+$(configdir)/businesslink_events_admin.conf:	configs/businesslink_events_admin.conf
+	@mkdir -p $(configdir)
+	cp $< $@
+
+$(configdir)/businesslink_tariff.conf:	configs/businesslink_tariff.conf
 	@mkdir -p $(configdir)
 	cp $< $@
 
@@ -126,23 +134,15 @@ $(configdir)/directgov_campaigns.conf:	configs/directgov_campaigns.conf
 	@mkdir -p $(configdir)
 	cp $< $@
 
+$(configdir)/directgov_jobseekers.conf:	configs/directgov_jobseekers.conf
+	@mkdir -p $(configdir)
+	cp $< $@
+
 $(configdir)/directgov_subdomains.conf:	configs/directgov_subdomains.conf
 	@mkdir -p $(configdir)
 	cp $< $@
 
-$(configdir)/events.conf:	configs/events.conf
-	@mkdir -p $(configdir)
-	cp $< $@
-
-$(configdir)/events_admin.conf:	configs/events_admin.conf
-	@mkdir -p $(configdir)
-	cp $< $@
-
-$(configdir)/jobseekers.conf:	configs/jobseekers.conf
-	@mkdir -p $(configdir)
-	cp $< $@
-
-$(configdir)/tariff.conf:	configs/tariff.conf
+$(configdir)/dfid_consultation.conf:	configs/dfid_consultation.conf
 	@mkdir -p $(configdir)
 	cp $< $@
 
