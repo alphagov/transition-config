@@ -168,7 +168,8 @@ $(staticdir)/gone.css:	static/gone.css
 etc:: 	\
 	$(etcdir)/manifest \
 	$(etcdir)/redirector.feature \
-	$(etcdir)/routes.txt
+	$(etcdir)/routes.txt \
+	$(etcdir)/totals.csv
 
 $(etcdir)/manifest:	templates/manifest.erb
 	@mkdir -p $(etcdir)
@@ -181,6 +182,10 @@ $(etcdir)/redirector.feature:	$(sites) tools/generate_smokey_tests.sh
 $(etcdir)/routes.txt:	$(sites) tools/generate_routes.sh
 	@mkdir -p $(etcdir)
 	tools/generate_routes.sh --sites $(sitesdir) > $@
+
+$(etcdir)/totals.csv:	$(mappings) tools/count_mappings.sh
+	@mkdir -p $(etcdir)
+	tools/count_mappings.sh --dir $(mappingsdir) > $@
 
 $(etcdir):;	mkdir -p $@
 
