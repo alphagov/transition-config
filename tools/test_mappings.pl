@@ -23,7 +23,7 @@ require 'lib/c14n.pl';
 my $env = $ENV{'DEPLOY_TO'} // "dev";
 my $host;
 my $real;
-my $timeout = 5;
+my $timeout = 10;
 my $skip_assets = 0;
 my $no_follow = 0;
 my $mappings = 0;
