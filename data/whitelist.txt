@@ -19,6 +19,7 @@ corwm.decc.gov.uk
 cscuk.dfid.gov.uk
 customs.hmrc.gov.uk
 data.gov.uk
+digitalchallenge.dh.gov.uk
 dlcu.homeoffice.gov.uk
 drugdrive.direct.gov.uk
 dsa.dft.gov.uk
@@ -34,6 +35,7 @@ gps.cabinetoffice.gov.uk
 graduatetalentpool.direct.gov.uk
 hes.decc.gov.uk
 jobsstatic.civilservice.gov.uk
+livinglonger.dh.gov.uk
 local.direct.gov.uk
 los.dwp.gov.uk
 mps-academy.co.uk
