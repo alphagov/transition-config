@@ -152,6 +152,8 @@ $(configdir)/dfid_consultation.conf:	configs/dfid_consultation.conf
 #
 static::	\
 	$(staticdir)/favicon.ico \
+	$(staticdir)/govuk-crest.png \
+	$(staticdir)/govuk-logo.gif \
 	$(staticdir)/gone.css
 
 $(staticdir)/favicon.ico:	static/favicon.ico
@@ -159,6 +161,14 @@ $(staticdir)/favicon.ico:	static/favicon.ico
 	cp $< $@
 
 $(staticdir)/gone.css:	static/gone.css
+	@mkdir -p $(staticdir)
+	cp $< $@
+
+$(staticdir)/govuk-crest.png:	static/govuk-crest.png
+	@mkdir -p $(staticdir)
+	cp $< $@
+
+$(staticdir)/govuk-logo.gif:	static/govuk-logo.gif
 	@mkdir -p $(staticdir)
 	cp $< $@
 

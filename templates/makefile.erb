@@ -56,13 +56,13 @@ $(mapsdir)/<%=site%>/<%=host%>.conf:	$(mappingsdir)/<%=site%>.csv tools/generate
 static::	static_<%=site%>
 
 static_<%=site%>::	\
-	$(staticdir)/<%=site%>/404.html \
+	$(staticdir)/<%=site%>/404.php \
 	$(staticdir)/<%=site%>/410.php \
 	$(staticdir)/<%=site%>/418.php \
 	$(staticdir)/<%=site%>/robots.txt \
 	$(staticdir)/<%=site%>/sitemap.xml
 
-$(staticdir)/<%=site%>/404.html:	$(sitesdir)/<%=site%>.yml templates/404.erb
+$(staticdir)/<%=site%>/404.php:	$(sitesdir)/<%=site%>.yml templates/404.erb
 	@mkdir -p $(staticdir)/<%=site%>
 	$(ERB) -y $(sitesdir)/<%=site%>.yml templates/404.erb > $@
 
