@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require 'minitest/unit'
 require 'minitest/autorun'
 require 'tempfile'
@@ -34,6 +36,21 @@ class GenerateNginxConfTest < MiniTest::Unit::TestCase
         ])
 
     assert_match %r{server_name\s+www.example.com\s+aka.example.com\s+www.foo.com\s+aka.foo.com\s+bar.com\s+aka-bar.com\s*;}, server_declaration
+  end
+
+  def test_locations
+    server_declaration = generate_nginx_config([
+        'site: foo',
+        'host: www.example.com',
+        'homepage: http://www.bar.com',
+        'locations:',
+        '  - path: /some/path',
+        '    operation: ^~',
+        '    status: 301',
+        '    new_url: http://new.example.com/another/path/root',
+        ])
+
+    assert_match %r{location \^~ /some/path \{ return 301 http://new.example.com/another/path/root; \}}, server_declaration
   end
 
 

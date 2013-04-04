@@ -15,6 +15,12 @@
     include         /var/apps/redirector/common/status_pages.conf;
     include         /var/apps/redirector/maps/<%=site%>/<%=host%>.conf;
 
+<% [locations].flatten.each do |l|
+        next unless l
+%>
+    location <%= l['operation'] %> <%= l['path'] %> { return <%= l['status'] %> <%= l['new_url'] %>; }
+<% end %>
+
     location = /    { return 301 <%=homepage%>; }
 }
 <% end %>
