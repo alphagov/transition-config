@@ -70,7 +70,7 @@ ls -1 $sites/*.yml |
         site=$(basename $file .yml)
 
         case "$site" in
-        lrc) continue;;
+        businesslink_lrc) continue;;
         esac
 
         host=$(grep "^host:" $file | sed 's/^.*: //')
