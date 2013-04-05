@@ -96,12 +96,12 @@ validate_sitemaps:: \
 $(validdir)/<%=site%>.valid:	$(mappingsdir)/<%=site%>.csv tools/validate_mappings.pl
 	@rm -f $@
 	@mkdir -p $(validdir)
-	prove tools/validate_mappings.pl :: --whitelist "$(whitelist)" --blacklist "$(blacklist)" --hosts "<%=host%> $(<%=site%>_aliases)" <%=options%> $(mappingsdir)/<%=site%>.csv && touch $@
+	tools/validate_mappings.pl --whitelist "$(whitelist)" --blacklist "$(blacklist)" --hosts "<%=host%> $(<%=site%>_aliases)" <%=options%> $(mappingsdir)/<%=site%>.csv && touch $@
 
 $(validdir)/<%=site%>_sitemap.valid:	$(staticdir)/<%=site%>/sitemap.xml tools/test_sitemap.pl
 	@rm -f $@
 	@mkdir -p $(validdir)
-	prove tools/test_sitemap.pl :: $(staticdir)/<%=site%>/sitemap.xml <%=host%> && touch $@
+	tools/test_sitemap.pl $(staticdir)/<%=site%>/sitemap.xml <%=host%> && touch $@
 
 #
 #  clean

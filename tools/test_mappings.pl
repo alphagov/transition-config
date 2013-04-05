@@ -10,7 +10,6 @@ use v5.10;
 use strict;
 use warnings;
 
-use Test::More;
 use Text::CSV;
 use Getopt::Long;
 use Pod::Usage;
@@ -18,6 +17,7 @@ use HTTP::Request;
 use LWP::UserAgent;
 use URI;
 
+require 'lib/assert.pl';
 require 'lib/c14n.pl';
 
 my $env = $ENV{'DEPLOY_TO'} // "dev";
@@ -128,7 +128,7 @@ test_mappings - test redirector mappings
 
 =head1 SYNOPSIS
 
-prove tools/test_mappings.pl :: [options] [filename ...] | [mapping ...]
+tools/test_mappings.pl [options] [filename ...] | [mapping ...]
 
 Options:
 

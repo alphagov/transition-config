@@ -13,4 +13,4 @@ echo "Testing static assets ..."
 tools/test_static_assets.sh
 
 echo "Testing CSV files from $testdir ..."
-prove -l tools/test_mappings.pl :: $@ $testdir/*.csv
+tools/test_mappings.pl $@ $testdir/*.csv

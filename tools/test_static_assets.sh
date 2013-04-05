@@ -58,7 +58,7 @@ ls -1 $sites/*.yml |
     done
 ) > $tmpfile
 
-prove tools/test_mappings.pl :: "$@" $tmpfile
+tools/test_mappings.pl "$@" $tmpfile
 
 #
 #  simple content checks

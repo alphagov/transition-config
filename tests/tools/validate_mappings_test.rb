@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby 
+
 require 'minitest/unit'
 require 'minitest/autorun'
 require 'tempfile'
@@ -123,7 +125,7 @@ class ValidateMappingsTest < MiniTest::Unit::TestCase
   #
   def validate_mappings(stdin, args = {})
     stdin = [*stdin].join("\n")
-    cmd = "prove tools/validate_mappings.pl :: "
+    cmd = "tools/validate_mappings.pl "
     cmd << " --blacklist " + fixture_file("blacklist.txt")
     cmd << " --whitelist " + fixture_file("whitelist.txt")
     if args[:hosts]

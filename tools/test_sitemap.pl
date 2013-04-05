@@ -8,9 +8,10 @@ use v5.10;
 use strict;
 use warnings;
 
-use Test::More;
 use XML::Parser;
 use URI;
+
+require 'lib/assert.pl';
 
 my $sitemap_file = shift;
 

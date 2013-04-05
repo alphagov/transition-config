@@ -100,7 +100,7 @@ set +x
 
 echo "Validating mappings ..."
 set -x
-prove tools/validate_mappings.pl :: --host "$host" --whitelist "$whitelist" $validate_options $mappings
+tools/validate_mappings.pl --host "$host" --whitelist "$whitelist" $validate_options $mappings
 set +x
 
 

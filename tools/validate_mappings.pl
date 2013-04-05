@@ -7,7 +7,6 @@ use v5.10;
 use strict;
 use warnings;
 
-use Test::More;
 use Text::CSV;
 use Getopt::Long;
 use Pod::Usage;
@@ -15,6 +14,7 @@ use HTTP::Request;
 use LWP::UserAgent;
 use URI;
 
+require 'lib/assert.pl';
 require 'lib/c14n.pl';
 require 'lib/lists.pl';
 
@@ -71,7 +71,7 @@ sub test_file {
     $csv->column_names(@$names);
 
     my $line = join(",", @$names);
-    ok($line =~ /^Old Url,New Url,Status(,?$|,)/, "incorrect column names [$line]");
+    ok($line =~ /^Old Url,New Url,Status\b/, "incorrect column names [$line]");
 
     while (my $row = $csv->getline_hr($fh)) {
         test_row("$filename line $.", $row);
@@ -97,7 +97,7 @@ sub test_row {
         ok($old_url !~ /^http[^\?]*http/, "Old Url [$old_url] contains another Url $context");
     }
 
-    my $scheme = $old_uri->scheme;
+    my $scheme = $old_uri->scheme // "";
 
     my $s = ($allow_https) ? "s?": "";
     ok($scheme =~ m{^http$s$}, "Old Url [$old_url] scheme [$scheme] must be [http] $context");
@@ -164,7 +164,7 @@ validate_mappings - validate a redirector mappings format CSV file
 
 =head1 SYNOPSIS
 
-prove tools/validate_mappings.pl :: [options] [file ...]
+tools/validate_mappings.pl [options] [file ...]
 
 Options:
 
