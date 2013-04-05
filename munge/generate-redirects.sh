@@ -63,7 +63,7 @@ if [ -n "$fetch" ]; then
     mkdir -p $(dirname "$whitehall")
     [ -s "$whitehall" ] || rm -f "$whitehall"
     set -x
-    curl -s -u "$user" "$whitehall_url" -z "$whitehall" -o "$whitehall"
+    curl -s -u "$user" "$whitehall_url" | tools/escape_commas_in_urls > "${whitehall}"
     set +x
 
     echo "Fetching mappings for $site ..."
