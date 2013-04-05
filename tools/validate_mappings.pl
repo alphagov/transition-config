@@ -57,6 +57,7 @@ foreach my $filename (@ARGV) {
     test_file($filename);
 }
 
+done_file();
 done_testing();
 
 exit;

@@ -79,6 +79,8 @@ sub test_csv {
 
         test_mapping("$filename line $.", $url, $location, $status);
     }
+
+    done_file();
     close($fh);
 }
 
