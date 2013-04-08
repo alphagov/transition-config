@@ -152,6 +152,12 @@ treasury,sitemap,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdGJQTz
 treasury,manual,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdGJQTzB4U0hDYU8yV2ctQVBYOWpLOWc&output=csv&gid=0
 treasury,furls,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdGJQTzB4U0hDYU8yV2ctQVBYOWpLOWc&output=csv&gid=6
 treasury,harvester,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdGJQTzB4U0hDYU8yV2ctQVBYOWpLOWc&output=csv&gid=3
+ukef,other,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDhsNkVxaG12YXNCU0FId1IwQWxnY3c&single=true&gid=10&output=csv
+ukef,analytics,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDhsNkVxaG12YXNCU0FId1IwQWxnY3c&single=true&gid=8&output=csv
+ukef,sitemap,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDhsNkVxaG12YXNCU0FId1IwQWxnY3c&single=true&gid=4&output=csv
+ukef,manual,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDhsNkVxaG12YXNCU0FId1IwQWxnY3c&single=true&gid=0&output=csv
+ukef,furls,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDhsNkVxaG12YXNCU0FId1IwQWxnY3c&single=true&gid=6&output=csv
+ukef,harvester,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDhsNkVxaG12YXNCU0FId1IwQWxnY3c&single=true&gid=3&output=csv
 walesoffice,other,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdG9rWHhwLWo0MkRmYUppYTJaUXZ5NHc&single=true&gid=10&output=csv
 walesoffice,analytics,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdG9rWHhwLWo0MkRmYUppYTJaUXZ5NHc&single=true&gid=8&output=csv
 walesoffice,manual,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdG9rWHhwLWo0MkRmYUppYTJaUXZ5NHc&single=true&gid=0&output=csv
