@@ -95,12 +95,9 @@ dwp,sitemap,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdEVoSnZfSzg
 dwp,manual,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdEVoSnZfSzg1dnRUbktUNDFIbDl6ZFE&output=csv&gid=0
 dwp,furls,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdEVoSnZfSzg1dnRUbktUNDFIbDl6ZFE&output=csv&gid=6
 dwp,harvester,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdEVoSnZfSzg1dnRUbktUNDFIbDl6ZFE&output=csv&gid=3
-fco,other,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdENBYU1YbU9Ua1kwVnRmWjhsenpQUHc&output=csv&gid=10
-fco,analytics,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdENBYU1YbU9Ua1kwVnRmWjhsenpQUHc&output=csv&gid=8
-fco,sitemap,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdENBYU1YbU9Ua1kwVnRmWjhsenpQUHc&output=csv&gid=4
-fco,manual,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdENBYU1YbU9Ua1kwVnRmWjhsenpQUHc&output=csv&gid=0
-fco,furls,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdENBYU1YbU9Ua1kwVnRmWjhsenpQUHc&output=csv&gid=6
-fco,harvester,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdENBYU1YbU9Ua1kwVnRmWjhsenpQUHc&gid=3&output=csv
+fco,extras,https://raw.github.com/alphagov/redirector-data/master/fco/extras.csv
+fco,current,https://raw.github.com/alphagov/redirector/master/data/mappings/fco.csv
+fco,trump,https://raw.github.com/alphagov/redirector-data/master/fco/trump.csv
 hmrc,other,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDdJMGtTNnh4YzBubC1aN0ZrRTExTXc&output=csv&gid=10
 hmrc,analytics,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDdJMGtTNnh4YzBubC1aN0ZrRTExTXc&output=csv&gid=8
 hmrc,sitemap,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDdJMGtTNnh4YzBubC1aN0ZrRTExTXc&output=csv&gid=4
