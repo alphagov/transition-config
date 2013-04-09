@@ -81,11 +81,12 @@ if ( isset($matches[0]) ) {
           </div>
           <h2>
             <strong><%= page_title %></strong>
-            <a href="<?= archive_link ?>">This page has been moved to the National Archives</a>
+            This page has been archived
           </h2>
           <div id="detail">
             <h3>410</h3>
-            <p>This page has been intentionally removed, probably because the information contained on it has been superseded. Wherever possible GOV.UK ensures that older content is preserved in <a href="<?= $archive_link ?>">The National Archives</a>.</p>
+            <p>The page you were looking for has been moved into <a href="<?= $archive_link ?>">The National Archives</a>.</p>
+            <p><a href="https://www.gov.uk">GOV.UK</a> is now the best place to find essential government services and information.</p>
 <?php
 if ( isset($suggested_link) ) {
 echo "            <p>For more information on this topic you may want to visit $suggested_link.</p>";
