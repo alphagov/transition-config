@@ -1,81 +1,191 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
 html {
-  background-color: #f2f2f2;
-  font-size: 62.5%;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  background: white;
+  color: #0B0C0C;
 }
 
 body {
-  color: #333;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-  line-height: 1.4;
-  font-weight: 400;
+  background: transparent;
+  font-family: "NTA", "Helvetica Neue", sans-serif;
+  font-size: 19px;
+  font-weight: 300;
+  line-height: 1.3157894737;
   -webkit-font-smoothing: antialiased;
 }
 
-h1 {
-  font-size: 48px;
-  font-size: 4.8rem;
-  font-weight: 400;
-  line-height: 1;
+@media (max-width: 640px) {
+  body {
+    font-size: 15px;
+  }
+}
+
+* {
   margin: 0;
-  padding: 0.6em 0 0.35em 0;
+  padding: 0;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+#wrapper {
+  position: relative;
+}
+
+#banner {
+  background: #0b0c0d;
+}
+
+h1 a {
+  position: relative;
+  display: block;
+  height: 40px;
+  width: 150px;
+  background: url(govuk-logo.gif) no-repeat top left;
+  text-indent: -5000%;
+  overflow: hidden;
+}
+
+.inner {
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+  width: 580px;
+  padding: 5px 30px;
+}
+
+@media (min-width: 1px) {
+  .inner {
+    width: auto;
+    max-width: 900px;
+  }
 }
 
 h2 {
-  font-size: 24px;
-  font-size: 2.4rem;
-  font-weight: 400;
-  line-height: 1;
-  margin: 0;
-  padding: 1.2em 0 0.35em 0;
+  padding-bottom: 20px;
+  font-size: 1.8947368421em; /* 36px */
+  font-weight: bold;
+  line-height: 1.1111111111;
 }
 
-p, li {
-  font-size: 19px;
-  font-size: 1.9rem;
-  line-height: 1.4;
-  margin: 0.75em 0;
+@media (min-width: 641px) {
+  h2 {
+    padding-top: 90px;
+    padding-bottom: 80px;
+  }
 }
 
-/* gone page specific */
-
-.gone-container {
-  background-color: #fff;
-  margin: 2em auto 0 auto;
-  max-width: 720px;
-  *width: 720px;
+h2 strong {
+  display: block;
+  padding-bottom: 10px;
+  font-size: 0.5277777778em; /* 19px */
+  line-height: 1.3157894737;
 }
 
-article {
-  margin: 0;
-  min-height: 30em;
-  padding: 0 5em 2em 5em;
+#brand {
+  display: block;
+  width: auto;
+  height: auto;
+  margin: 30px 0;
 }
 
-header.page-header hgroup {
-  margin: 0;
-  padding: 1em 5em 0.25em 5em;
+#brand a {
+  text-decoration: none;
 }
 
-header.page-header .legacy-site-logo {
-  background-color: #333;
-  height: 6.5em;
+#brand p {
+  padding-top: 5px;
+  color: black;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 15px;
+  width: 90%;
+}
+
+@media (min-width: 641px) {
+  h2, #detail, 
+  #report-a-problem-container h3, form {
+    padding-left: 25%;
+    max-width: 600px
+  }
+
+  #brand {
+    position: absolute;
+    width: 150px;
+    left: 30px;
+    top: 60px;
+  }
+  
+  #brand img {
+    width: auto;
+    height: auto;
+  }
+}
+
+h3 {
+  font-weight: bold;
+}
+
+p {
+  color: #6F777B;
+  margin-bottom: 1em;
+}
+
+a {
+  color: #2E3191;
+}
+
+a:hover,
+a:focus {
+  color: #2E8ACA;
+}
+
+a:active {
+  color: #df3034;
+}
+
+#report-a-problem-container {
+  padding-top: 60px;
+}
+
+fieldset {
+  border: none;
+  padding: 15px 0 0;
+}
+
+.caption, input {
+  display: block;
   width: 100%;
 }
 
-header.page-header hgroup h1 {
-
+.caption {
+  padding-bottom: 5px;
 }
 
-header.page-header.businesslink .legacy-site-logo {
-  background: #0077B6 url(/businesslink-logo.png) no-repeat 5em 50%;
+input {
+  padding: 7px 0 3px;
+  text-indent: 5px;
 }
 
-header.page-header.directgov .legacy-site-logo {
-  background: #ff5b00 url(/directgov-logo.png) no-repeat 5em 50%;
+button {
+  border: none;
+  margin-top: 5px;
+  padding: 7px 11px 3px;
+  color: white;
+  background: #008270;
+  cursor: pointer;
+  overflow: visible;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -moz-box-shadow: 0 3px 0 #044d43;
+  -webkit-box-shadow: 0 3px 0 #044d43;
+  box-shadow: 0 3px 0 #044d43;
+  -webkit-font-smoothing: antialiased;
+}
+
+button:hover,
+button:focus {
+  background: #07ac96;
 }
