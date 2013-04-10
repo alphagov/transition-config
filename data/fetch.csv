@@ -109,8 +109,6 @@ ukef,sitemap,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDhsNkVxaG
 ukef,manual,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDhsNkVxaG12YXNCU0FId1IwQWxnY3c&single=true&gid=0&output=csv
 ukef,furls,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDhsNkVxaG12YXNCU0FId1IwQWxnY3c&single=true&gid=6&output=csv
 ukef,harvester,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDhsNkVxaG12YXNCU0FId1IwQWxnY3c&single=true&gid=3&output=csv
-walesoffice,other,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdG9rWHhwLWo0MkRmYUppYTJaUXZ5NHc&single=true&gid=10&output=csv
-walesoffice,analytics,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdG9rWHhwLWo0MkRmYUppYTJaUXZ5NHc&single=true&gid=8&output=csv
 walesoffice,extras,https://raw.github.com/alphagov/redirector-data/master/walesoffice/extras.csv
 walesoffice,current,https://raw.github.com/alphagov/redirector/master/data/mappings/walesoffice.csv
 walesoffice,trump,https://raw.github.com/alphagov/redirector-data/master/walesoffice/trump.csv
