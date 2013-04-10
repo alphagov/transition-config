@@ -14,12 +14,9 @@ dclg,trump,https://raw.github.com/alphagov/redirector-data/master/dclg/trump.csv
 dcms,extras,https://raw.github.com/alphagov/redirector-data/master/dcms/extras.csv
 dcms,current,https://raw.github.com/alphagov/redirector/master/data/mappings/dcms.csv
 dcms,trump,https://raw.github.com/alphagov/redirector-data/master/dcms/trump.csv
-decc,other,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDF4SGR6TTBVd0Q1M2dlbmxZTWpSeFE&single=true&gid=10&output=csv
-decc,analytics,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDF4SGR6TTBVd0Q1M2dlbmxZTWpSeFE&single=true&gid=4&output=csv
-decc,sitemap,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDF4SGR6TTBVd0Q1M2dlbmxZTWpSeFE&single=true&gid=8&output=csv
-decc,manual,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDF4SGR6TTBVd0Q1M2dlbmxZTWpSeFE&single=true&gid=0&output=csv
-decc,furls,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDF4SGR6TTBVd0Q1M2dlbmxZTWpSeFE&single=true&gid=6&output=csv
-decc,harvester,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDF4SGR6TTBVd0Q1M2dlbmxZTWpSeFE&single=true&gid=3&output=csv
+decc,extras,https://raw.github.com/alphagov/redirector-data/master/decc/extras.csv
+decc,current,https://raw.github.com/alphagov/redirector/master/data/mappings/decc.csv
+decc,trump,https://raw.github.com/alphagov/redirector-data/master/decc/trump.csv
 decc_og,other,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdE12clZ0NENINUFrcHNkenZiU1ZmQnc&single=true&gid=10&output=csv
 decc_og,analytics,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdE12clZ0NENINUFrcHNkenZiU1ZmQnc&single=true&gid=4&output=csv
 decc_og,sitemap,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdE12clZ0NENINUFrcHNkenZiU1ZmQnc&single=true&gid=8&output=csv
