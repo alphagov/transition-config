@@ -1,10 +1,7 @@
 Site,Name,Source
-ago,other,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdHdBOGgxZU1URGJUZEQzRzRlQjJ3THc&single=true&gid=10&output=csv
-ago,analytics,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdHdBOGgxZU1URGJUZEQzRzRlQjJ3THc&single=true&gid=8&output=csv
-ago,sitemap,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdHdBOGgxZU1URGJUZEQzRzRlQjJ3THc&single=true&gid=4&output=csv
-ago,manual,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdHdBOGgxZU1URGJUZEQzRzRlQjJ3THc&single=true&gid=0&output=csv
-ago,furls,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdHdBOGgxZU1URGJUZEQzRzRlQjJ3THc&single=true&gid=6&output=csv
-ago,harvester,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdHdBOGgxZU1URGJUZEQzRzRlQjJ3THc&single=true&gid=3&output=csv
+ago,extras,https://raw.github.com/alphagov/redirector-data/master/ago/extras.csv
+ago,current,https://raw.github.com/alphagov/redirector/master/data/mappings/ago.csv
+ago,trump,https://raw.github.com/alphagov/redirector-data/master/ago/trump.csv
 bis,other,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdFFSYVpOS2k4ZTA0bktkUXFGUnVZY2c&output=csv&gid=10
 bis,analytics,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdFFSYVpOS2k4ZTA0bktkUXFGUnVZY2c&output=csv&gid=8
 bis,sitemap,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdFFSYVpOS2k4ZTA0bktkUXFGUnVZY2c&output=csv&gid=4
