@@ -31,14 +31,14 @@ sub ok {
 }
 
 sub is {
-    my ($expected, $got, $message) = @_;
+    my ($got, $expected, $message) = @_;
     $tests++;
-    return if ($expected eq $got);
+    return if ($got eq $expected);
     $errors++;
     print STDERR "\n";
     print STDERR "#  Failed test $message\n";
-    print STDERR "#    expected: $expected\n";
     print STDERR "#         got: $got\n";
+    print STDERR "#    expected: $expected\n";
 }
 
 sub done_file {
