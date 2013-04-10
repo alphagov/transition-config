@@ -8,12 +8,9 @@ bis,trump,https://raw.github.com/alphagov/redirector-data/master/bis/trump.csv
 cabinetoffice,extras,https://raw.github.com/alphagov/redirector-data/master/cabinetoffice/extras.csv
 cabinetoffice,current,https://raw.github.com/alphagov/redirector/master/data/mappings/cabinetoffice.csv
 cabinetoffice,trump,https://raw.github.com/alphagov/redirector-data/master/cabinetoffice/trump.csv
-dclg,other,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdHgxUmNJUUwzWElBelF3cHhKeklKNGc&output=csv&gid=10
-dclg,analytics,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdHgxUmNJUUwzWElBelF3cHhKeklKNGc&output=csv&gid=8
-dclg,sitemap,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdHgxUmNJUUwzWElBelF3cHhKeklKNGc&output=csv&gid=4
-dclg,manual,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdHgxUmNJUUwzWElBelF3cHhKeklKNGc&output=csv&gid=0
-dclg,furls,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdHgxUmNJUUwzWElBelF3cHhKeklKNGc&output=csv&gid=6
-dclg,harvester,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdHgxUmNJUUwzWElBelF3cHhKeklKNGc&output=csv&gid=3
+dclg,extras,https://raw.github.com/alphagov/redirector-data/master/dclg/extras.csv
+dclg,current,https://raw.github.com/alphagov/redirector/master/data/mappings/dclg.csv
+dclg,trump,https://raw.github.com/alphagov/redirector-data/master/dclg/trump.csv
 dcms,other,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdGpUckZ3OThKVUk5U1M5VFI3ZHc2cmc&output=csv&gid=10
 dcms,analytics,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdGpUckZ3OThKVUk5U1M5VFI3ZHc2cmc&output=csv&gid=8
 dcms,sitemap,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdGpUckZ3OThKVUk5U1M5VFI3ZHc2cmc&output=csv&gid=4
