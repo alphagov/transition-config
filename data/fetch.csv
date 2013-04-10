@@ -110,6 +110,9 @@ homeoffice,sitemap,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdEpS
 homeoffice,manual,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdEpSWDRnVXhoQmZIdGs5LVdNMGcweUE&single=true&gid=0&output=csv
 homeoffice,furls,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdEpSWDRnVXhoQmZIdGs5LVdNMGcweUE&single=true&gid=6&output=csv
 homeoffice,harvester,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdEpSWDRnVXhoQmZIdGs5LVdNMGcweUE&single=true&gid=3&output=csv
+mod,extras,https://raw.github.com/alphagov/redirector-data/master/mod/extras.csv
+mod,current,https://raw.github.com/alphagov/redirector/master/data/mappings/mod.csv
+mod,trump,https://raw.github.com/alphagov/redirector-data/master/mod/trump.csv
 mod,other,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdHB6d1R3a2FVZGdreHpvVXlaVTZOOGc&single=true&gid=10&output=csv
 mod,analytics,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdHB6d1R3a2FVZGdreHpvVXlaVTZOOGc&single=true&gid=8&output=csv
 mod,sitemap,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdHB6d1R3a2FVZGdreHpvVXlaVTZOOGc&single=true&gid=4&output=csv
