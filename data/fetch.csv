@@ -2,12 +2,9 @@ Site,Name,Source
 ago,extras,https://raw.github.com/alphagov/redirector-data/master/ago/extras.csv
 ago,current,https://raw.github.com/alphagov/redirector/master/data/mappings/ago.csv
 ago,trump,https://raw.github.com/alphagov/redirector-data/master/ago/trump.csv
-bis,other,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdFFSYVpOS2k4ZTA0bktkUXFGUnVZY2c&output=csv&gid=10
-bis,analytics,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdFFSYVpOS2k4ZTA0bktkUXFGUnVZY2c&output=csv&gid=8
-bis,sitemap,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdFFSYVpOS2k4ZTA0bktkUXFGUnVZY2c&output=csv&gid=4
-bis,manual,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdFFSYVpOS2k4ZTA0bktkUXFGUnVZY2c&output=csv&gid=0
-bis,furls,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdFFSYVpOS2k4ZTA0bktkUXFGUnVZY2c&output=csv&gid=6
-bis,harvester,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdFFSYVpOS2k4ZTA0bktkUXFGUnVZY2c&output=csv&gid=3
+bis,extras,https://raw.github.com/alphagov/redirector-data/master/bis/extras.csv
+bis,current,https://raw.github.com/alphagov/redirector/master/data/mappings/bis.csv
+bis,trump,https://raw.github.com/alphagov/redirector-data/master/bis/trump.csv
 cabinetoffice,other,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdFh0UHJ4RXEzUm1UMDFCSlJESEhFcEE&output=csv&gid=10
 cabinetoffice,analytics,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdFh0UHJ4RXEzUm1UMDFCSlJESEhFcEE&output=csv&gid=8
 cabinetoffice,sitemap,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdFh0UHJ4RXEzUm1UMDFCSlJESEhFcEE&output=csv&gid=4
