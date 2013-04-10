@@ -145,7 +145,7 @@ sub check_url {
     ok($url =~ m{^https?://}, "$name [$url] should be a full URI $context");
 
     my $uri = URI->new($url);
-    is($uri, $url, "$name '$url' should be a valid URI $context");
+    is($url, $uri, "$name '$url' should be a valid URI $context");
 
     return $uri;
 }

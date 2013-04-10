@@ -24,7 +24,7 @@ function ok($expr, $message) {
     }
 }
 
-function is($expected, $got, $message) {
+function is($got, $expected, $message) {
     global $tests, $errors;
     $tests++;
     if ($expected == $got) {
@@ -33,8 +33,8 @@ function is($expected, $got, $message) {
     $errors++;
     fwrite(STDERR, "\n");
     fwrite(STDERR, "#  Failed test $message\n");
-    fwrite(STDERR, "#    expected: $expected\n");
     fwrite(STDERR, "#         got: $got\n");
+    fwrite(STDERR, "#    expected: $expected\n");
 }
 
 function plural($count, $word) {
