@@ -102,7 +102,7 @@ sub test_mapping {
     # check response
     my $code = $response->code;
     my $message = $response->message;
-    is($code, $status, "${url} unexpected status [$message] $context");
+    is($status, $code, "${url} unexpected status [$message] $context");
 
     if ($location || $response_location) {
         is($response_location, $location, "[$url] unexpected location $context");
