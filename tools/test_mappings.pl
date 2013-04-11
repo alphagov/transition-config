@@ -3,8 +3,6 @@
 #
 #  test a redirector mappings format CSV file
 #
-# TBD: create csv files for reports
-# TBD: check 410 content for archive and suggested links
 
 use v5.10;
 use strict;
@@ -79,6 +77,8 @@ sub test_csv {
 
         test_mapping("$filename line $.", $url, $location, $status);
     }
+
+    done_file();
     close($fh);
 }
 

@@ -1,28 +1,40 @@
 <!DOCTYPE html>
-<html class="no-branding">
+<html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>404 - Not Found</title>
     <link href="/gone.css" media="screen" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <section id="content" role="main" class="group">
-      <div class="gone-container">
-        <header class="page-header group <%=site%>">
-          <div class="legacy-site-logo"></div>
-          <hgroup>
-            <h1>The <%=title%> website has been replaced by <a href="https://www.gov.uk">GOV.UK</a></h1>
-          </hgroup>
-        </header>
-
-        <article role="article" class="group">
-
-          <p>On <%=redirection_date%> the <%=title%> website was replaced by <a href='<%=homepage%>'><%=furl%></a>.</p>
-          <p><a href='https://www.gov.uk'>GOV.UK</a> is now the best place to find essential government services and information.</p>
-          <p>A copy of the page you were looking for may be found in <a href="http://webarchive.nationalarchives.gov.uk/<%=tna_timestamp%>/http://<%=host%>">The National Archives</a>.</p>
-
-        </article>
+    <div id="wrapper">
+      <div id="banner">
+        <div class="inner">
+          <h1><a href="http://gov.uk">GOV.UK</a></h1>
+        </div>
       </div>
-    </section>
+      <div id="message">
+        <div class="inner">
+          <div id="brand">
+            <a href="<%= homepage %>">
+              <img src="/govuk-crest.png" alt="govuk-crest" width="125" height="102">
+              <p><%= title %></p>
+            </a>
+          </div>
+          <h2>
+            <strong><%= page_title %></strong>
+             This page cannot be&nbsp;found
+          </h2>
+          <div id="detail">
+            <h3>404</h3>
+            <p>Please check that you have entered the correct web address.</p>
+            <p>The information you need may be found on <a href="https://www.gov.uk">GOV.UK</a>
+                or in <a href="<?= 'http://webarchive.nationalarchives.gov.uk/<%=tna_timestamp%>/http://<%=host%>' ?>">The National Archives</a>.</p>
+            <p>Our <a href="https://www.gov.uk/support">support pages</a> have answers to the most common questions about GOV.UK.
+            You can use the <a href="https://www.gov.uk/feedback/contact">contact form</a> to ask a question, report a problem or suggest an improvement.</p>
+          </div>
+        </div>
+      </div> 
+    </div>
   </body>
 </html>

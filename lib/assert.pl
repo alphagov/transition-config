@@ -5,6 +5,8 @@ use strict;
 
 my $tests = 0;
 my $errors = 0;
+my $files = 0;
+my $lines = 0;
 
 sub fail {
     my ($message) = @_;
@@ -29,18 +31,29 @@ sub ok {
 }
 
 sub is {
-    my ($expected, $got, $message) = @_;
+    my ($got, $expected, $message) = @_;
     $tests++;
-    return if ($expected eq $got);
+    return if ($got eq $expected);
     $errors++;
     print STDERR "\n";
     print STDERR "#  Failed test $message\n";
-    print STDERR "#    expected: $expected\n";
     print STDERR "#         got: $got\n";
+    print STDERR "#    expected: $expected\n";
+}
+
+sub done_file {
+    $files++;
+    $lines += $.;
+}
+
+sub plural {
+    my ($count, $word) = @_;
+    return "$count $word" . ($count == 1 ? " " : "s ");
 }
 
 sub done_testing {
-    print STDERR "$. lines, $tests tests, $errors errors.\n";
+    print STDERR plural($files, "file"), plural($lines, "line") if ($files);
+    print STDERR plural($tests, "test") . plural($errors, "error") . "\n";
     if ($errors) {
         print STDERR "FAIL\n";
         exit(2);
