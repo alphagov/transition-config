@@ -85,7 +85,8 @@ moj,furls,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdGNVY0tmRllnY
 moj,harvester,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdGNVY0tmRllnYjBQZUR1Z1kxVDFkWUE&output=csv&gid=3
 nio,extras,https://raw.github.com/alphagov/redirector-data/master/nio/extras.csv
 nio,current,https://raw.github.com/alphagov/redirector/master/data/mappings/nio.csv
-nio,trump,https://raw.github.com/alphagov/redirector-data/master/nio/trump.csvnumber10,other,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDNVcjBCYUZWbGVMLWw3eEVGcS0yMkE&output=csv&gid=10
+nio,trump,https://raw.github.com/alphagov/redirector-data/master/nio/trump.csv
+number10,other,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDNVcjBCYUZWbGVMLWw3eEVGcS0yMkE&output=csv&gid=10
 number10,analytics,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDNVcjBCYUZWbGVMLWw3eEVGcS0yMkE&output=csv&gid=8
 number10,sitemap,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDNVcjBCYUZWbGVMLWw3eEVGcS0yMkE&output=csv&gid=4
 number10,manual,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdDNVcjBCYUZWbGVMLWw3eEVGcS0yMkE&output=csv&gid=0
