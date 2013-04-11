@@ -6,5 +6,5 @@ tna_timestamp: 20121212135632
 title: Foreign &amp; Commonwealth Office
 furl: www.gov.uk/fco
 homepage: https://www.gov.uk/government/organisations/foreign-commonwealth-office
-options: --query-string id
+options: --query-string id:itemid
 ---
