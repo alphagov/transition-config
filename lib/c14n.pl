@@ -18,9 +18,7 @@ sub c14n_url {
     $url =~ s/^https/http/;
 
     # remove query_string
-    unless ($allow_query_string) {
-        $url =~ s/\?.*$//;
-    }
+    $url =~ s/\?.*$//;
 
     # remove fragment identifier
     $url =~ s/\#.*$//;
