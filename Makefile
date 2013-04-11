@@ -57,11 +57,16 @@ dist:	mappings config maps static etc
 #  test
 #
 test::
-	prove -lj4 tests/lib/*.t
+	prove -lj4 tests/lib/c14n.t
+
+test::
+	tests/lib/url.php
 
 test::
 	bundle install --deployment
 	bundle exec rake test
+
+test::
 	for t in tests/tools/*.sh ; do set -e -x ; $$t ; set +x ; done
 
 #
