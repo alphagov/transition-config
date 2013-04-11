@@ -56,17 +56,19 @@ dist:	mappings config maps static etc
 #
 #  test
 #
-test::
+test:	perl_test ruby_test sh_test
+
+perl_test::
 	prove -lj4 tests/lib/c14n.t
 
-test::
+php_test::
 	tests/lib/url.php
 
-test::
+ruby_test::
 	bundle install --deployment
 	bundle exec rake test
 
-test::
+sh_test::
 	for t in tests/tools/*.sh ; do set -e -x ; $$t ; set +x ; done
 
 #
