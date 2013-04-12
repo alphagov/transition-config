@@ -58,6 +58,7 @@ http://www.dh.gov.uk/econsultations,http://consultations.dh.gov.uk/,301
 http://www.dh.gov.uk/emergency,http://emergency.dh.gov.uk,301
 http://www.dh.gov.uk/emergencycare,,410
 http://www.dh.gov.uk/emergencyplanning,https://www.gov.uk/government/policies/planning-for-health-emergencies,301
+http://www.dh.gov.uk/en,https://www.gov.uk/government/organisations/department-of-health,301
 http://www.dh.gov.uk/en/consultations/closedconsultations/dh_113233,,410
 http://www.dh.gov.uk/en/consultations/closedconsultations/dh_113563,,410
 http://www.dh.gov.uk/en/consultations/closedconsultations/dh_114577,,410
@@ -12336,6 +12337,7 @@ http://www.dh.gov.uk/en/publicationsandstatistics/statistics/statisticalworkarea
 http://www.dh.gov.uk/en/publicationsandstatistics/statistics/statisticalworkareas/statisticalworkforce/index.htm,,410
 http://www.dh.gov.uk/en/publichealth/information/index.htm,https://www.gov.uk/government/organisations/department-of-health.atom,301
 http://www.dh.gov.uk/en/publichealth/nutrition/index.htm,https://www.gov.uk/government/policies/reducing-obesity-and-improving-diet,301
+http://www.dh.gov.uk/en/rss,https://www.gov.uk/government/organisations/department-of-health.atom,301
 http://www.dh.gov.uk/en/rss/rss,https://www.gov.uk/government/organisations/department-of-health.atom,301
 http://www.dh.gov.uk/endoflifecare,https://www.gov.uk/government/policies/improving-care-for-people-at-the-end-of-their-life,301
 http://www.dh.gov.uk/enhancedrecovery,,410
@@ -12587,6 +12589,7 @@ http://www.dh.gov.uk/freedomofinformation,https://www.gov.uk/government/publicat
 http://www.dh.gov.uk/gpbulletin,http://gp.dh.gov.uk/,301
 http://www.dh.gov.uk/greenbook,https://www.gov.uk/government/organisations/public-health-england/series/immunisation-against-infectious-disease-the-green-book,301
 http://www.dh.gov.uk/hcai,,410
+http://www.dh.gov.uk/health,https://www.gov.uk/government/organisations/department-of-health,301
 http://www.dh.gov.uk/health/2011/07/apply-now-for-funding,https://www.gov.uk/government/news/apply-now-for-funding-to-support-voluntary-projects-in-health-and-social-care,301
 http://www.dh.gov.uk/health/2011/07/cancer-commissioning,https://www.gov.uk/government/news/commissioning-cancer-services,301
 http://www.dh.gov.uk/health/2011/07/carers-strategy,https://www.gov.uk/government/news/a-national-strategy-for-carers,301
@@ -14410,6 +14413,7 @@ http://www.dh.gov.uk/health/category/ministers/norman-lamb,https://www.gov.uk/go
 http://www.dh.gov.uk/health/category/ministers/paul-burstow,,410
 http://www.dh.gov.uk/health/category/ministers/simon-burns,,410
 http://www.dh.gov.uk/health/category/news,https://www.gov.uk/government/organisations/department-of-health,301
+http://www.dh.gov.uk/health/category/news/feed,https://www.gov.uk/government/announcements.atom?departments%5B%5D=department-of-health,301
 http://www.dh.gov.uk/health/category/policy-areas,https://www.gov.uk/government/policies?departments%5B%5D=department-of-health,301
 http://www.dh.gov.uk/health/category/policy-areas/francis-inquiry,https://www.gov.uk/government/policies/protecting-patients-and-adults-in-vulnerable-situations-from-avoidable-harm,301
 http://www.dh.gov.uk/health/category/policy-areas/nhs,https://www.gov.uk/government/topics/national-health-service,301
@@ -14498,6 +14502,7 @@ http://www.dh.gov.uk/health/category/publications/legislation,https://www.gov.uk
 http://www.dh.gov.uk/health/category/publications/legislation/directions,https://www.gov.uk/government/publications?keywords=&publication_filter_option=all&topics%5B%5D=all&departments%5B%5D=department-of-health,301
 http://www.dh.gov.uk/health/category/publications/letters-circulars,https://www.gov.uk/government/publications?keywords=&publication_filter_option=all&topics%5B%5D=all&departments%5B%5D=department-of-health,301
 http://www.dh.gov.uk/health/category/publications/reports-publications,https://www.gov.uk/government/publications?keywords=&publication_filter_option=all&topics%5B%5D=all&departments%5B%5D=department-of-health,301
+http://www.dh.gov.uk/health/category/publications/reports-publications/feed,https://www.gov.uk/government/publications?departments%5B%5D=department-of-health,301
 http://www.dh.gov.uk/health/category/research,https://www.gov.uk/government/policies/increasing-research-and-innovation-in-health-and-social-care,301
 http://www.dh.gov.uk/health/category/savile-investigations,https://www.gov.uk/government/organisations/investigation-into-the-role-of-jimmy-savile-at-broadmoor-hospital,301
 http://www.dh.gov.uk/health/category/starting,https://www.gov.uk/government/policies/giving-all-children-a-healthy-start-in-life,301
@@ -15299,6 +15304,7 @@ http://www.dh.gov.uk/helpwithhealthcosts,http://www.nhs.uk/NHSEngland/Healthcost
 http://www.dh.gov.uk/hepa,https://www.gov.uk/government/organisations/public-health-england/series/immunisation-against-infectious-disease-the-green-book,301
 http://www.dh.gov.uk/hepc,https://www.gov.uk/government/organisations/public-health-england/series/immunisation-against-infectious-disease-the-green-book,301
 http://www.dh.gov.uk/highqualitycareforall,,410
+http://www.dh.gov.uk/home/fs/en,https://www.gov.uk/government/organisations/department-of-health,301
 http://www.dh.gov.uk/howdhworks,https://www.gov.uk/government/organisations/department-of-health/about/our-governance,301
 http://www.dh.gov.uk/hsc,,410
 http://www.dh.gov.uk/hsg,,410
