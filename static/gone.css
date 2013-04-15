@@ -213,3 +213,107 @@ button:focus {
   font-size: 13px;
   line-height: 15px;
 }
+
+/**
+ * Organisation-specific branding
+ */
+.attorney-generals-office a {
+  border-color: #9f1888;
+}
+
+.cabinet-office a {
+  border-color: #005abb;
+}
+
+.department-for-business-innovation-skills a {
+  background-image: url('bis_crest_13px.png');
+  border-color: #003479;
+}
+
+.department-for-communities-and-local-government a {
+  border-color: #00857e;
+}
+
+.department-for-culture-media-sport a {
+  border-color: #d40072;
+}
+
+.department-for-education a {
+  border-color: #003a69;
+}
+
+.department-for-environment-food-rural-affairs a {
+  border-color: #898700;
+}
+
+.department-for-international-development a {
+  border-color: #002878;
+}
+
+.department-for-transport a {
+  border-color: #006c56;
+}
+
+.department-for-work-pensions a {
+  border-color: #00beb7;
+}
+
+.department-of-energy-climate-change a {
+  border-color: #009ddb;
+}
+
+.department-of-health a {
+  border-color: #00ad93;
+}
+
+.foreign-commonwealth-office a {
+  border-color: #003e74;
+}
+
+.government-equalities-office a {
+  border-color: #9325b2;
+}
+
+.hm-government a {
+  border-color: #0076c0;
+}
+
+.hm-treasury a {
+  border-color: #af292e;
+}
+
+.home-office a {
+  background-image: url('ho_crest_13px.png');
+  border-color: #9325b2;
+}
+
+.ministry-of-defence a {
+  background-image: url('mod_crest_13px.png');
+  border-color: #4d2942;
+}
+
+.ministry-of-justice a {
+  border-color: #231f20;
+}
+
+.northern-ireland-office a {
+  border-color: #002663;
+}
+
+.office-of-the-advocate-general-for-scotland a {
+  border-color: #002663;
+}
+
+.office-of-the-leader-of-the-house-of-lords a {
+  border-color: #9c132e;
+}
+
+.scotland-office a {
+  background-image: url('so_crest_13px.png');
+  border-color: #002663;
+}
+
+.wales-office a {
+  background-image: url('wales_crest_13px.png');
+  border-color: #a33038;
+}
