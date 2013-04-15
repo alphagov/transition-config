@@ -48,7 +48,7 @@ site=$1 ; [ -z "$site" ] && usage
 
 mappings="${mappings_dir}/${site}.csv"
 host=`ruby -ryaml -e'puts YAML.load_file("'$sites_directory'/'$site.yml'")["host"]'`
-validate_options=`ruby -ryaml -e'puts YAML.load_file("'$sites_directory'/'$site.yml'")["validate_options"]'`
+options=`ruby -ryaml -e'puts YAML.load_file("'$sites_directory'/'$site.yml'")["options"]'`
 all_file="$cache/$site/_all.csv"
 site_whitehall="$cache/$site/_whitehall.csv"
 
@@ -92,7 +92,7 @@ cat $all_file |
     ./tools/choose-status.rb |
     ./munge/strip-empty-quotes-and-whitespace.rb |
     ./munge/reverse-csv.rb |
-    ./tools/tidy_mappings.pl --trump $validate_options > ${mappings}_tmp
+    ./tools/tidy_mappings.pl --trump $options > ${mappings}_tmp
 
 mv ${mappings}_tmp ${mappings}
 set +x
@@ -100,7 +100,7 @@ set +x
 
 echo "Validating mappings ..."
 set -x
-tools/validate_mappings.pl --host "$host" --whitelist "$whitelist" $validate_options $mappings
+tools/validate_mappings.pl --host "$host" --whitelist "$whitelist" $options $mappings
 set +x
 
 
