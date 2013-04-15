@@ -6,4 +6,5 @@ tna_timestamp: 20130128103514
 title: Home Office
 furl: www.gov.uk/home-office
 homepage: https://www.gov.uk/government/organisations/home-office
+options: --query-string view
 ---
