@@ -60,5 +60,10 @@ is(c14n_url("http://www.example.com?c=23;d=1;b=909;e=33;a=1", "b,e,c,d,a"), "htt
 is(c14n_url("http://www.example.com?a=2322sdfsf&topic=334499&q=909&item=23444", "topic,item"), "http://www.example.com?item=23444&topic=334499", "allows cherry-picked  query_string");
 is(c14n_url("http://www.example.com?a=2322sdfsf&topic=334499&q=909&item=23444", "foo,bar,baz"), "http://www.example.com", "no ? for empty query_string values");
 
+is(c14n_url("http://www.example.com?a=you're_dangerous", '*'), "http://www.example.com?a=you%27re_dangerous", "escape query string values");
 
+#
+#  normalise url
+#
+is(normalise_url("http://www.example.com/commas,and-\"quotes\"-make-CSV-harder-to-'awk'"), 'http://www.example.com/commas%2cand-%22quotes%22-make-CSV-harder-to-%27awk%27', "commas and quotes");
 done_testing();

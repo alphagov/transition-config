@@ -1,9 +1,31 @@
 #
-#  canonicalise (normalize) a URL
+#  canonicalise or normalize a URL
 #  http://tools.ietf.org/html/rfc3986#section-6.2
 #
 use URI;
 
+sub escape {
+    my ($s) = @_;
+
+    # escape characters problematic in CSV
+    $s =~ s/"/%22/g;
+    $s =~ s/'/%27/g;
+    $s =~ s/,/%2c/g;
+
+    return $s;
+}
+
+#
+#  a normalised New URL
+#
+sub normalise_url {
+    my ($url) = @_;
+    return escape($url);
+}
+
+#
+#  a canonical Old Url
+#
 sub c14n_url {
     my ($url, $query_values) = @_;
 
@@ -26,15 +48,12 @@ sub c14n_url {
     # remove trailing insignificant characters
     $url =~ s/\/*$//;
 
-    # escape characters problematic in CSV
-    $url =~ s/"/%22/g;
-    $url =~ s/'/%27/g;
-    $url =~ s/,/%2c/g;
+    $url = escape($url);
 
     # escape some characters problematic in an nginx regex
-    $url =~ s/\|/%7c/g;
-    $url =~ s/\[/%5b/g;
-    $url =~ s/\]/%5d/g;
+    $s =~ s/\|/%7c/g;
+    $s =~ s/\[/%5b/g;
+    $s =~ s/\]/%5d/g;
 
     # add canonicalised query string
     if ($query_values) {
@@ -61,10 +80,10 @@ sub c14n_query_string {
     my @param; 
 
     foreach my $pair (split(/[&;]/, $query)) {
+        my ($name, $value) = split('=', $pair, 2);
+        $value = escape($value);
         # only keep significant query_string values
-        my $value = $pair;
-        $value =~ s/=.*$//;
-        push(@param, $pair) if ($significant{$value} || $wildcard);
+        push(@param, "$name=$value") if ($significant{$name} || $wildcard);
     }
 
     return join('&', sort(@param));
