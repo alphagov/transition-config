@@ -165,10 +165,10 @@ class TidyMappingsTest < MiniTest::Unit::TestCase
   def test_new_url_normalised
     lines = tidy_mappings([
       "Old Url,New Url,Status,Stuff",
-      "http://example.com/1,http://exmaple.com/you're_dangerous,",
+      "http://example.com/1,http://exmaple.com/you're_dangerous,301"
       ])
     assert_equal 2, lines.size
-    assert_equal "http://example.com/1,http://example.com/you%27re_dangerous", lines[1]
+    assert_equal "http://example.com/1,http://exmaple.com/you%27re_dangerous,301", lines[1]
   end
 
 
