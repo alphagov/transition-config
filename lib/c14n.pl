@@ -3,6 +3,7 @@
 #  http://tools.ietf.org/html/rfc3986#section-6.2
 #
 use URI;
+use strict;
 
 sub escape {
     my ($s) = @_;
@@ -51,9 +52,9 @@ sub c14n_url {
     $url = escape($url);
 
     # escape some characters problematic in an nginx regex
-    $s =~ s/\|/%7c/g;
-    $s =~ s/\[/%5b/g;
-    $s =~ s/\]/%5d/g;
+    $url =~ s/\|/%7c/g;
+    $url =~ s/\[/%5b/g;
+    $url =~ s/\]/%5d/g;
 
     # add canonicalised query string
     if ($query_values) {
