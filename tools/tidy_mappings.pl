@@ -61,7 +61,7 @@ while (<STDIN>) {
     $status = "410" if (uc($status) eq "TNA");
     $status ||= $new ? "301" : "410";
 
-    $new = "" if ($status eq "410");
+    $new = ($status eq "410") ? "" : normalise_url($new);
 
     my $url = c14n_url($old, $query_string);
 

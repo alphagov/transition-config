@@ -1,9 +1,34 @@
 #
-#  canonicalise (normalize) a URL
+#  canonicalise or normalize a URL
 #  http://tools.ietf.org/html/rfc3986#section-6.2
 #
 use URI;
 
+#
+#  a normalised New URL
+#
+sub normalise_url {
+    my ($url) = @_;
+
+    # remove trailing insignificant characters
+    $url =~ s/\/*$//;
+
+    # escape characters problematic in CSV
+    $url =~ s/"/%22/g;
+    $url =~ s/'/%27/g;
+    $url =~ s/,/%2c/g;
+
+    # escape some characters problematic in an nginx regex
+    $url =~ s/\|/%7c/g;
+    $url =~ s/\[/%5b/g;
+    $url =~ s/\]/%5d/g;
+
+    return $url;
+}
+
+#
+#  a canonical Old Url
+#
 sub c14n_url {
     my ($url, $query_values) = @_;
 

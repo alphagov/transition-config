@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 require 'minitest/unit'
 require 'minitest/autorun'
 require 'open3'
@@ -159,6 +160,15 @@ class TidyMappingsTest < MiniTest::Unit::TestCase
     assert_equal 3, lines.size
     assert_equal "http://example.com/1,https://www.example.com/expanded/furl,301", lines[1]
     assert_equal "http://example.com/2,https://www.example.com/expanded/homepage,301", lines[2]
+  end
+
+  def test_new_url_normalised
+    lines = tidy_mappings([
+      "Old Url,New Url,Status,Stuff",
+      "http://example.com/1,http://exmaple.com/you're_dangerous,",
+      ])
+    assert_equal 2, lines.size
+    assert_equal "http://example.com/1,http://example.com/you%27re_dangerous", lines[1]
   end
 
 
