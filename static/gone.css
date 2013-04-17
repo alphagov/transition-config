@@ -82,6 +82,15 @@ h2 strong {
   line-height: 1.3157894737;
 }
 
+h2 a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h2 a:hover {
+    text-decoration: underline;
+}
+
 #brand {
   display: block;
   width: auto;
