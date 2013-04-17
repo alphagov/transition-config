@@ -23,6 +23,13 @@ decc_og,trump,https://raw.github.com/alphagov/redirector-data/master/decc_og/tru
 defra,extras,https://raw.github.com/alphagov/redirector-data/master/defra/extras.csv
 defra,current,https://raw.github.com/alphagov/redirector/master/data/mappings/defra.csv
 defra,trump,https://raw.github.com/alphagov/redirector-data/master/defra/trump.csv
+dfe,other,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdG1wNm9HLU9wWno5Z2lOTDhnUmZoLUE&output=csv&gid=10
+dfe,analytics,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdG1wNm9HLU9wWno5Z2lOTDhnUmZoLUE&output=csv&gid=8
+dfe,sitemap,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdG1wNm9HLU9wWno5Z2lOTDhnUmZoLUE&output=csv&gid=4
+dfe,manual,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdG1wNm9HLU9wWno5Z2lOTDhnUmZoLUE&output=csv&gid=0
+dfe,furls,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdG1wNm9HLU9wWno5Z2lOTDhnUmZoLUE&output=csv&gid=6
+dfe,harvester,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdG1wNm9HLU9wWno5Z2lOTDhnUmZoLUE&output=csv&gid=3
+dfe_media,anymanual,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdG1wNm9HLU9wWno5Z2lOTDhnUmZoLUE&output=csv&gid=13
 dft,extras,https://raw.github.com/alphagov/redirector-data/master/dft/extras.csv
 dft,current,https://raw.github.com/alphagov/redirector/master/data/mappings/dft.csv
 dft,trump,https://raw.github.com/alphagov/redirector-data/master/dft/trump.csv
