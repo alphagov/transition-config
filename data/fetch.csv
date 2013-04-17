@@ -29,6 +29,7 @@ dfe,sitemap,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdG1wNm9HLU9
 dfe,manual,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdG1wNm9HLU9wWno5Z2lOTDhnUmZoLUE&output=csv&gid=0
 dfe,furls,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdG1wNm9HLU9wWno5Z2lOTDhnUmZoLUE&output=csv&gid=6
 dfe,harvester,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdG1wNm9HLU9wWno5Z2lOTDhnUmZoLUE&output=csv&gid=3
+dfe_media,anymanual,https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdG1wNm9HLU9wWno5Z2lOTDhnUmZoLUE&output=csv&gid=13
 dft,extras,https://raw.github.com/alphagov/redirector-data/master/dft/extras.csv
 dft,current,https://raw.github.com/alphagov/redirector/master/data/mappings/dft.csv
 dft,trump,https://raw.github.com/alphagov/redirector-data/master/dft/trump.csv
