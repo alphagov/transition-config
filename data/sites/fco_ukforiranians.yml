@@ -1,6 +1,6 @@
 ---
-site: fco_ukiniran
-host: ukiniran.fco.gov.uk
+site: fco_ukforiranians
+host: ukforiranians.fco.gov.uk
 redirection_date: 25th March 2013
 tna_timestamp: 20130217073211
 title: Foreign &amp; Commonwealth Office
@@ -9,3 +9,5 @@ homepage: https://www.gov.uk/government/world/iran
 options: --query-string id
 aliases:
 - www.ukiniran.fco.gov.uk
+- ukiniran.fco.gov.uk
+- www.ukforiranians.fco.gov.uk
