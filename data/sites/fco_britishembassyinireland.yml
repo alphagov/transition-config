@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/ireland
 options: --query-string id
 aliases:
 - www.britishembassyinireland.fco.gov.uk
+- www.britishembassy.ie
