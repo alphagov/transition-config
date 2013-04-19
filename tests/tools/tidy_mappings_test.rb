@@ -151,6 +151,27 @@ class TidyMappingsTest < MiniTest::Unit::TestCase
     assert_equal "http://example.com/1?id=34&token=99,http://foo/1,301", lines[1]
   end
 
+  def test_query_string_unique_across_file
+    lines = tidy_mappings([
+      "Old Url,New Url,Status,Stuff",
+      "http://example.com/foo?id=one,http://foo/1,301",
+      "http://example.com/bar?id=bar,http://foo/2,301",
+      ], query_string: 'id:token')
+    assert_equal 3, lines.size
+    assert_equal "http://example.com/bar?id=bar,http://example.com/foo?id=1,301", lines[1]
+    assert_equal "http://example.com/bar?id=bar,http://example.com/foo?id=2,301", lines[2]
+  end
+
+  def test_query_string_unique_across_file
+    lines = tidy_mappings([
+      "Old Url,New Url,Status,Stuff",
+      "http://example.com/foo?id=one,http://foo/1,301",
+      "http://example.com/bar?id=one,http://foo/2,301",
+      ], query_string: 'id:token', trump: true)
+    assert_equal 2, lines.size
+    assert_equal "http://example.com/bar?id=one,http://foo/2,301", lines[1]
+  end
+
   def test_new_urls_which_are_a_known_host_homepage_are_expanded_using_known
     lines = tidy_mappings([
       "Old Url,New Url,Status,Stuff",
@@ -190,7 +211,7 @@ class TidyMappingsTest < MiniTest::Unit::TestCase
     if args[:trump]
       cmd << " --trump"
     end
-    stdout, stderr, status = Open3.capture3(cmd, stdin_data: stdin)
+    stdout, @stderr, status = Open3.capture3(cmd, stdin_data: stdin)
     if status.exitstatus != 0
       puts stderr
     end

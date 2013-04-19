@@ -51,6 +51,7 @@ host=`ruby -ryaml -e'puts YAML.load_file("'$sites_directory'/'$site.yml'")["host
 options=`ruby -ryaml -e'puts YAML.load_file("'$sites_directory'/'$site.yml'")["options"]'`
 all_file="$cache/$site/_all.csv"
 site_whitehall="$cache/$site/_whitehall.csv"
+tmpfile=$cache/${site}_tmp
 
 if [ ! -d "$cache" ] ; then
     set -x
@@ -92,9 +93,9 @@ cat $all_file |
     ./tools/choose-status.rb |
     ./munge/strip-empty-quotes-and-whitespace.rb |
     ./munge/reverse-csv.rb |
-    ./tools/tidy_mappings.pl --trump $options > ${mappings}_tmp
+    ./tools/tidy_mappings.pl $options > $tmpfile
 
-mv ${mappings}_tmp ${mappings}
+./tools/tidy_mappings.pl --trump $options < $tmpfile > ${mappings}
 set +x
 
 

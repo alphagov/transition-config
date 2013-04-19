@@ -83,29 +83,33 @@ while (<STDIN>) {
         next;
     }
 
+    # unique key is the query string, or the path
+    my $key = $url;
+    $key =~ s/^.*?\?(.*)$/$1/;
+
     if ($trump) {
-        $seen{$url} = { new => $new, status => $status, line => $line };
+        $seen{$key} = { new => $new, status => $status, line => $line };
         next;
     }
 
-    if (!$seen{$url}) {
-        $seen{$url} = { new => $new, status => $status, line => $line };
+    if (!$seen{$key}) {
+        $seen{$key} = { new => $new, status => $status, line => $line };
         next;
     }
 
-    if ($new eq $seen{$url}->{new} && $status eq $seen{$url}->{status}) {
+    if ($new eq $seen{$key}->{new} && $status eq $seen{$key}->{status}) {
         say STDERR "skipping $url line $.";
         next;
     }
 
-    if ($status eq 410 && $seen{$url}->{status} eq "301") {
+    if ($status eq 410 && $seen{$key}->{status} eq "301") {
         say STDERR "skipping 410 $url for duplicate 301 line $.";
         next;
     }
 
-    if ($status eq 301 && $seen{$url}->{status} eq "410") {
+    if ($status eq 301 && $seen{$key}->{status} eq "410") {
         say STDERR "replacing 410 $url with 301 line $.";
-        $seen{$url} = { new => $new, status => $status, line => $line };
+        $seen{$key} = { new => $new, status => $status, line => $line };
         next;
     }
 
@@ -122,17 +126,17 @@ while (<STDIN>) {
             shift @fields; # Status
             $line = "$url,$actual_new,$actual_status," . join(',', @fields);
             say STDERR "using actual $line line $.";
-            $seen{$url} = { new => $new, status => $status, line => $line };
+            $seen{$key} = { new => $new, status => $status, line => $line };
             next;
         }
     }
 
     say STDERR "leaving $status $url duplicates differ line $.";
-    my $key = "#" . $uniq++;
+    $key = "#" . $uniq++;
     $seen{$key} = { new => $new, status => $status, line => $line };
 
     say STDERR "> " . $line;
-    say STDERR "> " . $seen{$url}->{line};
+    say STDERR "> " . $seen{$key}->{line};
     say STDERR "";
 }
 
@@ -142,8 +146,9 @@ while (<STDIN>) {
 unless ($no_output) {
     say $titles;
     open(OUT, "|./tools/csort");
-    foreach my $url (keys %seen) {
-         say OUT $seen{$url}->{line};
+    foreach my $key (keys %seen) {
+         print STDERR "missing line for key: $key\n" unless($seen{$key}->{line});
+         say OUT $seen{$key}->{line};
     }
     close(OUT);
 }
