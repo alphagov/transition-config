@@ -12,4 +12,5 @@ locations:
       operation: ~*
       status: 301
       new_url: http://r4d.dfid.gov.uk/$1
+css: department-for-international-development
 ---
