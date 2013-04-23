@@ -180,3 +180,36 @@ button:hover,
 button:focus {
   background: #07ac96;
 }
+
+/**
+ * Organisation logos
+ */
+.organisation {
+  margin: 80px 0 -105px;
+  padding-bottom: 30px;
+}
+
+.organisation a {
+  display: block;
+  color: #000;
+  border-left: 2px solid #000;
+  padding: 30px 0 0 5px;
+  background-image: url('mod_crest_13px.png');
+  background-repeat: no-repeat;
+  background-position: 5px 0px;
+  text-decoration: none;
+}
+
+.organisation a:hover,
+.organisation a:focus {
+  color: #000;
+  text-decoration: underline;
+}
+
+.organisation a span {
+  display: block;
+  font-weight: 400;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 15px;
+}
