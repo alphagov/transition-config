@@ -2,7 +2,7 @@
 
 use strict;
 
-my %status = (
+my %state = (
     'aka.businesslink.gov.uk.edgekey.net.' => 'LIVE',
     'www.gov.uk.edgekey.net.' => 'LIVE',
     'redirector.www.gov.uk.edgekey.net.' => 'LIVE',
@@ -10,18 +10,24 @@ my %status = (
     'aka.direct.gov.uk.edgekey.net.' => 'LIVE',
 );
 
-while (<>) {
+my $filename = @ARGV[0] || "hosts.csv";
+open(FILE, "> $filename") || die "unable to open file $!\n";
+print FILE "host,ttl,state,cname\n";
+
+while (<STDIN>) {
     if ($_ =~ /CNAME/) {
         my ($host, $secs, $IN, $CNAME, $cname) = split;
 
-        my $status = $status{$cname} // "-";
+        my $state = $state{$cname} // "-";
 
         my $old = $cname;
-        my $new = "";
 
-        printf "%-55s %8s  %-4s  %s\n", $host, ttl($secs), $status, $old, $new;
+        printf "%-55s %8s  %-4s  %s\n", $host, ttl($secs), $state, $old;
+
+        print FILE "$host,$secs,$state,$old\n";
     }
 }
+close(FILE);
 
 sub ttl {
     my $secs = shift;

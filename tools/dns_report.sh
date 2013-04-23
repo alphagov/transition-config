@@ -9,4 +9,4 @@ tools/site_hosts.sh |
         dig +trace $host > $tmpdir/$host.txt
     done
 
-cat $tmpdir/*.txt | tools/dns_report.pl
+cat $tmpdir/*.txt | tools/dns_report.pl $tmpdir/hosts.csv
