@@ -36,9 +36,14 @@ foreach my $type (keys %$configs) {
 
     # guess suffix from the config name
     my $suffix;
+    my $header = "";
+    my $footer = "";
+
     if ($type =~ m{error$}) {
         $suffix = ".txt" 
     } elsif ($type =~ /archive|suggested/) {
+        $header = "<?php\n";
+        $footer = "\n?>\n";
         $suffix = ".php" 
     } else {
         $suffix = ".conf";
@@ -50,7 +55,7 @@ foreach my $type (keys %$configs) {
 
     my $handle;
     open $handle, '>', "$path" or die "unable to open $path: $!";
-    print $handle $configs->{$type};
+    print $handle $header . $configs->{$type} . $footer;
     close $handle;
 }
 

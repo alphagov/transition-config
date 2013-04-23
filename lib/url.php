@@ -9,9 +9,6 @@ function c14n_url($url, $query_values = '') {
     $url = rawurldecode($url);
     $uri = parse_url($url);
 
-    # hostname should be lowercase
-    $host = strtolower($uri['host']);
-
     # path
     $path = $uri['path'];
 
@@ -33,8 +30,13 @@ function c14n_url($url, $query_values = '') {
     $path = str_replace('%28', '(', $path);
     $path = str_replace('%29', ')', $path);
 
-    # protocol is always http
-    $url = "http://" . $host . $path;
+    # hostname should be lowercase
+    if (!array_key_exists('host', $uri)) {
+        $url = $path;
+    } else {
+        # protocol is always http
+        $url = "http://" . strtolower($uri['host']) . $path;
+    }
 
     # add canonicalised query string
     if ($query_values) {

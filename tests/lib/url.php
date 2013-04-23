@@ -2,7 +2,7 @@
 <?php
 
 include "lib/assert.php";
-include "common/url.php";
+include "lib/url.php";
 
 is(display_url('http://foo.com'), 'foo.com', "display url");
 is(display_url('http://foo.com/foo/bar'), 'foo.com/foo/bar', "display url with a path");
@@ -65,6 +65,9 @@ is(c14n_url("http://www.example.com?c=23;d=1;b=909;e=33;a=1", "b,e,c,d,a"), "htt
 
 is(c14n_url("http://www.example.com?a=2322sdfsf&topic=334499&q=909&item=23444", "topic,item"), "http://www.example.com?item=23444&topic=334499", "allows cherry-picked  query_string");
 is(c14n_url("http://www.example.com?a=2322sdfsf&topic=334499&q=909&item=23444", "foo,bar,baz"), "http://www.example.com", "no ? for empty query_string values");
+is(c14n_url("http://www.example.com?topicid=1234&itemid=4567", "topicid:itemid"), "http://www.example.com?itemid=4567&topicid=1234", "cherry picked query_string");
+
+is(c14n_url("/bdotg/action/detail?itemid=1073792782", "itemid:topicid"), "/bdotg/action/detail?itemid=1073792782", "itemid:topicid", "relative ur");
 
 done_testing();
 ?>

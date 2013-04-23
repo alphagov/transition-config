@@ -1,57 +1,41 @@
 <?php
+include(dirname(__FILE__)."/../../lib/url.php");
+$c14n_url = c14n_url($_SERVER['REQUEST_URI'], '<%= query_param = options ? options.sub(/^.*--query-string /, '') : "" %>');
+
 $location_suggested_links = array();
 $query_suggested_links = array();
 $archive_links = array();
-$uri_without_slash = rtrim( $_SERVER['REQUEST_URI'], '/' );
 
 # generated php files
 <%= IO.popen('
     site=' + site + '
-    maps=dist/maps/$site
+    cd dist > /dev/null
+    maps=maps/$site
     for file in $maps/*.php
     do
         if [ -f $file ] ; then
-            echo "# $file"
-            cat $file
+            echo "include(dirname(__FILE__).\"/../../$file\");"
         fi
     done
 ').readlines.join('') %>
-
-
 /*
  *  archive link
  */
 $archive_link = 'http://webarchive.nationalarchives.gov.uk/<%=tna_timestamp%>/http://<%=host%>' . $_SERVER['REQUEST_URI'];
 
-if (isset($archive_links[$uri_without_slash])) {
-  $archive_link = $archive_links[$uri_without_slash];
-}
-
-preg_match( "/dg_\d+/i", $uri_without_slash, $matches );
-if (isset($matches[0])) {
-  $match = strtolower($matches[0]);
-  if (isset( $archive_links[$match])) {
-      $archive_link = $archive_links[$match];
-  }
+if (isset($archive_links[$c14n_url])) {
+  $archive_link = $archive_links[$c14n_url];
 }
 
 /*
  *  suggested link
  */
-if ( isset( $location_suggested_link[$uri_without_slash] ) ) {
-    $suggested_link = $location_suggested_link[$uri_without_slash];
-}
-
-preg_match( "/(item|topic)id=\d+/i", $uri_without_slash, $matches );
-if ( isset($matches[0]) && isset($query_suggested_link[$matches[0]]) ) {
-    $suggested_link = $query_suggested_link[$matches[0]];
-}
-
-preg_match( "/dg_\d+/i", $uri_without_slash, $matches );
-if ( isset($matches[0]) ) {
-    $match = strtolower($matches[0]);
-    if ( isset( $location_suggested_link[$match] ) ) {
-        $suggested_link = $location_suggested_link[$match];
+if (isset($location_suggested_link[$c14n_url])) {
+    $suggested_link = $location_suggested_link[$c14n_url];
+} else {
+    preg_match("/(<%= query_param.sub(/[:, ]/, '|') %>)=\w+/i", $c14n_url, $matches);
+    if (isset($matches[0]) && isset($query_suggested_link[$matches[0]])) {
+        $suggested_link = $query_suggested_link[$matches[0]];
     }
 }
 
@@ -88,7 +72,7 @@ if ( isset($matches[0]) ) {
             <p><a href="<?= $archive_link ?>">The page you were looking for</a> has been moved into The National Archives.</p>
             <p>The <%= title %> website moved to <a href="<%= homepage %>"><%= furl %></a> on the <%= redirection_date %>.</p>
 <?php
-if ( isset($suggested_link) ) {
+if (isset($suggested_link)) {
 echo "            <p>For more information on this topic you may want to visit $suggested_link.</p>";
 }
 ?>

@@ -27,6 +27,7 @@ commondir=dist/common
 mapsdir=dist/maps
 staticdir=dist/static
 etcdir=dist/etc
+libdir=dist/lib
 validdir=tmp/valid
 mappingsdist=dist/mappings
 
@@ -35,7 +36,7 @@ mappingsdist=dist/mappings
 #
 ERB=./bin/erb.rb
 
-.PHONY: makefiles all ci dist config maps validate static etc mappings
+.PHONY: makefiles all ci dist config maps validate static etc lib mappings
 
 #
 #  default
@@ -51,12 +52,12 @@ ci:		test validate dist
 #
 #  dist
 #
-dist:	mappings config maps static etc
+dist:	mappings config maps static etc lib
 
 #
 #  test
 #
-test:	perl_test ruby_test sh_test
+test:	perl_test ruby_test sh_test php_test
 
 perl_test::
 	prove -lj4 tests/lib/c14n.t
@@ -205,6 +206,16 @@ $(etcdir)/totals.csv:	$(mappings) tools/count_mappings.sh
 	tools/count_mappings.sh --dir $(mappingsdir) > $@
 
 $(etcdir):;	mkdir -p $@
+
+#
+#  lib
+#
+etc:: 	\
+	$(libdir)/url.php
+
+$(libdir)/url.php:	lib/url.php
+	@mkdir -p $(libdir)
+	cp $< $@
 
 #
 #  clean
