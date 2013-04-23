@@ -34,16 +34,32 @@ body {
 
 #banner {
   background: #0b0c0d;
+  height: 51px;
+}
+
+h1 {
+  margin-top: 6px;
 }
 
 h1 a {
   position: relative;
   display: block;
-  height: 40px;
-  width: 150px;
-  background: url(govuk-logo.gif) no-repeat top left;
-  text-indent: -5000%;
+  height: 30px;
+  width: 166px;
   overflow: hidden;
+}
+
+h1 a img {
+  position: absolute;
+  left: -166px;
+  top: 0;
+  border: none;
+  width: 200%;
+  height: 300%;
+}
+
+h1 a:hover img {
+  top: -30px;
 }
 
 .inner {
