@@ -66,8 +66,6 @@ h1 a:hover img {
   position: relative;
   margin: 0 auto;
   overflow: hidden;
-  width: 580px;
-  padding: 5px 30px;
 }
 
 @media (min-width: 1px) {
@@ -82,12 +80,6 @@ h2 {
   font-size: 1.8947368421em; /* 36px */
   font-weight: bold;
   line-height: 1.1111111111;
-}
-
-@media (min-width: 641px) {
-  h2 {
-    padding-bottom: 80px;
-  }
 }
 
 h2 strong {
@@ -107,7 +99,6 @@ h2 a:hover {
 }
 
 @media (min-width: 641px) {
-  h2, #detail,
   #report-a-problem-container h3, form {
     padding-left: 25%;
     max-width: 600px
@@ -185,7 +176,7 @@ button:focus {
  * Organisation logos
  */
 .organisation {
-  margin: 80px 0 -147px;
+  margin: 80px 0 0;
   padding-bottom: 30px;
 }
 
