@@ -65,11 +65,13 @@ if (isset($location_suggested_link[$c14n_url])) {
           <div class="organisation <%= css %>">
             <a href="<%= homepage %>"><span><%= brand_title || title %></span></a>
           </div>
-          <h2>
-            <strong><%= page_title %></strong>
-            <a href="<?= $archive_link ?>">This page has been archived</a>
-          </h2>
+
           <div id="detail">
+            <h2>
+              <strong><%= page_title %></strong>
+              <a href="<?= $archive_link ?>">This page has been archived</a>
+            </h2>
+
             <h3>410</h3>
             <p><a href="<?= $archive_link ?>">The page you were looking for</a> has been moved into The National Archives.</p>
             <p>The <%= title %> website moved to <a href="<%= homepage %>"><%= furl %></a> on the <%= redirection_date %>.</p>
