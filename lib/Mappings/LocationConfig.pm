@@ -30,7 +30,7 @@ sub actual_nginx_config {
     elsif ( '410' eq $self->{'status'} ) {
         $config = "location ~* ^${location_key}\$ { return 410; }\n";
         $suggested_link_type = 'location_suggested_link';
-        $suggested_link = $self->get_suggested_link( $location_key, 0 );
+        $suggested_link = $self->get_suggested_link( $self->normalise($path), 0 );
         $archive_link = $self->get_archive_link( $location_key );
     }
     elsif ( '301' eq $self->{'status'} ) {
@@ -50,6 +50,12 @@ sub actual_nginx_config {
 }
 
 sub get_location_key {
+    my $self = shift;
+    my $path = shift;
+    return $self->normalise($path);
+}
+
+sub normalise {
     my $self = shift;
     my $path = shift;
 
