@@ -10,7 +10,7 @@ function c14n_url($url, $query_values = '') {
     $uri = parse_url($url);
 
     # path
-    $path = $uri['path'];
+    $path = array_key_exists('path', $uri) ? $uri['path'] : "";
 
     # remove trailing slashes
     $path = preg_replace('/\/*$/', '', $path);
@@ -69,7 +69,7 @@ function c14n_query_string($query, $query_values) {
         $name = preg_replace('/=.*$/', '', $pair);
 
         # only keep significant query_string values
-        if ($significant[$name] || $wildcard) {
+        if (isset($significant[$name]) || $wildcard) {
             array_push($param, $pair);
         }
     }
