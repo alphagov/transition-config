@@ -195,7 +195,7 @@ button:focus {
   color: #000;
   border-left: 3px solid #000;
   padding: 10px 0 0 65px;
-  background-image: url('/crests/org_crest_18px_x2.png');
+  background-image: url('/org_crest_18px_x2.png');
   background-repeat: no-repeat;
   background-position: 10px 0px;
   background-size: auto 40px;
@@ -221,7 +221,7 @@ button:focus {
 
 @media (max-width: 640px) {
   .organisation a {
-    background-image: url('/crests/org_crest_13px_x2.png');
+    background-image: url('/org_crest_13px_x2.png');
     background-position: 5px 0px;
     background-size: auto 25px;
     border-left: 2px solid #005abb;
@@ -254,7 +254,7 @@ button:focus {
 }
 
 .department-for-business-innovation-skills a {
-  background-image: url('/crests/bis_crest_18px_x2.png');
+  background-image: url('/bis_crest_18px_x2.png');
   border-color: #003479;
 }
 
@@ -264,7 +264,7 @@ button:focus {
 
 @media (max-width: 640px) {
   .department-for-business-innovation-skills a {
-    background-image: url('/crests/bis_crest_13px_x2.png');
+    background-image: url('/bis_crest_13px_x2.png');
   }
 
   .department-for-business-innovation-skills a span {
@@ -325,7 +325,7 @@ button:focus {
 }
 
 .home-office a {
-  background-image: url('/crests/ho_crest_18px_x2.png');
+  background-image: url('/ho_crest_18px_x2.png');
   border-color: #9325b2;
 }
 
@@ -335,7 +335,7 @@ button:focus {
 
 @media (max-width: 640px) {
   .home-office a {
-    background-image: url('/crests/ho_crest_13px_x2.png');
+    background-image: url('/ho_crest_13px_x2.png');
   }
 
   .home-office a span {
@@ -344,7 +344,7 @@ button:focus {
 }
 
 .ministry-of-defence a {
-  background-image: url('/crests/mod_crest_18px_x2.png');
+  background-image: url('/mod_crest_18px_x2.png');
   border-color: #4d2942;
 }
 
@@ -354,7 +354,7 @@ button:focus {
 
 @media (max-width: 640px) {
   .ministry-of-defence a {
-    background-image: url('/crests/mod_crest_13px_x2.png');
+    background-image: url('/mod_crest_13px_x2.png');
   }
 
   .ministry-of-defence a span {
@@ -379,13 +379,13 @@ button:focus {
 }
 
 .scotland-office a {
-  background-image: url('/crests/so_crest_18px_x2.png');
+  background-image: url('/so_crest_18px_x2.png');
   border-color: #002663;
 }
 
 @media (max-width: 640px) {
   .scotland-office a {
-    background-image: url('/crests/so_crest_13px_x2.png');
+    background-image: url('/so_crest_13px_x2.png');
   }
 
   .scotland-office a span {
@@ -394,7 +394,7 @@ button:focus {
 }
 
 .wales-office a {
-  background-image: url('/crests/wales_crest_18px_x2.png');
+  background-image: url('/wales_crest_18px_x2.png');
   border-color: #a33038;
 }
 
@@ -404,7 +404,7 @@ button:focus {
 
 @media (max-width: 640px) {
   .wales-office a {
-    background-image: url('/crests/wales_crest_13px_x2.png');
+    background-image: url('/wales_crest_13px_x2.png');
   }
 
   .wales-office a span {

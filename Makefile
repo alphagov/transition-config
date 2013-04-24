@@ -160,9 +160,23 @@ $(configdir)/dfid_consultation.conf:	configs/dfid_consultation.conf
 #
 static::	\
 	$(staticdir)/favicon.ico \
+	$(staticdir)/gone.css \
+	$(staticdir)/ie.css \
+	$(staticdir)/bis_crest_13px_x2.png \
+	$(staticdir)/bis_crest_18px_x2.png \
 	$(staticdir)/govuk-crest.png \
 	$(staticdir)/govuk-logo.gif \
-	$(staticdir)/gone.css
+	$(staticdir)/govuk-logo.png \
+	$(staticdir)/ho_crest_13px_x2.png \
+	$(staticdir)/ho_crest_18px_x2.png \
+	$(staticdir)/mod_crest_13px_x2.png \
+	$(staticdir)/mod_crest_18px_x2.png \
+	$(staticdir)/org_crest_13px_x2.png \
+	$(staticdir)/org_crest_18px_x2.png \
+	$(staticdir)/so_crest_13px_x2.png \
+	$(staticdir)/so_crest_18px_x2.png \
+	$(staticdir)/wales_crest_13px_x2.png \
+	$(staticdir)/wales_crest_18px_x2.png \
 
 $(staticdir)/favicon.ico:	static/favicon.ico
 	@mkdir -p $(staticdir)
@@ -172,11 +186,67 @@ $(staticdir)/gone.css:	static/gone.css
 	@mkdir -p $(staticdir)
 	cp $< $@
 
+$(staticdir)/ie.css:	static/ie.css
+	@mkdir -p $(staticdir)
+	cp $< $@
+
+$(staticdir)/bis_crest_13px_x2.png:	static/bis_crest_13px_x2.png
+	@mkdir -p $(staticdir)
+	cp $< $@
+
+$(staticdir)/bis_crest_18px_x2.png:	static/bis_crest_18px_x2.png
+	@mkdir -p $(staticdir)
+	cp $< $@
+
 $(staticdir)/govuk-crest.png:	static/govuk-crest.png
 	@mkdir -p $(staticdir)
 	cp $< $@
 
 $(staticdir)/govuk-logo.gif:	static/govuk-logo.gif
+	@mkdir -p $(staticdir)
+	cp $< $@
+
+$(staticdir)/govuk-logo.png:	static/govuk-logo.png
+	@mkdir -p $(staticdir)
+	cp $< $@
+
+$(staticdir)/ho_crest_13px_x2.png:	static/ho_crest_13px_x2.png
+	@mkdir -p $(staticdir)
+	cp $< $@
+
+$(staticdir)/ho_crest_18px_x2.png:	static/ho_crest_18px_x2.png
+	@mkdir -p $(staticdir)
+	cp $< $@
+
+$(staticdir)/mod_crest_13px_x2.png:	static/mod_crest_13px_x2.png
+	@mkdir -p $(staticdir)
+	cp $< $@
+
+$(staticdir)/mod_crest_18px_x2.png:	static/mod_crest_18px_x2.png
+	@mkdir -p $(staticdir)
+	cp $< $@
+
+$(staticdir)/org_crest_13px_x2.png:	static/org_crest_13px_x2.png
+	@mkdir -p $(staticdir)
+	cp $< $@
+
+$(staticdir)/org_crest_18px_x2.png:	static/org_crest_18px_x2.png
+	@mkdir -p $(staticdir)
+	cp $< $@
+
+$(staticdir)/so_crest_13px_x2.png:	static/so_crest_13px_x2.png
+	@mkdir -p $(staticdir)
+	cp $< $@
+
+$(staticdir)/so_crest_18px_x2.png:	static/so_crest_18px_x2.png
+	@mkdir -p $(staticdir)
+	cp $< $@
+
+$(staticdir)/wales_crest_13px_x2.png:	static/wales_crest_13px_x2.png
+	@mkdir -p $(staticdir)
+	cp $< $@
+
+$(staticdir)/wales_crest_18px_x2.png:	static/wales_crest_18px_x2.png
 	@mkdir -p $(staticdir)
 	cp $< $@
 
