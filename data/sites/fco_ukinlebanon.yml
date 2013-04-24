@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/lebanon
 options: --query-string id
 aliases:
 - www.ukinlebanon.fco.gov.uk
+css: foreign-commonwealth-office

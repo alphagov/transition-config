@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/uganda
 options: --query-string id
 aliases:
 - www.ukinuganda.fco.gov.uk
+css: foreign-commonwealth-office

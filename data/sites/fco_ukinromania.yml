@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/romania
 options: --query-string id
 aliases:
 - www.ukinromania.fco.gov.uk
+css: foreign-commonwealth-office

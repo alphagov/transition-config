@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/yemen
 options: --query-string id
 aliases:
 - www.ukinyemen.fco.gov.uk
+css: foreign-commonwealth-office

@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/holy-see
 options: --query-string id
 aliases:
 - www.ukinholysee.fco.gov.uk
+css: foreign-commonwealth-office

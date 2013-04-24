@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/indonesia
 options: --query-string id
 aliases:
 - www.ukinindonesia.fco.gov.uk
+css: foreign-commonwealth-office

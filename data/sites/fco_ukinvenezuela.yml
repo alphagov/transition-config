@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/venezuela
 options: --query-string id
 aliases:
 - www.ukinvenezuela.fco.gov.uk
+css: foreign-commonwealth-office

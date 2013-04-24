@@ -13,24 +13,23 @@
         <div class="inner">
           <h1>
             <a href="https://www.gov.uk" title="Go to the gov.uk homepage">
-              <img src="govuk-logo.png" alt="GOV.UK">
+              <img src="/govuk-logo.png" alt="GOV.UK">
             </a>
           </h1>
         </div>
       </div>
       <div id="message">
         <div class="inner">
-          <div id="brand">
-            <a href="<%= homepage %>">
-              <img src="/govuk-crest.png" alt="govuk-crest" width="125" height="102">
-              <p><%= title %></p>
-            </a>
+          <div class="organisation <%= css || "no-organisation" %>">
+            <a href="<%= homepage %>"><span><%= title %></span></a>
           </div>
-          <h2>
-            <strong><%= page_title %></strong>
-             This page cannot be&nbsp;found
-          </h2>
+
           <div id="detail">
+            <h2>
+              <strong><%= page_title %></strong>
+              This page cannot be&nbsp;found
+            </h2>
+
             <h3>404</h3>
             <p>Please check that you have entered the correct web address.</p>
             <p>The information you need may be found on <a href="https://www.gov.uk">GOV.UK</a>

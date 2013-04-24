@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/argentina
 options: --query-string id
 aliases:
 - www.ukinargentina.fco.gov.uk
+css: foreign-commonwealth-office

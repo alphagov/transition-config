@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/malaysia
 options: --query-string id
 aliases:
 - www.ukinmalaysia.fco.gov.uk
+css: foreign-commonwealth-office

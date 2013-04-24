@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/philippines
 options: --query-string id
 aliases:
 - www.ukinthephilippines.fco.gov.uk
+css: foreign-commonwealth-office

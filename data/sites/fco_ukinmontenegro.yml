@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/montenegro
 options: --query-string id
 aliases:
 - www.ukinmontenegro.fco.gov.uk
+css: foreign-commonwealth-office

@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/pakistan
 options: --query-string id
 aliases:
 - www.ukinpakistan.fco.gov.uk
+css: foreign-commonwealth-office

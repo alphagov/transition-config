@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/sudan
 options: --query-string id
 aliases:
 - www.ukinsudan.fco.gov.uk
+css: foreign-commonwealth-office

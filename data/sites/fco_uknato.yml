@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/uk-joint-delegation-to-nato
 options: --query-string id
 aliases:
 - www.uknato.fco.gov.uk
+css: foreign-commonwealth-office

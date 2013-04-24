@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/china
 options: --query-string id
 aliases:
 - www.ukinchina.fco.gov.uk
+css: foreign-commonwealth-office

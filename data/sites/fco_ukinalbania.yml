@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/albania
 options: --query-string id
 aliases:
 - www.ukinalbania.fco.gov.uk
+css: foreign-commonwealth-office

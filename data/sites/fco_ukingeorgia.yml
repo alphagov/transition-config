@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/georgia
 options: --query-string id
 aliases:
 - www.ukingeorgia.fco.gov.uk
+css: foreign-commonwealth-office

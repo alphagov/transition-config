@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/syria
 options: --query-string id
 aliases:
 - www.ukinsyria.fco.gov.uk
+css: foreign-commonwealth-office
