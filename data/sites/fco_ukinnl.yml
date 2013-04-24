@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/netherlands
 options: --query-string id
 aliases:
 - www.ukinnl.fco.gov.uk
+css: foreign-commonwealth-office

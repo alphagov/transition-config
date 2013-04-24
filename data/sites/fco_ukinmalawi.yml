@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/malawi
 options: --query-string id
 aliases:
 - www.ukinmalawi.fco.gov.uk
+css: foreign-commonwealth-office

@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/hong-kong
 options: --query-string id
 aliases:
 - www.ukinhongkong.fco.gov.uk
+css: foreign-commonwealth-office

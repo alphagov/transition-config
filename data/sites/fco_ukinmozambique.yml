@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/mozambique
 options: --query-string id
 aliases:
 - www.ukinmozambique.fco.gov.uk
+css: foreign-commonwealth-office

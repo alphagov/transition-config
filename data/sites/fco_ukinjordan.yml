@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/jordan
 options: --query-string id
 aliases:
 - www.ukinjordan.fco.gov.uk
+css: foreign-commonwealth-office

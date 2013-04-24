@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/nigeria
 options: --query-string id
 aliases:
 - www.ukinnigeria.fco.gov.uk
+css: foreign-commonwealth-office

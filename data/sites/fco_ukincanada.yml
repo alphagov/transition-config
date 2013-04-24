@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/canada
 options: --query-string id
 aliases:
 - www.ukincanada.fco.gov.uk
+css: foreign-commonwealth-office

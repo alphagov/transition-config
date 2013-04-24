@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/cyprus
 options: --query-string id
 aliases:
 - www.ukincyprus.fco.gov.uk
+css: foreign-commonwealth-office

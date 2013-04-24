@@ -7,4 +7,5 @@ title: Department for Work &amp; Pensions
 furl: www.gov.uk/dwp
 homepage: https://www.gov.uk/government/organisations/department-for-work-pensions
 options: --query-string page
+css: department-for-work-pensions
 ---

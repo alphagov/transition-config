@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/malta
 options: --query-string id
 aliases:
 - www.ukinmalta.fco.gov.uk
+css: foreign-commonwealth-office

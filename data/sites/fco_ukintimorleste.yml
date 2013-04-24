@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/timor-leste
 options: --query-string id
 aliases:
 - www.ukintimorleste.fco.gov.uk
+css: foreign-commonwealth-office

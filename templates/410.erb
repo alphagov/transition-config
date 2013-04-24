@@ -55,24 +55,23 @@ if (isset($location_suggested_link[$c14n_url])) {
         <div class="inner">
           <h1>
             <a href="https://www.gov.uk" title="Go to the gov.uk homepage">
-              <img src="govuk-logo.png" alt="GOV.UK">
+              <img src="/govuk-logo.png" alt="GOV.UK">
             </a>
           </h1>
         </div>
       </div>
       <div id="message">
         <div class="inner">
-          <div id="brand">
-            <a href="<%= homepage %>">
-              <img src="/govuk-crest.png" alt="govuk-crest" width="125" height="102">
-              <p><%= title %></p>
-            </a>
+          <div class="organisation <%= css || "no-organisation" %>">
+            <a href="<%= homepage %>"><span><%= title %></span></a>
           </div>
-          <h2>
-            <strong><%= page_title %></strong>
-            <a href="<?= $archive_link ?>">This page has been archived</a>
-          </h2>
+
           <div id="detail">
+            <h2>
+              <strong><%= page_title %></strong>
+              <a href="<?= $archive_link ?>">This page has been archived</a>
+            </h2>
+
             <h3>410</h3>
             <p><a href="<?= $archive_link ?>">The page you were looking for</a> has been moved into The National Archives.</p>
             <p>The <%= title %> website moved to <a href="<%= homepage %>"><%= furl %></a> on the <%= redirection_date %>.</p>

@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/zimbabwe
 options: --query-string id
 aliases:
 - www.ukinzimbabwe.fco.gov.uk
+css: foreign-commonwealth-office

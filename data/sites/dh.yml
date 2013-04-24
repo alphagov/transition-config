@@ -10,4 +10,5 @@ locations:
     - path: /dh_digitalassets/
       operation: ~*
       status: 410
+css: department-of-health
 ---

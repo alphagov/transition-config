@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/nepal
 options: --query-string id
 aliases:
 - www.ukinnepal.fco.gov.uk
+css: foreign-commonwealth-office

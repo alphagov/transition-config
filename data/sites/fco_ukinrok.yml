@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/south-korea
 options: --query-string id
 aliases:
 - www.ukinrok.fco.gov.uk
+css: foreign-commonwealth-office

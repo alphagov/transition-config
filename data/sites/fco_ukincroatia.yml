@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/croatia
 options: --query-string id
 aliases:
 - www.ukincroatia.fco.gov.uk
+css: foreign-commonwealth-office

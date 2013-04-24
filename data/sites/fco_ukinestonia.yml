@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/estonia
 options: --query-string id
 aliases:
 - www.ukinestonia.fco.gov.uk
+css: foreign-commonwealth-office

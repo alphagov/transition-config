@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/ghana
 options: --query-string id
 aliases:
 - www.ukinghana.fco.gov.uk
+css: foreign-commonwealth-office

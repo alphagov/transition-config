@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/costa-rica
 options: --query-string id
 aliases:
 - www.ukincostarica.fco.gov.uk
+css: foreign-commonwealth-office

@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/barbados
 options: --query-string id
 aliases:
 - www.ukinbarbados.fco.gov.uk
+css: foreign-commonwealth-office

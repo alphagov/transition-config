@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/slovakia
 options: --query-string id
 aliases:
 - www.ukinslovakia.fco.gov.uk
+css: foreign-commonwealth-office
