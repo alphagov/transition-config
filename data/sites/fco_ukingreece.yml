@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/greece
 options: --query-string id
 aliases:
 - www.ukingreece.fco.gov.uk
+css: foreign-commonwealth-office

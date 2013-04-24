@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/uk-mission-to-the-united-nations-n
 options: --query-string id
 aliases:
 - www.ukun.fco.gov.uk
+css: foreign-commonwealth-office

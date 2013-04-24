@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/dominican-republic
 options: --query-string id
 aliases:
 - www.ukindominicanrepublic.fco.gov.uk
+css: foreign-commonwealth-office

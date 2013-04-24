@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/taiwan
 options: --query-string id
 aliases:
 - www.ukintaiwan.fco.gov.uk
+css: foreign-commonwealth-office

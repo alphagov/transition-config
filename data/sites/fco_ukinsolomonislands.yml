@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/solomon-islands
 options: --query-string id
 aliases:
 - www.ukinsolomonislands.fco.gov.uk
+css: foreign-commonwealth-office

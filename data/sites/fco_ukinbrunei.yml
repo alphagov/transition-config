@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/brunei
 options: --query-string id
 aliases:
 - www.ukinbrunei.fco.gov.uk
+css: foreign-commonwealth-office

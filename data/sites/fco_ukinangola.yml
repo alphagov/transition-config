@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/angola
 options: --query-string id
 aliases:
 - www.ukinangola.fco.gov.uk
+css: foreign-commonwealth-office

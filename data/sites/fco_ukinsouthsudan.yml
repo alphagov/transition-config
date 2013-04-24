@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/south-sudan
 options: --query-string id
 aliases:
 - www.ukinsouthsudan.fco.gov.uk
+css: foreign-commonwealth-office

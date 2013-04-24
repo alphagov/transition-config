@@ -10,3 +10,4 @@ options: --query-string id
 aliases:
 - www.britishembassyinireland.fco.gov.uk
 - www.britishembassy.ie
+css: foreign-commonwealth-office

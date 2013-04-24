@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/falkland-islands
 options: --query-string id
 aliases:
 - www.falklandislands.fco.gov.uk
+css: foreign-commonwealth-office

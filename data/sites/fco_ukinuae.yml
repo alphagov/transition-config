@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/united-arab-emirates
 options: --query-string id
 aliases:
 - www.ukinuae.fco.gov.uk
+css: foreign-commonwealth-office

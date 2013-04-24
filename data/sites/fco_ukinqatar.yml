@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/qatar
 options: --query-string id
 aliases:
 - www.ukinqatar.fco.gov.uk
+css: foreign-commonwealth-office

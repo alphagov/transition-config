@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/uk-delegation-to-council-of-europe
 options: --query-string id
 aliases:
 - www.ukcoe.fco.gov.uk
+css: foreign-commonwealth-office

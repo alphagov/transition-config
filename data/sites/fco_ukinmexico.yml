@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/mexico
 options: --query-string id
 aliases:
 - www.ukinmexico.fco.gov.uk
+css: foreign-commonwealth-office

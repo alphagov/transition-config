@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/uk-representation-to-the-eu
 options: --query-string id
 aliases:
 - www.ukeu.fco.gov.uk
+css: foreign-commonwealth-office

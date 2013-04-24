@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/belize
 options: --query-string id
 aliases:
 - www.ukinbelize.fco.gov.uk
+css: foreign-commonwealth-office

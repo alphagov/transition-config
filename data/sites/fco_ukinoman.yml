@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/oman
 options: --query-string id
 aliases:
 - www.ukinoman.fco.gov.uk
+css: foreign-commonwealth-office

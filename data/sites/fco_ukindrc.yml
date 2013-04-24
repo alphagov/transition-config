@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/democratic-republic-of-congo
 options: --query-string id
 aliases:
 - www.ukindrc.fco.gov.uk
+css: foreign-commonwealth-office

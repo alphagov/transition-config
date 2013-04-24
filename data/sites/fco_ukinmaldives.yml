@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/maldives
 options: --query-string id
 aliases:
 - www.ukinmaldives.fco.gov.uk
+css: foreign-commonwealth-office

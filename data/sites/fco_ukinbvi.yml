@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/british-virgin-islands
 options: --query-string id
 aliases:
 - www.ukinbvi.fco.gov.uk
+css: foreign-commonwealth-office

@@ -9,3 +9,4 @@ homepage: https://www.gov.uk/government/world/bosnia-and-herzegovina
 options: --query-string id
 aliases:
 - www.ukinbih.fco.gov.uk
+css: foreign-commonwealth-office
