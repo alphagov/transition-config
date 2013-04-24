@@ -402,6 +402,20 @@ button:focus {
   left: -22px;
 }
 
+.directgov a {
+  background-image: url('/directgov-logo-2x.png');
+  background-position: 0px;
+  border-left: none;
+  text-indent: -9999px;
+}
+
+.businesslink a {
+  background-image: url('/businesslink-logo-2x.png');
+  background-position: 0px;
+  border-left: none;
+  text-indent: -9999px;
+}
+
 @media (max-width: 640px) {
   .wales-office a {
     background-image: url('/wales_crest_13px_x2.png');

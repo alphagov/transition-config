@@ -162,6 +162,8 @@ static::	\
 	$(staticdir)/favicon.ico \
 	$(staticdir)/gone.css \
 	$(staticdir)/ie.css \
+	$(staticdir)/businesslink-logo-2x.png \
+	$(staticdir)/directgov-logo-2x.png \
 	$(staticdir)/bis_crest_13px_x2.png \
 	$(staticdir)/bis_crest_18px_x2.png \
 	$(staticdir)/govuk-crest.png \
@@ -187,6 +189,14 @@ $(staticdir)/gone.css:	static/gone.css
 	cp $< $@
 
 $(staticdir)/ie.css:	static/ie.css
+	@mkdir -p $(staticdir)
+	cp $< $@
+
+$(staticdir)/businesslink-logo-2x.png:	static/businesslink-logo-2x.png
+	@mkdir -p $(staticdir)
+	cp $< $@
+
+$(staticdir)/directgov-logo-2x.png:	static/directgov-logo-2x.png
 	@mkdir -p $(staticdir)
 	cp $< $@
 
