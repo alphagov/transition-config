@@ -224,7 +224,7 @@ button:focus {
     background-image: url('crests/org_crest_13px_x2.png');
     background-position: 5px 0px;
     background-size: auto 25px;
-    border-left: 2px solid #000;
+    border-left: 2px solid #005abb;
     padding: 0 0 0 40px;
   }
 
@@ -233,6 +233,13 @@ button:focus {
     line-height: 25px;
     top: 0;
   }
+}
+
+.no-organisation a {
+  border: none;
+  background-image: none;
+  padding: 10px 0 0;
+  left: 0;
 }
 
 /**
