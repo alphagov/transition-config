@@ -1,4 +1,6 @@
 Old Url,New Url,Status
+http://ukinchina.fco.gov.uk/content/en/rss-outbound/china-en-rss,https://www.gov.uk/government/world/china.atom,301
+http://ukinchina.fco.gov.uk/content/zh/rss-outbound/china-zh-rss,https://www.gov.uk/government/world/china.atom,301
 http://ukinchina.fco.gov.uk/en,https://www.gov.uk/government/world/china,301
 http://ukinchina.fco.gov.uk/en/about-us,https://www.gov.uk/government/world/organisations/british-embassy-beijing#about-us,301
 http://ukinchina.fco.gov.uk/en/about-us/other-locations,https://www.gov.uk/government/world/organisations/british-embassy-beijing#contact-us,301
