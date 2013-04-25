@@ -34,6 +34,7 @@ goc2012.culture.gov.uk
 gps.cabinetoffice.gov.uk
 graduatetalentpool.direct.gov.uk
 hes.decc.gov.uk
+history.blogs.gov.uk
 jobsstatic.civilservice.gov.uk
 livinglonger.dh.gov.uk
 local.direct.gov.uk
@@ -86,6 +87,7 @@ www.2010.voa.gov.uk
 www.aboutmyvote.co.uk
 www.armysecure.mod.uk
 www.betterregulation.gov.uk
+www.bigsocietyawards.org
 www.bis.gov.uk
 www.britishcouncil.org
 www.business.gov.uk
