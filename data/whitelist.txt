@@ -34,7 +34,7 @@ goc2012.culture.gov.uk
 gps.cabinetoffice.gov.uk
 graduatetalentpool.direct.gov.uk
 hes.decc.gov.uk
-history.blogs.gov.uk
+history.blog.gov.uk
 jobsstatic.civilservice.gov.uk
 livinglonger.dh.gov.uk
 local.direct.gov.uk
