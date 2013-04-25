@@ -17,7 +17,8 @@ class GenerateNginxConfTest < MiniTest::Unit::TestCase
         'homepage: http://www.bar.com'
         ])
 
-    assert_match %r{server_name\s+www.example.com\s+aka.example.com\s*;}, server_declaration
+    assert_match %r{server_name[^;]*\bwww.example.com\b}, server_declaration
+    assert_match %r{server_name[^;]*\baka.example.com\b}, server_declaration
     assert_match %r{root\s+/var/apps/redirector/static/foo;}, server_declaration
     assert_match %r{include\s+/var/apps/redirector/common/settings.conf;}, server_declaration
     assert_match %r{include\s+/var/apps/redirector/common/status_pages.conf;}, server_declaration
@@ -35,8 +36,15 @@ class GenerateNginxConfTest < MiniTest::Unit::TestCase
         '  - bar.com'
         ])
 
-    assert_match %r{server_name\s+www.example.com\s+aka.example.com\s+www.foo.com\s+aka.foo.com\s+bar.com\s+aka-bar.com\s*;}, server_declaration
+    assert_match %r{server_name[^;]*\bwww.example.com\b}, server_declaration
+    assert_match %r{server_name[^;]*\baka.example.com\b}, server_declaration
+    assert_match %r{server_name[^;]*\bbar.com\b}, server_declaration
+    assert_match %r{server_name[^;]*\baka-bar.com\b}, server_declaration
+    assert_match %r{server_name[^;]*\bfoo.redirector.dev.alphagov.co.uk\b}, server_declaration
+    assert_match %r{server_name[^;]*\bfoo.redirector.preview.alphagov.co.uk\b}, server_declaration
+    assert_match %r{server_name[^;]*\bfoo.redirector.production.alphagov.co.uk\b}, server_declaration
   end
+
 
   def test_locations
     server_declaration = generate_nginx_config([
