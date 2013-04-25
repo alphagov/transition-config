@@ -7,8 +7,10 @@
         aka = a.match(/^www/) ? a.gsub(/www/, 'aka') : 'aka-' + a
 %>
         <%= a %>
-        <%= aka %><%
-    end %>;
+        <%= aka %><% end %>
+        <%= site %>.redirector.dev.alphagov.co.uk
+        <%= site %>.redirector.preview.alphagov.co.uk
+        <%= site %>.redirector.production.alphagov.co.uk;
 
     root            /var/apps/redirector/static/<%=site%>;
     include         /var/apps/redirector/common/settings.conf;
