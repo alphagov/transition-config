@@ -308,6 +308,11 @@ button:focus {
   border-color: #00ad93;
 }
 
+.dpm a {
+  background-position: 0px;
+  border-left: none;
+}
+
 .foreign-commonwealth-office a {
   border-color: #003e74;
 }
@@ -368,6 +373,11 @@ button:focus {
 
 .northern-ireland-office a {
   border-color: #002663;
+}
+
+.number10 a {
+  background-position: 0px;
+  border-left: none;
 }
 
 .office-of-the-advocate-general-for-scotland a {
