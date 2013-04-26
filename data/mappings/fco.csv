@@ -598,6 +598,9 @@ http://www.fco.gov.uk/ar/sitemap,https://www.gov.uk/government/announcements.ar,
 http://www.fco.gov.uk/ar/subscribe,https://www.gov.uk/government/announcements.ar,301
 http://www.fco.gov.uk/ar/temp,https://www.gov.uk/government/announcements.ar,301
 http://www.fco.gov.uk/ar/terms,https://www.gov.uk/government/announcements.ar,301
+http://www.fco.gov.uk/bmd,https://www.gov.uk/browse/abroad/living-abroad,301
+http://www.fco.gov.uk/consularfeedback,https://www.gov.uk/government/organisations/foreign-commonwealth-office/about/research,301
+http://www.fco.gov.uk/content/ar/3678471/news-rss,https://www.gov.uk/government/announcements.atom?departments%5B%5D=foreign-commonwealth-office,301
 http://www.fco.gov.uk/content/en/23092127/0031-12,https://www.gov.uk/government/publications/foi-ref-0031-12,301
 http://www.fco.gov.uk/content/en/23092127/0031-12attachment1of2,https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/35474/0031-12attachment1of2.pdf,301
 http://www.fco.gov.uk/content/en/23092127/0031-12attachment2of2,https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/35475/0031-12attachment2of2.pdf,301
@@ -615,6 +618,8 @@ http://www.fco.gov.uk/content/en/contact/sub-sahara-africa/addis-ababa-pst00195,
 http://www.fco.gov.uk/content/en/contact/sub-sahara-africa/dl-gabon,https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/145432/LDL_March_2013.pdf,301
 http://www.fco.gov.uk/content/en/rss-outbound/fco-latest-news-rss,https://www.gov.uk/government/announcements.atom?departments%5B%5D=foreign-commonwealth-office,301
 http://www.fco.gov.uk/content/en/rss-outbound/fco-latest-speeches,https://www.gov.uk/government/announcements.atom?departments%5B%5D=foreign-commonwealth-office,301
+http://www.fco.gov.uk/content/en/rss-outbound/fco-latest-transcripts,https://www.gov.uk/government/announcements.atom?departments%5B%5D=foreign-commonwealth-office,301
+http://www.fco.gov.uk/content/en/rss-outbound/job-adverts,https://www.gov.uk/government/announcements.atom?departments%5B%5D=foreign-commonwealth-office,301
 http://www.fco.gov.uk/content/en/rss-outbound/travel-advice/embassies-rss,https://www.gov.uk/foreign-travel-advice.atom,301
 http://www.fco.gov.uk/content/en/rss-outbound/travel-advice/travel-advice-index-rss,https://www.gov.uk/foreign-travel-advice.atom,301
 http://www.fco.gov.uk/content/en/rss-outbound/travel-advice/travel-advice-rss,https://www.gov.uk/foreign-travel-advice.atom,301
@@ -623,6 +628,7 @@ http://www.fco.gov.uk/content/en/rss-outbound/travel-advice/travel-news-rss,http
 http://www.fco.gov.uk/content/en/travel-advice/europe/ukraine/list-of-translators,https://www.gov.uk/government/publications/ukraine-list-of-lawyers,301
 http://www.fco.gov.uk/content/en/travel-advice/sub-sahara-africa/nigeria/860207382,https://www.gov.uk/foreign-travel-advice/nigeria.atom,301
 http://www.fco.gov.uk/content/en/travel-advice/sub-sahara-africa/somalia/seasafeleaflet,https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/35560/seasafeleaflet.pdf,301
+http://www.fco.gov.uk/drivingabroad,https://www.gov.uk/driving-abroad,301
 http://www.fco.gov.uk/en,https://www.gov.uk/government/organisations/foreign-commonwealth-office,301
 http://www.fco.gov.uk/en/about-us,https://www.gov.uk/government/organisations/foreign-commonwealth-office/about,301
 http://www.fco.gov.uk/en/about-us/our-history,https://www.gov.uk/government/history,301
@@ -7390,8 +7396,10 @@ http://www.fco.gov.uk/en/treaties,http://treaties.fco.gov.uk,301
 http://www.fco.gov.uk/en/treaties/search,http://treaties.fco.gov.uk,301
 http://www.fco.gov.uk/en/treaties/treaties-landing,http://treaties.fco.gov.uk,301
 http://www.fco.gov.uk/en/treaties/treaties-landing/records,http://treaties.fco.gov.uk,301
+http://www.fco.gov.uk/forcedmarriage,https://www.gov.uk/stop-forced-marriage,301
 http://www.fco.gov.uk/legalisation,https://www.gov.uk/get-document-legalised,301
 http://www.fco.gov.uk/protocolwebsite,http://protocol.fco.gov.uk,301
+http://www.fco.gov.uk/publications,https://www.gov.uk/government/publications?keywords=&publication_filter_option=all&topics[]=all&departments[]=foreign-commonwealth-office&world_locations[]=all&direction=before&date=2013-05-01,301
 http://www.fco.gov.uk/resources/en/csv/publications/transparency/gpc-data-apr-aug-11.csv,https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/36116/gpc-data-apr-aug-11.csv,301
 http://www.fco.gov.uk/resources/en/csv/publications/transparency/gpc-data-dec-11.csv,https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/36112/gpc-data-dec-11.csv,301
 http://www.fco.gov.uk/resources/en/csv/publications/transparency/gpc-data-feb-12.csv,https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/36110/gpc-data-feb-12.csv,301
