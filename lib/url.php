@@ -40,9 +40,11 @@ function c14n_url($url, $query_values = '') {
 
     # add canonicalised query string
     if ($query_values) {
-        $query = c14n_query_string($uri['query'], $query_values);
-        if ($query) {
-            $url = "$url?$query";
+        if (array_key_exists('query', $uri)) {
+            $query = c14n_query_string($uri['query'], $query_values);
+            if ($query) {
+                $url = "$url?$query";
+            }
         }
     }
 

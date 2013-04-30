@@ -1,6 +1,8 @@
 #!/usr/bin/env php
 <?php
 
+error_reporting(-1);
+
 include "lib/assert.php";
 include "lib/url.php";
 
