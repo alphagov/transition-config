@@ -36,6 +36,7 @@ http://www.number10.gov.uk/earl-of-shelburne,,410
 http://www.number10.gov.uk/earl-of-wilmington,,410
 http://www.number10.gov.uk/earl-russell,,410
 http://www.number10.gov.uk/eugrowth,,410
+http://www.number10.gov.uk/feed,https://www.gov.uk/government/organisations/prime-ministers-office-10-downing-street.atom,301
 http://www.number10.gov.uk/first-pm-moves-in,,410
 http://www.number10.gov.uk/footer,,410
 http://www.number10.gov.uk/footer/contact-us,https://www.gov.uk/government/organisations/the-prime-ministers-office-number-10,301
@@ -44,6 +45,7 @@ http://www.number10.gov.uk/freedom-of-information,https://www.gov.uk/make-a-free
 http://www.number10.gov.uk/from-the-pm,,410
 http://www.number10.gov.uk/gladstone-speaks-transcript,,410
 http://www.number10.gov.uk/government-ministers,https://www.gov.uk/government/ministers,301
+http://www.number10.gov.uk/government/news/press-briefing-morning-29-april-2013,https://www.gov.uk/government/news/press-briefing-morning-29-april-2013,301
 http://www.number10.gov.uk/health-and-care-reform,,410
 http://www.number10.gov.uk/hear-churchill-transcript,,410
 http://www.number10.gov.uk/history-and-tour,https://www.gov.uk/government/history/10-downing-street#introduction,301
@@ -682,8 +684,8 @@ http://www.number10.gov.uk/news/business-in-the-community-speech,https://www.gov
 http://www.number10.gov.uk/news/business-plan-data-jan12,https://www.gov.uk/government/news/latest-business-plan-data-published,301
 http://www.number10.gov.uk/news/business-plan-data-oct11,https://www.gov.uk/government/news/business-plan-quarterly-data-published--2,301
 http://www.number10.gov.uk/news/business-plan-quarterly-data-published,https://www.gov.uk/government/news/business-plan-quarterly-data-published,301
-http://www.number10.gov.uk/news/business-plans-published,https://www.gov.uk/government/news/business-plans-published--5,418
-http://www.number10.gov.uk/news/business-plans-published-2,https://www.gov.uk/government/news/business-plans-published--5,418
+http://www.number10.gov.uk/news/business-plans-published,https://www.gov.uk/government/news/business-plans-published--5,301
+http://www.number10.gov.uk/news/business-plans-published-2,https://www.gov.uk/government/news/business-plans-published--5,301
 http://www.number10.gov.uk/news/businesses-urged-to-help-build-big-society,https://www.gov.uk/government/news/businesses-urged-to-help-build-big-society--2,301
 http://www.number10.gov.uk/news/cabinet-meets-business-leaders-in-derby,https://www.gov.uk/government/news/cabinet-meets-in-derby-to-discuss-business-growth,301
 http://www.number10.gov.uk/news/cabinet-meets-in-yorkshire-2,https://www.gov.uk/government/news/cabinet-meets-in-yorkshire,301
@@ -1018,7 +1020,7 @@ http://www.number10.gov.uk/news/irish-taoiseach-enda-kenny,https://www.gov.uk/go
 http://www.number10.gov.uk/news/january-structural-reform-plan-progress-reports,https://www.gov.uk/government/news/january-structural-reform-plan-progress-reports,301
 http://www.number10.gov.uk/news/january-structural-reform-plan-progress-reports-published,https://www.gov.uk/government/news/january-structural-reform-plan-progress-reports-published,301
 http://www.number10.gov.uk/news/japan-pm-signs-book-of-condolence,https://www.gov.uk/government/news/japan-pm-signs-book-of-condolence,301
-http://www.number10.gov.uk/news/jo-johnson-to-head-downing-street-policy-unit,,410
+http://www.number10.gov.uk/news/jo-johnson-to-head-downing-street-policy-unit,https://www.gov.uk/government/news/jo-johnson-to-head-downing-street-policy-unit,301
 http://www.number10.gov.uk/news/joanna-shields-to-lead-tech-city-investment-organisation,https://www.gov.uk/government/news/joanna-shields-to-lead-tech-city-investment-organisation--2,301
 http://www.number10.gov.uk/news/jobs-announcement-ellesmere-port,https://www.gov.uk/government/news/pm-welcomes-jobs-announcement-at-ellesmere-port,301
 http://www.number10.gov.uk/news/jobs-protected-in-airbus-deal,https://www.gov.uk/government/news/jobs-protected-in-airbus-deal,301
@@ -2225,6 +2227,7 @@ http://www.number10.gov.uk/news/press-briefing-morning-friday-14-september-2012,
 http://www.number10.gov.uk/news/press-briefing-morning-monday-3-december-2012,https://www.gov.uk/government/news/number-10-press-briefing-morning-monday-3-december-2012,301
 http://www.number10.gov.uk/news/press-briefing-morning-of-7-jan-2013,https://www.gov.uk/government/news/number-10-press-briefing-morning-7-january-2013,301
 http://www.number10.gov.uk/news/press-briefing-morning-tuesday-27-november-2012,https://www.gov.uk/government/news/number-10-press-briefing-morning-tuesday-27-november-2012,301
+http://www.number10.gov.uk/news/press-briefings,https://www.gov.uk/government/announcements?departments[]=prime-ministers-office-10-downing-street,301
 http://www.number10.gov.uk/news/press-briefings-on-26-march-2013,https://www.gov.uk/government/news/press-briefing-morning-26-march-2013,301
 http://www.number10.gov.uk/news/press-briefings/feed,https://www.gov.uk/government/announcements.atom?announcement_type_option=press-releases&departments,301
 http://www.number10.gov.uk/news/press-conference-at-european-council,https://www.gov.uk/government/speeches/press-conference-at-european-council,301
@@ -3065,6 +3068,7 @@ http://www.number10.gov.uk/output/page1.asp,https://www.gov.uk/government/organi
 http://www.number10.gov.uk/output/page126.asp,,410
 http://www.number10.gov.uk/output/page19.asp,https://www.gov.uk/government/ministers,301
 http://www.number10.gov.uk/output/page41.asp,https://www.gov.uk/government/history/10-downing-street#take-the-tour,301
+http://www.number10.gov.uk/page12065/feed,https://www.gov.uk/government/organisations/prime-ministers-office-10-downing-street.atom,301
 http://www.number10.gov.uk/past-prime-ministers,http://www.number10.gov.uk/history-and-tour/past-prime-ministers,301
 http://www.number10.gov.uk/past-prime-ministers/76019-2,https://www.gov.uk/government/history/past-prime-ministers/winston-churchill,301
 http://www.number10.gov.uk/past-prime-ministers/andrew-bonar-law,https://www.gov.uk/government/history/past-prime-ministers/andrew-bonar-law,301
@@ -3172,6 +3176,7 @@ http://www.number10.gov.uk/problemwithprocurement,,410
 http://www.number10.gov.uk/public-service-reform-cornwall-works,,410
 http://www.number10.gov.uk/queens-speech/2010/05/queens-speech-afghanistan-and-pakistan-50704,,410
 http://www.number10.gov.uk/rss-feed,https://www.gov.uk/government/organisations/the-prime-ministers-office-number-10,301
+http://www.number10.gov.uk/rss/rss.asp,https://www.gov.uk/government/organisations/prime-ministers-office-10-downing-street.atom,301
 http://www.number10.gov.uk/sir-robert-peel,,410
 http://www.number10.gov.uk/sir-robert-walpole,,410
 http://www.number10.gov.uk/site-map,https://www.gov.uk/,301
@@ -3664,7 +3669,12 @@ http://www.number10.gov.uk/timelines,,410
 http://www.number10.gov.uk/top-story-text-description/feed,https://www.gov.uk/government/announcements.atom?announcement_type_option=news-stories&departments%5B%5D=prime-ministers-office-10-downing-street,301
 http://www.number10.gov.uk/top-story-video-image/feed,https://www.gov.uk/government/announcements.atom?announcement_type_option=press-releases&departments,301
 http://www.number10.gov.uk/topics/news/latest-news/feed,http://www.number10.gov.uk/news-type/news-stories/feed,301
+http://www.number10.gov.uk/topics/news/latest-news/feed/atom,https://www.gov.uk/government/organisations/prime-ministers-office-10-downing-street.atom,301
+http://www.number10.gov.uk/topics/news/latest-news/wp-rss2.php,https://www.gov.uk/government/organisations/prime-ministers-office-10-downing-street.atom,301
 http://www.number10.gov.uk/topics/news/press-briefings/feed,http://www.number10.gov.uk/news-type/statements-and-articles/feed,301
+http://www.number10.gov.uk/topics/news/press-notices/feed,https://www.gov.uk/government/announcements?departments[]=prime-ministers-office-10-downing-street,301
+http://www.number10.gov.uk/topics/news/prime-ministers-questions/feed,https://www.gov.uk/government/organisations/prime-ministers-office-10-downing-street.atom,301
+http://www.number10.gov.uk/topics/news/prime-ministers-questions/wp-rss2.php,https://www.gov.uk/government/organisations/prime-ministers-office-10-downing-street.atom,301
 http://www.number10.gov.uk/topics/news/statements-and-articles/feed,http://www.number10.gov.uk/news-type/speeches-and-transcripts/feed,301
 http://www.number10.gov.uk/topics/top-story-text-description/feed,http://www.number10.gov.uk/news-type/news-stories/feed,301
 http://www.number10.gov.uk/topics/top-story-video-image/feed,http://www.number10.gov.uk/news-type/news-stories/feed,301
@@ -4179,6 +4189,7 @@ http://www.number10.gov.uk/wp-content/uploads/2013/01/pm-reply-to-lord-strathcly
 http://www.number10.gov.uk/wp-content/uploads/2013/03/professor-black.jpg,,410
 http://www.number10.gov.uk/wp-content/uploads/2013/04/globe.jpg,,410
 http://www.number10.gov.uk/wp-content/uploads/2013/04/margaret-thatcher-copyright-helmut-newton.jpg,,410
+http://www.number10.gov.uk/wp-content/uploads/2013/04/mt540.jpg,https://www.gov.uk/government/organisations/prime-ministers-office-10-downing-street.atom,301
 http://www.number10.gov.uk/wp-content/uploads/2013/04/staircase.jpg,,410
 http://www.number10.gov.uk/wp-content/uploads/2013/04/study.jpg,,410
 http://www.number10.gov.uk/wp-content/uploads/2013/04/thatcher.jpg,,410
