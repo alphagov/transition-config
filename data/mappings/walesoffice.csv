@@ -739,6 +739,7 @@ http://www.walesoffice.gov.uk/about/wales,,410
 http://www.walesoffice.gov.uk/about/welsh-language-scheme,https://www.gov.uk/government/organisations/wales-office/about/welsh-language-scheme,301
 http://www.walesoffice.gov.uk/additional-information-on-the-referendum,https://www.gov.uk/government/policies/maintaining-and-strengthening-the-welsh-devolution-settlement,301
 http://www.walesoffice.gov.uk/category/foi-disclosures,https://www.gov.uk/government/publications?departments%5B%5D=wales-office&publication_type=foi-releases,301
+http://www.walesoffice.gov.uk/category/foi-disclosures/feed,https://www.gov.uk/government/organisations/wales-office.atom,301
 http://www.walesoffice.gov.uk/category/foi-disclosures/page/10,,410
 http://www.walesoffice.gov.uk/category/foi-disclosures/page/11,,410
 http://www.walesoffice.gov.uk/category/foi-disclosures/page/12,,410
@@ -754,6 +755,7 @@ http://www.walesoffice.gov.uk/category/foi-disclosures/page/7,,410
 http://www.walesoffice.gov.uk/category/foi-disclosures/page/8,,410
 http://www.walesoffice.gov.uk/category/foi-disclosures/page/9,,410
 http://www.walesoffice.gov.uk/category/news-releases,https://www.gov.uk/government/announcements?departments%5B%5D=wales-office,301
+http://www.walesoffice.gov.uk/category/news-releases/feed,https://www.gov.uk/government/organisations/wales-office.atom,301
 http://www.walesoffice.gov.uk/category/news-releases/page/10,,410
 http://www.walesoffice.gov.uk/category/news-releases/page/11,,410
 http://www.walesoffice.gov.uk/category/news-releases/page/12,,410
@@ -804,14 +806,17 @@ http://www.walesoffice.gov.uk/category/news-releases/page/7,,410
 http://www.walesoffice.gov.uk/category/news-releases/page/8,,410
 http://www.walesoffice.gov.uk/category/news-releases/page/9,,410
 http://www.walesoffice.gov.uk/category/publications,https://www.gov.uk/government/publications?keywords=&publication_filter_option=all&topics%5B%5D=all&departments%5B%5D=wales-office,301
+http://www.walesoffice.gov.uk/category/publications/feed,https://www.gov.uk/government/organisations/wales-office.atom,301
 http://www.walesoffice.gov.uk/category/publications/page/2,,410
 http://www.walesoffice.gov.uk/category/speeches,https://www.gov.uk/government/announcements?keywords=&announcement_type_option=speeches&topics%5B%5D=all&departments%5B%5D=wales-office,301
+http://www.walesoffice.gov.uk/category/speeches/feed,https://www.gov.uk/government/organisations/wales-office.atom,301
 http://www.walesoffice.gov.uk/category/speeches/page/2,,410
 http://www.walesoffice.gov.uk/category/uncategorized,https://www.gov.uk/government/announcements?departments%5B%5D=wales-office,301
 http://www.walesoffice.gov.uk/contact,https://www.gov.uk/government/organisations/wales-office,301
 http://www.walesoffice.gov.uk/contact/complaints-procedure,https://www.gov.uk/government/organisations/wales-office/about/complaints-procedure,301
 http://www.walesoffice.gov.uk/devolution,https://www.gov.uk/government/policies/maintaining-and-strengthening-the-welsh-devolution-settlement,301
 http://www.walesoffice.gov.uk/faqs,https://www.gov.uk/government/organisations/wales-office,301
+http://www.walesoffice.gov.uk/feed,https://www.gov.uk/government/organisations/wales-office.atom,301
 http://www.walesoffice.gov.uk/files/2010/08/director-hospitality-q1-2011.csv,https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/139977/Director-hospitality-Q1-2011.csv.csv,301
 http://www.walesoffice.gov.uk/files/2010/08/director-hospitality-q2-2010.csv,https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/139993/Director-Hospitality-Q2-2010.csv.csv,301
 http://www.walesoffice.gov.uk/files/2010/08/director-hospitality-q3-return.csv,https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/139989/Director-Hospitality-Q3-return.csv.csv,301
@@ -1203,3 +1208,4 @@ http://www.walesoffice.gov.uk/transparency/overseas-travel,https://www.gov.uk/go
 http://www.walesoffice.gov.uk/wales-office-communication-staff,,410
 http://www.walesoffice.gov.uk/wales-office-ict-strategy,,410
 http://www.walesoffice.gov.uk/welsh-language-lco,,410
+http://www.walesoffice.gov.uk/wp-cron.php,,410
