@@ -8,27 +8,24 @@
   </head>
   <body>
     <div id="wrapper">
-      <div id="banner">
+      <div id="banner" role="banner">
         <div class="inner">
           <h1>
-            <a href="https://www.gov.uk" title="Go to the gov.uk homepage">
+            <a href="https://www.gov.uk">
               <img src="/govuk-logo.png" alt="GOV.UK">
             </a>
           </h1>
         </div>
       </div>
-      <div id="message">
+      <div id="message" rold="main">
         <div class="inner">
-          <div class="organisation <%= css || "no-organisation" %>">
-            <a href="<%= homepage %>"><span><%= title %></span></a>
-          </div>
-
           <div id="detail">
             <h2>
-              <strong><%= page_title %></strong>
+              <div class="organisation <%= css || "no-organisation" %>">
+                <a href="<%= homepage %>"><span><%= title %></span></a>
+              </div>
               This page has not been published&nbsp;yet
             </h2>
-
             <p>New content for this page is coming soon. You can find an older version in <a href="<%= archive_link %>">The UK Government Web Archive</a>.</p>
             <p>Our <a href="https://www.gov.uk/support">support pages</a> have answers to the most common questions about GOV.UK.
             You can use the <a href="https://www.gov.uk/feedback/contact">contact form</a> to ask a question, report a problem or suggest an improvement.</p>
