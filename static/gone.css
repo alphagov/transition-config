@@ -110,7 +110,6 @@ h3 {
 }
 
 p {
-  color: #6F777B;
   margin-bottom: 1em;
 }
 
@@ -186,7 +185,7 @@ button:focus {
  * Organisation logos
  */
 .organisation {
-  margin: 45px 0 0 15px;
+  margin: 45px 0 0 0;
   padding-bottom: 30px;
 }
 

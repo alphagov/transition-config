@@ -9,27 +9,24 @@
   </head>
   <body>
     <div id="wrapper">
-      <div id="banner">
+      <div id="banner" role="banner">
         <div class="inner">
           <h1>
-            <a href="https://www.gov.uk" title="Go to the gov.uk homepage">
+            <a href="https://www.gov.uk">
               <img src="/govuk-logo.png" alt="GOV.UK">
             </a>
           </h1>
         </div>
       </div>
-      <div id="message">
+      <div id="message" role="main">
         <div class="inner">
-          <div class="organisation <%= css || "no-organisation" %>">
-            <a href="<%= homepage %>"><span><%= title %></span></a>
-          </div>
-
           <div id="detail">
             <h2>
-              <strong><%= page_title %></strong>
+              <div class="organisation <%= css || "no-organisation" %>">
+                <a href="<%= homepage %>"><span><%= title %></span></a>
+              </div>
               This page cannot be&nbsp;found
             </h2>
-
             <p>Please check that you have entered the correct web address.</p>
             <p>The information you need may be found on <a href="https://www.gov.uk">GOV.UK</a>
                 or in <a href="<?= 'http://webarchive.nationalarchives.gov.uk/<%=tna_timestamp%>/http://<%=host%>' ?>">UK Government Web Archive</a>.</p>
