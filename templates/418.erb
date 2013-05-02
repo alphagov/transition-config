@@ -1,3 +1,33 @@
+<?php
+include(dirname(__FILE__)."/../../lib/url.php");
+$c14n_url = c14n_url($_SERVER['REQUEST_URI'], '<%= query_param = options ? options.sub(/^.*--query-string /, '') : "" %>');
+
+$location_suggested_links = array();
+$query_suggested_links = array();
+$archive_links = array();
+
+# generated php files
+<%= IO.popen('
+    site=' + site + '
+    cd dist > /dev/null
+    maps=maps/$site
+    for file in $maps/*.php
+    do
+        if [ -f $file ] ; then
+            echo "include(dirname(__FILE__).\"/../../$file\");"
+        fi
+    done
+').readlines.join('') %>
+/*
+ *  archive link
+ */
+$archive_link = 'http://webarchive.nationalarchives.gov.uk/<%=tna_timestamp%>/http://<%=host%>' . $_SERVER['REQUEST_URI'];
+
+if (isset($archive_links[$c14n_url])) {
+  $archive_link = $archive_links[$c14n_url];
+}
+
+?><!DOCTYPE html>
 <html class="no-branding">
   <head>
     <meta charset="utf-8">
