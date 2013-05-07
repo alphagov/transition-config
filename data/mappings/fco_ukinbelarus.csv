@@ -1,5 +1,4 @@
 Old Url,New Url,Status
-http://ukinbelarus.fco.gov.uk/en/rss-feed,https://www.gov.uk/government/world/belarus.atom,301
 http://ukinbelarus.fco.gov.uk/be,https://www.gov.uk/government/world/belarus.be,301
 http://ukinbelarus.fco.gov.uk/be/advanced-search,https://www.gov.uk/search,301
 http://ukinbelarus.fco.gov.uk/be/by-about-us,https://www.gov.uk/government/world/organisations/british-embassy-minsk.be,301
@@ -44,6 +43,7 @@ http://ukinbelarus.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong
 http://ukinbelarus.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/if-arrested-detained/living-conditions,https://www.gov.uk/help-if-you-are-arrested-abroad,301
 http://ukinbelarus.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer,https://www.gov.uk/government/world/organisations/british-embassy-minsk#our-services,301
 http://ukinbelarus.fco.gov.uk/en/news,https://www.gov.uk/government/announcements?keywords=&announcement_type_option=all&topics[]=all&departments[]=all&world_locations[]=belarus,301
+http://ukinbelarus.fco.gov.uk/en/rss-feed,https://www.gov.uk/government/world/belarus.atom,301
 http://ukinbelarus.fco.gov.uk/en/visiting-uk,http://www.visitbritain.com,301
 http://ukinbelarus.fco.gov.uk/en/visiting-uk/holidays-in-uk,http://www.visitbritain.com,301
 http://ukinbelarus.fco.gov.uk/en/visiting-uk/holidays-in-uk/practical-information,http://www.visitbritain.com,301
