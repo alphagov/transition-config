@@ -22,7 +22,7 @@ ifeq ($(wildcard configs/<%=site%>.conf),)
 $(configdir)/<%=site%>.conf:	$(sitesdir)/<%=site%>.yml templates/nginx.erb
 	@mkdir -p $(configdir)
 	$(ERB) -y $(sitesdir)/<%=site%>.yml templates/nginx.erb > $@
-else 
+else
 $(configdir)/<%=site%>.conf:	configs/<%=site%>.conf
 	@mkdir -p $(configdir)
 	cp configs/<%=site%>.conf $@
