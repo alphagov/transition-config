@@ -34,8 +34,13 @@ endif
 maps::	maps_<%=site%>
 
 maps_<%=site%>::	\
-<% [servers].flatten.each do |host|
-        next unless host %>	$(mapsdir)/<%=site%>/<%=host%>.conf \
+<% if options
+    %>	$(mapsdir)/<%=site%>/gone_map.conf \
+	$(mapsdir)/<%=site%>/redirect_map.conf \
+<% end
+
+  [servers].flatten.each do |host|
+    next unless host %>	$(mapsdir)/<%=site%>/<%=host%>.conf \
 <% end %>	$(mapsdir)/<%=site%>/<%=host%>.conf
 
 $(mapsdir)/<%=site%>/<%=host%>.conf:	$(mappingsdir)/<%=site%>.csv tools/generate_maps.pl
@@ -48,6 +53,17 @@ $(mapsdir)/<%=site%>/<%=host%>.conf:	$(mappingsdir)/<%=site%>.csv tools/generate
 $(mapsdir)/<%=site%>/<%=host%>.conf:	$(mappingsdir)/<%=site%>.csv tools/generate_locations.pl
 	@mkdir -p $(mapsdir)/<%=site%>
 	tools/generate_locations.pl --host <%=host%> < $(mappingsdir)/<%=site%>.csv > $@
+<% end %>
+
+<% if options %>
+# not reliably made by generate_maps.pl
+$(mapsdir)/<%=site%>/gone_map.conf:
+	@mkdir -p $(mapsdir)/<%=site%>
+	touch $@
+
+$(mapsdir)/<%=site%>/redirect_map.conf:
+	@mkdir -p $(mapsdir)/<%=site%>
+	touch $@
 <% end %>
 
 #

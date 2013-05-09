@@ -1,3 +1,12 @@
+<% if options %>
+map $query_string $<%= site %>_redirect {
+    include /var/apps/redirector/maps/<%= site %>/redirect_map.conf;
+}
+
+map $query_string $<%= site %>_gone {
+    include /var/apps/redirector/maps/<%= site %>/gone_map.conf;
+}
+<% end %>
 <% [host, servers].flatten.each do |host|
         next unless host
 %>server {
@@ -24,5 +33,21 @@
 <% end %>
 
     location = /    { return 301 <%=homepage%>; }
+
+<% if options %>
+    if ($<%= site %>_redirect) {
+        return 301 $<%= site %>_redirect;
+    }
+<% end %>
+
+    location / {
+        try_files $uri $uri.html =404;
+<% if options %>
+
+        if ($<%= site %>_gone) {
+            return 410;
+        }
+<% end %>
+    }
 }
 <% end %>
