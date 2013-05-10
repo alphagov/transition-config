@@ -21,6 +21,7 @@ cscuk.dfid.gov.uk
 customs.hmrc.gov.uk
 data.gov.uk
 digitalchallenge.dh.gov.uk
+digitalstandards.cabinetoffice.gov.uk
 dlcu.homeoffice.gov.uk
 drugdrive.direct.gov.uk
 dsa.dft.gov.uk
@@ -161,6 +162,7 @@ www.nuclear.nsacademy.co.uk
 www.number10.gov.uk
 www.official-documents.gov.uk
 www.oft.gov.uk
+www.openpublicservices.cabinetoffice.gov.uk
 www.parliament.uk
 www.people1st.co.uk
 www.planningportal.gov.uk
