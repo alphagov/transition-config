@@ -130,55 +130,30 @@ a:active {
   padding-top: 60px;
 }
 
-fieldset {
-  border: none;
-  padding: 15px 0 0;
-}
-
-.caption, input {
-  display: block;
-  width: 100%;
-}
-
-.caption {
-  padding-bottom: 5px;
-}
-
-input {
-  padding: 7px 0 3px;
-  text-indent: 5px;
-}
-
-button {
-  border: none;
-  margin-top: 5px;
-  padding: 7px 11px 3px;
-  color: white;
-  background: #008270;
-  cursor: pointer;
-  overflow: visible;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  -moz-box-shadow: 0 3px 0 #044d43;
-  -webkit-box-shadow: 0 3px 0 #044d43;
-  box-shadow: 0 3px 0 #044d43;
-  -webkit-font-smoothing: antialiased;
-}
-
-button:hover,
-button:focus {
-  background: #07ac96;
-}
-
 #message {
   margin: 0 auto;
   max-width: 900px;
 }
 
 #detail {
-  margin: 0 15px;
+  margin: 2em 15px;
   max-width: 600px;
+}
+
+.call-to-action {
+  font-weight: bold;
+}
+
+.either-or {
+  color: #6f777b;
+}
+
+#footer {
+  border-top: 1px solid #bfc1c3;
+  margin: 0 15px;
+  padding-top: 10px;
+  max-width: 600px;
+  color: #6f777b;
 }
 
 /**

@@ -67,15 +67,20 @@ if (isset($location_suggested_link[$c14n_url])) {
               <div class="organisation <%= css || "no-organisation" %>">
                 <a href="<%= homepage %>"><span><%= title %></span></a>
               </div>
-              <a href="<?= $archive_link ?>">This page has been archived</a>
+              <a href="<?= $archive_link ?>">This has been archived</a>
             </h2>
-            <p><a href="<?= $archive_link ?>">The page you were looking for</a> has been moved into The UK Government Web Archive.</p>
-            <p>The <%= title %> website moved to <a href="<%= homepage %>"><%= furl %></a> on the <%= redirection_date %>.</p>
+            <p class="either-or">You can either</p>
+            <p class="call-to-action"><a href="<?= $archive_link ?>">View the item you were looking for</a> in the UK Government Web Archive</p>
+            <p class="either-or">or</p>
+            <p class="call-to-action">Visit the new <%= title %> site at <a href="<%= homepage %>"><%= furl %></a></p>
 <?php
 if (isset($suggested_link)) {
-echo "            <p>For more information on this topic you may want to visit $suggested_link.</p>";
+echo "            <p class=\"either-or\">or</p>";
+echo "            <p class=\"call-to-action\">Visit $suggested_link for more information on this topic.</p>";
 }
 ?>
+          </div>
+          <div id="footer">
             <p><a href="https://www.gov.uk/support">Our support pages</a> have answers to the most common questions about GOV.UK.
             You can use the <a href="https://www.gov.uk/feedback/contact">contact form</a> to ask a question, report a problem or suggest an improvement.</p>
           </div>
