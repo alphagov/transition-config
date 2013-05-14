@@ -23,6 +23,9 @@ decc_ceo,trump,https://raw.github.com/alphagov/redirector-data/master/decc_ceo/t
 decc_mrws,extras,https://raw.github.com/alphagov/redirector-data/master/decc_mrws/extras.csv
 decc_mrws,current,https://raw.github.com/alphagov/redirector/master/data/mappings/decc_mrws.csv
 decc_mrws,trump,https://raw.github.com/alphagov/redirector-data/master/decc_mrws/trump.csv
+decc_offshoresea,extras,https://raw.github.com/alphagov/redirector-data/master/decc_offshoresea/extras.csv
+decc_offshoresea,current,https://raw.github.com/alphagov/redirector/master/data/mappings/decc_offshoresea.csv
+decc_offshoresea,trump,https://raw.github.com/alphagov/redirector-data/master/decc_offshoresea/trump.csv
 decc_og,extras,https://raw.github.com/alphagov/redirector-data/master/decc_og/extras.csv
 decc_og,current,https://raw.github.com/alphagov/redirector/master/data/mappings/decc_og.csv
 decc_og,trump,https://raw.github.com/alphagov/redirector-data/master/decc_og/trump.csv
