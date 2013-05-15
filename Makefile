@@ -120,7 +120,6 @@ $(commondir)/status_pages.conf:	common/status_pages.conf
 config::	\
 	$(configdir)/businesslink_events.conf \
 	$(configdir)/businesslink_events_admin.conf \
-	$(configdir)/businesslink_tariff.conf \
 	$(configdir)/directgov_campaigns.conf \
 	$(configdir)/directgov_jobseekers.conf \
 	$(configdir)/directgov_subdomains.conf \
@@ -131,10 +130,6 @@ $(configdir)/businesslink_events.conf:	configs/businesslink_events.conf
 	cp $< $@
 
 $(configdir)/businesslink_events_admin.conf:	configs/businesslink_events_admin.conf
-	@mkdir -p $(configdir)
-	cp $< $@
-
-$(configdir)/businesslink_tariff.conf:	configs/businesslink_tariff.conf
 	@mkdir -p $(configdir)
 	cp $< $@
 
