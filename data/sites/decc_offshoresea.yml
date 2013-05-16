@@ -6,5 +6,6 @@ tna_timestamp: 20130103064208
 title: Department of Energy and Climate Change
 furl: www.gov.uk/decc
 homepage: https://www.gov.uk/government/organisations/department-of-energy-climate-change
+options: --query-string categoryID:documentID:fileID:faqID:meetingID:consultationID:productID:bookID:downloadID:newsID
 css: department-of-energy-climate-change
 ---
