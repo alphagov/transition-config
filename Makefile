@@ -118,20 +118,10 @@ $(commondir)/status_pages.conf:	common/status_pages.conf
 #  additional config files
 #
 config::	\
-	$(configdir)/businesslink_events.conf \
-	$(configdir)/businesslink_events_admin.conf \
 	$(configdir)/directgov_campaigns.conf \
 	$(configdir)/directgov_jobseekers.conf \
 	$(configdir)/directgov_subdomains.conf \
 	$(configdir)/dfid_consultation.conf
-
-$(configdir)/businesslink_events.conf:	configs/businesslink_events.conf
-	@mkdir -p $(configdir)
-	cp $< $@
-
-$(configdir)/businesslink_events_admin.conf:	configs/businesslink_events_admin.conf
-	@mkdir -p $(configdir)
-	cp $< $@
 
 $(configdir)/directgov_campaigns.conf:	configs/directgov_campaigns.conf
 	@mkdir -p $(configdir)
