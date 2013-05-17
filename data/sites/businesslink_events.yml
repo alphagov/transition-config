@@ -6,6 +6,7 @@ tna_timestamp: 20120823131012
 title: Business Link
 furl: www.gov.uk
 homepage: https://www.gov.uk/business-training-and-networking-events-near-you
+global: 301 https://www.gov.uk/business-training-and-networking-events-near-you;
 css: businesslink
 aliases:
   - www.events.businesslink.gov.uk
