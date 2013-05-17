@@ -6,5 +6,6 @@ tna_timestamp: 20120823131012
 title: Business Link
 furl: www.gov.uk
 homepage: https://admin.business-events.org.uk
+global: 301 https://admin.business-events.org.uk
 css: businesslink
 ---
