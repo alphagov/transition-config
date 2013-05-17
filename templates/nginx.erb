@@ -41,13 +41,14 @@ map $query_string $<%= site %>_gone {
 <% end %>
 
     location / {
-        try_files $uri $uri.html =404;
+        try_files $uri $uri.html =<%= ("399" if global =~ /^301/) || global || "404" %>;
 <% if options %>
 
         if ($<%= site %>_gone) {
             return 410;
         }
 <% end %>
-    }
-}
+    }<% if global =~ /^301/ %>
+    error_page 399 =<%= global %>;
+<% end %>}
 <% end %>

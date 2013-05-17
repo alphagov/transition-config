@@ -24,6 +24,7 @@ class GenerateNginxConfTest < MiniTest::Unit::TestCase
     assert_match %r{include\s+/var/apps/redirector/common/status_pages.conf;}, server_declaration
     assert_match %r{include\s+/var/apps/redirector/maps/foo/www.example.com.conf;}, server_declaration
     assert_match %r{location = /\s*{ return 301 http://www.bar.com; }}, server_declaration
+    assert_match %r{try_files \$uri \$uri.html =404;}, server_declaration
   end
 
   def test_multiple_aliases
@@ -45,7 +46,6 @@ class GenerateNginxConfTest < MiniTest::Unit::TestCase
     assert_match %r{server_name[^;]*\bfoo.redirector.production.alphagov.co.uk\b}, server_declaration
   end
 
-
   def test_locations
     server_declaration = generate_nginx_config([
         'site: foo',
@@ -59,6 +59,29 @@ class GenerateNginxConfTest < MiniTest::Unit::TestCase
         ])
 
     assert_match %r{location \^~ /some/path \{ return 301 http://new.example.com/another/path/root; \}}, server_declaration
+  end
+
+  def test_global_410
+    server_declaration = generate_nginx_config([
+        'site: foo',
+        'host: www.example.com',
+        'homepage: http://www.bar.com',
+        'global: 410'
+        ])
+
+    assert_match %r{try_files \$uri \$uri.html =410;}, server_declaration
+  end
+
+  def test_global_301
+    server_declaration = generate_nginx_config([
+        'site: foo',
+        'host: www.example.com',
+        'homepage: http://www.bar.com',
+        'global: 301 https://www.example.com/foo'
+        ])
+
+    assert_match %r{try_files \$uri \$uri.html =399;}, server_declaration
+    assert_match %r{error_page 399 =301 https://www.example.com/foo;}, server_declaration
   end
 
 
