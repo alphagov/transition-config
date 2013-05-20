@@ -27,12 +27,17 @@ while test $# -gt 0 ; do
     break
 done
 
-ls -1 $sites/*.yml |
+if [ $# -le 0 ] ; then
+    set data/sites/*.yml
+fi
+
+ls -1 "$@" |
     while read file
     do
         site=$(basename $file .yml)
         mappings=$dir/${site}.csv
-        options=$(grep "^options:" $file | sed 's/^options: //')
+        sitefile=data/sites/${site}.yml
+        options=$(grep "^options:" $sitefile | sed 's/^options: //')
 
         echo
         echo ":: site: $site"
