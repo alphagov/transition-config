@@ -6,6 +6,8 @@ http://www.direct.gov.uk/favicon.ico,,200
 http://www.direct.gov.uk/gone.css,,200
 http://www.direct.gov.uk/directgov-logo.png,,200
 http://www.direct.gov.uk/alerts/akamai-availability.gif,,200
+http://www.direct.gov.uk/en,https://www.gov.uk,301,,
+http://www.direct.gov.uk/en/index.htm,https://www.gov.uk,301,,
 http://www.direct.gov.uk/en/TravelAndTransport/Passports/index.htm,https://www.gov.uk/browse/citizenship/passports,301,,
 http://www.direct.gov.uk/prod_consum_dg/DGFragmentsCode/ProphetInsert.js,,200
 http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@motor/documents/digitalasset/dg_065248.pdf,,200
