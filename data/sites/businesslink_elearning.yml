@@ -8,4 +8,6 @@ furl: www.gov.uk
 homepage: https://www.gov.uk/browse/business
 global: 301 https://www.gov.uk/browse/business
 css: businesslink
+aliases:
+  - www.elearning.businesslink.gov.uk
 ---
