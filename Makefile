@@ -118,17 +118,7 @@ $(commondir)/status_pages.conf:	common/status_pages.conf
 #  additional config files
 #
 config::	\
-	$(configdir)/directgov_campaigns.conf \
-	$(configdir)/directgov_jobseekers.conf \
 	$(configdir)/directgov_subdomains.conf 
-
-$(configdir)/directgov_campaigns.conf:	configs/directgov_campaigns.conf
-	@mkdir -p $(configdir)
-	cp $< $@
-
-$(configdir)/directgov_jobseekers.conf:	configs/directgov_jobseekers.conf
-	@mkdir -p $(configdir)
-	cp $< $@
 
 $(configdir)/directgov_subdomains.conf:	configs/directgov_subdomains.conf
 	@mkdir -p $(configdir)
