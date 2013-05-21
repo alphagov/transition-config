@@ -9,6 +9,7 @@ homepage: https://www.gov.uk
 css: businesslink
 options: --query-string topicid:itemid
 aliases:
+  - businesslink.gov.uk
   - online.businesslink.gov.uk
   - www.businesslink.co.uk
   - www.businesslink.org
