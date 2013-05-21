@@ -34,7 +34,7 @@ fi
 ls -1 "$@" |
     while read file
     do
-        site=$(basename $file .yml)
+        site=$(basename $(basename $file .yml) .csv)
         mappings=$dir/${site}.csv
         sitefile=data/sites/${site}.yml
         options=$(grep "^options:" $sitefile | sed 's/^options: //')
