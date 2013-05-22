@@ -7,7 +7,5 @@ title: Foreign &amp; Commonwealth Office
 furl: www.gov.uk/fco
 homepage: https://www.gov.uk/government/organisations/foreign-commonwealth-office
 options: --query-string id:itemid
-aliases:
-  - fco.gov.uk
 css: foreign-commonwealth-office
 ---
