@@ -115,17 +115,6 @@ $(commondir)/status_pages.conf:	common/status_pages.conf
 	cp common/status_pages.conf $@
 
 #
-#  additional config files
-#
-config::	\
-	$(configdir)/directgov_subdomains.conf 
-
-$(configdir)/directgov_subdomains.conf:	configs/directgov_subdomains.conf
-	@mkdir -p $(configdir)
-	cp $< $@
-
-
-#
 #  static
 #
 static::	\
