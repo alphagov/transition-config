@@ -629,6 +629,7 @@ http://www.fco.gov.uk/content/en/rss-outbound/travel-advice/travel-news-rss,http
 http://www.fco.gov.uk/content/en/travel-advice/europe/ukraine/list-of-translators,https://www.gov.uk/government/publications/ukraine-list-of-lawyers,301
 http://www.fco.gov.uk/content/en/travel-advice/sub-sahara-africa/nigeria/860207382,https://www.gov.uk/foreign-travel-advice/nigeria.atom,301
 http://www.fco.gov.uk/content/en/travel-advice/sub-sahara-africa/somalia/seasafeleaflet,https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/35560/seasafeleaflet.pdf,301
+http://www.fco.gov.uk/directory,https://www.gov.uk/government/world,301
 http://www.fco.gov.uk/drivingabroad,https://www.gov.uk/driving-abroad,301
 http://www.fco.gov.uk/en,https://www.gov.uk/government/organisations/foreign-commonwealth-office,301
 http://www.fco.gov.uk/en/about-us,https://www.gov.uk/government/organisations/foreign-commonwealth-office/about,301
@@ -7087,7 +7088,7 @@ http://www.fco.gov.uk/en/travel-and-living-abroad/staying-safe/driving-abroad,ht
 http://www.fco.gov.uk/en/travel-and-living-abroad/staying-safe/health,,410
 http://www.fco.gov.uk/en/travel-and-living-abroad/staying-safe/health/mental-health,https://www.gov.uk/government/publications/mental-health,301
 http://www.fco.gov.uk/en/travel-and-living-abroad/staying-safe/river-safety,https://www.gov.uk/sea-river-and-piracy-safety,301
-http://www.fco.gov.uk/en/travel-and-living-abroad/staying-safe/river-safety/indian-ocean-piracy,https://www.gov.uk/government/publications/sea-safe-leaflet,301
+http://www.fco.gov.uk/en/travel-and-living-abroad/staying-safe/river-safety/indian-ocean-piracy,https://www.gov.uk/sea-river-and-piracy-safety,301
 http://www.fco.gov.uk/en/travel-and-living-abroad/staying-safe/terrorism,https://www.gov.uk/reduce-your-risk-from-terrorism-while-abroad,301
 http://www.fco.gov.uk/en/travel-and-living-abroad/staying-safe/travel-insurance,https://www.gov.uk/foreign-travel-insurance,301
 http://www.fco.gov.uk/en/travel-and-living-abroad/staying-safe/travel-insurance/financial-protection,https://www.gov.uk/foreign-travel-insurance,301
@@ -7398,6 +7399,7 @@ http://www.fco.gov.uk/en/treaties/search,http://treaties.fco.gov.uk,301
 http://www.fco.gov.uk/en/treaties/treaties-landing,http://treaties.fco.gov.uk,301
 http://www.fco.gov.uk/en/treaties/treaties-landing/records,http://treaties.fco.gov.uk,301
 http://www.fco.gov.uk/forcedmarriage,https://www.gov.uk/stop-forced-marriage,301
+http://www.fco.gov.uk/jake,https://www.gov.uk/government/news/taking-action-to-help-prevent-balcony-incidents-abroad,301
 http://www.fco.gov.uk/legalisation,https://www.gov.uk/get-document-legalised,301
 http://www.fco.gov.uk/protocolwebsite,http://protocol.fco.gov.uk,301
 http://www.fco.gov.uk/publications,https://www.gov.uk/government/publications?keywords=&publication_filter_option=all&topics[]=all&departments[]=foreign-commonwealth-office&world_locations[]=all&direction=before&date=2013-05-01,301
