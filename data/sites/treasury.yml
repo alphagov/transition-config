@@ -6,4 +6,7 @@ tna_timestamp: 20130129110402
 title: HM Treasury
 furl: www.gov.uk/treasury
 homepage: https://www.gov.uk/government/organisations/hm-treasury
+aliases:
+  - cdn.hm-treasury.gov.uk
+css: hm-treasury
 ---
