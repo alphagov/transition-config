@@ -7,10 +7,10 @@ title: HM Treasury
 furl: www.gov.uk/treasury
 homepage: https://www.gov.uk/government/organisations/hm-treasury
 css: hm-treasury
-global: /d/$uri
+global: /d$uri
 locations:
-    - path: ^(/d/.*)$
+    - path: ^/d/(.*)$
       operation: ~*
       status: 301
-      new_url: http://www.hm-treasury.gov.uk/$1
+      new_url: http://www.hm-treasury.gov.uk/d/$1
 ---
