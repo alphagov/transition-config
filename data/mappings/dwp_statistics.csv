@@ -780,7 +780,7 @@ http://statistics.dwp.gov.uk/asd/asd1/tabtools/census_output_area_data/nov11/sou
 http://statistics.dwp.gov.uk/asd/asd1/tabtools/census_output_area_data/nov11/wales_nov11.xls,https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/195116/wales_nov11.xls.xls,301
 http://statistics.dwp.gov.uk/asd/asd1/tabtools/census_output_area_data/nov11/west_midlands_nov11.xls,https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/195096/west_midlands_nov11.xls.xls,301
 http://statistics.dwp.gov.uk/asd/asd1/tabtools/census_output_area_data/nov11/yorkshire_and_the_humber_nov11.xls,https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/195088/yorkshire_and_the_humber_nov11.xls.xls,301
-http://statistics.dwp.gov.uk/asd/asd1/tabtools/index.php?page=tabtool_nd,http://tools.dwp.gov.uk/100pc/tabtool.html,301
+http://statistics.dwp.gov.uk/asd/asd1/tabtools/index.php?page=tabtool_nd,http://tabulation-tool.dwp.gov.uk/100pc/tabtool.html,301
 http://statistics.dwp.gov.uk/asd/asd1/tbm/index.php,,410
 http://statistics.dwp.gov.uk/asd/asd1/tbm/tbm_consultation.pdf,https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/139517/tbm_consultation.pdf.pdf,301
 http://statistics.dwp.gov.uk/asd/asd1/tbm/tbm_response_170811.pdf,https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/139518/tbm_response_170811.pdf.pdf,301
@@ -1028,10 +1028,10 @@ http://statistics.dwp.gov.uk/asd/index.php?page=irb,https://www.gov.uk/governmen
 http://statistics.dwp.gov.uk/asd/index.php?page=irb_arc,https://www.gov.uk/government/publications/income-related-benefits-estimates-of-take-up,301
 http://statistics.dwp.gov.uk/asd/index.php?page=lid,https://www.gov.uk/government/publications/stats-low-income-dynamics,418
 http://statistics.dwp.gov.uk/asd/index.php?page=ma,https://www.gov.uk/government/publications/maternity-allowance-quarterly-statistics-august-2012,301
-http://statistics.dwp.gov.uk/asd/index.php?page=nddp,http://tools.dwp.gov.uk/100pc/tabtool.html,301
-http://statistics.dwp.gov.uk/asd/index.php?page=ndlp,http://tools.dwp.gov.uk/100pc/tabtool.html,301
-http://statistics.dwp.gov.uk/asd/index.php?page=ndp,http://tools.dwp.gov.uk/100pc/tabtool.html,301
-http://statistics.dwp.gov.uk/asd/index.php?page=ndyp,http://tools.dwp.gov.uk/100pc/tabtool.html,301
+http://statistics.dwp.gov.uk/asd/index.php?page=nddp,http://tabulation-tool.dwp.gov.uk/100pc/tabtool.html,301
+http://statistics.dwp.gov.uk/asd/index.php?page=ndlp,http://tabulation-tool.dwp.gov.uk/100pc/tabtool.html,301
+http://statistics.dwp.gov.uk/asd/index.php?page=ndp,http://tabulation-tool.dwp.gov.uk/100pc/tabtool.html,301
+http://statistics.dwp.gov.uk/asd/index.php?page=ndyp,http://tabulation-tool.dwp.gov.uk/100pc/tabtool.html,301
 http://statistics.dwp.gov.uk/asd/index.php?page=pensioners_income,https://www.gov.uk/government/publications/pensioners-incomes-series-201011,301
 http://statistics.dwp.gov.uk/asd/index.php?page=pensioners_income_arc,https://www.gov.uk/government/organisations/department-for-work-pensions/series/pensioners-incomes-series-statistics--3,301
 http://statistics.dwp.gov.uk/asd/index.php?page=policy,https://www.gov.uk/government/organisations/department-for-work-pensions/about/statistics,301
@@ -1049,7 +1049,7 @@ http://statistics.dwp.gov.uk/asd/index.php?page=stats_summary20,https://www.gov.
 http://statistics.dwp.gov.uk/asd/index.php?page=stats_summary21,https://www.gov.uk/government/publications/dwp-statistical-summaries-2011,301
 http://statistics.dwp.gov.uk/asd/index.php?page=stats_summary22,https://www.gov.uk/government/publications/dwp-statistical-summaries-2010,301
 http://statistics.dwp.gov.uk/asd/index.php?page=stpp_cq,https://www.gov.uk/government/organisations/department-for-work-pensions/series/national-insurance-contributions-statistics,301
-http://statistics.dwp.gov.uk/asd/index.php?page=tabtool,http://tools.dwp.gov.uk/100pc/tabtool.html,301
+http://statistics.dwp.gov.uk/asd/index.php?page=tabtool,http://tabulation-tool.dwp.gov.uk/100pc/tabtool.html,301
 http://statistics.dwp.gov.uk/asd/index.php?page=tbmt,https://www.gov.uk/government/publications/stats-tax-benefit-model,418
 http://statistics.dwp.gov.uk/asd/index.php?page=topics,https://www.gov.uk/government/organisations/department-for-work-pensions/about/statistics,301
 http://statistics.dwp.gov.uk/asd/index.php?page=wfp,https://www.gov.uk/government/organisations/department-for-work-pensions/series/winter-fuel-payments-caseload-and-household-figures,301
