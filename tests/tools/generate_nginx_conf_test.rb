@@ -61,12 +61,23 @@ class GenerateNginxConfTest < MiniTest::Unit::TestCase
     assert_match %r{location \^~ /some/path \{ return 301 http://new.example.com/another/path/root; \}}, server_declaration
   end
 
+  def test_global_uri
+    server_declaration = generate_nginx_config([
+        'site: foo',
+        'host: www.example.com',
+        'homepage: http://www.bar.com',
+        'global: /d/$uri'
+        ])
+
+    assert_match %r{try_files \$uri \$uri.html /d/\$uri;}, server_declaration
+  end
+
   def test_global_410
     server_declaration = generate_nginx_config([
         'site: foo',
         'host: www.example.com',
         'homepage: http://www.bar.com',
-        'global: 410'
+        'global: =410'
         ])
 
     assert_match %r{try_files \$uri \$uri.html =410;}, server_declaration
@@ -77,7 +88,7 @@ class GenerateNginxConfTest < MiniTest::Unit::TestCase
         'site: foo',
         'host: www.example.com',
         'homepage: http://www.bar.com',
-        'global: 301 https://www.example.com/foo'
+        'global: =301 https://www.example.com/foo'
         ])
 
     assert_match %r{try_files \$uri \$uri.html =399;}, server_declaration
