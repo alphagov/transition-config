@@ -12,5 +12,5 @@ locations:
     - path: ^/d/(.*)$
       operation: ~*
       status: 301
-      new_url: http://www.hm-treasury.gov.uk/d/$1
+      new_url: http://www.hm-treasury.gov.uk/$1
 ---
