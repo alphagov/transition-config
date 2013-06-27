@@ -1,0 +1,11 @@
+---
+site: dwp_jobcentreplus
+host: www.jobcentreplus.gov.uk
+redirection_date: 1st June 2013
+tna_timestamp: 20130128102031
+title: Department for Work &amp; Pensions
+furl: www.gov.uk
+homepage: https://www.gov.uk/
+global: =301 https://www.gov.uk/
+css: department-for-work-pensions
+---
