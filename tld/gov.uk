@@ -1,0 +1,10 @@
+server {
+  server_name gov.uk;
+  listen                80 default_server;
+  listen               443 ssl default_server;
+
+  ssl_certificate      /etc/nginx/ssl/gov_uk_2.crt;
+  ssl_certificate_key  /etc/nginx/ssl/gov_uk_2.key;
+
+  rewrite ^/(.*) https://www.gov.uk/$1 permanent;
+}
