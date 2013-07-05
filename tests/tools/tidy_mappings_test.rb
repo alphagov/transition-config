@@ -211,7 +211,7 @@ class TidyMappingsTest < MiniTest::Unit::TestCase
     if args[:trump]
       cmd << " --trump"
     end
-    stdout, @stderr, status = Open3.capture3(cmd, stdin_data: stdin)
+    stdout, stderr, status = Open3.capture3(cmd, stdin_data: stdin)
     if status.exitstatus != 0
       puts stderr
     end
