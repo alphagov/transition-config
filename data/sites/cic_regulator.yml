@@ -1,0 +1,11 @@
+# This is added against the advice in https://github.com/alphagov/redirector/pull/241 to allow the 'thin steel cord' to be developed
+---
+site: cic_regulator 
+host: www.bis.gov.uk
+redirection_date: 13th December 2013
+tna_timestamp: 20131212135622
+title: Office of the Regulator of Community Interest Companies
+furl: www.gov.uk/cic-regulator
+homepage: https://www.gov.uk/government/organisations/cic-regulator
+css: cic-regulator
+---
