@@ -7,7 +7,9 @@ cmd=$(basename $0)
 sites="data/sites"
 tmpfile="tmp/static_assets.csv"
 tmpout="tmp/static_assets.txt"
-redirector="redirector.${DEPLOY_TO:=dev}.alphagov.co.uk"
+export DEPLOY_TO=${DEPLOY_TO:=dev}
+export REDIRECTOR=${REDIRECTOR:=redirector.$DEPLOY_TO.alphagov.co.uk}
+echo REDIRECTOR=$REDIRECTOR
 
 set -e
 usage() {
@@ -79,7 +81,7 @@ ls -1 $sites/*.yml |
         tna_timestamp=$(grep "^tna_timestamp:" $file | sed 's/^.*: //')
 
         expected="http://webarchive.nationalarchives.gov.uk/$tna_timestamp/http://$host/410"
-        curl -s -H "host: $host" "http://$redirector/410" > $tmpout
+        curl -s -H "host: $host" "http://$REDIRECTOR/410" > $tmpout
         grep -q "$expected" $tmpout || {
             echo "incorrect or missing archive link: $host/410" >&2
             echo "expected: [$expected]"
@@ -94,7 +96,7 @@ ls -1 $sites/*.yml |
 #
 while read host path expected
 do
-    curl -s -H "host: $host" "http://$redirector$path" > $tmpout
+    curl -s -H "host: $host" "http://$REDIRECTOR$path" > $tmpout
     grep -q "'$expected'" $tmpout || {
         echo "incorrect or missing suggested link: http://$host/$path" >&2
         echo "expected: [$expected]"

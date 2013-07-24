@@ -40,7 +40,8 @@ GetOptions(
 
 pod2usage(2) if ($help);
 
-$host //= "redirector.$env.alphagov.co.uk";
+$host //= $ENV{'REDIRECTOR'} // "redirector.$env.alphagov.co.uk";
+say "REDIRECTOR=$host";
 
 my $ua = LWP::UserAgent->new(max_redirect => 0, timeout => $timeout);
 my $follow = LWP::UserAgent->new(max_redirect => 3, timeout => $timeout);

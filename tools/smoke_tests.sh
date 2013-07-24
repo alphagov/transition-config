@@ -2,7 +2,9 @@
 
 set -e
 
-echo DEPLOY_TO=$DEPLOY_TO
+[ -z "$REDIRECTOR" ] && export REDIRECTOR="redirector.${DEPLOY_TO:=dev}.alphagov.co.uk"
+
+echo REDIRECTOR=$REDIRECTOR
 
 testdir=data/tests
 
