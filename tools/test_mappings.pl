@@ -92,7 +92,6 @@ sub test_mapping {
     # direct or via redirector?
     my $get = $real ? $url : $uri->scheme . "://" . $host . $uri->path_query;
 
-if (0) {
     # make request
     my $request = HTTP::Request->new('GET', $get);
     $request->header('Host', $uri->host);
@@ -120,7 +119,6 @@ if (0) {
             my $message = $response->message;
             ok($code =~ /^(200|410)/, "followed redirect to [$location] which is [$code $message] $context");
         }
-    }
     }
 }
 
