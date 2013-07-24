@@ -42,8 +42,6 @@ class GenerateNginxConfTest < MiniTest::Unit::TestCase
     assert_match %r{server_name[^;]*\bbar.com\b}, server_declaration
     assert_match %r{server_name[^;]*\baka-bar.com\b}, server_declaration
     assert_match %r{server_name[^;]*\bfoo.redirector.dev.alphagov.co.uk\b}, server_declaration
-    assert_match %r{server_name[^;]*\bfoo.redirector.preview.alphagov.co.uk\b}, server_declaration
-    assert_match %r{server_name[^;]*\bfoo.redirector.production.alphagov.co.uk\b}, server_declaration
   end
 
   def test_locations

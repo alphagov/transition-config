@@ -17,9 +17,7 @@ map $query_string $<%= site %>_gone {
 %>
         <%= a %>
         <%= aka %><% end %>
-        <%= site %>.redirector.dev.alphagov.co.uk
-        <%= site %>.redirector.preview.alphagov.co.uk
-        <%= site %>.redirector.production.alphagov.co.uk;
+        <%= site %>.redirector.dev.alphagov.co.uk;
 
     root            /var/apps/redirector/static/<%=site%>;
     include         /var/apps/redirector/common/settings.conf;
