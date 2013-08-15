@@ -135,7 +135,7 @@ http://immunisation.dh.gov.uk/govuk-logo.png,,200
 http://immunisation.dh.gov.uk/gb-complete-current-edition/,https://www.gov.uk/government/organisations/public-health-england/series/immunisation-against-infectious-disease-the-green-book,301
 http://immunisation.dh.gov.uk/ie.css,,200
 http://immunisation.dh.gov.uk/category/the-green-book,https://www.gov.uk/government/organisations/public-health-england/series/immunisation-against-infectious-disease-the-green-book,301
-http://immunisation.dh.gov.uk/immform-helpsheets/,https://www.gov.uk/government/admin/organisations/public-health-england/document_series/immform,301
+http://immunisation.dh.gov.uk/immform-helpsheets/,https://www.gov.uk/government//organisations/public-health-england/series/immform,301
 http://improve.businesslink.gov.uk/taxonomy/term/2459/all/feed,https://www.gov.uk/growing-your-business,301
 http://improve.businesslink.gov.uk/rss/business-support-finder,https://www.gov.uk/growing-your-business,301
 http://improve.businesslink.gov.uk/rss/business-awards-finder,https://www.gov.uk/growing-your-business,301
@@ -283,7 +283,6 @@ http://online.businesslink.gov.uk/Transport_files/Bus_Registration__Bus_Permits.
 http://online.ukwelcomes.businesslink.gov.uk/etm/action/search?classification=3,https://www.gov.uk/uk-welcomes-business,301
 http://online.ukwelcomes.businesslink.gov.uk/bdotg/action/piplink?agency_id=492&service_id=350001401&site=2000,https://www.gov.uk/apply-for-a-licence/club-licensing/rhondda-cynon-taff/renew-1,301
 http://online.ukwelcomes.businesslink.gov.uk/bdotg/action/piplink?agency_id=492&service_id=350001101&site=2000,https://www.gov.uk/apply-for-a-licence/club-licensing/rhondda-cynon-taff/change-1,301
-http://online.ukwelcomes.businesslink.gov.uk/bdotg/action/piplink?agency_id=492&service_id=158000001&site=2000,https://www.gov.uk/apply-for-a-licence/street-collection-licence/rhondda-cynon-taff/apply-1,301
 http://online.ukwelcomes.businesslink.gov.uk/bdotg/action/piplink?agency_id=492&service_id=11200011101&site=2000,https://www.gov.uk/apply-for-a-licence/pet-shop-licence/rhondda-cynon-taff/change-1,301
 http://publications.dh.gov.uk/govuk-logo.png,,200
 http://research.dwp.gov.uk/asd/asd5/rrs-index.asp,https://www.gov.uk/government/organisations/department-for-work-pensions/series/research-reports,301
@@ -350,7 +349,7 @@ http://ukinalgeria.fco.gov.uk/,https://www.gov.uk/government/world/algeria,301
 http://ukinangola.fco.gov.uk/en/about-us/our-embassy/our-embassy-in-luanda/contactus,https://www.gov.uk/government/world/organisations/british-embassy-luanda#contact-us,301
 http://ukinangola.fco.gov.uk/en/,https://www.gov.uk/government/world/angola,301
 http://ukinargentina.fco.gov.uk/en/about-us/our-embassy/contact-us,https://www.gov.uk/government/world/organisations/british-embassy-buenos-aires,301
-http://ukinargentina.fco.gov.uk/es,https://www.gov.uk/government/world/argentina.es-419,301
+http://ukinargentina.fco.gov.uk/es,https://www.gov.uk/government/world/argentina,301
 http://ukinarmenia.fco.gov.uk/en/about-us/our-embassy/contact-us,https://www.gov.uk/government/world/organisations/british-embassy-armenia,301
 http://ukinaustralia.fco.gov.uk/en/,https://www.gov.uk/government/world/australia,301
 http://ukinaustralia.fco.gov.uk/govuk-logo.png,,200
@@ -378,7 +377,7 @@ http://ukinbangladesh.fco.gov.uk/en/,https://www.gov.uk/government/world/banglad
 http://ukinbelarus.fco.gov.uk/,https://www.gov.uk/government/world/belarus,301
 http://ukinbelarus.fco.gov.uk/en/about-us/our-embassy/contact-us/,https://www.gov.uk/government/world/organisations/british-embassy-minsk,301
 http://ukinbelarus.fco.gov.uk/en/,https://www.gov.uk/government/world/belarus,301
-http://ukinbelgium.fco.gov.uk/en/about-us/our-embassy/location-and-access/contact-us/,https://www.gov.uk/government/world/organisations/british-embassy-brussels/about/access-and-opening,301
+http://ukinbelgium.fco.gov.uk/en/about-us/our-embassy/location-and-access/contact-us/,https://www.gov.uk/government/world/organisations/british-embassy-brussels/office/british-embassy,301
 http://ukinbih.fco.gov.uk/en/about-us/our-embassy/contact-us,https://www.gov.uk/government/world/organisations/british-embassy-sarajevo,301
 http://ukinbih.fco.gov.uk/en/,https://www.gov.uk/government/world/bosnia-and-herzegovina,301
 http://ukinbih.fco.gov.uk/,https://www.gov.uk/government/world/bosnia-and-herzegovina,301
@@ -410,7 +409,7 @@ http://ukincanada.fco.gov.uk/en/about-us/our-high-commission/3809542/,https://ww
 http://ukincanada.fco.gov.uk/en/rss-feed/,https://www.gov.uk/government/world/canada.atom,301
 http://ukincanada.fco.gov.uk/en/help-for-british-nationals/passports,https://www.gov.uk/overseas-passports,301
 http://ukinchile.fco.gov.uk/es/feedback,,410
-http://ukinchile.fco.gov.uk/es/working-with-chile/becas-chevening/,https://www.gov.uk/government/world/chile.es-419#priorities,301
+http://ukinchile.fco.gov.uk/es/working-with-chile/becas-chevening/,https://www.gov.uk/government/world/chile#priorities,301
 http://ukinchile.fco.gov.uk/org_crest_18px_x2.png,,200
 http://ukinchile.fco.gov.uk/govuk-logo.png,,200
 http://ukinchina.fco.gov.uk/content/zh/rss-outbound/china-zh-rss,https://www.gov.uk/government/world/china.atom,301
@@ -512,7 +511,7 @@ http://ukinhongkong.fco.gov.uk/resources/en/pdf/17274209/credit-card-authorisati
 http://ukinhongkong.fco.gov.uk/en/help-for-british-nationals/passports/what-passport/bno-passports/bno-passports-adult,https://www.gov.uk/overseas-passports,301
 http://ukinhungary.fco.gov.uk/en/,https://www.gov.uk/government/world/hungary,301
 http://ukinhungary.fco.gov.uk/en,https://www.gov.uk/government/world/hungary,301
-http://ukinhungary.fco.gov.uk/hu,https://www.gov.uk/government/world/hungary.hu,301
+http://ukinhungary.fco.gov.uk/hu,https://www.gov.uk/government/world/hungary,301
 http://ukiniceland.fco.gov.uk/,https://www.gov.uk/government/world/iceland,301
 http://ukinindia.fco.gov.uk/,https://www.gov.uk/government/world/india,301
 http://ukinindia.fco.gov.uk/en/help-for-british-nationals/travel-advice/mumbai,https://www.gov.uk/government/world/india#priorities,301
@@ -572,8 +571,8 @@ http://ukinmalta.fco.gov.uk/,https://www.gov.uk/government/world/malta,301
 http://ukinmauritius.fco.gov.uk/en/about-us/our-high-commission/high-commission-in-port-louis/contactus,https://www.gov.uk/government/world/organisations/british-high-commission-port-louis#contact-us,301
 http://ukinmexico.fco.gov.uk/es/feedback,,410
 http://ukinmexico.fco.gov.uk/,https://www.gov.uk/government/world/mexico,301
-http://ukinmexico.fco.gov.uk/es,https://www.gov.uk/government/world/mexico.es-419,301
-http://ukinmexico.fco.gov.uk/es/,https://www.gov.uk/government/world/mexico.es-419,301
+http://ukinmexico.fco.gov.uk/es,https://www.gov.uk/government/world/mexico,301
+http://ukinmexico.fco.gov.uk/es/,https://www.gov.uk/government/world/mexico,301
 http://ukinmoldova.fco.gov.uk/,https://www.gov.uk/government/world/moldova,301
 http://ukinmongolia.fco.gov.uk/en/about-us/our-embassy/contact-us,https://www.gov.uk/government/world/organisations/british-embassy-ulaanbaatar#contact-us,301
 http://ukinmontenegro.fco.gov.uk/en/,https://www.gov.uk/government/world/montenegro,301
@@ -612,10 +611,10 @@ http://ukinpakistan.fco.gov.uk/en/feedback,,410
 http://ukinpakistan.fco.gov.uk/en/about-us/our-high-commission/contact_us,https://www.gov.uk/government/world/organisations/british-high-commission-islamabad#contact-us,301
 http://ukinpakistan.fco.gov.uk/en/,https://www.gov.uk/government/world/pakistan,301
 http://ukinpakistan.fco.gov.uk/en/about-us/recruitments,https://www.gov.uk/government/world/organisations/british-high-commission-islamabad#our-services,301
-http://ukinpanama.fco.gov.uk/es/panama-offices/5500115,https://www.gov.uk/government/world/organisations/british-embassy-panama-city.es-419,301
+http://ukinpanama.fco.gov.uk/es/panama-offices/5500115,https://www.gov.uk/government/world/organisations/british-embassy-panama-city,301
 http://ukinperu.fco.gov.uk/,https://www.gov.uk/government/world/peru,301
 http://ukinperu.fco.gov.uk/en/about-us/our-embassy/contact-us,https://www.gov.uk/government/world/organisations/british-embassy-peru,301
-http://ukinperu.fco.gov.uk/es,https://www.gov.uk/government/world/peru.es-419,301
+http://ukinperu.fco.gov.uk/es,https://www.gov.uk/government/world/peru,301
 http://ukinpoland.fco.gov.uk/en/about-us/our-embassy-in-warsaw/warsaw,https://www.gov.uk/government/world/organisations/british-embassy-warsaw,301
 http://ukinpoland.fco.gov.uk/pl,https://www.gov.uk/government/world/poland.pl,301
 http://ukinportugal.fco.gov.uk/en/,https://www.gov.uk/government/world/portugal,301
@@ -702,7 +701,7 @@ http://ukintunisia.fco.gov.uk/en/about-us/our-embassy/contact-us1,https://www.go
 http://ukintunisia.fco.gov.uk/,https://www.gov.uk/government/world/tunisia,301
 http://ukinturkey.fco.gov.uk/tr,https://www.gov.uk/government/world/turkey.tr,301
 http://ukinturkey.fco.gov.uk/en/rss-feed/,https://www.gov.uk/government/world/turkey.atom,301
-http://ukinturkey.fco.gov.uk/en/feedback,https://www.gov.uk/government/world/organisations/british-embassy-ankara/about/complaints-procedure,301
+http://ukinturkey.fco.gov.uk/en/feedback,https://www.gov.uk/government/world/organisations/british-embassy-ankara,301
 http://ukinturkey.fco.gov.uk/en/,https://www.gov.uk/government/world/turkey,301
 http://ukinturkey.fco.gov.uk/,https://www.gov.uk/government/world/turkey,301
 http://ukinturkmenistan.fco.gov.uk/en/about-us/our-embassy/contactus,https://www.gov.uk/government/world/organisations/british-embassy-ashgabat#contact-us,301
@@ -746,14 +745,14 @@ http://ukinusa.fco.gov.uk/en/help-for-british-nationals/passports/what-passport/
 http://ukinuzbekistan.fco.gov.uk/en/about-us/our-embassy/contact/,https://www.gov.uk/government/world/organisations/british-embassy-tashkent#contact-us,301
 http://ukinuzbekistan.fco.gov.uk/en/,https://www.gov.uk/government/world/uzbekistan,301
 http://ukinvenezuela.fco.gov.uk/resources/es/press-release/12802097/visa-reqs-090209,,410
-http://ukinvenezuela.fco.gov.uk/es/,https://www.gov.uk/government/world/venezuela.es-419,301
+http://ukinvenezuela.fco.gov.uk/es/,https://www.gov.uk/government/world/venezuela,301
 http://ukinvenezuela.fco.gov.uk/,https://www.gov.uk/government/world/venezuela,301
 http://ukinvenezuela.fco.gov.uk/govuk-logo.png,,200
 http://ukinvietnam.fco.gov.uk/en/about-us/our-embassy/contact-us,https://www.gov.uk/government/world/organisations/british-embassy-hanoi#contact-us,301
 http://ukinvietnam.fco.gov.uk/org_crest_18px_x2.png,,200
 http://ukinvietnam.fco.gov.uk/govuk-logo.png,,200
 http://ukinvietnam.fco.gov.uk/en/,https://www.gov.uk/government/world/vietnam,301
-http://ukinvietnam.fco.gov.uk/vi/,https://www.gov.uk/government/world/vietnam.vi,301
+http://ukinvietnam.fco.gov.uk/vi/,https://www.gov.uk/government/world/vietnam,301
 http://ukinzambia.fco.gov.uk/,https://www.gov.uk/government/world/zambia,301
 http://ukinzambia.fco.gov.uk/en/,https://www.gov.uk/government/world/zambia,301
 http://ukinzimbabwe.fco.gov.uk/en/about-us/our-embassy/contact,https://www.gov.uk/government/world/organisations/british-embassy-harare#contact-us,301
@@ -857,7 +856,7 @@ http://www.culture.gov.uk/rss/9635.xml,https://www.gov.uk/government/announcemen
 http://www.culture.gov.uk/rss/7678.xml,https://www.gov.uk/government/announcements.atom?departments%5B%5D=department-for-culture-media-sport,301
 http://www.culture.gov.uk/publications/default.aspx,https://www.gov.uk/government/publications?keywords=&publication_filter_option=all&topics%5B%5D=all&departments%5B%5D=department-for-culture-media-sport,301
 http://www.culture.gov.uk/news/ministers_speeches/7750.aspx,https://www.gov.uk/government/announcements?keywords=maria+&announcement_type_option=speeches&topics%5B%5D=all&departments%5B%5D=all&world_locations%5B%5D=all&direction,301
-http://www.culture.gov.uk/consultations/default.aspx,https://www.gov.uk/government/organisations/department-for-culture-media-sport/ministers,301
+http://www.culture.gov.uk/consultations/default.aspx,https://www.gov.uk/government/organisations/department-for-culture-media-sport,301
 http://www.culture.gov.uk/rss/7680.xml,https://www.gov.uk/government/announcements.atom?departments%5B%5D=department-for-culture-media-sport,301
 http://www.culture.gov.uk/news/ministers_speeches/default.aspx,https://www.gov.uk/government/announcements?keywords=&announcement_type_option=speeches&topics%5B%5D=all&departments%5B%5D=department-for-culture-media-sport,301
 http://www.culture.gov.uk/news/ministers_speeches/7222.aspx,https://www.gov.uk/government/announcements?keywords=maria+&announcement_type_option=speeches&topics%5B%5D=all&departments%5B%5D=all&world_locations%5B%5D=all&direction,301
@@ -904,7 +903,6 @@ http://www.dfid.gov.uk/rss/jobs/,https://www.gov.uk/government/announcements.ato
 http://www.dfid.gov.uk/rss/Contracts/,https://www.gov.uk/government/announcements.atom?departments%5B%5D=department-for-international-development,301
 http://www.dfid.gov.uk/Media-Room/Publications/,https://www.gov.uk/government/announcements.atom?departments%5B%5D=department-for-international-development,301
 http://www.dfid.gov.uk/Work-with-us/Consultations/Open-consultations/,https://www.gov.uk/government/publications?keywords=&publication_filter_option=consultations&topics%5B%5D=all&departments%5B%5D=department-for-international-development&world_locations%5B%5D=all&direction=before&date=2013-05-01,301
-http://www.dfid.gov.uk/News/Speeches-and-articles/,https://www.gov.uk/government/announcements?keywords=&announcement_type_option=speeches&topics%5B%5D=all&departments%5B%5D=department-for-international-development&world_locations%5B%5D=all&direction=before&date=2013-05-01,301
 http://www.dfid.gov.uk/Media-Room/Speeches-and-articles/,https://www.gov.uk/government/announcements.atom?departments%5B%5D=department-for-international-development,301
 http://www.dfid.gov.uk/rss/speeches/,https://www.gov.uk/government/announcements.atom?departments%5B%5D=department-for-international-development,301
 http://www.dfid.gov.uk/rss/press-releases/,https://www.gov.uk/government/announcements.atom?departments%5B%5D=department-for-international-development,301
@@ -1020,7 +1018,6 @@ http://www.hm-treasury.gov.uk/d/sanctionsconlist.txt,https://www.gov.uk/governme
 http://www.hm-treasury.gov.uk/fin_sanctions_terrorist.htm,https://www.gov.uk/government/publications/current-list-of-designated-persons-terrorism-and-terrorist-financing,301
 http://www.hm-treasury.gov.uk/d/sanctionsconlist.htm,https://www.gov.uk/government/publications/financial-sanctions-consolidated-list-of-targets,301
 http://www.hm-treasury.gov.uk/ie.css,,200
-http://www.hm-treasury.gov.uk/d/budget2013_help_to_buy_infographic.pdf,https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/188377/budget2013_help_to_buy_infographic.pdf.pdf,301
 http://www.hm-treasury.gov.uk/leg_sovereign_grant.htm,,410
 http://www.hm-treasury.gov.uk/data_forecasts_index.htm,https://www.gov.uk/government/organisations/hm-treasury/series/data-forecasts,301
 http://www.hm-treasury.gov.uk/consult_fullindex.htm,https://www.gov.uk/government/publications?keywords=&publication_filter_option=consultations&departments%5B%5D=hm-treasury,301
@@ -1178,8 +1175,6 @@ http://www.ukinhongkong.fco.gov.uk/ie.css,,200
 http://www.ukinusa.fco.gov.uk/,https://www.gov.uk/government/world/usa,301
 http://www.ukinusa.fco.gov.uk/miami,https://www.gov.uk/government/world/organisations/british-consulate-general-miami,301
 http://www.ukwelcomes.businesslink.gov.uk/bdotg/action/home?site=2000,https://www.gov.uk/uk-welcomes-business,301
-http://www.ukwelcomes.businesslink.gov.uk/bdotg/action/piplink?agency_id=*&service_id=16100021101&site=2000,https://www.gov.uk/apply-for-a-licence/tattooists-piercing-and-electrolysis-licence-8//change-1,301
-http://www.ukwelcomes.businesslink.gov.uk/bdotg/action/piplink?agency_id=*&service_id=16100020001&site=2000,https://www.gov.uk/apply-for-a-licence/tattooists-piercing-and-electrolysis-licence-8//apply-1,301
 http://www.walesoffice.gov.uk/feed/,https://www.gov.uk/government/organisations/wales-office.atom,301
 http://www.walesoffice.gov.uk/category/speeches/feed/,https://www.gov.uk/government/organisations/wales-office.atom,301
 http://www.walesoffice.gov.uk/category/foi-disclosures/feed/,https://www.gov.uk/government/organisations/wales-office.atom,301
