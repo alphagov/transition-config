@@ -1,0 +1,13 @@
+---
+site: directgov_thinkspeed
+host: thinkspeed.direct.gov.uk
+redirection_date: 17th October 2012
+tna_timestamp: 20121015000000
+title: Directgov
+furl: www.gov.uk
+homepage: https://www.gov.uk
+css: directgov
+global: 301 http://think.direct.gov.uk/speed.html
+aliases:
+  - 
+---

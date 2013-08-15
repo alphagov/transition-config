@@ -1,0 +1,14 @@
+---
+site: directgov_careersadvicefindacourse
+host: careersadvice-findacourse.direct.gov.uk
+redirection_date: 17th October 2012
+tna_timestamp: 20121015000000
+title: Directgov
+furl: www.gov.uk
+homepage: https://www.gov.uk
+css: directgov
+global: 410
+aliases:
+  - careersadvice-findacourse1.direct.gov.uk
+  - careersadvice-findacourse2.direct.gov.uk
+---
