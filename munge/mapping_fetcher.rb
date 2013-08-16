@@ -50,7 +50,8 @@ class MappingFetcher
       $stderr.puts "Writing mappings"
       output_csv << ['Old Url', 'New Url', 'Status']
       i = 0
-      rows = ensure_no_duplicates(remap_new_urls(skip_rows_with_blank_or_invalid_old_url(sanitize_urls(input))))
+#      rows = ensure_no_duplicates(remap_new_urls(skip_rows_with_blank_or_invalid_old_url(sanitize_urls(input))))
+      rows = remap_new_urls(skip_rows_with_blank_or_invalid_old_url(sanitize_urls(input)))
       rows.each do |row|
         new_row = [
           row['old url'],
