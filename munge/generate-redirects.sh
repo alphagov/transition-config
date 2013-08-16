@@ -93,7 +93,7 @@ cat $all_file |
     ./tools/choose-status.rb |
     ./munge/strip-empty-quotes-and-whitespace.rb |
     ./munge/reverse-csv.rb |
-    ./tools/tidy_mappings.pl $options > $tmpfile
+    ./tools/tidy_mappings.pl --trump $options > $tmpfile
 
 ./tools/tidy_mappings.pl --trump $options < $tmpfile > ${mappings}
 set +x
