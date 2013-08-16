@@ -3,18 +3,18 @@ class Reporter
   end
 
   def invalid_old_url(row)
-    output [ ' ',
+    output [
       row['old url'],
-      'invalid old url',
+      ' invalid old url',
       row['source'],
       row['row_number']
     ]
   end
 
   def invalid_new_url(row, new_url)
-    output [ ' ',
+    output [ 
       new_url,
-      'invalid new url',
+      ' invalid new url',
       row['source'],
       row['row_number']
     ]
@@ -26,7 +26,7 @@ class Reporter
   def circular_dependency(url, row)
     output [ ' ',
       url,
-      'circular dependency',
+      ' circular dependency',
       row['source'],
       row['row_number']
     ]
