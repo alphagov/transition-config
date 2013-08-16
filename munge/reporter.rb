@@ -24,7 +24,7 @@ class Reporter
   end
 
   def circular_dependency(url, row)
-    output [ ' ',
+    output [
       url,
       ' circular dependency',
       row['source'],
