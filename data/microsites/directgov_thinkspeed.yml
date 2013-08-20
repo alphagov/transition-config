@@ -9,5 +9,4 @@ homepage: https://www.gov.uk
 css: directgov
 global: 301 http://think.direct.gov.uk/speed.html
 aliases:
-  - 
 ---

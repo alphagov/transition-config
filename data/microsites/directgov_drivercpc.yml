@@ -9,5 +9,4 @@ homepage: https://www.gov.uk
 css: directgov
 global: 301 https://www.gov.uk/driver-certificate-of-professional-competence-cpc
 aliases:
-  - 
 ---

@@ -9,5 +9,4 @@ homepage: https://www.gov.uk
 css: directgov
 global: 301 http://campaigns.dwp.gov.uk/campaigns/olderpeoplesday/
 aliases:
-  - 
 ---
