@@ -11,7 +11,6 @@ export DEPLOY_TO=${DEPLOY_TO:=dev}
 export REDIRECTOR=${REDIRECTOR:=redirector.$DEPLOY_TO.alphagov.co.uk}
 echo REDIRECTOR=$REDIRECTOR
 
-set -e
 usage() {
     echo "usage: $cmd) [opts] [-- test_mappings opts]" >&2
     echo "    [-s|--sites sites]  sites dir" >&2
