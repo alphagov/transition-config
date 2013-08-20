@@ -97,7 +97,7 @@ while read host path expected
 do
     curl -s -H "host: $host" "http://$REDIRECTOR$path" > $tmpout
     grep -q "'$expected'" $tmpout || {
-        echo "incorrect or missing suggested link: http://$host/$path" >&2
+        echo "incorrect or missing suggested link: http://$host$path" >&2
         echo "expected: [$expected]"
         grep "more information" $tmpout
         exit 1
