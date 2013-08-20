@@ -53,7 +53,6 @@ ls -1 $sites/*.yml |
         echo "http://$host/robots.txt,,200"
         echo "http://$host/sitemap.xml,,200"
         echo "http://$host/favicon.ico,,200"
-        echo "http://$host/gone.css,,200"
 
         echo "http://$host/404,,404"
         echo "http://$host/410,,410"
