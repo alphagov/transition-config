@@ -33,7 +33,7 @@ class Reporter
   end
 
   def output(fields)
-    $stderr.puts fields.join(',')
+    $stderr.puts fields.join(' ')
   end
 end
 
