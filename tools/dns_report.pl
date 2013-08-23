@@ -3,11 +3,13 @@
 use strict;
 
 my %state = (
-    'aka.businesslink.gov.uk.edgekey.net.' => 'LIVE',
-    'www.gov.uk.edgekey.net.' => 'LIVE',
-    'redirector.www.gov.uk.edgekey.net.' => 'LIVE',
-    'wildcard.ukwelcomes.businesslink.gov.uk.edgekey.net.' => 'LIVE',
-    'aka.direct.gov.uk.edgekey.net.' => 'LIVE',
+    'aka.businesslink.gov.uk.edgekey.net.' => 'AKAMAI',
+    'www.gov.uk.edgekey.net.' => 'AKAMAI',
+    'redirector.www.gov.uk.edgekey.net.' => 'AKAMAI',
+    'wildcard.ukwelcomes.businesslink.gov.uk.edgekey.net.' => 'AKAMAI',
+    'aka.direct.gov.uk.edgekey.net.' => 'AKAMAI',
+    'redirector-cdn-ssl-directgov.production.govuk.service.gov.uk.' => 'DYN',
+    'redirector-cdn-ssl-businesslink.production.govuk.service.gov.uk.' => 'DYN',
 );
 
 my $filename = @ARGV[0] || "hosts.csv";
