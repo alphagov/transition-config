@@ -20,6 +20,9 @@ decc,trump,https://raw.github.com/alphagov/redirector-data/master/decc/trump.csv
 decc_ceo,extras,https://raw.github.com/alphagov/redirector-data/master/decc_ceo/extras.csv
 decc_ceo,current,https://raw.github.com/alphagov/redirector/master/data/mappings/decc_ceo.csv
 decc_ceo,trump,https://raw.github.com/alphagov/redirector-data/master/decc_ceo/trump.csv
+decc_corwm,extras,https://raw.github.com/alphagov/redirector-data/master/decc_corwm/extras.csv
+decc_corwm,current,https://raw.github.com/alphagov/redirector/master/data/mappings/decc_corwm.csv
+decc_corwm,trump,https://raw.github.com/alphagov/redirector-data/master/decc_corwm/trump.csv
 decc_mrws,extras,https://raw.github.com/alphagov/redirector-data/master/decc_mrws/extras.csv
 decc_mrws,current,https://raw.github.com/alphagov/redirector/master/data/mappings/decc_mrws.csv
 decc_mrws,trump,https://raw.github.com/alphagov/redirector-data/master/decc_mrws/trump.csv
