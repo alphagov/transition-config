@@ -10,6 +10,7 @@ my %state = (
     'aka.direct.gov.uk.edgekey.net.' => 'AKAMAI',
     'redirector-cdn-ssl-directgov.production.govuk.service.gov.uk.' => 'DYN',
     'redirector-cdn-ssl-businesslink.production.govuk.service.gov.uk.' => 'DYN',
+    'redirector-cdn.production.govuk.service.gov.uk.' => 'DYN',
 );
 
 my $filename = @ARGV[0] || "hosts.csv";
@@ -24,7 +25,7 @@ while (<STDIN>) {
 
         my $old = $cname;
 
-        printf "%-55s %8s  %-4s  %s\n", $host, ttl($secs), $state, $old;
+        printf "%-55s %8s  %-8s  %-4s %64s\n", $host, ttl($secs), $state, owner($host), $old;
 
         print FILE "$host,$secs,$state,$old\n";
     }
@@ -38,4 +39,19 @@ sub ttl {
     return   int($secs / 60) . " mins " if ($secs > 60);
     return                 1 . " min  " if ($secs == 60);
     return             $secs . " secs ";
+}
+
+sub owner {
+    my $host = shift;
+    my $owner = "-";
+    if ($host =~ /businesslink.gov.uk.$/
+        || $host =~ /direct.gov.uk.$/) {
+        $owner = "GDS";
+    }
+    elsif ($host eq "www.business.gov.uk."
+        || $host eq "www.businesslink.co.uk."
+        || $host eq "www.businesslink.org.") {
+        $owner = "GDS";
+    }
+    return $owner;
 }
