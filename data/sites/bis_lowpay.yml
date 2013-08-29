@@ -8,4 +8,7 @@ furl: www.gov.uk/lowpay
 homepage: https://www.gov.uk/government/organisations/low-pay-commission
 options: 
 css: department-for-business-innovation-skills
+aliases:
+  - www2.lowpay.gov.uk
+  - search.lowpay.gov.uk
 ---
