@@ -53,6 +53,11 @@ Directgov and Businesslink assets are stored in GitHub and deployed via s3,  see
 
 A list of the most important urls to be tested on each website in `data/tests/subsets/`.
 
+You will need to install some Perl packages like this:
+    sudo cpan Text::CSV
+    sudo cpan YAML
+    sudo cpan Crypt::SSLeay
+
 ### Test in a virtual
 
     export DEPLOY_TO=dev
