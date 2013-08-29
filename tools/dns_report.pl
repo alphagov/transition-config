@@ -43,15 +43,18 @@ sub ttl {
 
 sub owner {
     my $host = shift;
+
+    my $host_is_directgov = $host =~ /direct\.gov\.uk\.$/;
+    my $host_is_businesslink = $host =~ /businesslink\.gov\.uk\.$/
+          || $host eq "www.business.gov.uk."
+          || $host eq "www.businesslink.co.uk."
+          || $host eq "www.businesslink.org.";
+
     my $owner = "-";
-    if ($host =~ /businesslink.gov.uk.$/
-        || $host =~ /direct.gov.uk.$/) {
+
+    if ($host_is_businesslink || $host_is_directgov ) {
         $owner = "GDS";
     }
-    elsif ($host eq "www.business.gov.uk."
-        || $host eq "www.businesslink.co.uk."
-        || $host eq "www.businesslink.org.") {
-        $owner = "GDS";
-    }
+
     return $owner;
 }
