@@ -52,7 +52,7 @@ sub owner {
 
     my $owner = "-";
 
-    if ($host_is_businesslink || $host_is_directgov ) {
+    if ($host_is_businesslink || $host_is_directgov) {
         $owner = "GDS";
     }
 
