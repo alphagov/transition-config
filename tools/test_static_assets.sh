@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 #
 #  test static assets served for each host mentioned in sites
