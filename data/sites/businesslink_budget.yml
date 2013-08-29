@@ -7,4 +7,6 @@ title: Business Link
 furl: www.gov.uk
 homepage: https://www.gov.uk/government/topics/public-spending.
 css: businesslink
+aliases: 
+	- hmrc.businesslink.gov.uk
 ---
