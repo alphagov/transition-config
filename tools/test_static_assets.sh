@@ -104,7 +104,25 @@ do
 done <<-!
 www.direct.gov.uk /en/employment/jobseekers/helpapplyingforajob/dg_173685 https://nationalcareersservice.direct.gov.uk
 www.direct.gov.uk /barrierbusting http://barrierbusting.communities.gov.uk/
+!
+
+if [[ ! $REDIRECTOR =~ "bouncer" ]]
+then
+    #
+    #  suggested link checks which bouncer currently doesn't support
+    #
+while read host path expected
+do
+    curl -s -H "host: $host" "http://$REDIRECTOR$path" > $tmpout
+    grep -q "$expected" $tmpout || {
+        echo "incorrect or missing suggested link: http://$host$path" >&2
+        echo "expected: [$expected]"
+        grep "more information" $tmpout
+        exit 1
+    }
+done <<-!
 www.businesslink.gov.uk /bdotg/action/detail?itemid=1073792781 http://www.cips.org/en-GB/
 !
+fi
 
 exit 0
