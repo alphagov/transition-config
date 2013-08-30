@@ -52,6 +52,12 @@ if ($mappings) {
     }
 } else {
     foreach my $filename (@ARGV) {
+        if ($host =~ /bouncer/) {
+            if ($filename =~ /(direct\.gov\.uk|directgov|businesslink)/){
+                print "Skipping $filename because Bouncer doesn't support directgov and businesslink yet\n";
+                next;
+            }
+        }
         test_csv($filename);
     }
 }
@@ -89,6 +95,13 @@ sub test_mapping {
     my $uri = URI->new($url);
 
     print "$url invalid uri $context\n" unless($uri);
+
+    if ($host =~ /bouncer/) {
+        if ( $uri->host =~ /(direct\.gov\.uk|businesslink\.gov\.uk)/ ) {
+            print "Skipping $uri because Bouncer doesn't support directgov and businesslink yet\n";
+            return;
+        }
+    }
 
     # direct or via redirector?
     my $get = $real ? $url : $uri->scheme . "://" . $host . $uri->path_query;
