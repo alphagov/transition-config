@@ -7,6 +7,6 @@ title: Directgov
 furl: www.gov.uk
 homepage: https://www.gov.uk
 css: directgov
-global: 301 https://secure.fera.defra.gov.uk/nonnativespecies/beplantwise/
+global: =301 https://secure.fera.defra.gov.uk/nonnativespecies/beplantwise/
 aliases:
 ---

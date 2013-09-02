@@ -7,6 +7,6 @@ title: Directgov
 furl: www.gov.uk
 homepage: https://www.gov.uk
 css: directgov
-global: 301 http://drugdrive.direct.gov.uk/
+global: =301 http://drugdrive.direct.gov.uk/
 aliases:
 ---

@@ -7,7 +7,7 @@ title: Directgov
 furl: www.gov.uk
 homepage: https://www.gov.uk
 css: directgov
-global: 410
+global: =410
 aliases:
   - www.careersadvice.direct.gov.uk
 ---

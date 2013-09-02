@@ -7,6 +7,6 @@ title: Directgov
 furl: www.gov.uk
 homepage: https://www.gov.uk
 css: directgov
-global: 301 https://www.gov.uk/browse/working/workplace-personal-pensions
+global: =301 https://www.gov.uk/browse/working/workplace-personal-pensions
 aliases:
 ---

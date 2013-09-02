@@ -7,6 +7,6 @@ title: Directgov
 furl: www.gov.uk
 homepage: https://www.gov.uk
 css: directgov
-global: 301 http://think.direct.gov.uk/motorcycles.html
+global: =301 http://think.direct.gov.uk/motorcycles.html
 aliases:
 ---

@@ -7,6 +7,6 @@ title: Directgov
 furl: www.gov.uk
 homepage: https://www.gov.uk
 css: directgov
-global: 301 https://www.gov.uk/your-right-to-minimum-wage
+global: =301 https://www.gov.uk/your-right-to-minimum-wage
 aliases:
 ---
