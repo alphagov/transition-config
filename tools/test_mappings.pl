@@ -58,6 +58,12 @@ if ($mappings) {
                 next;
             }
         }
+        if ($host =~ /redirector/) {
+            if ($filename == "popular_tests_incompatible_with_redirector.csv") {
+                print "Skipping $filename because Redirector doesn't implement all mappings correctly\n";
+                next;
+            }
+        }
         test_csv($filename);
     }
 }
