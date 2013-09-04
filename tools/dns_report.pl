@@ -10,6 +10,7 @@ my %state = (
     'aka.direct.gov.uk.edgekey.net.' => 'AKAMAI',
     'redirector-cdn-ssl-directgov.production.govuk.service.gov.uk.' => 'DYN',
     'redirector-cdn-ssl-businesslink.production.govuk.service.gov.uk.' => 'DYN',
+    'redirector-cdn-ssl-events-businesslink.production.govuk.service.gov.uk.' => 'DYN',
     'redirector-cdn.production.govuk.service.gov.uk.' => 'DYN',
 );
 
