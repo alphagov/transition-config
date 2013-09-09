@@ -11,3 +11,5 @@ tools/site_hosts.sh |
     done
 
 cat $tmpdir/*.txt | tools/dns_report.pl $tmpdir/hosts.csv
+
+grep $tmpdir/hosts.csv -e "^.*AKAMAI.*$" > $tmpdir/still_to_migrate.csv
