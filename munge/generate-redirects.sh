@@ -86,7 +86,7 @@ echo "Concatenating mappings ..."
 ./tools/csvcat.sh $site_whitehall $all_files > $all_file
 
 echo "Eliminating 'clear_slug' deleted mappings from $all_file"
-grep -v /deleted $all_file > $all_file
+grep -v "/deleted" $all_file > $all_file
 
 echo "Munging and tidying mappings ..."
 set -x
