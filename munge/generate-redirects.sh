@@ -87,7 +87,7 @@ echo "Concatenating mappings ..."
 
 echo "Eliminating 'clear_slug' deleted mappings from $all_file"
 set -x
-grep -v "/deleted-" $all_file > $all_file
+sed -i '/\/deleted-/d' $all_file
 set +x
 
 echo "Munging and tidying mappings ..."
