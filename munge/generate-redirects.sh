@@ -88,6 +88,11 @@ echo "Concatenating mappings ..."
 echo "Eliminating 'clear_slug' deleted mappings from $all_file"
 set -x
 sed -i '/\/deleted-/d' $all_file
+
+
+echo "Eliminating 'fabricatedurl' and 'placeholder' mappings from $all_file"
+sed -i '/fabricatedurl/d' $all_file
+sed -i '/placeholderunique/d' $all_file
 set +x
 
 echo "Munging and tidying mappings ..."
