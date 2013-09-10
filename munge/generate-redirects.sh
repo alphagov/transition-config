@@ -1,4 +1,4 @@
-#!/bin/sh -x
+#!/bin/sh
 
 set -e
 
@@ -13,7 +13,7 @@ user="$WHITEHALL_AUTH"
 fetch="y"
 verbose=""
 mappings_dir='./data/mappings'
-backup = ""
+backup=""
 
 usage() {
     echo "usage: $cmd [opts] site" >&2
