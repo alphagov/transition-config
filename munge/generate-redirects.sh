@@ -98,7 +98,7 @@ set +x
 if [ -f "$local_file" ]; then 
 	echo "Tailing local file to mappings"
 	tail -q -n +2 "$local_file" >> $all_file
-    backup = ".bk"
+    $backup=".bk"
 fi
 
 if [ -f "$all_files" ]; then 
@@ -107,11 +107,11 @@ if [ -f "$all_files" ]; then
 fi
 
 echo "Eliminating 'fabricatedurl' and 'placeholder' mappings from $all_file"
-sed -i $backup'/fabricatedurl/d' $all_file
-sed -i $backup '/placeholderunique/d' $all_file
+sed -i "$backup" '/fabricatedurl/d' $all_file
+sed -i "$backup" '/placeholderunique/d' $all_file
 
 echo "Eliminating 'clear_slug' deleted mappings from $all_file"
-sed -i $backup '/\/deleted-/d' $all_file
+sed -i "$backup" '/\/deleted-/d' $all_file
 
 echo "Munging and tidying mappings ..."
 set -x
