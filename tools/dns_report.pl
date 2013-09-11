@@ -20,7 +20,7 @@ open(FILE, "> $filename") || die "unable to open file $!\n";
 print FILE "host,ttl,state,cname\n";
 
 while (<STDIN>) {
-    if ($_ =~ /CNAME|A/) {
+    if ($_ =~ /\sCNAME\s|\sA\s/) {
         my ($host, $secs, $IN, $CNAME, $cname) = split;
 
         my $state = $state{$cname} // "-";
