@@ -57,6 +57,7 @@ You will need to install some Perl packages like this:
     sudo cpan Text::CSV
     sudo cpan YAML
     sudo cpan Crypt::SSLeay
+    sudo cpan Mozilla::CA
 
 ### Test in a virtual
 
