@@ -12,6 +12,7 @@ my %state = (
     'redirector-cdn-ssl-businesslink.production.govuk.service.gov.uk.' => 'DYN',
     'redirector-cdn-ssl-events-businesslink.production.govuk.service.gov.uk.' => 'DYN',
     'redirector-cdn.production.govuk.service.gov.uk.' => 'DYN',
+	'46.137.92.159' => 'BOUNCE'
 );
 
 my $filename = @ARGV[0] || "hosts.csv";
@@ -19,7 +20,7 @@ open(FILE, "> $filename") || die "unable to open file $!\n";
 print FILE "host,ttl,state,cname\n";
 
 while (<STDIN>) {
-    if ($_ =~ /CNAME/) {
+    if ($_ =~ /\sCNAME\s|\sA\s/) {
         my ($host, $secs, $IN, $CNAME, $cname) = split;
 
         my $state = $state{$cname} // "-";
