@@ -59,7 +59,7 @@ if ($mappings) {
             }
         }
         if ($host =~ /redirector/) {
-            if ($filename eq "popular_tests_incompatible_with_redirector.csv") {
+            if ($filename =~ /popular_tests_incompatible_with_redirector\.csv$/) {
                 print "Skipping $filename because Redirector doesn't implement all mappings correctly\n";
                 next;
             }
