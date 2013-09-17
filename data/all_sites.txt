@@ -6,7 +6,6 @@ bis_ome
 bis_ukaea
 cabinetoffice
 cabinetoffice_transactionsexplorer
-cic_regulator
 dclg
 dcms
 decc
