@@ -1,24 +1,23 @@
-#!/bin/sh
+#!/bin/sh -e
 
-set -e -x 
 rm -f cache/whitehall.csv &&
 rm -rf backup &&
 mkdir -p cache/backup/ && 
 
-all_sites="./data/all_sites.txt" &&
-
-while read SITE;
+for SITE in `ls data/sites/directgov* | sed 's/^\(.*\)\.yml$/\1/'`
 do
-	if [ -z "$SITE" ] 
+	if [ -z "$SITE" ]
 	then
 		echo "Blank line in $all_sites"
+	elif [ -z `grep $SITE data/ignore_sites.txt` ]; then
+        echo "Ignored $SITE"
 	else
 		mkdir -p cache/$SITE
 		sh ./munge/generate-redirects.sh -s data/sites -u betademo:nottobes -w data/whitelist.txt $SITE
-  		cp data/mappings/$SITE.csv cache/backup/$SITE.csv && 
+  		cp data/mappings/$SITE.csv cache/backup/$SITE.csv &&
         mkdir -p cache/backup/$SITE
 		mv cache/$SITE/*.csv cache/backup/$SITE
 	fi
-done < $all_sites
++done &&
 
-git diff --stat 
+git diff --stat

@@ -77,3 +77,4 @@ You will need to install some Perl packages like this:
 ## Akamai
 
 The redirector is deployed behind Akamai. The domain should be added as a property to the Akamai redirector configuration before changing the DNS of websites being redirected.
+n
