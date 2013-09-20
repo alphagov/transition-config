@@ -104,6 +104,8 @@ if [ -f "$all_files" ]; then
 	tail -q -n +2 "$all_files" >> $all_file
 fi
 
+tail -q -n +2 "$mappings" >> $all_file
+
 echo "Eliminating 'fabricatedurl' and 'placeholder' mappings from $all_file"
 sed -i.bk '/fabricatedurl/d' $all_file
 sed -i.bk '/placeholderunique/d' $all_file
