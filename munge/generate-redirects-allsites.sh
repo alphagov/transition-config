@@ -24,5 +24,7 @@ do
 	fi
 done &&
 
-git diff --stat
+git diff --stat &&
 
+git diff | grep ^+.*$ | grep -o https:\/\/www\.gov\.uk.*, | sed s/,//g > cache/diff_of_new_urls &&
+cat cache/diff_of_new_urls | xargs curl -o /dev/null -sL --head -w '%{http_code} %{url_effective}\n' | grep www\.gov\.uk > status_of_new_urls 
