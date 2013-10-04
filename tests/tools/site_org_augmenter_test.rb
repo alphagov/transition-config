@@ -19,7 +19,6 @@ class SiteOrgAugmenterTest < MiniTest::Unit::TestCase
         refute sites['businesslink'].child?
         refute sites['businesslink_budget'].organisation?
         assert sites['businesslink_budget'].child?
-        assert sites['businesslink_budget'].child?
         refute sites['businesslink_budget'].ordered_output['parent'].nil?
         assert sites['businesslink_budget'].ordered_output['organisation'].nil?
       end
