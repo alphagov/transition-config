@@ -2,8 +2,9 @@ require 'yaml'
 
 ##
 # A one-shot script. If data/organisations exists, it's already been run
-# and is here for historical reference (you could delete it, it'd be less obvious
-# how orgs were arrived at).
+# and is here for historical reference (you could delete it).
+#
+# It generates organisations from sites.
 #
 # It adds organisation: and parent: fields inferred from sites alone
 # and uses title: to determine what's an organisation by looking at
@@ -19,9 +20,9 @@ module Transition
 
     ##
     # A Site is an organisation from the point of view of Transition either
-    # when it has no parent or its title is different from that of its parent org
+    # when it has no parent or its title is different from that of its parent department
     def organisation?
-      parent_org = @augmenter.org_sites[inferred_parent]
+      parent_org = @augmenter.departments[inferred_parent]
       parent_org.nil? || (parent_org.title != title)
     end
 
@@ -63,11 +64,35 @@ module Transition
   end
 
   ##
+  # An org inferred from a site's details
+  class Organisation < Struct.new(:site)
+    def ordered_output
+      @ordered_output ||= begin
+        site_hash = site.ordered_output
+        %w(organisation title redirection_date furl homepage).inject({}) do |yaml, key|
+          yaml[key] = site_hash[key]
+          yaml
+        end
+      end
+    end
+
+    def filename
+      File.join(SitesOrgAugmenter::REDIRECTOR_DATA_PATH, 'organisations', "#{site.inferred_organisation}.yml")
+    end
+
+    def save!
+      File.open(filename, 'w') { |file| ordered_output.to_yaml(file) } unless File.exists?(filename)
+    end
+  end
+
+  ##
   # Derive orgs and parents for a set of site.yml files
   class SitesOrgAugmenter
+    REDIRECTOR_DATA_PATH = File.join('..', 'data')
+
     def initialize(*data_dirs)
       @masks = data_dirs.to_a.map do |dir|
-        File.expand_path(File.join('..', 'data', dir, '*.yml')).tap { |j| puts "Processing #{j} ..." }
+        File.expand_path(File.join(REDIRECTOR_DATA_PATH, dir, '*.yml')).tap { |j| puts "Processing #{j} ..." }
       end
     end
 
@@ -89,9 +114,16 @@ module Transition
     end
 
     ##
-    # Only those sites that are directly for an org (no '_' in the site abbreviation)
-    def org_sites
+    # Only departmental sites (no '_' in the site abbreviation)
+    # (in other words, sites that are eligible to be parents)
+    def departments
       sites.select { |_, site| !site.child? }
+    end
+
+    ##
+    # All orgs (things that are not *just* sites)
+    def organisations
+      sites.select { |_, site| site.organisation? }
     end
 
     ##
@@ -99,28 +131,18 @@ module Transition
     def augment!
       sites.values.each { |site| site.save_with_inferred_values! }
     end
+
+    ##
+    # Generate orgs
+    def generate_orgs!
+      require 'fileutils'
+      FileUtils.mkdir_p File.join(REDIRECTOR_DATA_PATH, 'organisations')
+      organisations.values.map { |site| Organisation.new(site).save! }
+    end
   end
 end
 
-def assert(actual, expected)
-  raise RuntimeError, "Expected #{expected}, got #{actual}" unless expected == actual
+Transition::SitesOrgAugmenter.new('sites').tap do |augmenter|
+  augmenter.generate_orgs!
+  augmenter.augment!
 end
-
-processor = Transition::SitesOrgAugmenter.new('sites')
-processor.sites.tap do |sites|
-  assert sites['fco'].organisation?, true
-  assert sites['fco'].child?, false
-  assert sites['fco_ukinsomalia'].organisation?, false
-  assert sites['fco_ukinsomalia'].child?, true
-  assert sites['bis_ukaea'].organisation?, true
-  assert sites['bis_ukaea'].child?, true
-  assert sites['businesslink'].organisation?, true
-  assert sites['businesslink'].child?, false
-  assert sites['businesslink_budget'].organisation?, false
-  assert sites['businesslink_budget'].child?, true
-  assert sites['businesslink_budget'].child?, true
-  assert sites['businesslink_budget'].ordered_output['parent'].nil?, false
-  assert sites['businesslink_budget'].ordered_output['organisation'].nil?, true
-end
-
-processor.augment!
