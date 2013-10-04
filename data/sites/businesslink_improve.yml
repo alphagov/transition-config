@@ -1,4 +1,5 @@
 ---
+parent: businesslink
 site: businesslink_improve
 host: improve.businesslink.gov.uk
 redirection_date: 17th October 2012
@@ -9,5 +10,4 @@ homepage: https://www.gov.uk/growing-your-business
 global: =301 https://www.gov.uk/growing-your-business
 css: businesslink
 aliases:
-  - www.improve.businesslink.gov.uk
----
+- www.improve.businesslink.gov.uk

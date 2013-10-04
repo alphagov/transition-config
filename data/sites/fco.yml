@@ -1,4 +1,5 @@
 ---
+organisation: fco
 site: fco
 host: www.fco.gov.uk
 redirection_date: 13th December 2012
@@ -8,4 +9,3 @@ furl: www.gov.uk/fco
 homepage: https://www.gov.uk/government/organisations/foreign-commonwealth-office
 options: --query-string id:itemid
 css: foreign-commonwealth-office
----

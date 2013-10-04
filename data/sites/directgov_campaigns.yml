@@ -1,4 +1,5 @@
 ---
+parent: directgov
 site: directgov_campaigns
 host: campaigns.direct.gov.uk
 redirection_date: 17th October 2012
@@ -7,12 +8,11 @@ title: Directgov
 furl: www.gov.uk
 homepage: https://www.gov.uk
 aliases:
-  - www.campaigns.direct.gov.uk
-  - campaigns2.direct.gov.uk
+- www.campaigns.direct.gov.uk
+- campaigns2.direct.gov.uk
 css: directgov
 locations:
-    - path: /firekills
-      operation: ^~
-      status: 301
-      new_url: https://www.gov.uk/firekills
----
+- path: /firekills
+  operation: ^~
+  status: 301
+  new_url: https://www.gov.uk/firekills

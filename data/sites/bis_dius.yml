@@ -1,4 +1,5 @@
 ---
+parent: bis
 site: bis_dius
 host: www.dius.gov.uk
 redirection_date: 13th December 2012
@@ -9,5 +10,4 @@ homepage: https://www.gov.uk/government/organisations/department-for-business-in
 css: department-for-business-innovation-skills
 global: =301 https://www.gov.uk/government/organisations/department-for-business-innovation-skills
 aliases:
- - dius.gov.uk
----
+- dius.gov.uk

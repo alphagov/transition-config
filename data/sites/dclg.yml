@@ -1,4 +1,5 @@
 ---
+organisation: dclg
 site: dclg
 host: www.communities.gov.uk
 redirection_date: 15th November 2012
@@ -7,6 +8,5 @@ title: Department for Communities and Local Government
 furl: www.gov.uk/dclg
 homepage: https://www.gov.uk/government/organisations/department-for-communities-and-local-government
 aliases:
-  - www.dclg.gov.uk
+- www.dclg.gov.uk
 css: department-for-communities-and-local-government
----

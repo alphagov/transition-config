@@ -1,4 +1,5 @@
 ---
+parent: homeoffice
 site: homeoffice_crb
 host: www.crb.gov.uk
 redirection_date: 27th March 2013
@@ -8,5 +9,4 @@ furl: www.gov.uk/dbs
 homepage: https://www.gov.uk/government/organisations/disclosure-and-barring-service
 css: home-office
 aliases:
-   - crb.homeoffice.gov.uk
----
+- crb.homeoffice.gov.uk

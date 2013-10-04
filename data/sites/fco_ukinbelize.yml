@@ -1,4 +1,5 @@
 ---
+parent: fco
 site: fco_ukinbelize
 host: ukinbelize.fco.gov.uk
 redirection_date: 25th March 2013

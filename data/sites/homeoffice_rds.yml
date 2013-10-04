@@ -1,4 +1,5 @@
 ---
+parent: homeoffice
 site: homeoffice_rds
 host: rds.homeoffice.gov.uk
 redirection_date: 27th March 2013
@@ -8,4 +9,3 @@ title: Home Office
 homepage: https://www.gov.uk/government/organisations/home-office
 global: =410
 css: home-office
----

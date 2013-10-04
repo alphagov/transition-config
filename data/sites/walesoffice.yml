@@ -1,4 +1,5 @@
 ---
+organisation: walesoffice
 site: walesoffice
 host: www.walesoffice.gov.uk
 redirection_date: 27th March 2013
@@ -7,4 +8,3 @@ title: Wales Office
 furl: www.gov.uk/wales-office
 homepage: https://www.gov.uk/government/organisations/wales-office
 css: wales-office
----

@@ -1,4 +1,5 @@
 ---
+parent: fco
 site: fco_centralcontent
 host: centralcontent.fco.gov.uk
 redirection_date: 13th December 2012
