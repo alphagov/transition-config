@@ -3,8 +3,8 @@ http://www.uk-atomic-energy.org.uk/about.html,https://www.gov.uk/government/orga
 http://www.uk-atomic-energy.org.uk/about_board_min.html,https://www.gov.uk/government/organisations/uk-atomic-energy-authority/about/our-governance,301
 http://www.uk-atomic-energy.org.uk/about_corp_gov.html,https://www.gov.uk/government/organisations/uk-atomic-energy-authority/about/our-governance,301
 http://www.uk-atomic-energy.org.uk/about_history.html,,410
-http://www.uk-atomic-energy.org.uk/about_safetyand.html,https://www.gov.uk/government/organisations/uk-atomic-energy-authority/about/working-for-us,301
-http://www.uk-atomic-energy.org.uk/about_vacancies.html,https://www.gov.uk/government/organisations/uk-atomic-energy-authority/about/working-for-us,301
+http://www.uk-atomic-energy.org.uk/about_safetyand.html,https://www.gov.uk/government/organisations/uk-atomic-energy-authority/about/recruitment,301
+http://www.uk-atomic-energy.org.uk/about_vacancies.html,https://www.gov.uk/government/organisations/uk-atomic-energy-authority/about/recruitment,301
 http://www.uk-atomic-energy.org.uk/accessibility.html,https://www.gov.uk/support/accessibility,301
 http://www.uk-atomic-energy.org.uk/annual_reports/cps13.288(authorityweb).pdf,https://www.gov.uk/government/publications/united-kingdom-atomic-energy-authority-annual-report-and-accounts-201213,301
 http://www.uk-atomic-energy.org.uk/annual_reports/jg12.69_web.pdf,https://www.gov.uk/government/publications/uk-atomic-energy-authority-annual-report-and-accounts-2011-to-2012,301
@@ -26,6 +26,7 @@ http://www.uk-atomic-energy.org.uk/contracts_info_for.html,https://www.gov.uk/go
 http://www.uk-atomic-energy.org.uk/contracts_ojeu_and.html,,410
 http://www.uk-atomic-energy.org.uk/contracts_stand_pur.html,https://www.gov.uk/government/organisations/uk-atomic-energy-authority/about/procurement,301
 http://www.uk-atomic-energy.org.uk/contracts_stat_updat.html,https://www.gov.uk/government/organisations/uk-atomic-energy-authority/about/procurement,301
+http://www.uk-atomic-energy.org.uk/downloads/._authority(12)m4mins24sep.pdf,,410
 http://www.uk-atomic-energy.org.uk/downloads/17%20june_london.pdf,,410
 http://www.uk-atomic-energy.org.uk/downloads/2012promptpaymentp05-10day.csv,https://www.gov.uk/government/publications/ukaea-prompt-payment-data-2012-to-2013,301
 http://www.uk-atomic-energy.org.uk/downloads/2012promptpaymentp05-5day.csv,https://www.gov.uk/government/publications/ukaea-prompt-payment-data-2012-to-2013,301
@@ -43,6 +44,7 @@ http://www.uk-atomic-energy.org.uk/downloads/31-3-2011-senior-data.csv,,410
 http://www.uk-atomic-energy.org.uk/downloads/31-3-2011.rdf,,410
 http://www.uk-atomic-energy.org.uk/downloads/april%202012.csv,https://www.gov.uk/government/publications/ukaea-financial-transactions-april-2012,301
 http://www.uk-atomic-energy.org.uk/downloads/april2010.csv,,410
+http://www.uk-atomic-energy.org.uk/downloads/april2011.csv,,410
 http://www.uk-atomic-energy.org.uk/downloads/april2013.csv,https://www.gov.uk/government/publications/ukaea-financial-transactions-april-2013,301
 http://www.uk-atomic-energy.org.uk/downloads/august%202011.csv,,410
 http://www.uk-atomic-energy.org.uk/downloads/august2010.csv,,410
@@ -82,9 +84,11 @@ http://www.uk-atomic-energy.org.uk/downloads/june2011.csv,,410
 http://www.uk-atomic-energy.org.uk/downloads/june2012.csv,https://www.gov.uk/government/publications/ukaea-financial-transactions-june-2012,301
 http://www.uk-atomic-energy.org.uk/downloads/june_2013.csv,https://www.gov.uk/government/publications/ukaea-financial-transactions-june-2013,301
 http://www.uk-atomic-energy.org.uk/downloads/march%202012.csv,https://www.gov.uk/government/publications/ukaea-financial-transactions-march-2012,301
+http://www.uk-atomic-energy.org.uk/downloads/march2011.csv,,410
 http://www.uk-atomic-energy.org.uk/downloads/march2013.csv,https://www.gov.uk/government/publications/ukaea-financial-transactions-march-2013,301
 http://www.uk-atomic-energy.org.uk/downloads/may%202012.csv,https://www.gov.uk/government/publications/ukaea-financial-transactions-may-2012,301
 http://www.uk-atomic-energy.org.uk/downloads/may2010.csv,,410
+http://www.uk-atomic-energy.org.uk/downloads/may2011.csv,,410
 http://www.uk-atomic-energy.org.uk/downloads/may2013.csv,https://www.gov.uk/government/publications/ukaea-financial-transactions-may-2013,301
 http://www.uk-atomic-energy.org.uk/downloads/november%202012.csv,https://www.gov.uk/government/publications/ukaea-financial-transactions-november-2012,301
 http://www.uk-atomic-energy.org.uk/downloads/november2010.csv,,410
@@ -189,5 +193,5 @@ http://www.uk-atomic-energy.org.uk/press13aug14.html,https://www.gov.uk/governme
 http://www.uk-atomic-energy.org.uk/press13mar26.html,https://www.gov.uk/government/news/uk-atomic-energy-authority-backs-government-nuclear-roadmap,301
 http://www.uk-atomic-energy.org.uk/promptpayment.html,https://www.gov.uk/government/organisations/uk-atomic-energy-authority/about/publication-scheme,301
 http://www.uk-atomic-energy.org.uk/terms.html,http://www.nationalarchives.gov.uk/information-management/our-services/crown-copyright.htm,301
-http://www.uk-atomic-energy.org.uk/transactions.html,https://www.gov.uk/government/organisations/uk-atomic-energy-authority/document_series/ukaea-financial-transactions,301
-http://www.uk-atomic-energy.org.uk/transparency.html,https://www.gov.uk/government/organisations/uk-atomic-energy-authority/document_series/ukaea-organisational-chart-and-staff-pay-data,301
+http://www.uk-atomic-energy.org.uk/transactions.html,https://www.gov.uk/government/organisations/uk-atomic-energy-authority/series/ukaea-financial-transactions,301
+http://www.uk-atomic-energy.org.uk/transparency.html,https://www.gov.uk/government/organisations/uk-atomic-energy-authority/series/ukaea-organisational-chart-and-staff-pay-data,301
