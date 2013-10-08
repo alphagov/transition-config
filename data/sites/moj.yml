@@ -1,4 +1,5 @@
 ---
+organisation: moj
 site: moj
 host: www.justice.gov.uk
 redirection_date: 10th April 2013
@@ -7,4 +8,3 @@ title: Ministry of Justice
 furl: www.gov.uk/moj
 homepage: https://www.gov.uk/government/organisations/ministry-of-justice
 css: ministry-of-justice
----

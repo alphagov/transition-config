@@ -1,4 +1,5 @@
 ---
+parent: cabinetoffice
 site: cabinetoffice_transactionsexplorer
 host: transactionsexplorer.cabinetoffice.gov.uk
 redirection_date: 12th September 2013
@@ -8,4 +9,3 @@ furl: www.gov.uk/cabinet-office
 homepage: https://www.gov.uk/performance/transactions-explorer
 global: =301 https://www.gov.uk/performance/transactions-explorer
 css: cabinet-office
----

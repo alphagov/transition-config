@@ -1,4 +1,5 @@
 ---
+parent: businesslink
 site: businesslink_ukwelcomes
 host: www.ukwelcomes.businesslink.gov.uk
 redirection_date: 17th October 2012
@@ -9,7 +10,6 @@ homepage: https://www.gov.uk/uk-welcomes-business
 css: businesslink
 options: --query-string topicid:itemid
 aliases:
-  - upload.ukwelcomes.businesslink.gov.uk
-  - online.ukwelcomes.businesslink.gov.uk
-  - ukwelcomes.businesslink.gov.uk
----
+- upload.ukwelcomes.businesslink.gov.uk
+- online.ukwelcomes.businesslink.gov.uk
+- ukwelcomes.businesslink.gov.uk

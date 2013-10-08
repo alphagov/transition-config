@@ -1,4 +1,5 @@
 ---
+organisation: dpm
 site: dpm
 host: www.dpm.cabinetoffice.gov.uk
 redirection_date: 29th April 2013
@@ -7,4 +8,3 @@ title: Deputy Prime Minister's Office
 furl: www.gov.uk
 homepage: https://www.gov.uk/government/organisations/deputy-prime-ministers-office
 css: dpm
----

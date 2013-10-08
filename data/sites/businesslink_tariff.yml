@@ -1,4 +1,5 @@
 ---
+parent: businesslink
 site: businesslink_tariff
 host: tariff.businesslink.gov.uk
 redirection_date: 17th October 2012
@@ -9,6 +10,5 @@ homepage: https://www.gov.uk/trade-tariff
 global: =301 https://www.gov.uk/trade-tariff
 css: businesslink
 aliases:
-  - www.tariff.businesslink.gov.uk
-  - content.tariff.businesslink.gov.uk
----
+- www.tariff.businesslink.gov.uk
+- content.tariff.businesslink.gov.uk

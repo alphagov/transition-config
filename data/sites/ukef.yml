@@ -1,4 +1,5 @@
 ---
+organisation: ukef
 site: ukef
 host: www.ukexportfinance.gov.uk
 redirection_date: 28th April 2013
@@ -7,5 +8,4 @@ title: UK Export Finance
 furl: www.gov.uk/uk-export-finance
 homepage: https://www.gov.uk/government/organisations/export-credit-guarantee-department
 aliases:
-  - www.ecgd.gov.uk
----
+- www.ecgd.gov.uk

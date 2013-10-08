@@ -1,4 +1,5 @@
 ---
+parent: businesslink
 site: businesslink_events_admin
 host: admin.events.businesslink.gov.uk
 redirection_date: 17th October 2012
@@ -8,4 +9,3 @@ furl: www.gov.uk
 homepage: https://admin.business-events.org.uk
 global: =301 https://admin.business-events.org.uk
 css: businesslink
----

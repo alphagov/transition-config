@@ -1,4 +1,6 @@
 ---
+organisation: ukaea
+parent: bis
 site: bis_ukaea
 host: www.uk-atomic-energy.org.uk
 redirection_date: 25th September 2013
@@ -8,4 +10,3 @@ furl: www.gov.uk/ukaea
 homepage: https://www.gov.uk/government/organisations/uk-atomic-energy-authority
 options: 
 css: department-for-business-innovation-skills
----

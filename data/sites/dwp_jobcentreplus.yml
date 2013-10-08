@@ -1,4 +1,5 @@
 ---
+parent: dwp
 site: dwp_jobcentreplus
 host: www.jobcentreplus.gov.uk
 redirection_date: 1st June 2013
@@ -8,4 +9,3 @@ furl: www.gov.uk
 homepage: https://www.gov.uk/
 global: =301 https://www.gov.uk/
 css: department-for-work-pensions
----

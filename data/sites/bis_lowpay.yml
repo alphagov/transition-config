@@ -1,4 +1,6 @@
 ---
+organisation: lowpay
+parent: bis
 site: bis_lowpay
 host: www.lowpay.gov.uk
 redirection_date: 25th September 2013
@@ -9,6 +11,5 @@ homepage: https://www.gov.uk/government/organisations/low-pay-commission
 options: 
 css: department-for-business-innovation-skills
 aliases:
-  - www2.lowpay.gov.uk
-  - search.lowpay.gov.uk
----
+- www2.lowpay.gov.uk
+- search.lowpay.gov.uk

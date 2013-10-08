@@ -1,4 +1,5 @@
 ---
+organisation: dfe
 site: dfe
 host: www.education.gov.uk
 redirection_date: 23rd April 2013
@@ -7,7 +8,6 @@ title: Department for Education
 furl: www.gov.uk/dfe
 homepage: https://www.gov.uk/government/organisations/department-for-education
 aliases:
-  - www.dfe.gov.uk
-  - archive.education.gov.uk
+- www.dfe.gov.uk
+- archive.education.gov.uk
 css: department-for-education
----
