@@ -54,6 +54,7 @@ host=`ruby -ryaml -e'puts YAML.load_file("'$sites_directory'/'$site.yml'")["host
 options=`ruby -ryaml -e'puts YAML.load_file("'$sites_directory'/'$site.yml'")["options"]'`
 all_file="$cache/$site/_all.csv"
 site_whitehall="$cache/$site/_whitehall.csv"
+supertrump="$cache/supertrump.csv"
 tmpfile=$cache/${site}_tmp
 
 
@@ -77,6 +78,12 @@ if [ -n "$fetch" ]; then
     tools/fetch_mappings.sh --fetch "$fetch_list" --cache-dir "$cache" "$site"
     set +x
 fi
+
+echo "Fetching supertrump file from George (the latebreaking mappings form)"
+set -x
+curl -o "$supertrump" "https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdFJMWnBncG5Bc3NEZk9pdmpaQmRVWmc&single=true&gid=1&output=csv"
+tail +2 "$supertrump" | tools/escape_commas_in_urls >> "$whitehall" 
+set +x
 
 echo "Extracting mappings from Whitehall ..."
 set -x
