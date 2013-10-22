@@ -3,7 +3,7 @@ site: decc_offshoresea
 host: www.offshore-sea.org.uk
 redirection_date: 17th May 2013
 tna_timestamp: 20130103064208
-title: Department of Energy and Climate Change
+title: Department of Energy & Climate Change
 furl: www.gov.uk/decc
 homepage: https://www.gov.uk/offshore-energy-strategic-environmental-assessment-sea-an-overview-of-the-sea-process
 options: --query-string faqID:link:categoryID:documentID:pageNumber:fileID:meetingID:bookID:consultationID:productID:downloadID:newsID
