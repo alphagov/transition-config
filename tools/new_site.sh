@@ -12,8 +12,8 @@ echo "host: $2" >> $site
 echo "redirection_date: 21st February 2013 	# Full text date here" >> $site
 echo "tna_timestamp: 20130128101412 				# Best TNA timestamp here" >> $site
 echo "title: Cabinet Office									# Title of organisation here" >> $site
-echo "furl: www.gov.uk/dclg									# Furl for print display here" >> $site
-echo "homepage: https://www.gov.uk/government/organisations/department-for-communities-and-local-government" >> $site
+echo "furl: www.gov.uk/$1									# Furl for print display here" >> $site
+echo "homepage: https://www.gov.uk/government/organisations/$1" >> $site
 echo "																			# Organisation landing page here" >> $site
 echo "css: cabinet-office										# Appropriate CSS here" >> $site
 echo "aliases:															# Aliases for $2 domain here" >> $site
@@ -29,3 +29,4 @@ echo "Old Url,New Url,Status" >> $mappings
 
 touch $tests
 echo "Old Url,New Url,Status" >> $tests
+echo "http://$2,https://www.gov.uk/government/organisations/$1,301" >> $tests
