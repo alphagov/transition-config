@@ -6,5 +6,6 @@ tna_timestamp: 20130904123743
 title: Rural Payments Agency
 furl: www.gov.uk/rpa
 homepage: https://www.gov.uk/government/organisations/rural-payments-agency
+options: --query-string opendocument
 css: defra
 ---
