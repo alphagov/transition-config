@@ -25,7 +25,7 @@ echo "# Remove comments and placeholder data before committing" >> $site
 echo "# Add tests file for each additional alias" >> $site
 
 touch $mappings
-echo "Old URL,New URL,Status" >> $mappings
+echo "Old Url,New Url,Status" >> $mappings
 
 touch $tests
-echo "Old URL,New URL,Status" >> $tests
+echo "Old Url,New Url,Status" >> $tests
