@@ -1,0 +1,11 @@
+---
+site: cabinetoffice_rpc
+host: regulatorypolicycommittee.independent.gov.uk
+redirection_date: 27th November 2013
+tna_timestamp: 20130403085727
+title: Cabinet Office
+furl: www.gov.uk/cabinetoffice_rpc
+									# Furl for print display here
+homepage: https://www.gov.uk/government/organisations/regulatory-policy-committee
+css: cabinet-office
+---
