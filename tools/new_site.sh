@@ -9,14 +9,14 @@ touch $site
 echo "---" >> $site
 echo "site: $1" >> $site
 echo "host: $2" >> $site
-echo "redirection_date: 21st February 2013 	# Full text date here" >> $site
-echo "tna_timestamp: 20130128101412 				# Best TNA timestamp here" >> $site
-echo "title: Cabinet Office									# Title of organisation here" >> $site
-echo "furl: www.gov.uk/$1									# Furl for print display here" >> $site
+echo "redirection_date: 21st February 2013  # Full text date here" >> $site
+echo "tna_timestamp: 20130128101412         # Best TNA timestamp here" >> $site
+echo "title: Cabinet Office                 # Title of organisation here" >> $site
+echo "furl: www.gov.uk/$1                   # Furl for print display here" >> $site
 echo "homepage: https://www.gov.uk/government/organisations/$1" >> $site
-echo "																			# Organisation landing page here" >> $site
-echo "css: cabinet-office										# Appropriate CSS here" >> $site
-echo "aliases:															# Aliases for $2 domain here" >> $site
+echo "                                      # Organisation landing page here" >> $site
+echo "css: cabinet-office                   # Appropriate CSS here" >> $site
+echo "aliases:                              # Aliases for $2 domain here" >> $site
 echo "  - www.dclg.gov.uk" >> $site
 echo "  - www.communities.gov.uk" >> $site
 echo "options: --query-string title:attachment" >> $site
