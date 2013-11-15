@@ -6,5 +6,8 @@ tna_timestamp: 20130705010744
 title: Bona Vacantia
 furl: www.gov.uk/bonavacantia
 homepage: https://www.gov.uk/government/organisations/bona-vacantia
+aliases:
+  - www.bonavacantia.co.uk
+  - www.bonavacantia.org.uk  
 css: treasury
 ---
