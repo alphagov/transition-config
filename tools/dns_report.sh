@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 tmpdir=tmp/dns_report
 mkdir -p $tmpdir
 [ -z "$DNS_SERVER" ] && DNS_SERVER=8.8.8.8
