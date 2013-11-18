@@ -136,7 +136,7 @@ sub test_mapping {
             my $request = HTTP::Request->new('GET', $location);
             my $response = $follow->request($request);
             my $code = $response->code;
-            my $message = $response->message;
+            my $message = $response->message || '';
             ok($code =~ /^(200|410)/, "followed redirect to [$location] which is [$code $message] $context");
         }
     }
