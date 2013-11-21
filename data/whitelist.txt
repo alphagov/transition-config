@@ -15,6 +15,7 @@ carfueldata.dft.gov.uk
 cscuk.dfid.gov.uk
 ceo.decc.gov.uk
 coal.decc.gov.uk
+communicationcentre.dwp.gov.uk
 communitylife.cabinetoffice.gov.uk
 corwm.decc.gov.uk
 cscuk.dfid.gov.uk
@@ -52,6 +53,8 @@ nationalcareersservice.direct.gov.uk
 nationalcitizenservice.direct.gov.uk
 noisemapping.defra.gov.uk
 nsa-ccskills.co.uk
+odi.dwp.gov.uk
+officers.dwp.gov.uk
 oft-tools.oft.gov.uk
 online.contractsfinder.businesslink.gov.uk
 online.hmrc.gov.uk
@@ -166,6 +169,7 @@ www.number10.gov.uk
 www.official-documents.gov.uk
 www.oft.gov.uk
 www.openpublicservices.cabinetoffice.gov.uk
+www.osscsc.gov.uk
 www.parliament.uk
 www.people1st.co.uk
 www.planningportal.gov.uk
