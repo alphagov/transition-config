@@ -1,6 +1,6 @@
 ---
 site: ago
-host: www.ago.gov.uk
+host: www.attorneygeneral.gov.uk
 redirection_date: 13th December 2012
 tna_timestamp: 20120816224015
 title: Attorney General&#39;s Office
@@ -8,7 +8,7 @@ furl: www.gov.uk/ago
 homepage: https://www.gov.uk/government/organisations/attorney-generals-office
 aliases:
   - www.attorney-general.gov.uk
-  - www.attorneygeneral.gov.uk
+  - www.ago.gov.uk
   - www.lslo.gov.uk
 css: attorney-generals-office
 ---
