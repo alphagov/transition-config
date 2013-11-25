@@ -1,13 +1,12 @@
 ---
-site: treasury_bv
+site: tsol_bv
 host: www.bonavacantia.gov.uk
-redirection_date: 11th December 2013 
+redirection_date: 11th December 2013
 tna_timestamp: 20130705010744
 title: Bona Vacantia
 furl: www.gov.uk/bonavacantia
 homepage: https://www.gov.uk/government/organisations/bona-vacantia
 aliases:
   - www.bonavacantia.co.uk
-  - www.bonavacantia.org.uk  
-css: treasury
+  - www.bonavacantia.org.uk
 ---
