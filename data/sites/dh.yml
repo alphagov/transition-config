@@ -7,8 +7,7 @@ title: Department of Health
 furl: www.gov.uk/dh
 homepage: https://www.gov.uk/government/organisations/department-of-health
 locations:
-    - path: /dh_digitalassets/
-      operation: ~*
-      status: 410
+- path: /dh_digitalassets/
+  operation: ~*
+  status: 410
 css: department-of-health
----

@@ -8,7 +8,6 @@ furl: www.gov.uk
 homepage: https://www.gov.uk/jobsearch
 global: =301 https://www.gov.uk/jobsearch
 aliases:
-  - www.jobseekers.direct.gov.uk
-  - jobseeker.direct.gov.uk
+- www.jobseekers.direct.gov.uk
+- jobseeker.direct.gov.uk
 css: directgov
----

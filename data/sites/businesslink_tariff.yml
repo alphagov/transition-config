@@ -9,6 +9,5 @@ homepage: https://www.gov.uk/trade-tariff
 global: =301 https://www.gov.uk/trade-tariff
 css: businesslink
 aliases:
-  - www.tariff.businesslink.gov.uk
-  - content.tariff.businesslink.gov.uk
----
+- www.tariff.businesslink.gov.uk
+- content.tariff.businesslink.gov.uk
