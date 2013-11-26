@@ -1,4 +1,3 @@
-
 #Run from /redirector
 
 file=data/mappings/$1.csv
