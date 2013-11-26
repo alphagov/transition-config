@@ -1,5 +1,6 @@
 ---
 site: defra_rpa
+whitehall_slug: rural-payments-agency
 host: rpa.defra.gov.uk
 redirection_date: 1st January 2014
 tna_timestamp: 20130904123743

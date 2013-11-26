@@ -1,5 +1,6 @@
 ---
 site: dfe
+whitehall_slug: department-for-education
 host: www.education.gov.uk
 redirection_date: 23rd April 2013
 tna_timestamp: 20130123124929

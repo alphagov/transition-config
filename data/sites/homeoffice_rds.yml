@@ -1,5 +1,6 @@
 ---
 site: homeoffice_rds
+whitehall_slug: home-office
 host: rds.homeoffice.gov.uk
 redirection_date: 27th March 2013
 tna_timestamp: 20110314171826

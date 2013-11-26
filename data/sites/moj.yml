@@ -1,5 +1,6 @@
 ---
 site: moj
+whitehall_slug: ministry-of-justice
 host: www.justice.gov.uk
 redirection_date: 10th April 2013
 tna_timestamp: 20130128112038

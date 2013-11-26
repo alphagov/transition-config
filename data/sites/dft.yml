@@ -1,5 +1,6 @@
 ---
 site: dft
+whitehall_slug: department-for-transport
 host: www.dft.gov.uk
 redirection_date: 16th November 2012
 tna_timestamp: 20121107103953

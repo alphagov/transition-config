@@ -1,5 +1,6 @@
 ---
 site: dwp
+whitehall_slug: department-for-work-pensions
 host: www.dwp.gov.uk
 redirection_date: 17th April 2013
 tna_timestamp: 20130128102031

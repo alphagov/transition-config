@@ -1,5 +1,6 @@
 ---
 site: cabinetoffice
+whitehall_slug: cabinet-office
 host: www.cabinetoffice.gov.uk
 redirection_date: 21st February 2013
 tna_timestamp: 20130128101412

@@ -1,5 +1,6 @@
 ---
 site: mod_ukho
+whitehall_slug: uk-hydrographic-office
 host: www.ukho.gov.uk
 redirection_date: 1st December 2013
 tna_timestamp: 20130702110939

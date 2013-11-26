@@ -1,5 +1,6 @@
 ---
 site: dh_mediacentre
+whitehall_slug: department-of-health
 host: mediacentre.dh.gov.uk
 redirection_date: 26th March 2013
 tna_timestamp: 20130107105354

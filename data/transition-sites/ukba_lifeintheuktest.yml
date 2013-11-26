@@ -1,5 +1,6 @@
 ---
 site: ukba_lifeintheuktest
+whitehall_slug: uk-border-agency
 host: lifeintheuktest.ukba.homeoffice.gov.uk
 redirection_date:
 tna_timestamp: 20130919230248

@@ -1,5 +1,6 @@
 ---
 site: treasury
+whitehall_slug: hm-treasury
 host: www.hm-treasury.gov.uk
 redirection_date: 25th April 2013
 tna_timestamp: 20130129110402
