@@ -1,12 +1,28 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    PriorityQueue (0.1.2)
+    gds-api-adapters (7.14.0)
+      link_header
+      lrucache (~> 0.1.1)
+      null_logger
+      plek
+      rest-client (~> 1.6.3)
+    link_header (0.0.7)
+    lrucache (0.1.4)
+      PriorityQueue (~> 0.1.2)
+    mime-types (1.25)
     minitest (4.7.0)
+    null_logger (0.0.1)
+    plek (1.4.0)
     rake (10.0.3)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  gds-api-adapters
   minitest
   rake
