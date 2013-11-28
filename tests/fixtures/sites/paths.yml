@@ -1,4 +1,6 @@
 ---
+site: paths
+whitehall_slug: paths
 host: paths.local
 aliases:
     - alias1.paths.local
