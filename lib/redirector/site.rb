@@ -32,13 +32,18 @@ module Redirector
       end
     end
 
+    attr_writer :whitehall_orgs
     def whitehall_orgs
-      api = GdsApi::Organisations.new(WHITEHALL_PRODUCTION)
-      api.organisations.with_subsequent_pages.to_a
+      @whitehall_orgs ||= self.get_organisations
     end
 
     def to_s
       "#{abbr}: #{whitehall_slug}"
+    end
+
+    def self.get_organisations
+      api = GdsApi::Organisations.new(WHITEHALL_PRODUCTION)
+      api.organisations.with_subsequent_pages.to_a
     end
 
     def self.all(mask = MASK)
@@ -46,7 +51,10 @@ module Redirector
       files = Dir[mask]
       raise RuntimeError, "No sites yaml found in #{mask}" if files.empty?
 
-      files.map { |filename| Site.new(File.read(filename)) }
+      organisations = Site.get_organisations
+      files.map do |filename|
+        Site.new(File.read(filename)).tap {|s| s.whitehall_orgs = organisations}
+      end
     end
 
     def self.check_all_slugs!(mask = MASK)
