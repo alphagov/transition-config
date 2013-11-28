@@ -20,12 +20,13 @@ class RedirectorSiteTest < MiniTest::Unit::TestCase
   end
 
   def test_can_initialize_site_from_yml
-    site = Redirector::Site.new(File.read(site_filename('ago')))
+    site = Redirector::Site.from_yaml(site_filename('ago'))
     assert_equal 'attorney-generals-office', site.whitehall_slug
     assert_equal 'ago', site.abbr
   end
 
   def test_can_enumerate_all_sites
+    organisations_api_has_organisations(%w(attorney-generals-office))
     number_of_sites = Dir[redirector_path('data/sites/*.yml')].length
 
     assert_equal Redirector::Site.all.length, number_of_sites
@@ -38,6 +39,7 @@ class RedirectorSiteTest < MiniTest::Unit::TestCase
   end
 
   def test_site_has_whitehall_slug
+    organisations_api_has_organisations(%w(attorney-generals-office))
     slug = Redirector::Site.all.first.whitehall_slug
     assert_instance_of String, slug
     refute_empty slug
@@ -45,12 +47,12 @@ class RedirectorSiteTest < MiniTest::Unit::TestCase
 
   def test_sites_never_existed_in_whitehall?
     %w(directgov directgov_microsite businesslink businesslink_microsite).each do |site_abbr|
-      site = Redirector::Site.new(File.read(slug_check_site_filename(site_abbr)))
+      site = Redirector::Site.from_yaml(slug_check_site_filename(site_abbr))
       assert site.never_existed_in_whitehall?,
              "Expected that #{site_abbr} never_existed_in_whitehall? to be true, got false"
     end
 
-    ago = Redirector::Site.new(File.read(slug_check_site_filename('ago')))
+    ago = Redirector::Site.from_yaml(slug_check_site_filename('ago'))
     refute ago.never_existed_in_whitehall?,
            'Expected ago to have existed in whitehall'
   end
@@ -78,5 +80,35 @@ class RedirectorSiteTest < MiniTest::Unit::TestCase
     refute_nil exception.missing.find {|site| site.whitehall_slug == 'non-existent-slug' }
     assert_nil exception.missing.find {|site| site.whitehall_slug == 'directgov_microsite' }
     assert_nil exception.missing.find {|site| site.whitehall_slug == 'directgov' }
+  end
+
+  def test_site_create_fails_when_no_slug
+    organisations_api_does_not_have_organisation 'non-existent-whitehall-slug'
+
+    assert_raises(ArgumentError) do
+      Redirector::Site.create('foobar', 'non-existent-whitehall-slug')
+    end
+  end
+
+  def test_site_creates_yaml_when_slug_exists
+    organisations_api_has_organisation 'uk-borders-agency'
+
+    site = Redirector::Site.create('ukba', 'uk-borders-agency')
+
+    assert_equal 'ukba', site.abbr
+    assert_equal 'uk-borders-agency', site.whitehall_slug
+    assert_equal 'Uk Borders Agency', site.title
+
+    site.save!
+
+    begin
+      yaml = YAML.load(File.read(site.filename))
+
+      assert_equal 'ukba', yaml['site']
+      assert_equal 'uk-borders-agency', yaml['whitehall_slug']
+      assert_equal 'Uk Borders Agency', yaml['title']
+    ensure
+      File.delete(site.filename)
+    end
   end
 end
