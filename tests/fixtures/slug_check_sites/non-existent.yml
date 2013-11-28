@@ -1,5 +1,7 @@
 ---
+site: two
 host: two.local
+whitehall_slug: non-existent-slug
 aliases:
     - alias1.two.local
     - alias2.two.local

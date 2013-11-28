@@ -45,22 +45,25 @@ class RedirectorSiteTest < MiniTest::Unit::TestCase
 
   def test_existing_site_slug_exists_in_whitehall?
     organisations_api_has_organisations(%w(attorney-generals-office))
-    assert Redirector::Site.all.first.slug_exists_in_whitehall?,
-           'expected slug to exist in whitehall'
+    ago = Redirector::Site.all.first
+    assert ago.slug_exists_in_whitehall?,
+           "expected #{ago.whitehall_slug} to exist in whitehall"
   end
 
   def test_non_existing_site_slug_does_not_exist_in_whitehall?
     organisations_api_has_organisations(%w(nothing-interesting))
     refute Redirector::Site.all.first.slug_exists_in_whitehall?,
-           'expected slug not to exist in whitehall'
+           'expected slug "attorney-generals-office" not to exist in Mock whitehall'
   end
 
   def test_checks_all_slugs
     organisations_api_has_organisations(%w(attorney-generals-office paths))
+
     exception = assert_raises(Redirector::SlugsMissingException) do
-      Redirector::Site.check_all_slugs!(relative_to_tests('fixtures/sites/*.yml'))
+      Redirector::Site.check_all_slugs!(relative_to_tests('fixtures/slug_check_sites/*.yml'))
     end
-    assert exception.missing.map(&:abbr).include?('non-existent'),
-           "Expected #{exception.missing} to include 'non-existent'"
+
+    refute_nil exception.missing.find {|site| site.whitehall_slug == 'non-existent-slug' }
+    assert_nil exception.missing.find {|site| site.whitehall_slug == 'directgov_microsite' }
   end
 end

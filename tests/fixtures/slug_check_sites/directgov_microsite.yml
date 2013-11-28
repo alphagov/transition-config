@@ -1,4 +1,5 @@
 ---
+site: directgov_microsite
 host: paths.local
 aliases:
     - alias1.paths.local

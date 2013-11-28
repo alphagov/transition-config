@@ -1,7 +1,5 @@
 ---
-site: ago
 host: one.local
-whitehall_slug: attorney-generals-office
 aliases:
     - alias1.one.local
     - alias2.one.local
