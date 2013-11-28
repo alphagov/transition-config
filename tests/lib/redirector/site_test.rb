@@ -43,6 +43,18 @@ class RedirectorSiteTest < MiniTest::Unit::TestCase
     refute_empty slug
   end
 
+  def test_sites_never_existed_in_whitehall?
+    %w(directgov directgov_microsite businesslink businesslink_microsite).each do |site_abbr|
+      site = Redirector::Site.new(File.read(slug_check_site_filename(site_abbr)))
+      assert site.never_existed_in_whitehall?,
+             "Expected that #{site_abbr} never_existed_in_whitehall? to be true, got false"
+    end
+
+    ago = Redirector::Site.new(File.read(slug_check_site_filename('ago')))
+    refute ago.never_existed_in_whitehall?,
+           'Expected ago to have existed in whitehall'
+  end
+
   def test_existing_site_slug_exists_in_whitehall?
     organisations_api_has_organisations(%w(attorney-generals-office))
     ago = Redirector::Site.all.first
@@ -65,5 +77,6 @@ class RedirectorSiteTest < MiniTest::Unit::TestCase
 
     refute_nil exception.missing.find {|site| site.whitehall_slug == 'non-existent-slug' }
     assert_nil exception.missing.find {|site| site.whitehall_slug == 'directgov_microsite' }
+    assert_nil exception.missing.find {|site| site.whitehall_slug == 'directgov' }
   end
 end
