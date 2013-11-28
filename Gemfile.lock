@@ -1,15 +1,3 @@
-GIT
-  remote: git@github.com:rgarner/gds-api-adapters.git
-  revision: ca197693322c22f03e15fafce76061743f44a2cf
-  branch: fix-organisation-test-helper
-  specs:
-    gds-api-adapters (7.21.0)
-      link_header
-      lrucache (~> 0.1.1)
-      null_logger
-      plek
-      rest-client (~> 1.6.3)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -17,6 +5,12 @@ GEM
     addressable (2.3.5)
     crack (0.4.1)
       safe_yaml (~> 0.9.0)
+    gds-api-adapters (7.22.0)
+      link_header
+      lrucache (~> 0.1.1)
+      null_logger
+      plek
+      rest-client (~> 1.6.3)
     link_header (0.0.7)
     lrucache (0.1.4)
       PriorityQueue (~> 0.1.2)
@@ -36,7 +30,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  gds-api-adapters!
-  minitest
-  rake
+  gds-api-adapters (= 7.22.0)
+  minitest (= 4.7.0)
+  rake (= 10.0.3)
   webmock
