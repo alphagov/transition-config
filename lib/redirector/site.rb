@@ -1,11 +1,10 @@
 require 'yaml'
-require 'gds_api/organisations'
+require 'redirector/organisations'
 require 'redirector/slugs_missing_exception'
 
 module Redirector
   class Site < Struct.new(:hash)
     MASK                       = File.expand_path('../../../data/sites/*.yml', __FILE__)
-    WHITEHALL_PRODUCTION       = 'https://whitehall-admin.production.alphagov.co.uk'
     NEVER_EXISTED_IN_WHITEHALL = %w(directgov businesslink)
 
     def abbr
@@ -24,20 +23,19 @@ module Redirector
       File.expand_path("../../data/sites/#{abbr}.yml", File.dirname(__FILE__))
     end
 
+    attr_writer :organisations
+    def organisations
+      @organisations ||= Organisations.new
+    end
+
     def slug_exists_in_whitehall?
-      whitehall_orgs.any? { |org| org.details.slug == whitehall_slug }
+      organisations.by_slug[whitehall_slug]
     end
 
     def never_existed_in_whitehall?
       NEVER_EXISTED_IN_WHITEHALL.any? do |prefix|
         abbr == prefix || abbr =~ Regexp.new("^#{prefix}_.*$")
       end
-    end
-
-    attr_writer :whitehall_orgs
-
-    def whitehall_orgs
-      @whitehall_orgs ||= self.get_organisations
     end
 
     def ordered_output
@@ -61,43 +59,33 @@ module Redirector
       "#{abbr}: #{whitehall_slug}"
     end
 
-    def self.organisations_api
-      @organisations_api ||= GdsApi::Organisations.new(WHITEHALL_PRODUCTION)
-    end
-
-    def self.get_organisations
-      organisations_api.organisations.with_subsequent_pages.to_a
-    end
-
-    def self.all(mask = MASK)
+    def self.all(mask = MASK, options = {})
       mask  = File.expand_path(mask)
       files = Dir[mask]
       raise RuntimeError, "No sites yaml found in #{mask}" if files.empty?
 
-      organisations = Site.get_organisations
-      files.map do |filename|
-        Site.new(YAML.load(File.read(filename))).tap { |s| s.whitehall_orgs = organisations }
-      end
+      files.map { |filename| Site.from_yaml(filename, options) }
     end
 
     def self.check_all_slugs!(mask = MASK)
-      missing = Redirector::Site.all(mask).reject do |site|
+      missing = Redirector::Site.all(mask, organisations: Organisations.new).reject do |site|
         site.slug_exists_in_whitehall? || site.never_existed_in_whitehall?
       end
       raise Redirector::SlugsMissingException.new(missing) if missing.any?
     end
 
-    def self.from_yaml(filename)
-      Site.new(YAML.load(File.read(filename)))
+    def self.from_yaml(filename, options = {})
+      Site.new(YAML.load(File.read(filename))).tap do |site|
+        site.organisations = options[:organisations]
+      end
     end
 
     def self.create(abbr, whitehall_slug)
-      response = organisations_api.organisation(whitehall_slug)
+      organisation = Organisations.new.find(whitehall_slug)
       raise ArgumentError,
             "No organisation with whitehall_slug #{whitehall_slug} found. "\
-            'Not creating site.' unless response
+            'Not creating site.' unless organisation
 
-      organisation = response.to_ostruct
       Site.new({
                  'site'           => abbr,
                  'whitehall_slug' => organisation.details.slug,
