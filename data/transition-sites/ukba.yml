@@ -8,16 +8,15 @@ title: UK Border Agency
 furl: www.gov.uk/ukba
 homepage: https://www.gov.uk/government/organisations/uk-border-agency
 aliases:
-  - bia.homeoffice.gov.uk
-  - ind.homeoffice.gov.uk
-  - origin.ukba.homeoffice.gov.uk
-  - ukba.homeoffice.gov.uk
-  - www.bia.homeoffice.gov.uk
-  - www.ind.homeoffice.gov.uk
+- bia.homeoffice.gov.uk
+- ind.homeoffice.gov.uk
+- origin.ukba.homeoffice.gov.uk
+- ukba.homeoffice.gov.uk
+- www.bia.homeoffice.gov.uk
+- www.ind.homeoffice.gov.uk
 # area: used for different news index pages
 # item: used for different contact pages
 # version: used for different outcomes of an asylum application
 # view: used to distinguish between a cover page (HTML) and the PDF itself
 options: --query-string area:item:version:view
 css: home-office
----
