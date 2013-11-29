@@ -27,7 +27,7 @@ class RedirectorSiteTest < MiniTest::Unit::TestCase
 
   def test_can_enumerate_all_sites
     organisations_api_has_organisations(%w(attorney-generals-office))
-    number_of_sites = Dir[redirector_path('data/sites/*.yml')].length
+    number_of_sites = Dir[Redirector.path('data/sites/*.yml')].length
 
     assert_equal Redirector::Site.all.length, number_of_sites
   end
@@ -86,18 +86,19 @@ class RedirectorSiteTest < MiniTest::Unit::TestCase
     organisations_api_does_not_have_organisation 'non-existent-whitehall-slug'
 
     assert_raises(ArgumentError) do
-      Redirector::Site.create('foobar', 'non-existent-whitehall-slug')
+      Redirector::Site.create('foobar', 'non-existent-whitehall-slug', 'some.host.gov')
     end
   end
 
   def test_site_creates_yaml_when_slug_exists
     organisations_api_has_organisation 'uk-borders-agency'
 
-    site = Redirector::Site.create('ukba', 'uk-borders-agency')
+    site = Redirector::Site.create('ukba', 'uk-borders-agency', 'www.ukba.homeoffice.gov.uk')
 
     assert_equal 'ukba', site.abbr
     assert_equal 'uk-borders-agency', site.whitehall_slug
     assert_equal 'Uk Borders Agency', site.title
+    assert_equal 'www.ukba.homeoffice.gov.uk', site.host
 
     site.save!
 

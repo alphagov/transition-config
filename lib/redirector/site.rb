@@ -1,5 +1,4 @@
 require 'yaml'
-require 'redirector/organisations'
 require 'redirector/slugs_missing_exception'
 
 module Redirector
@@ -17,6 +16,10 @@ module Redirector
 
     def title
       hash['title']
+    end
+
+    def host
+      hash['host']
     end
 
     def filename
@@ -44,7 +47,7 @@ module Redirector
         'whitehall_slug'   => whitehall_slug,
         'title'            => title,
         'redirection_date' => '31st October 2014',
-        'tna_timestamp'    => '20130704203515',
+        'tna_timestamp'    => 20130704203515,
         'host'             => "www.#{abbr}.gov.uk",
         'furl'             => "www.gov.uk/#{abbr}",
         'aliases'          => %W(www1.#{abbr}.gov.uk www2.#{abbr}.gov.uk)
@@ -80,7 +83,7 @@ module Redirector
       end
     end
 
-    def self.create(abbr, whitehall_slug)
+    def self.create(abbr, whitehall_slug, host)
       organisation = Organisations.new.find(whitehall_slug)
       raise ArgumentError,
             "No organisation with whitehall_slug #{whitehall_slug} found. "\
@@ -89,7 +92,8 @@ module Redirector
       Site.new({
                  'site'           => abbr,
                  'whitehall_slug' => organisation.details.slug,
-                 'title'          => organisation.title
+                 'title'          => organisation.title,
+                 'host'           => host
                })
     end
   end
