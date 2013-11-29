@@ -15,6 +15,15 @@ Each site is configured using a yaml file in the `data/sites` directory:
 * `homepage` — URL for new site, used to redirect '/'
 * `aliases` — list of alias domains
 
+Use `rake new_site[abbr,whitehall_slug,host]` to create a new site with default
+mappings and tests, e.g.
+
+`rake new_site[ukba,uk-border-agency,www.ukba.homeoffice.gov.uk]`
+
+You can also validate existing sites' whitehall_slugs by running
+
+`rake whitehall:slug_check`
+
 ## Mappings
 
 A CSV file in `data/mappings` for each site containing:
