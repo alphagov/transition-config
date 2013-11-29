@@ -3,7 +3,11 @@ require 'redirector/slugs_missing_exception'
 
 module Redirector
   class Site < Struct.new(:hash)
-    MASK                       = File.expand_path('../../../data/sites/*.yml', __FILE__)
+    MASKS = [
+      Redirector.path('data/sites/*.yml'),
+      Redirector.path('data/transition-sites/*.yml')
+    ]
+
     NEVER_EXISTED_IN_WHITEHALL = %w(directgov businesslink)
 
     def abbr
@@ -62,16 +66,18 @@ module Redirector
       "#{abbr}: #{whitehall_slug}"
     end
 
-    def self.all(mask = MASK, options = {})
-      mask  = File.expand_path(mask)
-      files = Dir[mask]
-      raise RuntimeError, "No sites yaml found in #{mask}" if files.empty?
+    def self.all(masks = MASKS, options = {})
+      files = Array(masks).inject([]) do |files, mask|
+        files.concat(Dir[mask])
+      end
+
+      raise RuntimeError, "No sites yaml found in #{masks}" if files.empty?
 
       files.map { |filename| Site.from_yaml(filename, options) }
     end
 
-    def self.check_all_slugs!(mask = MASK)
-      missing = Redirector::Site.all(mask, organisations: Organisations.new).reject do |site|
+    def self.check_all_slugs!(masks = MASKS)
+      missing = Redirector::Site.all(masks, organisations: Organisations.new).reject do |site|
         site.slug_exists_in_whitehall? || site.never_existed_in_whitehall?
       end
       raise Redirector::SlugsMissingException.new(missing) if missing.any?

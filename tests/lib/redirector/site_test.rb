@@ -27,9 +27,11 @@ class RedirectorSiteTest < MiniTest::Unit::TestCase
 
   def test_can_enumerate_all_sites
     organisations_api_has_organisations(%w(attorney-generals-office))
-    number_of_sites = Dir[Redirector.path('data/sites/*.yml')].length
+    number_of_sites =
+      Dir[Redirector.path('data/sites/*.yml')].length +
+      Dir[Redirector.path('data/transition-sites/*.yml')].length
 
-    assert_equal Redirector::Site.all.length, number_of_sites
+    assert_equal number_of_sites, Redirector::Site.all.length
   end
 
   def test_all_raises_error_when_no_files
