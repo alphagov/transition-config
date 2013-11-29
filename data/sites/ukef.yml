@@ -1,5 +1,6 @@
 ---
 site: ukef
+whitehall_slug: uk-export-finance
 host: www.ukexportfinance.gov.uk
 redirection_date: 28th April 2013
 tna_timestamp: 20130109053809
@@ -7,5 +8,4 @@ title: UK Export Finance
 furl: www.gov.uk/uk-export-finance
 homepage: https://www.gov.uk/government/organisations/export-credit-guarantee-department
 aliases:
-  - www.ecgd.gov.uk
----
+- www.ecgd.gov.uk

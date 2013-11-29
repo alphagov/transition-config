@@ -1,5 +1,6 @@
 ---
 site: dh_mediacentre
+whitehall_slug: department-of-health
 host: mediacentre.dh.gov.uk
 redirection_date: 26th March 2013
 tna_timestamp: 20130107105354
@@ -7,4 +8,3 @@ title: Department of Health
 furl: www.gov.uk/dh
 homepage: https://www.gov.uk/government/organisations/department-of-health
 css: department-of-health
----

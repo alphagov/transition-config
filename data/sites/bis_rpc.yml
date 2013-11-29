@@ -1,5 +1,6 @@
 ---
 site: bis_rpc
+whitehall_slug: regulatory-policy-committee
 host: regulatorypolicycommittee.independent.gov.uk
 redirection_date: 27th November 2013
 tna_timestamp: 20130403085727
@@ -8,4 +9,3 @@ furl: www.gov.uk/rpc
 homepage: https://www.gov.uk/government/organisations/regulatory-policy-committee
 options: --query-string attachment_id
 css: department-for-business-innovation-skills
----

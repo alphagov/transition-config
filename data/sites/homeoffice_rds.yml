@@ -1,5 +1,6 @@
 ---
 site: homeoffice_rds
+whitehall_slug: home-office
 host: rds.homeoffice.gov.uk
 redirection_date: 27th March 2013
 tna_timestamp: 20110314171826
@@ -8,4 +9,3 @@ title: Home Office
 homepage: https://www.gov.uk/government/organisations/home-office
 global: =410
 css: home-office
----

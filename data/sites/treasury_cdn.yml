@@ -1,5 +1,6 @@
 ---
 site: treasury_cdn
+whitehall_slug: hm-treasury
 host: cdn.hm-treasury.gov.uk
 redirection_date: 25th April 2013
 tna_timestamp: 20130129110402
@@ -9,8 +10,7 @@ homepage: https://www.gov.uk/government/organisations/hm-treasury
 css: hm-treasury
 global: /d$uri
 locations:
-    - path: ^/d/(.*)$
-      operation: ~*
-      status: 301
-      new_url: http://www.hm-treasury.gov.uk/$1
----
+- path: ^/d/(.*)$
+  operation: ~*
+  status: 301
+  new_url: http://www.hm-treasury.gov.uk/$1

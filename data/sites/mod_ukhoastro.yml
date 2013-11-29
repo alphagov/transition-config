@@ -1,10 +1,10 @@
 ---
 site: mod_ukhoastro
+whitehall_slug: uk-hydrographic-office
 host: astro.ukho.gov.uk
 redirection_date: 1st December 2013
 tna_timestamp: 20130403151208
-title: United Kingdom Hydrographic Office
+title: UK Hydrographic Office
 furl: www.gov.uk/ukho
 homepage: https://www.gov.uk/government/organisations/uk-hydrographic-office
 css: ministry-of-defence
----

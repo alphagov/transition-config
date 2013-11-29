@@ -1,5 +1,6 @@
 ---
 site: dwp_statistics
+whitehall_slug: department-for-work-pensions
 host: statistics.dwp.gov.uk
 redirection_date: 17th April 2013
 tna_timestamp: 20130128102031
@@ -7,7 +8,6 @@ title: Department for Work &amp; Pensions
 furl: www.gov.uk/dwp
 homepage: https://www.gov.uk/government/organisations/department-for-work-pensions
 aliases:
-  - research.dwp.gov.uk
+- research.dwp.gov.uk
 options: --query-string page
 css: department-for-work-pensions
----
