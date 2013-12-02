@@ -67,7 +67,7 @@ php_test::
 
 ruby_test::
 	bundle install --deployment
-	bundle exec rake test
+	bundle exec rake test whitehall:slug_check
 
 sh_test::
 	for t in tests/tools/*.sh ; do set -e -x ; $$t ; set +x ; done

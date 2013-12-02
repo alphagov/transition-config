@@ -2,7 +2,10 @@ GEM
   remote: https://rubygems.org/
   specs:
     PriorityQueue (0.1.2)
-    gds-api-adapters (7.14.0)
+    addressable (2.3.5)
+    crack (0.4.1)
+      safe_yaml (~> 0.9.0)
+    gds-api-adapters (7.22.0)
       link_header
       lrucache (~> 0.1.1)
       null_logger
@@ -11,18 +14,23 @@ GEM
     link_header (0.0.7)
     lrucache (0.1.4)
       PriorityQueue (~> 0.1.2)
-    mime-types (1.25)
+    mime-types (2.0)
     minitest (4.7.0)
     null_logger (0.0.1)
-    plek (1.4.0)
+    plek (1.5.0)
     rake (10.0.3)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    safe_yaml (0.9.7)
+    webmock (1.15.0)
+      addressable (>= 2.2.7)
+      crack (>= 0.3.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  gds-api-adapters
-  minitest
-  rake
+  gds-api-adapters (= 7.22.0)
+  minitest (= 4.7.0)
+  rake (= 10.0.3)
+  webmock
