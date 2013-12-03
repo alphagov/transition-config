@@ -1,4 +1,4 @@
-Old Url,New Url,Status
+Old Url,New Url,Status,Suggested Link,Archive Link
 http://www.hm-treasury.gov.uk/10017.htm,https://www.gov.uk/government/publications/international-examples-of-spending-consolidations-presentation,301
 http://www.hm-treasury.gov.uk/10019.htm,https://www.gov.uk/government/publications?keywords=&publication_filter_option=consultations&topics%5B%5D=all&departments%5B%5D=hm-treasury,301
 http://www.hm-treasury.gov.uk/10050.htm,https://www.gov.uk/government/organisations/hm-treasury#ministers,301
@@ -186,7 +186,7 @@ http://www.hm-treasury.gov.uk/budget.htm,https://www.gov.uk/government/topical-e
 http://www.hm-treasury.gov.uk/budget2010.htm,,410
 http://www.hm-treasury.gov.uk/budget2011_economy.htm,,410
 http://www.hm-treasury.gov.uk/budget2012.htm,,410
-http://www.hm-treasury.gov.uk/budget2012_complete.pdf,,410
+http://www.hm-treasury.gov.uk/budget2012_complete.pdf,,410,,http://webarchive.nationalarchives.gov.uk/20130402150032/http://cdn.hm-treasury.gov.uk/budget2012_complete.pdf
 http://www.hm-treasury.gov.uk/budget2012_debtreserves.htm,,410
 http://www.hm-treasury.gov.uk/budget2012_distributional_analysis.htm,,410
 http://www.hm-treasury.gov.uk/budget2012_documents.htm,,410

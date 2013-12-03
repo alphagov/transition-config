@@ -1,9 +1,10 @@
-Old Url,New Url,Status
+Old Url,New Url,Status,Suggested Link,Archive Link
 http://cdn.hm-treasury.gov.uk/2011budget_growth.pdf,https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/31584/2011budget_growth.pdf,301
 http://cdn.hm-treasury.gov.uk/as2012_data_sources.pdf,https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/185455/as2012_data_sources.pdf.pdf,301
 http://cdn.hm-treasury.gov.uk/as2012_policy_costings.pdf,https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/185454/as2012_policy_costings.pdf.pdf,301
 http://cdn.hm-treasury.gov.uk/as2012_tax_and_tax_credit_rates_and_thresholds_051212.pdf,https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/185460/as2012_tax_and_tax_credit_rates_and_thresholds_051212.pdf.pdf,301
 http://cdn.hm-treasury.gov.uk/autumn_statement_2012_complete.pdf,https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/185453/autumn_statement_2012_complete.pdf.pdf,301
+http://cdn.hm-treasury.gov.uk/budget2012_complete.pdf,,410,,http://webarchive.nationalarchives.gov.uk/20130402150032/http://cdn.hm-treasury.gov.uk/budget2012_complete.pdf
 http://cdn.hm-treasury.gov.uk/budget2013_annexa.pdf,https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/188362/budget2013_annexa.pdf.pdf,301
 http://cdn.hm-treasury.gov.uk/budget2013_annexb.pdf,https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/188363/budget2013_annexb.pdf.pdf,301
 http://cdn.hm-treasury.gov.uk/budget2013_chapter1.pdf,https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/188360/budget2013_chapter1.pdf.pdf,301
