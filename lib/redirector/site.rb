@@ -51,6 +51,7 @@ module Redirector
         'whitehall_slug'   => whitehall_slug,
         'title'            => title,
         'redirection_date' => '31st October 2014',
+        'homepage'         => "https://www.gov.uk/government/organisations/#{whitehall_slug}",
         'tna_timestamp'    => 20130704203515,
         'host'             => "www.#{abbr}.gov.uk",
         'furl'             => "www.gov.uk/#{abbr}",

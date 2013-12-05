@@ -110,6 +110,7 @@ class RedirectorSiteTest < MiniTest::Unit::TestCase
       assert_equal 'ukba', yaml['site']
       assert_equal 'uk-borders-agency', yaml['whitehall_slug']
       assert_equal 'Uk Borders Agency', yaml['title']
+      assert_equal 'https://www.gov.uk/government/organisations/uk-borders-agency', yaml['homepage']
     ensure
       File.delete(site.filename)
     end
