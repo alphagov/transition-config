@@ -11,6 +11,7 @@ GEM
       null_logger
       plek
       rest-client (~> 1.6.3)
+    htmlentities (4.3.1)
     link_header (0.0.7)
     lrucache (0.1.4)
       PriorityQueue (~> 0.1.2)
@@ -31,6 +32,7 @@ PLATFORMS
 
 DEPENDENCIES
   gds-api-adapters (= 7.22.0)
+  htmlentities (= 4.3.1)
   minitest (= 4.7.0)
   rake (= 10.0.3)
   webmock

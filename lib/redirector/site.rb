@@ -1,4 +1,5 @@
 require 'yaml'
+require 'htmlentities'
 require 'redirector/slugs_missing_exception'
 
 module Redirector
@@ -19,7 +20,7 @@ module Redirector
     end
 
     def title
-      hash['title']
+      Site.coder.decode(hash['title'])
     end
 
     def host
@@ -49,8 +50,9 @@ module Redirector
       {
         'site'             => abbr,
         'whitehall_slug'   => whitehall_slug,
-        'title'            => title,
+        'title'            => Site.coder.encode(title),
         'redirection_date' => '31st October 2014',
+        'homepage'         => "https://www.gov.uk/government/organisations/#{whitehall_slug}",
         'tna_timestamp'    => 20130704203515,
         'host'             => "www.#{abbr}.gov.uk",
         'furl'             => "www.gov.uk/#{abbr}",
@@ -101,6 +103,10 @@ module Redirector
                  'title'          => organisation.title,
                  'host'           => host
                })
+    end
+
+    def self.coder
+      @coder ||= HTMLEntities.new
     end
   end
 end
