@@ -1,0 +1,12 @@
+---
+site: defra_vla
+whitehall_slug: animal-health-and-veterinary-laboratories-agency
+title: Animal Health and Veterinary Laboratories Agency
+redirection_date: 31st March 2014
+homepage: https://www.gov.uk/government/organisations/animal-health-and-veterinary-laboratories-agency
+tna_timestamp: 20130904121313
+host: vla.defra.gov.uk
+furl: www.gov.uk/defra_vla
+aliases:
+- animalhealth.defra.gov.uk
+options: global: =301 https://www.gov.uk/government/organisations/animal-health-and-veterinary-laboratories-agency
