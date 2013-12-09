@@ -6,7 +6,7 @@ module Redirector
 Old Url,New Url,Status
 http://#{args.host},https://www.gov.uk/government/organisations/#{args.whitehall_slug},301
 CSV
-      `echo '#{tests_csv}' > #{tests_filename}`
+      `echo -n '#{tests_csv}' > #{tests_filename}`
     end
   end
 end
