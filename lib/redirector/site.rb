@@ -57,7 +57,6 @@ module Redirector
         'host'             => host,
         'furl'             => "www.gov.uk/#{abbr}",
         'aliases'          => %W(www1.#{abbr}.gov.uk www2.#{abbr}.gov.uk),
-        'global'           => "=410",
         'global'           => "=301 https://www.gov.uk/government/organisations/#{whitehall_slug}",
         'options'          => "--query-string qstring1:qstring2:qstring3"
       }
