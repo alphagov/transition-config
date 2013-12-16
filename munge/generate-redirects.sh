@@ -77,13 +77,14 @@ if [ -n "$fetch" ]; then
     set -x
     tools/fetch_mappings.sh --fetch "$fetch_list" --cache-dir "$cache" "$site"
     set +x
-fi
 
-echo "Fetching supertrump file from George (the latebreaking mappings form)"
-set -x
-curl -o "$supertrump" "https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdFJMWnBncG5Bc3NEZk9pdmpaQmRVWmc&single=true&gid=1&output=csv"
-tail +2 "$supertrump" | tools/escape_commas_in_urls >> "$whitehall" 
-set +x
+		echo "Fetching supertrump file from George (the latebreaking mappings form)"
+		set -x
+		curl -o "$supertrump" "https://docs.google.com/spreadsheet/pub?key=0AlVEZKtKyUEvdFJMWnBncG5Bc3NEZk9pdmpaQmRVWmc&single=true&gid=1&output=csv"
+		tail +2 "$supertrump" | tools/escape_commas_in_urls >> "$whitehall"
+		set +x
+
+fi
 
 echo "Extracting mappings from Whitehall ..."
 set -x
@@ -101,12 +102,12 @@ set -x
 cp "$site_whitehall" "$all_file"
 set +x
 
-if [ -f "$local_file" ]; then 
+if [ -f "$local_file" ]; then
 	echo "Tailing local file to mappings"
 	tail -q -n +2 "$local_file" >> $all_file
 fi
 
-if [ -f "$all_files" ]; then 
+if [ -f "$all_files" ]; then
 	echo "Tailing fetched files to mappings"
 	tail -q -n +2 "$all_files" >> $all_file
 fi
