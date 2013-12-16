@@ -9,3 +9,5 @@ furl: www.gov.uk/cabinet-office
 homepage: https://www.gov.uk/performance/transactions-explorer
 options: --query-string direction:format:orderBy
 css: cabinet-office
+aliases:
+  - transactionalservices.alphagov.co.uk
