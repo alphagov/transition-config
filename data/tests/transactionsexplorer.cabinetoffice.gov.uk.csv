@@ -1,4 +1,0 @@
-Old Url,New Url,Status
-http://transactionsexplorer.cabinetoffice.gov.uk,https://www.gov.uk/performance/transactions-explorer/all-services/by-transactions-per-year/descending,301
-http://transactionsexplorer.cabinetoffice.gov.uk/department/ago?direction=desc&orderBy=body,https://www.gov.uk/performance/transactions-explorer/department/ago/by-agency/descending,301
-http://transactionsexplorer.cabinetoffice.gov.uk/allservices?direction=asc&format=csv&orderBy=datacoverage,https://www.gov.uk/performance/transactions-explorer/data/transaction-volumes.csv,301
