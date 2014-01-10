@@ -1,7 +1,7 @@
 ---
-site: dwp_statistics
+site: dwp_research
 whitehall_slug: department-for-work-pensions
-host: statistics.dwp.gov.uk
+host: research.dwp.gov.uk
 redirection_date: 17th April 2013
 tna_timestamp: 20130128102031
 title: Department for Work &amp; Pensions
