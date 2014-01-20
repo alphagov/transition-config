@@ -1,6 +1,7 @@
 #  whitelist of domains which may be used in a New Url
 2050-calculator-tool.decc.gov.uk
 army.mod.uk
+assets.dft.gov.uk
 batransandbareports.voa.gov.uk
 betterfuture.direct.gov.uk
 bl.credit-register.oft.gov.uk
@@ -66,12 +67,14 @@ publicappointments.cabinetoffice.gov.uk
 queensawards.bis.gov.uk
 r4d.dfid.gov.uk
 reporting.direct.gov.uk
+resources.civilservice.gov.uk
 righttobuy.communities.gov.uk
 secure.fera.defra.gov.uk
 secure.services.defra.gov.uk
 secureonline.dwp.gov.uk
 services.parliament.uk
 sharp.direct.gov.uk
+shop.dft.gov.uk
 skillsfundingagency.bis.gov.uk
 skillsmart.nsaforretail.com
 spsonline.rpa.gov.uk
@@ -224,3 +227,14 @@ providerbulletin.dh.gov.uk
 socialcarebulletin.dh.gov.uk
 www.nationaltnas.gov.uk
 vivbennett.dh.gov.uk
+mattersoftesting.blog.gov.uk
+www.motinfo.gov.uk
+forms.dft.gov.uk
+bikeability.dft.gov.uk
+www.maib.gov.uk
+www.highwaysefficiency.org.uk
+actonco2.direct.gov.uk
+www.aaib.gov.uk
+public.govdelivery.com
+service.govdelivery.com
+
