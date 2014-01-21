@@ -7,5 +7,7 @@ tna_timestamp: 20121107103953
 title: Department for Transport
 furl: www.gov.uk/dft
 homepage: https://www.gov.uk/government/organisations/department-for-transport
-options: --query-string s
+options: --query-string agency
+aliases:
+- dft.gov.uk
 css: department-for-transport
