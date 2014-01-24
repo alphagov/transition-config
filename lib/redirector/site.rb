@@ -31,6 +31,10 @@ module Redirector
       File.expand_path("../../data/sites/#{abbr}.yml", File.dirname(__FILE__))
     end
 
+    def filename_bouncer
+      File.expand_path("../../data/transition-sites/#{abbr}.yml", File.dirname(__FILE__))
+    end
+
     attr_writer :organisations
     def organisations
       @organisations ||= Organisations.new
@@ -64,6 +68,10 @@ module Redirector
 
     def save!
       File.open(filename, 'w') { |file| ordered_output.to_yaml(file) }
+    end
+
+    def save_bouncer!
+      File.open(filename_bouncer, 'w') { |file| ordered_output.to_yaml(file) }
     end
 
     def to_s
