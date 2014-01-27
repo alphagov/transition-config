@@ -97,13 +97,33 @@ class RedirectorSiteTest < MiniTest::Unit::TestCase
     end
   end
 
-  def test_site_creates_yaml_when_slug_exists
+  def test_site_creates_redirector_yaml_when_slug_exists
     organisation_details = organisation_details_for_slug('uk-borders-agency').tap do |details|
       details['title'] = 'UK Borders Agency & encoding test'
     end
     organisations_api_has_organisation 'uk-borders-agency', organisation_details
 
-    site = Redirector::Site.create('ukba', 'uk-borders-agency', 'www.ukba.homeoffice.gov.uk')
+    site = Redirector::Site.create('ukba', 'uk-borders-agency', 'www.ukba.homeoffice.gov.uk', type: :redirector)
+
+    assert site.filename.include?('data/sites'), 'site.filename should contain data/sites'
+  end
+
+  def test_site_create_fails_on_unknown_type
+    assert_raises(ArgumentError) do
+      Redirector::Site.create('ukba', 'uk-borders-agency', 'www.ukba.homeoffice.gov.uk', type: :foobar)
+    end
+  end
+
+  def test_site_creates_bouncer_yaml_when_slug_exists
+    organisation_details = organisation_details_for_slug('uk-borders-agency').tap do |details|
+      details['title'] = 'UK Borders Agency & encoding test'
+    end
+    organisations_api_has_organisation 'uk-borders-agency', organisation_details
+
+    site = Redirector::Site.create('ukba', 'uk-borders-agency', 'www.ukba.homeoffice.gov.uk', type: :bouncer)
+
+    assert site.filename.include?('data/transition-sites'),
+           'site.filename should include data/transition-sites'
 
     assert_equal 'ukba', site.abbr
     assert_equal 'uk-borders-agency', site.whitehall_slug
@@ -123,4 +143,5 @@ class RedirectorSiteTest < MiniTest::Unit::TestCase
       File.delete(site.filename)
     end
   end
+
 end
