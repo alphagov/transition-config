@@ -52,6 +52,10 @@ module Redirector
       File.expand_path("../../data/#{sites_path}/#{abbr}.yml", File.dirname(__FILE__))
     end
 
+    def filename_bouncer
+      File.expand_path("../../data/transition-sites/#{abbr}.yml", File.dirname(__FILE__))
+    end
+
     attr_writer :organisations
     def organisations
       @organisations ||= Organisations.new
@@ -77,7 +81,7 @@ module Redirector
         'tna_timestamp'    => 20130704203515,
         'host'             => host,
         'furl'             => "www.gov.uk/#{abbr}",
-        'aliases'          => %W(www1.#{abbr}.gov.uk www2.#{abbr}.gov.uk),
+        'aliases'          => %W(www1.#{host} www2.#{host}),
         'global'           => "=301 https://www.gov.uk/government/organisations/#{whitehall_slug}",
         'options'          => "--query-string qstring1:qstring2:qstring3"
       }
@@ -85,6 +89,10 @@ module Redirector
 
     def save!
       File.open(filename, 'w') { |file| ordered_output.to_yaml(file) }
+    end
+
+    def save_bouncer!
+      File.open(filename_bouncer, 'w') { |file| ordered_output.to_yaml(file) }
     end
 
     def to_s
