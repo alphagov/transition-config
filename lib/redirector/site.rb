@@ -3,13 +3,34 @@ require 'htmlentities'
 require 'redirector/slugs_missing_exception'
 
 module Redirector
-  class Site < Struct.new(:hash)
+  class Site
     MASKS = [
       Redirector.path('data/sites/*.yml'),
       Redirector.path('data/transition-sites/*.yml')
     ]
 
+    PATHS = {
+      :bouncer    => 'transition-sites',
+      :redirector => 'sites'
+    }
+
     NEVER_EXISTED_IN_WHITEHALL = %w(directgov businesslink)
+
+    attr_accessor :hash
+    def initialize(hash, options = { type: :bouncer })
+      @options = options
+      PATHS[type] || (raise ArgumentError, "Unknown type #{type}")
+
+      self.hash = hash
+    end
+
+    def type
+      @options[:type]
+    end
+
+    def sites_path
+      PATHS[type]
+    end
 
     def abbr
       hash['site']
@@ -28,7 +49,7 @@ module Redirector
     end
 
     def filename
-      File.expand_path("../../data/sites/#{abbr}.yml", File.dirname(__FILE__))
+      File.expand_path("../../data/#{sites_path}/#{abbr}.yml", File.dirname(__FILE__))
     end
 
     attr_writer :organisations
@@ -93,18 +114,21 @@ module Redirector
       end
     end
 
-    def self.create(abbr, whitehall_slug, host)
+    def self.create(abbr, whitehall_slug, host, options = { type: :bouncer })
       organisation = Organisations.new.find(whitehall_slug)
       raise ArgumentError,
             "No organisation with whitehall_slug #{whitehall_slug} found. "\
             'Not creating site.' unless organisation
 
-      Site.new({
-                 'site'           => abbr,
-                 'whitehall_slug' => organisation.details.slug,
-                 'title'          => organisation.title,
-                 'host'           => host
-               })
+      Site.new(
+        {
+          'site'           => abbr,
+          'whitehall_slug' => organisation.details.slug,
+          'title'          => organisation.title,
+          'host'           => host
+        },
+        options
+      )
     end
 
     def self.coder
