@@ -1,0 +1,12 @@
+---
+site: homeoffice_lifeintheuktest
+whitehall_slug: home-office
+host: lifeintheuktest.ukba.homeoffice.gov.uk
+redirection_date:
+tna_timestamp: 20130919230248
+title: Home Office
+furl: www.gov.uk/home-office
+homepage: https://www.gov.uk/government/organisations/home-office
+aliases:
+- www.lifeintheuktest.gov.uk
+css: home-office
