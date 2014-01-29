@@ -1,12 +1,11 @@
 ---
-site: ukba
-whitehall_slug: uk-border-agency
+site: ukvi
+whitehall_slug: uk-visas-and-immigration
 host: www.ukba.homeoffice.gov.uk
 redirection_date: 11th February 2014
 tna_timestamp: 20130925160031
-title: UK Border Agency
-furl: www.gov.uk/ukba
-homepage: https://www.gov.uk/government/organisations/uk-border-agency
+title: UK Visas and Immigration
+homepage: https://www.gov.uk/government/organisations/uk-visas-and-immigration
 aliases:
 - bia.homeoffice.gov.uk
 - ind.homeoffice.gov.uk

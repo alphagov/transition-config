@@ -1,11 +1,10 @@
 ---
-site: ukba_lifeintheuktest
-whitehall_slug: uk-border-agency
+site: ukvi_lifeintheuktest
+whitehall_slug: uk-visas-and-immigration
 host: lifeintheuktest.ukba.homeoffice.gov.uk
 redirection_date:
 tna_timestamp: 20130919230248
-title: UK Border Agency
-furl: www.gov.uk/ukba
+title: UK Visas and Immigration
 homepage: https://www.gov.uk/book-life-in-uk-test
 aliases:
 - www.lifeintheuktest.gov.uk
