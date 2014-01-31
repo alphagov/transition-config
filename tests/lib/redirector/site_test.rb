@@ -98,36 +98,36 @@ class RedirectorSiteTest < MiniTest::Unit::TestCase
   end
 
   def test_site_creates_redirector_yaml_when_slug_exists
-    organisation_details = organisation_details_for_slug('uk-borders-agency').tap do |details|
-      details['title'] = 'UK Borders Agency & encoding test'
+    organisation_details = organisation_details_for_slug('uk-border-agency').tap do |details|
+      details['title'] = 'UK Border Agency & encoding test'
     end
-    organisations_api_has_organisation 'uk-borders-agency', organisation_details
+    organisations_api_has_organisation 'uk-border-agency', organisation_details
 
-    site = Redirector::Site.create('ukba', 'uk-borders-agency', 'www.ukba.homeoffice.gov.uk', type: :redirector)
+    site = Redirector::Site.create('ukba', 'uk-border-agency', 'www.ukba.homeoffice.gov.uk', type: :redirector)
 
     assert site.filename.include?('data/sites'), 'site.filename should contain data/sites'
   end
 
   def test_site_create_fails_on_unknown_type
     assert_raises(ArgumentError) do
-      Redirector::Site.create('ukba', 'uk-borders-agency', 'www.ukba.homeoffice.gov.uk', type: :foobar)
+      Redirector::Site.create('ukba', 'uk-border-agency', 'www.ukba.homeoffice.gov.uk', type: :foobar)
     end
   end
 
   def test_site_creates_bouncer_yaml_when_slug_exists
-    organisation_details = organisation_details_for_slug('uk-borders-agency').tap do |details|
-      details['title'] = 'UK Borders Agency & encoding test'
+    organisation_details = organisation_details_for_slug('uk-border-agency').tap do |details|
+      details['title'] = 'UK Border Agency & encoding test'
     end
-    organisations_api_has_organisation 'uk-borders-agency', organisation_details
+    organisations_api_has_organisation 'uk-border-agency', organisation_details
 
-    site = Redirector::Site.create('ukba', 'uk-borders-agency', 'www.ukba.homeoffice.gov.uk', type: :bouncer)
+    site = Redirector::Site.create('ukba', 'uk-border-agency', 'www.ukba.homeoffice.gov.uk', type: :bouncer)
 
     assert site.filename.include?('data/transition-sites'),
            'site.filename should include data/transition-sites'
 
     assert_equal 'ukba', site.abbr
-    assert_equal 'uk-borders-agency', site.whitehall_slug
-    assert_equal 'UK Borders Agency & encoding test', site.title
+    assert_equal 'uk-border-agency', site.whitehall_slug
+    assert_equal 'UK Border Agency & encoding test', site.title
     assert_equal 'www.ukba.homeoffice.gov.uk', site.host
 
     site.save!
@@ -136,9 +136,9 @@ class RedirectorSiteTest < MiniTest::Unit::TestCase
       yaml = YAML.load(File.read(site.filename))
 
       assert_equal 'ukba', yaml['site']
-      assert_equal 'uk-borders-agency', yaml['whitehall_slug']
-      assert_equal 'UK Borders Agency &amp; encoding test', yaml['title']
-      assert_equal 'https://www.gov.uk/government/organisations/uk-borders-agency', yaml['homepage']
+      assert_equal 'uk-border-agency', yaml['whitehall_slug']
+      assert_equal 'UK Border Agency &amp; encoding test', yaml['title']
+      assert_equal 'https://www.gov.uk/government/organisations/uk-border-agency', yaml['homepage']
     ensure
       File.delete(site.filename)
     end
