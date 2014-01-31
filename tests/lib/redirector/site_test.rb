@@ -109,6 +109,7 @@ class RedirectorSiteTest < MiniTest::Unit::TestCase
   end
 
   def test_site_create_fails_on_unknown_type
+    organisations_api_has_organisations(%w(uk-borders-agency))
     assert_raises(ArgumentError) do
       Redirector::Site.create('ukba', 'uk-borders-agency', 'www.ukba.homeoffice.gov.uk', type: :foobar)
     end
