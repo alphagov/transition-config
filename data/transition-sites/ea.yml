@@ -7,3 +7,6 @@ furl: www.gov.uk/environment-agency
 homepage: https://www.gov.uk/government/organisations/environment-agency
 tna_timestamp: 20131203145522
 host: www.environment-agency.gov.uk
+# Currently just known querystrings parameters used on:
+# http://www.environment-agency.gov.uk/homeandleisure/floods/34678.aspx
+options: --query-string from:latest:page:pubdate:ref:severity:style:term:title:type
