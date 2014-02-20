@@ -17,7 +17,7 @@ Each site is configured using a yaml file in the `data/sites` or `data/transitio
 * `global` — configure with a global rule-based redirect for all paths aside from the homepage
 
 Use `rake new_site[abbr,whitehall_slug,host]` to create a new site with default
-mappings and tests, with an option for  e.g.
+mappings and tests, with an option for which service to config e.g.
 
 `rake new_site[ukba,uk-border-agency,www.ukba.homeoffice.gov.uk] SITE_TYPE=option`
 
