@@ -74,7 +74,7 @@ module Redirector
         'title'            => Site.coder.encode(title),
         'redirection_date' => '31st October 2014',
         'homepage'         => "https://www.gov.uk/government/organisations/#{whitehall_slug}",
-        'tna_timestamp'    => 20130704203515,
+        'tna_timestamp'    => 20201205150354,
         'host'             => host,
         'furl'             => "www.gov.uk/#{abbr}",
         'aliases'          => %W(www1.#{host} www2.#{host}),
