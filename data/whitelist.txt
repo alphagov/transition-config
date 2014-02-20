@@ -22,6 +22,7 @@ corwm.decc.gov.uk
 cscuk.dfid.gov.uk
 customs.hmrc.gov.uk
 data.gov.uk
+dfid.blog.gov.uk
 digitalchallenge.dh.gov.uk
 digitalstandards.cabinetoffice.gov.uk
 dlcu.homeoffice.gov.uk
