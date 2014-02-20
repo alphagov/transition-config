@@ -116,6 +116,10 @@ class RedirectorSiteTest < MiniTest::Unit::TestCase
   end
 
   def test_site_creates_bouncer_yaml_when_slug_exists
+    tna_response = File.read(relative_to_tests('fixtures/tna/ukba.html'))
+    stub_request(:get, "http://webarchive.nationalarchives.gov.uk/*/http://www.ukba.homeoffice.gov.uk").
+        to_return(status: 200, body: tna_response)
+
     organisation_details = organisation_details_for_slug('uk-borders-agency').tap do |details|
       details['title'] = 'UK Borders Agency & encoding test'
     end
@@ -140,6 +144,7 @@ class RedirectorSiteTest < MiniTest::Unit::TestCase
       assert_equal 'uk-borders-agency', yaml['whitehall_slug']
       assert_equal 'UK Borders Agency &amp; encoding test', yaml['title']
       assert_equal 'https://www.gov.uk/government/organisations/uk-borders-agency', yaml['homepage']
+      assert_equal 20140110181512, yaml['tna_timestamp']
     ensure
       File.delete(site.filename)
     end

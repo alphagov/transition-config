@@ -1,6 +1,7 @@
 require 'yaml'
 require 'htmlentities'
 require 'redirector/slugs_missing_exception'
+require 'redirector/tna_timestamp'
 
 module Redirector
   class Site
@@ -48,6 +49,14 @@ module Redirector
       hash['host']
     end
 
+    def tna_timestamp
+      if timestamp = Redirector::TNATimestamp.new(host).find
+        timestamp.to_i
+      else
+        nil
+      end
+    end
+
     def filename
       File.expand_path("../../data/#{sites_path}/#{abbr}.yml", File.dirname(__FILE__))
     end
@@ -74,7 +83,7 @@ module Redirector
         'title'            => Site.coder.encode(title),
         'redirection_date' => '31st October 2014',
         'homepage'         => "https://www.gov.uk/government/organisations/#{whitehall_slug}",
-        'tna_timestamp'    => 20201205150354,
+        'tna_timestamp'    => tna_timestamp,
         'host'             => host,
         'furl'             => "www.gov.uk/#{abbr}",
         'aliases'          => %W(www1.#{host} www2.#{host}),
