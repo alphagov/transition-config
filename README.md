@@ -4,7 +4,7 @@ Nginx configuration and supporting tools and tests for the redirector, an Ngnix 
 
 ## Sites
 
-Each site is configured using a yaml file in the `data/sites` directory:
+Each site is configured using a yaml file in the `data/sites` or `data/transition-sites` directory:
 
 * `site` — friendly name for the site
 * `host` — primary hostname for site
@@ -14,11 +14,14 @@ Each site is configured using a yaml file in the `data/sites` directory:
 * `furl` — friendly URL displayed on error pages
 * `homepage` — URL for new site, used to redirect '/'
 * `aliases` — list of alias domains
+* `global` — configure with a global rule-based redirect for all paths aside from the homepage
 
 Use `rake new_site[abbr,whitehall_slug,host]` to create a new site with default
-mappings and tests, e.g.
+mappings and tests, with an option for  e.g.
 
-`rake new_site[ukba,uk-border-agency,www.ukba.homeoffice.gov.uk]`
+`rake new_site[ukba,uk-border-agency,www.ukba.homeoffice.gov.uk] SITE_TYPE=option`
+
+where `option` is one of `redirector` or `bouncer` (bouncer as default)
 
 You can also validate existing sites' whitehall_slugs by running
 
@@ -32,7 +35,7 @@ A CSV file in `data/mappings` for each site containing:
 * `New Url` — the destination Url for a 301
 * `Status` — 301 for a redirect, 410 for a page which is being deprecated
 * `Suggested Link` — an optional suggested link for the 410 page
-* `Archive Link` — an alternative link to The National Archives for the 410 page
+* `Archive Link` — an optional alternative link to The National Archives for the 410 page
 
 During development, mappings are usually generated from spreadsheets, or using scripts.
 Once live they are maintained in this repository.
