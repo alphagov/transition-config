@@ -7,3 +7,5 @@ homepage: https://www.gov.uk/government/organisations/skills-funding-agency
 tna_timestamp: 20130904104337
 host: designguidance.skillsfundingagency.bis.gov.uk
 furl: www.gov.uk/sfa
+# nrnodeguid appears to be a document ID
+options: --query-string nrnodeguid

@@ -9,3 +9,5 @@ host: www.thedataservice.org.uk
 furl: www.gov.uk/sfa
 aliases:
 - thedataservice.org.uk
+# nrnodeguid appears to be a document ID
+options: --query-string nrnodeguid
