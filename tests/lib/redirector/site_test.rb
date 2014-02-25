@@ -12,11 +12,11 @@ class RedirectorSiteTest < MiniTest::Unit::TestCase
 
   def setup
     @old_app_domain = ORGANISATIONS_API_ENDPOINT
-    ORGANISATIONS_API_ENDPOINT.gsub! /^.*$/, 'https://whitehall-admin.production.alphagov.co.uk'
+    ORGANISATIONS_API_ENDPOINT.gsub!(/^.*$/, 'https://whitehall-admin.production.alphagov.co.uk')
   end
 
   def teardown
-    ORGANISATIONS_API_ENDPOINT.gsub! /^.*$/, @old_app_domain
+    ORGANISATIONS_API_ENDPOINT.gsub!(/^.*$/, @old_app_domain)
   end
 
   def test_can_initialize_site_from_yml
