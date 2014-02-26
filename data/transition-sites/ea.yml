@@ -7,3 +7,11 @@ furl: www.gov.uk/environment-agency
 homepage: https://www.gov.uk/government/organisations/environment-agency
 tna_timestamp: 20131203145522
 host: www.environment-agency.gov.uk
+options: --query-string area:type:term:severity:regionid:areaid
+
+# Intentionally ignoring these:
+# ImageId - http://www.environment-agency.gov.uk/homeandleisure/floods/3days/Controls/FloodForecast/ImageHandler.ashx?ImageId=1
+# fid:ufid - used for tool start and end pages
+# style - used for print style sheets only
+# month:year:page:coverage:personal:sector:frompanel - http://www.environment-agency.gov.uk/news/default.aspx?month=12&year=2013&coverage=Anglian,Midlands,National,North%20East,North%20West,South%20West,South%20East,Wales&sector=Climate%20change,Drought,Energy,Fishing%20and%20aquaculture,Flood,Wildlife%20and%20conservation&persona=Home
+# aspxerrorpath
