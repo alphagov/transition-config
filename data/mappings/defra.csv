@@ -3310,7 +3310,7 @@ http://www.defra.gov.uk/chemicals-forum/wp-includes/js/jquery/jquery-migrate.min
 http://www.defra.gov.uk/chemicals-forum/wp-includes/js/jquery/jquery.js,,410
 http://www.defra.gov.uk/chemicals-forum/wp-includes/wlwmanifest.xml,,410
 http://www.defra.gov.uk/chemicals-forum/xmlrpc.php,,410
-http://www.defra.gov.uk/consult,,410
+http://www.defra.gov.uk/consult,https://www.gov.uk/government/publications?departments[]=department-for-environment-food-rural-affairs&publication_filter_option=consultations,301
 http://www.defra.gov.uk/consult/2011/02/22/water-sewerage-infrastructure-england-1102,https://www.gov.uk/government/consultations/regime-for-special-water-and-sewerage-infrastructure-projects-in-england,301
 http://www.defra.gov.uk/consult/2011/03/01/plant-protection-products-1103,https://www.gov.uk/government/consultations/the-plant-protection-products-regulations-2011,301
 http://www.defra.gov.uk/consult/2011/03/01/rmmb-1103,https://www.gov.uk/government/consultations/disposal-of-the-assets-of-the-residuary-milk-marketing-board,301
@@ -4000,7 +4000,7 @@ http://www.defra.gov.uk/consult/files/wpp-consult-letter-20130311.pdf,https://ww
 http://www.defra.gov.uk/consult/files/wpp-consult-list-20130314.pdf,https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/181990/wpp-consult-list-20130314.pdf.pdf,301
 http://www.defra.gov.uk/consult/files/wpp-consult-response-form-20130311.doc,https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/181993/wpp-consult-response-form-20130311.doc.doc,301
 http://www.defra.gov.uk/consult/files/wpp-consult-response-form-20130311.pdf,https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/181994/wpp-consult-response-form-20130311.pdf.pdf,301
-http://www.defra.gov.uk/continuity,https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs/corporate_information_pages/staff-update/edit,301
+http://www.defra.gov.uk/continuity,https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs/about/staff-update,301
 http://www.defra.gov.uk/corporate,,410
 http://www.defra.gov.uk/corporate/about,https://www.gov.uk/government/organisations/Department-for-environment-food-rural-affairs/about,301
 http://www.defra.gov.uk/corporate/about/environmental,https://www.gov.uk/government/organisations/Department-for-environment-food-rural-affairs/about/our-energy-use,301
@@ -4031,7 +4031,7 @@ http://www.defra.gov.uk/corporate/about/who/ministers/benyon,https://www.gov.uk/
 http://www.defra.gov.uk/corporate/about/who/ministers/de-mauley,https://www.gov.uk/government/people/lord-de-mauley,301
 http://www.defra.gov.uk/corporate/about/who/ministers/heath,https://www.gov.uk/government/people/david-heath,301
 http://www.defra.gov.uk/corporate/about/who/ministers/paterson,https://www.gov.uk/government/people/owen-paterson,301
-http://www.defra.gov.uk/corporate/about/who/ministers/transparency,,410
+http://www.defra.gov.uk/corporate/about/who/ministers/transparency,https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs/series/ministers-hospitality-gifts-meetings-overseas-travel,301
 http://www.defra.gov.uk/corporate/about/with,https://www.gov.uk/government/organisations/Department-for-environment-food-rural-affairs/about,301
 http://www.defra.gov.uk/corporate/about/with/a-z,https://www.gov.uk/government/organisations/Department-for-environment-food-rural-affairs/about,301
 http://www.defra.gov.uk/corporate/about/with/former-bodies,,410
@@ -4532,7 +4532,7 @@ http://www.defra.gov.uk/environment/marine/shellfish/crabs-lobsters,,410
 http://www.defra.gov.uk/environment/marine/shellfish/regulating-orders,,410
 http://www.defra.gov.uk/environment/marine/shellfish/scallops,,410
 http://www.defra.gov.uk/environment/marine/wwo,,410
-http://www.defra.gov.uk/environment/marine/wwo/fishing-focus,,410
+http://www.defra.gov.uk/environment/marine/wwo/fishing-focus,https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs/series/fishing-focus,301
 http://www.defra.gov.uk/environment/marine/wwo/ifca,https://www.gov.uk/government/publications/ifca-byelaw-guidance,301
 http://www.defra.gov.uk/environment/marine/wwo/seafish,,410
 http://www.defra.gov.uk/environment/natural,https://www.gov.uk/government/topics/environment,301
@@ -4618,7 +4618,7 @@ http://www.defra.gov.uk/environment/quality/chemicals/specific/pesticides,,410
 http://www.defra.gov.uk/environment/quality/chemicals/specific/pops,,410
 http://www.defra.gov.uk/environment/quality/chemicals/what-we-are-doing,https://www.gov.uk/government/organisations/Department-for-environment-food-rural-affairs/series/chemicals-risk-reduction-strategies,301
 http://www.defra.gov.uk/environment/quality/environmental-liability,,410
-http://www.defra.gov.uk/environment/quality/gm,https://www.gov.uk/air-quality,301
+http://www.defra.gov.uk/environment/quality/gm,https://www.gov.uk/government/policies/making-the-food-and-farming-industry-more-competitive-while-protecting-the-environment/supporting-pages/genetic-modification,301
 http://www.defra.gov.uk/environment/quality/gm/applications-consents,https://www.gov.uk/genetically-modified-organisms-applications-and-consents,301
 http://www.defra.gov.uk/environment/quality/industrial/eu-international/solvent-paint-directives,,410
 http://www.defra.gov.uk/environment/quality/industrial/las-regulations/charges-risk,,410
@@ -4641,7 +4641,7 @@ http://www.defra.gov.uk/environment/quality/noise/economic,https://www.gov.uk/no
 http://www.defra.gov.uk/environment/quality/noise/environmental-noise,,410
 http://www.defra.gov.uk/environment/quality/noise/environmental-noise/action-plans,,410
 http://www.defra.gov.uk/environment/quality/noise/environmental-noise/action-plans/important-first-priority,,410
-http://www.defra.gov.uk/environment/quality/noise/environmental-noise/mapping,http://noisemapping.defra.gov.uk/,301
+http://www.defra.gov.uk/environment/quality/noise/environmental-noise/mapping,http://noisemapping.defra.gov.uk,301
 http://www.defra.gov.uk/environment/quality/noise/neighbourhood,,410
 http://www.defra.gov.uk/environment/quality/noise/npse,https://www.gov.uk/government/policies/protecting-and-enhancing-our-urban-and-natural-environment-to-improve-public-health-and-wellbeing,301
 http://www.defra.gov.uk/environment/quality/noise/nuisance,https://www.gov.uk/government/policies/protecting-and-enhancing-our-urban-and-natural-environment-to-improve-public-health-and-wellbeing,301
@@ -4713,9 +4713,9 @@ http://www.defra.gov.uk/evidence/funding/forms,,410
 http://www.defra.gov.uk/evidence/funding/terms-conditions,,410
 http://www.defra.gov.uk/evidence/geographic,https://www.gov.uk/government/organisations/Department-for-environment-food-rural-affairs/about/research,301
 http://www.defra.gov.uk/evidence/operational,https://www.gov.uk/government/organisations/Department-for-environment-food-rural-affairs/about/research,301
-http://www.defra.gov.uk/evidence/science,,410
+http://www.defra.gov.uk/evidence/science,https://www.gov.uk/government/organisations/Department-for-environment-food-rural-affairs/about/research,301
 http://www.defra.gov.uk/evidence/science/chief-adviser,https://www.gov.uk/government/people/ian-boyd,301
-http://www.defra.gov.uk/evidence/series,,410
+http://www.defra.gov.uk/evidence/series,https://www.gov.uk/government/organisations/Department-for-environment-food-rural-affairs/about/research,301
 http://www.defra.gov.uk/evidence/social,https://www.gov.uk/government/organisations/Department-for-environment-food-rural-affairs/about/research,301
 http://www.defra.gov.uk/evidence/strategy-evidence-plans,https://www.gov.uk/government/organisations/Department-for-environment-food-rural-affairs/about/research,301
 http://www.defra.gov.uk/fangr,https://www.gov.uk/government/policy-advisory-groups/farm-animal-genetic-resources-committee-fangr,301
@@ -5242,7 +5242,7 @@ http://www.defra.gov.uk/food-farm/food/food-industry/poultry-industry,https://ww
 http://www.defra.gov.uk/food-farm/food/food-industry/wine-industry,https://www.gov.uk/wine-trade-regulations,301
 http://www.defra.gov.uk/food-farm/food/labelling,,410
 http://www.defra.gov.uk/food-farm/food/labelling/country-origin,,410
-http://www.defra.gov.uk/food-farm/food/labelling/processed-beef-horse-meat,,410
+http://www.defra.gov.uk/food-farm/food/labelling/processed-beef-horse-meat,https://www.gov.uk/government/news/processed-beef-products-and-horse-meat,301
 http://www.defra.gov.uk/food-farm/food/personal-imports,https://www.gov.uk/personal-food-plant-and-animal-product-imports,301
 http://www.defra.gov.uk/food-farm/food/personal-imports/rules,https://www.gov.uk/personal-food-plant-and-animal-product-imports,301
 http://www.defra.gov.uk/food-farm/food/personal-imports/rules/bushmeat-faqs,https://www.gov.uk/personal-food-plant-and-animal-product-imports,301
@@ -5488,7 +5488,7 @@ http://www.defra.gov.uk/forestrypanel/wp-includes/js/jquery/jquery-migrate.min.j
 http://www.defra.gov.uk/forestrypanel/wp-includes/js/jquery/jquery.js,,410
 http://www.defra.gov.uk/forestrypanel/wp-includes/wlwmanifest.xml,,410
 http://www.defra.gov.uk/forestrypanel/xmlrpc.php,,410
-http://www.defra.gov.uk/forms,,410
+http://www.defra.gov.uk/forms,https://www.gov.uk/government/publications?departments[]=department-for-environment-food-rural-affairs,301
 http://www.defra.gov.uk/forms/2011/03/19/css947-ag-census-2010,,410
 http://www.defra.gov.uk/forms/2011/03/30/aml1-animal-move-licensing,https://www.gov.uk/government/publications/report-of-sheep-and-goat-movement-made-under-a-general-licence,301
 http://www.defra.gov.uk/forms/2011/03/30/aml2-pig-move-licence,,410
@@ -6811,7 +6811,7 @@ http://www.defra.gov.uk/naturalcapitalcommittee/wp-includes/js/jquery/jquery-mig
 http://www.defra.gov.uk/naturalcapitalcommittee/wp-includes/js/jquery/jquery.js,,410
 http://www.defra.gov.uk/naturalcapitalcommittee/wp-includes/wlwmanifest.xml,,410
 http://www.defra.gov.uk/naturalcapitalcommittee/xmlrpc.php,,410
-http://www.defra.gov.uk/news,,410
+http://www.defra.gov.uk/news,https://www.gov.uk/government/announcements?departments[]=department-for-environment-food-rural-affairs,301
 http://www.defra.gov.uk/news/2010/05/13/new-defra-minister-of-state-announced,https://www.gov.uk/government/news/new-defra-ministers-announced,301
 http://www.defra.gov.uk/news/2010/05/13/new-defra-secretary-of-state-announced,https://www.gov.uk/government/news/new-defra-secretary-of-state-announced,301
 http://www.defra.gov.uk/news/2010/05/18/defra-ministerial-portfolios-announced,https://www.gov.uk/government/news/defra-ministerial-portfolios-announced,301
@@ -7529,6 +7529,7 @@ http://www.defra.gov.uk/news/2013/03/28/national-park-authorities-and-broads-aut
 http://www.defra.gov.uk/news/2013/04/03/on-farm-burial-of-carcases-allowed-for-farmers-affected-by-the-bad-weather,https://www.gov.uk/government/news/on-farm-burial-of-carcases-allowed-for-farmers-affected-by-the-bad-weather,301
 http://www.defra.gov.uk/news/2013/04/04/combat-bovine-tb,https://www.gov.uk/government/news/surveillance-cameras-used-to-help-combat-bovine-tb,301
 http://www.defra.gov.uk/news/2013/04/05/defra-experts-set-to-answer-your-questions-about-bovine-tb,https://www.gov.uk/government/news/defra-experts-set-to-answer-your-questions-about-bovine-tb,301
+http://www.defra.gov.uk/news/2013/04/06/myth-busted-daily-mail-recycling-sent-abroad,https://www.gov.uk/government/news/the-daily-mail-claims-that-waste-meant-for-recycling-is-dumped-in-landfill-abroad,301
 http://www.defra.gov.uk/news/2013/04/08/8-7-million-funding,https://www.gov.uk/government/news/8-7-million-to-fund-key-environmental-projects-around-the-world,301
 http://www.defra.gov.uk/news/2013/04/08/appointments-to-chilterns-and-cotswolds-conservation-boards,https://www.gov.uk/government/news/appointments-to-chilterns-and-cotswolds-conservation-boards,301
 http://www.defra.gov.uk/news/2013/04/08/reappointments-forestry,https://www.gov.uk/government/news/reappointments-to-national-forestry-company,301
@@ -7760,7 +7761,7 @@ http://www.defra.gov.uk/peat-taskforce/wp-includes/js/jquery/jquery-migrate.min.
 http://www.defra.gov.uk/peat-taskforce/wp-includes/js/jquery/jquery.js,,410
 http://www.defra.gov.uk/peat-taskforce/wp-includes/wlwmanifest.xml,,410
 http://www.defra.gov.uk/peat-taskforce/xmlrpc.php,,410
-http://www.defra.gov.uk/publications,,410
+http://www.defra.gov.uk/publications,https://www.gov.uk/government/publications?departments[]=department-for-environment-food-rural-affairs,301
 http://www.defra.gov.uk/publications/2011/03/15/pb11050-ragwort-disposal-guidance,https://www.gov.uk/government/publications/common-ragwort-disposal-options-guidance,301
 http://www.defra.gov.uk/publications/2011/03/15/pb12340-welfare-animals-transport,https://www.gov.uk/government/publications/welfare-of-animals-during-transport--2,301
 http://www.defra.gov.uk/publications/2011/03/15/pb12544a-welfare-animals-transport-cattle,https://www.gov.uk/government/publications/welfare-of-animals-during-transport-advice-for-transporters-of-cattle,301
@@ -8795,7 +8796,7 @@ http://www.defra.gov.uk/site-info/wp-includes/js/jquery/jquery-migrate.min.js,,4
 http://www.defra.gov.uk/site-info/wp-includes/js/jquery/jquery.js,,410
 http://www.defra.gov.uk/site-info/wp-includes/wlwmanifest.xml,,410
 http://www.defra.gov.uk/site-info/xmlrpc.php,,410
-http://www.defra.gov.uk/statistics,,410
+http://www.defra.gov.uk/statistics,https://www.gov.uk/government/publications?departments[]=department-for-environment-food-rural-affairs&publication_filter_option=statistics,301
 http://www.defra.gov.uk/statistics/2006/12/30/2006-brief,https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs/series/monthly-farming-and-food-brief,301
 http://www.defra.gov.uk/statistics/2007/12/30/2007-brief,https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs/series/monthly-farming-and-food-brief,301
 http://www.defra.gov.uk/statistics/2008/01/30/january-2008-brief,https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs/series/monthly-farming-and-food-brief,301
@@ -9151,6 +9152,10 @@ http://www.defra.gov.uk/wildlife-pets/pets/travel/contact-us,https://www.gov.uk/
 http://www.defra.gov.uk/wildlife-pets/pets/travel/legislation,https://www.gov.uk/pet-travel-legislation,301
 http://www.defra.gov.uk/wildlife-pets/pets/travel/pets,https://www.gov.uk/take-pet-abroad/what-you-must-do,301
 http://www.defra.gov.uk/wildlife-pets/pets/travel/pets/assistance-dogs,https://www.gov.uk/pet-travel-travelling-with-assistance-dogs,301
+http://www.defra.gov.uk/wildlife-pets/pets/travel/pets/countries,https://www.gov.uk/pet-travel-information-for-pet-owners#countries-and-territories,301
+http://www.defra.gov.uk/wildlife-pets/pets/travel/pets/countries/eu-countries,https://www.gov.uk/pet-travel-information-for-pet-owners#countries-and-territories,301
+http://www.defra.gov.uk/wildlife-pets/pets/travel/pets/countries/noneu-countries,https://www.gov.uk/pet-travel-information-for-pet-owners#countries-and-territories,301
+http://www.defra.gov.uk/wildlife-pets/pets/travel/pets/countries/unlisted-countries,https://www.gov.uk/pet-travel-information-for-pet-owners#countries-and-territories,301
 http://www.defra.gov.uk/wildlife-pets/pets/travel/pets/during-trip,https://www.gov.uk/take-pet-abroad,301
 http://www.defra.gov.uk/wildlife-pets/pets/travel/pets/index.htm,,410
 http://www.defra.gov.uk/wildlife-pets/pets/travel/pets/other-animals,https://www.gov.uk/take-pet-abroad/what-you-must-do,301
@@ -9161,6 +9166,7 @@ http://www.defra.gov.uk/wildlife-pets/pets/travel/pets/pet-owners/microchips,htt
 http://www.defra.gov.uk/wildlife-pets/pets/travel/pets/pet-owners/parasites,https://www.gov.uk/take-pet-abroad/tapeworm-treatment-dogs-only,301
 http://www.defra.gov.uk/wildlife-pets/pets/travel/pets/pet-owners/tattoos,https://www.gov.uk/take-pet-abroad/microchip,301
 http://www.defra.gov.uk/wildlife-pets/pets/travel/pets/pet-owners/vaccination,https://www.gov.uk/take-pet-abroad/rabies-vaccination-and-boosters,301
+http://www.defra.gov.uk/wildlife-pets/pets/travel/pets/routes,https://www.gov.uk/pet-travel-information-for-pet-owners#routes-and-transport-companies,301
 http://www.defra.gov.uk/wildlife-pets/pets/travel/quarantine,https://www.gov.uk/pet-travel-quarantine,301
 http://www.defra.gov.uk/wildlife-pets/pets/travel/quarantine/early-release,https://www.gov.uk/pet-travel-quarantine,301
 http://www.defra.gov.uk/wildlife-pets/pets/travel/quarantine/import-licence,https://www.gov.uk/pet-travel-quarantine,301
