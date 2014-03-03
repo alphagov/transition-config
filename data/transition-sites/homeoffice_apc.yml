@@ -7,3 +7,5 @@ homepage: https://www.gov.uk/government/organisations/animals-in-science-committ
 tna_timestamp: 20090804143651
 host: www.apc.gov.uk
 global: =301 https://www.gov.uk/government/organisations/animals-in-science-committee
+aliases:
+  - fakedomain.homeoffice.gov.uk
