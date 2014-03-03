@@ -1,10 +1,6 @@
 require 'redirector'
 
 module FilenameHelpers
-  def site_filename(abbr)
-    Redirector.path "data/sites/#{abbr}.yml"
-  end
-
   def slug_check_site_filename(abbr)
     relative_to_tests "fixtures/slug_check_sites/#{abbr}.yml"
   end
