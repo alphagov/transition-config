@@ -46,10 +46,8 @@ class RedirectorSiteTest < MiniTest::Unit::TestCase
   end
 
   def test_site_has_whitehall_slug
-    organisations_api_has_organisations(%w(attorney-generals-office))
-    slug = Redirector::Site.all.first.whitehall_slug
+    slug = Redirector::Site.all('tests/fixtures/slug_check_sites/*.yml').first.whitehall_slug
     assert_instance_of String, slug
-    refute_empty slug
   end
 
   def test_sites_never_existed_in_whitehall?
