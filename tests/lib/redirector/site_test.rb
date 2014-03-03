@@ -26,17 +26,18 @@ class RedirectorSiteTest < MiniTest::Unit::TestCase
   end
 
   def test_decodes_titles
-    site = Redirector::Site.from_yaml(site_filename('bis'))
+    site = Redirector::Site.from_yaml(slug_check_site_filename('bis'))
     assert_equal 'Department for Business, Innovation & Skills', site.title
   end
 
   def test_can_enumerate_all_sites
     organisations_api_has_organisations(%w(attorney-generals-office))
-    number_of_sites =
-      Dir[Redirector.path('data/sites/*.yml')].length +
-      Dir[Redirector.path('data/transition-sites/*.yml')].length
-
-    assert_equal number_of_sites, Redirector::Site.all.length
+    test_masks = [
+      Redirector.path('tests/fixtures/sites/*.yml'),
+      Redirector.path('tests/fixtures/slug_check_sites/*.yml')
+    ]
+    number_of_sites = test_masks.map {|mask| Dir[mask].length }.reduce(&:+)
+    assert_equal number_of_sites, Redirector::Site.all(test_masks).length
   end
 
   def test_all_raises_error_when_no_files
