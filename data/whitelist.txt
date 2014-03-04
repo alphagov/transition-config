@@ -96,6 +96,7 @@ ukun.fco.gov.uk
 unistats.direct.gov.uk
 update.cabinetoffice.gov.uk
 vanfueldata.dft.gov.uk
+vivbennett.blog.gov.uk
 webarchive.nationalarchives.gov.uk
 wsr.pearsonvue.com
 wtl.defra.gov.uk
