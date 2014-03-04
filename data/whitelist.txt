@@ -1,8 +1,8 @@
-
 #  whitelist of domains which may be used in a New Url
 2050-calculator-tool.decc.gov.uk
 actonco2.direct.gov.uk
 ahp.dh.gov.uk
+ajtc.justice.gov.uk
 army.mod.uk
 assets.dft.gov.uk
 barrycockroft.dh.gov.uk
@@ -13,16 +13,19 @@ bl.credit-register.oft.gov.uk
 bl.insolvency.gov.uk
 bl.oft-tools.oft.gov.uk
 blogs.dfid.gov.uk
+blogs.justice.gov.uk
 business.wales.gov.uk
 businesslink-online.hmrc.gov.uk
 campaigns.dwp.gov.uk
 carboncalculator.direct.gov.uk
 carfueldata.dft.gov.uk
 caringforourfuture.dh.gov.uk
+ccmstraining.justice.gov.uk
 ceo.decc.gov.uk
 coal.decc.gov.uk
 communicationcentre.dwp.gov.uk
 communitylife.cabinetoffice.gov.uk
+consult.justice.gov.uk
 consultations.dh.gov.uk
 conversations.dh.gov.uk
 corwm.decc.gov.uk
@@ -54,9 +57,12 @@ graduatetalentpool.direct.gov.uk
 healthandcare.dh.gov.uk
 hes.decc.gov.uk
 history.blog.gov.uk
+hmctscourtfinder.justice.gov.uk
+hmctsformfinder.justice.gov.uk
 informationstrategy.dh.gov.uk
 jobsstatic.civilservice.gov.uk
 karenmiddleton.dh.gov.uk
+lawcommission.justice.gov.uk
 livinglonger.dh.gov.uk
 local.direct.gov.uk
 los.dwp.gov.uk
@@ -80,6 +86,7 @@ online.contractsfinder.businesslink.gov.uk
 online.hmrc.gov.uk
 payandworkrights.direct.gov.uk
 penaltynotice.direct.gov.uk
+ppo.cjs.gov.uk
 projects.dfid.gov.uk
 protocol.fco.gov.uk
 providerbulletin.dh.gov.uk
@@ -140,6 +147,7 @@ www.capt.org.uk
 www.chevening.org
 www.chooseandbook.nhs.uk
 www.civilservice.gov.uk
+www.claimsregulation.gov.uk
 www.cnpa.police.uk
 www.communities.gov.uk
 www.companieshouse.gov.uk
@@ -180,6 +188,8 @@ www.hse.gov.uk
 www.iaea.org
 www.ipo.gov.uk
 www.itskillsacademy.ac.uk
+www.justice.gov.uk
+www.legalombudsman.org.uk
 www.legislation.gov.uk
 www.local.communities.gov.uk
 www.maa.mod.uk
