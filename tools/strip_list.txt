@@ -1,0 +1,10 @@
+.bat
+.bkp
+.css
+.cur
+.gif
+.jpg
+.js
+.pl
+.png
+.tif
