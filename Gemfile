@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rake', '10.0.3'
 gem 'minitest', '4.7.0'
+gem 'nokogiri', '1.6.1'
 gem 'htmlentities', '4.3.1'
 gem 'gds-api-adapters', '7.22.0'
 
