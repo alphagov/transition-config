@@ -10,7 +10,7 @@ aliases:
 - bia.homeoffice.gov.uk
 - biapreview.homeoffice.gov.uk
 - ind.homeoffice.gov.uk
-- origin.ukba.homeoffice.gov.uk
+- origin.ukba.homeoffice.gov.uk # Currently used for us to serve proxied content. Will move eventually.
 - ukba.homeoffice.gov.uk
 - www.bia.homeoffice.gov.uk
 - www.ind.homeoffice.gov.uk
