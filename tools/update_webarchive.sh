@@ -1,9 +1,9 @@
 
-#Usage sh update_webarchive.sh subdomain.topleveldomain.gov.uk
+#Usage sh update_webarchive.sh siteabbreviation
 
 site=$1
 getweb=$(find . | grep get_webarchive) # find the tool
-yaml=$(find . | grep $site.yml) # find the yaml
+yaml=$(find . | grep 'sites\/'$site'\.yml') # find the yaml
 target=$(
 	sh $getweb $(
 		cat $yaml |
