@@ -8,3 +8,5 @@ tna_timestamp: 20130903163836
 host: publications.environment-agency.gov.uk
 furl: www.gov.uk/environment-agency
 options: --query-string id
+aliases:
+- brand.environment-agency.gov.uk
