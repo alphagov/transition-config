@@ -2,8 +2,11 @@
 .bkp
 .css
 .cur
+.eot
 .gif
 .jpg
 .js
 .pl
 .png
+.ttf
+.woff
