@@ -13,6 +13,7 @@ aliases:
 - origin.ukba.homeoffice.gov.uk # Currently used for us to serve proxied content. Will move eventually.
 - ukba.homeoffice.gov.uk
 - www.bia.homeoffice.gov.uk
+- www.biapreview.homeoffice.gov.uk
 - www.ind.homeoffice.gov.uk
 # area: used for different news index pages
 # item: used for different contact pages
