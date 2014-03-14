@@ -32,6 +32,7 @@ corwm.decc.gov.uk
 cscuk.dfid.gov.uk
 customs.hmrc.gov.uk
 data.gov.uk
+dataprovision.education.gov.uk
 dfid.blog.gov.uk
 dh.firstactuarial.co.uk
 digitalchallenge.dh.gov.uk
@@ -69,6 +70,7 @@ los.dwp.gov.uk
 mahmoodadil.dh.gov.uk
 mandate.dh.gov.uk
 mattersoftesting.blog.gov.uk
+media.education.gov.uk
 midtermreview.cabinetoffice.gov.uk
 mojdigital.blog.gov.uk
 mps-academy.co.uk
@@ -116,6 +118,7 @@ thisisabuse.direct.gov.uk
 tools.decc.gov.uk
 tools.dwp.gov.uk
 tools.og.decc.gov.uk
+traintoteach.education.gov.uk
 transparency.number10.gov.uk
 treaties.fco.gov.uk
 ukcoe.fco.gov.uk
