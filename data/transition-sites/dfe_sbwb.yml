@@ -1,0 +1,11 @@
+---
+site: dfe_sbwb
+whitehall_slug: department-for-education
+title: Department for Education
+redirection_date: 31st March 2014
+homepage: http://education.gov.uk/childrenandyoungpeople/families/fostercare/fostercarestand/a00205961/closure-online-systems
+tna_timestamp:
+host: sbworkbook.education.gov.uk
+furl: www.gov.uk/dfe
+global: =301 http://education.gov.uk/childrenandyoungpeople/families/fostercare/fostercarestand/a00205961/closure-online-systems
+css: department-for-education
