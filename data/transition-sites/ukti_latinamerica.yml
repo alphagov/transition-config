@@ -1,0 +1,14 @@
+---
+site: ukti_latinamerica
+whitehall_slug: uk-trade-investment
+title: UK Trade &amp; Investment
+redirection_date: 31st October 2014
+homepage: https://www.gov.uk/government/organisations/uk-trade-investment
+tna_timestamp: 20120302172009
+host: www.latinamerica.ukti.gov.uk
+furl: www.gov.uk/ukti_latinamerica
+aliases:
+- www1.www.latinamerica.ukti.gov.uk
+- www2.www.latinamerica.ukti.gov.uk
+global: =301 https://www.gov.uk/government/organisations/uk-trade-investment
+options: --query-string qstring1:qstring2:qstring3
