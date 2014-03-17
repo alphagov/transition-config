@@ -5,6 +5,8 @@ title: UK Trade &amp; Investment
 redirection_date: 10th April 2014
 homepage: https://www.gov.uk/government/organisations/uk-trade-investment
 tna_timestamp: 20100407172636
-host: www.emids.uktradeinvest.gov.uk
+host: emids.uktradeinvest.gov.uk
 furl: www.gov.uk/ukti
 global: =410
+aliases:
+- www.emids.uktradeinvest.gov.uk
