@@ -9,13 +9,10 @@ host: www.ukti.gov.uk
 furl: www.gov.uk/ukti
 aliases:
 - uktradeinvestment.org.uk
-- www.ukti.org.uk
 - www.uktradeandinvestment.info
 - www.uktradeandinvestment.net
 - www.uktradeinvest.info
 - www.uktradeinvest.net
 - www.uktradeinvest.gov.uk
-- www.uktradeinvestment.gov.uk
 - www.uktradeinvestment.info
 - www.uktradeinvestment.net
-global: =301 https://www.gov.uk/government/organisations/uk-trade-investment

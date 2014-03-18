@@ -23,6 +23,7 @@ aliases:
 - www.eweaoffshore.ukti.gov.uk
 - www.exportingforgrowtheast.ukti.gov.uk
 - www.globalb2bconference.ukti.gov.uk
+- www.go-uk.org
 - www.go-uk.org.uk
 - www.growwithturkey.ukti.gov.uk
 - www.healthcareinnovation.ukti.gov.uk
@@ -60,5 +61,4 @@ aliases:
 - www.ukpakistanregionalconference.ukti.gov.uk
 - www.ukpavilion2015.ukti.gov.uk
 - www.uktiat100percentdesign.ukti.gov.uk
-- www.uktiofficefinder.ukti.gov.uk
-- www.go-uk.org
+global: =301 https://www.gov.uk/government/organisations/uk-trade-investment
