@@ -8,4 +8,5 @@ tna_timestamp: 20130904121538
 host: ukcb.defra.gov.uk
 aliases:
 - www.ukcb.defra.gov.uk
+- www.cobody.gov.uk
 options: --query-string opendocument:openform
