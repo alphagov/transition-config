@@ -10,4 +10,5 @@ furl: www.gov.uk/ahvla
 aliases:
 - animalhealth.defra.gov.uk
 - ahvla.defra.gov.uk
+- www.svs.gov.uk
 global: =301 https://www.gov.uk/government/organisations/animal-health-and-veterinary-laboratories-agency
