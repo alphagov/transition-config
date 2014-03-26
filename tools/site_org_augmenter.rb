@@ -125,7 +125,7 @@ module Transition
       @organisations ||= begin
         return YAML.load(File.read(cached_org_path)) if File.exist?(cached_org_path)
 
-        api = GdsApi::Organisations.new('https://whitehall-admin.production.alphagov.co.uk')
+        api = GdsApi::Organisations.new('https://www.gov.uk')
 
         api.organisations.with_subsequent_pages.to_a.inject({}) do |orgs, org|
           orgs[org.title] = org

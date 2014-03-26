@@ -12,7 +12,7 @@ class RedirectorSiteTest < MiniTest::Unit::TestCase
 
   def setup
     @old_app_domain = ORGANISATIONS_API_ENDPOINT
-    ORGANISATIONS_API_ENDPOINT.gsub!(/^.*$/, 'https://whitehall-admin.production.alphagov.co.uk')
+    ORGANISATIONS_API_ENDPOINT.gsub!(/^.*$/, 'https://www.gov.uk')
   end
 
   def teardown
