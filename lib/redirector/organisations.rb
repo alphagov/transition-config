@@ -3,10 +3,10 @@ require 'gds_api/organisations'
 
 module Redirector
   class Organisations
-    WHITEHALL_PRODUCTION = 'https://whitehall-admin.production.alphagov.co.uk'
+    ORGANISATIONS_API_HOST = 'https://www.gov.uk'
 
     def organisations_api
-      @organisations_api ||= GdsApi::Organisations.new(WHITEHALL_PRODUCTION)
+      @organisations_api ||= GdsApi::Organisations.new(ORGANISATIONS_API_HOST)
     end
 
     def all
