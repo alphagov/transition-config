@@ -96,7 +96,6 @@ public.govdelivery.com
 publicappointments.cabinetoffice.gov.uk
 queensawards.bis.gov.uk
 r4d.dfid.gov.uk
-reporting.direct.gov.uk
 resources.civilservice.gov.uk
 responsibilitydeal.dh.gov.uk
 righttobuy.communities.gov.uk
