@@ -7,7 +7,7 @@ tna_timestamp: 20130123124929
 title: Department for Education
 furl: www.gov.uk/dfe
 homepage: https://www.gov.uk/government/organisations/department-for-education
-options: --query-string Category:id:filename:urn
+options: --query-string Category:id:filename:urn:DownloadPublicationReference:DownloadItemReference:DocumentType:Url
 aliases:
 - education.gov.uk
 - www.dfe.gov.uk
