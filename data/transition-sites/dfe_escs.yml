@@ -1,0 +1,12 @@
+---
+site: dfe_escs
+whitehall_slug: department-for-education
+title: Department for Education
+redirection_date: 1st May 2014
+homepage: https://www.gov.uk/government/organisations/department-for-education
+tna_timestamp: 20140108133059
+host: escs-isb.org.uk
+furl: www.gov.uk/dfe
+aliases:
+- www.escs-isb.org.uk
+global: =410
