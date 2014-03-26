@@ -1,0 +1,10 @@
+---
+site: directgov_terror
+whitehall_slug: home-office
+title: Home Office
+redirection_date: 1st April 2014
+homepage: https://www.gov.uk/report-terrorism
+tna_timestamp: 20121017175053
+host: reporting.direct.gov.uk
+furl: www.gov.uk/report-terrorism
+global: =301 https://www.gov.uk/report-terrorism
