@@ -8,3 +8,4 @@ tna_timestamp: 20200101010101
 host: cpms.education.gov.uk
 furl: www.gov.uk/dfe
 global: =301 https://www.gov.uk/government/organisations/department-for-education
+css: department-for-education
