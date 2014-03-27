@@ -8,6 +8,7 @@ tna_timestamp: 20150101010101
 host: www.ukadvisorynetwork.co.uk
 furl: www.gov.uk/ukti
 aliases:
+- uktiofficefinder.ukti.gov.uk
 - www.bbe2012.com
 - www.brazilexchangels.ukti.gov.uk
 - www.britishbusinessclub.ukti.gov.uk
@@ -60,5 +61,6 @@ aliases:
 - www.ukpakistanannualflagshipconference.ukti.gov.uk
 - www.ukpakistanregionalconference.ukti.gov.uk
 - www.ukpavilion2015.ukti.gov.uk
+- www.uktiofficefinder.ukti.gov.uk
 - www.uktiat100percentdesign.ukti.gov.uk
 global: =301 https://www.gov.uk/government/organisations/uk-trade-investment
