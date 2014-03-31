@@ -1,0 +1,4 @@
+server {
+  server_name ind-case-exam.gov.uk
+  rewrite ^/(.*) http://www.ind-case-exam.gov.uk/$1 permanent;
+}
