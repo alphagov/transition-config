@@ -66,8 +66,8 @@ module Redirector
       @organisations ||= Organisations.new
     end
 
-    def slug_exists_in_whitehall?
-      organisations.by_slug[whitehall_slug]
+    def slug_exists_in_whitehall?(slug)
+      organisations.by_slug[slug]
     end
 
     def never_existed_in_whitehall?
@@ -112,7 +112,7 @@ module Redirector
 
     def self.check_all_slugs!(masks = MASKS)
       missing = Redirector::Site.all(masks, organisations: Organisations.new).reject do |site|
-        site.slug_exists_in_whitehall? || site.never_existed_in_whitehall?
+        site.slug_exists_in_whitehall?(site.whitehall_slug) || site.never_existed_in_whitehall?
       end
       raise Redirector::SlugsMissingException.new(missing) if missing.any?
     end

@@ -10,3 +10,5 @@ homepage: https://www.gov.uk/government/organisations/department-for-business-in
 css: department-for-business-innovation-skills
 aliases:
 - www.berr.gov.uk
+extra_organisation_slugs:
+- government-office-for-science

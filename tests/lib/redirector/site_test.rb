@@ -66,13 +66,14 @@ class RedirectorSiteTest < MiniTest::Unit::TestCase
   def test_existing_site_slug_exists_in_whitehall?
     organisations_api_has_organisations(%w(attorney-generals-office))
     ago = Redirector::Site.from_yaml(slug_check_site_filename('ago'))
-    assert ago.slug_exists_in_whitehall?,
+    assert ago.slug_exists_in_whitehall?(ago.whitehall_slug),
            "expected #{ago.whitehall_slug} to exist in whitehall"
   end
 
   def test_non_existing_site_slug_does_not_exist_in_whitehall?
     organisations_api_has_organisations(%w(nothing-interesting))
-    refute Redirector::Site.from_yaml(slug_check_site_filename('ago')).slug_exists_in_whitehall?,
+    ago = Redirector::Site.from_yaml(slug_check_site_filename('ago'))
+    refute ago.slug_exists_in_whitehall?(ago.whitehall_slug),
            'expected slug "attorney-generals-office" not to exist in Mock whitehall'
   end
 
