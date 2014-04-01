@@ -8,3 +8,5 @@ tna_timestamp: 20150101010101
 host: www.teachers.tv
 furl: www.gov.uk/dfe
 global: =301 https://www.gov.uk/government/organisations/department-for-education
+aliases:
+- teachers.tv
