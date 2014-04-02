@@ -41,6 +41,10 @@ module Redirector
       hash['whitehall_slug']
     end
 
+    def extra_organisation_slugs
+      hash['extra_organisation_slugs']
+    end
+
     def title
       Site.coder.decode(hash['title'])
     end
@@ -74,6 +78,15 @@ module Redirector
       NEVER_EXISTED_IN_WHITEHALL.any? do |prefix|
         abbr == prefix || abbr =~ Regexp.new("^#{prefix}_.*$")
       end
+    end
+
+    def all_slugs
+      all_slugs = extra_organisation_slugs || []
+      never_existed_in_whitehall? ? all_slugs : all_slugs.insert(0, whitehall_slug)
+    end
+
+    def missing_slugs
+      all_slugs.reject { |slug| slug_exists_in_whitehall?(slug) }
     end
 
     def ordered_output

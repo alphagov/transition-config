@@ -77,6 +77,32 @@ class RedirectorSiteTest < MiniTest::Unit::TestCase
            'expected slug "attorney-generals-office" not to exist in Mock whitehall'
   end
 
+  def test_all_slugs_with_extra_organisation_slugs
+    bis = Redirector::Site.from_yaml(slug_check_site_filename('bis'))
+    expected_slugs = ['department-for-business-innovation-skills',
+                      'government-office-for-science',
+                      'made-up-slug']
+    assert_equal expected_slugs, bis.all_slugs
+  end
+
+  def test_all_slugs_with_only_whitehall_slug
+    ago = Redirector::Site.from_yaml(slug_check_site_filename('ago'))
+    assert_equal ['attorney-generals-office'], ago.all_slugs
+  end
+
+  def test_all_slugs_for_businesslink
+    bl = Redirector::Site.from_yaml(slug_check_site_filename('businesslink'))
+    assert_equal [], bl.all_slugs
+  end
+
+  def test_missing_slugs
+    organisations_api_has_organisations(%w(government-office-for-science
+                                           department-for-business-innovation-skills))
+
+    bis = Redirector::Site.from_yaml(slug_check_site_filename('bis'))
+    assert_equal ['made-up-slug'], bis.missing_slugs
+  end
+
   def test_checks_all_slugs
     organisations_api_has_organisations(%w(attorney-generals-office paths))
 
