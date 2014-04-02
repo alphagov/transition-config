@@ -3,7 +3,7 @@ site: bis
 whitehall_slug: department-for-business-innovation-skills
 host: www.bis.gov.uk
 redirection_date: 13th December 2012
-tna_timestamp: 20121212135622
+tna_timestamp: 20121212135622 # Partial: update with care - TNA will have pages from www.gov.uk
 title: Department for Business&#44; Innovation & Skills
 furl: www.gov.uk/bis
 homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills

@@ -3,7 +3,7 @@ site: dfe
 whitehall_slug: department-for-education
 host: www.education.gov.uk
 redirection_date: 23rd April 2013
-tna_timestamp: 20130123124929
+tna_timestamp: 20130123124929 # Partial: update with care - TNA will have pages from www.gov.uk
 title: Department for Education
 furl: www.gov.uk/dfe
 homepage: https://www.gov.uk/government/organisations/department-for-education
