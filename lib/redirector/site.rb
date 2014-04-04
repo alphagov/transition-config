@@ -81,8 +81,10 @@ module Redirector
     end
 
     def all_slugs
-      all_slugs = extra_organisation_slugs || []
-      never_existed_in_whitehall? ? all_slugs : all_slugs.insert(0, whitehall_slug)
+      [].tap do |all_slugs|
+        all_slugs.push(whitehall_slug) unless never_existed_in_whitehall?
+        all_slugs.concat(extra_organisation_slugs) if extra_organisation_slugs
+      end
     end
 
     def missing_slugs
