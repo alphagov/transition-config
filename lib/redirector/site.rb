@@ -126,10 +126,13 @@ module Redirector
     end
 
     def self.check_all_slugs!(masks = MASKS)
-      missing = Redirector::Site.all(masks, organisations: Organisations.new).reject do |site|
-        site.slug_exists_in_whitehall?(site.whitehall_slug) || site.never_existed_in_whitehall?
+      missing = {}
+      Redirector::Site.all(masks, organisations: Organisations.new).each do |site|
+        unless site.missing_slugs.empty?
+          missing[site.abbr] = site.missing_slugs
+        end
       end
-      raise Redirector::SlugsMissingException.new(missing) if missing.any?
+      raise Redirector::SlugsMissingException.new(missing) unless missing.empty?
     end
 
     def self.from_yaml(filename, options = {})

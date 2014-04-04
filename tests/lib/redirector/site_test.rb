@@ -104,15 +104,18 @@ class RedirectorSiteTest < MiniTest::Unit::TestCase
   end
 
   def test_checks_all_slugs
-    organisations_api_has_organisations(%w(attorney-generals-office paths))
+    organisations_api_has_organisations(%w(attorney-generals-office
+                                           department-for-business-innovation-skills
+                                           government-office-for-science))
 
     exception = assert_raises(Redirector::SlugsMissingException) do
       Redirector::Site.check_all_slugs!(relative_to_tests('fixtures/slug_check_sites/*.yml'))
     end
 
-    refute_nil exception.missing.find {|site| site.whitehall_slug == 'non-existent-slug' }
-    assert_nil exception.missing.find {|site| site.whitehall_slug == 'directgov_microsite' }
-    assert_nil exception.missing.find {|site| site.whitehall_slug == 'directgov' }
+    assert_equal ['non-existent-slug'], exception.missing['nonexistent']
+    assert_equal ['made-up-slug'], exception.missing['bis']
+    assert_nil exception.missing['directgov_microsite']
+    assert_nil exception.missing['directgov']
   end
 
   def test_site_create_fails_when_no_slug

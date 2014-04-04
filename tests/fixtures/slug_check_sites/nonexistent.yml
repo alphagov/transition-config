@@ -1,0 +1,7 @@
+---
+site: nonexistent
+host: nonexistent.local
+whitehall_slug: non-existent-slug
+aliases:
+    - alias1.nonexistent.local
+    - alias2.nonexistent.local
