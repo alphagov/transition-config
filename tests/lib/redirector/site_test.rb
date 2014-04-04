@@ -47,7 +47,7 @@ class RedirectorSiteTest < MiniTest::Unit::TestCase
   end
 
   def test_site_has_whitehall_slug
-    slug = Redirector::Site.all('tests/fixtures/slug_check_sites/*.yml').first.whitehall_slug
+    slug = Redirector::Site.from_yaml(slug_check_site_filename('ago')).whitehall_slug
     assert_instance_of String, slug
   end
 
