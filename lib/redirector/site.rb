@@ -41,6 +41,10 @@ module Redirector
       hash['whitehall_slug']
     end
 
+    def extra_organisation_slugs
+      hash['extra_organisation_slugs']
+    end
+
     def title
       Site.coder.decode(hash['title'])
     end
@@ -66,14 +70,25 @@ module Redirector
       @organisations ||= Organisations.new
     end
 
-    def slug_exists_in_whitehall?
-      organisations.by_slug[whitehall_slug]
+    def slug_exists_in_whitehall?(slug)
+      organisations.by_slug[slug]
     end
 
     def never_existed_in_whitehall?
       NEVER_EXISTED_IN_WHITEHALL.any? do |prefix|
         abbr == prefix || abbr =~ Regexp.new("^#{prefix}_.*$")
       end
+    end
+
+    def all_slugs
+      [].tap do |all_slugs|
+        all_slugs.push(whitehall_slug) unless never_existed_in_whitehall?
+        all_slugs.concat(extra_organisation_slugs) if extra_organisation_slugs
+      end
+    end
+
+    def missing_slugs
+      all_slugs.reject { |slug| slug_exists_in_whitehall?(slug) }
     end
 
     def ordered_output
@@ -111,10 +126,13 @@ module Redirector
     end
 
     def self.check_all_slugs!(masks = MASKS)
-      missing = Redirector::Site.all(masks, organisations: Organisations.new).reject do |site|
-        site.slug_exists_in_whitehall? || site.never_existed_in_whitehall?
+      missing = {}
+      Redirector::Site.all(masks, organisations: Organisations.new).each do |site|
+        unless site.missing_slugs.empty?
+          missing[site.abbr] = site.missing_slugs
+        end
       end
-      raise Redirector::SlugsMissingException.new(missing) if missing.any?
+      raise Redirector::SlugsMissingException.new(missing) unless missing.empty?
     end
 
     def self.from_yaml(filename, options = {})

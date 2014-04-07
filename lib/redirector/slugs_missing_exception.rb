@@ -7,7 +7,7 @@ module Redirector
 
     def to_s
       "Slugs missing from Whitehall: \n"\
-      "#{@missing.map {|site| "#{site.abbr}: #{site.whitehall_slug || 'N/A'}"}.join("\n")}"
+      "#{@missing.map { |abbr,slugs| "#{abbr}: #{slugs}" }.join("\n")}"
     end
   end
 end

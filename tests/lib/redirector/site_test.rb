@@ -47,7 +47,7 @@ class RedirectorSiteTest < MiniTest::Unit::TestCase
   end
 
   def test_site_has_whitehall_slug
-    slug = Redirector::Site.all('tests/fixtures/slug_check_sites/*.yml').first.whitehall_slug
+    slug = Redirector::Site.from_yaml(slug_check_site_filename('ago')).whitehall_slug
     assert_instance_of String, slug
   end
 
@@ -66,26 +66,56 @@ class RedirectorSiteTest < MiniTest::Unit::TestCase
   def test_existing_site_slug_exists_in_whitehall?
     organisations_api_has_organisations(%w(attorney-generals-office))
     ago = Redirector::Site.from_yaml(slug_check_site_filename('ago'))
-    assert ago.slug_exists_in_whitehall?,
+    assert ago.slug_exists_in_whitehall?(ago.whitehall_slug),
            "expected #{ago.whitehall_slug} to exist in whitehall"
   end
 
   def test_non_existing_site_slug_does_not_exist_in_whitehall?
     organisations_api_has_organisations(%w(nothing-interesting))
-    refute Redirector::Site.from_yaml(slug_check_site_filename('ago')).slug_exists_in_whitehall?,
+    ago = Redirector::Site.from_yaml(slug_check_site_filename('ago'))
+    refute ago.slug_exists_in_whitehall?(ago.whitehall_slug),
            'expected slug "attorney-generals-office" not to exist in Mock whitehall'
   end
 
+  def test_all_slugs_with_extra_organisation_slugs
+    bis = Redirector::Site.from_yaml(slug_check_site_filename('bis'))
+    expected_slugs = ['department-for-business-innovation-skills',
+                      'government-office-for-science',
+                      'made-up-slug']
+    assert_equal expected_slugs, bis.all_slugs
+  end
+
+  def test_all_slugs_with_only_whitehall_slug
+    ago = Redirector::Site.from_yaml(slug_check_site_filename('ago'))
+    assert_equal ['attorney-generals-office'], ago.all_slugs
+  end
+
+  def test_all_slugs_for_businesslink
+    bl = Redirector::Site.from_yaml(slug_check_site_filename('businesslink'))
+    assert_equal [], bl.all_slugs
+  end
+
+  def test_missing_slugs
+    organisations_api_has_organisations(%w(government-office-for-science
+                                           department-for-business-innovation-skills))
+
+    bis = Redirector::Site.from_yaml(slug_check_site_filename('bis'))
+    assert_equal ['made-up-slug'], bis.missing_slugs
+  end
+
   def test_checks_all_slugs
-    organisations_api_has_organisations(%w(attorney-generals-office paths))
+    organisations_api_has_organisations(%w(attorney-generals-office
+                                           department-for-business-innovation-skills
+                                           government-office-for-science))
 
     exception = assert_raises(Redirector::SlugsMissingException) do
       Redirector::Site.check_all_slugs!(relative_to_tests('fixtures/slug_check_sites/*.yml'))
     end
 
-    refute_nil exception.missing.find {|site| site.whitehall_slug == 'non-existent-slug' }
-    assert_nil exception.missing.find {|site| site.whitehall_slug == 'directgov_microsite' }
-    assert_nil exception.missing.find {|site| site.whitehall_slug == 'directgov' }
+    assert_equal ['non-existent-slug'], exception.missing['nonexistent']
+    assert_equal ['made-up-slug'], exception.missing['bis']
+    assert_nil exception.missing['directgov_microsite']
+    assert_nil exception.missing['directgov']
   end
 
   def test_site_create_fails_when_no_slug
