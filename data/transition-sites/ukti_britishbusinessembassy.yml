@@ -8,3 +8,5 @@ tna_timestamp: 20130815120805
 host: www.britishbusinessembassy.com
 furl: www.gov.uk/ukti
 global: =410
+aliases:
+- britishbusinessembassy.com
