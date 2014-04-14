@@ -1,4 +1,4 @@
 server {
-  server_name ipo.gov.uk
+  server_name ipo.gov.uk;
   rewrite ^/(.*) http://www.ipo.gov.uk/$1 permanent;
 }
