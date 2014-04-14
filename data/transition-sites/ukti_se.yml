@@ -8,3 +8,5 @@ tna_timestamp: 20110909104755
 host: www.uktisoutheast.com
 furl: www.gov.uk/ukti
 global: =410
+aliases:
+- uktisoutheast.com
