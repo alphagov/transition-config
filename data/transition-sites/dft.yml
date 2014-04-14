@@ -11,3 +11,9 @@ options: --query-string agency
 aliases:
 - dft.gov.uk
 css: department-for-transport
+extra_organisation_slugs:
+- driver-and-vehicle-licensing-agency
+- maritime-and-coastguard-agency
+- vehicle-and-operator-services-agency
+- disabled-persons-transport-advisory-committee
+- driving-standards-agency
