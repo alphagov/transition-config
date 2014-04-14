@@ -1,0 +1,10 @@
+---
+site: bis_nwml
+whitehall_slug: national-measurement-office
+title: National Measurement Office
+redirection_date:
+homepage: https://www.gov.uk/government/organisations/national-measurement-office
+furl: www.gov.uk/nmo
+tna_timestamp: 20090218070806
+host: www.nwml.gov.uk
+global: =301 https://www.gov.uk/government/organisations/national-measurement-office
