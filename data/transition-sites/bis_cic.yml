@@ -9,3 +9,5 @@ furl: www.gov.uk/cic-regulator
 homepage: https://www.gov.uk/government/organisations/office-of-the-regulator-of-community-interest-companies
 global: =301 https://www.gov.uk/government/organisations/office-of-the-regulator-of-community-interest-companies
 css: bis
+aliases:
+- www.cicreg.gov.uk
