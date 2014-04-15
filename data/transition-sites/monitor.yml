@@ -13,3 +13,5 @@ aliases:
 - monitor-nhsft.org.uk
 - www.monitor-nhsft.gov.uk
 - www.monitor-nhsft.org.uk
+# Used for file downloads
+options: --query-string code
