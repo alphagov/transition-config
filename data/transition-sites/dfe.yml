@@ -14,3 +14,7 @@ aliases:
 - dfe.gov.uk
 - archive.education.gov.uk
 css: department-for-education
+extra_organisation_slugs:
+- education-funding-agency
+- standards-and-testing-agency
+- national-college-for-teaching-and-leadership
