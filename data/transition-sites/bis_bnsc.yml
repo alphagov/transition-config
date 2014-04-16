@@ -1,0 +1,10 @@
+---
+site: bis_bnsc
+whitehall_slug: uk-space-agency
+title: UK Space Agency
+redirection_date:
+homepage: https://www.gov.uk/government/organisations/uk-space-agency
+tna_timestamp: 20100303152438
+host: www.bnsc.gov.uk
+global: =301 https://www.gov.uk/government/organisations/uk-space-agency
+

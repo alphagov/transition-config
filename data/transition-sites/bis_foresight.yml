@@ -1,0 +1,10 @@
+---
+site: bis_foresight
+whitehall_slug: government-office-for-science
+title: Government Office for Science
+redirection_date:
+homepage: https://www.gov.uk/government/organisations/government-office-for-science
+furl: www.gov.uk/go-science
+tna_timestamp: 20130502130215
+host: www.foresight.gov.uk
+global: =301 https://www.gov.uk/government/organisations/government-office-for-science
