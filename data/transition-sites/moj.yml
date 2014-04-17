@@ -12,3 +12,7 @@ aliases:
 - justice.gov.uk
 - www.legalservices.gov.uk
 - legalservices.gov.uk
+extra_organisation_slugs:
+- hm-prison-service
+- office-of-the-public-guardian
+- youth-justice-board-for-england-and-wales
