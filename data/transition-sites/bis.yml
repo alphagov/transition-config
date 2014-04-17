@@ -13,6 +13,9 @@ aliases:
 - www.berr.gov.uk
 - www.dti.gov.uk
 extra_organisation_slugs:
-- government-office-for-science
 - british-hallmarking-council
+- government-office-for-science
+- insolvency-practitioners-tribunal
+- insolvency-service
 - national-measurement-office
+- uk-space-agency
