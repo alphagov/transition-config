@@ -1,0 +1,9 @@
+---
+site: civilservice_portal
+whitehall_slug: civil-service
+title: Civil Service
+redirection_date: 1st May 2014
+homepage: https://www.gov.uk/government/organisations/civil-service
+tna_timestamp: 20131003151638
+host: my.civilservice.gov.uk
+options: --query-string p
