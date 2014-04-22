@@ -8,6 +8,7 @@ tna_timestamp: 20140403154217
 host: www.ukti.gov.uk
 furl: www.gov.uk/ukti
 aliases:
+- ukti.gov.uk
 - uktradeinvestment.org.uk
 - www.tradeinvest.gov.uk
 - www.uktradeandinvestment.info
