@@ -9,3 +9,4 @@ host: www.iegmp.org.uk
 furl: www.gov.uk/phe
 aliases:
 - iegmp.org.uk
+global: =410
