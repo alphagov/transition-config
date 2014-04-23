@@ -9,3 +9,4 @@ host: www.cerrie.org
 furl: www.gov.uk/phe
 aliases:
 - cerrie.org
+global: =410
