@@ -14,14 +14,18 @@ task :new_site, [:abbr, :whitehall_slug, :host] do |_, args|
 
   type = (ENV['SITE_TYPE'] || 'bouncer').downcase.to_sym
 
-  site = Redirector::Site.create(
-    args.abbr, args.whitehall_slug, args.host, {type: type})
-  site.save!
+  if URI.parse("http://#{args.host}").host == args.host
+    site = Redirector::Site.create(
+      args.abbr, args.whitehall_slug, args.host, {type: type})
+    site.save!
 
-  if type == :redirector
-    Redirector::Mappings.create_default(args.abbr)
-    Redirector::Tests.create_default(args)
+    if type == :redirector
+      Redirector::Mappings.create_default(args.abbr)
+      Redirector::Tests.create_default(args)
+    end
+
+    puts site.filename
+  else
+    puts "#{args.abbr.upcase} site creation failed."
   end
-
-  puts site.filename
 end
