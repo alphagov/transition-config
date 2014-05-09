@@ -1,0 +1,13 @@
+---
+site: cma_cc
+whitehall_slug: competition-and-markets-authority
+title: Competition and Markets Authority
+redirection_date: 1st July 2014
+homepage: https://www.gov.uk/government/organisations/competition-and-markets-authority
+tna_timestamp: 20140320133601
+host: www.competition-commission.org.uk
+furl: www.gov.uk/cma_cc
+aliases:
+- www.competition-commission.gov.uk
+- www.mmc.gov.uk
+# options: --query-string qstring1:qstring2:qstring3 # This site has not had full query string parameter analysis
