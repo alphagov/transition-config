@@ -4,10 +4,11 @@
 # sh tools/auto-config.sh mmo marine-management-organisation www.marinemanagement.org.uk '1st June 2014'
 
 # Create site yaml
-organisation=$1
-domain=$2
-date=$3
-abbrev=$(echo $domain | sed 's/\./_/g')
+organisation=$2
+domain=$3
+date=$4
+abbrev=$1
+# abbrev=$(echo $domain | sed 's/\./_/g')
 filename='data/transition-sites/'$abbrev'.yml'
 rake new_site[$abbrev,$organisation,$domain]
 
@@ -15,6 +16,7 @@ rake new_site[$abbrev,$organisation,$domain]
 sed 's/www1\.www\.//' $filename |       # Config root as a likely alias
     grep -v 'www1' |
     grep -v 'www2' |
+    sed '/aliases/{N;s/^aliases:\n//;}' |
 
         # Eliminate global config (for now)
     grep -v 'global:' |
