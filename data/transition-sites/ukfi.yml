@@ -9,3 +9,4 @@ host: www.ukfi.co.uk
 furl: www.gov.uk/ukfi
 aliases:
 - ukfi.co.uk
+options: --query-string ArticleID
