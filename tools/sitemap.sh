@@ -14,7 +14,7 @@ if [ $subdir ]
 		echo "Spidering a whole domain $domain"
 		wget --no-parent -r -l0 -x -k --reject=pdf --reject=PDF --reject=jpg --reject=JPG --reject=gif --reject=GIF -t2 -nd -P $domain -e robots=off -o $domain.log $target
 	  cat $domain/*htm* >> $domain.log
-	  grep -F $domain $domain.log | grep -o 'http:\/\/[^\ \"\(\)\<\>]*' | sed 's/\/$//' | sort | uniq > $domain.urls.txt
+	  grep -F $domain $domain.log | grep -o 'http:\/\/[^\ \"\<\>]*' | sed 's/\/$//' | sort | uniq > $domain.urls.txt
 
 fi
 
