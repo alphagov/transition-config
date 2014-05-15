@@ -9,4 +9,3 @@ host: www.stabilisationunit.gov.uk
 furl: www.gov.uk/dfid
 aliases:
 - stabilisationunit.gov.uk
-options: --query-string start
