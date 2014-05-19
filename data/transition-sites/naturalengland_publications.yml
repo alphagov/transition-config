@@ -1,10 +1,8 @@
 ---
-site: naturalengland
+site: naturalengland_publications
 whitehall_slug: natural-england
 title: Natural England
 redirection_date: 31st July 2014
 homepage: https://www.gov.uk/government/organisations/natural-england
-tna_timestamp: 20140111161859
-host: www.naturalengland.org.uk
-aliases:
-- naturalengland.org.uk
+tna_timestamp: 20140428101754
+host: publications.naturalengland.org.uk
