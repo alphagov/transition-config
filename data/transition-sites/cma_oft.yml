@@ -6,7 +6,7 @@ redirection_date: 29th May 2014
 homepage: https://www.gov.uk/government/organisations/office-of-fair-trading
 tna_timestamp: 20140402142426
 host: www.oft.gov.uk
-furl: www.gov.uk/cma_oft
+furl: www.gov.uk/cma
 aliases:
 - oft.gov.uk
 # options: --query-string qstring1:qstring2:qstring3 # This site has not had full query string parameter analysis
