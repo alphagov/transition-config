@@ -9,21 +9,3 @@ host: www.oft.gov.uk
 furl: www.gov.uk/cma
 aliases:
 - oft.gov.uk
-# options: --query-string qstring1:qstring2:qstring3 # This site has not had full query string parameter analysis
-# Unique query string keys in this list of URLs
-# Order
-# SelectMonth
-# action
-# caseByCompany
-# currentLetter
-# form
-# id
-# l
-# la
-# legislation
-# outcome
-# period
-# regulation
-# s
-# screen
-# sector
