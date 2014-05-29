@@ -9,3 +9,4 @@ host: www.ofsted.gov.uk
 furl: www.gov.uk/ofsted
 aliases:
 - ofsted.gov.uk
+options: --query-string file id type
