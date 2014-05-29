@@ -1,0 +1,10 @@
+---
+site: decc_blog
+whitehall_slug: department-of-energy-climate-change
+title: Department of Energy &amp; Climate Change
+redirection_date: 31st December 2014
+homepage: https://www.gov.uk/government/organisations/department-of-energy-climate-change
+tna_timestamp: 20140403094322
+host: blog.decc.gov.uk
+furl: www.gov.uk/decc
+options: --query-string p:page_id
