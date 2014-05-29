@@ -1,0 +1,11 @@
+---
+site: chemist
+whitehall_slug: government-chemist
+title: Government Chemist
+redirection_date: 31st December 2014
+homepage: https://www.gov.uk/government/organisations/government-chemist
+tna_timestamp: 20120108070528
+host: www.governmentchemist.org.uk
+aliases:
+- governmentchemist.org.uk
+options: --query-string linkid:m:amid
