@@ -1,0 +1,11 @@
+---
+site: certoffice
+whitehall_slug: certification-office
+title: Certification Office
+redirection_date: 31st December 2014
+homepage: https://www.gov.uk/government/organisations/certification-office
+tna_timestamp: 20140103142633
+host: www.certoffice.org
+aliases:
+- certoffice.org
+options: --query-string ext
