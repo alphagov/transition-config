@@ -7,3 +7,5 @@ homepage: https://www.gov.uk/government/organisations/ministry-of-defence
 tna_timestamp: 20140410091017
 host: contracts.mod.uk
 furl: www.gov.uk/mod
+aliases:
+- www.contracts.mod.uk
