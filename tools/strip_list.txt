@@ -3,10 +3,13 @@
 \.css$
 \.cur$
 \.eot$
+\.ico$
 \.gif$
 \.jpg$
+\.png$
 \.js$
 \.pl$
-\.png$
 \.ttf$
 \.woff$
+ukgwacnf
+jsessionid
