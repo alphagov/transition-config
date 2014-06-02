@@ -8,3 +8,5 @@ tna_timestamp: 20140402162612
 host: www.transportdirect.info
 aliases:
 - transportdirect.info
+extra_organisation_slugs:
+- department-for-transport
