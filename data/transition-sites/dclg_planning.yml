@@ -7,3 +7,4 @@ homepage: https://www.gov.uk/government/organisations/department-for-communities
 tna_timestamp: 20140320163321
 host: planningguidance.planningportal.gov.uk
 furl: www.gov.uk/dclg
+options: --query-string p
