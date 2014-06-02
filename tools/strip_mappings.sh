@@ -5,6 +5,6 @@ mappings_file=$1
 
 for extension in $(cat tools/strip_list.txt);
 do
-    grep -i -v -F $extension $mappings_file > uniquetempfilename &&
+    grep -i -v $extension $mappings_file > uniquetempfilename &&
         mv uniquetempfilename $mappings_file
 done
