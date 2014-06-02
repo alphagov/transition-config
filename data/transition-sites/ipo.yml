@@ -9,3 +9,6 @@ host: www.ipo.gov.uk
 furl: www.gov.uk/ipo
 aliases:
 - ipo.gov.uk
+extra_organisation_slugs:
+- company-names-tribunal
+- copyright-tribunal
