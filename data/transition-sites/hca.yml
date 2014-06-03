@@ -1,0 +1,12 @@
+---
+site: hca
+whitehall_slug: homes-and-communities-agency
+title: Homes and Communities Agency
+redirection_date: 31st December 2014
+homepage: https://www.gov.uk/government/organisations/homes-and-communities-agency
+tna_timestamp: 20140327123736
+host: www.homesandcommunities.co.uk
+furl: www.gov.uk/hca
+aliases:
+- homesandcommunities.co.uk
+# options: --query-string qstring1:qstring2:qstring3 # This site has not had full query string parameter analysis
