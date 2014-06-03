@@ -1,5 +1,7 @@
 ---
-site: directgov_subdomains
+site: directgov_campaigns_archived
+whitehall_slug: government-digital-service
+host: actonco2.direct.gov.uk
 redirection_date: 17th October 2012
 tna_timestamp: 20121015000000
 title: Directgov
@@ -7,31 +9,6 @@ furl: www.gov.uk
 homepage: https://www.gov.uk
 css: directgov
 aliases:
-- benefits-adviser.direct.gov.uk
-- beplantwise.direct.gov.uk
-- betterfuture.direct.gov.uk
-- consultations.direct.gov.uk
-- drivercpc.direct.gov.uk
-- epc.direct.gov.uk
-- fulloflife.direct.gov.uk
-- keepwarmkeepwell.direct.gov.uk
-- muckin4life.direct.gov.uk
-- mycouncil.direct.gov.uk
-- nmw.direct.gov.uk
-- nationalcitizenservice.direct.gov.uk
-- renewyourtaxcredits.direct.gov.uk
-- taxcredits.direct.gov.uk
-- taxcreditsvideos.direct.gov.uk
-- thebigtreeplant.direct.gov.uk
-- thinkbike.direct.gov.uk
-- thinkdrinkdrive.direct.gov.uk
-- thinkdrugdrive.direct.gov.uk
-- thinkfatigue.direct.gov.uk
-- thinkhorsesense.direct.gov.uk
-- thinkmobiles.direct.gov.uk
-- thinkseatbelts.direct.gov.uk
-- thinkspeed.direct.gov.uk
-- actonco2.direct.gov.uk
 - agencyworkers.direct.gov.uk
 - backtowork.direct.gov.uk
 - brand.direct.gov.uk
@@ -69,7 +46,6 @@ aliases:
 - extraordinary.direct.gov.uk
 - familyservices.direct.gov.uk
 - finddrivinginstructor.direct.gov.uk
-- firekills.direct.gov.uk
 - fireworkssafety.direct.gov.uk
 - firstjob.direct.gov.uk
 - foodimports.direct.gov.uk
@@ -82,6 +58,7 @@ aliases:
 - homeselling.direct.gov.uk
 - idsmart.direct.gov.uk
 - illegaltobacco.direct.gov.uk
+- keepwarmkeepwell.direct.gov.uk
 - kids.direct.gov.uk
 - letskeepcrimedown.direct.gov.uk
 - localcrime.direct.gov.uk
@@ -133,5 +110,4 @@ aliases:
 - www.yourfuture.direct.gov.uk
 - yourfuture.direct.gov.uk
 - yp.direct.gov.uk
-extra_organisation_slugs:
-- government-digital-service
+global: =410
