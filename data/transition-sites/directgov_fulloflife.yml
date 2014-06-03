@@ -1,0 +1,9 @@
+---
+site: directgov_fulloflife
+whitehall_slug: government-digital-service
+title: Government Digital Service
+redirection_date: 17th October 2012
+homepage: https://www.gov.uk/government/organisations/government-digital-service
+tna_timestamp: 20110804183256
+host: fulloflife.direct.gov.uk
+global: =301 http://campaigns.dwp.gov.uk/campaigns/olderpeoplesday

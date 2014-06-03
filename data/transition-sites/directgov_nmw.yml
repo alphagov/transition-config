@@ -1,0 +1,9 @@
+---
+site: directgov_nmw
+whitehall_slug: government-digital-service
+title: Government Digital Service
+redirection_date: 17th October 2012
+homepage: https://www.gov.uk/government/organisations/government-digital-service
+tna_timestamp: 20111030100705
+host: nmw.direct.gov.uk
+global: =301 https://www.gov.uk/your-right-to-minimum-wage
