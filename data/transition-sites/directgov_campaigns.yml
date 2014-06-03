@@ -1,19 +1,13 @@
 ---
 site: directgov_campaigns
+whitehall_slug: government-digital-service
 host: campaigns.direct.gov.uk
 redirection_date: 17th October 2012
 tna_timestamp: 20121015000000
-title: Directgov
-homepage_furl: www.gov.uk
 homepage: https://www.gov.uk
+homepage_title: Directgov
+homepage_furl: www.gov.uk
 aliases:
 - www.campaigns.direct.gov.uk
 - campaigns2.direct.gov.uk
 css: directgov
-locations:
-- path: /firekills
-  operation: ^~
-  status: 301
-  new_url: https://www.gov.uk/firekills
-extra_organisation_slugs:
-- government-digital-service
