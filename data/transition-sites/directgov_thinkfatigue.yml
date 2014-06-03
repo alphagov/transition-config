@@ -1,0 +1,9 @@
+---
+site: directgov_thinkfatigue
+whitehall_slug: government-digital-service
+title: Government Digital Service
+redirection_date: 17th October 2012
+homepage: https://www.gov.uk/government/organisations/government-digital-service
+tna_timestamp: 
+host: thinkfatigue.direct.gov.uk
+global: =301 http://think.direct.gov.uk/fatigue.html
