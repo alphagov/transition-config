@@ -10,8 +10,3 @@ aliases:
 - www.campaigns.direct.gov.uk
 - campaigns2.direct.gov.uk
 css: directgov
-locations:
-- path: /firekills
-  operation: ^~
-  status: 301
-  new_url: https://www.gov.uk/firekills
