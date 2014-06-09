@@ -7,5 +7,6 @@ homepage: https://www.gov.uk/government/policy-teams/government-digital-service
 tna_timestamp: 20121017175053
 host: innovate.direct.gov.uk
 global: =410
+css: directgov
 extra_organisation_slugs:
 - government-digital-service
