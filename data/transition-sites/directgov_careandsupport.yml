@@ -1,0 +1,13 @@
+---
+site: directgov_careandsupport
+whitehall_slug: government-digital-service
+redirection_date: 17th October 2012
+tna_timestamp: 20130502090808
+host: careandsupport.direct.gov.uk
+furl: www.gov.uk
+global: =410
+css: directgov
+homepage: https://www.gov.uk
+title: Directgov
+aliases:
+- www.careandsupport.direct.gov.uk
