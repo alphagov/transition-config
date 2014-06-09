@@ -1,5 +1,6 @@
 ---
 site: businesslink_lrc
+whitehall_slug: government-digital-service
 host: lrc.businesslink.gov.uk
 redirection_date: 17th October 2012
 tna_timestamp: 20120823131012
@@ -8,3 +9,4 @@ furl: www.gov.uk
 homepage: https://www.gov.uk/browse/business
 global: =410
 css: businesslink
+options: --query-string xgovr3h
