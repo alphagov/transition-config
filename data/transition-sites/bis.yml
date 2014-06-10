@@ -11,7 +11,10 @@ css: department-for-business-innovation-skills
 aliases:
 - bis.gov.uk
 - www.berr.gov.uk
+- www2.bis.gov.uk
 - www.dti.gov.uk
+- web.bis.gov.uk
+- www.web.bis.gov.uk
 extra_organisation_slugs:
 - british-hallmarking-council
 - government-office-for-science
