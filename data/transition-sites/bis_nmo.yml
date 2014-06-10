@@ -8,3 +8,5 @@ furl: www.gov.uk/nmo
 tna_timestamp: 20110213145434
 host: www.nmo.bis.gov.uk
 global: =301 https://www.gov.uk/government/organisations/national-measurement-office
+aliases:
+- nmo.bis.gov.uk
