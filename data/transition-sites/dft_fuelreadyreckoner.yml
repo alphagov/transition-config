@@ -1,0 +1,12 @@
+---
+site: dft_fuelreadyreckoner
+whitehall_slug: department-for-transport
+title: Department for Transport
+redirection_date: 30th June 2014
+homepage: https://www.gov.uk/government/organisations/department-for-transport
+tna_timestamp: 20101215033250
+host: www.fuelreadyreckoner.org.uk
+furl: www.gov.uk/dft
+aliases:
+- bl.fuelreadyreckoner.org.uk
+global: =410
