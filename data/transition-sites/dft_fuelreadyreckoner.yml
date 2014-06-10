@@ -8,5 +8,6 @@ tna_timestamp: 20101215033250
 host: www.fuelreadyreckoner.org.uk
 furl: www.gov.uk/dft
 aliases:
+- fuelreadyreckoner.org.uk
 - bl.fuelreadyreckoner.org.uk
 global: =410
