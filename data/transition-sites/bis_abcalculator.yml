@@ -1,0 +1,12 @@
+---
+site: bis_abcalculator
+whitehall_slug: department-for-business-innovation-skills
+title: Department for Business, Innovation &amp; Skills
+redirection_date: 30th June 2014
+homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills
+tna_timestamp:
+host: abcalculator.bis.gov.uk
+aliases:
+- www.abcalculator.bis.gov.uk
+global: =301 https://www.gov.uk/government/policies/reducing-the-impact-of-regulation-on-business
+furl: www.gov.uk/bis
