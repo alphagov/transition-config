@@ -8,3 +8,6 @@ tna_timestamp: 20140305221616
 host: www.mcga.gov.uk
 furl: www.gov.uk/mca
 global: =301 https://www.gov.uk/government/organisations/maritime-and-coastguard-agency
+# We considered adding a global 301 preserving path to www.dft.gov.uk/mca, however this
+# would send homepage traffic to the DFT homepage, rather than the MCA. Global 301 without
+# path was deemed a more favourable option
