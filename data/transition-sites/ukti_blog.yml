@@ -6,3 +6,5 @@ redirection_date: 18th June 2014
 homepage: https://www.gov.uk/government/organisations/uk-trade-investment
 tna_timestamp: 20140319085529
 host: blog.ukti.gov.uk
+global_redirect_append_path: true
+global: =301 https://ukti.blog.gov.uk
