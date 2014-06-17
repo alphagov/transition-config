@@ -339,6 +339,7 @@ http://www.ukwelcomes.businesslink.gov.uk/bdotg/action/layer?topicid=1083988136,
 http://www.ukwelcomes.businesslink.gov.uk/bdotg/action/licencelimlanding,https://www.gov.uk/licence-finder,301
 http://www.ukwelcomes.businesslink.gov.uk/bdotg/action/licenceselectlocation,https://www.gov.uk/licence-finder,301
 http://www.ukwelcomes.businesslink.gov.uk/bdotg/action/lsplink,https://www.gov.uk/licence-finder,301
+http://www.ukwelcomes.businesslink.gov.uk/eff/action/northgateresponse,https://www.gov.uk/apply-for-a-licence/payment/northgateCallback,301
 http://www.ukwelcomes.businesslink.gov.uk/eff/action/worldpaycallback?installation=244663&msgType=authResult,https://www.gov.uk/apply-for-a-licence/payment/worldpayCallback,301
 http://www.ukwelcomes.businesslink.gov.uk/eff/action/worldpaycallback?installation=253841&msgType=authResult,https://www.gov.uk/apply-for-a-licence/payment/worldpayCallback,301
 http://www.ukwelcomes.businesslink.gov.uk/eff/action/worldpaycallback?installation=254665&msgType=authResult,https://www.gov.uk/apply-for-a-licence/payment/worldpayCallback,301
