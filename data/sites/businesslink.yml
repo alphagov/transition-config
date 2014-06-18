@@ -7,7 +7,7 @@ title: Business Link
 furl: www.gov.uk
 homepage: https://www.gov.uk
 css: businesslink
-options: --query-string topicid:itemid
+options: --query-string topicid:itemid:agency_id:service_id
 aliases:
 - businesslink.gov.uk
 - online.businesslink.gov.uk
