@@ -1,4 +1,5 @@
 ---
+site: two
 host: two.local
 aliases:
     - alias1.two.local

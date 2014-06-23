@@ -53,6 +53,14 @@ module Redirector
       hash['host']
     end
 
+    def aliases
+      hash['aliases'] || []
+    end
+
+    def all_hosts
+      [host] + aliases
+    end
+
     def tna_timestamp
       if timestamp = Redirector::TNATimestamp.new(host).find
         timestamp.to_i
