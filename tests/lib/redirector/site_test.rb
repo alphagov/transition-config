@@ -30,6 +30,16 @@ class RedirectorSiteTest < MiniTest::Unit::TestCase
     assert_equal 'Department for Business, Innovation & Skills', site.title
   end
 
+  def test_all_hosts_with_aliases_present
+    site = Redirector::Site.from_yaml(duplicate_hosts_site_filename('one'))
+    assert_equal ['one.local', 'alias1.one.local', 'alias2.one.local', 'two.local'], site.all_hosts
+  end
+
+  def test_all_hosts_without_aliases_present
+    site = Redirector::Site.from_yaml(duplicate_hosts_site_filename('two'))
+    assert_equal ['two.local'], site.all_hosts
+  end
+
   def test_can_enumerate_all_sites
     organisations_api_has_organisations(%w(attorney-generals-office))
     test_masks = [

@@ -1,4 +1,5 @@
 ---
+site: paths
 host: paths.local
 aliases:
     - alias1.paths.local

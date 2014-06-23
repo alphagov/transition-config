@@ -67,7 +67,7 @@ php_test::
 
 ruby_test::
 	bundle install --deployment
-	bundle exec rake test whitehall:slug_check
+	bundle exec rake test whitehall:slug_check validate_hosts_unique
 
 sh_test::
 	for t in tests/tools/*.sh ; do set -e -x ; $$t ; set +x ; done
