@@ -7,3 +7,5 @@ title: Business Link
 furl: www.gov.uk
 homepage: https://www.gov.uk
 css: businesslink
+extra_organisation_slugs:
+- government-digital-service

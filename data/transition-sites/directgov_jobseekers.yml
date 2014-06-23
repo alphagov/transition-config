@@ -1,6 +1,6 @@
 ---
 site: directgov_jobseekers
-whitehall_slug: government-digital-service
+whitehall_slug: department-for-work-pensions
 host: jobseekers.direct.gov.uk
 redirection_date: 17th October 2012
 tna_timestamp: 20121015000000
@@ -12,3 +12,5 @@ aliases:
 - www.jobseekers.direct.gov.uk
 - jobseeker.direct.gov.uk
 css: directgov
+extra_organisation_slugs:
+- government-digital-service

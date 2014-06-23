@@ -10,3 +10,5 @@ homepage: https://www.gov.uk/browse/business
 global: =410
 css: businesslink
 options: --query-string xgovr3h
+extra_organisation_slugs:
+- government-digital-service
