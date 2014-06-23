@@ -10,3 +10,5 @@ global: =301 https://www.gov.uk/business-training-and-networking-events-near-you
 css: businesslink
 aliases:
 - www.events.businesslink.gov.uk
+extra_organisation_slugs:
+- government-digital-service

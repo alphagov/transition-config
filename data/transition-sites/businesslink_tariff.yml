@@ -11,3 +11,5 @@ css: businesslink
 aliases:
 - www.tariff.businesslink.gov.uk
 - content.tariff.businesslink.gov.uk
+extra_organisation_slugs:
+- government-digital-service

@@ -12,3 +12,5 @@ aliases:
 - upload.ukwelcomes.businesslink.gov.uk
 - online.ukwelcomes.businesslink.gov.uk
 - ukwelcomes.businesslink.gov.uk
+extra_organisation_slugs:
+- government-digital-service

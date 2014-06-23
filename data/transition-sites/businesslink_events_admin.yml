@@ -8,3 +8,5 @@ furl: www.gov.uk
 homepage: https://admin.business-events.org.uk
 global: =301 https://admin.business-events.org.uk
 css: businesslink
+extra_organisation_slugs:
+- government-digital-service

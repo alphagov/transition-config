@@ -10,3 +10,5 @@ global: =301 https://www.gov.uk/browse/business
 css: businesslink
 aliases:
 - www.elearning.businesslink.gov.uk
+extra_organisation_slugs:
+- government-digital-service

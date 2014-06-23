@@ -133,3 +133,5 @@ aliases:
 - www.yourfuture.direct.gov.uk
 - yourfuture.direct.gov.uk
 - yp.direct.gov.uk
+extra_organisation_slugs:
+- government-digital-service

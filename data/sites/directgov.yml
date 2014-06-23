@@ -20,3 +20,5 @@ locations:
   operation: ^~
   status: 301
   new_url: https://www.gov.uk/search
+extra_organisation_slugs:
+- government-digital-service
