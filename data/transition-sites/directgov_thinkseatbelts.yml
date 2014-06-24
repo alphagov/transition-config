@@ -8,3 +8,5 @@ tna_timestamp: 20120905103903
 host: thinkseatbelts.direct.gov.uk
 global: =301 http://think.direct.gov.uk/seat-belts.html
 css: directgov
+extra_organisation_slugs:
+- government-digital-service

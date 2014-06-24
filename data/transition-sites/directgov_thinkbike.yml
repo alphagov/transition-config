@@ -8,3 +8,5 @@ tna_timestamp: 20111030104156
 host: thinkbike.direct.gov.uk
 global: =301 http://think.direct.gov.uk/motorcycles.html
 css: directgov
+extra_organisation_slugs:
+- government-digital-service

@@ -8,3 +8,5 @@ tna_timestamp: 20130103042447
 host: consultations.direct.gov.uk
 global: =301 https://www.gov.uk/government/consultations
 css: directgov
+extra_organisation_slugs:
+- government-digital-service

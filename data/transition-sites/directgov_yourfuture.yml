@@ -11,3 +11,5 @@ homepage: https://www.gov.uk
 title: Directgov
 aliases:
 - www.yourfuture.direct.gov.uk
+extra_organisation_slugs:
+- government-digital-service

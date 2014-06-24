@@ -8,3 +8,5 @@ tna_timestamp: 20120905095558
 host: beplantwise.direct.gov.uk
 global: =301 https://secure.fera.defra.gov.uk/nonnativespecies/beplantwise
 css: directgov
+extra_organisation_slugs:
+- government-digital-service

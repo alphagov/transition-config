@@ -8,3 +8,5 @@ tna_timestamp: 20111030100705
 host: nmw.direct.gov.uk
 global: =301 https://www.gov.uk/your-right-to-minimum-wage
 css: directgov
+extra_organisation_slugs:
+- government-digital-service

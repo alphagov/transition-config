@@ -8,3 +8,5 @@ tna_timestamp: 20120628213336
 host: benefits-adviser.direct.gov.uk
 global: =301 https://www.gov.uk/benefits-adviser
 css: directgov
+extra_organisation_slugs:
+- government-digital-service

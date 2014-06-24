@@ -9,3 +9,5 @@ global: =410
 css: directgov
 homepage: https://www.gov.uk
 title: Directgov
+extra_organisation_slugs:
+- government-digital-service

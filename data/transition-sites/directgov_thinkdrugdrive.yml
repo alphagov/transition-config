@@ -8,3 +8,5 @@ tna_timestamp: 2020101010101010 # Plug for missing timestamp
 host: thinkdrugdrive.direct.gov.uk
 global: =301 http://drugdrive.direct.gov.uk
 css: directgov
+extra_organisation_slugs:
+- government-digital-service

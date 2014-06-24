@@ -8,3 +8,5 @@ tna_timestamp: 2020101010101010 # Plug for missing timestamp
 host: thinkhorsesense.direct.gov.uk
 global: =301 http://think.direct.gov.uk/horses.html
 css: directgov
+extra_organisation_slugs:
+- government-digital-service
