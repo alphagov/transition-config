@@ -7,7 +7,9 @@ homepage: https://www.gov.uk/government/organisations/defence-science-and-techno
 tna_timestamp: 20140410091116
 host: www.science.mod.uk
 furl: www.gov.uk/dstl
+options: --query-string eventid
 aliases:
 - science.mod.uk
 extra_organisation_slugs:
 - centre-for-defence-enterprise
+- ministry-of-defence
