@@ -2,10 +2,12 @@
 site: dwp_odi
 whitehall_slug: department-for-work-pensions
 title: Department for Work and Pensions
-redirection_date: 1st June 2014 # Tentative launch date only
+redirection_date: 30th June 2014
 homepage: https://www.gov.uk/government/organisations/department-for-work-pensions
 tna_timestamp: 20130812104657
 host: odi.dwp.gov.uk
 aliases:
 - odi.gov.uk
 - www.odi.gov.uk
+extra_organisation_slugs:
+- office-for-disability-issues
