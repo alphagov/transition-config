@@ -9,3 +9,5 @@ host: odi.dwp.gov.uk
 aliases:
 - odi.gov.uk
 - www.odi.gov.uk
+extra_organisation_slugs:
+- office-for-disability-issues
