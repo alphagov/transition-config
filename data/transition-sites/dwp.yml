@@ -8,3 +8,6 @@ title: Department for Work &amp; Pensions
 furl: www.gov.uk/dwp
 homepage: https://www.gov.uk/government/organisations/department-for-work-pensions
 css: department-for-work-pensions
+aliases:
+# subdomain for www.dwp.gov.uk/law-volumes and enable turnover of main www web presence
+- lawvolumes.dwp.gov.uk
