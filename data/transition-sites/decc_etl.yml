@@ -7,4 +7,4 @@ homepage: https://www.gov.uk/government/organisations/department-of-energy-clima
 tna_timestamp: 20140305040401
 host: etl.decc.gov.uk
 furl: www.gov.uk/decc
-options: --query-string PROD_ID:SUB_TECH_ID
+options: --query-string prod_id:sub_tech_id

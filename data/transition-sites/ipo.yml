@@ -7,7 +7,7 @@ homepage: https://www.gov.uk/government/organisations/intellectual-property-offi
 tna_timestamp: 20140205082432
 host: www.ipo.gov.uk
 furl: www.gov.uk/ipo
-options: --query-string BL_Number:domesticnum
+options: --query-string bl_number:domesticnum
 aliases:
 - ipo.gov.uk
 - ukpats.org.uk
