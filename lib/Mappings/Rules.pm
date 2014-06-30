@@ -5,7 +5,6 @@ use strict;
 use warnings;
 
 use Mappings::Businesslink;
-use Mappings::Directgov;
 use Mappings::LocationConfig;
 use Mappings::MapConfig;
 
@@ -14,8 +13,6 @@ use URI::Split  qw( uri_split uri_join );
 my %SPECIAL_CASE_HOSTS = (
     'www.businesslink.gov.uk'                   => 'Businesslink',
     'www.ukwelcomes.businesslink.gov.uk'        => 'Businesslink',
-
-    'www.direct.gov.uk'                         => 'Directgov',
 );
 
 
@@ -75,12 +72,7 @@ sub get_config_rule_type {
         }
     }
     else {
-        if ( $special_case_host && $special_case_host eq 'Directgov' && has_dg_number( $path ) ) {
-            $config_rule_type = "Mappings::Directgov";
-        }
-        else {
-            $config_rule_type = "Mappings::LocationConfig";
-        }
+          $config_rule_type = "Mappings::LocationConfig";
     }
     return $config_rule_type;
 }
