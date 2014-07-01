@@ -9,4 +9,4 @@ host: www.challenge.mod.uk
 furl: www.gov.uk/mod
 aliases:
 - challenge.mod.uk
-global: =301 http://www.science.mod.uk/engagement/grand_challenge/grand_challenge.aspx
+global: =301 https://www.gov.uk/government/groups/defence-science-and-technology
