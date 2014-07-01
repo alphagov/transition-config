@@ -10,6 +10,8 @@ furl: www.gov.uk/dstl
 options: --query-string eventid
 aliases:
 - science.mod.uk
+- www.ideas.mod.uk
+- ideas.mod.uk
 extra_organisation_slugs:
 - centre-for-defence-enterprise
 - ministry-of-defence
