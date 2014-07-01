@@ -6,3 +6,5 @@ redirection_date: July 1st 2014
 homepage: https://www.gov.uk/government/organisations/civil-nuclear-constabulary
 tna_timestamp: 20131001174833
 host: www.cnc.police.uk
+extra_organisation_slugs:
+- civil-nuclear-police-authority

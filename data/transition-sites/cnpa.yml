@@ -9,3 +9,5 @@ host: www.cnpa.police.uk
 furl: www.gov.uk/cnpa
 aliases:
 - cnpa.police.uk
+extra_organisation_slugs:
+- civil-nuclear-constabulary
