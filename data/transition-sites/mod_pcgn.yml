@@ -3,9 +3,8 @@ site: mod_pcgn
 whitehall_slug: ministry-of-defence
 title: Ministry of Defence
 redirection_date: 1st July 2014
-homepage: https://www.gov.uk/government/organisations/ministry-of-defence
+homepage: https://www.gov.uk/government/groups/the-permanent-committee-on-geographical-names
 tna_timestamp: 20140402150947
 host: www.pcgn.org.uk
-furl: www.gov.uk/mod
 aliases:
 - pcgn.org.uk
