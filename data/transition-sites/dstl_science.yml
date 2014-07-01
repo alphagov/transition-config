@@ -1,17 +1,15 @@
 ---
-site: dstl_science
-whitehall_slug: defence-science-and-technology-laboratory
-title: Defence Science and Technology Laboratory
+site: dstl_science            # Rename when reasonable to be consistent: mod_science
+whitehall_slug: ministry-of-defence
+title: Ministry of Defence
 redirection_date: 1st July 2014
-homepage: https://www.gov.uk/government/organisations/defence-science-and-technology-laboratory
+homepage: https://www.gov.uk/government/organisations/ministry_of_defence
 tna_timestamp: 20140410091116
 host: www.science.mod.uk
-furl: www.gov.uk/dstl
+furl: www.gov.uk/mod
 options: --query-string eventid
 aliases:
 - science.mod.uk
-- www.ideas.mod.uk
-- ideas.mod.uk
 extra_organisation_slugs:
 - centre-for-defence-enterprise
-- ministry-of-defence
+- defence-science-and-technology-laboratory
