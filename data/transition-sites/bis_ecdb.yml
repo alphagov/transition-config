@@ -9,3 +9,5 @@ host: www.exportcontroldb.bis.gov.uk
 furl: www.gov.uk/bis
 aliases:
 - exportcontroldb.bis.gov.uk
+- exportcontroldbuat.bis.gov.uk
+- www.exportcontroldbuat.bis.gov.uk
