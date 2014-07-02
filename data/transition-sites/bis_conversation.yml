@@ -1,0 +1,11 @@
+---
+site: bis_conversation
+whitehall_slug: department-for-business-innovation-skills
+title: Department for Business, Innovation &amp; Skills
+redirection_date: 14th July 2014
+homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills
+tna_timestamp:
+host: conversation.bis.gov.uk
+aliases:
+- www.conversation.bis.gov.uk
+global: =301 https://www.gov.uk/government/organisations/department-for-business-innovation-skills
