@@ -15,10 +15,5 @@ aliases:
 - o2.direct.gov.uk
 - wap.direct.gov.uk
 css: directgov
-locations:
-- path: /(en/)?AdvancedSearch
-  operation: ^~
-  status: 301
-  new_url: https://www.gov.uk/search
 extra_organisation_slugs:
 - government-digital-service
