@@ -6,7 +6,7 @@ redirection_date: 2nd July 2014
 homepage: https://www.gov.uk/government/organisations/centre-for-defence-enterprise
 tna_timestamp: 20121018120442
 host: www.ideas.mod.uk
-furl: www.gov.uk/mod_ideas
+furl: www.gov.uk/dstl/cde
 aliases:
 - ideas.mod.uk
 global: =301 https://www.gov.uk/government/organisations/centre-for-defence-enterprise
