@@ -7,3 +7,4 @@ homepage: https://www.gov.uk/government/organisations/department-for-environment
 tna_timestamp: 20140305103741
 host: ecolabel.defra.gov.uk
 furl: www.gov.uk/defra
+global: =301 https://www.gov.uk/apply-for-an-eu-ecolabel
