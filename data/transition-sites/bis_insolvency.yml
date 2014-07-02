@@ -9,4 +9,5 @@ host: www.insolvency.gov.uk
 furl: www.gov.uk/insolvency-service
 aliases:
 - insolvency.gov.uk
-global: =301 https://www.gov.uk/government/organisations/insolvency-service
+global: =301 http://www.bis.gov.uk/insolvency
+global_redirect_append_path: true
