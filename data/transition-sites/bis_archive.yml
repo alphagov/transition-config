@@ -8,3 +8,5 @@ tna_timestamp: 20111108165545
 host: archive.bis.gov.uk
 furl: www.gov.uk/bis_archive
 global: =410
+aliases:
+- www.archive.bis.gov.uk
