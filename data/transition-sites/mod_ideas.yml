@@ -1,0 +1,13 @@
+---
+site: mod_ideas
+whitehall_slug: ministry-of-defence
+title: Ministry of Defence
+redirection_date: 2nd July 2014
+homepage: https://www.gov.uk/government/organisations/centre-for-defence-enterprise
+tna_timestamp: 20121018120442
+host: www.ideas.mod.uk
+aliases:
+- ideas.mod.uk
+global: =301 https://www.gov.uk/government/organisations/centre-for-defence-enterprise
+extra_organisation_slugs:
+- centre-for-defence-enterprise

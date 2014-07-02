@@ -3,10 +3,9 @@ site: mod_challenge
 whitehall_slug: ministry-of-defence
 title: Ministry of Defence
 redirection_date: 2nd July 2014
-homepage: https://www.gov.uk/government/organisations/ministry-of-defence
+homepage: https://www.gov.uk/government/groups/defence-science-and-technology
 tna_timestamp: 20121018120442
 host: www.challenge.mod.uk
-furl: www.gov.uk/mod
 aliases:
 - challenge.mod.uk
-global: =301 http://www.science.mod.uk/engagement/grand_challenge/grand_challenge.aspx
+global: =301 https://www.gov.uk/government/groups/defence-science-and-technology
