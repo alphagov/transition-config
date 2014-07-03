@@ -6,7 +6,7 @@ redirection_date: 17th October 2012
 homepage: https://www.gov.uk/government/organisations/government-digital-service
 tna_timestamp: 2020101010101010 # Plug for missing timestamp
 host: thinkdrugdrive.direct.gov.uk
-global: =301 http://drugdrive.direct.gov.uk
+global: =301 http://think.direct.gov.uk/drug-driving.html
 css: directgov
 extra_organisation_slugs:
 - government-digital-service
