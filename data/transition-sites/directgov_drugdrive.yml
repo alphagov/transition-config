@@ -1,0 +1,12 @@
+---
+site: directgov_drugdrive
+whitehall_slug: government-digital-service
+title: Government Digital Service
+redirection_date: 4th July 2014
+homepage: https://www.gov.uk/government/organisations/government-digital-service
+tna_timestamp: 20130604185830
+host: drugdrive.direct.gov.uk
+global: =301 http://think.direct.gov.uk/drug-driving.html
+css: directgov
+extra_organisation_slugs:
+- government-digital-service
