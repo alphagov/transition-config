@@ -1,0 +1,14 @@
+---
+site: bis_interactive
+whitehall_slug: department-for-business-innovation-skills
+title: Department for Business, Innovation &amp; Skills
+redirection_date: 14th July 2014
+homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills
+tna_timestamp: 20120708131021
+host: interactive.bis.gov.uk
+furl: www.gov.uk/bis_interactive
+aliases:
+- www.interactive.bis.gov.uk
+- interactive2.bis.gov.uk
+- www.interactive2.bis.gov.uk
+global: =301 https://www.gov.uk/government/organisations/department-for-business-innovation-skills
