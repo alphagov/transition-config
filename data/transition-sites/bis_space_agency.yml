@@ -8,4 +8,7 @@ tna_timestamp: 20120305143602
 host: www.ukspaceagency.bis.gov.uk
 aliases:
 - ukspaceagency.bis.gov.uk
+- stg.ukspaceagency.bis.gov.uk
+- www.stg.ukspaceagency.bis.gov.uk
 global: =301 https://www.gov.uk/government/organisations/uk-space-agency
+global_redirect_append_path: true

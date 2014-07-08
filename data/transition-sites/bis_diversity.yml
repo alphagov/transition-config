@@ -1,13 +1,13 @@
 ---
-site: bis_ecdb
+site: bis_diversity
 whitehall_slug: department-for-business-innovation-skills
 title: Department for Business, Innovation &amp; Skills
-redirection_date: 1st July 2014
+redirection_date: 14th July 2014
 homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills
 tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
-host: www.exportcontroldb.bis.gov.uk
-furl: www.gov.uk/bis
+host: diversity.bis.gov.uk
 aliases:
-- exportcontroldb.bis.gov.uk
-- exportcontroldbuat.bis.gov.uk
-- www.exportcontroldbuat.bis.gov.uk
+- www.diversity.bis.gov.uk
+- elearning.bis.gov.uk
+- www.elearning.bis.gov.uk
+global: =301 https://www.gov.uk/government/organisations/department-for-business-innovation-skills
