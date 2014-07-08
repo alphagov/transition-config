@@ -1,0 +1,12 @@
+---
+site: insolvencydirect
+whitehall_slug: insolvency-service
+title: Insolvency Service
+redirection_date: 14th July 2014
+homepage: https://www.gov.uk/government/organisations/insolvency-service
+tna_timestamp: 20130414201231
+host: www.insolvencydirect.bis.gov.uk
+furl: www.gov.uk/insolvency
+aliases:
+- insolvencydirect.bis.gov.uk
+global: =301 https://www.gov.uk/government/organisations/insolvency-service
