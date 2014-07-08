@@ -17,6 +17,8 @@ aliases:
 - www.dti.gov.uk
 - web.bis.gov.uk
 - www.web.bis.gov.uk
+- tmpcms.bis.gov.uk
+- www.tmpcms.bis.gov.uk
 extra_organisation_slugs:
 - british-hallmarking-council
 - government-office-for-science
