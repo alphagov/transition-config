@@ -9,5 +9,4 @@ host: www.nationalcollege.org.uk
 furl: www.gov.uk/nctl
 aliases:
 - nationalcollege.org.uk
-# options: --query-string qstring1:qstring2:qstring3
-# No query string analysis yet
+options: --query-string filename:id
