@@ -1,13 +1,12 @@
 ---
-site: landregistry
+site: landregistry_welsh
 whitehall_slug: land-registry
 title: Land Registry
 redirection_date: 1st August 2014
 homepage: https://www.gov.uk/government/organisations/land-registry
-tna_timestamp: 20140410080617
-host: www.landregistry.gov.uk
+tna_timestamp: 20140402162731
+host: www.cofrestrfatir.gov.uk
 aliases:
-- landregistry.gov.uk
-- www1.landregistry.gov.uk
+- cofrestrfatir.gov.uk
 extra_organisation_slugs:
 - land-registration-rule-committee
