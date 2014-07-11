@@ -7,7 +7,7 @@ title: Business Link
 furl: www.gov.uk
 homepage: https://www.gov.uk/uk-welcomes-business
 css: businesslink
-options: --query-string topicid:itemid
+options: --query-string topicid:itemid:installation:msgType:agency_id:service_id
 aliases:
 - upload.ukwelcomes.businesslink.gov.uk
 - online.ukwelcomes.businesslink.gov.uk
