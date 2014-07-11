@@ -3,7 +3,7 @@ site: dstl_science            # Rename when reasonable to be consistent: mod_sci
 whitehall_slug: ministry-of-defence
 title: Ministry of Defence
 redirection_date: 2nd July 2014
-homepage: https://www.gov.uk/government/organisations/centre-for-defence-enterprise
+homepage: https://www.gov.uk/government/groups/defence-science-and-technology
 tna_timestamp: 20140410091116
 host: www.science.mod.uk
 furl: www.gov.uk/dstl/cde
