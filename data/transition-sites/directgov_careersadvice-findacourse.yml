@@ -1,0 +1,16 @@
+---
+site: directgov_careersadvice-findacourse1
+whitehall_slug: government-digital-service
+redirection_date: 17th October 2012
+tna_timestamp: 20100408120044
+host: careersadvice-findacourse1.direct.gov.uk
+furl: www.gov.uk
+global: =410
+css: directgov
+homepage: https://www.gov.uk
+title: Directgov
+aliases:
+- careersadvice-findacourse.direct.gov.uk
+- careersadvice-findacourse2.direct.gov.uk
+extra_organisation_slugs:
+- government-digital-service

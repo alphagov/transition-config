@@ -1,0 +1,13 @@
+---
+site: directgov_foodimports
+whitehall_slug: government-digital-service
+redirection_date: 17th October 2012
+tna_timestamp: 20130222074237
+host: foodimports.direct.gov.uk
+furl: www.gov.uk
+global: =410
+css: directgov
+homepage: https://www.gov.uk
+title: Directgov
+extra_organisation_slugs:
+- government-digital-service

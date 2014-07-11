@@ -1,6 +1,7 @@
 ---
 site: directgov_jobseekers
 whitehall_slug: department-for-work-pensions
+
 host: jobseekers.direct.gov.uk
 redirection_date: 17th October 2012
 tna_timestamp: 20121015000000

@@ -1,0 +1,54 @@
+---
+site: directgov_legacy
+whitehall_slug: government-digital-service
+redirection_date: 17th October 2012
+tna_timestamp: 20201010101010 # Plug for missing timestamp
+host: childmaintenanceservice.direct.gov.uk
+furl: www.gov.uk
+global: =410
+css: directgov
+homepage: https://www.gov.uk
+title: Directgov
+aliases:
+- brand.direct.gov.uk
+- charitysearch.direct.gov.uk
+- childinternetsafety.direct.gov.uk
+- co2calculator.direct.gov.uk
+- colleges.direct.gov.uk
+- consultations-crawl.direct.gov.uk
+- consultations1.direct.gov.uk
+- consumer-forms.direct.gov.uk
+- consumer-tools.direct.gov.uk
+- dev-ema.direct.gov.uk
+- diplomas.direct.gov.uk
+- directories.direct.gov.uk
+- ditv.direct.gov.uk
+- dontbringmeback.direct.gov.uk
+- emaapplicationpack.direct.gov.uk
+- finddrivinginstructor.direct.gov.uk
+- fireworkssafety.direct.gov.uk
+- holocaustheroes.direct.gov.uk
+- homeinformationpacks.direct.gov.uk
+- idsmart.direct.gov.uk
+- illegaltobacco.direct.gov.uk
+- nowletstalkmoney.direct.gov.uk
+- ontheladder.direct.gov.uk
+- paymentsforparents.direct.gov.uk
+- reach.direct.gov.uk
+- ready-dev.direct.gov.uk
+- ready-uat.direct.gov.uk
+- ready.direct.gov.uk
+- recruitment.direct.gov.uk
+- results-localcrime.direct.gov.uk
+- spendingreview.direct.gov.uk
+- standards.direct.gov.uk
+- stg-ema.direct.gov.uk
+- stg-moneytolearn.direct.gov.uk
+- studyfirst.direct.gov.uk
+- talkaboutknives.direct.gov.uk
+- tiger.direct.gov.uk
+- video.direct.gov.uk
+- win.nextstep.direct.gov.uk
+- www.studyfirst.direct.gov.uk
+extra_organisation_slugs:
+- government-digital-service
