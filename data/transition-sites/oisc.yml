@@ -9,3 +9,4 @@ host: oisc.homeoffice.gov.uk
 furl: www.gov.uk/oisc
 aliases:
 - www.oisc.homeoffice.gov.uk
+options: --query-string docid
