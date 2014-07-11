@@ -8,5 +8,3 @@ tna_timestamp: 20081106070407
 host: taxcredits.direct.gov.uk
 global: =301 https://www.gov.uk/browse/benefits/tax-credits
 css: directgov
-extra_organisation_slugs:
-- government-digital-service

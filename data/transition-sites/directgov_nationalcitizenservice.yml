@@ -8,5 +8,3 @@ tna_timestamp: 20140108014610
 host: nationalcitizenservice.direct.gov.uk
 global: =301 http://www.ncsyes.co.uk
 css: directgov
-extra_organisation_slugs:
-- government-digital-service

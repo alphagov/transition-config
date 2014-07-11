@@ -8,5 +8,3 @@ tna_timestamp: 20121106112314
 host: firekills.direct.gov.uk
 global: =301 https://www.gov.uk/firekills
 css: directgov
-extra_organisation_slugs:
-- government-digital-service
