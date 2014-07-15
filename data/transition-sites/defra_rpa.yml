@@ -11,3 +11,5 @@ options: --query-string opendocument
 css: defra
 aliases:
 - www.rpa.defra.gov.uk
+- www.rpa.gov.uk
+- rpa.gov.uk
