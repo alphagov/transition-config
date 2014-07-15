@@ -9,3 +9,7 @@ furl: www.gov.uk/rpa
 homepage: https://www.gov.uk/government/organisations/rural-payments-agency
 options: --query-string opendocument
 css: defra
+aliases:
+- www.rpa.defra.gov.uk
+- www.rpa.gov.uk
+- rpa.gov.uk
