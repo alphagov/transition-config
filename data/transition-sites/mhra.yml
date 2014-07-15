@@ -9,5 +9,5 @@ host: www.mhra.gov.uk
 furl: www.gov.uk/mhra
 aliases:
 - mhra.gov.uk
-options: --query-string qstring1:qstring2:qstring3
 # No significant query string analysis
+# options: --query-string qstring1:qstring2:qstring3
