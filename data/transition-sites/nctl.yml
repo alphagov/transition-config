@@ -9,4 +9,6 @@ host: www.nationalcollege.org.uk
 furl: www.gov.uk/nctl
 aliases:
 - nationalcollege.org.uk
+- www1.nationalcollege.org.uk
+- www2.nationalcollege.org.uk
 options: --query-string filename:id
