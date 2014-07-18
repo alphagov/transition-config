@@ -1,0 +1,13 @@
+---
+site: statistics
+whitehall_slug: uk-statistics-authority
+title: UK Statistics Authority
+redirection_date: 1st September 2014
+homepage: https://www.gov.uk/government/organisations/uk-statistics-authority
+tna_timestamp: 20140506180634 #Dummy timestamp, full recrawl to come
+host: www.statistics.gov.uk
+aliases:
+- statistics.gov.uk
+# options: --query-string qstring1:qstring2:qstring3 # Full query string param analysis to come
+extra_organisation_slugs:
+- office-for-national-statistics
