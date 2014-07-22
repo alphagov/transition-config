@@ -1,0 +1,13 @@
+---
+site: mod_veterans
+whitehall_slug: ministry-of-defence
+title: Ministry of Defence
+redirection_date: 1st August 2014
+homepage: https://www.gov.uk/government/organisations/ministry-of-defence
+tna_timestamp: 20140320135611
+host: veterans-uk.info
+furl: www.gov.uk/mod_veterans
+aliases:
+- www.veterans-uk.info
+# options: --query-string qstring1:qstring2:qstring3
+# No query string analysis
