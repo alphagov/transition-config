@@ -15,7 +15,7 @@ Required:
 * `homepage` — URL for new site, used to redirect '/'
 
 Optional:
-* `title` — site title for 410 page. Currently ignored by Transition and Bouncer.
+* `homepage_title` — site title for 404/410 pages. Defaults to organisation title. Should fit into the sentence: "Visit the new [title] site at [furl or homepage]"
 * `extra_organisation_slugs` — additional organisations which own this site. Used for access control in Transition.
 * `furl` — friendly URL displayed on 404/410 pages. Should redirect to the `homepage`.
 * `aliases` — list of alias domains

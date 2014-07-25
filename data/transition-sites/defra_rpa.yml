@@ -4,7 +4,6 @@ whitehall_slug: rural-payments-agency
 host: rpa.defra.gov.uk
 redirection_date: 29th April 2014
 tna_timestamp: 20140305104944 # Initial timestamp for partial transition. Edit with risk
-title: Rural Payments Agency
 furl: www.gov.uk/rpa
 homepage: https://www.gov.uk/government/organisations/rural-payments-agency
 options: --query-string opendocument
