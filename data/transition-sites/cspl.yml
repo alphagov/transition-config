@@ -6,7 +6,7 @@ redirection_date: 1st August 2014
 homepage: https://www.gov.uk/government/organisations/the-committee-on-standards-in-public-life
 tna_timestamp: 20140430123801
 host: www.public-standards.gov.uk
-furl: www.gov.uk/cspl
+furl: www.gov.uk/public-standards
 aliases:
 - public-standards.gov.uk
 # options: --query-string qstring1:qstring2:qstring3
