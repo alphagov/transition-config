@@ -6,15 +6,24 @@ Nginx configuration and supporting tools and tests for the redirector, an Ngnix 
 
 Each site is configured using a yaml file in the `data/sites` or `data/transition-sites` directory:
 
+Required:
+* `whitehall_slug` — the slug used in Whitehall for the organisation which owns the site. Used for branding in Bouncer and access control in Transition.
 * `site` — friendly name for the site
 * `host` — primary hostname for site
-* `redirection_date` — planned go live date
-* `tna_timestamp` — timestamp of the last good National Archives capture
-* `title` — site title for 410 page
-* `furl` — friendly URL displayed on error pages
+* `redirection_date` — planned go live date, eg 1st July 2014
+* `tna_timestamp` — timestamp of the last good National Archives capture. eg 20131002172858
 * `homepage` — URL for new site, used to redirect '/'
+
+Optional:
+* `title` — site title for 410 page. Currently ignored by Transition and Bouncer.
+* `extra_organisation_slugs` — additional organisations which own this site. Used for access control in Transition.
+* `furl` — friendly URL displayed on 404/410 pages. Should redirect to the `homepage`.
 * `aliases` — list of alias domains
-* `global` — configure with a global rule-based redirect for all paths aside from the homepage
+* `global` — set a global redirect or archive for all paths
+* `css` — a css class which determines the logo and brand colour used on 404/410 pages
+* `options` — used to list significant querystrings for canonicalisation like this: `--query-string first:second:third`. A significant querystring is one which on the old website changes the content in a meaningful way - which we might therefore need to map to a different place.
+* `global_redirect_append_path` — should the path the user supplied be appended
+to the URL for the global redirect?
 
 Use `rake new_site[abbr,whitehall_slug,host]` to create a new site with default
 mappings and tests, with an option for which service to config e.g.
