@@ -5,7 +5,7 @@ redirection_date: July 1st 2014
 homepage: https://www.gov.uk/government/organisations/civil-nuclear-police-authority
 tna_timestamp: 20131001210016
 host: www.cnpa.police.uk
-furl: www.gov.uk/cnpa
+homepage_furl: www.gov.uk/cnpa
 aliases:
 - cnpa.police.uk
 extra_organisation_slugs:

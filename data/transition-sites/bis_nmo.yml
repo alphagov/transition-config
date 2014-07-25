@@ -4,7 +4,7 @@ whitehall_slug: national-measurement-office
 title: National Measurement Office
 redirection_date: 31st July 2014
 homepage: https://www.gov.uk/government/organisations/national-measurement-office
-furl: www.gov.uk/nmo
+homepage_furl: www.gov.uk/nmo
 tna_timestamp: 20110213145434
 host: www.nmo.bis.gov.uk
 global: =301 http://www.bis.gov.uk/nmo

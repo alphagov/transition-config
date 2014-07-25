@@ -17,7 +17,7 @@ Required:
 Optional:
 * `homepage_title` — site title for 404/410 pages. Defaults to organisation title. Should fit into the sentence: "Visit the new [title] site at [furl or homepage]"
 * `extra_organisation_slugs` — additional organisations which own this site. Used for access control in Transition.
-* `furl` — friendly URL displayed on 404/410 pages. Should redirect to the `homepage`.
+* `homepage_furl` — friendly URL displayed on 404/410 pages. Should redirect to the `homepage`.
 * `aliases` — list of alias domains
 * `global` — set a global redirect or archive for all paths
 * `css` — a css class which determines the logo and brand colour used on 404/410 pages

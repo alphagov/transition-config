@@ -5,6 +5,6 @@ redirection_date: 1st May 2014
 homepage: https://www.gov.uk/government/organisations/department-for-education
 tna_timestamp: 20120127220728
 host: echannelstest.education.gov.uk
-furl: www.gov.uk/dfe
+homepage_furl: www.gov.uk/dfe
 global: =410
 css: department-for-education

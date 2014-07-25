@@ -5,6 +5,6 @@ redirection_date: 28th February 2014
 homepage: https://www.gov.uk/government/organisations/ministry-of-defence/about/statistics
 tna_timestamp: 20140116142443
 host: dasa.mod.uk
-furl: www.gov.uk/mod
+homepage_furl: www.gov.uk/mod
 aliases:
 - www.dasa.mod.uk

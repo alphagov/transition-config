@@ -5,7 +5,7 @@ redirection_date: 31st July 2014
 homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills
 tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
 host: rite.bis.gov.uk
-furl: www.gov.uk/bis
+homepage_furl: www.gov.uk/bis
 aliases:
 - www.rite.bis.gov.uk
 global: =301 https://www.gov.uk/government/organisations/department-for-business-innovation-skills

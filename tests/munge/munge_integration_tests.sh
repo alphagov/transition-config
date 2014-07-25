@@ -37,7 +37,7 @@ host: www.example.com
 redirection_date: 13th December 2012
 tna_timestamp: 20120816224015
 title: Test Website
-furl: www.gov.uk/test
+homepage_furl: www.gov.uk/test
 homepage: https://www.gov.uk/government/organisations/test-organisation
 ---
 !

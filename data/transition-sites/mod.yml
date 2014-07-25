@@ -4,6 +4,6 @@ whitehall_slug: ministry-of-defence
 host: www.mod.uk
 redirection_date: 13th December 2012
 tna_timestamp: 20121026065214
-furl: www.gov.uk/mod
+homepage_furl: www.gov.uk/mod
 homepage: https://www.gov.uk/government/organisations/ministry-of-defence
 css: ministry-of-defence

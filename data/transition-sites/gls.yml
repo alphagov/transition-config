@@ -5,6 +5,6 @@ redirection_date: 1st July 2014
 homepage: https://www.gov.uk/government/organisations/civil-service-government-legal-service
 tna_timestamp: 20140402145452
 host: www.gls.gov.uk
-furl: www.gov.uk/gls
+homepage_furl: www.gov.uk/gls
 aliases:
 - gls.gov.uk

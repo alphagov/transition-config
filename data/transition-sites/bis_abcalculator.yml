@@ -8,4 +8,4 @@ host: abcalculator.bis.gov.uk
 aliases:
 - www.abcalculator.bis.gov.uk
 global: =301 https://www.gov.uk/government/policies/reducing-the-impact-of-regulation-on-business
-furl: www.gov.uk/bis
+homepage_furl: www.gov.uk/bis

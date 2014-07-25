@@ -4,7 +4,7 @@ whitehall_slug: department-for-transport
 host: www.dft.gov.uk
 redirection_date: 16th November 2012
 tna_timestamp: 20121107103953 # Partial: update with care - TNA will have pages from www.gov.uk
-furl: www.gov.uk/dft
+homepage_furl: www.gov.uk/dft
 homepage: https://www.gov.uk/government/organisations/department-for-transport
 options: --query-string agency:id:m:y
 aliases:

@@ -5,7 +5,7 @@ redirection_date: 1st July 2014
 homepage: https://www.gov.uk/government/organisations/air-accidents-investigation-branch
 tna_timestamp: 20140120144010
 host: www.aaib.gov.uk
-furl: www.gov.uk/aaib
+homepage_furl: www.gov.uk/aaib
 aliases:
 - aaib.gov.uk
 options: --query-string file

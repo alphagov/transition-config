@@ -5,7 +5,7 @@ redirection_date: 2nd July 2014
 homepage: https://www.gov.uk/government/groups/defence-science-and-technology
 tna_timestamp: 20140410091116
 host: www.science.mod.uk
-furl: www.gov.uk/dstl/cde
+homepage_furl: www.gov.uk/dstl/cde
 options: --query-string eventid
 aliases:
 - science.mod.uk

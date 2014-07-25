@@ -4,6 +4,6 @@ whitehall_slug: uk-hydrographic-office
 host: www.ukho.gov.uk
 redirection_date: 15th April 2014
 tna_timestamp: 20131103170049
-furl: www.gov.uk/ukho
+homepage_furl: www.gov.uk/ukho
 homepage: https://www.gov.uk/government/organisations/uk-hydrographic-office
 css: ministry-of-defence

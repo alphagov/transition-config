@@ -5,7 +5,7 @@ redirection_date: 30th June 2014
 homepage: https://www.gov.uk/government/organisations/department-for-transport
 tna_timestamp: 20110810172819
 host: www.freightbestpractice.org.uk
-furl: www.gov.uk/dft
+homepage_furl: www.gov.uk/dft
 aliases:
 - freightbestpractice.org.uk
 global: =410

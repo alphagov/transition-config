@@ -5,7 +5,7 @@ redirection_date: 1st August 2014
 homepage: https://www.gov.uk/government/organisations/ministry-of-defence
 tna_timestamp: 20140320135611
 host: veterans-uk.info
-furl: www.gov.uk/mod
+homepage_furl: www.gov.uk/mod
 aliases:
 - www.veterans-uk.info
 # options: --query-string qstring1:qstring2:qstring3

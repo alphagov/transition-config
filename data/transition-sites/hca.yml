@@ -5,7 +5,7 @@ redirection_date: 1st July 2014
 homepage: https://www.gov.uk/government/organisations/homes-and-communities-agency
 tna_timestamp: 20140327123736
 host: www.homesandcommunities.co.uk
-furl: www.gov.uk/hca
+homepage_furl: www.gov.uk/hca
 aliases:
 - homesandcommunities.co.uk
 options: --query-string page_id:page

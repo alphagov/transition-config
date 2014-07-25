@@ -5,6 +5,6 @@ redirection_date: 1st May 2014
 homepage: http://www.education.gov.uk/childrenandyoungpeople/families/fostercare/fostercarestand/a00205961/closure-online-systems
 tna_timestamp: 20150101010101  # Dummy timestamp to pass import to bouncer
 host: sbworkbook.education.gov.uk
-furl: www.gov.uk/dfe
+homepage_furl: www.gov.uk/dfe
 global: =301 http://www.education.gov.uk/childrenandyoungpeople/families/fostercare/fostercarestand/a00205961/closure-online-systems
 css: department-for-education

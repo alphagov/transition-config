@@ -5,7 +5,7 @@ redirection_date: 31st March 2014
 homepage: https://www.gov.uk/government/organisations/animal-health-and-veterinary-laboratories-agency
 tna_timestamp: 20130904121313
 host: vla.defra.gov.uk
-furl: www.gov.uk/ahvla
+homepage_furl: www.gov.uk/ahvla
 aliases:
 - animalhealth.defra.gov.uk
 - ahvla.defra.gov.uk

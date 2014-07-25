@@ -108,7 +108,7 @@ module Redirector
         'homepage'         => "https://www.gov.uk/government/organisations/#{whitehall_slug}",
         'tna_timestamp'    => tna_timestamp,
         'host'             => host,
-        'furl'             => "www.gov.uk/#{abbr}",
+        'homepage_furl'    => "www.gov.uk/#{abbr}",
         'aliases'          => %W(www1.#{host} www2.#{host}),
         'global'           => "=301 https://www.gov.uk/government/organisations/#{whitehall_slug}",
         'options'          => "--query-string qstring1:qstring2:qstring3"

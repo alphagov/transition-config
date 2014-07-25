@@ -4,7 +4,7 @@ whitehall_slug: government-digital-service
 redirection_date: 17th October 2012
 tna_timestamp: 20121206073933
 host: muckin4life.direct.gov.uk
-furl: www.gov.uk
+homepage_furl: www.gov.uk
 global: =410
 css: directgov
 homepage: https://www.gov.uk

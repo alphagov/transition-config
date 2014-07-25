@@ -5,7 +5,7 @@ redirection_date: 31st August 2014
 homepage: https://www.gov.uk/government/organisations/intellectual-property-office
 tna_timestamp: 20140205082432
 host: www.ipo.gov.uk
-furl: www.gov.uk/ipo
+homepage_furl: www.gov.uk/ipo
 options: --query-string bl_number:domesticnum
 aliases:
 - ipo.gov.uk
