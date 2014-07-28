@@ -1,7 +1,22 @@
 Old Url,New Url,Status
+http://online.businesslink.gov.uk/,https://www.gov.uk,301
 http://online.businesslink.gov.uk/Growth_and_Innovation_files/Sample_terms_and_conditions_of_website_usage5.doc,,200
+http://online.businesslink.gov.uk/Horizontal_Services_files/PDPSample.pdf,,200
+http://online.businesslink.gov.uk/Horizontal_Services_files/Starting_up__Module_1.pdf,,200
+http://online.businesslink.gov.uk/Transport_Theme_files/GV79_apply_operators_licence_1209.pdf,,200
+http://online.businesslink.gov.uk/Transport_Theme_files/PSV_Op_Licensing_guide_for_Operators_PSV437_1210_1.pdf,,200
+http://online.businesslink.gov.uk/Transport_Theme_files/Rules_Drivers_Hours__Tachographs_Goods_vehicles.pdf,,200
+http://online.businesslink.gov.uk/Transport_files/Bus_Registration__Bus_Permits.pdf,,200
 http://online.businesslink.gov.uk/bdotg/action/BGAuthenticate,,410
+http://online.businesslink.gov.uk/bdotg/action/cntc,https://www.gov.uk/get-information-about-a-company,301
+http://online.businesslink.gov.uk/bdotg/action/ercLanding?r.s=a&r.l1=1073861169&r.lc=en&r.l3=1074027316&r.l2=1074400662&r.li=1083948444,https://www.gov.uk/licence-finder,301
+http://online.businesslink.gov.uk/bdotg/action/logicToolPayloadPage?itemId=1079427397&page=1&r.i=1079427397&r.l1=1073858787&r.l2=1084822795&r.l3=1079427399&r.t=BLTTOOL&type=BLTTOOL,https://www.gov.uk/holiday-entitlement-rights,301
 http://online.businesslink.gov.uk/bdotg/action/pdp?r.i=1077627569&r.l1=1073858787&r.l2=1074202347&r.l3=1074216127&r.t=RESOURCES,,410
+http://online.businesslink.gov.uk/bdotg/action/tariff,https://www.gov.uk/trade-tariff,301
 http://online.businesslink.gov.uk/bdotg/action/tariff,https://www.gov.uk/trade-tariff,301,
+http://online.businesslink.gov.uk/businesslink-logo-2x.png,,200
 http://online.businesslink.gov.uk/businesslink-logo.png,,200
+http://online.businesslink.gov.uk/govuk-logo.png,,200
+http://online.businesslink.gov.uk/hub/action/render?pageId=mynewbusiness,https://www.gov.uk/browse/business/setting-up,301
+http://online.businesslink.gov.uk/ie.css,,200
 http://online.businesslink.gov.uk/syntegra/js/s_code_remote.js,,200

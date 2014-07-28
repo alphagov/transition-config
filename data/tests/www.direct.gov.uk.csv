@@ -1,5 +1,7 @@
 Old Url,New Url,Status
+http://www.direct.gov.uk/,https://www.gov.uk,301
 http://www.direct.gov.uk/Homepage/fs/en,https://www.gov.uk,301,,
+http://www.direct.gov.uk/Motoring,https://www.gov.uk/browse/driving,301
 http://www.direct.gov.uk/Nl1/Newsroom/fs/en,,410
 http://www.direct.gov.uk/adultlearning,,410
 http://www.direct.gov.uk/alerts/akamai-availability.gif,,200
@@ -10,8 +12,10 @@ http://www.direct.gov.uk/changeofaddress,https://www.gov.uk/change-address-drivi
 http://www.direct.gov.uk/changepracticaltest,https://www.gov.uk/change-date-practical-driving-test,301,,
 http://www.direct.gov.uk/changetheorytest,https://www.gov.uk/change-date-driving-theory-test,301,,
 http://www.direct.gov.uk/checkdrivercpc,https://www.gov.uk/check-your-driver-cpc-periodic-training-hours,301,,
+http://www.direct.gov.uk/checkyourmot,https://www.gov.uk/check-mot-status-vehicle,301
 http://www.direct.gov.uk/checkyourmot,https://www.gov.uk/check-mot-status-vehicle,301,,
 http://www.direct.gov.uk/courtanddebt,https://www.gov.uk/make-court-claim-for-money/overview,301,,
+http://www.direct.gov.uk/directgov-logo-2x.png,,200
 http://www.direct.gov.uk/directgov-logo.png,,200
 http://www.direct.gov.uk/disability,https://www.gov.uk/browse/disabilities,301,,
 http://www.direct.gov.uk/driverhealth,https://www.gov.uk/browse/driving/disability-health-condition,301,,
@@ -57,6 +61,7 @@ http://www.direct.gov.uk/en/Employment/Employees/TheNationalMinimumWage/DG_10027
 http://www.direct.gov.uk/en/Employment/Employees/Timeoffandholidays/DG_073741,https://www.gov.uk/bank-holidays,301,,
 http://www.direct.gov.uk/en/Employment/Jobseekers/ContactJobcentrePlus/DG_186347,https://www.gov.uk/contact-jobcentre-plus,301,,
 http://www.direct.gov.uk/en/Employment/Jobseekers/Helpapplyingforajob/index.htm,https://www.gov.uk/browse/working/finding-job,301,,
+http://www.direct.gov.uk/en/Employment/Jobseekers/LookingForWork/DG_10030134,https://www.gov.uk/jobsearch,301
 http://www.direct.gov.uk/en/Employment/Jobseekers/LookingForWork/DG_10030134,https://www.gov.uk/jobsearch,301,,
 http://www.direct.gov.uk/en/Employment/Jobseekers/LookingForWork/index.htm,https://www.gov.uk/browse/working/finding-job,301,,
 http://www.direct.gov.uk/en/Employment/Jobseekers/index.htm,https://www.gov.uk/browse/working/finding-job,301,,
@@ -117,6 +122,8 @@ http://www.direct.gov.uk/en/Pensionsandretirementplanning/StatePension/DG_401791
 http://www.direct.gov.uk/en/Pensionsandretirementplanning/StatePension/StatePensionforecast/DG_10014008,https://www.gov.uk/state-pension-statement,301,,
 http://www.direct.gov.uk/en/Pensionsandretirementplanning/StatePension/index.htm,https://www.gov.uk/browse/working/state-pension,301,,
 http://www.direct.gov.uk/en/Pensionsandretirementplanning/index.htm,https://www.gov.uk/browse/working,301,,
+http://www.direct.gov.uk/en/Rss/Rss?Feed=DG_177248,,410
+http://www.direct.gov.uk/en/Rss/Rss?Feed=DG_177948,,410
 http://www.direct.gov.uk/en/SiteInformation/DG_020460,,200
 http://www.direct.gov.uk/en/SiteInformation/DG_10015420,,200
 http://www.direct.gov.uk/en/TravelAndTransport/Highwaycode/index.htm,https://www.gov.uk/browse/driving/highway-code,301,,
@@ -126,9 +133,13 @@ http://www.direct.gov.uk/en/TravelAndTransport/Passports/index.htm,https://www.g
 http://www.direct.gov.uk/en/TravelAndTransport/PlanningYourJourney/DG_10036717,https://www.gov.uk/plan-your-journey,301,,
 http://www.direct.gov.uk/en/TravelAndTransport/Publictransport/BusAndCoachTravel/DG_10036264,https://www.gov.uk/apply-for-elderly-person-bus-pass,301,,
 http://www.direct.gov.uk/en/YoungPeople/index.htm,https://www.gov.uk,301,,
+http://www.direct.gov.uk/en/groups/dg_digitalassets/@dg/@en/documents/digitalasset/dg_073993.pdf,,200
+http://www.direct.gov.uk/en/index.htm,https://www.gov.uk,301
 http://www.direct.gov.uk/en/index.htm,https://www.gov.uk,301,,
+http://www.direct.gov.uk/en/motoring/DG_174859,https://www.gov.uk/driving-transaction-finished,301
 http://www.direct.gov.uk/favicon.ico,,200
 http://www.direct.gov.uk/gone.css,,200
+http://www.direct.gov.uk/govuk-logo.png,,200
 http://www.direct.gov.uk/gro,https://www.gov.uk/browse/births-deaths-marriages/register-offices,301,,
 http://www.direct.gov.uk/jcponline,https://www.gov.uk/browse/working/finding-job,301,,
 http://www.direct.gov.uk/jobs,https://www.gov.uk/browse/working,301,,
@@ -142,6 +153,7 @@ http://www.direct.gov.uk/motoring,https://www.gov.uk/browse/driving,301,,
 http://www.direct.gov.uk/motoringforms,https://www.gov.uk/browse/driving,301,,
 http://www.direct.gov.uk/onlinemotoringservices,https://www.gov.uk/browse/driving,301,,
 http://www.direct.gov.uk/passport,https://www.gov.uk/browse/citizenship/passports,301,,
+http://www.direct.gov.uk/passports,https://www.gov.uk/browse/citizenship/passports,301
 http://www.direct.gov.uk/passports,https://www.gov.uk/browse/citizenship/passports,301,,
 http://www.direct.gov.uk/passports/interviewoffices,https://www.gov.uk/passport-interview-office,301,,
 http://www.direct.gov.uk/payacourtfine,https://www.gov.uk/pay-court-fine-online,301,,
@@ -161,6 +173,7 @@ http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@benefit
 http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@benefits/documents/digitalasset/dg_201702.pdf,https://www.gov.uk/government/publications/gl24-if-you-think-our-decision-is-wrong,301
 http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@disabled/documents/digitalasset/dg_172082.pdf,https://www.gov.uk/government/publications/employment-and-support-allowance-notes-about-your-claim,301
 http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@disabled/documents/digitalasset/dg_177366.pdf,https://www.gov.uk/government/publications/esa214-a-guide-to-employment-and-support-allowance-the-work-capability-assessment,301,,
+http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@employ/documents/digitalasset/dg_177260.pdf,https://www.gov.uk/calculate-your-redundancy-pay,301
 http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@employ/documents/digitalasset/dg_179564.rtf,,200
 http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@government/documents/digitalasset/dg_176374.pdf,,200
 http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@government/documents/digitalasset/dg_202285.pdf,,200
@@ -181,6 +194,7 @@ http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@motor/d
 http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@motor/documents/digitalasset/dg_4020731.pdf,,200
 http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@over50/documents/digitalasset/dg_180224.pdf,https://www.gov.uk/government/publications/pension-credit,301,,
 http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@over50/documents/digitalasset/dg_180311.pdf,,200
+http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@over50/documents/digitalasset/dg_180312.pdf,,200
 http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@over50/documents/digitalasset/dg_181245.pdf,,200
 http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@over50/documents/digitalasset/dg_200597.pdf,https://www.gov.uk/government/publications/deferring-your-state-pension,301
 http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@over50/documents/digitalasset/dg_202348.pdf,https://www.gov.uk/government/publications/state-pensions-leaflet,301
@@ -215,9 +229,11 @@ http://www.direct.gov.uk/spolidvfailure,http://www.direct.gov.uk/en/Diol1/DoItOn
 http://www.direct.gov.uk/statepension,https://www.gov.uk/state-pension,301,,
 http://www.direct.gov.uk/statepensiononline,https://www.gov.uk/claim-state-pension-online,301,,
 http://www.direct.gov.uk/stayinsured,https://www.gov.uk/vehicle-insurance/uninsured-vehicles,301,,
+http://www.direct.gov.uk/studentfinance,https://www.gov.uk/browse/education/student-finance,301
 http://www.direct.gov.uk/studentfinance,https://www.gov.uk/browse/education/student-finance,301,,
 http://www.direct.gov.uk/studentfinancecalculator,http://www.studentfinance.direct.gov.uk/portal/page?_pageid=153%2C4680136&_dad=portal&_schema=PORTAL,301,,
 http://www.direct.gov.uk/tax,https://www.gov.uk/browse/tax,301,,
+http://www.direct.gov.uk/taxdisc,https://www.gov.uk/tax-disc,301
 http://www.direct.gov.uk/taxdisc,https://www.gov.uk/tax-disc,301,,
 http://www.direct.gov.uk/taxdisk,https://www.gov.uk/tax-disc,301,,
 http://www.direct.gov.uk/theorytestdocuments,https://www.gov.uk/driving-theory-test/documents-you-need-to-take-to-your-theory-test,301,,
