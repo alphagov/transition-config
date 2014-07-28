@@ -40,8 +40,11 @@ sub get_map_key {
         my $page = $1;
         $key = "page=$page";
     }
+    else {
+        $key = $query_string;
+    }
 
-    return $key; 
+    return $key;
 }
 
 1;
