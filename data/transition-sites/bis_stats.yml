@@ -2,7 +2,7 @@
 site: bis_stats
 whitehall_slug: department-for-business-innovation-skills
 title: Department for Business, Innovation &amp; Skills
-redirection_date: 30th June 2014
+redirection_date: 31st July 2014
 homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills/about/statistics
 tna_timestamp: 20121206072905
 host: stats.bis.gov.uk
@@ -14,3 +14,4 @@ aliases:
 - stats2.bis.gov.uk
 - aalookup.bis.gov.uk
 - www.aalookup.bis.gov.uk
+global: =301 https://www.gov.uk/government/organisations/department-for-business-innovation-skills/about/statistics
