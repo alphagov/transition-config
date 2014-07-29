@@ -1,11 +1,10 @@
 ---
 site: mod_rfca
-whitehall_slug: ministry-of-defence
-title: Ministry of Defence
+whitehall_slug: reserve-forces-and-cadets-associations
+title: Reserve Forces and Cadets Associations
 redirection_date: 1st July 2014
-homepage: https://www.gov.uk/government/organisations/ministry-of-defence
+homepage: https://www.gov.uk/government/organisations/reserve-forces-and-cadets-associations
 tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
 host: www.rfcacouncil.org.uk
-furl: www.gov.uk/mod
 aliases:
 - rfcacouncil.org.uk
