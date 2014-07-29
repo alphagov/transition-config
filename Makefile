@@ -86,18 +86,12 @@ $(mappingsdist)/furls.csv:	$(sites) tools/generate_furls.sh
 #  bespoke maps
 #
 maps::	\
-	dist/maps/businesslink_lrc/lrc.conf \
-	dist/maps/businesslink/piplinks.conf
+	dist/maps/businesslink_lrc/lrc.conf
 
 # lrc map
 $(mapsdir)/businesslink_lrc/lrc.conf:	data/businesslink_lrc.csv tools/generate_lrc.pl
 	@mkdir -p $(mapsdir)/businesslink_lrc
 	tools/generate_lrc.pl data/businesslink_lrc.csv > $@
-
-# piplinks map
-$(mapsdir)/businesslink/piplinks.conf:	data/businesslink_piplinks.csv tools/generate_piplinks.pl
-	@mkdir -p $(mapsdir)/businesslink
-	tools/generate_piplinks.pl data/businesslink_piplinks.csv > $@
 
 #
 #  common config files
