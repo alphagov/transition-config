@@ -1,12 +1,12 @@
 ---
-site: bis_sas
+site: bis_berr
 whitehall_slug: department-for-business-innovation-skills
 title: Department for Business, Innovation &amp; Skills
-redirection_date: 14th July 2014
+redirection_date: 13th December 2012
 homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills
-tna_timestamp: 20121205091100
-host: scienceandsociety.bis.gov.uk
+tna_timestamp: 20090609003228
+host: www.berr.gov.uk
 furl: www.gov.uk/bis
 aliases:
-- www.scienceandsociety.bis.gov.uk
+- berr.gov.uk
 global: =410
