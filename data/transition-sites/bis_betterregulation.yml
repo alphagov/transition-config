@@ -1,12 +1,12 @@
 ---
-site: bis_news
+site: bis_betterregulation
 whitehall_slug: department-for-business-innovation-skills
 title: Department for Business, Innovation &amp; Skills
 redirection_date: 31st July 2014
 homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills
-tna_timestamp: 20140311021924
-host: news.bis.gov.uk
+tna_timestamp: 20130420125611
+host: www.betterregulation.gov.uk
 furl: www.gov.uk/bis
 aliases:
-- www.news.bis.gov.uk
-global: =301 https://www.gov.uk/government/announcements?departments%5B%5D=department-for-business-innovation-skills
+- betterregulation.gov.uk
+global: =301 https://www.gov.uk/government/policies/reducing-the-impact-of-regulation-on-business

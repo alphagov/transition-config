@@ -9,5 +9,3 @@ tna_timestamp: 20100714131339
 host: www.cst.gov.uk
 aliases:
 - www2.cst.gov.uk
-global: =301 http://www.bis.gov.uk/cst
-global_redirect_append_path: true
