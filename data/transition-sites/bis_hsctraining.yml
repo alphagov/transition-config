@@ -5,7 +5,7 @@ title: Department for Business, Innovation &amp; Skills
 redirection_date: 31st July 2014
 homepage: https://www.gov.uk/government/groups/horizon-scanning-programme-team
 tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
-host: hsctraining.bis.gov.uk
+host: hsctraininggateway.bis.gov.uk
 aliases:
-- www.hsctraining.bis.gov.uk
+- www.hsctraininggateway.bis.gov.uk
 global: =301 https://www.gov.uk/government/groups/horizon-scanning-programme-team
