@@ -1,9 +1,8 @@
 ---
 site: decc_chpqa
 whitehall_slug: department-of-energy-climate-change
-title: Department of Energy &amp; Climate Change
 redirection_date: July 1st 2014
 homepage: https://www.gov.uk/government/organisations/department-of-energy-climate-change
 tna_timestamp: 20131002172858
 host: chpqa.decc.gov.uk
-furl: www.gov.uk/decc
+homepage_furl: www.gov.uk/decc

@@ -1,9 +1,8 @@
 ---
 site: decc_gdcb
 whitehall_slug: department-of-energy-climate-change
-title: Department of Energy &amp; Climate Change
 redirection_date: 1st July 2014
 homepage: https://www.gov.uk/government/organisations/department-of-energy-climate-change
 tna_timestamp: 20130922123008
 host: gdcashback.decc.gov.uk
-furl: www.gov.uk/decc
+homepage_furl: www.gov.uk/decc

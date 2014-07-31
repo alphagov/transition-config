@@ -1,10 +1,9 @@
 ---
 site: moj_academy
 whitehall_slug: academy-for-justice-commissioning
-title: Academy for Justice Commissioning
 redirection_date: 1st April 2014
 homepage: https://www.gov.uk/government/organisations/academy-for-justice-commissioning
 tna_timestamp: 20131204114654
 host: www.academyforjusticecommissioning.org.uk
-furl: www.gov.uk/moj
+homepage_furl: www.gov.uk/moj
 global: =301 https://www.gov.uk/government/organisations/academy-for-justice-commissioning

@@ -1,12 +1,11 @@
 ---
 site: bis_sts
 whitehall_slug: department-for-business-innovation-skills
-title: Department for Business, Innovation &amp; Skills
 redirection_date: 31st July 2014
 homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills
 tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
 host: sts.bis.gov.uk
-furl: www.gov.uk/bis
+homepage_furl: www.gov.uk/bis
 aliases:
 - www.sts.bis.gov.uk
 global: =301 https://www.gov.uk/government/organisations/department-for-business-innovation-skills

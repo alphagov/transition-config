@@ -4,8 +4,7 @@ whitehall_slug: scotland-office
 host: www.scotlandoffice.gov.uk
 redirection_date: 30th January 2013
 tna_timestamp: 20130130150421
-title: Scotland Office
-furl: www.gov.uk/scotland-office
+homepage_furl: www.gov.uk/scotland-office
 homepage: https://www.gov.uk/government/organisations/scotland-office
 options: --query-string title:attachment
 css: scotland-office

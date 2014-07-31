@@ -4,8 +4,7 @@ whitehall_slug: department-of-energy-climate-change
 host: www.decc.gov.uk
 redirection_date: 23rd January 2013
 tna_timestamp: 20121217150421
-title: Department of Energy & Climate Change
-furl: www.gov.uk/decc
+homepage_furl: www.gov.uk/decc
 homepage: https://www.gov.uk/government/organisations/department-of-energy-climate-change
 options: --query-string filepath
 css: department-of-energy-climate-change

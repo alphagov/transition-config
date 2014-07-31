@@ -13,7 +13,7 @@ class GenerateNginxConfTest < MiniTest::Unit::TestCase
         'redirection_date: 13th December 2012',
         'tna_timestamp: 20120816224015',
         'title: Example&#39;s Office',
-        'furl: www.gov.uk/foo',
+        'homepage_furl: www.gov.uk/foo',
         'homepage: http://www.bar.com'
         ])
 

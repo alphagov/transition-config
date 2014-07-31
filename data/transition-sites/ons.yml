@@ -1,7 +1,6 @@
 ---
 site: ons
 whitehall_slug: office-for-national-statistics
-title: Office for National Statistics
 redirection_date: 1st September 2014
 homepage: https://www.gov.uk/government/organisations/office-for-national-statistics
 tna_timestamp: 20140506123802 #Dummy timestamp, full recrawl to come

@@ -1,12 +1,11 @@
 ---
 site: bis_csr
 whitehall_slug: department-for-business-innovation-skills
-title: Department for Business, Innovation &amp; Skills
 redirection_date: 31st July 2014
 homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills
 tna_timestamp: 20090217050313
 host: www.csr.gov.uk
-furl: www.gov.uk/bis
+homepage_furl: www.gov.uk/bis
 aliases:
 - csr.gov.uk
 global: =301 https://www.gov.uk/government/policies/making-companies-more-accountable-to-shareholders-and-the-public

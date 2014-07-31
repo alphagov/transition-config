@@ -1,12 +1,11 @@
 ---
 site: ukti_britishbusinessembassy
 whitehall_slug: uk-trade-investment
-title: UK Trade &amp; Investment
 redirection_date: 14th April 2014
 homepage: https://www.gov.uk/government/organisations/uk-trade-investment
 tna_timestamp: 20130815120805
 host: www.britishbusinessembassy.com
-furl: www.gov.uk/ukti
+homepage_furl: www.gov.uk/ukti
 global: =410
 aliases:
 - britishbusinessembassy.com

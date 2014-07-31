@@ -1,12 +1,11 @@
 ---
 site: maib
 whitehall_slug: marine-accident-investigation-branch
-title: Marine Accident Investigation Branch
 redirection_date: 1st July 2014
 homepage: https://www.gov.uk/government/organisations/marine-accident-investigation-branch
 tna_timestamp: 20131203084743
 host: www.maib.gov.uk
-furl: www.gov.uk/maib
+homepage_furl: www.gov.uk/maib
 aliases:
 - maib.gov.uk
 options: --query-string file

@@ -1,11 +1,10 @@
 ---
 site: dfe_cpms
 whitehall_slug: department-for-education
-title: Department for Education
 redirection_date: 1st May 2014
 homepage: https://www.gov.uk/government/organisations/department-for-education
 tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
 host: cpms.education.gov.uk
-furl: www.gov.uk/dfe
+homepage_furl: www.gov.uk/dfe
 global: =301 https://www.gov.uk/government/organisations/department-for-education
 css: department-for-education

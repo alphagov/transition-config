@@ -1,9 +1,8 @@
 ---
 site: defra_sd
 whitehall_slug: department-for-environment-food-rural-affairs
-title: Department for Environment, Food &amp; Rural Affairs
 redirection_date: 31st May 2014
 homepage: https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs
 tna_timestamp: 20131001185437
 host: sd.defra.gov.uk
-furl: www.gov.uk/defra
+homepage_furl: www.gov.uk/defra

@@ -1,12 +1,11 @@
 ---
 site: vmd
 whitehall_slug: veterinary-medicines-directorate
-title: Veterinary Medicines Directorate
 redirection_date: 1st July 2014
 homepage: https://www.gov.uk/government/organisations/veterinary-medicines-directorate
 tna_timestamp: 20140330135504
 host: vmd.defra.gov.uk
-furl: www.gov.uk/vmd
+homepage_furl: www.gov.uk/vmd
 aliases:
 - vmd.gov.uk
 - www.vmd.gov.uk

@@ -12,12 +12,12 @@ Required:
 * `host` — primary hostname for site
 * `redirection_date` — planned go live date, eg 1st July 2014
 * `tna_timestamp` — timestamp of the last good National Archives capture. eg 20131002172858
-* `homepage` — URL for new site, used to redirect '/'
+* `homepage` — URL for new site, used to redirect '/'. Must include the 'http' or 'https'.
 
 Optional:
-* `title` — site title for 410 page. Currently ignored by Transition and Bouncer.
+* `homepage_title` — site title for 404/410 pages. Defaults to organisation title. Should fit into the sentence: "Visit the new [title] site at [furl or homepage]"
 * `extra_organisation_slugs` — additional organisations which own this site. Used for access control in Transition.
-* `furl` — friendly URL displayed on 404/410 pages. Should redirect to the `homepage`.
+* `homepage_furl` — friendly URL displayed on 404/410 pages. Should redirect to the `homepage`. Doesn't need to include 'http' or 'https'.
 * `aliases` — list of alias domains
 * `global` — set a global redirect or archive for all paths
 * `css` — a css class which determines the logo and brand colour used on 404/410 pages

@@ -1,12 +1,11 @@
 ---
 site: sfa_theia
 whitehall_slug: skills-funding-agency
-title: Skills Funding Agency
 redirection_date: 26th February 2014
 homepage: https://www.gov.uk/government/organisations/skills-funding-agency
 tna_timestamp: 20140108104635
 host: www.theia.org.uk
-furl: www.gov.uk/sfa
+homepage_furl: www.gov.uk/sfa
 aliases:
 - theia.org.uk
 # nrnodeguid appears to be a document ID

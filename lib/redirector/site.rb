@@ -45,8 +45,8 @@ module Redirector
       hash['extra_organisation_slugs']
     end
 
-    def title
-      Site.coder.decode(hash['title'])
+    def homepage_title
+      Site.coder.decode(hash['homepage_title'])
     end
 
     def host
@@ -103,12 +103,12 @@ module Redirector
       {
         'site'             => abbr,
         'whitehall_slug'   => whitehall_slug,
-        'title'            => Site.coder.encode(title),
+        'homepage_title'   => Site.coder.encode(homepage_title),
         'redirection_date' => '31st October 2014',
         'homepage'         => "https://www.gov.uk/government/organisations/#{whitehall_slug}",
         'tna_timestamp'    => tna_timestamp,
         'host'             => host,
-        'furl'             => "www.gov.uk/#{abbr}",
+        'homepage_furl'    => "www.gov.uk/#{abbr}",
         'aliases'          => %W(www1.#{host} www2.#{host}),
         'global'           => "=301 https://www.gov.uk/government/organisations/#{whitehall_slug}",
         'options'          => "--query-string qstring1:qstring2:qstring3"
@@ -159,7 +159,6 @@ module Redirector
         {
           'site'           => abbr,
           'whitehall_slug' => organisation.details.slug,
-          'title'          => organisation.title,
           'host'           => host
         },
         options

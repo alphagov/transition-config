@@ -27,7 +27,7 @@ class RedirectorSiteTest < MiniTest::Unit::TestCase
 
   def test_decodes_titles
     site = Redirector::Site.from_yaml(slug_check_site_filename('bis'))
-    assert_equal 'Department for Business, Innovation & Skills', site.title
+    assert_equal 'Department for Business, Innovation & Skills', site.homepage_title
   end
 
   def test_all_hosts_with_aliases_present
@@ -171,7 +171,6 @@ class RedirectorSiteTest < MiniTest::Unit::TestCase
 
     assert_equal 'ukba', site.abbr
     assert_equal 'uk-borders-agency', site.whitehall_slug
-    assert_equal 'UK Borders Agency & encoding test', site.title
     assert_equal 'www.ukba.homeoffice.gov.uk', site.host
 
     site.save!
@@ -181,7 +180,6 @@ class RedirectorSiteTest < MiniTest::Unit::TestCase
 
       assert_equal 'ukba', yaml['site']
       assert_equal 'uk-borders-agency', yaml['whitehall_slug']
-      assert_equal 'UK Borders Agency &amp; encoding test', yaml['title']
       assert_equal 'https://www.gov.uk/government/organisations/uk-borders-agency', yaml['homepage']
       assert_equal 20140110181512, yaml['tna_timestamp']
     ensure

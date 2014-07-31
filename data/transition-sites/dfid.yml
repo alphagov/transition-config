@@ -4,8 +4,7 @@ whitehall_slug: department-for-international-development
 host: www.dfid.gov.uk
 redirection_date: 26th March 2013
 tna_timestamp: 20130128103201
-title: Department for International Development
-furl: www.gov.uk/dfid
+homepage_furl: www.gov.uk/dfid
 homepage: https://www.gov.uk/government/organisations/department-for-international-development
 options: --query-string attach_url
 locations:

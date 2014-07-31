@@ -1,12 +1,11 @@
 ---
 site: dfid_blogs
 whitehall_slug: department-for-international-development
-title: Department for International Development
 redirection_date: 19th March 2014
 homepage: https://dfid.blog.gov.uk
 tna_timestamp: 20130704203515
 host: blogs.dfid.gov.uk
-furl: www.gov.uk/dfid
+homepage_furl: www.gov.uk/dfid
 aliases:
 - www.blogs.dfid.gov.uk
 - dfidimport.blog.gov.uk

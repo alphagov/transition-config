@@ -4,7 +4,6 @@ whitehall_slug: department-of-energy-climate-change
 host: corwm.decc.gov.uk
 redirection_date: 30th August 2013
 tna_timestamp: 20130503173700
-title: Department of Energy & Climate Change
-furl: www.gov.uk/corwm
+homepage_furl: www.gov.uk/corwm
 homepage: https://www.gov.uk/government/organisations/committee-on-radioactive-waste-management
 css: department-of-energy-climate-change
