@@ -9,6 +9,7 @@ homepage: https://www.gov.uk/government/organisations/department-for-environment
 css: department-for-environment-food-rural-affairs
 aliases:
 - ww2.defra.gov.uk
+- www2.defra.gov.uk
 - defra.gov.uk
 extra_organisation_slugs:
 - animal-health-and-veterinary-laboratories-agency
