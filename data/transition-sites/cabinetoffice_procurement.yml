@@ -7,3 +7,4 @@ tna_timestamp: 20140129131759
 host: procurement.cabinetoffice.gov.uk
 homepage_furl: www.gov.uk/cabinetoffice
 global: =410
+special_redirect_strategy: via_aka

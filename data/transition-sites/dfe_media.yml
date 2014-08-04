@@ -7,3 +7,4 @@ tna_timestamp: 20130123124929
 homepage_furl: www.gov.uk/dfe
 homepage: https://www.gov.uk/government/organisations/department-for-education
 css: department-for-education
+special_redirect_strategy: supplier
