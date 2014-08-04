@@ -24,6 +24,7 @@ Optional:
 * `options` — used to list significant querystrings for canonicalisation like this: `--query-string first:second:third`. A significant querystring is one which on the old website changes the content in a meaningful way - which we might therefore need to map to a different place.
 * `global_redirect_append_path` — should the path the user supplied be appended
 to the URL for the global redirect?
+* `special_redirect_strategy` - specify the special redirect strategy to indicate the type of transition - this can be either `via_aka` (some paths are being redirected by the supplier to the aka domain) or `supplier` (no traffic actually comes through us).
 
 Use `rake new_site[abbr,whitehall_slug,host]` to create a new site with default
 mappings and tests, with an option for which service to config e.g.
