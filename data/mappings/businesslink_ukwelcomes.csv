@@ -16331,6 +16331,7 @@ http://www.ukwelcomes.businesslink.gov.uk/bdotg/action/piplink?agency_id=94&serv
 http://www.ukwelcomes.businesslink.gov.uk/bdotg/action/piplink?agency_id=96&service_id=1800010001,https://www.gov.uk/apply-for-a-licence/food-premises-approval-6/dover/apply-1,301
 http://www.ukwelcomes.businesslink.gov.uk/bdotg/action/piplink?agency_id=AgencyId&service_id=ServiceId,https://www.gov.uk/apply-for-a-licence/LicenceSlug/AuthoritySlug/InteractionSlug,301
 http://www.ukwelcomes.businesslink.gov.uk/eff/action/northgateresponse,https://www.gov.uk/apply-for-a-licence/payment/northgateCallback,301
+http://www.ukwelcomes.businesslink.gov.uk/eff/action/worldpaycallback,https://www.gov.uk/apply-for-a-licence/payment/worldpayCallback,301
 http://www.ukwelcomes.businesslink.gov.uk/eff/action/worldpaycallback?installation=126846&msgType=authResult,https://www.gov.uk/apply-for-a-licence/payment/worldpayCallback,301
 http://www.ukwelcomes.businesslink.gov.uk/eff/action/worldpaycallback?installation=217361&msgType=authResult,https://www.gov.uk/apply-for-a-licence/payment/worldpayCallback,301
 http://www.ukwelcomes.businesslink.gov.uk/eff/action/worldpaycallback?installation=223197&msgType=authResult,https://www.gov.uk/apply-for-a-licence/payment/worldpayCallback,301
