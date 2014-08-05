@@ -7,3 +7,4 @@ tna_timestamp: 20140304175147
 host: customs.hmrc.gov.uk
 homepage_furl: www.gov.uk/hmrc
 options: --query-string _nfpb:_pagelabel:propertytype:columns:id:contentid
+special_redirect_strategy: supplier

@@ -18,3 +18,4 @@ extra_organisation_slugs:
 - driving-standards-agency
 - driver-and-vehicle-standards-agency
 - vehicle-certification-agency
+special_redirect_strategy: via_aka

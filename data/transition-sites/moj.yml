@@ -15,3 +15,4 @@ extra_organisation_slugs:
 - hm-prison-service
 - office-of-the-public-guardian
 - youth-justice-board-for-england-and-wales
+special_redirect_strategy: supplier

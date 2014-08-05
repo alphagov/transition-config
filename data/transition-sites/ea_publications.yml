@@ -9,3 +9,4 @@ homepage_furl: www.gov.uk/environment-agency
 options: --query-string id
 aliases:
 - brand.environment-agency.gov.uk
+special_redirect_strategy: via_aka
