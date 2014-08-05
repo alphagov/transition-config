@@ -1,0 +1,10 @@
+---
+site: hmrc_search2
+whitehall_slug: hm-revenue-customs
+redirection_date: 1st June 2014
+homepage: https://www.gov.uk/government/organisations/hm-revenue-customs
+tna_timestamp: 20140603092408
+host: search2.hmrc.gov.uk
+homepage_furl: www.gov.uk/hmrc
+options: --query-string formid:record
+special_redirect_strategy: supplier
