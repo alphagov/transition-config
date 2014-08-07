@@ -7,3 +7,4 @@ tna_timestamp: 20201010101010 # Stub timestamp for site not in TNA
 host: www.serviceschoolsmobilitytoolkit.com
 aliases:
 - serviceschoolsmobilitytoolkit.com
+global: =301 https://www.gov.uk/government/collections/service-childrens-education
