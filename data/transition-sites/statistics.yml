@@ -2,7 +2,7 @@
 site: statistics
 whitehall_slug: uk-statistics-authority
 redirection_date: 1st September 2014
-homepage: https://www.gov.uk/government/organisations/uk-statistics-authority
+homepage: https://www.gov.uk/government/statistics/announcements
 tna_timestamp: 20140506180634 #Dummy timestamp, full recrawl to come
 host: www.statistics.gov.uk
 aliases:
@@ -10,3 +10,4 @@ aliases:
 # options: --query-string qstring1:qstring2:qstring3 # Full query string param analysis to come
 extra_organisation_slugs:
 - office-for-national-statistics
+homepage_title: Statistical Announcements
