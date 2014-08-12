@@ -1,10 +1,9 @@
 ---
 site: cabinetoffice_mutuals
 whitehall_slug: cabinet-office
-redirection_date: 1st August 2014
-homepage: https://www.gov.uk/government/organisations/cabinet-office
+redirection_date: 12th August 2014
+homepage: https://www.gov.uk/government/groups/mutuals-information-service
 tna_timestamp: 20140402141901
 host: mutuals.cabinetoffice.gov.uk
-# options: --query-string qstring1:qstring2:qstring3
 aliases:
 - www.mutuals.cabinetoffice.gov.uk
