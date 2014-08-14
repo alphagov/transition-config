@@ -8,5 +8,6 @@ host: www.landregistry.gov.uk
 aliases:
 - landregistry.gov.uk
 - www1.landregistry.gov.uk
+- site.landregistry.gov.uk
 extra_organisation_slugs:
 - land-registration-rule-committee
