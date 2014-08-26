@@ -1,0 +1,9 @@
+---
+site: bis_queensawards
+whitehall_slug: department-for-business-innovation-skills
+homepage_title: 'Queens Awards'
+redirection_date: 27th August 2014
+homepage: https://www.gov.uk/queens-awards-for-enterprise
+tna_timestamp: 20140304164435
+host: www.queensawards.org.uk
+global: =301 https://www.gov.uk/queens-awards-for-enterprise
