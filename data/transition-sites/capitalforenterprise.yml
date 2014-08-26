@@ -7,3 +7,6 @@ homepage: https://www.gov.uk/government/organisations/capital-for-enterprise-ltd
 tna_timestamp: 20140105003123
 host: www.capitalforenterprise.gov.uk
 global: =301 https://www.gov.uk/government/organisations/capital-for-enterprise-ltd
+aliases:
+- www.capitalforenterprise.co.uk
+- www.capitalforenterprise.com
