@@ -5,6 +5,6 @@ redirection_date: 17th October 2012
 tna_timestamp: 20130430082410
 host: studenttaxadvice.direct.gov.uk
 homepage_furl: www.gov.uk
-global: =410
+global: =301 https://www.gov.uk/student-jobs-paying-tax
 css: directgov
 homepage: https://www.gov.uk
