@@ -2,9 +2,9 @@
 site: bis_iacl
 whitehall_slug: department-for-business-innovation-skills
 redirection_date: 31st July 2014
-homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills
+homepage: https://www.gov.uk/government/consultations/new-challenges-new-chances-next-steps-in-implementing-the-further-education-reform-programme
 tna_timestamp: 20111108170410
 host: iacl.bis.gov.uk
 aliases:
 - www.iacl.bis.gov.uk
-global: =410
+global: =301 https://www.gov.uk/government/consultations/new-challenges-new-chances-next-steps-in-implementing-the-further-education-reform-programme
