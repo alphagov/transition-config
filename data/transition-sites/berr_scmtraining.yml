@@ -1,10 +1,9 @@
 ---
-site: bis_scmtraining
+site: berr_scmtraining
 whitehall_slug: department-for-business-innovation-skills
 redirection_date: 31st July 2014
 homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills
-tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
-host: www.scmtraining.bis.gov.uk
+tna_timestamp: 20090902161817
+host: www.scmtraining.berr.gov.uk
 homepage_furl: www.gov.uk/bis
-global: =301 http://www.scmtraining.bis.gov.uk
-global_redirect_append_path: true
+global: =410
