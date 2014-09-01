@@ -1,9 +1,9 @@
 ---
-site: bis_mas
+site: berr_scmtraining
 whitehall_slug: department-for-business-innovation-skills
 redirection_date: 31st July 2014
 homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills
-tna_timestamp: 20140320153140
-host: www.mas.bis.gov.uk
+tna_timestamp: 20090902161817
+host: www.scmtraining.berr.gov.uk
 homepage_furl: www.gov.uk/bis
-global: =301 https://www.gov.uk/manufacturing-advisory-service-mas
+global: =410

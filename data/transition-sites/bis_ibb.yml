@@ -1,11 +1,10 @@
 ---
-site: bis_security
+site: bis_ibb
 whitehall_slug: department-for-business-innovation-skills
-redirection_date: 31st July 2014
+homepage_title: 'IBB Knowledge Net'
+redirection_date: 31st October 2014
 homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills
-tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
-host: www.securityhealthcheck.bis.gov.uk
+tna_timestamp:
+host: www.ibbknowledgenet.gov.uk
 homepage_furl: www.gov.uk/bis
 global: =301 https://www.gov.uk/government/organisations/department-for-business-innovation-skills
-aliases:
-- securityhealthcheck.bis.gov.uk

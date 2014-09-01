@@ -8,4 +8,4 @@ host: nlss.bis.gov.uk
 homepage_furl: www.gov.uk/bis
 aliases:
 - www.nlss.bis.gov.uk
-global: =301 https://www.gov.uk/government/organisations/department-for-business-innovation-skills
+global: =301 https://www.gov.uk/government/collections/fe-choices-information-for-providers

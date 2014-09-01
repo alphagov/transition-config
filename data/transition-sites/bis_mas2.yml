@@ -1,0 +1,10 @@
+---
+site: bis_mas
+whitehall_slug: department-for-business-innovation-skills
+homepage_title: 'Manufacturing Advisory Service'
+redirection_date: 1st September 2014
+homepage: https://www.gov.uk/manufacturing-advisory-service-mas
+tna_timestamp:
+host: www.mas-em.gov.uk
+homepage_furl: www.gov.uk/manufacturing-advisory-service-mas
+global: =301 https://www.gov.uk/manufacturing-advisory-service-mas

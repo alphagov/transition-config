@@ -3,8 +3,9 @@ site: bis_iat
 whitehall_slug: department-for-business-innovation-skills
 redirection_date: 31st July 2014
 homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills
-tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
+tna_timestamp: 20100304111456
 host: iatraining.bis.gov.uk
 aliases:
 - www.iatraining.bis.gov.uk
-global: =301 https://www.gov.uk/government/organisations/department-for-business-innovation-skills
+global: =301 http://iatraining.berr.gov.uk
+global_redirect_append_path: true

@@ -1,11 +1,9 @@
 ---
-site: bis_security
+site: bis_ss
 whitehall_slug: department-for-business-innovation-skills
-redirection_date: 31st July 2014
+homepage_title: 'BIS Security Survey'
+redirection_date: 31st October 2014
 homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills
-tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
-host: www.securityhealthcheck.bis.gov.uk
-homepage_furl: www.gov.uk/bis
+tna_timestamp: 20110907112835
+host: security-survey.gov.uk
 global: =301 https://www.gov.uk/government/organisations/department-for-business-innovation-skills
-aliases:
-- securityhealthcheck.bis.gov.uk
