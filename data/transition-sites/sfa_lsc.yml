@@ -1,0 +1,11 @@
+---
+site: sfa_lsc
+whitehall_slug: skills-funding-agency
+homepage_title: 'Learning Skills Council'
+redirection_date: 31st October 2014
+homepage: https://www.gov.uk/government/organisations/learning-and-skills-council
+tna_timestamp: 20100402125622
+host: www.lsc.gov.uk
+aliases:
+- lsc.gov.uk
+global: =301 https://www.gov.uk/government/organisations/learning-and-skills-council
