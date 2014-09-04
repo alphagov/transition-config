@@ -6,3 +6,4 @@ homepage: https://www.gov.uk/government/policies/making-sustainable-development-
 tna_timestamp: 20140827110041
 host: sd.defra.gov.uk
 homepage_title: 'Sustainable Development in Government'
+special_redirect_strategy: via_aka
