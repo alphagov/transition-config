@@ -14,3 +14,4 @@ aliases:
 extra_organisation_slugs:
 - animal-health-and-veterinary-laboratories-agency
 special_redirect_strategy: supplier
+# Note: some redirects for this domain are served via_aka as well - 'hybrid'
