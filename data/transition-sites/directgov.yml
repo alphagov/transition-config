@@ -1,10 +1,10 @@
 ---
 site: directgov
+whitehall_slug: government-digital-service
 host: www.direct.gov.uk
 redirection_date: 17th October 2012
 tna_timestamp: 20121015000000
-title: Directgov
-homepage_furl: www.gov.uk
+homepage_title: Directgov
 homepage: https://www.gov.uk
 aliases:
 - resources.direct.gov.uk
@@ -15,10 +15,3 @@ aliases:
 - o2.direct.gov.uk
 - wap.direct.gov.uk
 css: directgov
-locations:
-- path: /(en/)?AdvancedSearch
-  operation: ^~
-  status: 301
-  new_url: https://www.gov.uk/search
-extra_organisation_slugs:
-- government-digital-service
