@@ -7,3 +7,5 @@ tna_timestamp: 20131111143812
 homepage_title: 'Government Digital Service'
 homepage: https://gds.blog.gov.uk
 css: cabinet-office
+extra_organisation_slugs:
+- government-digital-service
