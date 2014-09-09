@@ -8,3 +8,4 @@ homepage: https://www.gov.uk/government/topics/public-spending
 css: businesslink
 extra_organisation_slugs:
 - government-digital-service
+homepage_title: 'Business Link'
