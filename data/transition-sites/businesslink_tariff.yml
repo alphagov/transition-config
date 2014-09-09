@@ -5,6 +5,7 @@ redirection_date: 17th October 2012
 tna_timestamp: 20120823131012
 homepage_furl: www.gov.uk
 homepage: https://www.gov.uk/trade-tariff
+homepage_title: 'Business Link'
 global: =301 https://www.gov.uk/trade-tariff
 css: businesslink
 aliases:

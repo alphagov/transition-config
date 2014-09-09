@@ -9,3 +9,4 @@ global: =301 https://admin.business-events.org.uk
 css: businesslink
 extra_organisation_slugs:
 - government-digital-service
+homepage_title: 'Business Link'
