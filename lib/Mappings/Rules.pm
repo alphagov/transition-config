@@ -12,7 +12,6 @@ use URI::Split  qw( uri_split uri_join );
 
 my %SPECIAL_CASE_HOSTS = (
     'www.businesslink.gov.uk'                   => 'Businesslink',
-    'www.ukwelcomes.businesslink.gov.uk'        => 'Businesslink',
 );
 
 
