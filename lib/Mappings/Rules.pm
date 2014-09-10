@@ -10,12 +10,6 @@ use Mappings::MapConfig;
 
 use URI::Split  qw( uri_split uri_join );
 
-my %SPECIAL_CASE_HOSTS = (
-    'www.businesslink.gov.uk'                   => 'Businesslink',
-);
-
-
-
 sub new {
     my $class = shift;
     my $row   = shift;
@@ -57,18 +51,8 @@ sub get_config_rule_type {
     my $path = shift;
     my $query = shift;
 
-    my $special_case_host;
-    if ( defined $host && defined $SPECIAL_CASE_HOSTS{$host} ) {
-        $special_case_host = $SPECIAL_CASE_HOSTS{$host};
-    }
-
     if ( $query ) {
-        if ( $special_case_host && $special_case_host eq 'Businesslink' ) {
-            $config_rule_type = "Mappings::Businesslink";
-        }
-        else {
-            $config_rule_type = "Mappings::MapConfig";
-        }
+          $config_rule_type = "Mappings::MapConfig";
     }
     else {
           $config_rule_type = "Mappings::LocationConfig";
