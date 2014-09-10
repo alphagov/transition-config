@@ -10,7 +10,6 @@ Required:
 * `whitehall_slug` — the slug used in Whitehall for the organisation which owns the site. Used for branding in Bouncer and access control in Transition.
 * `site` — friendly name for the site
 * `host` — primary hostname for site
-* `redirection_date` — planned go live date, eg 1st July 2014
 * `tna_timestamp` — timestamp of the last good National Archives capture. eg 20131002172858
 * `homepage` — URL for new site, used to redirect '/'. Must include the 'http' or 'https'.
 

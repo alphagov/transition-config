@@ -6,7 +6,6 @@
 # Create site yaml
 organisation=$2
 domain=$3
-date=$4
 abbrev=$1
 # abbrev=$(echo $domain | sed 's/\./_/g')
 filename='data/transition-sites/'$abbrev'.yml'
@@ -22,10 +21,7 @@ sed 's/www1\.www\.//' $filename |       # Config root as a likely alias
     grep -v 'global:' |
 
         # Comment query strings out in advance of proper configuration
-    sed -E "s/(options:.*)/\# \1 # This site has not had full query string parameter analysis/" |
-
-        # Change date
-    sed "s/31st October 2014/$date/" > tempymlfile &&
+    sed -E "s/(options:.*)/\# \1 # This site has not had full query string parameter analysis/" > tempymlfile &&
     mv tempymlfile $filename
 
 # Run a sitemap and clean it of cruft

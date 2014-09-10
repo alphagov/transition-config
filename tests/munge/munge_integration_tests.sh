@@ -34,7 +34,6 @@ cat > "$test_sites_directory/$test_site.yml" <<!
 ---
 site: $test_site
 host: www.example.com
-redirection_date: 13th December 2012
 tna_timestamp: 20120816224015
 title: Test Website
 homepage_furl: www.gov.uk/test

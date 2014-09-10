@@ -104,7 +104,6 @@ module Redirector
         'site'             => abbr,
         'whitehall_slug'   => whitehall_slug,
         'homepage_title'   => Site.coder.encode(homepage_title),
-        'redirection_date' => '31st October 2014',
         'homepage'         => "https://www.gov.uk/government/organisations/#{whitehall_slug}",
         'tna_timestamp'    => tna_timestamp,
         'host'             => host,
