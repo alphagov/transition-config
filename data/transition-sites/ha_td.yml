@@ -1,11 +1,9 @@
 ---
-site: ha_td
-whitehall_slug: highways-agency
+site: ha_td   # Site originally configured as part of Highways Agency
+whitehall_slug: department-for-transport
 redirection_date: 30th September 2014
-homepage: https://www.gov.uk/government/organisations/highways-agency
+homepage: https://www.gov.uk/government/organisations/department-for-transport
 tna_timestamp: 20140402162612
 host: www.transportdirect.info
 aliases:
 - transportdirect.info
-extra_organisation_slugs:
-- department-for-transport
