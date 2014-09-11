@@ -1,3 +1,18 @@
+# Usage:
+#
+#   sitemap.sh myhost.gov.uk
+#
+# or, to spider part of a site:
+#
+#   sitemap.sh myhost.gov.uk/path
+#
+# Outputs to to a textfile and leaves downloaded files in a directory named
+# after the domain.
+#
+# Generate a list of URLs for a domain by crawling it.
+#
+# To avoid downloading large files unnecessarily, it doesn't download assets
+# (eg images, PDFs). These URLs are included in the output however.
 
 target=$1
 domain=$(echo $target | sed 's/\/.*//g' )
