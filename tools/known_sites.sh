@@ -6,7 +6,7 @@ ignore_domains='data/ignored_domains.txt'
 
 #Establish all the domains we know about from configuration
 
-cat data/sites/*$sitefocus* data/transition-sites/*$sitefocus* $ignoredomains |
+cat data/transition-sites/*$sitefocus* $ignoredomains |
     grep -o -i -E '[a-zA-Z0-9-]*\.[a-zA-Z0-9-]*\.?[a-zA-Z0-9-]*\.?[a-zA-Z0-9-]*\.?[a-zA-Z0-9-]{1,61}\.\w{2,6}' |
     grep -v 'www.gov.uk' |
     sort | uniq

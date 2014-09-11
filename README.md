@@ -4,7 +4,7 @@ Nginx configuration and supporting tools and tests for the redirector, an Ngnix 
 
 ## Sites
 
-Each site is configured using a yaml file in the `data/sites` or `data/transition-sites` directory:
+Each site is configured using a yaml file in the `data/transition-sites` directory:
 
 Required:
 * `whitehall_slug` — the slug used in Whitehall for the organisation which owns the site. Used for branding in Bouncer and access control in Transition.
