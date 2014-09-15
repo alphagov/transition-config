@@ -1,0 +1,10 @@
+---
+site: bis_sigmascan
+whitehall_slug: government-office-for-science
+homepage_title: 'Government Office for Science - Sigma Scan 2.0'
+redirection_date: 30th September 2014
+homepage: https://www.gov.uk/government/organisations/government-office-for-science
+tna_timestamp: 20201010101010 # Plug - site not in TNA
+host: www.sigmascan.org
+extra_organisation_slugs:
+- department-for-business-innovation-skills
