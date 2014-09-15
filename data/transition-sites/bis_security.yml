@@ -6,6 +6,6 @@ homepage: https://www.gov.uk/government/organisations/department-for-business-in
 tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
 host: www.securityhealthcheck.bis.gov.uk
 homepage_furl: www.gov.uk/bis
-global: =301 https://www.gov.uk/government/organisations/department-for-business-innovation-skills
+global: =301 https://www.gov.uk/government/policies/keeping-the-uk-safe-in-cyberspace
 aliases:
 - securityhealthcheck.bis.gov.uk
