@@ -38,4 +38,11 @@ mappings and tests, with an option for which service to config e.g.
 
 ## Assets
 
-Directgov and Businesslink assets are stored in GitHub. See [assets-directgov](https://github.com/alphagov/assets-directgov) and [assets-businesslink](https://github.com/alphagov/assets-businesslink).
+We continue to serve some pages and assets for Directgov and BusinessLink sites. These are
+stored in GitHub and served by Bouncer's nginx configuration. See:
+* [assets-directgov](https://github.com/alphagov/assets-directgov)
+* [assets-businesslink](https://github.com/alphagov/assets-businesslink)
+* [Bouncer's nginx configuration](https://github.gds/gds/puppet/blob/master/modules/govuk/manifests/apps/bouncer.pp#L28-L119)
+
+Bouncer's nginx configuration also includes a small number of redirects and
+other behaviours not possible with mappings.
