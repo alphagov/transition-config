@@ -1,9 +1,9 @@
 ---
 site: nctl
 whitehall_slug: national-college-for-teaching-and-leadership
-redirection_date: 1st September 2014
+redirection_date: 22nd September 2014
 homepage: https://www.gov.uk/government/organisations/national-college-for-teaching-and-leadership
-tna_timestamp: 20140701125459
+tna_timestamp: 20140719134807
 host: www.nationalcollege.org.uk
 homepage_furl: www.gov.uk/nctl
 aliases:
@@ -11,3 +11,4 @@ aliases:
 - www1.nationalcollege.org.uk
 - www2.nationalcollege.org.uk
 options: --query-string filename:id
+special_redirect_strategy: via_aka
