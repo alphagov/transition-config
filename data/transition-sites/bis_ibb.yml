@@ -1,9 +1,0 @@
----
-site: bis_ibb
-whitehall_slug: department-for-business-innovation-skills
-homepage_title: 'IBB Knowledge Net'
-homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills
-tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
-host: www.ibbknowledgenet.gov.uk
-homepage_furl: www.gov.uk/bis
-global: =301 https://www.gov.uk/government/organisations/department-for-business-innovation-skills
