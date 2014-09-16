@@ -6,3 +6,5 @@ homepage: https://www.gov.uk/government/organisations/advisory-committee-on-busi
 tna_timestamp: 20140404084345
 host: acoba.independent.gov.uk
 homepage_furl: www.gov.uk/acoba
+extra_organisation_slugs:
+- cabinet-office
