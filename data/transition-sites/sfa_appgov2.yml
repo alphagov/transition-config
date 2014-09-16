@@ -2,7 +2,6 @@
 site: sfa_appgov2
 whitehall_slug: skills-funding-agency
 homepage_title: 'National Apprenticeship Service'
-redirection_date: 31st October 2014
 homepage: https://www.gov.uk/government/organisations/skills-funding-agency
 tna_timestamp: 20201010101010 # Stub timestamp - site not in TNA
 host: www.apprenticeship.gov.uk

@@ -1,7 +1,6 @@
 ---
 site: dstl_science            # Rename when reasonable to be consistent: mod_science
 whitehall_slug: ministry-of-defence
-redirection_date: 2nd July 2014
 homepage: https://www.gov.uk/government/groups/defence-science-and-technology
 tna_timestamp: 20140410091116
 host: www.science.mod.uk
