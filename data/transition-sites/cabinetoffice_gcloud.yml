@@ -2,7 +2,6 @@
 site: cabinetoffice_gcloud
 whitehall_slug: cabinet-office
 host: gcloud.civilservice.gov.uk
-redirection_date:
 tna_timestamp: 20131107074607
 homepage: https://www.gov.uk/how-to-use-cloudstore
 css: cabinet-office

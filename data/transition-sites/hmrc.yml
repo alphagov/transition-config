@@ -2,7 +2,6 @@
 site: hmrc
 whitehall_slug: hm-revenue-customs
 host: www.hmrc.gov.uk
-redirection_date: 28th February 2013
 tna_timestamp: 20140109143644 # Partial: update with care - TNA will have pages from www.gov.uk
 homepage_furl: www.gov.uk/hmrc
 homepage: https://www.gov.uk/government/organisations/hm-revenue-customs
