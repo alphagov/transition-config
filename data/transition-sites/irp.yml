@@ -8,3 +8,5 @@ host: www.irpanel.org.uk
 aliases:
 - irpanel.org.uk
 options: --query-string id
+extra_organisation_slugs:
+- cabinet-office
