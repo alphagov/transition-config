@@ -8,4 +8,6 @@ tna_timestamp: 20120120102317
 host: consultations.landregistry.gov.uk
 aliases:
 - www.consultations.landregistry.gov.uk
+- www.consultation.landregistry.gov.uk
+- consultation.landregistry.gov.uk
 options: --query-string docid
