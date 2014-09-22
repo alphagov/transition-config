@@ -2,7 +2,6 @@
 site: defra
 whitehall_slug: department-for-environment-food-rural-affairs
 host: www.defra.gov.uk
-redirection_date: 10th April 2013
 tna_timestamp: 20130822084033 # Partial: update with care - TNA will have pages from www.gov.uk
 homepage_furl: www.gov.uk/defra
 homepage: https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs

@@ -2,7 +2,6 @@
 site: businesslink_jobwarehouse
 whitehall_slug: government-digital-service
 homepage_title: 'Business Link'
-redirection_date: 9th September 2014
 homepage: https://www.gov.uk/government/organisations/government-digital-service
 tna_timestamp: 20201010101010 # Plug, site not in TNA
 host: jobwarehouse.businesslink.gov.uk
