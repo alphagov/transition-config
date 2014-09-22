@@ -5,15 +5,13 @@ homepage: https://www.gov.uk/government/organisations/maritime-and-coastguard-ag
 tna_timestamp: 20140305221616
 host: www.mcga.gov.uk
 homepage_furl: www.gov.uk/mca
-global: =301 http://www.dft.gov.uk/mca
-global_redirect_append_path: true
 
-# This global_redirect_append_path peforms redirects at the site root:
+# This site was configured as a legacy domain, with the transitioned content
+# located at www.dft.gov.uk/mca
 #
-#   www.mcga.gov.uk/foo/bar       --> www.dft.gov.uk/mca/foo/bar
-#
-# Additionally, we have rules in Bouncer which are applied before the global
-# redirect which perform redirects like this:
+# To replicate historic activity, we have rules in Bouncer which are applied instead of
+# any mappings, performing redirects like this:
 #
 #   www.mcga.gov.uk/c4mca/foo/bar --> www.dft.gov.uk/mca/foo/bar
 #   www.mcga.gov.uk/mca/foo/bar   --> www.dft.gov.uk/mca/foo/bar
+#   www.mcga.gov.uk/foo/bar       --> www.dft.gov.uk/mca/foo/bar
