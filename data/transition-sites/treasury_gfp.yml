@@ -7,4 +7,5 @@ host: www.thegfp-treasury.org
 homepage_furl: www.gov.uk/treasury
 aliases:
 - thegfp-treasury.org
+- thegfp.treasury.gov.uk
 options: --query-string newsid:eventid
