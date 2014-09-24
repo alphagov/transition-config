@@ -1,9 +1,0 @@
----
-site: directgov_co2calculator
-whitehall_slug: government-digital-service
-tna_timestamp: 20201010101010 # Stub timestamp - site not in TNA
-host: co2calculator.direct.gov.uk
-homepage_furl: www.gov.uk
-global: =410
-css: directgov
-homepage: https://www.gov.uk

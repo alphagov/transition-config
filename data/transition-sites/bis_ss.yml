@@ -1,8 +1,0 @@
----
-site: bis_ss
-whitehall_slug: department-for-business-innovation-skills
-homepage_title: 'BIS Security Survey'
-homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills
-tna_timestamp: 20110907112835
-host: security-survey.gov.uk
-global: =301 https://www.gov.uk/government/organisations/department-for-business-innovation-skills

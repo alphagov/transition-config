@@ -1,9 +1,0 @@
----
-site: directgov_brand
-whitehall_slug: government-digital-service
-tna_timestamp: 20201010101010 # Stub timestamp - site not in TNA
-host: brand.direct.gov.uk
-homepage_furl: www.gov.uk
-global: =410
-css: directgov
-homepage: https://www.gov.uk
