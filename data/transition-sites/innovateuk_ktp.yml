@@ -8,4 +8,4 @@ aliases:
 - ktponline.org.uk
 - www.ktponline.co.uk
 - ktponline.co.uk
-options: # No querystring analysis.
+options: --query-string vpid
