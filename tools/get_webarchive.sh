@@ -1,5 +1,7 @@
-
-#Usage sh get_webarchive.sh subdomain.topleveldomain.gov.uk
+# Usage get_webarchive.sh mydomain.gov.uk
+#
+# Get the most recent tna_timestamp for a given site by scraping The
+# National Archives index page for the domain.
 
 domain=$1
 
