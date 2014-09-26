@@ -1,4 +1,0 @@
-server {
-  server_name		ago.uk;
-  rewrite ^/(.*) http://www.ago.uk/$1 permanent;
-}
