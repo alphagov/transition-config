@@ -2,6 +2,8 @@
 site: mod
 whitehall_slug: ministry-of-defence
 host: www.mod.uk
+aliases:
+- mod.uk
 tna_timestamp: 20121026065214
 homepage_furl: www.gov.uk/mod
 homepage: https://www.gov.uk/government/organisations/ministry-of-defence

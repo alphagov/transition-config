@@ -2,6 +2,8 @@
 site: dfid
 whitehall_slug: department-for-international-development
 host: www.dfid.gov.uk
+aliases:
+- dfid.gov.uk
 tna_timestamp: 20130128103201
 homepage_furl: www.gov.uk/dfid
 homepage: https://www.gov.uk/government/organisations/department-for-international-development

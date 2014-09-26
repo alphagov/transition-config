@@ -2,6 +2,8 @@
 site: homeoffice
 whitehall_slug: home-office
 host: www.homeoffice.gov.uk
+aliases:
+- homeoffice.gov.uk
 tna_timestamp: 20130128103514
 homepage_furl: www.gov.uk/home-office
 homepage: https://www.gov.uk/government/organisations/home-office

@@ -1,0 +1,10 @@
+---
+site: alphagov
+whitehall_slug: government-digital-service
+homepage_title: government services and information
+homepage: https://www.gov.uk
+tna_timestamp: 20111004104716
+host: alpha.gov.uk
+aliases:
+- www.alpha.gov.uk
+global: =410

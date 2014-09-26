@@ -2,6 +2,8 @@
 site: dwp_jobcentreplus
 whitehall_slug: department-for-work-pensions
 host: www.jobcentreplus.gov.uk
+aliases:
+- jobcentreplus.gov.uk
 tna_timestamp: 20130128102031
 homepage_furl: www.gov.uk
 homepage: https://www.gov.uk/

@@ -4,6 +4,8 @@ whitehall_slug: pension-service
 homepage: https://www.gov.uk/government/organisations/pension-service
 tna_timestamp: 20130127144352
 host: www.thepensionservice.gov.uk
+aliases:
+- thepensionservice.gov.uk
 global: =301 https://www.gov.uk/browse/working/state-pension
 extra_organisation_slugs:
 - department-for-work-pensions
