@@ -6,3 +6,5 @@ tna_timestamp: 20121007104210
 host: www.fawc.org.uk
 homepage_furl: www.gov.uk/defra
 global: =410
+aliases:
+- www.fawc.co.uk
