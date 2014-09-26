@@ -1,0 +1,11 @@
+---
+site: alphagov_blog
+whitehall_slug: government-digital-service
+homepage_title: Government Digital Service blog
+homepage: https://gds.blog.gov.uk/
+tna_timestamp: 20111205170001
+host: blog.alpha.gov.uk
+aliases:
+- www.blog.alpha.gov.uk
+global: =301 https://gds.blog.gov.uk/
+global_redirect_append_path: true
