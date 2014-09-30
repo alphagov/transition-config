@@ -1,4 +1,0 @@
-server {
-  server_name transportdirect.info;
-  rewrite ^/(.*) http://www.transportdirect.info/$1 permanent;
-}
