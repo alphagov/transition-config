@@ -2,9 +2,9 @@
 site: defra_fawc
 whitehall_slug: department-for-environment-food-rural-affairs
 homepage: https://www.gov.uk/government/groups/farm-animal-welfare-committee-fawc
+homepage_title: 'Farm Animal Welfare Committee'
 tna_timestamp: 20121007104210
 host: www.fawc.org.uk
-homepage_furl: www.gov.uk/defra
 global: =410
 aliases:
 - www.fawc.co.uk
