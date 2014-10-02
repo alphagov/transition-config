@@ -9,4 +9,6 @@ aliases:
 - animalhealth.defra.gov.uk
 - ahvla.defra.gov.uk
 - www.svs.gov.uk
+extra_organisation_slugs:
+- animal-and-plant-health-agency
 global: =301 https://www.gov.uk/government/organisations/animal-health-and-veterinary-laboratories-agency
