@@ -1,12 +1,12 @@
 ---
 site: defra_vla
-whitehall_slug: animal-health-and-veterinary-laboratories-agency
-homepage: https://www.gov.uk/government/organisations/animal-health-and-veterinary-laboratories-agency
+whitehall_slug: animal-and-plant-health-agency
+homepage: https://www.gov.uk/government/organisations/animal-and-plant-health-agency
 tna_timestamp: 20130904121313
 host: vla.defra.gov.uk
-homepage_furl: www.gov.uk/ahvla
+homepage_furl: www.gov.uk/apha
 aliases:
 - animalhealth.defra.gov.uk
 - ahvla.defra.gov.uk
 - www.svs.gov.uk
-global: =301 https://www.gov.uk/government/organisations/animal-health-and-veterinary-laboratories-agency
+global: =301 https://www.gov.uk/government/organisations/animal-and-plant-health-agency
