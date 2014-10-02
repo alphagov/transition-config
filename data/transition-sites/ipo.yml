@@ -2,7 +2,7 @@
 site: ipo
 whitehall_slug: intellectual-property-office
 homepage: https://www.gov.uk/government/organisations/intellectual-property-office
-tna_timestamp: 20140711141008
+tna_timestamp: 20140603093549
 host: www.ipo.gov.uk
 homepage_furl: www.gov.uk/ipo
 options: --query-string bl_number:domesticnum
