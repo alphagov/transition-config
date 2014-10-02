@@ -1,0 +1,13 @@
+---
+site: landregistry_pseudo
+whitehall_slug: land-registry
+homepage: https://www.gov.uk/government/organisations/land-registry
+tna_timestamp: 20201010101010 # Plug timestamp, not in TNA
+host: www.landregistry.biz
+aliases:
+- landregistry.biz
+- www.landregistry.co.uk
+- landregistry.co.uk
+- www.landregisteronline.gov.uk
+- landregisteronline.gov.uk
+global: =301 https://www.gov.uk/government/organisations/land-registry

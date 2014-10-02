@@ -3,4 +3,6 @@ site: mod_maa
 whitehall_slug: ministry-of-defence
 homepage: https://www.gov.uk/government/groups/military-aviation-authority
 tna_timestamp: 20140409141852
-host: www.maa.mod.uk
+host: maa.mod.uk
+aliases:
+- www.maa.mod.uk

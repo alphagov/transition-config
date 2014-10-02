@@ -2,8 +2,9 @@
 site: bis_sigmascan
 whitehall_slug: government-office-for-science
 homepage_title: 'Government Office for Science - Sigma Scan 2.0'
-homepage: https://www.gov.uk/government/organisations/government-office-for-science
+homepage: https://www.gov.uk/government/groups/horizon-scanning-programme-team
 tna_timestamp: 20201010101010 # Plug - site not in TNA
 host: www.sigmascan.org
 extra_organisation_slugs:
 - department-for-business-innovation-skills
+global: =301 https://www.gov.uk/government/groups/horizon-scanning-programme-team
