@@ -11,6 +11,6 @@ aliases:
 - www2.defra.gov.uk
 - defra.gov.uk
 extra_organisation_slugs:
-- animal-health-and-veterinary-laboratories-agency
+- animal-and-plant-health-agency
 special_redirect_strategy: supplier
 # Note: some redirects for this domain are served via_aka as well - 'hybrid'
