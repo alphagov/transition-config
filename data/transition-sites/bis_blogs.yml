@@ -1,9 +1,9 @@
 ---
-site: bis_discuss
+site: bis_blogs
 whitehall_slug: department-for-business-innovation-skills
 homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills
-tna_timestamp: 20140505102421
-host: discuss.bis.gov.uk
+tna_timestamp: 20140703133908
+host: blogs.bis.gov.uk
 homepage_furl: www.gov.uk/bis
 aliases:
-- www.discuss.bis.gov.uk
+- www.blogs.bis.gov.uk
