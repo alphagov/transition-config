@@ -1,0 +1,9 @@
+---
+site: mod_bdsus
+whitehall_slug: ministry-of-defence
+homepage: https://www.gov.uk/government/world/organisations/british-defence-staff-in-the-usa
+tna_timestamp: 20121018130835
+host: www.bdsus.mod.uk
+aliases:
+- bdsus.mod.uk
+global: =301 https://www.gov.uk/government/world/organisations/british-defence-staff-in-the-usa
