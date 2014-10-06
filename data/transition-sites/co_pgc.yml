@@ -1,0 +1,11 @@
+---
+site: co_pgc
+whitehall_slug: cabinet-office
+homepage_title: 'Payroll Giving Centre'
+homepage: https://www.gov.uk/government/organisations/cabinet-office
+tna_timestamp: 20121015131350
+host: www.payrollgivingcentre.com
+aliases:
+- payrollgivingcentre.com
+extra_organisation_slugs:
+- hm-revenue-customs
