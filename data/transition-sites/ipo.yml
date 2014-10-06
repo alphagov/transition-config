@@ -13,3 +13,4 @@ aliases:
 extra_organisation_slugs:
 - company-names-tribunal
 - copyright-tribunal
+special_redirect_strategy: via_aka
