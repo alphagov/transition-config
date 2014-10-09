@@ -4,5 +4,3 @@ whitehall_slug: department-of-health
 homepage: http://digitalhealth.blog.gov.uk/author/stephenhale/
 tna_timestamp: 20140402154639
 host: hale.dh.gov.uk
-global_redirect_append_path: true
-global: =301 https://digitalhealth.blog.gov.uk
