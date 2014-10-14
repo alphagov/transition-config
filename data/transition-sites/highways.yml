@@ -7,3 +7,4 @@ host: www.highways.gov.uk
 homepage_furl: www.gov.uk/highways
 aliases:
 - highways.gov.uk
+special_redirect_strategy: via_aka
