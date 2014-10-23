@@ -11,8 +11,13 @@ module Redirector
       begin
         response = open("http://webarchive.nationalarchives.gov.uk/*/http://#{@hostname}")
       rescue OpenURI::HTTPError
-        $stderr.puts("TNA don't appear to have crawled this (yet) #{@hostname} Try the aliases?")
-        return nil
+        puts "Couldn't find a crawl. Trying HTTPS..."
+        begin
+          response = open("http://webarchive.nationalarchives.gov.uk/*/https://#{@hostname}")
+        rescue OpenURI::HTTPError
+          $stderr.puts("TNA don't appear to have crawled this (yet) #{@hostname} Try the aliases?")
+          return nil
+        end
       end
 
       doc = Nokogiri::HTML(response)
