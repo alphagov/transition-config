@@ -2,6 +2,6 @@
 site: gds_psn
 whitehall_slug: government-digital-service
 homepage_title: 'Public Services Network'
-homepage: https://www.gov.uk/public-services-network
+homepage: https://www.gov.uk/government/groups/public-services-network
 tna_timestamp: 20201010101010 # Plug timestamp, not in TNA
 host: www.publicservicesnetwork.service.gov.uk
