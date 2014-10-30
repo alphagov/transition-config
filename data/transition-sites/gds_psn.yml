@@ -5,3 +5,5 @@ homepage_title: 'Public Services Network'
 homepage: https://www.gov.uk/government/groups/public-services-network
 tna_timestamp: 20140603182309
 host: www.publicservicesnetwork.service.gov.uk
+extra_organisation_slugs:
+- cabinet-office
