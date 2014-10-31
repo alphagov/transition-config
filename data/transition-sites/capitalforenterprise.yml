@@ -9,3 +9,6 @@ global: =301 https://www.gov.uk/government/organisations/capital-for-enterprise-
 aliases:
 - www.capitalforenterprise.co.uk
 - www.capitalforenterprise.com
+# Against GDS' recommended approach, CfE have configured their redirects to point globally
+# at their home page, rather than mapping using the transition tool.
+special_redirect_strategy: supplier
