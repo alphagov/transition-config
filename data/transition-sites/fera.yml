@@ -8,3 +8,5 @@ homepage_furl: www.gov.uk/fera
 aliases:
 - fera.defra.gov.uk
 options: --query-string id
+extra_organisation_slugs:
+- animal-and-plant-health-agency
