@@ -16,4 +16,4 @@ extra_organisation_slugs:
 - education-funding-agency
 - standards-and-testing-agency
 - national-college-for-teaching-and-leadership
-special_redirect_strategy: supplier
+special_redirect_strategy: via_aka
