@@ -7,5 +7,4 @@ host: www.ktponline.org.uk
 aliases:
 - ktponline.org.uk
 - www.ktponline.co.uk
-- ktponline.co.uk
 options: --query-string vpid
