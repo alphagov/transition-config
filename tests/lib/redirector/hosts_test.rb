@@ -30,25 +30,25 @@ class RedirectorHostsTest < MiniTest::Unit::TestCase
     assert_equal expected_value, hosts_to_site_abbrs
   end
 
-  def test_validate_uniqueness_when_no_duplicates_exist
+  def test_validate_unique_when_no_duplicates_exist
     # no error is raised
-    Redirector::Hosts.validate_uniqueness!(relative_to_tests('fixtures/sites/*.yml'))
+    Redirector::Hosts.validate_unique_and_lowercase!(relative_to_tests('fixtures/sites/*.yml'))
   end
 
-  def test_validate_uniqueness_when_duplicate_hosts_exist
+  def test_validate_unique_when_duplicate_hosts_exist
     assert_raises(Redirector::DuplicateHostsException) do
-      Redirector::Hosts.validate_uniqueness!(relative_to_tests('fixtures/duplicate_hosts_sites/*.yml'))
+      Redirector::Hosts.validate_unique_and_lowercase!(relative_to_tests('fixtures/duplicate_hosts_sites/*.yml'))
     end
   end
 
   def test_validate_lowercase_when_no_uppercase_hosts_exist
     # no error is raised
-    Redirector::Hosts.validate_lowercase!(relative_to_tests('fixtures/sites/*.yml'))
+    Redirector::Hosts.validate_unique_and_lowercase!(relative_to_tests('fixtures/sites/*.yml'))
   end
 
   def test_validate_lowercase_when_uppercase_hosts_exist
     assert_raises(Redirector::UppercaseHostsException) do
-      Redirector::Hosts.validate_lowercase!(relative_to_tests('fixtures/uppercase_hosts_sites/*.yml'))
+      Redirector::Hosts.validate_unique_and_lowercase!(relative_to_tests('fixtures/uppercase_hosts_sites/*.yml'))
     end
   end
 end
