@@ -1,10 +1,6 @@
 #!/usr/bin/env ruby
 require_relative '../../test_helper'
 
-require 'minitest/unit'
-require 'minitest/autorun'
-require 'redirector/hosts'
-
 class RedirectorHostsTest < MiniTest::Unit::TestCase
   include FilenameHelpers
 
