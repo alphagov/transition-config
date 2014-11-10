@@ -19,11 +19,6 @@ task :new_site, [:abbr, :whitehall_slug, :host] do |_, args|
       args.abbr, args.whitehall_slug, args.host, {type: type})
     site.save!
 
-    if type == :redirector
-      Redirector::Mappings.create_default(args.abbr)
-      Redirector::Tests.create_default(args)
-    end
-
     puts site.filename
   else
     puts "#{args.abbr.upcase} site creation failed."
