@@ -28,8 +28,8 @@ module Redirector
       end
     end
 
-    # This is so that the first part of the validates_unique_and_lowercase!
-    # method can check if there are multiple site abbreviations and
+    # This is so that the first part of the validates! method can
+    # check if there are multiple site abbreviations and
     # therefore duplicates.
     def self.hosts_to_site_abbrs(masks = MASKS)
       # Default entries in the hash to empty array
@@ -43,7 +43,7 @@ module Redirector
       hosts_to_site_abbrs
     end
 
-    def self.validate_unique_and_lowercase!(masks = MASKS)
+    def self.validate!(masks = MASKS)
       duplicates = {}
       uppercase  = {}
       hosts_to_site_abbrs(masks).each do |host, abbrs|
