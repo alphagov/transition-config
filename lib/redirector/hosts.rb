@@ -45,13 +45,13 @@ module Redirector
 
     def self.validate!(masks = MASKS)
       duplicates = {}
-      uppercase  = {}
+      has_uppercase  = Set.new
       hosts_to_site_abbrs(masks).each do |host, abbrs|
         duplicates[host] = abbrs if abbrs.size > 1
-        uppercase[host] = host unless host == host.downcase
+        has_uppercase << host unless host == host.downcase
       end
-      raise Redirector::DuplicateHostsException.new(duplicates) unless duplicates.empty?
-      raise Redirector::UppercaseHostsException.new(uppercase) unless uppercase.empty?
+      raise Redirector::DuplicateHostsException.new(duplicates) if duplicates.any?
+      raise Redirector::UppercaseHostsException.new(has_uppercase) if has_uppercase.any?
     end
   end
 end
