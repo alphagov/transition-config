@@ -1,10 +1,10 @@
 ---
 site: fera
 whitehall_slug: the-food-and-environment-research-agency
-homepage: https://www.gov.uk/government/organisations/the-food-and-environment-research-agency
+homepage: https://www.gov.uk/government/organisations/animal-and-plant-health-agency
 tna_timestamp: 20131103143441
 host: www.fera.defra.gov.uk
-homepage_furl: www.gov.uk/fera
+homepage_furl: www.gov.uk/apha
 aliases:
 - fera.defra.gov.uk
 options: --query-string id
