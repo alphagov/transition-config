@@ -6,31 +6,18 @@ require 'redirector/tna_timestamp'
 module Redirector
   class Site
     MASKS = [
-      Redirector.path('data/sites/*.yml'),
       Redirector.path('data/transition-sites/*.yml')
     ]
-
-    PATHS = {
-      :bouncer    => 'transition-sites',
-      :redirector => 'sites'
-    }
 
     NEVER_EXISTED_IN_WHITEHALL = %w(directgov businesslink)
 
     attr_accessor :hash
-    def initialize(hash, options = { type: :bouncer })
-      @options = options
-      PATHS[type] || (raise ArgumentError, "Unknown type #{type}")
-
+    def initialize(hash)
       self.hash = hash
     end
 
-    def type
-      @options[:type]
-    end
-
     def sites_path
-      PATHS[type]
+      'transition-sites'
     end
 
     def abbr
@@ -148,7 +135,7 @@ module Redirector
       end
     end
 
-    def self.create(abbr, whitehall_slug, host, options = { type: :bouncer })
+    def self.create(abbr, whitehall_slug, host)
       organisation = Organisations.new.find(whitehall_slug)
       raise ArgumentError,
             "No organisation with whitehall_slug #{whitehall_slug} found. "\
@@ -159,8 +146,7 @@ module Redirector
           'site'           => abbr,
           'whitehall_slug' => organisation.details.slug,
           'host'           => host
-        },
-        options
+        }
       )
     end
 

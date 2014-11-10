@@ -6,6 +6,3 @@ end
 
 require 'redirector/organisations'
 require 'redirector/site'
-require 'redirector/mappings'
-require 'redirector/tests'
-
