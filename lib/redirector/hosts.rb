@@ -3,7 +3,6 @@ require 'redirector/duplicate_hosts_exception'
 module Redirector
   class Hosts
     MASKS = [
-      Redirector.path('data/sites/*.yml'),
       Redirector.path('data/transition-sites/*.yml')
     ]
 

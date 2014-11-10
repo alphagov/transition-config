@@ -33,7 +33,7 @@ to the URL for the global redirect?
     * `via_aka` - the supplier is redirecting some paths to our aka domain.
     * `supplier` - the supplier is managing redirects to gov.uk. No traffic comes through Bouncer for this site.
 
-Use `rake new_site[abbr,whitehall_slug,host]` to create a new site, with an option for which service to config e.g.
+Use `rake new_site[abbr,whitehall_slug,host]` to create a new site, e.g.
 
 `rake new_site[ukba,uk-border-agency,www.ukba.homeoffice.gov.uk]`
 
