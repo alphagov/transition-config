@@ -4,5 +4,7 @@ whitehall_slug: crown-commercial-service
 homepage: https://www.gov.uk/government/organisations/crown-commercial-service
 tna_timestamp: 20140403225403
 host: ccs.cabinetoffice.gov.uk
+aliases:
+- gps.cabinetoffice.gov.uk
 # options: --query-string qstring1:qstring2:qstring3
 # No query string analysis
