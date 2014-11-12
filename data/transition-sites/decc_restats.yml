@@ -5,3 +5,6 @@ homepage: https://www.gov.uk/government/organisations/department-of-energy-clima
 tna_timestamp: 20131204131046
 host: restats.decc.gov.uk
 homepage_furl: www.gov.uk/decc
+special_redirect_strategy: via_aka
+# This special redirect strategy is to exclude an interactive map at
+# http://restats.decc.gov.uk/app/pub/map/map/
