@@ -1,4 +1,0 @@
-server {
-  server_name iacoc.org.uk;
-  rewrite ^/(.*) http://www.iacoc.org.uk/$1 permanent;
-}

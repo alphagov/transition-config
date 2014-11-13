@@ -1,4 +1,0 @@
-server {
-  server_name londonpressservice.info;
-  rewrite ^/(.*) http://www.londonpressservice.info/$1 permanent;
-}

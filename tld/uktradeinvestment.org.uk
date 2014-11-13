@@ -1,4 +1,0 @@
-server {
-  server_name uktradeinvestment.org.uk;
-  rewrite ^/(.*) http://www.uktradeinvestment.org.uk/$1 permanent;
-}

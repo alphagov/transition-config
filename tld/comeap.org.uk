@@ -1,4 +1,0 @@
-server {
-  server_name comeap.org.uk;
-  rewrite ^/(.*) http://www.comeap.org.uk/$1 permanent;
-}

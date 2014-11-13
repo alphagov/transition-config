@@ -1,4 +1,0 @@
-server {
-  server_name theia.org.uk;
-  rewrite ^/(.*) http://www.theia.org.uk/$1 permanent;
-}

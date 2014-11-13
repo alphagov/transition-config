@@ -1,4 +1,0 @@
-server {
-  server_name dcms.gov.uk;
-  rewrite ^/(.*) http://www.dcms.gov.uk/$1 permanent;
-}

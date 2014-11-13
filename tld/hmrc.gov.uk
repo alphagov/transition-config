@@ -1,4 +1,0 @@
-server {
-  server_name hmrc.gov.uk;
-  rewrite ^/(.*) http://www.hmrc.gov.uk/$1 permanent;
-}

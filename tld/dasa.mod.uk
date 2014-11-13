@@ -1,4 +1,0 @@
-server {
-  server_name dasa.mod.uk;
-  rewrite ^/(.*) http://www.dasa.mod.uk/$1 permanent;
-}

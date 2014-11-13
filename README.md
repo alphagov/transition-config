@@ -1,12 +1,9 @@
 # Transition Config
 
-This repository holds three things:
+This repository holds two things:
 
 1. [`data/transition-sites`](data/transition-sites) - Configuration for sites being redirected to GOV.UK. This configuration is automatically loaded into the [Transition app](https://github.com/alphagov/transition)
-2. [`tld/`](tld/) - _Deprecated._ These are nginx configuration files which redirect from root domains which previously couldn't be pointed at our CDN to subdomains which could be. Root domains should now be configured as aliases and pointed at our CDN IP addresses instead:
-  * 23.235.33.144
-  * 23.235.37.144
-3. [`tools/`](tools/) - Miscellaneous scripts for updating tna_timstamps, configuring root domain redirects and generating mappings.
+2. [`tools/`](tools/) - Miscellaneous scripts for updating tna_timestamps, configuring root domain redirects and generating mappings.
 
 ## Sites
 

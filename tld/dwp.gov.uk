@@ -1,4 +1,0 @@
-server {
-  server_name dwp.gov.uk;
-  rewrite ^/(.*) http://www.dwp.gov.uk/$1 permanent;
-}

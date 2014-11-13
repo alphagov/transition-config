@@ -1,4 +1,0 @@
-server {
-  server_name qhm.mod.uk;
-  rewrite ^/(.*) http://www.qhm.mod.uk/$1 permanent;
-}

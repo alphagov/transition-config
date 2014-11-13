@@ -1,4 +1,0 @@
-server {
-  server_name comare.org.uk;
-  rewrite ^/(.*) http://www.comare.org.uk/$1 permanent;
-}

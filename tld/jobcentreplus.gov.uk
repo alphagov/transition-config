@@ -1,4 +1,0 @@
-server {
-  server_name jobcentreplus.gov.uk;
-  rewrite ^/(.*) http://www.jobcentreplus.gov.uk/$1 permanent;
-}

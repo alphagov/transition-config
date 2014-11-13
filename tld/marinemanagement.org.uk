@@ -1,4 +1,0 @@
-server {
-  server_name marinemanagement.org.uk;
-  rewrite ^/(.*) http://www.marinemanagement.org.uk/$1 permanent;
-}
