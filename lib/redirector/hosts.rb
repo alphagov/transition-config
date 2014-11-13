@@ -1,4 +1,5 @@
 require 'redirector/duplicate_hosts_exception'
+require 'redirector/uppercase_hosts_exception'
 
 module Redirector
   class Hosts
@@ -16,27 +17,41 @@ module Redirector
       files
     end
 
+    # This method iterates all the hosts for a specified site
+    # according to its YAML.
+    def self.all(masks = MASKS)
+      files(masks).each do |filename|
+        site = Site.from_yaml(filename)
+        site.all_hosts.each do |host|
+          yield site, host
+        end
+      end
+    end
+
+    # This is so that the first part of the validates! method can
+    # check if there are multiple site abbreviations and
+    # therefore duplicates.
     def self.hosts_to_site_abbrs(masks = MASKS)
       # Default entries in the hash to empty array
       # http://stackoverflow.com/a/2552946/3726525
       hosts_to_site_abbrs = Hash.new { |hash, key| hash[key] = [] }
 
-      files(masks).each do |filename|
-        site = Site.from_yaml(filename)
-        site.all_hosts.each do |host|
-          hosts_to_site_abbrs[host] << site.abbr
-        end
+      Hosts.all(masks) do |site, host|
+        hosts_to_site_abbrs[host] << site.abbr
       end
 
       hosts_to_site_abbrs
     end
 
-    def self.validate_uniqueness!(masks = MASKS)
+    def self.validate!(masks = MASKS)
       duplicates = {}
+      has_uppercase  = Set.new
       hosts_to_site_abbrs(masks).each do |host, abbrs|
         duplicates[host] = abbrs if abbrs.size > 1
+        has_uppercase << host unless host == host.downcase
       end
-      raise Redirector::DuplicateHostsException.new(duplicates) unless duplicates.empty?
+      raise Redirector::DuplicateHostsException.new(duplicates) if duplicates.any?
+      raise Redirector::UppercaseHostsException.new(has_uppercase) if has_uppercase.any?
     end
   end
 end

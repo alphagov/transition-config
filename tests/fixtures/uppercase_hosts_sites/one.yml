@@ -1,0 +1,7 @@
+---
+site: 'one'
+host: ONE.local
+aliases:
+    - ALIAS1.one.local
+    - alias2.one.local
+    - two.local

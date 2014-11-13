@@ -1,9 +1,6 @@
 #!/usr/bin/env ruby
 require_relative '../../test_helper'
 
-require 'minitest/unit'
-require 'minitest/autorun'
-require 'redirector/site'
 require 'gds_api/test_helpers/organisations'
 
 class RedirectorSiteTest < MiniTest::Unit::TestCase
