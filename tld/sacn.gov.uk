@@ -1,4 +1,0 @@
-server {
-  server_name sacn.gov.uk;
-  rewrite ^/(.*) http://www.sacn.gov.uk/$1 permanent;
-}

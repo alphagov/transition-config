@@ -1,4 +1,0 @@
-server {
-  server_name learningrecordsservice.org.uk;
-  rewrite ^/(.*) http://www.learningrecordsservice.org.uk/$1 permanent;
-}

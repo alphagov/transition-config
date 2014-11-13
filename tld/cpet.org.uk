@@ -1,4 +1,0 @@
-server {
-  server_name cpet.org.uk;
-  rewrite ^/(.*) http://www.cpet.org.uk/$1 permanent;
-}

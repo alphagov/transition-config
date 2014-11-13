@@ -1,4 +1,0 @@
-server {
-  server_name communities.gov.uk;
-  rewrite ^/(.*) http://www.communities.gov.uk/$1 permanent;
-}

@@ -1,4 +1,0 @@
-server {
-  server_name iegmp.org.uk;
-  rewrite ^/(.*) http://www.iegmp.org.uk/$1 permanent;
-}

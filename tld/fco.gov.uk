@@ -1,4 +1,0 @@
-server {
-  server_name fco.gov.uk;
-  rewrite ^/(.*) http://www.fco.gov.uk/$1 permanent;
-}

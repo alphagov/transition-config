@@ -1,4 +1,0 @@
-server {
-  server_name procurement.cabinetoffice.gov.uk;
-  rewrite ^/(.*) http://aka-procurement.cabinetoffice.gov.uk/$1 permanent;
-}

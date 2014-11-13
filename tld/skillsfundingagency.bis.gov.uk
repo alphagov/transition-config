@@ -1,4 +1,0 @@
-server {
-  server_name skillsfundingagency.bis.gov.uk;
-  rewrite ^/(.*) http://www.skillsfundingagency.bis.gov.uk/$1 permanent;
-}

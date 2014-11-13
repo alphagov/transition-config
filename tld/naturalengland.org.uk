@@ -1,4 +1,0 @@
-server {
-  server_name naturalengland.org.uk;
-  rewrite ^/(.*) http://www.naturalengland.org.uk/$1 permanent;
-}

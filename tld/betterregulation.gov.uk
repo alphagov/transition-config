@@ -1,4 +1,0 @@
-server {
-  server_name betterregulation.gov.uk;
-  rewrite ^/(.*) http://www.betterregulation.gov.uk/$1 permanent;
-}

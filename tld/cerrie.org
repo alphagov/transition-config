@@ -1,4 +1,0 @@
-server {
-  server_name cerrie.org;
-  rewrite ^/(.*) http://www.cerrie.org/$1 permanent;
-}

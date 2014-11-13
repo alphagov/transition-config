@@ -1,4 +1,0 @@
-server {
-  server_name mod.uk;
-  rewrite ^/(.*) http://www.mod.uk/$1 permanent;
-}

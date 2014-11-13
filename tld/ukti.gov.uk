@@ -1,4 +1,0 @@
-server {
-  server_name ukti.gov.uk;
-  rewrite ^/(.*) http://www.ukti.gov.uk/$1 permanent;
-}

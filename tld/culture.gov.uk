@@ -1,4 +1,0 @@
-server {
-  server_name culture.gov.uk;
-  rewrite ^/(.*) http://www.culture.gov.uk/$1 permanent;
-}

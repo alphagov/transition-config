@@ -1,4 +1,0 @@
-server {
-  server_name rpa.gov.uk;
-  rewrite ^/(.*) http://www.rpa.gov.uk/$1 permanent;
-}

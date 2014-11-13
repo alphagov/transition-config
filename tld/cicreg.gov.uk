@@ -1,4 +1,0 @@
-server {
-  server_name cicreg.gov.uk;
-  rewrite ^/(.*) http://www.cicreg.gov.uk/$1 permanent;
-}
