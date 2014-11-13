@@ -1,4 +1,4 @@
-require 'redirector'
+require 'transition-config'
 
 desc 'Add a new site to data/transition-sites.'
 task :new_site, [:abbr, :whitehall_slug, :host] do |_, args|
@@ -13,7 +13,7 @@ task :new_site, [:abbr, :whitehall_slug, :host] do |_, args|
   end
 
   if URI.parse("http://#{args.host}").host == args.host
-    site = Redirector::Site.create(
+    site = TransitionConfig::Site.create(
       args.abbr, args.whitehall_slug, args.host)
     site.save!
 

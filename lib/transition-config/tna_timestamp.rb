@@ -1,7 +1,7 @@
 require 'open-uri'
 require 'nokogiri'
 
-module Redirector
+module TransitionConfig
   class TNATimestamp
     TNA_BASE_URL = "http://webarchive.nationalarchives.gov.uk"
 

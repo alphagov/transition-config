@@ -1,7 +1,7 @@
 require 'yaml'
 require 'gds_api/organisations'
 
-module Redirector
+module TransitionConfig
   class Organisations
     ORGANISATIONS_API_HOST = 'https://www.gov.uk'
 
