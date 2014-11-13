@@ -1,4 +1,4 @@
-module Redirector
+module TransitionConfig
   class UppercaseHostsException < RuntimeError
     attr_reader :uppercase
     def initialize(uppercase)

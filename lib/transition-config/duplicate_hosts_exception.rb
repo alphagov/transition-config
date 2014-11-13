@@ -1,4 +1,4 @@
-module Redirector
+module TransitionConfig
   class DuplicateHostsException < RuntimeError
     attr_reader :duplicates
     def initialize(duplicates)

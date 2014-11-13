@@ -4,7 +4,7 @@ require 'bundler/setup'
 
 require 'minitest/unit'
 require 'minitest/autorun'
-require 'redirector'
+require 'transition-config'
 
 require 'webmock/minitest'
 

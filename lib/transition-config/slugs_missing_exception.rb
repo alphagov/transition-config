@@ -1,4 +1,4 @@
-module Redirector
+module TransitionConfig
   class SlugsMissingException < RuntimeError
     attr_reader :missing
     def initialize(missing)

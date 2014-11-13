@@ -1,10 +1,10 @@
-require 'redirector/duplicate_hosts_exception'
-require 'redirector/uppercase_hosts_exception'
+require 'transition-config/duplicate_hosts_exception'
+require 'transition-config/uppercase_hosts_exception'
 
-module Redirector
+module TransitionConfig
   class Hosts
     MASKS = [
-      Redirector.path('data/transition-sites/*.yml')
+      TransitionConfig.path('data/transition-sites/*.yml')
     ]
 
     def self.files(masks = MASKS)
@@ -50,8 +50,8 @@ module Redirector
         duplicates[host] = abbrs if abbrs.size > 1
         has_uppercase << host unless host == host.downcase
       end
-      raise Redirector::DuplicateHostsException.new(duplicates) if duplicates.any?
-      raise Redirector::UppercaseHostsException.new(has_uppercase) if has_uppercase.any?
+      raise TransitionConfig::DuplicateHostsException.new(duplicates) if duplicates.any?
+      raise TransitionConfig::UppercaseHostsException.new(has_uppercase) if has_uppercase.any?
     end
   end
 end

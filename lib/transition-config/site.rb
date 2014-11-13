@@ -1,12 +1,12 @@
 require 'yaml'
 require 'htmlentities'
-require 'redirector/slugs_missing_exception'
-require 'redirector/tna_timestamp'
+require 'transition-config/slugs_missing_exception'
+require 'transition-config/tna_timestamp'
 
-module Redirector
+module TransitionConfig
   class Site
     MASKS = [
-      Redirector.path('data/transition-sites/*.yml')
+      TransitionConfig.path('data/transition-sites/*.yml')
     ]
 
     NEVER_EXISTED_IN_WHITEHALL = %w(directgov businesslink)
@@ -49,7 +49,7 @@ module Redirector
     end
 
     def tna_timestamp
-      if timestamp = Redirector::TNATimestamp.new(host).find
+      if timestamp = TransitionConfig::TNATimestamp.new(host).find
         timestamp.to_i
       else
         nil
@@ -121,12 +121,12 @@ module Redirector
 
     def self.check_all_slugs!(masks = MASKS)
       missing = {}
-      Redirector::Site.all(masks, organisations: Organisations.new).each do |site|
+      TransitionConfig::Site.all(masks, organisations: Organisations.new).each do |site|
         unless site.missing_slugs.empty?
           missing[site.abbr] = site.missing_slugs
         end
       end
-      raise Redirector::SlugsMissingException.new(missing) unless missing.empty?
+      raise TransitionConfig::SlugsMissingException.new(missing) unless missing.empty?
     end
 
     def self.from_yaml(filename, options = {})

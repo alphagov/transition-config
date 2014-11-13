@@ -1,4 +1,4 @@
-# Redirector
+# Transition Config
 
 This repository holds three things:
 
