@@ -3,7 +3,7 @@
 This repository holds two things:
 
 1. [`data/transition-sites`](data/transition-sites) - Configuration for sites being redirected to GOV.UK. This configuration is automatically loaded into the [Transition app](https://github.com/alphagov/transition)
-2. [`tools/`](tools/) - Miscellaneous scripts for updating tna_timstamps, configuring root domain redirects and generating mappings.
+2. [`tools/`](tools/) - Miscellaneous scripts for updating tna_timestamps, configuring root domain redirects and generating mappings.
 
 ## Sites
 
