@@ -1,0 +1,9 @@
+---
+site: naturalengland_myenvironment
+whitehall_slug: natural-england
+homepage: https://www.gov.uk/government/organisations/natural-england
+tna_timestamp: 20130823085523
+host: www.myenvironment.org.uk
+global: =301 http://www.naturalengland.org.uk/advice/myenvironment/default.aspx
+aliases:
+- myenvironment.org.uk
