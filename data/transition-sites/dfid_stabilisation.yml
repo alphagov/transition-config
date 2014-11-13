@@ -1,9 +1,8 @@
 ---
 site: dfid_stabilisation
-whitehall_slug: department-for-international-development
-homepage: https://www.gov.uk/government/organisations/department-for-international-development
+whitehall_slug: stabilisation-unit
+homepage: https://www.gov.uk/government/organisations/stabilisation-unit
 tna_timestamp: 20140102162323
 host: www.stabilisationunit.gov.uk
-homepage_furl: www.gov.uk/dfid
 aliases:
 - stabilisationunit.gov.uk
