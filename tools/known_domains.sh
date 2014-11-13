@@ -1,9 +1,9 @@
 # Usage:
 #
-#   from redirector root directory
+#   from root directory
 #   tools/known_domains.sh
 #
-# Outputs list of all hosts and aliases to to a textfile in redirector/cache
+# Outputs list of all hosts and aliases to to a textfile in cache/
 
 mkdir cache
 touch cache/known_domains
