@@ -39,4 +39,4 @@ DEPENDENCIES
   minitest (= 4.7.0)
   nokogiri (= 1.6.1)
   rake (= 10.0.3)
-  webmock
+  webmock (= 1.15.0)

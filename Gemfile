@@ -7,5 +7,5 @@ gem 'htmlentities', '4.3.1'
 gem 'gds-api-adapters', '7.22.0'
 
 group :test do
-  gem 'webmock'
+  gem 'webmock', '1.15.0'
 end
