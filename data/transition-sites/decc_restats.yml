@@ -1,8 +1,8 @@
 ---
 site: decc_restats
 whitehall_slug: department-of-energy-climate-change
-homepage: https://www.gov.uk/government/organisations/department-of-energy-climate-change
-tna_timestamp: 20131204131046
+homepage: https://www.gov.uk/government/collections/renewable-energy-planning-data
+tna_timestamp: 20140711173142
 host: restats.decc.gov.uk
 homepage_furl: www.gov.uk/decc
 special_redirect_strategy: via_aka
