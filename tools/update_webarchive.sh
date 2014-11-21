@@ -3,6 +3,12 @@
 # Automatically update the tna_timestamp for a given site by scraping The
 # National Archives index page for the domain.
 
+if [ ! -n "$1" ]
+then
+  echo "Usage: `basename $0` siteabbreviation"
+  exit 1
+fi
+
 site=$1
 getweb=$(find . | grep get_webarchive) # find the tool
 yaml=$(find . | grep 'sites\/'$site'\.yml') # find the yaml

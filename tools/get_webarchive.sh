@@ -3,6 +3,12 @@
 # Get the most recent tna_timestamp for a given site by scraping The
 # National Archives index page for the domain.
 
+if [ ! -n "$1" ]
+then
+  echo "Usage: `basename $0` domainname.gov.uk"
+  exit 1
+fi
+
 domain=$1
 
 curl http://webarchive.nationalarchives.gov.uk/*/$domain |

@@ -14,6 +14,12 @@
 # To avoid downloading large files unnecessarily, it doesn't download assets
 # (eg images, PDFs). These URLs are included in the output however.
 
+if [ ! -n "$1" ]
+then
+  echo "Usage: `basename $0` domainname.gov.uk/optionalpath"
+  exit 1
+fi
+
 target=$1
 domain=$(echo $target | sed 's/\/.*//g' )
 subdir=$(echo $target | sed 's/^[^\/]*//' | sed 's/[^\/]*\///' | sed 's/\/$//' )
