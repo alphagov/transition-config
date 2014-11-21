@@ -3,6 +3,12 @@
 # From a file of URLs, strip URLs which we don't generally map in a transition,
 # such as images.
 
+if [ ! -n "$1" ]
+then
+  echo "Usage: `basename $0` mappings_filename"
+  exit 1
+fi
+
 urls_file=$1
 
 for extension in $(cat tools/strip_list.txt);
