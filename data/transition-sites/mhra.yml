@@ -7,4 +7,4 @@ host: www.mhra.gov.uk
 homepage_furl: www.gov.uk/mhra
 aliases:
 - mhra.gov.uk
-options: --query-string subsName:tabName
+options: --query-string subsName:tabName:IdcService:siteId:siteRelativeUrl
