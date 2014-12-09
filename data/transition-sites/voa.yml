@@ -7,3 +7,7 @@ host: www.voa.gov.uk
 homepage_furl: www.gov.uk/voa
 aliases:
 - voa.gov.uk
+- app.voa.gov.uk
+- cti.voa.gov.uk
+- manuals.voa.gov.uk
+- www.manuals.voa.gov.uk
