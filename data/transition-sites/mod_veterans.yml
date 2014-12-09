@@ -5,6 +5,8 @@ homepage: https://www.gov.uk/government/organisations/veterans-uk
 tna_timestamp: 20140805133045
 host: veterans-uk.info
 homepage_furl: www.gov.uk/mod
+extra_organisation_slugs:
+- veterans-uk
 aliases:
 - www.veterans-uk.info
 - veterans-uk.com
@@ -35,3 +37,9 @@ aliases:
 - www.veteransuk.info
 - veteransuk.us
 - www.veteransuk.us
+- veteransdayuk.net
+- www.veteransdayuk.net
+- veteransdayuk.org
+- www.veteransdayuk.org
+- spvaone.veterans-uk.info
+
