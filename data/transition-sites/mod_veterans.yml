@@ -1,11 +1,37 @@
 ---
 site: mod_veterans
 whitehall_slug: ministry-of-defence
-homepage: https://www.gov.uk/government/organisations/ministry-of-defence
+homepage: https://www.gov.uk/government/organisations/veterans-uk
 tna_timestamp: 20140805133045
 host: veterans-uk.info
 homepage_furl: www.gov.uk/mod
 aliases:
 - www.veterans-uk.info
-# options: --query-string qstring1:qstring2:qstring3
-# No query string analysis
+- veterans-uk.com
+- www.veterans-uk.com
+- veterans-uk.org
+- www.veterans-uk.org
+- veterans-uk.co.uk
+- www.veterans-uk.co.uk
+- veterans-uk.net
+- www.veterans-uk.net
+- veteransuk.com
+- www.veteransuk.com
+- veteransuk.org
+- www.veteransuk.org
+- veteransuk.co.uk
+- www.veteransuk.co.uk
+- veteransuk.net
+- www.veteransuk.net
+- veteransuk.org.uk
+- www.veteransuk.org.uk
+- veteransuk.me.uk
+- www.veteransuk.me.uk
+- veteransuk.eu
+- www.veteransuk.eu
+- veteransuk.name
+- www.veteransuk.name
+- veteransuk.info
+- www.veteransuk.info
+- veteransuk.us
+- www.veteransuk.us
