@@ -18,10 +18,10 @@ class TransitionConfigHostsTest < MiniTest::Unit::TestCase
   def test_hosts_to_site_abbrs_when_a_host_appears_twice
     hosts_to_site_abbrs = TransitionConfig::Hosts.hosts_to_site_abbrs(relative_to_tests('fixtures/duplicate_hosts_sites/*.yml'))
     expected_value = {
-      'one.local'          => ['one'],
-      'alias1.one.local'   => ['one'],
-      'alias2.one.local'   => ['one'],
-      'two.local'          => ['one', 'two'],
+      'one.local'          => ['one'].to_set,
+      'alias1.one.local'   => ['one'].to_set,
+      'alias2.one.local'   => ['one'].to_set,
+      'two.local'          => ['one', 'two'].to_set,
     }
     assert_equal expected_value, hosts_to_site_abbrs
   end

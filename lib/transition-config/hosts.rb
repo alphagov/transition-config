@@ -34,7 +34,7 @@ module TransitionConfig
     def self.hosts_to_site_abbrs(masks = MASKS)
       # Default entries in the hash to empty array
       # http://stackoverflow.com/a/2552946/3726525
-      hosts_to_site_abbrs = Hash.new { |hash, key| hash[key] = [] }
+      hosts_to_site_abbrs = Hash.new { |hash, key| hash[key] = Set.new }
 
       Hosts.all(masks) do |site, host|
         hosts_to_site_abbrs[host] << site.abbr
