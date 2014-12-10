@@ -1,0 +1,8 @@
+---
+site: cabinetoffice_downloads
+whitehall_slug: cabinet-office
+homepage: https://www.gov.uk/government/organisations/cabinet-office
+tna_timestamp: 20201010101010 # Plug timestamp, not in TNA
+host: downloads.cabinetoffice.gov.uk
+homepage_furl: www.gov.uk/cabinetoffice
+global: "=410"
