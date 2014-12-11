@@ -1,8 +1,10 @@
 ---
 site: decc_etl
 whitehall_slug: department-of-energy-climate-change
-homepage: https://www.gov.uk/government/organisations/department-of-energy-climate-change
+homepage: https://www.gov.uk/government/policies/reducing-demand-for-energy-from-industry-businesses-and-the-public-sector--2/supporting-pages/enhanced-capital-allowances-ecas
 tna_timestamp: 20140305040401
 host: etl.decc.gov.uk
-homepage_furl: www.gov.uk/decc
+homepage_furl: www.gov.uk/etl
 options: --query-string prod_id:sub_tech_id
+aliases:
+- www.etl.decc.gov.uk
