@@ -6,3 +6,5 @@ tna_timestamp: 20140305040401
 host: etl.decc.gov.uk
 homepage_furl: www.gov.uk/decc
 options: --query-string prod_id:sub_tech_id
+aliases:
+- www.etl.decc.gov.uk
