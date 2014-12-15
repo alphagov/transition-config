@@ -5,3 +5,6 @@ homepage: https://www.gov.uk/government/organisations/companies-house
 tna_timestamp: 20140722132919
 host: www.tyrcwmniau.gov.uk
 global: =410
+aliases:
+- tyrcwmniau.co.uk
+- www.tyrcwmniau.co.uk
