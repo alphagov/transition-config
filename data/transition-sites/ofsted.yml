@@ -7,4 +7,5 @@ host: www.ofsted.gov.uk
 homepage_furl: www.gov.uk/ofsted
 aliases:
 - ofsted.gov.uk
+- reports.ofsted.gov.uk
 options: --query-string file:id:type
