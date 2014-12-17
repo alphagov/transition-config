@@ -2,10 +2,9 @@
 site: sfa_apporg
 whitehall_slug: skills-funding-agency
 homepage_title: 'National Apprenticeship Service'
-homepage: https://www.gov.uk/government/organisations/skills-funding-agency
+homepage: https://www.gov.uk/further-education-skills/apprenticeships
 tna_timestamp: 20140430075649
 host: www.apprenticeships.org.uk
-homepage_furl: www.gov.uk/sfa
 aliases:
 - apprenticeships.org.uk
 # options: --query-string qstring1:qstring2:qstring3
