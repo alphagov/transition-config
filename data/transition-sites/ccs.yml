@@ -7,3 +7,4 @@ host: ccs.cabinetoffice.gov.uk
 aliases:
 - gps.cabinetoffice.gov.uk
 options: --query-string sm_field_contract_id
+special_redirect_strategy: via_aka

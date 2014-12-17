@@ -8,3 +8,4 @@ homepage_furl: www.gov.uk/etl
 options: --query-string prod_id:sub_tech_id
 aliases:
 - www.etl.decc.gov.uk
+special_redirect_strategy: via_aka

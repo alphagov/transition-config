@@ -11,4 +11,4 @@ aliases:
 - inlandrevenue.gov.uk
 - www.hmce.gov.uk
 - hmce.gov.uk
-special_redirect_strategy: supplier
+special_redirect_strategy: via_aka
