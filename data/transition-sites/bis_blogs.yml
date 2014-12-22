@@ -7,3 +7,7 @@ host: blogs.bis.gov.uk
 homepage_furl: www.gov.uk/bis
 aliases:
 - www.blogs.bis.gov.uk
+extra_organisation_slugs:
+- uk-space-agency
+- uk-commission-for-employment-and-skills
+special_redirect_strategy: via_aka
