@@ -8,5 +8,5 @@ homepage: https://gds.blog.gov.uk
 css: cabinet-office
 extra_organisation_slugs:
 - government-digital-service
-global: =301 https://gds.blog.gov.uk/
+global: =301 https://gds.blog.gov.uk
 global_redirect_append_path: true
