@@ -8,4 +8,5 @@ homepage_furl: www.gov.uk/ofsted
 aliases:
 - ofsted.gov.uk
 - reports.ofsted.gov.uk
+- archive.oftest.co.uk
 options: --query-string file:id:type
