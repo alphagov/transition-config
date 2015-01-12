@@ -14,6 +14,7 @@ aliases:
 - bbc.demo.transportdirect.info
 - bbc.sitest.transportdirect.info
 - bbc.test.transportdirect.info
+- bbc.transportdirect.info
 - bgateway.sitest.transportdirect.info
 - bgateway.test.transportdirect.info
 - bgateway.transportdirect.info
@@ -28,6 +29,7 @@ aliases:
 - directgov.demo.transportdirect.info
 - directgov.sitest.transportdirect.info
 - directgov.test.transportdirect.info
+- directgov.transportdirect.info
 - doc.transportdirect.info
 - gner.demo.transportdirect.info
 - gner.sitest.transportdirect.info
@@ -80,4 +82,3 @@ aliases:
 - www.tdnews.info
 - www.transportdirectmobile.info
 - www.transportdirect.mobi
-- bbc.transportdirect.info 
