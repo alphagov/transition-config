@@ -23,7 +23,7 @@ Optional:
 * `aliases` — list of alias domains
 * `global` — set a global redirect or archive for all paths
 * `css` — a css class which determines the logo and brand colour used on 404/410 pages
-* `options` — used to list significant querystrings for canonicalisation like this: `--query-string first:second:third`. A significant querystring parameter is one which on the old website changes the content in a meaningful way - which we might therefore need to map to a different place. **Query string parameters should be lower-case; upper case confuses the canonicalisation**
+* `options` — used to list significant querystrings for canonicalisation like this: `--query-string first:second:third`. A significant querystring parameter is one which on the old website changes the content in a meaningful way - which we might therefore need to map to a different place. **Query string parameters should be specified in lowercase; uppercase parameters will not be preserved during canonicalisation.**
 * `global_redirect_append_path` — should the path the user supplied be appended
 to the URL for the global redirect?
 * `special_redirect_strategy` — when the transition is partial, some tools or content will be left behind and managed by the previous supplier. This setting can be one of:
