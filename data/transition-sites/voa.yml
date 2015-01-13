@@ -11,4 +11,4 @@ aliases:
 - cti.voa.gov.uk
 - manuals.voa.gov.uk
 - www.manuals.voa.gov.uk
-options: --query-string lcn:EBAR
+options: --query-string lcn:ebar
