@@ -8,4 +8,4 @@ homepage_furl: www.gov.uk/mhra
 aliases:
 - mhra.gov.uk
 - www.wip.mhra.gov.uk
-options: --query-string subsname:tabname:idcservice:siteid:siterelativeurl:nodeid:ssdocname
+options: --query-string subsname:tabname:idcservice:siteid:siterelativeurl:nodeid:ssdocname:showpage:usesecondary
