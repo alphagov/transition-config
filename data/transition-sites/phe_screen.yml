@@ -1,0 +1,18 @@
+---
+site: phe_screen
+whitehall_slug: public-health-england
+homepage_title: 'UK National Screening Committee'
+homepage: https://www.gov.uk/government/organisations/public-health-england
+tna_timestamp: 20201010101010 # Stub timestamp - TBC post-TNA crawl
+host: www.screening.nhs.uk
+aliases:
+- aaa.screening.nhs.uk
+- cpd.screening.nhs.uk
+- diabeticeye.screening.nhs.uk
+- fetalanomaly.screening.nhs.uk
+- hearing.screening.nhs.uk
+- infectiousdiseases.screening.nhs.uk
+- newbornbloodspot.screening.nhs.uk
+- newbornphysical.screening.nhs.uk
+- sct.screening.nhs.uk
+options: --query-string folder:id
