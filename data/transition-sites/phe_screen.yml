@@ -6,6 +6,7 @@ homepage: https://www.gov.uk/government/organisations/public-health-england
 tna_timestamp: 20201010101010 # Stub timestamp - TBC post-TNA crawl
 host: www.screening.nhs.uk
 aliases:
+- screening.nhs.uk
 - aaa.screening.nhs.uk
 - cpd.screening.nhs.uk
 - diabeticeye.screening.nhs.uk
