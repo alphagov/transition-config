@@ -1,5 +1,4 @@
 require 'yaml'
-require 'htmlentities'
 require 'transition-config/slugs_missing_exception'
 require 'transition-config/tna_timestamp'
 
@@ -30,10 +29,6 @@ module TransitionConfig
 
     def extra_organisation_slugs
       hash['extra_organisation_slugs']
-    end
-
-    def homepage_title
-      Site.coder.decode(hash['homepage_title'])
     end
 
     def host
@@ -90,14 +85,9 @@ module TransitionConfig
       {
         'site'             => abbr,
         'whitehall_slug'   => whitehall_slug,
-        'homepage_title'   => Site.coder.encode(homepage_title),
         'homepage'         => "https://www.gov.uk/government/organisations/#{whitehall_slug}",
         'tna_timestamp'    => tna_timestamp,
         'host'             => host,
-        'homepage_furl'    => "www.gov.uk/#{abbr}",
-        'aliases'          => %W(www1.#{host} www2.#{host}),
-        'global'           => "=301 https://www.gov.uk/government/organisations/#{whitehall_slug}",
-        'options'          => "--query-string qstring1:qstring2:qstring3"
       }
     end
 
@@ -148,10 +138,6 @@ module TransitionConfig
           'host'           => host
         }
       )
-    end
-
-    def self.coder
-      @coder ||= HTMLEntities.new
     end
   end
 end
