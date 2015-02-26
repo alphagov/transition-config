@@ -22,11 +22,6 @@ class TransitionConfigSiteTest < MiniTest::Unit::TestCase
     assert_equal 'ago', site.abbr
   end
 
-  def test_decodes_titles
-    site = TransitionConfig::Site.from_yaml(slug_check_site_filename('bis'))
-    assert_equal 'Department for Business, Innovation & Skills', site.homepage_title
-  end
-
   def test_all_hosts_with_aliases_present
     site = TransitionConfig::Site.from_yaml(duplicate_hosts_site_filename('one'))
     assert_equal ['one.local', 'alias1.one.local', 'alias2.one.local', 'two.local'], site.all_hosts
