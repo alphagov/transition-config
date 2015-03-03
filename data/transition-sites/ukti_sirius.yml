@@ -6,3 +6,5 @@ tna_timestamp: 20150101010101
 host: www.siriusprogramme.ukti.gov.uk
 homepage_furl: www.gov.uk/ukti
 global: =301 https://www.gov.uk/the-sirius-programme
+aliases:
+- www.siriusprogramme.com
