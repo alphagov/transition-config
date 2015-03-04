@@ -1,10 +1,10 @@
 ---
 site: ukti_sirius
 whitehall_slug: uk-trade-investment
-homepage: https://www.gov.uk/the-sirius-programme
+homepage: https://www.gov.uk/government/collections/sirius-programme-for-graduate-entrepreneurs
 tna_timestamp: 20150101010101
 host: www.siriusprogramme.ukti.gov.uk
 homepage_furl: www.gov.uk/ukti
-global: =301 https://www.gov.uk/the-sirius-programme
+global: =301 https://www.gov.uk/government/collections/sirius-programme-for-graduate-entrepreneurs
 aliases:
 - www.siriusprogramme.com
