@@ -16,4 +16,4 @@ aliases:
 - newbornbloodspot.screening.nhs.uk
 - newbornphysical.screening.nhs.uk
 - sct.screening.nhs.uk
-options: --query-string folder:id
+options: --query-string folder:id:monthye
