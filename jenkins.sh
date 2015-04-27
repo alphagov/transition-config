@@ -9,6 +9,6 @@ git merge --no-commit origin/master || git merge --abort
 
 bundle install --deployment
 
-bundle exec rake test whitehall:slug_check hosts:validate
+bundle exec rake test whitehall:slug_check content_id_check hosts:validate
 
 exit $?

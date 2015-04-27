@@ -86,6 +86,7 @@ Each site is configured using a yaml file in the `data/transition-sites` directo
 
 Required:
 
+* `organisation_content_id` - the content_id from Whitehall for the organisation which owns the site.
 * `whitehall_slug` — the slug used in Whitehall for the organisation which owns the site. Used for branding in Bouncer and access control in Transition.
 * `site` — friendly name for the site
 * `host` — primary hostname for site
@@ -96,6 +97,7 @@ Optional:
 
 * `homepage_title` — site title for 404/410 pages. Defaults to organisation title. Should fit into the sentence: "Visit the new [title] site at [furl or homepage]"
 * `extra_organisation_slugs` — additional organisations which own this site. Used for access control in Transition.
+* `extra_organisation_content_ids` - additional organisations which own this site. Used for access control in Transition.
 * `homepage_furl` — friendly URL displayed on 404/410 pages. Should redirect to the `homepage`. Doesn't need to include 'http' or 'https'.
 * `aliases` — list of alias domains
 * `global` — set a global redirect or archive for all paths
