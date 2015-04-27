@@ -1,6 +1,7 @@
 ---
 site: dwp
 whitehall_slug: department-for-work-pensions
+organisation_content_id: b548a09f-8b35-4104-89f4-f1a40bf3136d
 host: www.dwp.gov.uk
 tna_timestamp: 20130128102031
 comment: 'Partial: update with care - TNA will have pages from www.gov.uk'

@@ -1,6 +1,7 @@
 ---
 site: dfe
 whitehall_slug: department-for-education
+organisation_content_id: ebd15ade-73b2-4eaf-b1c3-43034a42eb37
 host: www.education.gov.uk
 tna_timestamp: 20130123124929
 comment: 'Partial: update with care - TNA will have pages from www.gov.uk'
@@ -17,4 +18,8 @@ extra_organisation_slugs:
 - education-funding-agency
 - standards-and-testing-agency
 - national-college-for-teaching-and-leadership
+extra_organisation_content_ids:
+- b9fc8528-81d1-419b-8748-6c00be71044b
+- 863ffacd-d313-49c1-b856-58fe0799fd41
+- e1cbab66-b0d3-4186-917c-afd4f3fb6967
 special_redirect_strategy: via_aka

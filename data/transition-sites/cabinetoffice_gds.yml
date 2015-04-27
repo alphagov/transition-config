@@ -1,6 +1,7 @@
 ---
 site: cabinetoffice_gds
 whitehall_slug: cabinet-office
+organisation_content_id: 96ae61d6-c2a1-48cb-8e67-da9d105ae381
 host: digital.cabinetoffice.gov.uk
 tna_timestamp: 20131111143812
 homepage_title: Government Digital Service
@@ -8,5 +9,7 @@ homepage: https://gds.blog.gov.uk
 css: cabinet-office
 extra_organisation_slugs:
 - government-digital-service
+extra_organisation_content_ids:
+- af07d5a5-df63-4ddc-9383-6a666845ebe9
 global: =301 https://gds.blog.gov.uk
 global_redirect_append_path: true

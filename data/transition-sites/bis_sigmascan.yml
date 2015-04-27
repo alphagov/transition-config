@@ -1,10 +1,13 @@
 ---
 site: bis_sigmascan
 whitehall_slug: government-office-for-science
+organisation_content_id: 37c13dbd-1662-4c14-8a09-d4f921851e00
 homepage_title: Government Office for Science - Sigma Scan 2.0
 homepage: https://www.gov.uk/government/groups/horizon-scanning-programme-team
 tna_timestamp: 20201010101010
 host: www.sigmascan.org
 extra_organisation_slugs:
 - department-for-business-innovation-skills
+extra_organisation_content_ids:
+- 569a9ee5-c195-4b7f-b9dc-edc17a09113f
 global: =301 https://www.gov.uk/government/groups/horizon-scanning-programme-team

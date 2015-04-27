@@ -1,9 +1,12 @@
 ---
 site: cscuk
 whitehall_slug: commonwealth-scholarship-commission-in-the-uk
+organisation_content_id: 154e05f5-4d77-4d92-89e8-ee0ad1064ac4
 homepage: https://www.gov.uk/government/organisations/commonwealth-scholarship-commission-in-the-uk
 tna_timestamp: 20140711140542
 host: cscuk.dfid.gov.uk
 options: --query-string p
 extra_organisation_slugs:
 - department-for-international-development
+extra_organisation_content_ids:
+- db994552-7644-404d-a770-a2fe659c661f

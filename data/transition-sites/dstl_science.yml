@@ -1,6 +1,7 @@
 ---
 site: dstl_science
 whitehall_slug: ministry-of-defence
+organisation_content_id: d994e55c-48c9-4795-b872-58d8ec98af12
 homepage: https://www.gov.uk/government/groups/defence-science-and-technology
 tna_timestamp: 20140410091116
 host: www.science.mod.uk
@@ -11,3 +12,6 @@ aliases:
 extra_organisation_slugs:
 - centre-for-defence-enterprise
 - defence-science-and-technology-laboratory
+extra_organisation_content_ids:
+- 1ec706bb-34b5-4abd-99c2-f111aa1b46e5
+- 43b6c342-c6b7-4ef1-93d2-98f0a9130ccc

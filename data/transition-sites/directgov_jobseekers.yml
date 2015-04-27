@@ -1,6 +1,7 @@
 ---
 site: directgov_jobseekers
 whitehall_slug: department-for-work-pensions
+organisation_content_id: b548a09f-8b35-4104-89f4-f1a40bf3136d
 host: jobseekers.direct.gov.uk
 tna_timestamp: 20121015000000
 homepage_furl: www.gov.uk
@@ -12,3 +13,5 @@ aliases:
 css: directgov
 extra_organisation_slugs:
 - government-digital-service
+extra_organisation_content_ids:
+- af07d5a5-df63-4ddc-9383-6a666845ebe9

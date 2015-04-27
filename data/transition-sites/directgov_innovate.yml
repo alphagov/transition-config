@@ -1,6 +1,7 @@
 ---
 site: directgov_innovate
 whitehall_slug: cabinet-office
+organisation_content_id: 96ae61d6-c2a1-48cb-8e67-da9d105ae381
 homepage: https://www.gov.uk/government/policy-teams/government-digital-service
 tna_timestamp: 20121017175053
 host: innovate.direct.gov.uk
@@ -8,3 +9,5 @@ global: =410
 css: directgov
 extra_organisation_slugs:
 - government-digital-service
+extra_organisation_content_ids:
+- af07d5a5-df63-4ddc-9383-6a666845ebe9

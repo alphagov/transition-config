@@ -1,6 +1,7 @@
 ---
 site: statistics
 whitehall_slug: uk-statistics-authority
+organisation_content_id: cd90918d-e15b-4d9a-939d-deabc465c824
 homepage: https://www.gov.uk/government/statistics/announcements
 tna_timestamp: 20140721132900
 host: www.statistics.gov.uk
@@ -8,5 +9,7 @@ aliases:
 - statistics.gov.uk
 extra_organisation_slugs:
 - office-for-national-statistics
+extra_organisation_content_ids:
+- 5da4ab94-39b2-40cf-99ae-1af4f6b4206d
 homepage_title: Statistical Announcements
 comment: No query string analysis done

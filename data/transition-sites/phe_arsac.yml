@@ -1,6 +1,7 @@
 ---
 site: phe_arsac
 whitehall_slug: administration-of-radioactive-substances-advisory-committee
+organisation_content_id: b5bd9a64-4315-492e-9679-3e2f6799c769
 homepage: https://www.gov.uk/government/organisations/administration-of-radioactive-substances-advisory-committee
 tna_timestamp: 20140506004600
 host: www.arsac.org.uk
@@ -9,3 +10,5 @@ aliases:
 - arsac.org.uk
 extra_organisation_slugs:
 - public-health-england
+extra_organisation_content_ids:
+- 1343f283-19e9-4fbb-86b1-58c7549d874b

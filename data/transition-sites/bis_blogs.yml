@@ -1,6 +1,7 @@
 ---
 site: bis_blogs
 whitehall_slug: department-for-business-innovation-skills
+organisation_content_id: 569a9ee5-c195-4b7f-b9dc-edc17a09113f
 homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills
 tna_timestamp: 20140703133908
 host: blogs.bis.gov.uk
@@ -10,4 +11,7 @@ aliases:
 extra_organisation_slugs:
 - uk-space-agency
 - uk-commission-for-employment-and-skills
+extra_organisation_content_ids:
+- 1a22a221-513b-4a8d-ae97-e3668b6d5568
+- 9aa9d352-2c7d-41e1-8965-612fcc24d282
 special_redirect_strategy: via_aka

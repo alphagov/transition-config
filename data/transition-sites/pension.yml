@@ -1,6 +1,7 @@
 ---
 site: pension
 whitehall_slug: pension-service
+organisation_content_id: d7e497ac-f566-4a30-b0a2-29903311a1a6
 homepage: https://www.gov.uk/government/organisations/pension-service
 tna_timestamp: 20130127144352
 host: www.thepensionservice.gov.uk
@@ -9,3 +10,5 @@ aliases:
 global: =301 https://www.gov.uk/browse/working/state-pension
 extra_organisation_slugs:
 - department-for-work-pensions
+extra_organisation_content_ids:
+- b548a09f-8b35-4104-89f4-f1a40bf3136d

@@ -1,6 +1,7 @@
 ---
 site: dwp_odi
 whitehall_slug: department-for-work-pensions
+organisation_content_id: b548a09f-8b35-4104-89f4-f1a40bf3136d
 homepage: https://www.gov.uk/government/organisations/office-for-disability-issues
 tna_timestamp: 20130812104657
 host: odi.dwp.gov.uk
@@ -9,3 +10,5 @@ aliases:
 - www.odi.gov.uk
 extra_organisation_slugs:
 - office-for-disability-issues
+extra_organisation_content_ids:
+- 889c12d3-4120-46a2-b6c9-d2c64a03adb3

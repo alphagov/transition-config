@@ -1,6 +1,7 @@
 ---
 site: irp
 whitehall_slug: independent-reconfiguration-panel
+organisation_content_id: 171abbf3-beca-46b9-a0c3-4b4ff1e8c8ed
 homepage: https://www.gov.uk/government/organisations/independent-reconfiguration-panel
 tna_timestamp: 20140409141526
 host: www.irpanel.org.uk
@@ -9,3 +10,5 @@ aliases:
 options: --query-string id
 extra_organisation_slugs:
 - cabinet-office
+extra_organisation_content_ids:
+- 96ae61d6-c2a1-48cb-8e67-da9d105ae381
