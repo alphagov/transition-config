@@ -3,7 +3,7 @@ site: businesslink_ukwelcomes
 whitehall_slug: government-digital-service
 host: www.ukwelcomes.businesslink.gov.uk
 tna_timestamp: 20120823131012
-homepage_title: 'Business Link'
+homepage_title: Business Link
 homepage_furl: www.gov.uk
 homepage: https://www.gov.uk/uk-welcomes-business
 css: businesslink

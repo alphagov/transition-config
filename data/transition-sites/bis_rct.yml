@@ -2,7 +2,7 @@
 site: bis_rct
 whitehall_slug: department-for-business-innovation-skills
 homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills
-tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
+tna_timestamp: 20201010101010
 host: rct.bis.gov.uk
 homepage_furl: www.gov.uk/bis
 global: =301 https://www.gov.uk/government/organisations/department-for-business-innovation-skills
@@ -11,4 +11,3 @@ aliases:
 - dev.rct.bis.gov.uk
 - qa.rct.bis.gov.uk
 - www.rct.bis.gov.uk
-

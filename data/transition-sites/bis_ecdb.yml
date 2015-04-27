@@ -2,7 +2,7 @@
 site: bis_ecdb
 whitehall_slug: department-for-business-innovation-skills
 homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills
-tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
+tna_timestamp: 20201010101010
 host: www.exportcontroldb.bis.gov.uk
 homepage_furl: www.gov.uk/bis
 aliases:

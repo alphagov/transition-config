@@ -7,4 +7,4 @@ host: transparency.culture.gov.uk
 homepage_furl: www.gov.uk/dcms
 aliases:
 - www.transparency.culture.gov.uk
-global: "=410"
+global: =410

@@ -7,8 +7,8 @@ host: www.homesandcommunities.co.uk
 homepage_furl: www.gov.uk/hca
 aliases:
 - homesandcommunities.co.uk
-# These two subdomains are created pending final availability of the manuals format.
-# Otherwise, they are direct aliases of the subset of content.
 - cfg.homesandcommunities.co.uk
 - udc.homesandcommunities.co.uk
+comment: These two subdomains are created pending final availability of the manuals
+  format. Otherwise, they are direct aliases of the subset of content.
 options: --query-string page_id:page

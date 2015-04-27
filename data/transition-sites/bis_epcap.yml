@@ -2,7 +2,7 @@
 site: bis_epcap
 whitehall_slug: department-for-business-innovation-skills
 homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills
-tna_timestamp: 20201010101010 # Stub timestamp - not in TNA
+tna_timestamp: 20201010101010
 host: enemyproperty.bis.gov.uk
 aliases:
 - www.enemyproperty.bis.gov.uk

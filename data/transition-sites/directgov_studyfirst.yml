@@ -1,11 +1,11 @@
 ---
 site: directgov_studyfirst
 whitehall_slug: government-digital-service
-tna_timestamp: 20201010101010 # Stub timestamp - site not in TNA
+tna_timestamp: 20201010101010
 host: studyfirst.direct.gov.uk
 homepage_furl: www.gov.uk
 global: =410
 css: directgov
 homepage: https://www.gov.uk
 aliases:
-  - www.studyfirst.direct.gov.uk
+- www.studyfirst.direct.gov.uk

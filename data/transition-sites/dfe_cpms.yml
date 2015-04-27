@@ -2,7 +2,7 @@
 site: dfe_cpms
 whitehall_slug: department-for-education
 homepage: https://www.gov.uk/government/organisations/department-for-education
-tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
+tna_timestamp: 20201010101010
 host: cpms.education.gov.uk
 homepage_furl: www.gov.uk/dfe
 global: =301 https://www.gov.uk/government/organisations/department-for-education

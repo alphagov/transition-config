@@ -2,7 +2,7 @@
 site: landregistry_pseudo
 whitehall_slug: land-registry
 homepage: https://www.gov.uk/government/organisations/land-registry
-tna_timestamp: 20201010101010 # Plug timestamp, not in TNA
+tna_timestamp: 20201010101010
 host: www.landregistry.biz
 aliases:
 - landregistry.biz

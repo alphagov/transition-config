@@ -3,7 +3,7 @@ site: directgov
 whitehall_slug: government-digital-service
 host: www.direct.gov.uk
 tna_timestamp: 20121015000000
-homepage_title: 'Directgov'
+homepage_title: Directgov
 homepage: https://www.gov.uk
 aliases:
 - direct.gov.uk

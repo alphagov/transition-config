@@ -2,7 +2,7 @@
 site: mod_rfca
 whitehall_slug: reserve-forces-and-cadets-associations
 homepage: https://www.gov.uk/government/organisations/reserve-forces-and-cadets-associations
-tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
+tna_timestamp: 20201010101010
 host: www.rfcacouncil.org.uk
 aliases:
 - rfcacouncil.org.uk

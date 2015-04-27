@@ -7,5 +7,4 @@ host: www.skillsfundingagency.bis.gov.uk
 homepage_furl: www.gov.uk/sfa
 aliases:
 - skillsfundingagency.bis.gov.uk
-# nrnodeguid appears to be a document ID
 options: --query-string nrnodeguid

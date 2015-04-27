@@ -2,7 +2,8 @@
 site: bis
 whitehall_slug: department-for-business-innovation-skills
 host: www.bis.gov.uk
-tna_timestamp: 20121212135622 # Partial: update with care - TNA will have pages from www.gov.uk
+tna_timestamp: 20121212135622
+comment: 'Partial: update with care - TNA will have pages from www.gov.uk'
 homepage_furl: www.gov.uk/bis
 homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills
 css: department-for-business-innovation-skills

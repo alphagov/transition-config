@@ -1,7 +1,7 @@
 ---
 site: landregistry_consultations
 whitehall_slug: land-registry
-homepage_title: 'Land Registry'
+homepage_title: Land Registry
 homepage: https://www.gov.uk/government/publications?departments%5B%5D=land-registry&publication_filter_option=consultations
 tna_timestamp: 20120120102317
 host: consultations.landregistry.gov.uk

@@ -5,5 +5,4 @@ homepage: https://www.gov.uk/government/organisations/skills-funding-agency
 tna_timestamp: 20140107115711
 host: propertyservices.skillsfundingagency.bis.gov.uk
 homepage_furl: www.gov.uk/sfa
-# nrnodeguid appears to be a document ID
 options: --query-string nrnodeguid

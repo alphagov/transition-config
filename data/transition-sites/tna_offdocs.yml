@@ -3,7 +3,7 @@ site: tna_offdocs
 whitehall_slug: the-national-archives
 host: www.official-documents.gov.uk
 tna_timestamp: 20140210084229
-homepage_title: 'The National Archives Official Documents'
+homepage_title: The National Archives Official Documents
 homepage: https://www.gov.uk/government/publications?official_document_status=command_and_act_papers
 aliases:
 - www.official-documents.co.uk

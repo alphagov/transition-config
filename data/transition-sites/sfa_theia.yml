@@ -7,5 +7,4 @@ host: www.theia.org.uk
 homepage_furl: www.gov.uk/sfa
 aliases:
 - theia.org.uk
-# nrnodeguid appears to be a document ID
 options: --query-string nrnodeguid

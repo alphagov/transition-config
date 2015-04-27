@@ -6,7 +6,7 @@ tna_timestamp: 20140721132900
 host: www.statistics.gov.uk
 aliases:
 - statistics.gov.uk
-# options: --query-string qstring1:qstring2:qstring3 # Full query string param analysis to come
 extra_organisation_slugs:
 - office-for-national-statistics
-homepage_title: 'Statistical Announcements'
+homepage_title: Statistical Announcements
+comment: No query string analysis done

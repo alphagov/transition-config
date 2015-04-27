@@ -2,7 +2,8 @@
 site: moj
 whitehall_slug: ministry-of-justice
 host: www.justice.gov.uk
-tna_timestamp: 20130128112038 # Partial: update with care - TNA will have pages from www.gov.uk
+tna_timestamp: 20130128112038
+comment: 'Partial: update with care - TNA will have pages from www.gov.uk'
 homepage_furl: www.gov.uk/moj
 homepage: https://www.gov.uk/government/organisations/ministry-of-justice
 css: ministry-of-justice

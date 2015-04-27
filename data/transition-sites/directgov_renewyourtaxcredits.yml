@@ -2,7 +2,7 @@
 site: directgov_renewyourtaxcredits
 whitehall_slug: government-digital-service
 homepage: https://www.gov.uk/government/organisations/government-digital-service
-tna_timestamp: 20201010101010 # Plug for missing timestamp
+tna_timestamp: 20201010101010
 host: renewyourtaxcredits.direct.gov.uk
 global: =301 https://www.gov.uk/browse/benefits/tax-credits
 css: directgov

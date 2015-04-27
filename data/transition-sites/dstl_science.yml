@@ -1,5 +1,5 @@
 ---
-site: dstl_science            # Rename when reasonable to be consistent: mod_science
+site: dstl_science
 whitehall_slug: ministry-of-defence
 homepage: https://www.gov.uk/government/groups/defence-science-and-technology
 tna_timestamp: 20140410091116

@@ -3,7 +3,7 @@ site: ukvi_lifeintheuktest
 whitehall_slug: uk-visas-and-immigration
 host: lifeintheuktest.ukba.homeoffice.gov.uk
 tna_timestamp: 20131212160954
-homepage_title: 'Life in the UK Test'
+homepage_title: Life in the UK Test
 homepage: https://www.gov.uk/life-in-the-uk-test
 aliases:
 - www.lifeintheuktest.gov.uk

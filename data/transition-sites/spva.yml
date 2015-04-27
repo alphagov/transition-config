@@ -2,11 +2,11 @@
 site: spva
 whitehall_slug: service-personnel-and-veterans-agency
 homepage: https://www.gov.uk/government/organisations/service-personnel-and-veterans-agency
-tna_timestamp: 20201010101010 # Plug timestamp, site not in TNA
+tna_timestamp: 20201010101010
 host: www.spva.org.uk
 homepage_furl: www.gov.uk/spva
 aliases:
 - spva.org.uk
-global: "=301 https://www.gov.uk/government/organisations/service-personnel-and-veterans-agency"
+global: =301 https://www.gov.uk/government/organisations/service-personnel-and-veterans-agency
 extra_organisation_slugs:
 - veterans-uk

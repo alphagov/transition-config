@@ -2,7 +2,7 @@
 site: directgov_thinkfatigue
 whitehall_slug: government-digital-service
 homepage: https://www.gov.uk/government/organisations/government-digital-service
-tna_timestamp: 20201010101010 # Plug for missing timestamp
+tna_timestamp: 20201010101010
 host: thinkfatigue.direct.gov.uk
 global: =301 http://think.direct.gov.uk/fatigue.html
 css: directgov

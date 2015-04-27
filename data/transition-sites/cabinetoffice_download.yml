@@ -5,4 +5,4 @@ homepage: https://www.gov.uk/government/organisations/cabinet-office
 tna_timestamp: 20120404150643
 host: download.cabinetoffice.gov.uk
 homepage_furl: www.gov.uk/cabinetoffice
-global: "=410"
+global: =410

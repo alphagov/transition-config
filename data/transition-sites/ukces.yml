@@ -5,5 +5,4 @@ homepage: https://www.gov.uk/government/organisations/uk-commission-for-employme
 tna_timestamp: 20140108090250
 host: www.ukces.org.uk
 homepage_furl: www.gov.uk/ukces
-# page is a document ID
 options: --query-string page

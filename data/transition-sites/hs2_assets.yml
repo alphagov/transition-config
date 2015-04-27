@@ -5,5 +5,4 @@ homepage: https://www.gov.uk/government/organisations/high-speed-two-limited
 tna_timestamp: 20141027142328
 host: assets.hs2.org.uk
 homepage_furl: www.gov.uk/hs2
-# options: "--query-string qstring1:qstring2:qstring3"
-# No query string analysis done
+comment: No querystring analysis performed yet

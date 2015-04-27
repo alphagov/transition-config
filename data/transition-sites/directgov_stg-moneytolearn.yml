@@ -1,7 +1,7 @@
 ---
 site: directgov_stg-moneytolearn
 whitehall_slug: government-digital-service
-tna_timestamp: 20201010101010 # Stub timestamp - site not in TNA
+tna_timestamp: 20201010101010
 host: stg-moneytolearn.direct.gov.uk
 homepage_furl: www.gov.uk
 global: =410

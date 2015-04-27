@@ -1,7 +1,7 @@
 ---
 site: gds_dm
 whitehall_slug: government-digital-service
-homepage_title: 'Digital Marketplace (formerly CloudStore)'
+homepage_title: Digital Marketplace (formerly CloudStore)
 homepage: https://www.gov.uk/digital-marketplace
 tna_timestamp: 20140324100726
 host: govstore.service.gov.uk

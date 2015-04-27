@@ -2,7 +2,7 @@
 site: defra_ecience
 whitehall_slug: department-for-environment-food-rural-affairs
 homepage: https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs
-tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
+tna_timestamp: 20201010101010
 host: www.ecience.defra.gov.uk
 homepage_furl: www.gov.uk/defra
 global: =410

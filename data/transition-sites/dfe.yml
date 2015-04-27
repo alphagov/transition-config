@@ -2,7 +2,8 @@
 site: dfe
 whitehall_slug: department-for-education
 host: www.education.gov.uk
-tna_timestamp: 20130123124929 # Partial: update with care - TNA will have pages from www.gov.uk
+tna_timestamp: 20130123124929
+comment: 'Partial: update with care - TNA will have pages from www.gov.uk'
 homepage_furl: www.gov.uk/dfe
 homepage: https://www.gov.uk/government/organisations/department-for-education
 options: --query-string Category:id:filename:urn:DownloadPublicationReference:DownloadItemReference:DocumentType:Url

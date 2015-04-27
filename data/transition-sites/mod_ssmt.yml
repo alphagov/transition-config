@@ -2,7 +2,7 @@
 site: mod_ssmt
 whitehall_slug: ministry-of-defence
 homepage: https://www.gov.uk/government/collections/service-childrens-education
-tna_timestamp: 20201010101010 # Stub timestamp for site not in TNA
+tna_timestamp: 20201010101010
 host: www.serviceschoolsmobilitytoolkit.com
 aliases:
 - serviceschoolsmobilitytoolkit.com

@@ -8,4 +8,4 @@ homepage: https://www.gov.uk/performance/transactions-explorer
 options: --query-string direction:format:orderby
 css: cabinet-office
 aliases:
-  - transactionalservices.alphagov.co.uk
+- transactionalservices.alphagov.co.uk

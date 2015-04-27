@@ -2,7 +2,8 @@
 site: defra_rpa
 whitehall_slug: rural-payments-agency
 host: rpa.defra.gov.uk
-tna_timestamp: 20140305104944 # Initial timestamp for partial transition. Edit with risk
+tna_timestamp: 20140305104944
+comment: Initial timestamp for partial transition. Edit with risk
 homepage_furl: www.gov.uk/rpa
 homepage: https://www.gov.uk/government/organisations/rural-payments-agency
 options: --query-string opendocument
