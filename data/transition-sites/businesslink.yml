@@ -1,5 +1,6 @@
 ---
 site: businesslink
+whitehall_slug: government-digital-service
 host: www.businesslink.gov.uk
 tna_timestamp: 20120823131012
 homepage_title: 'Business Link'
@@ -19,5 +20,3 @@ aliases:
 - msn.businesslink.gov.uk
 - sagestartup.businesslink.gov.uk
 - simplybusiness.businesslink.gov.uk
-extra_organisation_slugs:
-- government-digital-service

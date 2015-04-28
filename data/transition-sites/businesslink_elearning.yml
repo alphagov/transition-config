@@ -1,5 +1,6 @@
 ---
 site: businesslink_elearning
+whitehall_slug: government-digital-service
 host: elearning.businesslink.gov.uk
 tna_timestamp: 20120823131012
 homepage_furl: www.gov.uk
@@ -8,6 +9,4 @@ global: =301 https://www.gov.uk/browse/business
 css: businesslink
 aliases:
 - www.elearning.businesslink.gov.uk
-extra_organisation_slugs:
-- government-digital-service
 homepage_title: 'Business Link'

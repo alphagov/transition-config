@@ -1,11 +1,10 @@
 ---
 site: businesslink_events_admin
+whitehall_slug: government-digital-service
 host: admin.events.businesslink.gov.uk
 tna_timestamp: 20120823131012
 homepage_furl: www.gov.uk
 homepage: https://admin.business-events.org.uk
 global: =301 https://admin.business-events.org.uk
 css: businesslink
-extra_organisation_slugs:
-- government-digital-service
 homepage_title: 'Business Link'

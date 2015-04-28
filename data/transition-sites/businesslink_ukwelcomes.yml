@@ -1,5 +1,6 @@
 ---
 site: businesslink_ukwelcomes
+whitehall_slug: government-digital-service
 host: www.ukwelcomes.businesslink.gov.uk
 tna_timestamp: 20120823131012
 homepage_title: 'Business Link'
@@ -11,5 +12,3 @@ aliases:
 - upload.ukwelcomes.businesslink.gov.uk
 - online.ukwelcomes.businesslink.gov.uk
 - ukwelcomes.businesslink.gov.uk
-extra_organisation_slugs:
-- government-digital-service

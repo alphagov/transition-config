@@ -53,18 +53,6 @@ class TransitionConfigSiteTest < MiniTest::Unit::TestCase
     assert_instance_of String, slug
   end
 
-  def test_sites_never_existed_in_whitehall?
-    %w(directgov directgov_microsite businesslink businesslink_microsite).each do |site_abbr|
-      site = TransitionConfig::Site.from_yaml(slug_check_site_filename(site_abbr))
-      assert site.never_existed_in_whitehall?,
-             "Expected that #{site_abbr} never_existed_in_whitehall? to be true, got false"
-    end
-
-    ago = TransitionConfig::Site.from_yaml(slug_check_site_filename('ago'))
-    refute ago.never_existed_in_whitehall?,
-           'Expected ago to have existed in whitehall'
-  end
-
   def test_existing_site_slug_exists_in_whitehall?
     organisations_api_has_organisations(%w(attorney-generals-office))
     ago = TransitionConfig::Site.from_yaml(slug_check_site_filename('ago'))
@@ -92,11 +80,6 @@ class TransitionConfigSiteTest < MiniTest::Unit::TestCase
     assert_equal ['attorney-generals-office'], ago.all_slugs
   end
 
-  def test_all_slugs_for_businesslink
-    bl = TransitionConfig::Site.from_yaml(slug_check_site_filename('businesslink'))
-    assert_equal [], bl.all_slugs
-  end
-
   def test_missing_slugs
     organisations_api_has_organisations(%w(government-office-for-science
                                            department-for-business-innovation-skills))
@@ -116,8 +99,6 @@ class TransitionConfigSiteTest < MiniTest::Unit::TestCase
 
     assert_equal ['non-existent-slug'], exception.missing['nonexistent']
     assert_equal ['made-up-slug'], exception.missing['bis']
-    assert_nil exception.missing['directgov_microsite']
-    assert_nil exception.missing['directgov']
   end
 
   def test_site_create_fails_when_no_slug

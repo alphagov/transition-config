@@ -1,10 +1,9 @@
 ---
 site: businesslink_hmrc
+whitehall_slug: government-digital-service
 host: hmrc.businesslink.gov.uk
 tna_timestamp: 20121009062028
 homepage_furl: www.gov.uk
 homepage: https://www.gov.uk/government/topics/public-spending
 css: businesslink
-extra_organisation_slugs:
-- government-digital-service
 homepage_title: 'Business Link'

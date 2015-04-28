@@ -1,5 +1,6 @@
 ---
 site: businesslink_tariff
+whitehall_slug: government-digital-service
 host: tariff.businesslink.gov.uk
 tna_timestamp: 20120823131012
 homepage_furl: www.gov.uk
@@ -10,5 +11,3 @@ css: businesslink
 aliases:
 - www.tariff.businesslink.gov.uk
 - content.tariff.businesslink.gov.uk
-extra_organisation_slugs:
-- government-digital-service
