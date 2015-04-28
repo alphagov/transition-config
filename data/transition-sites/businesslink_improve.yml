@@ -1,5 +1,6 @@
 ---
 site: businesslink_improve
+whitehall_slug: government-digital-service
 host: improve.businesslink.gov.uk
 homepage_title: 'Business Link'
 tna_timestamp: 20120823131012
@@ -9,5 +10,3 @@ global: =301 https://www.gov.uk/growing-your-business
 css: businesslink
 aliases:
 - www.improve.businesslink.gov.uk
-extra_organisation_slugs:
-- government-digital-service

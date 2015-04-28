@@ -8,8 +8,6 @@ module TransitionConfig
       TransitionConfig.path('data/transition-sites/*.yml')
     ]
 
-    NEVER_EXISTED_IN_WHITEHALL = %w(directgov businesslink)
-
     attr_accessor :hash
     def initialize(hash)
       self.hash = hash
@@ -64,15 +62,9 @@ module TransitionConfig
       organisations.by_slug[slug]
     end
 
-    def never_existed_in_whitehall?
-      NEVER_EXISTED_IN_WHITEHALL.any? do |prefix|
-        abbr == prefix || abbr =~ Regexp.new("^#{prefix}_.*$")
-      end
-    end
-
     def all_slugs
       [].tap do |all_slugs|
-        all_slugs.push(whitehall_slug) unless never_existed_in_whitehall?
+        all_slugs.push(whitehall_slug)
         all_slugs.concat(extra_organisation_slugs) if extra_organisation_slugs
       end
     end
