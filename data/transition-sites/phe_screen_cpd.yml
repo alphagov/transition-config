@@ -1,10 +1,8 @@
 ---
-site: phe_screen
+site: phe_screen_cpd
 whitehall_slug: public-health-england
-homepage_title: 'UK National Screening Committee'
+homepage_title: 'Continuing Professional Development for Screening'
 homepage: https://www.gov.uk/government/organisations/public-health-england
-tna_timestamp: 20140728052215
-host: www.screening.nhs.uk
-aliases:
-- screening.nhs.uk
+tna_timestamp: 20130502202005
+host: cpd.screening.nhs.uk
 options: --query-string folder:id:monthye
