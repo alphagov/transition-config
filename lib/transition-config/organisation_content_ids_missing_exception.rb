@@ -6,8 +6,8 @@ module TransitionConfig
     end
 
     def to_s
-      "Organisation content_ids missing from Whitehall: \n"\
-      "#{@missing.map { |abbr, content_ids| "#{abbr}: #{content_ids}" }.join("\n")}"
+      "Organisation content_ids not found in Whitehall: \n"\
+      "#{@missing.map { |abbr, content_ids| "#{abbr}: content IDs: #{content_ids}" }.join("\n")}"
     end
   end
 end
