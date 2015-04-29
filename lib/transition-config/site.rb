@@ -149,15 +149,35 @@ module TransitionConfig
       raise TransitionConfig::OrganisationContentIDsMissingException.new(missing) unless missing.empty?
     end
 
+    def self.slug_matches_content_id?(slug, content_id, organisations)
+      org_for_content_id = organisations.find_by_content_id(content_id)
+      if org_for_content_id.nil?
+        false
+      elsif slug != org_for_content_id.details.slug
+        false
+      else
+        true
+      end
+    end
+
     def self.check_slugs_match_content_ids!(masks = MASKS)
       mismatches = {}
       organisations = Organisations.new
       TransitionConfig::Site.all(masks, organisations: organisations).each do |site|
-        org_for_content_id = organisations.find_by_content_id(site.organisation_content_id)
-        if org_for_content_id.nil?
+        unless slug_matches_content_id?(site.whitehall_slug, site.organisation_content_id, organisations)
           mismatches[site.abbr] = [site.whitehall_slug, site.organisation_content_id]
-        elsif site.whitehall_slug != org_for_content_id.details.slug
-          mismatches[site.abbr] = [site.whitehall_slug, site.organisation_content_id]
+        end
+
+        if site.extra_organisation_slugs || site.extra_organisation_content_ids
+          slugs = site.extra_organisation_slugs || []
+          content_ids = site.extra_organisation_content_ids || []
+
+          # check that the slugs and content_ids match (and are in the same order)
+          slugs.zip(content_ids).each do |slug, content_id|
+            unless slug_matches_content_id?(slug, content_id, organisations)
+              mismatches[site.abbr] = [slug, content_id]
+            end
+          end
         end
       end
       raise TransitionConfig::ContentIDSlugMismatchException.new(mismatches) unless mismatches.empty?
