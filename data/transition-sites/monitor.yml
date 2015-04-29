@@ -1,6 +1,7 @@
 ---
 site: monitor
 whitehall_slug: monitor
+organisation_content_id: f285e31f-e2ba-4014-a0d9-013365f27166
 homepage: https://www.gov.uk/government/organisations/monitor
 tna_timestamp: 20140106173514
 host: www.monitor.gov.uk
@@ -13,5 +14,4 @@ aliases:
 - www.monitor-nhsft.org.uk
 - nhsft-regulator.gov.uk
 - www.nhsft-regulator.gov.uk
-# Used for file downloads
 options: --query-string code:id

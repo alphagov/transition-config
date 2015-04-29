@@ -1,9 +1,12 @@
 ---
 site: acoba
 whitehall_slug: advisory-committee-on-business-appointments
+organisation_content_id: 6e414d7c-61af-4113-b039-435e461ddaf2
 homepage: https://www.gov.uk/government/organisations/advisory-committee-on-business-appointments
 tna_timestamp: 20140404084345
 host: acoba.independent.gov.uk
 homepage_furl: www.gov.uk/acoba
 extra_organisation_slugs:
 - cabinet-office
+extra_organisation_content_ids:
+- 96ae61d6-c2a1-48cb-8e67-da9d105ae381

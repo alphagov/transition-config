@@ -1,8 +1,10 @@
 ---
 site: bis
 whitehall_slug: department-for-business-innovation-skills
+organisation_content_id: 569a9ee5-c195-4b7f-b9dc-edc17a09113f
 host: www.bis.gov.uk
-tna_timestamp: 20121212135622 # Partial: update with care - TNA will have pages from www.gov.uk
+tna_timestamp: 20121212135622
+comment: 'Partial: update with care - TNA will have pages from www.gov.uk'
 homepage_furl: www.gov.uk/bis
 homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills
 css: department-for-business-innovation-skills
@@ -20,3 +22,10 @@ extra_organisation_slugs:
 - insolvency-service
 - national-measurement-office
 - uk-space-agency
+extra_organisation_content_ids:
+- 5f96af07-b11d-4447-8553-c6bdd8c0f0d5
+- 37c13dbd-1662-4c14-8a09-d4f921851e00
+- 64642a32-f3f6-40ab-99ea-7abd5053081f
+- c8406408-8376-45e0-95b4-7e74cef2c260
+- bf70fb51-06d0-4625-85bb-410bdf42cddc
+- 1a22a221-513b-4a8d-ae97-e3668b6d5568

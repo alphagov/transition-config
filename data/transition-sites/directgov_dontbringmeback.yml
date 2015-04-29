@@ -1,7 +1,8 @@
 ---
 site: directgov_dontbringmeback
 whitehall_slug: government-digital-service
-tna_timestamp: 20201010101010 # Stub timestamp - site not in TNA
+organisation_content_id: af07d5a5-df63-4ddc-9383-6a666845ebe9
+tna_timestamp: 20201010101010
 host: dontbringmeback.direct.gov.uk
 homepage_furl: www.gov.uk
 global: =410

@@ -1,9 +1,12 @@
 ---
 site: gds_psn
 whitehall_slug: government-digital-service
-homepage_title: 'Public Services Network'
+organisation_content_id: af07d5a5-df63-4ddc-9383-6a666845ebe9
+homepage_title: Public Services Network
 homepage: https://www.gov.uk/government/groups/public-services-network
 tna_timestamp: 20140603182309
 host: www.publicservicesnetwork.service.gov.uk
 extra_organisation_slugs:
 - cabinet-office
+extra_organisation_content_ids:
+- 96ae61d6-c2a1-48cb-8e67-da9d105ae381

@@ -1,11 +1,11 @@
 ---
 site: cspl
 whitehall_slug: the-committee-on-standards-in-public-life
+organisation_content_id: 844f5a92-4ea1-4a40-90f2-1ad9c9d6778b
 homepage: https://www.gov.uk/government/organisations/the-committee-on-standards-in-public-life
 tna_timestamp: 20140430123801
 host: www.public-standards.gov.uk
 homepage_furl: www.gov.uk/public-standards
 aliases:
 - public-standards.gov.uk
-# options: --query-string qstring1:qstring2:qstring3
-# No query string analysis
+comment: No query string analysis performed

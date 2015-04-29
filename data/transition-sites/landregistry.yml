@@ -1,6 +1,7 @@
 ---
 site: landregistry
 whitehall_slug: land-registry
+organisation_content_id: 5c54ae52-341b-499e-a6dd-67f04633b8cf
 homepage: https://www.gov.uk/government/organisations/land-registry
 tna_timestamp: 20140709064818
 host: www.landregistry.gov.uk
@@ -10,3 +11,5 @@ aliases:
 - site.landregistry.gov.uk
 extra_organisation_slugs:
 - land-registration-rule-committee
+extra_organisation_content_ids:
+- 25ee0af2-ee25-4dde-b5dd-1b75b0bad76e

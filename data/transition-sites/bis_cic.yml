@@ -1,6 +1,7 @@
 ---
 site: bis_cic
 whitehall_slug: office-of-the-regulator-of-community-interest-companies
+organisation_content_id: 518ea730-81db-4d3b-8080-50cd6e0784cd
 host: www.cicregulator.gov.uk
 tna_timestamp: 20131003151857
 homepage_furl: www.gov.uk/cic-regulator
@@ -13,3 +14,5 @@ aliases:
 global: =301 https://www.gov.uk/government/organisations/office-of-the-regulator-of-community-interest-companies
 extra_organisation_slugs:
 - department-for-business-innovation-skills
+extra_organisation_content_ids:
+- 569a9ee5-c195-4b7f-b9dc-edc17a09113f

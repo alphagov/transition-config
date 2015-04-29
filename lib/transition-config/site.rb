@@ -1,5 +1,7 @@
 require 'yaml'
 require 'transition-config/slugs_missing_exception'
+require 'transition-config/organisation_content_ids_missing_exception'
+require 'transition-config/content_id_slug_mismatch_exception'
 require 'transition-config/tna_timestamp'
 
 module TransitionConfig
@@ -25,8 +27,16 @@ module TransitionConfig
       hash['whitehall_slug']
     end
 
+    def organisation_content_id
+      hash['organisation_content_id']
+    end
+
     def extra_organisation_slugs
       hash['extra_organisation_slugs']
+    end
+
+    def extra_organisation_content_ids
+      hash['extra_organisation_content_ids']
     end
 
     def host
@@ -62,6 +72,10 @@ module TransitionConfig
       organisations.by_slug[slug]
     end
 
+    def content_id_exists_in_whitehall?(content_id)
+      !!organisations.find_by_content_id(content_id)
+    end
+
     def all_slugs
       [].tap do |all_slugs|
         all_slugs.push(whitehall_slug)
@@ -69,17 +83,31 @@ module TransitionConfig
       end
     end
 
+    def all_organisation_content_ids
+      [].tap do |all_content_ids|
+        all_content_ids.push(organisation_content_id)
+        all_content_ids.concat(extra_organisation_content_ids) if extra_organisation_content_ids
+      end
+    end
+
     def missing_slugs
       all_slugs.reject { |slug| slug_exists_in_whitehall?(slug) }
     end
 
+    def missing_organisation_content_ids
+      all_organisation_content_ids.reject do |content_id|
+        content_id_exists_in_whitehall?(content_id)
+      end
+    end
+
     def ordered_output
       {
-        'site'             => abbr,
-        'whitehall_slug'   => whitehall_slug,
-        'homepage'         => "https://www.gov.uk/government/organisations/#{whitehall_slug}",
-        'tna_timestamp'    => tna_timestamp,
-        'host'             => host,
+        'site'                    => abbr,
+        'organisation_content_id' => organisation_content_id,
+        'whitehall_slug'          => whitehall_slug,
+        'homepage'                => "https://www.gov.uk/government/organisations/#{whitehall_slug}",
+        'tna_timestamp'           => tna_timestamp,
+        'host'                    => host,
       }
     end
 
@@ -111,6 +139,50 @@ module TransitionConfig
       raise TransitionConfig::SlugsMissingException.new(missing) unless missing.empty?
     end
 
+    def self.check_all_organisation_content_ids!(masks = MASKS)
+      missing = {}
+      TransitionConfig::Site.all(masks, organisations: Organisations.new).each do |site|
+        unless site.missing_organisation_content_ids.empty?
+          missing[site.abbr] = site.missing_organisation_content_ids
+        end
+      end
+      raise TransitionConfig::OrganisationContentIDsMissingException.new(missing) unless missing.empty?
+    end
+
+    def self.slug_matches_content_id?(slug, content_id, organisations)
+      org_for_content_id = organisations.find_by_content_id(content_id)
+      if org_for_content_id.nil?
+        false
+      elsif slug != org_for_content_id.details.slug
+        false
+      else
+        true
+      end
+    end
+
+    def self.check_slugs_match_content_ids!(masks = MASKS)
+      mismatches = {}
+      organisations = Organisations.new
+      TransitionConfig::Site.all(masks, organisations: organisations).each do |site|
+        unless slug_matches_content_id?(site.whitehall_slug, site.organisation_content_id, organisations)
+          mismatches[site.abbr] = [site.whitehall_slug, site.organisation_content_id]
+        end
+
+        if site.extra_organisation_slugs || site.extra_organisation_content_ids
+          slugs = site.extra_organisation_slugs || []
+          content_ids = site.extra_organisation_content_ids || []
+
+          # check that the slugs and content_ids match (and are in the same order)
+          slugs.zip(content_ids).each do |slug, content_id|
+            unless slug_matches_content_id?(slug, content_id, organisations)
+              mismatches[site.abbr] = [slug, content_id]
+            end
+          end
+        end
+      end
+      raise TransitionConfig::ContentIDSlugMismatchException.new(mismatches) unless mismatches.empty?
+    end
+
     def self.from_yaml(filename, options = {})
       Site.new(YAML.load(File.read(filename))).tap do |site|
         site.organisations = options[:organisations]
@@ -125,9 +197,10 @@ module TransitionConfig
 
       Site.new(
         {
-          'site'           => abbr,
-          'whitehall_slug' => organisation.details.slug,
-          'host'           => host
+          'site'                    => abbr,
+          'whitehall_slug'          => organisation.details.slug,
+          'organisation_content_id' => organisation.details.content_id,
+          'host'                    => host,
         }
       )
     end

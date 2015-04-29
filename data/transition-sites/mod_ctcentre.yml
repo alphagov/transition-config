@@ -1,10 +1,13 @@
 ---
 site: mod_ctcentre
 whitehall_slug: defence-science-and-technology-laboratory
-homepage_title: 'Counter Terrorism Centre'
+organisation_content_id: 43b6c342-c6b7-4ef1-93d2-98f0a9130ccc
+homepage_title: Counter Terrorism Centre
 homepage: https://www.gov.uk/government/organisations/defence-science-and-technology-laboratory
 tna_timestamp: 20110805142532
 host: www.ctcentre.mod.uk
 global: =301 https://www.gov.uk/government/organisations/defence-science-and-technology-laboratory
 extra_organisation_slugs:
 - ministry-of-defence
+extra_organisation_content_ids:
+- d994e55c-48c9-4795-b872-58d8ec98af12

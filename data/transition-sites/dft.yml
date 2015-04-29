@@ -1,8 +1,9 @@
 ---
 site: dft
 whitehall_slug: department-for-transport
+organisation_content_id: 4c717efc-f47b-478e-a76d-ce1ae0af1946
 host: www.dft.gov.uk
-tna_timestamp: 20121107103953 # Partial: update with care - TNA will have pages from www.gov.uk
+tna_timestamp: 20121107103953
 homepage_furl: www.gov.uk/dft
 homepage: https://www.gov.uk/government/organisations/department-for-transport
 options: --query-string agency:id:m:y
@@ -17,4 +18,12 @@ extra_organisation_slugs:
 - driving-standards-agency
 - driver-and-vehicle-standards-agency
 - vehicle-certification-agency
+extra_organisation_content_ids:
+- 70580624-93b5-4aed-823b-76042486c769
+- 23a24aa8-1711-42b6-bf6b-47af0f230295
+- f3dc9b48-1119-4130-9bc4-98f5e3fd7fab
+- b969a617-7c4b-4d3b-97ef-41656ef688c9
+- 304d93a6-dd72-4a52-8858-387d8d83a309
+- d39237a5-678b-4bb5-a372-eb2cb036933d
+- 685a3312-e096-4fde-b6c7-c8cf324d4784
 special_redirect_strategy: via_aka

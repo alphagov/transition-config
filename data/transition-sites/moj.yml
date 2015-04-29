@@ -1,8 +1,10 @@
 ---
 site: moj
 whitehall_slug: ministry-of-justice
+organisation_content_id: dcc907d6-433c-42df-9ffb-d9c68be5dc4d
 host: www.justice.gov.uk
-tna_timestamp: 20130128112038 # Partial: update with care - TNA will have pages from www.gov.uk
+tna_timestamp: 20130128112038
+comment: 'Partial: update with care - TNA will have pages from www.gov.uk'
 homepage_furl: www.gov.uk/moj
 homepage: https://www.gov.uk/government/organisations/ministry-of-justice
 css: ministry-of-justice
@@ -14,4 +16,8 @@ extra_organisation_slugs:
 - hm-prison-service
 - office-of-the-public-guardian
 - youth-justice-board-for-england-and-wales
+extra_organisation_content_ids:
+- 05b3ff92-52c9-4577-b08e-7514b40c98ff
+- 8d40ed48-ef2a-42af-a02b-bd4cc84cabc1
+- 7ad091b4-9098-4abd-aae3-1d2b790ee11e
 special_redirect_strategy: supplier

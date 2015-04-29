@@ -1,6 +1,7 @@
 ---
 site: ipo
 whitehall_slug: intellectual-property-office
+organisation_content_id: 5d6f9583-991f-413d-ae83-be7274e5eae4
 homepage: https://www.gov.uk/government/organisations/intellectual-property-office
 tna_timestamp: 20140603093549
 host: www.ipo.gov.uk
@@ -13,4 +14,7 @@ aliases:
 extra_organisation_slugs:
 - company-names-tribunal
 - copyright-tribunal
+extra_organisation_content_ids:
+- 6a0be9bd-ba4a-4774-ae3e-966a48f39fc5
+- d622096e-34ec-47ab-9d17-b185458bccf2
 special_redirect_strategy: via_aka

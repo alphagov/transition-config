@@ -1,6 +1,7 @@
 ---
 site: ukvi
 whitehall_slug: uk-visas-and-immigration
+organisation_content_id: 04148522-b0c1-4137-b687-5f3c3bdd561a
 host: www.ukba.homeoffice.gov.uk
 tna_timestamp: 20140110181512
 homepage: https://www.gov.uk/government/organisations/uk-visas-and-immigration
@@ -9,15 +10,11 @@ aliases:
 - biapreview.homeoffice.gov.uk
 - contact-ukba.homeoffice.gov.uk
 - ind.homeoffice.gov.uk
-- origin.ukba.homeoffice.gov.uk # Currently used for us to serve proxied content. Will move eventually.
+- origin.ukba.homeoffice.gov.uk
 - report-ukba.homeoffice.gov.uk
 - ukba.homeoffice.gov.uk
 - www.bia.homeoffice.gov.uk
 - www.biapreview.homeoffice.gov.uk
 - www.ind.homeoffice.gov.uk
-# area: used for different news index pages
-# item: used for different contact pages
-# version: used for different outcomes of an asylum application
-# view: used to distinguish between a cover page (HTML) and the PDF itself
 options: --query-string area:item:version:view
 css: home-office

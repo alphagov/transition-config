@@ -1,9 +1,10 @@
 ---
 site: bis_mas2
 whitehall_slug: department-for-business-innovation-skills
-homepage_title: 'Manufacturing Advisory Service'
+organisation_content_id: 569a9ee5-c195-4b7f-b9dc-edc17a09113f
+homepage_title: Manufacturing Advisory Service
 homepage: https://www.gov.uk/manufacturing-advisory-service-mas
-tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
+tna_timestamp: 20201010101010
 host: www.mas-em.gov.uk
 homepage_furl: www.gov.uk/manufacturing-advisory-service-mas
 global: =301 https://www.gov.uk/manufacturing-advisory-service-mas

@@ -1,14 +1,15 @@
 ---
 site: hca
 whitehall_slug: homes-and-communities-agency
+organisation_content_id: 5ddb26f6-caad-4b14-97a7-fabcfa25d4bc
 homepage: https://www.gov.uk/government/organisations/homes-and-communities-agency
 tna_timestamp: 20140805133148
 host: www.homesandcommunities.co.uk
 homepage_furl: www.gov.uk/hca
 aliases:
 - homesandcommunities.co.uk
-# These two subdomains are created pending final availability of the manuals format.
-# Otherwise, they are direct aliases of the subset of content.
 - cfg.homesandcommunities.co.uk
 - udc.homesandcommunities.co.uk
+comment: These two subdomains are created pending final availability of the manuals
+  format. Otherwise, they are direct aliases of the subset of content.
 options: --query-string page_id:page

@@ -1,17 +1,13 @@
 ---
 site: mcga
 whitehall_slug: maritime-and-coastguard-agency
+organisation_content_id: 23a24aa8-1711-42b6-bf6b-47af0f230295
 homepage: https://www.gov.uk/government/organisations/maritime-and-coastguard-agency
 tna_timestamp: 20140305221616
 host: www.mcga.gov.uk
 homepage_furl: www.gov.uk/mca
-
-# This site was configured as a legacy domain, with the transitioned content
-# located at www.dft.gov.uk/mca
-#
-# To replicate historic activity, we have rules in Bouncer which are applied instead of
-# any mappings, performing redirects like this:
-#
-#   www.mcga.gov.uk/c4mca/foo/bar --> www.dft.gov.uk/mca/foo/bar
-#   www.mcga.gov.uk/mca/foo/bar   --> www.dft.gov.uk/mca/foo/bar
-#   www.mcga.gov.uk/foo/bar       --> www.dft.gov.uk/mca/foo/bar
+comment: "This site was configured as a legacy domain, with the transitioned content
+  located at www.dft.gov.uk/mca\nTo replicate historic activity, we have rules in
+  Bouncer which are applied instead of any mappings, performing redirects like this:\nwww.mcga.gov.uk/c4mca/foo/bar
+  --> www.dft.gov.uk/mca/foo/bar www.mcga.gov.uk/mca/foo/bar   --> www.dft.gov.uk/mca/foo/bar
+  www.mcga.gov.uk/foo/bar       --> www.dft.gov.uk/mca/foo/bar "

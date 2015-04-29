@@ -1,8 +1,11 @@
 ---
 site: defra
 whitehall_slug: department-for-environment-food-rural-affairs
+organisation_content_id: de4e9dc6-cca4-43af-a594-682023b84d6c
 host: www.defra.gov.uk
-tna_timestamp: 20130822084033 # Partial: update with care - TNA will have pages from www.gov.uk
+tna_timestamp: 20130822084033
+comment: 'Partial: update with care - TNA will have pages from www.gov.uk. Some redirects
+  for this domain are served via_aka as well - ''hybrid'''
 homepage_furl: www.gov.uk/defra
 homepage: https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs
 css: department-for-environment-food-rural-affairs
@@ -13,5 +16,7 @@ aliases:
 extra_organisation_slugs:
 - animal-health-and-veterinary-laboratories-agency
 - animal-and-plant-health-agency
+extra_organisation_content_ids:
+- e0a272d7-82da-495a-a8c5-cc3787817271
+- 4ad67f14-6f9c-4fa4-80ab-687b6d81ea6f
 special_redirect_strategy: supplier
-# Note: some redirects for this domain are served via_aka as well - 'hybrid'

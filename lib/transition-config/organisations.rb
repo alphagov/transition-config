@@ -19,6 +19,10 @@ module TransitionConfig
       organisations_api.organisation(slug)
     end
 
+    def find_by_content_id(content_id)
+      all.detect { |organisation| organisation.details.content_id == content_id }
+    end
+
     ##
     # A hash of orgs by slug. Intended for use in a batch process
     # where we want to ask the server once for all orgs, then not again

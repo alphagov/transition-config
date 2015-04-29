@@ -1,8 +1,11 @@
 ---
 site: cnc
 whitehall_slug: civil-nuclear-constabulary
+organisation_content_id: c507c878-87d8-4e4b-bd3a-35eff619f99b
 homepage: https://www.gov.uk/government/organisations/civil-nuclear-constabulary
 tna_timestamp: 20131001174833
 host: www.cnc.police.uk
 extra_organisation_slugs:
 - civil-nuclear-police-authority
+extra_organisation_content_ids:
+- b0f55845-c93e-44d3-bf04-56261181a845

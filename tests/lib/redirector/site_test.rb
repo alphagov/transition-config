@@ -123,6 +123,7 @@ class TransitionConfigSiteTest < MiniTest::Unit::TestCase
 
     organisation_details = organisation_details_for_slug('uk-borders-agency').tap do |details|
       details['title'] = 'UK Borders Agency & encoding test'
+      details['details']['content_id'] = '834c068d-7918-49b1-b831-53a7f56f5478'
     end
     organisations_api_has_organisation 'uk-borders-agency', organisation_details
 
@@ -133,6 +134,7 @@ class TransitionConfigSiteTest < MiniTest::Unit::TestCase
 
     assert_equal 'ukba', site.abbr
     assert_equal 'uk-borders-agency', site.whitehall_slug
+    assert_equal '834c068d-7918-49b1-b831-53a7f56f5478', site.organisation_content_id
     assert_equal 'www.ukba.homeoffice.gov.uk', site.host
 
     site.save!
@@ -142,6 +144,7 @@ class TransitionConfigSiteTest < MiniTest::Unit::TestCase
 
       assert_equal 'ukba', yaml['site']
       assert_equal 'uk-borders-agency', yaml['whitehall_slug']
+      assert_equal '834c068d-7918-49b1-b831-53a7f56f5478', yaml['organisation_content_id']
       assert_equal 'https://www.gov.uk/government/organisations/uk-borders-agency', yaml['homepage']
       assert_equal 20140110181512, yaml['tna_timestamp']
     ensure
