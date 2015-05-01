@@ -1,6 +1,8 @@
 ---
 site: highways
 whitehall_slug: highways-england
+extra_organisation_slugs:
+- highways-agency
 homepage: https://www.gov.uk/government/organisations/highways-england
 tna_timestamp: 20140603112028
 host: www.highways.gov.uk
