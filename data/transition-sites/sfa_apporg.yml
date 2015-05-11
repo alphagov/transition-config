@@ -7,5 +7,6 @@ tna_timestamp: 20141006151154
 host: www.apprenticeships.org.uk
 aliases:
 - apprenticeships.org.uk
+- nas.apprenticeships.org.uk
 # options: --query-string qstring1:qstring2:qstring3
 # No query string analysis done
