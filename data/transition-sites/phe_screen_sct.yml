@@ -3,6 +3,6 @@ site: phe_screen_sct
 whitehall_slug: public-health-england
 homepage_title: 'NHS Sickle Cell & Thalassaemia Screening Programme'
 homepage: https://www.gov.uk/government/organisations/public-health-england
-tna_timestamp: 20140805034130
+tna_timestamp: 20150408175925
 host: sct.screening.nhs.uk
 options: --query-string folder:id:monthye
