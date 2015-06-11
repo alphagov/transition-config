@@ -1,0 +1,9 @@
+---
+site: moj_laa
+whitehall_slug: legal-aid-agency
+homepage: https://www.gov.uk/government/organisations/legal-aid-agency
+tna_timestamp: 20140724192647
+host: www.legalservices.gov.uk
+aliases:
+- legalservices.gov.uk
+global: =301 https://www.gov.uk/government/organisations/legal-aid-agency
