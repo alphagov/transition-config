@@ -1,0 +1,9 @@
+---
+site: dclg_fire
+whitehall_slug: department-for-communities-and-local-government
+homepage: https://www.gov.uk/government/policies/fire-prevention-and-rescue
+tna_timestamp: 20100105005659
+host: fire.gov.uk
+global: =301 https://www.gov.uk/government/policies/fire-prevention-and-rescue
+aliases:
+- www.fire.gov.uk
