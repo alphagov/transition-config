@@ -2,7 +2,7 @@
 site: phe_screen
 whitehall_slug: public-health-england
 homepage_title: 'UK National Screening Committee'
-homepage: https://www.gov.uk/government/organisations/public-health-england
+homepage: https://www.gov.uk/topic/population-screening-programmes
 tna_timestamp: 20150408175925
 host: www.screening.nhs.uk
 aliases:
