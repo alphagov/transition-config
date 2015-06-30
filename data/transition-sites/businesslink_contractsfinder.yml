@@ -2,7 +2,6 @@
 site: businesslink_contractsfinder
 whitehall_slug: government-digital-service
 homepage: http://data.gov.uk/data/contracts-archive/
-homepage_title: 'Business Link'
 tna_timestamp: 20141216171146
 host: contractsfinder.businesslink.gov.uk
 global: =301 http://data.gov.uk/data/contracts-archive/
