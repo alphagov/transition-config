@@ -6,6 +6,5 @@ homepage_title: 'Business Link'
 tna_timestamp: 20141216171146
 host: contractsfinder.businesslink.gov.uk
 global: =301 http://data.gov.uk/data/contracts-archive/
-global_redirect_append_path: true
 aliases:
 - www.contractsfinder.businesslink.gov.uk
