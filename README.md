@@ -117,3 +117,7 @@ stored in GitHub and served by Bouncer's nginx configuration. See:
 
 Bouncer's nginx configuration also includes a small number of redirects and
 other behaviours not possible with mappings.
+
+## Glossary of terms
+
+A glossary of the terms used can be found in this [blog post](https://insidegovuk.blog.gov.uk/2014/03/17/transition-technical-glossary/).
