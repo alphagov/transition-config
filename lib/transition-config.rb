@@ -4,6 +4,8 @@ module TransitionConfig
   end
 end
 
+ENV['GOVUK_APP_NAME'] = 'transition-config'
+
 require 'transition-config/organisations'
 require 'transition-config/site'
 require 'transition-config/hosts'
