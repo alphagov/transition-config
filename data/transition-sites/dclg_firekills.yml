@@ -1,0 +1,7 @@
+---
+site: dclg_fire
+whitehall_slug: department-for-communities-and-local-government
+homepage: https://www.gov.uk/firekills
+tna_timestamp: 20100105005659
+host: firekills.gov.uk
+global: =301 https://www.gov.uk/firekills
