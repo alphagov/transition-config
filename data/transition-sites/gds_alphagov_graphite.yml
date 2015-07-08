@@ -1,0 +1,7 @@
+---
+site: gds_alphagov_graphite
+whitehall_slug: government-digital-service
+homepage: https://graphite.publishing.service.gov.uk/
+host: graphite.production.alphagov.co.uk
+global: =301 https://graphite.publishing.service.gov.uk/
+global_redirect_append_path: true

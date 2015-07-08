@@ -1,0 +1,7 @@
+---
+site: gds_alphagov_policy-publisher
+whitehall_slug: government-digital-service
+homepage: https://policy-publisher.publishing.service.gov.uk/
+host: policy-publisher.production.alphagov.co.uk
+global: =301 https://policy-publisher.publishing.service.gov.uk/
+global_redirect_append_path: true

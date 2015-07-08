@@ -1,0 +1,7 @@
+---
+site: gds_alphagov_travel-advice-publisher
+whitehall_slug: government-digital-service
+homepage: https://travel-advice-publisher.publishing.service.gov.uk/
+host: travel-advice-publisher.production.alphagov.co.uk
+global: =301 https://travel-advice-publisher.publishing.service.gov.uk/
+global_redirect_append_path: true

@@ -1,0 +1,7 @@
+---
+site: gds_alphagov_business-support-api
+whitehall_slug: government-digital-service
+homepage: https://business-support-api.publishing.service.gov.uk/
+host: business-support-api.production.alphagov.co.uk
+global: =301 https://business-support-api.publishing.service.gov.uk/
+global_redirect_append_path: true

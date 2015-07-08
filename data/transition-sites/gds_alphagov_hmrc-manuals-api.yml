@@ -1,0 +1,7 @@
+---
+site: gds_alphagov_hmrc-manuals-api
+whitehall_slug: government-digital-service
+homepage: https://hmrc-manuals-api.publishing.service.gov.uk/
+host: hmrc-manuals-api.production.alphagov.co.uk
+global: =301 https://hmrc-manuals-api.publishing.service.gov.uk/
+global_redirect_append_path: true
