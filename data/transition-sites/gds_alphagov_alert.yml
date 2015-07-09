@@ -1,0 +1,10 @@
+---
+site: gds_alphagov_alert
+whitehall_slug: government-digital-service
+homepage: https://alert.publishing.service.gov.uk/
+host: alert.production.alphagov.co.uk
+aliases:
+- icinga.production.alphagov.co.uk
+- nagios.production.alphagov.co.uk
+global: =301 https://alert.publishing.service.gov.uk/
+global_redirect_append_path: true

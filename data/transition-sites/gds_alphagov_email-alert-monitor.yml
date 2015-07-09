@@ -1,0 +1,7 @@
+---
+site: gds_alphagov_email-alert-monitor
+whitehall_slug: government-digital-service
+homepage: https://email-alert-monitor.publishing.service.gov.uk/
+host: email-alert-monitor.production.alphagov.co.uk
+global: =301 https://email-alert-monitor.publishing.service.gov.uk/
+global_redirect_append_path: true

@@ -1,0 +1,9 @@
+---
+site: gds_alphagov_apt
+whitehall_slug: government-digital-service
+homepage: https://apt.publishing.service.gov.uk/
+host: apt.production.alphagov.co.uk
+aliases:
+- apt-origin.production.alphagov.co.uk
+global: =301 https://apt.publishing.service.gov.uk/
+global_redirect_append_path: true

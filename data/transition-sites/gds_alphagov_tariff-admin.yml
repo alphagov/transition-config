@@ -1,0 +1,7 @@
+---
+site: gds_alphagov_tariff-admin
+whitehall_slug: government-digital-service
+homepage: https://tariff-admin.publishing.service.gov.uk/
+host: tariff-admin.production.alphagov.co.uk
+global: =301 https://tariff-admin.publishing.service.gov.uk/
+global_redirect_append_path: true

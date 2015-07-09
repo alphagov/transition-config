@@ -1,0 +1,7 @@
+---
+site: gds_alphagov_maslow
+whitehall_slug: government-digital-service
+homepage: https://maslow.publishing.service.gov.uk/
+host: maslow.production.alphagov.co.uk
+global: =301 https://maslow.publishing.service.gov.uk/
+global_redirect_append_path: true

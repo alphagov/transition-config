@@ -1,0 +1,7 @@
+---
+site: gds_alphagov_contacts-admin
+whitehall_slug: government-digital-service
+homepage: https://contacts-admin.publishing.service.gov.uk/
+host: contacts-admin.production.alphagov.co.uk
+global: =301 https://contacts-admin.publishing.service.gov.uk/
+global_redirect_append_path: true

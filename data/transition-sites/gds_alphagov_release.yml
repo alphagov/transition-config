@@ -1,0 +1,7 @@
+---
+site: gds_alphagov_release
+whitehall_slug: government-digital-service
+homepage: https://release.publishing.service.gov.uk/
+host: release.production.alphagov.co.uk
+global: =301 https://release.publishing.service.gov.uk/
+global_redirect_append_path: true

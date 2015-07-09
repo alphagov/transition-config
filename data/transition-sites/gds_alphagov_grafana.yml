@@ -1,0 +1,7 @@
+---
+site: gds_alphagov_grafana
+whitehall_slug: government-digital-service
+homepage: https://grafana.publishing.service.gov.uk/
+host: grafana.production.alphagov.co.uk
+global: =301 https://grafana.publishing.service.gov.uk/
+global_redirect_append_path: true

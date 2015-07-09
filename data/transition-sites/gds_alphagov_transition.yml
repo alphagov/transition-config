@@ -1,0 +1,7 @@
+---
+site: gds_alphagov_transition
+whitehall_slug: government-digital-service
+homepage: https://transition.publishing.service.gov.uk/
+host: transition.production.alphagov.co.uk
+global: =301 https://transition.publishing.service.gov.uk/
+global_redirect_append_path: true

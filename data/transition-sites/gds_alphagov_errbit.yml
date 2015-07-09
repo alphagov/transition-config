@@ -1,0 +1,7 @@
+---
+site: gds_alphagov_errbit
+whitehall_slug: government-digital-service
+homepage: https://errbit.publishing.service.gov.uk/
+host: errbit.production.alphagov.co.uk
+global: =301 https://errbit.publishing.service.gov.uk/
+global_redirect_append_path: true

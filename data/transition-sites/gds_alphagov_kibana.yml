@@ -1,0 +1,7 @@
+---
+site: gds_alphagov_kibana
+whitehall_slug: government-digital-service
+homepage: https://kibana.publishing.service.gov.uk/
+host: kibana.production.alphagov.co.uk
+global: =301 https://kibana.publishing.service.gov.uk/
+global_redirect_append_path: true
