@@ -2,6 +2,7 @@
 site: gds_alphagov_search-admin
 whitehall_slug: government-digital-service
 homepage: https://search-admin.publishing.service.gov.uk/
+tna_timestamp: 20201010101010 # Stub timestamp - site not in TNA
 host: search-admin.production.alphagov.co.uk
 global: =301 https://search-admin.publishing.service.gov.uk/
 global_redirect_append_path: true
