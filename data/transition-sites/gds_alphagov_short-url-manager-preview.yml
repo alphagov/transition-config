@@ -1,0 +1,8 @@
+---
+site: gds_alphagov_short-url-manager-preview
+whitehall_slug: government-digital-service
+homepage: https://short-url-manager.integration.publishing.service.gov.uk
+tna_timestamp: 20201010101010 # Stub timestamp - site not in TNA
+host: short-url-manager.preview.alphagov.co.uk
+global: =301 https://short-url-manager.integration.publishing.service.gov.uk
+global_redirect_append_path: true
