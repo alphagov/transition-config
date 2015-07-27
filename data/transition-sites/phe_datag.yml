@@ -1,0 +1,8 @@
+---
+site: phe_datag
+whitehall_slug: public-health-england
+homepage_title: PHE data and analysis tools
+homepage: https://www.gov.uk/phe-data-and-analysis-tools
+tna_timestamp: 20150505172621
+host: datagateway.phe.org.uk
+options: --query-string folder:id
