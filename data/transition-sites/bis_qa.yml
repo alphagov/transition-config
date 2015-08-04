@@ -1,9 +1,10 @@
 ---
 site: bis_qa
 whitehall_slug: department-for-business-innovation-skills
-homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills
+homepage_title: 'Queens Awards'
+homepage: https://www.gov.uk/queens-awards-for-enterprise
 tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
 host: queensawards.bis.gov.uk
-homepage_furl: www.gov.uk/bis
 aliases:
 - www.queensawards.bis.gov.uk
+global: =301 https://www.gov.uk/queens-awards-for-enterprise
