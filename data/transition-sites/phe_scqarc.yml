@@ -1,0 +1,9 @@
+---
+site: phe_scqarc
+whitehall_slug: public-health-england
+homepage: https://www.gov.uk/government/organisations/public-health-england
+tna_timestamp: 20150408180254
+host: www.scqarc.org.uk
+aliases:
+- scqarc.org.uk
+global: =410
