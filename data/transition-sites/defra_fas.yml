@@ -4,7 +4,7 @@ whitehall_slug: department-for-environment-food-rural-affairs
 homepage: https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs
 tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
 host: www.farmingadviceservice.org.uk
-global: =301 http://www.defra.gov.uk/farming-advice/
+global: =301 http://www.defra.gov.uk/farming-advice
 global_redirect_append_path: true
 aliases:
 - farmingadviceservice.org.uk

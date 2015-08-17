@@ -1,8 +1,8 @@
 ---
 site: gds_alphagov_policy-publisher
 whitehall_slug: government-digital-service
-homepage: https://policy-publisher.publishing.service.gov.uk/
+homepage: https://policy-publisher.publishing.service.gov.uk
 tna_timestamp: 20201010101010 # Stub timestamp - site not in TNA
 host: policy-publisher.production.alphagov.co.uk
-global: =301 https://policy-publisher.publishing.service.gov.uk/
+global: =301 https://policy-publisher.publishing.service.gov.uk
 global_redirect_append_path: true
