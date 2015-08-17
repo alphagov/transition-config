@@ -1,10 +1,10 @@
 ---
 site: businesslink_contractsfinder
 whitehall_slug: government-digital-service
-homepage: http://data.gov.uk/data/contracts-archive/
+homepage: http://data.gov.uk/data/contracts-archive
 tna_timestamp: 20141216171146
 host: contractsfinder.businesslink.gov.uk
-global: =301 http://data.gov.uk/data/contracts-archive/
+global: =301 http://data.gov.uk/data/contracts-archive
 aliases:
 - www.contractsfinder.businesslink.gov.uk
 - online.contractsfinder.businesslink.gov.uk

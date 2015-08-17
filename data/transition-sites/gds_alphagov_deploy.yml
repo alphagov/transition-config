@@ -1,8 +1,8 @@
 ---
 site: gds_alphagov_deploy
 whitehall_slug: government-digital-service
-homepage: https://deploy.publishing.service.gov.uk/
+homepage: https://deploy.publishing.service.gov.uk
 tna_timestamp: 20201010101010 # Stub timestamp - site not in TNA
 host: deploy.production.alphagov.co.uk
-global: =301 https://deploy.publishing.service.gov.uk/
+global: =301 https://deploy.publishing.service.gov.uk
 global_redirect_append_path: true

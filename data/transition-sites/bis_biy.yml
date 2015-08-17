@@ -6,5 +6,5 @@ tna_timestamp: 20140402165524
 host: businessinyou.bis.gov.uk
 aliases:
 - www.businessinyou.bis.gov.uk
-global: =301 http://www.greatbusiness.gov.uk/
+global: =301 http://www.greatbusiness.gov.uk
 global_redirect_append_path: true

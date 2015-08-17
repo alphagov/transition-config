@@ -6,6 +6,6 @@ aliases:
 - jobcentreplus.gov.uk
 tna_timestamp: 20130128102031
 homepage_furl: www.gov.uk
-homepage: https://www.gov.uk/
-global: =301 https://www.gov.uk/
+homepage: https://www.gov.uk
+global: =301 https://www.gov.uk
 css: department-for-work-pensions

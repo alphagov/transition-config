@@ -1,8 +1,8 @@
 ---
 site: gds_alphagov_assets-origin
 whitehall_slug: government-digital-service
-homepage: https://assets-origin.publishing.service.gov.uk/
+homepage: https://assets-origin.publishing.service.gov.uk
 tna_timestamp: 20201010101010 # Stub timestamp - site not in TNA
 host: assets-origin.production.alphagov.co.uk
-global: =301 https://assets-origin.publishing.service.gov.uk/
+global: =301 https://assets-origin.publishing.service.gov.uk
 global_redirect_append_path: true
