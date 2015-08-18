@@ -7,8 +7,4 @@ homepage_furl: www.gov.uk/dh
 homepage: https://www.gov.uk/government/organisations/department-of-health
 aliases:
 - dh.gov.uk
-locations:
-- path: /dh_digitalassets/
-  operation: ~*
-  status: 410
 css: department-of-health

@@ -8,9 +8,4 @@ tna_timestamp: 20130128103201
 homepage_furl: www.gov.uk/dfid
 homepage: https://www.gov.uk/government/organisations/department-for-international-development
 options: --query-string attach_url
-locations:
-- path: ^/r4d/(.*)$
-  operation: ~*
-  status: 301
-  new_url: http://r4d.dfid.gov.uk/$1
 css: department-for-international-development
