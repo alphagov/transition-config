@@ -7,3 +7,5 @@ host: search2.hmrc.gov.uk
 homepage_furl: www.gov.uk/hmrc
 options: --query-string formid:record
 special_redirect_strategy: supplier
+aliases:
+- search.hmrc.gov.uk
