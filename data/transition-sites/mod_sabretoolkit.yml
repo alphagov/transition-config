@@ -4,3 +4,4 @@ whitehall_slug: ministry-of-defence
 homepage: https://www.gov.uk/government/organisations/ministry-of-defence
 host: toolkit.sabre.mod.uk
 tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
+options: --query-string _id
