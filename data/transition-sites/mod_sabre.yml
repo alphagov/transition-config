@@ -5,5 +5,5 @@ homepage: https://www.gov.uk/government/organisations/ministry-of-defence
 host: www.sabre.mod.uk
 tna_timestamp: 20150806090301
 aliases:
-  - sabre.mod.uk
+- sabre.mod.uk
 options: --query-string _id
