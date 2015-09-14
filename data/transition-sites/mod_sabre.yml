@@ -7,3 +7,5 @@ tna_timestamp: 20150806090301
 aliases:
 - sabre.mod.uk
 options: --query-string _id
+extra_organisation_slugs:
+- reserve-forces-and-cadets-associations

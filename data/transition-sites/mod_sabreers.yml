@@ -5,3 +5,5 @@ homepage: https://www.gov.uk/government/organisations/ministry-of-defence
 host: ers.sabre.mod.uk
 tna_timestamp: 20150806090301
 options: --query-string _id
+extra_organisation_slugs:
+- reserve-forces-and-cadets-associations
