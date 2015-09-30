@@ -1,7 +1,8 @@
 ---
 site: dclg_planningportal
 whitehall_slug: planning-inspectorate
-homepage: https://www.gov.uk/government/organisations/department-for-communities-and-local-government
+homepage: http://www.planningportal.co.uk
+homepage_title: 'Planning Portal'
 tna_timestamp: 20150612123823
 host: www.planningportal.gov.uk
 aliases:
