@@ -1,9 +1,10 @@
 ---
 site: mod_sabreers
 whitehall_slug: ministry-of-defence
-homepage: https://www.gov.uk/government/organisations/ministry-of-defence
+homepage: https://www.gov.uk/government/groups/defence-relationship-management
 host: ers.sabre.mod.uk
 tna_timestamp: 20150806090301
 options: --query-string _id
+homepage_title: 'Defence Relationship Management'
 extra_organisation_slugs:
 - reserve-forces-and-cadets-associations
