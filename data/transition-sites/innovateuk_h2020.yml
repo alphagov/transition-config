@@ -1,9 +1,9 @@
 ---
 site: innovateuk_h2020
 whitehall_slug: innovate-uk
-homepage: https://www.gov.uk/government/organisations/innovate-uk
-tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
+homepage: https://www.gov.uk/horizon-2020
+tna_timestamp: 20150825091359
 host: www.h2020uk.org
 aliases:
 - h2020uk.org
-# options: No query string analysis yet.
+- h2020uk.org.uk
