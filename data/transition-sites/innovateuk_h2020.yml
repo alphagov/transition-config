@@ -7,3 +7,4 @@ host: www.h2020uk.org
 aliases:
 - h2020uk.org
 - h2020uk.org.uk
+global: =301 https://www.gov.uk/horizon-2020
