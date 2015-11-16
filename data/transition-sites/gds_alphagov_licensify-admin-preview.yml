@@ -1,0 +1,8 @@
+---
+site: gds_alphagov_licensify-admin
+whitehall_slug: government-digital-service
+homepage: https://licensify-admin.integration.publishing.service.gov.uk
+tna_timestamp: 20201010101010 # Stub timestamp - site not in TNA
+host: licensify-admin.preview.alphagov.co.uk
+global: =301 https://licensify-admin.integration.publishing.service.gov.uk
+global_redirect_append_path: true
