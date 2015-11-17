@@ -1,0 +1,11 @@
+---
+site: voa_mycounciltax
+whitehall_slug: valuation-office-agency
+homepage: https://www.gov.uk/government/organisations/valuation-office-agency
+tna_timestamp: 20201010101010 # Stub timestamp - site not in TNA
+host: www.mycounciltax.gov.uk
+global: =301 https://www.gov.uk/government/organisations/valuation-office-agency
+aliases:
+- www.mysummaryvaluation.gov.uk
+extra_organisation_slugs:
+- hm-revenue-customs

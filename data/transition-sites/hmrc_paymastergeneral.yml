@@ -1,0 +1,7 @@
+---
+site: hmrc_paymastergeneral
+whitehall_slug: hm-revenue-customs
+homepage: https://www.gov.uk/government/organisations/office-of-hm-paymaster-general
+tna_timestamp: 20100612132909
+host: www.opg.gov.uk
+global: =301 https://www.gov.uk/government/organisations/office-of-hm-paymaster-general
