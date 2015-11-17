@@ -1,0 +1,14 @@
+---
+site: hmrc_inrev
+whitehall_slug: hm-revenue-customs
+homepage: https://www.gov.uk/government/organisations/hm-revenue-customs
+tna_timestamp: 20201010101010 # Stub timestamp - site not in TNA
+host: www.inrev.gov.uk
+global: =301 https://www.gov.uk/government/organisations/hm-revenue-customs
+aliases:
+- www.hmrevenueandcustoms.gov.uk
+- www.hmrevenue-customs.gov.uk
+- www.ir-efile.gov.uk
+- www.ir.gov.uk
+- www.ir-online.gov.uk
+- www.revenueandcustoms.gov.uk
