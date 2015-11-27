@@ -1,0 +1,8 @@
+---
+site: directgov_motinfo
+whitehall_slug: government-digital-service
+homepage: https://www.gov.uk/government/organisations/government-digital-service
+tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
+host: motinfo.direct.gov.uk
+global: =301 https://www.gov.uk/topic/mot/get-check-mot
+css: directgov
