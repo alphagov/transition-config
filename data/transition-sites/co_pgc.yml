@@ -9,3 +9,4 @@ aliases:
 - payrollgivingcentre.com
 extra_organisation_slugs:
 - hm-revenue-customs
+global: =301 https://www.gov.uk/payroll-giving
