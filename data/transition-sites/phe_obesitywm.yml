@@ -1,12 +1,10 @@
 ---
-site: phe_foodobesitywm
+site: phe_obesitywm
 whitehall_slug: public-health-england
 homepage: https://www.gov.uk/government/organisations/public-health-england
 tna_timestamp: 20150116162451
-host: www.foodwm.org.uk
+host: www.obesitywm.org.uk
 homepage_furl: www.gov.uk/phe
 aliases:
-- foodwm.org.uk
-- www.obesitywm.org.uk
 - obesitywm.org.uk
 global: =410
