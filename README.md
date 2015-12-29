@@ -63,11 +63,11 @@ Some of the optional fields are frequently used:
 
 See the [Site configuration](#site-configuration) for more details about these and other fields.
 
-### Run the tests
+### Run the validation checks
 
 These perform some cursory validations of the site configuration files.
 ```
-  bundle exec rake
+  bundle exec rake validate:all
 ```
 
 An option for a more thorough test of the config is to import it into the Transition app in development.
