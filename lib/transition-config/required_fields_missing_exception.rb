@@ -7,7 +7,7 @@ module TransitionConfig
 
     def to_s
       "Sites missing required fields: \n"\
-      "#{@missing.map { |abbr, fields| "#{abbr}: #{fields}" }.join("\n")}"
+      "#{@missing.map { |filename, fields| "#{filename}.yml: #{fields}" }.join("\n")}"
     end
   end
 end

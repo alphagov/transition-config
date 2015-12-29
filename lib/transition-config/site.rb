@@ -113,6 +113,10 @@ module TransitionConfig
       end
     end
 
+    def self.all_with_basenames(masks = MASKS, options = {})
+      TransitionConfig::Site.all(masks, options) { |filename| [Site.from_yaml(filename), Site.basename(filename)] }
+    end
+
     def self.check_all_slugs!(masks = MASKS)
       missing = {}
       TransitionConfig::Site.all(masks, organisations: Organisations.new).each do |site|
@@ -129,7 +133,7 @@ module TransitionConfig
     end
 
     def self.check_abbrs_match_filenames!(masks = MASKS)
-      sites_with_basenames = TransitionConfig::Site.all(masks) { |filename| [Site.from_yaml(filename), Site.basename(filename)] }
+      sites_with_basenames = TransitionConfig::Site.all_with_basenames(masks)
 
       mismatches = {}
       sites_with_basenames.each do |site, basename|
@@ -141,9 +145,9 @@ module TransitionConfig
 
     def self.check_required_fields_present!(masks = MASKS)
       missing = {}
-      TransitionConfig::Site.all(masks).each do |site|
+      TransitionConfig::Site.all_with_basenames(masks).each do |site, basename|
         unless site.missing_fields.empty?
-          missing[site.abbr] = site.missing_fields
+          missing[basename] = site.missing_fields
         end
       end
       raise TransitionConfig::RequiredFieldsMissingException.new(missing) unless missing.empty?

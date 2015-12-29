@@ -117,7 +117,7 @@ class TransitionConfigSiteTest < MiniTest::Unit::TestCase
 
     expected = {
       'bis' => ['whitehall_slug', 'host', 'tna_timestamp', 'homepage'],
-      nil => ['site'],  # if 'site' is missing then the key in the error hash is nil
+      'ccs' => ['site'],
     }
     assert_equal expected, exception.missing
   end
