@@ -101,6 +101,15 @@ class TransitionConfigSiteTest < MiniTest::Unit::TestCase
     assert_equal ['made-up-slug'], exception.missing['bis']
   end
 
+  def test_abbrs_match_filenames
+    exception = assert_raises(TransitionConfig::AbbrFilenameMismatchesException) do
+      TransitionConfig::Site.validate!(relative_to_tests('fixtures/abbr_filename_mismatch/*.yml'))
+    end
+
+    expected = { 'one' => 'won' }
+    assert_equal expected, exception.mismatches
+  end
+
   def test_site_create_fails_when_no_slug
     organisations_api_does_not_have_organisation 'non-existent-whitehall-slug'
 

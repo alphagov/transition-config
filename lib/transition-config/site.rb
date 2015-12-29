@@ -1,4 +1,5 @@
 require 'yaml'
+require 'transition-config/abbr_filename_mismatches_exception'
 require 'transition-config/slugs_missing_exception'
 require 'transition-config/tna_timestamp'
 
@@ -98,7 +99,11 @@ module TransitionConfig
 
       raise RuntimeError, "No sites yaml found in #{masks}" if files.empty?
 
-      files.map { |filename| Site.from_yaml(filename, options) }
+      if block_given?
+        files.map { |filename| yield(filename) }
+      else
+        files.map { |filename| Site.from_yaml(filename, options) }
+      end
     end
 
     def self.check_all_slugs!(masks = MASKS)
@@ -111,10 +116,25 @@ module TransitionConfig
       raise TransitionConfig::SlugsMissingException.new(missing) unless missing.empty?
     end
 
+    def self.validate!(masks = MASKS)
+      sites_with_basenames = TransitionConfig::Site.all(masks) { |filename| [Site.from_yaml(filename), Site.basename(filename)] }
+
+      mismatches = {}
+      sites_with_basenames.each do |site, basename|
+        mismatches[basename] = site.abbr unless basename == site.abbr
+      end
+
+      raise TransitionConfig::AbbrFilenameMismatchesException.new(mismatches) unless mismatches.empty?
+    end
+
     def self.from_yaml(filename, options = {})
       Site.new(YAML.load(File.read(filename))).tap do |site|
         site.organisations = options[:organisations]
       end
+    end
+
+    def self.basename(filename)
+      File.basename(filename, '.yml')
     end
 
     def self.create(abbr, whitehall_slug, host)
