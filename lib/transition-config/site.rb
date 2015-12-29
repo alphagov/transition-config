@@ -1,5 +1,6 @@
 require 'yaml'
 require 'transition-config/abbr_filename_mismatches_exception'
+require 'transition-config/required_fields_missing_exception'
 require 'transition-config/slugs_missing_exception'
 require 'transition-config/tna_timestamp'
 
@@ -8,6 +9,8 @@ module TransitionConfig
     MASKS = [
       TransitionConfig.path('data/transition-sites/*.yml')
     ]
+
+    REQUIRED_FIELDS = %w(site whitehall_slug host tna_timestamp homepage)
 
     attr_accessor :hash
     def initialize(hash)
@@ -74,6 +77,10 @@ module TransitionConfig
       all_slugs.reject { |slug| slug_exists_in_whitehall?(slug) }
     end
 
+    def missing_fields
+      REQUIRED_FIELDS - hash.keys
+    end
+
     def ordered_output
       {
         'site'             => abbr,
@@ -117,6 +124,11 @@ module TransitionConfig
     end
 
     def self.validate!(masks = MASKS)
+      Site.check_abbrs_match_filenames!(masks)
+      Site.check_required_fields_present!(masks)
+    end
+
+    def self.check_abbrs_match_filenames!(masks = MASKS)
       sites_with_basenames = TransitionConfig::Site.all(masks) { |filename| [Site.from_yaml(filename), Site.basename(filename)] }
 
       mismatches = {}
@@ -125,6 +137,16 @@ module TransitionConfig
       end
 
       raise TransitionConfig::AbbrFilenameMismatchesException.new(mismatches) unless mismatches.empty?
+    end
+
+    def self.check_required_fields_present!(masks = MASKS)
+      missing = {}
+      TransitionConfig::Site.all(masks).each do |site|
+        unless site.missing_fields.empty?
+          missing[site.abbr] = site.missing_fields
+        end
+      end
+      raise TransitionConfig::RequiredFieldsMissingException.new(missing) unless missing.empty?
     end
 
     def self.from_yaml(filename, options = {})

@@ -101,13 +101,25 @@ class TransitionConfigSiteTest < MiniTest::Unit::TestCase
     assert_equal ['made-up-slug'], exception.missing['bis']
   end
 
-  def test_abbrs_match_filenames
+  def test_checks_abbrs_match_filenames
     exception = assert_raises(TransitionConfig::AbbrFilenameMismatchesException) do
-      TransitionConfig::Site.validate!(relative_to_tests('fixtures/abbr_filename_mismatch/*.yml'))
+      TransitionConfig::Site.check_abbrs_match_filenames!(relative_to_tests('fixtures/abbr_filename_mismatch/*.yml'))
     end
 
     expected = { 'one' => 'won' }
     assert_equal expected, exception.mismatches
+  end
+
+  def test_checks_required_fields_are_present
+    exception = assert_raises(TransitionConfig::RequiredFieldsMissingException) do
+      TransitionConfig::Site.check_required_fields_present!(relative_to_tests('fixtures/required_fields_missing/*.yml'))
+    end
+
+    expected = {
+      'bis' => ['whitehall_slug', 'host', 'tna_timestamp', 'homepage'],
+      nil => ['site'],  # if 'site' is missing then the key in the error hash is nil
+    }
+    assert_equal expected, exception.missing
   end
 
   def test_site_create_fails_when_no_slug
