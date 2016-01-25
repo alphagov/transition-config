@@ -127,8 +127,8 @@ class TransitionConfigSiteTest < MiniTest::Unit::TestCase
       TransitionConfig::Site.check_homepage_protocol_present!(relative_to_tests('fixtures/required_homepage_protocol_missing/*.yml'))
     end
 
-    expected = ['ago']
-    assert_equal expected, exception.missing
+    expected = ['ago', 'bis']
+    assert_equal expected, exception.missing.sort
   end
 
   def test_site_create_fails_when_no_slug

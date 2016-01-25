@@ -1,6 +1,7 @@
 require 'yaml'
 require 'transition-config/abbr_filename_mismatches_exception'
 require 'transition-config/required_fields_missing_exception'
+require 'transition-config/required_homepage_protocol_exception'
 require 'transition-config/slugs_missing_exception'
 require 'transition-config/tna_timestamp'
 
@@ -35,6 +36,10 @@ module TransitionConfig
 
     def host
       hash['host']
+    end
+
+    def homepage
+      hash['homepage']
     end
 
     def aliases
@@ -130,6 +135,7 @@ module TransitionConfig
     def self.validate!(masks = MASKS)
       Site.check_abbrs_match_filenames!(masks)
       Site.check_required_fields_present!(masks)
+      Site.check_homepage_protocol_present!(masks)
     end
 
     def self.check_abbrs_match_filenames!(masks = MASKS)
@@ -151,6 +157,14 @@ module TransitionConfig
         end
       end
       raise TransitionConfig::RequiredFieldsMissingException.new(missing) unless missing.empty?
+    end
+
+    def self.check_homepage_protocol_present!(masks = MASKS)
+      missing = []
+      TransitionConfig::Site.all_with_basenames(masks).each do |site, _|
+        missing << site.abbr unless %w(http https).any? { |protocol| site.homepage.start_with?(protocol) }
+      end
+      raise TransitionConfig::RequiredHomepageProtocolException.new(missing) unless missing.empty?
     end
 
     def self.from_yaml(filename, options = {})
