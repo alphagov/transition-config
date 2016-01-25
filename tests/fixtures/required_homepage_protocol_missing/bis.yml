@@ -1,0 +1,22 @@
+---
+site: bis
+whitehall_slug: department-for-business-innovation-skills
+host: www.bis.gov.uk
+tna_timestamp: 20121212135622 # Partial: update with care - TNA will have pages from www.gov.uk
+homepage_furl: www.gov.uk/bis
+homepage: www.gov.uk/government/organisations/department-for-business-innovation-skillshttps://
+css: department-for-business-innovation-skills
+aliases:
+- bis.gov.uk
+- www2.bis.gov.uk
+- web.bis.gov.uk
+- www.web.bis.gov.uk
+- tmpcms.bis.gov.uk
+- www.tmpcms.bis.gov.uk
+extra_organisation_slugs:
+- british-hallmarking-council
+- government-office-for-science
+- insolvency-practitioners-tribunal
+- insolvency-service
+- national-measurement-office
+- uk-space-agency

@@ -122,6 +122,15 @@ class TransitionConfigSiteTest < MiniTest::Unit::TestCase
     assert_equal expected, exception.missing
   end
 
+  def test_checks_required_homepage_protocols_present
+    exception = assert_raises(TransitionConfig::RequiredHomepageProtocolException) do
+      TransitionConfig::Site.check_homepage_protocol_present!(relative_to_tests('fixtures/required_homepage_protocol_missing/*.yml'))
+    end
+
+    expected = ['ago', 'bis']
+    assert_equal expected, exception.missing.sort
+  end
+
   def test_site_create_fails_when_no_slug
     organisations_api_does_not_have_organisation 'non-existent-whitehall-slug'
 

@@ -1,0 +1,9 @@
+---
+whitehall_slug: crown-commercial-service
+homepage: https://www.gov.uk/government/organisations/crown-commercial-service
+tna_timestamp: 20141129010247
+host: ccs.cabinetoffice.gov.uk
+aliases:
+- gps.cabinetoffice.gov.uk
+options: --query-string sm_field_contract_id
+special_redirect_strategy: via_aka
