@@ -4,6 +4,10 @@ whitehall_slug: ministry-of-defence
 homepage: https://www.gov.uk/government/groups/defence-relationship-management
 host: toolkit.sabre.mod.uk
 tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
+aliases:
+- www.toolkit.sabre.mod.uk
+- employertoolkit.sabre.mod.uk
+- www.employertoolkit.sabre.mod.uk
 options: --query-string _id
 homepage_title: 'Defence Relationship Management'
 extra_organisation_slugs:
