@@ -6,6 +6,21 @@ host: www.sabre.mod.uk
 tna_timestamp: 20150806090301
 aliases:
 - sabre.mod.uk
+- www.en.mod.uk
+- notification.sabre.mod.uk
+- www.nelc.mod.uk
+- www.banner.sabre.mod.uk
+- banner.sabre.mod.uk
+- www.e-bulletin.sabre.mod.uk
+- e-bulletin.sabre.mod.uk
+- humanitarian.sabre.mod.uk
+- regionalupdates.sabre.mod.uk
+- support.sabre.mod.uk
+- supportive.sabre.mod.uk
+- assets.sabre.mod.uk
+- digitalassets.sabre.mod.uk
+- fotoweb.sabre.mod.uk
+- mail.sabre.mod.uk
 options: --query-string _id:include:ref
 homepage_title: 'Defence Relationship Management'
 extra_organisation_slugs:

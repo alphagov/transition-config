@@ -4,6 +4,10 @@ whitehall_slug: ministry-of-defence
 homepage: https://www.gov.uk/government/publications/defence-employer-recognition-scheme
 host: ers.sabre.mod.uk
 tna_timestamp: 20150806090301
+aliases:
+- www.ers.sabre.mod.uk
+- employerrecognitionscheme.sabre.mod.uk
+- www.employerrecognitionscheme.sabre.mod.uk
 options: --query-string _id
 homepage_title: 'Defence Employer Recognition Scheme'
 extra_organisation_slugs:
