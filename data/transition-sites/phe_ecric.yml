@@ -7,4 +7,4 @@ tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
 host: www.ecric.nhs.uk
 aliases:
 - ecric.nhs.uk
-global: =410
+global: =301 https://www.gov.uk/government/organisations/public-health-england
