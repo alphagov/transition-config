@@ -1,0 +1,7 @@
+---
+site: ukti_overseas_businesses
+whitehall_slug: uk-trade-investment
+homepage: https://www.gov.uk/government/collections/investment-in-the-uk-guidance-for-overseas-businesses
+tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
+host: www.ukti-invest.co.uk
+global: =301 https://www.gov.uk/government/collections/investment-in-the-uk-guidance-for-overseas-businesses
