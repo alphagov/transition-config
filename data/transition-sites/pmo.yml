@@ -1,0 +1,9 @@
+---
+site: pmo
+whitehall_slug: prime-ministers-office-10-downing-street
+homepage: https://www.gov.uk/government/organisations/prime-ministers-office-10-downing-street
+tna_timestamp: 20060213223550
+host: www.pmo.gov.uk
+aliases:
+- pmo.gov.uk
+global: =301 https://www.gov.uk/government/organisations/prime-ministers-office-10-downing-street
