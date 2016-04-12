@@ -3,7 +3,7 @@ site: dclg_localdirect
 whitehall_slug: department-for-communities-and-local-government
 homepage: https://www.gov.uk/government/organisations/department-for-communities-and-local-government
 homepage_furl: www.gov.uk/dclg
-tna_timestamp: 20151113141045 # Final crawl underway - will need updating once that's complete
+tna_timestamp: 20160330154530
 host: www.localdirect.gov.uk
 aliases:
 - localdirect.gov.uk
