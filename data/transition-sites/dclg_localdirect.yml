@@ -1,11 +1,10 @@
 ---
 site: dclg_localdirect
 whitehall_slug: department-for-communities-and-local-government
-homepage: https://www.gov.uk/government/organisations/department-for-communities-and-local-government
-homepage_furl: www.gov.uk/dclg
+homepage: http://www.localdigitalcoalition.uk
 tna_timestamp: 20160330154530
 host: www.localdirect.gov.uk
 aliases:
 - localdirect.gov.uk
 global: =410
-css: department-for-communities-and-local-government
+homepage_title: 'Local Digital Coalition'
