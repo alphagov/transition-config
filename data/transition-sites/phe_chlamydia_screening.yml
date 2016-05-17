@@ -1,0 +1,9 @@
+---
+site: phe_chlamydia_screening
+whitehall_slug: public-health-england
+homepage: https://www.gov.uk/government/organisations/public-health-england
+tna_timestamp: 20150506144840
+host: www.chlamydiascreening.nhs.uk
+homepage_furl: www.gov.uk/phe
+aliases:
+- chlamydiascreening.nhs.uk
