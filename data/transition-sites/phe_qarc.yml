@@ -1,0 +1,9 @@
+---
+site: phe_qarc
+whitehall_slug: public-health-england
+homepage: https://www.gov.uk/government/organisations/public-health-england
+tna_timestamp: 20150401085121
+host: londonqarc.nhs.uk
+aliases:
+- www.londonqarc.nhs.uk
+global: =301 https://www.gov.uk/government/organisations/public-health-england
