@@ -1,0 +1,9 @@
+---
+site: landregistry_houseprices
+whitehall_slug: land-registry
+homepage_title: 'Land Registry House Prices'
+homepage: http://landregistry.data.gov.uk/app/hpi
+tna_timestamp: 20140709064818
+host: houseprices.landregistry.gov.uk
+aliases:
+- www.houseprices.landregistry.gov.uk
