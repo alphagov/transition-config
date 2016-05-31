@@ -1,0 +1,8 @@
+---
+site: gds_assets_cabinetoffice
+whitehall_slug: government-digital-service
+homepage: https://assets.publishing.service.gov.uk
+tna_timestamp: 20160317153903
+host: assets.digital.cabinet-office.gov.uk
+global: =301 https://assets.publishing.service.gov.uk
+global_redirect_append_path: true
