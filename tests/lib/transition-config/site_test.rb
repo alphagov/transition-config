@@ -148,7 +148,7 @@ class TransitionConfigSiteTest < MiniTest::Unit::TestCase
 
   def test_site_creates_yaml_when_slug_exists
     tna_response = File.read(relative_to_tests('fixtures/tna/ukba.html'))
-    stub_request(:get, "http://webarchive.nationalarchives.gov.uk/*/http://www.ukba.homeoffice.gov.uk").
+    stub_request(:get, "http://webarchive.nationalarchives.gov.uk/+/http://www.ukba.homeoffice.gov.uk").
         to_return(status: 200, body: tna_response)
 
     organisation_details = organisation_details_for_slug('uk-borders-agency').tap do |details|
@@ -173,7 +173,7 @@ class TransitionConfigSiteTest < MiniTest::Unit::TestCase
       assert_equal 'ukba', yaml['site']
       assert_equal 'uk-borders-agency', yaml['whitehall_slug']
       assert_equal 'https://www.gov.uk/government/organisations/uk-borders-agency', yaml['homepage']
-      assert_equal 20140110181512, yaml['tna_timestamp']
+      assert_equal 20150423114915, yaml['tna_timestamp']
     ensure
       File.delete(site.filename)
     end
