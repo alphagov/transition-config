@@ -11,11 +11,11 @@ module TransitionConfig
 
     def find
       begin
-        response = open("#{TNA_BASE_URL}/*/http://#{@hostname}")
+        response = open("#{TNA_BASE_URL}/+/http://#{@hostname}")
       rescue OpenURI::HTTPError
         puts "Couldn't find a crawl. Trying HTTPS..."
         begin
-          response = open("#{TNA_BASE_URL}/*/https://#{@hostname}")
+          response = open("#{TNA_BASE_URL}/+/https://#{@hostname}")
         rescue OpenURI::HTTPError
           $stderr.puts("TNA don't appear to have crawled this (yet) #{@hostname} Try the aliases?")
           return nil
@@ -23,8 +23,7 @@ module TransitionConfig
       end
 
       doc = Nokogiri::HTML(response)
-      crawl_date_row = doc.css('div#pagemain table tr').last
-      most_recent_crawl_link = crawl_date_row.css('td a').last
+      most_recent_crawl_link = doc.xpath('//*[@id="header"]/div/div[1]/ul/li[6]/a').last
       url = URI.parse(most_recent_crawl_link['href'])
       url.path.split('/')[1]
     end
