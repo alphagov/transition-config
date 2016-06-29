@@ -4,5 +4,6 @@ whitehall_slug: government-digital-service
 homepage: https://www.gov.uk/government/organisations/government-digital-service
 tna_timestamp: 20140727120113
 host: local.direct.gov.uk
-aliases: 
+aliases:
 - maps.direct.gov.uk
+options: --query-string lgsl:datatype:ref
