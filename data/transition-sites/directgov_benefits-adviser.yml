@@ -4,5 +4,8 @@ whitehall_slug: government-digital-service
 homepage: https://www.gov.uk/government/organisations/government-digital-service
 tna_timestamp: 20120628213336
 host: benefits-adviser.direct.gov.uk
+aliases:
+- benefitsadviser.direct.gov.uk
+- benefitsadvisor.direct.gov.uk
 global: =301 https://www.gov.uk/benefits-adviser
 css: directgov
