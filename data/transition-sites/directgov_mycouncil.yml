@@ -4,5 +4,5 @@ whitehall_slug: government-digital-service
 homepage: https://www.gov.uk/government/organisations/government-digital-service
 tna_timestamp: 20130221165347
 host: mycouncil.direct.gov.uk
-global: =301 https://www.gov.uk/find-your-local-council
+global: =301 https://www.gov.uk/find-local-council
 css: directgov

@@ -1,7 +1,7 @@
 ---
 site: directgov_local
 whitehall_slug: government-digital-service
-homepage: https://www.gov.uk/find-your-local-council
+homepage: https://www.gov.uk/find-local-council
 tna_timestamp: 20140727120113
 host: local.direct.gov.uk
 aliases:
