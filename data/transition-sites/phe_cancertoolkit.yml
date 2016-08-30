@@ -1,0 +1,9 @@
+---
+site: phe_cancertoolkit
+whitehall_slug: public-health-england
+homepage: https://www.gov.uk/government/organisations/public-health-england
+tna_timestamp: 20201010101010 # Stub timestamp - site not in TNA
+host: cancertoolkit.co.uk
+aliases:
+- www.cancertoolkit.co.uk
+global: =301
