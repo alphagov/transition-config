@@ -1,0 +1,9 @@
+---
+site: dclg_bb
+whitehall_slug: department-for-communities-and-local-government
+homepage: https://www.gov.uk/government/publications/sustainable-communities-act-and-barrier-busting
+tna_timestamp: 20150310032258
+host: barrierbusting.communities.gov.uk
+aliases:
+- www.barrierbusting.communities.gov.uk
+global: =301 https://www.gov.uk/government/publications/sustainable-communities-act-and-barrier-busting
