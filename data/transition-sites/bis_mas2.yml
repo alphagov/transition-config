@@ -1,9 +1,8 @@
 ---
 site: bis_mas2
 whitehall_slug: department-for-business-innovation-skills
-homepage_title: 'Manufacturing Advisory Service'
-homepage: https://www.gov.uk/manufacturing-advisory-service-mas
+homepage_title: 'business support finder'
+homepage: https://www.gov.uk/business-finance-support-finder
 tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
 host: www.mas-em.gov.uk
-homepage_furl: www.gov.uk/manufacturing-advisory-service-mas
-global: =301 https://www.gov.uk/manufacturing-advisory-service-mas
+global: =410
