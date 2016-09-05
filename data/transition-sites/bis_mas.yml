@@ -5,4 +5,6 @@ homepage: https://www.gov.uk/government/organisations/department-for-business-in
 tna_timestamp: 20140320153140
 host: www.mas.bis.gov.uk
 homepage_furl: www.gov.uk/bis
+aliases:
+- www.mas.berr.gov.uk
 global: =301 https://www.gov.uk/manufacturing-advisory-service-mas
