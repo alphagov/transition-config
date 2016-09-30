@@ -6,3 +6,5 @@ tna_timestamp: 20160701122411
 host: www.sepho.org.uk
 homepage_furl: www.gov.uk/phe
 global: =410
+aliases:
+- sepho.org.uk
