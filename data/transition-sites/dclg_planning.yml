@@ -6,3 +6,5 @@ tna_timestamp: 20140724121321
 host: planningguidance.planningportal.gov.uk
 homepage_furl: www.gov.uk/dclg
 options: --query-string p
+aliases:
+- planningguidance.communities.gov.uk
