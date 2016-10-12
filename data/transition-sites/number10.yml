@@ -6,8 +6,3 @@ tna_timestamp: 20130109092234
 homepage_furl: www.gov.uk/number10
 homepage: https://www.gov.uk/government/organisations/prime-ministers-office-10-downing-street
 css: number10
-locations:
-- path: ^/news/?([_0-9a-zA-Z-]+)?/([0-9]+)/([0-9]+)/(.*)-([0-9]+)$
-  operation: ~*
-  status: 301
-  new_url: http://www.number10.gov.uk/news/$4
