@@ -3,7 +3,3 @@ site: paths
 host: paths.local
 aliases:
     - alias1.paths.local
-locations:
-    - path: /
-      new: http://www.example.com/foo/bar
-      status: 301
