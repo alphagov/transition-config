@@ -1,10 +1,10 @@
 ---
 site: bis_archive
-whitehall_slug: department-for-business-innovation-skills
-homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills
+whitehall_slug: department-for-business-energy-and-industrial-strategy
+homepage: https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy
 tna_timestamp: 20101012113206
 host: archive.bis.gov.uk
-homepage_furl: www.gov.uk/bis_archive
+homepage_furl: www.gov.uk/beis
 global: =410
 aliases:
 - www.archive.bis.gov.uk

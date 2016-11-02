@@ -1,11 +1,11 @@
 ---
 site: bis_dius
-whitehall_slug: department-for-business-innovation-skills
+whitehall_slug: department-for-business-energy-and-industrial-strategy
 host: www.dius.gov.uk
 tna_timestamp: 20100222165247
-homepage_furl: www.gov.uk/bis
-homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills
-css: department-for-business-innovation-skills
+homepage_furl: www.gov.uk/beis
+homepage: https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy
+css: department-for-business-energy-and-industrial-strategy
 global: =410
 aliases:
 - dius.gov.uk

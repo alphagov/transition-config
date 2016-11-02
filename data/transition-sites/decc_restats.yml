@@ -1,10 +1,10 @@
 ---
 site: decc_restats
-whitehall_slug: department-of-energy-climate-change
-homepage: https://www.gov.uk/government/collections/renewables-statistics
+whitehall_slug: department-for-business-energy-and-industrial-strategy
+homepage: https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy
 tna_timestamp: 20140711173142
 host: restats.decc.gov.uk
-homepage_furl: www.gov.uk/decc
+homepage_furl: www.gov.uk/beis
 special_redirect_strategy: via_aka
 # This special redirect strategy is to exclude an interactive map at
 # http://restats.decc.gov.uk/app/pub/map/map/

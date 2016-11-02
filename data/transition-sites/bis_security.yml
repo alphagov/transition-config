@@ -1,10 +1,12 @@
 ---
 site: bis_security
-whitehall_slug: department-for-business-innovation-skills
-homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills
+whitehall_slug: department-for-culture-media-sport
+homepage: https://www.gov.uk/government/organisations/department-for-culture-media-sport
 tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
 host: www.securityhealthcheck.bis.gov.uk
-homepage_furl: www.gov.uk/bis
+homepage_furl: www.gov.uk/dcms
 global: =301 https://www.gov.uk/government/policies/keeping-the-uk-safe-in-cyberspace
 aliases:
 - securityhealthcheck.bis.gov.uk
+extra_organisation_slugs:
+- department-for-business-energy-and-industrial-strategy

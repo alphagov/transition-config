@@ -1,10 +1,10 @@
 ---
 site: bis_blogs
-whitehall_slug: department-for-business-innovation-skills
-homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills
+whitehall_slug: department-for-business-energy-and-industrial-strategy
+homepage: https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy
 tna_timestamp: 20140703133908
 host: blogs.bis.gov.uk
-homepage_furl: www.gov.uk/bis
+homepage_furl: www.gov.uk/beis
 aliases:
 - www.blogs.bis.gov.uk
 extra_organisation_slugs:

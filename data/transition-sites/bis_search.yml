@@ -1,14 +1,14 @@
 ---
 site: bis_search
-whitehall_slug: department-for-business-innovation-skills
-homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills
+whitehall_slug: department-for-business-energy-and-industrial-strategy
+homepage: https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy
 tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
 host: search.bis.gov.uk
-homepage_furl: www.gov.uk/bis
+homepage_furl: www.gov.uk/beis
 aliases:
 - search3.bis.gov.uk
 - search4.bis.gov.uk
 - www.search.bis.gov.uk
 - www.search3.bis.gov.uk
 - www.search4.bis.gov.uk
-global: =301 https://www.gov.uk/government/organisations/department-for-business-innovation-skills
+global: =301 https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy

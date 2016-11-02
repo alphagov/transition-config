@@ -1,8 +1,8 @@
 ---
 site: decc_mrws
-whitehall_slug: department-of-energy-climate-change
+whitehall_slug: department-for-business-energy-and-industrial-strategy
+homepage: https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy
 host: mrws.decc.gov.uk
 tna_timestamp: 20121217150421
-homepage_furl: www.gov.uk/decc
-homepage: https://www.gov.uk/government/policies/managing-the-use-and-disposal-of-radioactive-and-nuclear-substances-and-waste
+homepage_furl: www.gov.uk/beis
 css: department-of-energy-climate-change
