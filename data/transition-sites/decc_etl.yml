@@ -1,7 +1,7 @@
 ---
 site: decc_etl
 whitehall_slug: department-for-business-energy-and-industrial-strategy
-homepage: https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy
+homepage: https://www.gov.uk/guidance/energy-technology-list
 tna_timestamp: 20141002124937
 host: etl.decc.gov.uk
 options: --query-string prod_id:sub_tech_id

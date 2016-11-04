@@ -1,7 +1,7 @@
 ---
 site: decc_restats
 whitehall_slug: department-for-business-energy-and-industrial-strategy
-homepage: https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy
+homepage: https://www.gov.uk/government/collections/renewables-statistics
 tna_timestamp: 20140711173142
 host: restats.decc.gov.uk
 special_redirect_strategy: via_aka
