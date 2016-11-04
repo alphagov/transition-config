@@ -2,6 +2,7 @@
 site: bis_ecchk
 whitehall_slug: department-for-international-trade
 homepage: https://www.gov.uk/government/organisations/department-for-international-trade
+homepage_furl: www.gov.uk/dit
 tna_timestamp: 20140320153108
 host: www.ecochecker.bis.gov.uk
 aliases:

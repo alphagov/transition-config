@@ -2,6 +2,7 @@
 site: bis_ecdb
 whitehall_slug: department-for-international-trade
 homepage: https://www.gov.uk/government/organisations/department-for-international-trade
+homepage_furl: www.gov.uk/dit
 tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
 host: www.exportcontroldb.bis.gov.uk
 aliases:

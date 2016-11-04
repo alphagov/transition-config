@@ -6,5 +6,4 @@ host: www.offshore-sea.org.uk
 aliases:
 - offshore-sea.org.uk
 tna_timestamp: 20130103064208
-homepage_furl: www.gov.uk/beis
 options: --query-string faqid:link:categoryid:documentid:pagenumber:fileid:meetingid:bookid:consultationid:productid:downloadid:newsid

@@ -3,6 +3,7 @@ site: bis_spire
 whitehall_slug: department-for-international-trade
 homepage_title: 'SPIRE Export Control'
 homepage: https://www.gov.uk/government/organisations/department-for-international-trade
+homepage_furl: www.gov.uk/dit
 tna_timestamp: 20121126074457
 host: www.spire.bis.gov.uk
 extra_organisation_slugs:

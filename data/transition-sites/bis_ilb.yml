@@ -2,6 +2,7 @@
 site: bis_ilb
 whitehall_slug: department-for-international-trade
 homepage: https://www.gov.uk/government/organisations/department-for-international-trade
+homepage_furl: www.gov.uk/dit
 tna_timestamp: 20131222235230
 host: ilb.bis.gov.uk
 aliases:
