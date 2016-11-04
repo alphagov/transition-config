@@ -5,7 +5,6 @@ host: www.cicregulator.gov.uk
 tna_timestamp: 20131003151857
 homepage_furl: www.gov.uk/cic-regulator
 homepage: https://www.gov.uk/government/organisations/office-of-the-regulator-of-community-interest-companies
-css: bis
 aliases:
 - cicregulator.gov.uk
 - www.cicreg.gov.uk

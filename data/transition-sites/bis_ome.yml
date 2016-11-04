@@ -6,4 +6,3 @@ tna_timestamp: 20130106083031
 homepage_furl: www.gov.uk/ome
 homepage: https://www.gov.uk/government/organisations/office-of-manpower-economics
 options: --query-string documentuid:articleuid
-css: department-for-business-innovation-skills

@@ -5,6 +5,5 @@ host: www.britishhallmarkingcouncil.gov.uk
 tna_timestamp: 20100116001507
 homepage_furl: www.gov.uk/british-hallmarking-council
 homepage: https://www.gov.uk/government/organisations/british-hallmarking-council
-css: bis
 global: =301 http://www.bis.gov.uk/britishhallmarkingcouncil
 global_redirect_append_path: true

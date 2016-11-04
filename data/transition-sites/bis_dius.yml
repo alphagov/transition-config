@@ -5,7 +5,6 @@ host: www.dius.gov.uk
 tna_timestamp: 20100222165247
 homepage_furl: www.gov.uk/beis
 homepage: https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy
-css: department-for-business-energy-and-industrial-strategy
 global: =410
 aliases:
 - dius.gov.uk
