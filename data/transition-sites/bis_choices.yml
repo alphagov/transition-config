@@ -1,9 +1,9 @@
 ---
 site: bis_choices
-whitehall_slug: department-for-business-innovation-skills
-homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills
+whitehall_slug: department-for-business-energy-and-industrial-strategy
+homepage: https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy
 tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
 host: choices.bis.gov.uk
 aliases:
 - www.choices.bis.gov.uk
-global: =301 https://www.gov.uk/government/organisations/department-for-business-innovation-skills
+global: =301 https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy

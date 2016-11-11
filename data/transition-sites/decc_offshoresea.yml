@@ -1,11 +1,9 @@
 ---
 site: decc_offshoresea
-whitehall_slug: department-of-energy-climate-change
+whitehall_slug: department-for-business-energy-and-industrial-strategy
+homepage: https://www.gov.uk/guidance/offshore-energy-strategic-environmental-assessment-sea-an-overview-of-the-sea-process
 host: www.offshore-sea.org.uk
 aliases:
 - offshore-sea.org.uk
 tna_timestamp: 20130103064208
-homepage_furl: www.gov.uk/decc
-homepage: https://www.gov.uk/offshore-energy-strategic-environmental-assessment-sea-an-overview-of-the-sea-process
 options: --query-string faqid:link:categoryid:documentid:pagenumber:fileid:meetingid:bookid:consultationid:productid:downloadid:newsid
-css: department-of-energy-climate-change

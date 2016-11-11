@@ -1,7 +1,8 @@
 ---
 site: bis_ilb
-whitehall_slug: department-for-business-innovation-skills
-homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills
+whitehall_slug: department-for-international-trade
+homepage: https://www.gov.uk/government/organisations/department-for-international-trade
+homepage_furl: www.gov.uk/dit
 tna_timestamp: 20131222235230
 host: ilb.bis.gov.uk
 aliases:
@@ -9,3 +10,5 @@ aliases:
 - ilbuat.bis.gov.uk
 - www.ilbuat.bis.gov.uk
 global: =410
+extra_organisation_slugs:
+- department-for-business-energy-and-industrial-strategy

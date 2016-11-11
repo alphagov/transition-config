@@ -1,11 +1,11 @@
 ---
 site: bis_rct
-whitehall_slug: department-for-business-innovation-skills
-homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills
+whitehall_slug: department-for-business-energy-and-industrial-strategy
+homepage: https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy
 tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
 host: rct.bis.gov.uk
-homepage_furl: www.gov.uk/bis
-global: =301 https://www.gov.uk/government/organisations/department-for-business-innovation-skills
+homepage_furl: www.gov.uk/beis
+global: =301 https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy
 aliases:
 - ci.rct.bis.gov.uk
 - dev.rct.bis.gov.uk

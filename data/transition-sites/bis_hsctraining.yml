@@ -1,9 +1,11 @@
 ---
 site: bis_hsctraining
-whitehall_slug: department-for-business-innovation-skills
+whitehall_slug: department-for-business-energy-and-industrial-strategy
 homepage: https://www.gov.uk/government/groups/horizon-scanning-programme-team
 tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
 host: hsctraininggateway.bis.gov.uk
 aliases:
 - www.hsctraininggateway.bis.gov.uk
 global: =301 https://www.gov.uk/government/groups/horizon-scanning-programme-team
+extra_organisation_slugs:
+- government-office-for-science

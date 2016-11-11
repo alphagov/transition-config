@@ -1,10 +1,10 @@
 ---
 site: bis_dti
-whitehall_slug: department-for-business-innovation-skills
-homepage: https://www.gov.uk/government/organisations/department-for-business-innovation-skills
+whitehall_slug: department-for-business-energy-and-industrial-strategy
+homepage: https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy
 tna_timestamp: 20070603164510
 host: www.dti.gov.uk
-homepage_furl: www.gov.uk/bis
+homepage_furl: www.gov.uk/beis
 aliases:
 - dti.gov.uk
 global: =410

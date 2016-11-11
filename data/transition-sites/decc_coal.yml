@@ -5,7 +5,6 @@ host: coal.decc.gov.uk
 tna_timestamp: 20140721140515
 homepage_furl: www.gov.uk/decc
 homepage: https://www.gov.uk/government/organisations/the-coal-authority
-css: department-of-energy-climate-change
 aliases:
 - www.coal.decc.gov.uk
 - www.coal.gov.uk

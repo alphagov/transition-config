@@ -6,5 +6,5 @@ homepage: https://www.gov.uk/government/groups/horizon-scanning-programme-team
 tna_timestamp: 20201010101010 # Plug - site not in TNA
 host: www.sigmascan.org
 extra_organisation_slugs:
-- department-for-business-innovation-skills
+- department-for-business-energy-and-industrial-strategy
 global: =301 https://www.gov.uk/government/groups/horizon-scanning-programme-team
