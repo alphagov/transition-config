@@ -1,9 +1,9 @@
 ---
 site: walesoffice_cymru
-whitehall_slug: wales-office
+whitehall_slug: office-of-the-secretary-of-state-for-wales
 host: www.swyddfa.cymru.gov.uk
 tna_timestamp: 20130129084344
 homepage_title: Swyddfa Cymru
-homepage_furl: www.gov.uk/wales-office
-homepage: https://www.gov.uk/government/organisations/wales-office.cy
+homepage_furl: www.gov.uk/cymru
+homepage: https://www.gov.uk/government/organisations/office-of-the-secretary-of-state-for-wales.cy
 css: wales-office
