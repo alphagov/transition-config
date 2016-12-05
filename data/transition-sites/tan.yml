@@ -1,0 +1,9 @@
+---
+site: tan
+whitehall_slug: driver-and-vehicle-standards-agency
+homepage: https://www.gov.uk/government/organisations/traffic-commissioners
+tna_timestamp: 20040120115311
+host: www.tan.gov.uk
+aliases:
+- tan.gov.uk
+global: =301 https://www.gov.uk/government/organisations/traffic-commissioners
