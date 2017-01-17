@@ -1,0 +1,10 @@
+---
+site: phe_swpho
+whitehall_slug: public-health-england
+homepage: https://www.gov.uk/government/organisations/public-health-england
+homepage_furl: www.gov.uk/phe
+tna_timestamp: 20160704075626
+host: www.swpho.nhs.uk
+aliases:
+- swpho.nhs.uk
+global: =301 https://www.gov.uk/government/collections/phe-south-west-advice-support-and-services
