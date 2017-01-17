@@ -5,6 +5,6 @@ homepage: https://www.gov.uk/government/organisations/public-health-england
 tna_timestamp: 20160919145853
 host: www.lho.org.uk
 homepage_furl: www.gov.uk/phe
-global: =410
+global: =301 https://www.gov.uk/government/collections/phe-london-advice-support-and-services
 aliases:
 - lho.org.uk
