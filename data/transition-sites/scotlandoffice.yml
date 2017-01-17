@@ -1,9 +1,9 @@
 ---
 site: scotlandoffice
-whitehall_slug: scotland-office
+whitehall_slug: uk-government-scotland
 host: www.scotlandoffice.gov.uk
 tna_timestamp: 20130130150421
-homepage_furl: www.gov.uk/scotland-office
-homepage: https://www.gov.uk/government/organisations/scotland-office
+homepage_furl: www.gov.uk/uk-government-scotland
+homepage: https://www.gov.uk/government/organisations/uk-government-scotland
 options: --query-string title:attachment
 css: scotland-office
