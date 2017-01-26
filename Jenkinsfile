@@ -27,11 +27,6 @@ node {
       govuk.pushTag(REPOSITORY, BRANCH_NAME, 'release_' + BUILD_NUMBER)
     }
 
-    stage('Deploy to Integration') {
-      // Deploy on Integration (only master)
-      govuk.deployIntegration(REPOSITORY, BRANCH_NAME, 'release', 'deploy')
-    }
-
   } catch (e) {
     currentBuild.result = 'FAILED'
     step([$class: 'Mailer',
