@@ -7,4 +7,4 @@ tna_timestamp: 20161101134131
 host: www.chimat.org.uk
 aliases:
 - chimat.org.uk
-global: =301 https://www.gov.uk/government/organisations/public-health-england
+options: --query-string rid
