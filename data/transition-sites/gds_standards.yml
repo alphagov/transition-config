@@ -1,0 +1,8 @@
+---
+site: gds_standards
+whitehall_slug: government-digital-service
+homepage: https://www.gov.uk/government/organisations/government-digital-service
+homepage_furl: www.gov.uk/gds
+tna_timestamp: 20161108155955
+host: standards.data.gov.uk
+global: =301 https://www.gov.uk/government/collections/open-standards-for-government-data-and-technology
