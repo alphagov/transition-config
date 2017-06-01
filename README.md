@@ -22,6 +22,12 @@ Substitute each argument and then run the following rake task (you may need to r
   rake new_site[abbr,whitehall_slug,host]
 ```
 
+for example:
+
+```
+  rake new_site["phe_chimat, public-health-england, www.chimat.org.uk"]
+```
+
 ``abbr`` should be of the form:
 ```
   <owning_organisation_abbreviation>_<abbreviated_site_name>
