@@ -1,0 +1,10 @@
+---
+site: phe_ndawg
+whitehall_slug: public-health-england
+homepage: https://www.gov.uk/government/organisations/public-health-england
+homepage_furl: www.gov.uk/phe
+tna_timestamp: 20170605150000 # Stub timestamp - site not in TNA
+host: ndawg.org
+aliases:
+  - www.ndawg.org
+global: =301 https://www.gov.uk/government/organisations/public-health-england
