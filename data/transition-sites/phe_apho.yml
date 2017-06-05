@@ -6,4 +6,4 @@ tna_timestamp: 20170106081009
 host: www.apho.org.uk
 aliases:
 - apho.org.uk
-global: =301 https://www.gov.uk/government/organisations/public-health-england
+global: =410
