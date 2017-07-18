@@ -1,0 +1,9 @@
+---
+site: ukgi
+whitehall_slug: uk-government-investments
+homepage: https://www.gov.uk/government/organisations/uk-government-investments
+tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
+host: www.ukgi.gov.uk
+global: =301 https://www.gov.uk/government/organisations/uk-government-investments/about
+aliases:
+- ukgi.gov.uk
