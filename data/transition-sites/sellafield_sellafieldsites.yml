@@ -2,7 +2,7 @@
 site: sellafield_sellafieldsites
 whitehall_slug: sellafield-ltd
 homepage: https://www.gov.uk/government/organisations/sellafield-ltd
-tna_timestamp: 20150203000102 # http://webarchive.nationalarchives.gov.uk/20150203000102/http://www.sellafieldsites.com/
+tna_timestamp: 20170712122213
 host: www.sellafieldsites.com
 options: --query-string post_id
 aliases:
