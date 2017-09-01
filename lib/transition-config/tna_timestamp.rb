@@ -24,6 +24,9 @@ module TransitionConfig
 
       doc = Nokogiri::HTML(response)
       most_recent_crawl_link = doc.xpath('//*[@id="header"]/div/div[1]/ul/li[6]/a').last
+
+      return nil unless most_recent_crawl_link
+
       url = URI.parse(most_recent_crawl_link['href'])
       url.path.split('/')[1]
     end
