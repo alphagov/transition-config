@@ -1,0 +1,9 @@
+---
+site: beis_decctools
+whitehall_slug: department-for-business-energy-and-industrial-strategy
+homepage: https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy
+tna_timestamp: 20161102141810
+host: tools.decc.gov.uk
+aliases:
+- www.tools.decc.gov.uk
+global: =301 https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy/about/statistics
