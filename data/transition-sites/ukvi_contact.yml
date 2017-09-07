@@ -1,0 +1,7 @@
+---
+site: ukvi_contact
+whitehall_slug: uk-visas-and-immigration
+homepage: https://www.gov.uk/government/organisations/uk-visas-and-immigration
+tna_timestamp: 20140110181512
+host: contact-ukba.homeoffice.gov.uk
+global: =301 https://eforms.homeoffice.gov.uk/outreach/AddressUpdate.ofml
