@@ -7,10 +7,8 @@ homepage: https://www.gov.uk/government/organisations/uk-visas-and-immigration
 aliases:
 - bia.homeoffice.gov.uk
 - biapreview.homeoffice.gov.uk
-- contact-ukba.homeoffice.gov.uk
 - ind.homeoffice.gov.uk
 - origin.ukba.homeoffice.gov.uk # Currently used for us to serve proxied content. Will move eventually.
-- report-ukba.homeoffice.gov.uk
 - ukba.homeoffice.gov.uk
 - www.bia.homeoffice.gov.uk
 - www.biapreview.homeoffice.gov.uk
