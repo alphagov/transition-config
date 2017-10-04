@@ -1,0 +1,7 @@
+---
+site: ea_shoreham-adur-tidal-walls
+whitehall_slug: environment-agency
+homepage: https://www.gov.uk/government/organisations/environment-agency
+tna_timestamp: 20201010101010 # Stub timestamp - site not in TNA
+host: www.shorehamadurtidalwalls.co.uk
+global: =301 https://www.gov.uk/government/publications/shoreham-adur-tidal-walls-scheme
