@@ -1,0 +1,7 @@
+---
+site: re_primary-authority
+whitehall_slug: regulatory-delivery
+homepage: https://www.gov.uk/government/organisations/regulatory-delivery
+tna_timestamp: 20201010101010 # Stub timestamp - site not in TNA
+host: primary-authority.beis.gov.uk
+global: =301 https://www.gov.uk/guidance/local-regulation-primary-authority
