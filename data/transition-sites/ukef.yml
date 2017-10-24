@@ -4,6 +4,8 @@ whitehall_slug: uk-export-finance
 host: www.ukexportfinance.gov.uk
 tna_timestamp: 20130109053809
 homepage_furl: www.gov.uk/uk-export-finance
-homepage: https://www.gov.uk/government/organisations/export-credit-guarantee-department
+homepage: https://www.gov.uk/government/organisations/uk-export-finance
 aliases:
+- ukexportfinance.gov.uk
 - www.ecgd.gov.uk
+- ecgd.gov.uk
