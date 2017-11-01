@@ -1,0 +1,9 @@
+---
+site: cabinet-office
+whitehall_slug: cabinet-office
+homepage: https://www.gov.uk/government/organisations/cabinet-office
+tna_timestamp: 20130128190123
+host: www.cabinet-office.gov.uk
+aliases:
+- cabinet-office.gov.uk
+global: =301 https://www.gov.uk/government/organisations/cabinet-office
