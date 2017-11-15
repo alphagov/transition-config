@@ -6,3 +6,5 @@ host: www.decc.gov.uk
 tna_timestamp: 20121217150421
 homepage_furl: www.gov.uk/beis
 options: --query-string filepath
+aliases:
+- decc.gov.uk
