@@ -1,0 +1,9 @@
+---
+site: hmt
+whitehall_slug: hm-treasury
+homepage: https://www.gov.uk/government/organisations/hm-treasury
+tna_timestamp: 20081222192840
+host: www.hmt.gov.uk
+global: =301 https://www.gov.uk/government/organisations/hm-treasury
+aliases:
+- hmt.gov.uk
