@@ -1,0 +1,9 @@
+---
+site: phe_nta
+whitehall_slug: public-health-england
+homepage: https://www.gov.uk/government/collections/alcohol-and-drug-misuse-prevention-and-treatment-guidance
+tna_timestamp: 20170807160623
+host: www.nta.nhs.uk
+aliases:
+- nta.nhs.uk
+options: --query-string category
