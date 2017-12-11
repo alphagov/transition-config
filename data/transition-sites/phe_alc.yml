@@ -1,0 +1,9 @@
+---
+site: phe_alc
+whitehall_slug: public-health-england
+homepage: https://www.gov.uk/government/collections/alcohol-and-drug-misuse-prevention-and-treatment-guidance
+tna_timestamp: 20171114113102
+host: www.alcohollearningcentre.org.uk
+aliases:
+- alcohollearningcentre.org.uk
+options: --query-string s:pid
