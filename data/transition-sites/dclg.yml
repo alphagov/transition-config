@@ -1,12 +1,12 @@
 ---
 site: dclg
-whitehall_slug: department-for-communities-and-local-government
+whitehall_slug: ministry-of-housing-communities-and-local-government
 host: www.communities.gov.uk
 tna_timestamp: 20120919132719
 homepage_furl: www.gov.uk/dclg
-homepage: https://www.gov.uk/government/organisations/department-for-communities-and-local-government
+homepage: https://www.gov.uk/government/organisations/ministry-of-housing-communities-and-local-government
 aliases:
 - communities.gov.uk
 - dclg.gov.uk
 - www.dclg.gov.uk
-css: department-for-communities-and-local-government
+css: ministry-of-housing-communities-and-local-government
