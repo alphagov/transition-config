@@ -1,10 +1,10 @@
 ---
 site: dh_immunisation
-whitehall_slug: department-of-health
+whitehall_slug: department-of-health-and-social-care
 host: immunisation.dh.gov.uk
 tna_timestamp: 20130107105354
 homepage_furl: www.gov.uk/dh
 homepage: https://www.gov.uk/government/organisations/public-health-england/series/immunisation
-css: department-of-health
+css: department-of-health-and-social-care
 aliases:
 - www.immunisation.dh.gov.uk

@@ -1,8 +1,8 @@
 ---
 site: dh_mediacentre
-whitehall_slug: department-of-health
+whitehall_slug: department-of-health-and-social-care
 host: mediacentre.dh.gov.uk
 tna_timestamp: 20130107105354
 homepage_furl: www.gov.uk/dh
-homepage: https://www.gov.uk/government/organisations/department-of-health
-css: department-of-health
+homepage: https://www.gov.uk/government/organisations/department-of-health-and-social-care
+css: department-of-health-and-social-care
