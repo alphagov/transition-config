@@ -3,7 +3,7 @@ site: directgov_firekills
 whitehall_slug: government-digital-service
 homepage: https://www.gov.uk/firekills
 extra_organisation_slugs:
-- department-for-communities-and-local-government
+- ministry-of-housing-communities-and-local-government
 tna_timestamp: 20121106112314
 host: firekills.direct.gov.uk
 global: =301 https://www.gov.uk/firekills
