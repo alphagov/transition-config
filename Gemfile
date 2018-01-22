@@ -7,5 +7,5 @@ gem 'gds-api-adapters', '20.1.1'
 gem 'plek', '< 2'
 
 group :test do
-  gem 'webmock', '1.15.0'
+  gem 'webmock'
 end
