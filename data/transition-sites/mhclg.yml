@@ -1,0 +1,9 @@
+---
+site: mhclg
+whitehall_slug: ministry-of-housing-communities-and-local-government
+host: www.mhclg.gov.uk
+aliases:
+- mhclg.gov.uk
+tna_timestamp: 20180227161000
+homepage: https://www.gov.uk/government/organisations/ministry-of-housing-communities-and-local-government
+global: =301 https://www.gov.uk/government/organisations/ministry-of-housing-communities-and-local-government
