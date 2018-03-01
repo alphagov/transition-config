@@ -2,9 +2,9 @@
 
 REPOSITORY = 'transition-config'
 
-node {
-  def govuk = load '/var/lib/jenkins/groovy_scripts/govuk_jenkinslib.groovy'
+library("govuk")
 
+node {
   try {
     stage('Checkout') {
       checkout scm
