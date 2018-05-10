@@ -6,3 +6,5 @@ tna_timestamp: 20171011143403
 host: magnoxsites.com
 aliases:
   - www.magnoxsites.com
+extra_organisation_slugs:
+  - nuclear-decommissioning-authority
