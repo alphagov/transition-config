@@ -1,0 +1,10 @@
+---
+site: phe_swcar
+whitehall_slug: public-health-england
+homepage: https://www.gov.uk/guidance/the-national-congenital-anomaly-and-rare-disease-registration-service-ncardrs
+homepage_title: National Congenital Anomaly and Rare Disease Registration Service
+tna_timestamp: 20130315212826
+host: www.swcar.org.uk
+aliases:
+  - swcar.org.uk
+global: =301 https://www.gov.uk/guidance/the-national-congenital-anomaly-and-rare-disease-registration-service-ncardrs
