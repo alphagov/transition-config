@@ -1,0 +1,9 @@
+---
+site: gds_legislation
+whitehall_slug: government-digital-service
+homepage: https://www.gov.uk/government/organisations/government-digital-service
+homepage_furl: www.gov.uk/gds
+tna_timestamp: 20170714000000
+host: legislation.data.gov.uk
+global: =301 http://www.legislation.gov.uk
+global_redirect_append_path: true
