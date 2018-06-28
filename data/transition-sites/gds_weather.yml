@@ -1,0 +1,8 @@
+---
+site: gds_weather
+whitehall_slug: government-digital-service
+homepage: https://www.gov.uk/government/organisations/government-digital-service
+homepage_furl: www.gov.uk/gds
+tna_timestamp: 20180628000000
+host: weather.data.gov.uk
+global: =301 https://www.metoffice.gov.uk/datapoint
