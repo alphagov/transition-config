@@ -1,0 +1,13 @@
+---
+site: directgov_carfueldata
+whitehall_slug: vehicle-certification-agency
+homepage: https://www.gov.uk/co2-and-vehicle-tax-tools
+tna_timestamp: 20171011124228
+host: carfueldata.direct.gov.uk
+global: =301 https://www.gov.uk/co2-and-vehicle-tax-tools
+aliases:
+  - www.carfueldata.direct.gov.uk
+  - carfueldata.direct.gov.uk
+css: directgov
+extra_organisation_slugs:
+  - government-digital-service
