@@ -1,0 +1,7 @@
+---
+site: directgov_los
+whitehall_slug: department-for-work-pensions
+homepage: https://find-your-nearest-jobcentre.dwp.gov.uk
+tna_timestamp: 20180920044754
+host: los.direct.gov.uk
+global: =301 https://find-your-nearest-jobcentre.dwp.gov.uk
