@@ -1,0 +1,13 @@
+---
+site: directgov_penaltynotice
+whitehall_slug: home-office
+homepage: https://penaltynotice.homeoffice.gov.uk
+tna_timestamp: 20171212161955
+host: penaltynotice.direct.gov.uk
+global: =301 https://penaltynotice.homeoffice.gov.uk
+aliases:
+  - www.penaltynotice.direct.gov.uk
+  - penaltynotice.direct.gov.uk
+css: directgov
+extra_organisation_slugs:
+  - government-digital-service
