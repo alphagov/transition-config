@@ -1,0 +1,7 @@
+---
+site: dvla_motoring
+whitehall_slug: driver-and-vehicle-licensing-agency
+homepage: https://www.gov.uk/government/organisations/driver-and-vehicle-licensing-agency
+tna_timestamp: 20201010101010 # Stub timestamp - site not in TNA
+host: motoring.direct.gov.uk
+global: =301 https://motoring.dvla.gov.uk
