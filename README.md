@@ -59,7 +59,13 @@ Aside: extra hostnames can be added later.
 
 The generated file only contains fields which are absolutely required.
 
-Check that the `tna_timestamp` field is set. The rake task will try to find the latest archive by scraping the National Archives site, but this doesn't always work. You can find a list of the timestamps the National Archives have by going to their site, for example: [here are the timestamps for this Cabinet Office site](http://webarchive.nationalarchives.gov.uk/*/http://download.cabinetoffice.gov.uk>)
+Check that the `tna_timestamp` field is set. The rake task will try to find the latest archive by scraping the National Archives site, but this doesn't always work. You can find a list of the timestamps the National Archives have by going to their site, for example: [here are the timestamps for this Cabinet Office site](http://webarchive.nationalarchives.gov.uk/*/http://download.cabinetoffice.gov.uk>).
+
+If the site has not been crawled by the National Archives, you can [follow prior art](https://github.com/alphagov/transition-config/search?q=tna_timestamp%3A+20201010101010+%23+Stub+timestamp+-+site+not+in+TNA&unscoped_q=tna_timestamp%3A+20201010101010+%23+Stub+timestamp+-+site+not+in+TNA) and set a stub timestamp:
+
+```
+tna_timestamp: 20201010101010 # Stub timestamp - site not in TNA
+```
 
 Some of the optional fields are frequently used:
 
