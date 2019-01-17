@@ -19,23 +19,23 @@ Before you start, you need to know:
 
 Substitute each argument and then run the following rake task (you may need to run `bundle install` first):
 ```
-  rake new_site[abbr,whitehall_slug,host]
+rake new_site[abbr,whitehall_slug,host]
 ```
 
 for example:
 
 ```
-  rake new_site["phe_chimat, public-health-england, www.chimat.org.uk"]
+rake new_site["phe_chimat, public-health-england, www.chimat.org.uk"]
 ```
 
 ``abbr`` should be of the form:
 ```
-  <owning_organisation_abbreviation>_<abbreviated_site_name>
+<owning_organisation_abbreviation>_<abbreviated_site_name>
 ```
 
 Example for the "Obesity West Midlands" site which is owned by Public Health England:
 ```
-  phe_obesitywm
+phe_obesitywm
 ```
 
 The ``abbr`` is used in the URL for the site in the transition app. It is used as the primary key for a site and so shouldn't be changed once imported into the transition app, or a duplicate site will be created.
@@ -50,7 +50,7 @@ Extra organisations can be added later.
 
 `host` will be one of the hostnames that the site has, for example:
 ```
-  www.example.com
+www.example.com
 ```
 
 Aside: extra hostnames can be added later.
@@ -79,7 +79,7 @@ See the [Site configuration](#site-configuration) for more details about these a
 
 These perform some cursory validations of the site configuration files.
 ```
-  bundle exec rake validate:all
+bundle exec rake validate:all
 ```
 
 An option for a more thorough test of the config is to import it into the Transition app in development.
