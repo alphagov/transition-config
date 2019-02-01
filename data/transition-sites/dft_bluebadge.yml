@@ -1,0 +1,10 @@
+---
+site: dft_bluebadge
+whitehall_slug: department-for-transport
+homepage: https://www.gov.uk/apply-blue-badge
+tna_timestamp: 20201010101010
+host: bluebadge.direct.gov.uk
+aliases:
+  - bluebadge2.direct.gov.uk
+  - www.bluebadge.direct.gov.uk
+global: =301 https://www.gov.uk/apply-blue-badge
