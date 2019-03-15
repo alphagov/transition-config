@@ -1,0 +1,9 @@
+---
+site: moj_civilmediation
+whitehall_slug: ministry-of-justice
+homepage: https://civilmediation.org/results/
+tna_timestamp: 20160811143658
+host: civilmediation.justice.gov.uk
+aliases:
+- www.civilmediation.justice.gov.uk
+global: =301 https://civilmediation.org/results/
