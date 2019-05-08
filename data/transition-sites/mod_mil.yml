@@ -1,0 +1,11 @@
+---
+site: mod_mil
+whitehall_slug: ministry-of-defence
+host: www.mil.uk
+aliases:
+- mil.uk
+tna_timestamp: 20201010101010 # Stub timestamp - site not in TNA
+homepage_furl: www.gov.uk/mod
+homepage: https://www.gov.uk/government/organisations/ministry-of-defence
+css: ministry-of-defence
+global: =301 https://www.gov.uk/government/organisations/ministry-of-defence
