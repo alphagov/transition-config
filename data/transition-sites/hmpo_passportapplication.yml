@@ -1,0 +1,7 @@
+---
+site: hmpo_passportapplication
+whitehall_slug: hm-passport-office
+homepage: https://www.passport.service.gov.uk/help/old-service-unavailable
+tna_timestamp: 20140909112158
+host: passportapplication.service.gov.uk
+global: =301 https://www.passport.service.gov.uk/help/old-service-unavailable
