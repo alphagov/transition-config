@@ -1,0 +1,7 @@
+---
+site: dvsa_driverpracticaltest
+whitehall_slug: driver-and-vehicle-standards-agency
+homepage: https://www.gov.uk/government/organisations/driver-and-vehicle-standards-agency
+tna_timestamp: 20100602114317
+host: driverpracticaltest.direct.gov.uk
+global: =301 https://www.gov.uk/book-driving-test
