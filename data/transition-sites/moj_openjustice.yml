@@ -1,0 +1,9 @@
+---
+site: moj_openjustice
+whitehall_slug: ministry-of-justice
+homepage: https://www.gov.uk/government/organisations/ministry-of-justice/about/statistics
+tna_timestamp: 20190201115657
+host: open.justice.gov.uk
+aliases:
+- www.open.justice.gov.uk
+global: =301 https://www.gov.uk/government/organisations/ministry-of-justice/about/statistics
