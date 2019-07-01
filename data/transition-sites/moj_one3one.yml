@@ -1,0 +1,9 @@
+---
+site: moj_one3one
+whitehall_slug: ministry-of-justice
+homepage: https://offenderemployment.campaign.gov.uk
+tna_timestamp: 20190201115656
+host: one3one.justice.gov.uk
+aliases:
+- www.one3one.justice.gov.uk
+global: =301 https://offenderemployment.campaign.gov.uk
