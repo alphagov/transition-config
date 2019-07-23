@@ -1,0 +1,13 @@
+---
+site: directgov_theorytest
+whitehall_slug: driver-and-vehicle-standards-agency
+homepage: http://www.gov.uk/book-theory-test
+tna_timestamp: 20201010101010 # Stub timestamp - site not in TNA
+host: theorytest.direct.gov.uk
+global: =301 http://www.gov.uk/book-theory-test
+aliases:
+  - www.theorytest.direct.gov.uk
+  - theorytest.direct.gov.uk
+css: directgov
+extra_organisation_slugs:
+  - government-digital-service
