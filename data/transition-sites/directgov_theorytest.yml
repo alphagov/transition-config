@@ -8,6 +8,26 @@ global: =301 http://www.gov.uk/book-theory-test
 aliases:
   - www.theorytest.direct.gov.uk
   - theorytest.direct.gov.uk
+  - ctt.theorytest.direct.gov.uk
+  - dr.theorytest.direct.gov.uk
+  - webctt1a.theorytest.direct.gov.uk
+  - webctt1b.theorytest.direct.gov.uk
+  - wsr.theorytest.direct.gov.uk
+  - wsvprd1a.theorytest.direct.gov.uk
+  - wsvprd1b.theorytest.direct.gov.uk
+  - www1.theorytest.direct.gov.uk
+  - www2.theorytest.direct.gov.uk
+  - www3.theorytest.direct.gov.uk
+  - www.theorytest.direct.gov.uk
+  - www4.theorytest.direct.gov.uk
+  - www6.theorytest.direct.gov.uk
+  - www7.theorytest.direct.gov.uk
+  - www8.theorytest.direct.gov.uk
+  - www9.theorytest.direct.gov.uk
+  - wwwa.theorytest.direct.gov.uk
+  - wwwb.theorytest.direct.gov.uk
+  - wwwc.theorytest.direct.gov.uk
+  - wwwd.theorytest.direct.gov.uk
 css: directgov
 extra_organisation_slugs:
   - government-digital-service
