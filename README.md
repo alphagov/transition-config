@@ -90,7 +90,9 @@ Commit the changes, push the branch and open a Pull Request.
 
 ### Import the site to Transition
 
-Once merged, wait for the site to be imported into the Transition app. This currently happens automatically on the hour via a job on deploy.production and deploy.integration Jenkins' during working hours. It can also be triggered manually.
+Once merged, wait for the site to be imported into the Transition app. This currently happens automatically on the hour via a job on deploy.production and deploy.integration Jenkins' during working hours. It can also be triggered manually by running:
+
+[Transition: load site config](https://deploy.integration.publishing.service.gov.uk/job/Transition_load_site_config/)
 
 ## Site configuration
 
