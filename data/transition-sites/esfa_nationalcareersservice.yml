@@ -1,0 +1,9 @@
+---
+site: esfa_nationalcareersservice
+whitehall_slug: education-and-skills-funding-agency
+homepage: http://www.nationalcareers.service.gov.uk
+tna_timestamp: 20190309013456
+host: nationalcareersservice.direct.gov.uk
+aliases:
+  - www.nationalcareersservice.direct.gov.uk
+  - staging.nationalcareersservice.direct.gov.uk
