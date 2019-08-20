@@ -1,0 +1,7 @@
+---
+site: dfe_graduatetalentpoolsearch
+whitehall_slug: department-for-education
+homepage: https://www.gov.uk/find-internship
+tna_timestamp: 20190724054821
+host: graduatetalentpoolsearch.direct.gov.uk
+global: =301 https://www.gov.uk/find-internship
