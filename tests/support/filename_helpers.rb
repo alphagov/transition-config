@@ -1,4 +1,6 @@
-require 'transition-config'
+# frozen_string_literal: true
+
+require "transition-config"
 
 module FilenameHelpers
   def slug_check_site_filename(abbr)

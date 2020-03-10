@@ -1,9 +1,11 @@
-require 'yaml'
-require 'gds_api/organisations'
+# frozen_string_literal: true
+
+require "yaml"
+require "gds_api/organisations"
 
 module TransitionConfig
   class Organisations
-    ORGANISATIONS_API_HOST = 'https://www.gov.uk'
+    ORGANISATIONS_API_HOST = "https://www.gov.uk"
 
     def organisations_api
       @organisations_api ||= GdsApi::Organisations.new(ORGANISATIONS_API_HOST)
@@ -23,9 +25,8 @@ module TransitionConfig
     # A hash of orgs by slug. Intended for use in a batch process
     # where we want to ask the server once for all orgs, then not again
     def by_slug
-      @by_slug ||= all.inject({}) do |orgs, org|
+      @by_slug ||= all.each_with_object({}) do |org, orgs|
         orgs[org.details.slug] = org
-        orgs
       end
     end
   end

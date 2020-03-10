@@ -1,5 +1,7 @@
-require 'open-uri'
-require 'nokogiri'
+# frozen_string_literal: true
+
+require "open-uri"
+require "nokogiri"
 
 module TransitionConfig
   class TNATimestamp
@@ -17,7 +19,7 @@ module TransitionConfig
         begin
           response = open("#{TNA_BASE_URL}/+/https://#{@hostname}")
         rescue OpenURI::HTTPError
-          $stderr.puts("TNA don't appear to have crawled this (yet) #{@hostname} Try the aliases?")
+          warn("TNA don't appear to have crawled this (yet) #{@hostname} Try the aliases?")
           return nil
         end
       end
@@ -27,8 +29,8 @@ module TransitionConfig
 
       return nil unless most_recent_crawl_link
 
-      url = URI.parse(most_recent_crawl_link['href'])
-      url.path.split('/')[1]
+      url = URI.parse(most_recent_crawl_link["href"])
+      url.path.split("/")[1]
     end
   end
 end

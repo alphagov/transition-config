@@ -1,17 +1,19 @@
-require 'yaml'
-require 'transition-config/abbr_filename_mismatches_exception'
-require 'transition-config/required_fields_missing_exception'
-require 'transition-config/required_homepage_protocol_exception'
-require 'transition-config/slugs_missing_exception'
-require 'transition-config/tna_timestamp'
+# frozen_string_literal: true
+
+require "yaml"
+require "transition-config/abbr_filename_mismatches_exception"
+require "transition-config/required_fields_missing_exception"
+require "transition-config/required_homepage_protocol_exception"
+require "transition-config/slugs_missing_exception"
+require "transition-config/tna_timestamp"
 
 module TransitionConfig
   class Site
     MASKS = [
-      TransitionConfig.path('data/transition-sites/*.yml')
-    ]
+      TransitionConfig.path("data/transition-sites/*.yml"),
+    ].freeze
 
-    REQUIRED_FIELDS = %w(site whitehall_slug host tna_timestamp homepage)
+    REQUIRED_FIELDS = %w[site whitehall_slug host tna_timestamp homepage].freeze
 
     attr_accessor :hash
     def initialize(hash)
@@ -19,31 +21,31 @@ module TransitionConfig
     end
 
     def sites_path
-      'transition-sites'
+      "transition-sites"
     end
 
     def abbr
-      hash['site']
+      hash["site"]
     end
 
     def whitehall_slug
-      hash['whitehall_slug']
+      hash["whitehall_slug"]
     end
 
     def extra_organisation_slugs
-      hash['extra_organisation_slugs']
+      hash["extra_organisation_slugs"]
     end
 
     def host
-      hash['host']
+      hash["host"]
     end
 
     def homepage
-      hash['homepage']
+      hash["homepage"]
     end
 
     def aliases
-      hash['aliases'] || []
+      hash["aliases"] || []
     end
 
     def all_hosts
@@ -53,8 +55,6 @@ module TransitionConfig
     def tna_timestamp
       if timestamp = TransitionConfig::TNATimestamp.new(host).find
         timestamp.to_i
-      else
-        nil
       end
     end
 
@@ -88,16 +88,16 @@ module TransitionConfig
 
     def ordered_output
       {
-        'site'             => abbr,
-        'whitehall_slug'   => whitehall_slug,
-        'homepage'         => "https://www.gov.uk/government/organisations/#{whitehall_slug}",
-        'tna_timestamp'    => tna_timestamp,
-        'host'             => host,
+        "site" => abbr,
+        "whitehall_slug" => whitehall_slug,
+        "homepage" => "https://www.gov.uk/government/organisations/#{whitehall_slug}",
+        "tna_timestamp" => tna_timestamp,
+        "host" => host,
       }
     end
 
     def save!
-      File.open(filename, 'w') { |file| ordered_output.to_yaml(file) }
+      File.open(filename, "w") { |file| ordered_output.to_yaml(file) }
     end
 
     def to_s
@@ -109,7 +109,7 @@ module TransitionConfig
         files.concat(Dir[mask])
       end
 
-      raise RuntimeError, "No sites yaml found in #{masks}" if files.empty?
+      raise "No sites yaml found in #{masks}" if files.empty?
 
       if block_given?
         files.map { |filename| yield(filename) }
@@ -125,11 +125,11 @@ module TransitionConfig
     def self.check_all_slugs!(masks = MASKS)
       missing = {}
       TransitionConfig::Site.all(masks, organisations: Organisations.new).each do |site|
-        unless site.missing_slugs.empty?
-          missing[site.abbr] = site.missing_slugs
-        end
+        missing[site.abbr] = site.missing_slugs unless site.missing_slugs.empty?
       end
-      raise TransitionConfig::SlugsMissingException.new(missing) unless missing.empty?
+      unless missing.empty?
+        raise TransitionConfig::SlugsMissingException, missing
+      end
     end
 
     def self.validate!(masks = MASKS)
@@ -146,7 +146,9 @@ module TransitionConfig
         mismatches[basename] = site.abbr unless basename == site.abbr
       end
 
-      raise TransitionConfig::AbbrFilenameMismatchesException.new(mismatches) unless mismatches.empty?
+      unless mismatches.empty?
+        raise TransitionConfig::AbbrFilenameMismatchesException, mismatches
+      end
     end
 
     def self.check_required_fields_present!(masks = MASKS)
@@ -156,39 +158,45 @@ module TransitionConfig
           missing[basename] = site.missing_fields
         end
       end
-      raise TransitionConfig::RequiredFieldsMissingException.new(missing) unless missing.empty?
+      unless missing.empty?
+        raise TransitionConfig::RequiredFieldsMissingException, missing
+      end
     end
 
     def self.check_homepage_protocol_present!(masks = MASKS)
       missing = []
       TransitionConfig::Site.all_with_basenames(masks).each do |site, _|
-        missing << site.abbr unless %w(http https).any? { |protocol| site.homepage.start_with?(protocol) }
+        unless %w[http https].any? { |protocol| site.homepage.start_with?(protocol) }
+          missing << site.abbr
+        end
       end
-      raise TransitionConfig::RequiredHomepageProtocolException.new(missing) unless missing.empty?
+      unless missing.empty?
+        raise TransitionConfig::RequiredHomepageProtocolException, missing
+      end
     end
 
     def self.from_yaml(filename, options = {})
-      Site.new(YAML.load(File.read(filename))).tap do |site|
+      Site.new(YAML.safe_load(File.read(filename))).tap do |site|
         site.organisations = options[:organisations]
       end
     end
 
     def self.basename(filename)
-      File.basename(filename, '.yml')
+      File.basename(filename, ".yml")
     end
 
     def self.create(abbr, whitehall_slug, host)
       organisation = Organisations.new.find(whitehall_slug)
-      raise ArgumentError,
-            "No organisation with whitehall_slug #{whitehall_slug} found. "\
-            'Not creating site.' unless organisation
+      unless organisation
+        raise ArgumentError,
+              "No organisation with whitehall_slug #{whitehall_slug} found. "\
+              "Not creating site."
+      end
 
       Site.new(
-        {
-          'site'           => abbr,
-          'whitehall_slug' => organisation.details.slug,
-          'host'           => host
-        }
+        "site" => abbr,
+        "whitehall_slug" => organisation.details.slug,
+        "host" => host,
       )
     end
   end

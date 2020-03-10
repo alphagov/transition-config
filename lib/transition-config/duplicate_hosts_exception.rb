@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module TransitionConfig
   class DuplicateHostsException < RuntimeError
     attr_reader :duplicates

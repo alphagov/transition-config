@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module TransitionConfig
   class SlugsMissingException < RuntimeError
     attr_reader :missing
@@ -7,7 +9,7 @@ module TransitionConfig
 
     def to_s
       "Slugs missing from Whitehall: \n"\
-      "#{@missing.map { |abbr,slugs| "#{abbr}: #{slugs}" }.join("\n")}"
+      "#{@missing.map { |abbr, slugs| "#{abbr}: #{slugs}" }.join("\n")}"
     end
   end
 end
