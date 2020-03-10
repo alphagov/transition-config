@@ -53,9 +53,10 @@ module TransitionConfig
     end
 
     def tna_timestamp
-      if timestamp = TransitionConfig::TNATimestamp.new(host).find
-        timestamp.to_i
-      end
+      timestamp = TransitionConfig::TNATimestamp.new(host).find
+      return unless timestamp
+
+      timestamp.to_i
     end
 
     def filename
@@ -105,16 +106,16 @@ module TransitionConfig
     end
 
     def self.all(masks = MASKS, options = {})
-      files = Array(masks).inject([]) do |files, mask|
+      all_files = Array(masks).inject([]) do |files, mask|
         files.concat(Dir[mask])
       end
 
-      raise "No sites yaml found in #{masks}" if files.empty?
+      raise "No sites yaml found in #{masks}" if all_files.empty?
 
       if block_given?
-        files.map { |filename| yield(filename) }
+        all_files.map { |filename| yield(filename) }
       else
-        files.map { |filename| Site.from_yaml(filename, options) }
+        all_files.map { |filename| Site.from_yaml(filename, options) }
       end
     end
 

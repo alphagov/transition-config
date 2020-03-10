@@ -10,13 +10,13 @@ module TransitionConfig
     ].freeze
 
     def self.files(masks = MASKS)
-      files = Array(masks).inject([]) do |files, mask|
+      all_files = Array(masks).inject([]) do |files, mask|
         files.concat(Dir[mask])
       end
 
-      raise "No sites yaml found in #{masks}" if files.empty?
+      raise "No sites yaml found in #{masks}" if all_files.empty?
 
-      files
+      all_files
     end
 
     # This method iterates all the hosts for a specified site

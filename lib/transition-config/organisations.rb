@@ -12,7 +12,7 @@ module TransitionConfig
     end
 
     def all
-      @organisations ||= organisations_api.organisations.with_subsequent_pages.to_a
+      @all ||= organisations_api.organisations.with_subsequent_pages.to_a
     end
 
     ##
