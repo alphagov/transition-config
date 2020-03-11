@@ -1,0 +1,7 @@
+inherit_gem:
+  rubocop-govuk:
+    - config/default.yml
+
+Security/Open:
+  Exclude:
+    - lib/transition-config/tna_timestamp.rb

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module TransitionConfig
   class RequiredFieldsMissingException < RuntimeError
     attr_reader :missing

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module TransitionConfig
   class AbbrFilenameMismatchesException < RuntimeError
     attr_reader :mismatches

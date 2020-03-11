@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module TransitionConfig
   class RequiredHomepageProtocolException < RuntimeError
     attr_reader :missing

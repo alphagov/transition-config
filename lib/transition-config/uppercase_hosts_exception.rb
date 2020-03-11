@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module TransitionConfig
   class UppercaseHostsException < RuntimeError
     attr_reader :uppercase
@@ -7,7 +9,7 @@ module TransitionConfig
 
     def to_s
       "Uppercase hosts found: \n"\
-      "#{@uppercase.map { |host| "#{host}" }.join("\n")}\n\n"
+      "#{@uppercase.map(&:to_s).join("\n")}\n\n"
     end
   end
 end

@@ -1,20 +1,22 @@
-require 'transition-config/duplicate_hosts_exception'
-require 'transition-config/uppercase_hosts_exception'
+# frozen_string_literal: true
+
+require "transition-config/duplicate_hosts_exception"
+require "transition-config/uppercase_hosts_exception"
 
 module TransitionConfig
   class Hosts
     MASKS = [
-      TransitionConfig.path('data/transition-sites/*.yml')
-    ]
+      TransitionConfig.path("data/transition-sites/*.yml"),
+    ].freeze
 
     def self.files(masks = MASKS)
-      files = Array(masks).inject([]) do |files, mask|
+      all_files = Array(masks).inject([]) do |files, mask|
         files.concat(Dir[mask])
       end
 
-      raise RuntimeError, "No sites yaml found in #{masks}" if files.empty?
+      raise "No sites yaml found in #{masks}" if all_files.empty?
 
-      files
+      all_files
     end
 
     # This method iterates all the hosts for a specified site
@@ -45,13 +47,17 @@ module TransitionConfig
 
     def self.validate!(masks = MASKS)
       duplicates = {}
-      has_uppercase  = Set.new
+      has_uppercase = Set.new
       hosts_to_site_abbrs(masks).each do |host, abbrs|
         duplicates[host] = abbrs if abbrs.size > 1
         has_uppercase << host unless host == host.downcase
       end
-      raise TransitionConfig::DuplicateHostsException.new(duplicates) if duplicates.any?
-      raise TransitionConfig::UppercaseHostsException.new(has_uppercase) if has_uppercase.any?
+      if duplicates.any?
+        raise TransitionConfig::DuplicateHostsException, duplicates
+      end
+      if has_uppercase.any?
+        raise TransitionConfig::UppercaseHostsException, has_uppercase
+      end
     end
   end
 end

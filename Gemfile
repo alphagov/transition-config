@@ -1,11 +1,13 @@
-source 'https://rubygems.org'
+# frozen_string_literal: true
 
-gem 'rake', '10.0.3'
-gem 'minitest', '4.7.0'
-gem 'nokogiri'
-gem 'gds-api-adapters', '20.1.1'
-gem 'plek', '< 2'
+source "https://rubygems.org"
+
+gem "gds-api-adapters", "20.1.1"
+gem "minitest", "4.7.0"
+gem "nokogiri"
+gem "plek", "< 2"
+gem "rake", "10.0.3"
 
 group :test do
-  gem 'webmock'
+  gem "webmock"
 end
