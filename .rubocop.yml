@@ -1,7 +1,6 @@
 inherit_gem:
   rubocop-govuk:
     - config/default.yml
-    - config/rails.yml
 
 Security/Open:
   Exclude:
