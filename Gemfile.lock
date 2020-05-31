@@ -7,7 +7,7 @@ GEM
       safe_yaml (~> 1.0.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
-    gds-api-adapters (60.0.0)
+    gds-api-adapters (67.0.0)
       addressable
       link_header
       null_logger
@@ -52,7 +52,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  gds-api-adapters (= 60.0)
+  gds-api-adapters (= 67.0)
   minitest (= 4.7.0)
   nokogiri
   plek (< 2)
