@@ -10,12 +10,12 @@ class TransitionConfigSiteTest < MiniTest::Unit::TestCase
   include FilenameHelpers
 
   def setup
-    @old_app_domain = ORGANISATIONS_API_ENDPOINT
-    ORGANISATIONS_API_ENDPOINT.gsub!(/^.*$/, "https://www.gov.uk")
+    @old_app_domain = WEBSITE_ROOT
+    WEBSITE_ROOT.gsub!(/^.*$/, "https://www.gov.uk")
   end
 
   def teardown
-    ORGANISATIONS_API_ENDPOINT.gsub!(/^.*$/, @old_app_domain)
+    WEBSITE_ROOT.gsub!(/^.*$/, @old_app_domain)
   end
 
   def test_can_initialize_site_from_yml
