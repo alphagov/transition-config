@@ -133,14 +133,6 @@ class TransitionConfigSiteTest < MiniTest::Unit::TestCase
     assert_equal expected, exception.missing.sort
   end
 
-  def test_site_create_fails_when_no_slug
-    organisations_api_does_not_have_organisation "non-existent-whitehall-slug"
-
-    assert_raises(ArgumentError) do
-      TransitionConfig::Site.create("foobar", "non-existent-whitehall-slug", "some.host.gov")
-    end
-  end
-
   def test_site_create_fails_on_unknown_type
     organisations_api_has_organisations(%w[uk-borders-agency])
     assert_raises(ArgumentError) do
