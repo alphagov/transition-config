@@ -196,7 +196,7 @@ module TransitionConfig
 
       Site.new(
         "site" => abbr,
-        "whitehall_slug" => organisation.details.slug,
+        "whitehall_slug" => organisation["details"]["slug"],
         "host" => host,
       )
     end
