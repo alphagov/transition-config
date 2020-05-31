@@ -35,7 +35,7 @@ class TransitionConfigSiteTest < MiniTest::Unit::TestCase
   end
 
   def test_can_enumerate_all_sites
-    organisations_api_has_organisations(%w[attorney-generals-office])
+    stub_organisations_api_has_organisations(%w[attorney-generals-office])
     test_masks = [
       TransitionConfig.path("tests/fixtures/sites/*.yml"),
       TransitionConfig.path("tests/fixtures/slug_check_sites/*.yml"),
@@ -56,14 +56,14 @@ class TransitionConfigSiteTest < MiniTest::Unit::TestCase
   end
 
   def test_existing_site_slug_exists_in_whitehall?
-    organisations_api_has_organisations(%w[attorney-generals-office])
+    stub_organisations_api_has_organisations(%w[attorney-generals-office])
     ago = TransitionConfig::Site.from_yaml(slug_check_site_filename("ago"))
     assert ago.slug_exists_in_whitehall?(ago.whitehall_slug),
            "expected #{ago.whitehall_slug} to exist in whitehall"
   end
 
   def test_non_existing_site_slug_does_not_exist_in_whitehall?
-    organisations_api_has_organisations(%w[nothing-interesting])
+    stub_organisations_api_has_organisations(%w[nothing-interesting])
     ago = TransitionConfig::Site.from_yaml(slug_check_site_filename("ago"))
     refute ago.slug_exists_in_whitehall?(ago.whitehall_slug),
            'expected slug "attorney-generals-office" not to exist in Mock whitehall'
@@ -83,7 +83,7 @@ class TransitionConfigSiteTest < MiniTest::Unit::TestCase
   end
 
   def test_missing_slugs
-    organisations_api_has_organisations(%w[government-office-for-science
+    stub_organisations_api_has_organisations(%w[government-office-for-science
                                            department-for-business-innovation-skills])
 
     bis = TransitionConfig::Site.from_yaml(slug_check_site_filename("bis"))
@@ -91,7 +91,7 @@ class TransitionConfigSiteTest < MiniTest::Unit::TestCase
   end
 
   def test_checks_all_slugs
-    organisations_api_has_organisations(%w[attorney-generals-office
+    stub_organisations_api_has_organisations(%w[attorney-generals-office
                                            department-for-business-innovation-skills
                                            government-office-for-science])
 
@@ -134,7 +134,7 @@ class TransitionConfigSiteTest < MiniTest::Unit::TestCase
   end
 
   def test_site_create_fails_on_unknown_type
-    organisations_api_has_organisations(%w[uk-borders-agency])
+    stub_organisations_api_has_organisations(%w[uk-borders-agency])
     assert_raises(ArgumentError) do
       TransitionConfig::Site.create("ukba", "uk-borders-agency", "www.ukba.homeoffice.gov.uk", type: :foobar)
     end
@@ -148,7 +148,7 @@ class TransitionConfigSiteTest < MiniTest::Unit::TestCase
     organisation_details = organisation_details_for_slug("uk-borders-agency").tap do |details|
       details["title"] = "UK Borders Agency & encoding test"
     end
-    organisations_api_has_organisation "uk-borders-agency", organisation_details
+    stub_organisations_api_has_organisation "uk-borders-agency", organisation_details
 
     site = TransitionConfig::Site.create("ukba", "uk-borders-agency", "www.ukba.homeoffice.gov.uk")
 
