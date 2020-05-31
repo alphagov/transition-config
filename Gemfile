@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "gds-api-adapters", "20.1.1"
+gem "gds-api-adapters", "40.0"
 gem "minitest", "4.7.0"
 gem "nokogiri"
 gem "plek", "< 2"
