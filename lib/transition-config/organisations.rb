@@ -26,7 +26,7 @@ module TransitionConfig
     # where we want to ask the server once for all orgs, then not again
     def by_slug
       @by_slug ||= all.each_with_object({}) do |org, orgs|
-        orgs[org.details.slug] = org
+        orgs[org["details"]["slug"]] = org
       end
     end
   end
