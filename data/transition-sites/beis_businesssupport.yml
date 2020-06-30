@@ -5,3 +5,5 @@ homepage: https://www.gov.uk/browse/business
 homepage_furl: www.gov.uk/beis
 tna_timestamp: 20200511152124
 host: www.businesssupport.gov.uk
+aliases:
+- businesssupport.gov.uk
