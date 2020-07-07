@@ -2,9 +2,8 @@
 site: bis_biy
 whitehall_slug: department-for-business-energy-and-industrial-strategy
 homepage: https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy
-tna_timestamp: 20140402165524
+tna_timestamp: 20130430221758
 host: businessinyou.bis.gov.uk
+global: =301 https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy
 aliases:
 - www.businessinyou.bis.gov.uk
-global: =301 http://www.greatbusiness.gov.uk
-global_redirect_append_path: true
