@@ -2,8 +2,9 @@
 site: ukti_makingitgreat
 whitehall_slug: department-for-business-energy-and-industrial-strategy
 homepage: https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy
-tna_timestamp: 20140108125810
+tna_timestamp: 20130923122628
 host: makeitingreatbritain.bis.gov.uk
+global: =301 https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy
 homepage_furl: www.gov.uk/ukti
 aliases:
 - www.makeitingreatbritain.bis.gov.uk
