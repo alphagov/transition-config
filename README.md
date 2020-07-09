@@ -112,7 +112,9 @@ Optional:
 * `extra_organisation_slugs` — additional organisations which own this site. Used for access control in Transition.
 * `homepage_furl` — friendly URL displayed on 404/410 pages. Should redirect to the `homepage`. Doesn't need to include 'http' or 'https'.
 * `aliases` — list of alias domains
-* `global` — set a global redirect or archive for all paths
+* `global` — set a global redirect or archive for all paths. There are two expected values for this:
+    - `=410` - this is a global archive, all site URLs will show a page saying the site has been archived
+    - `=301 <url>` - this is a global redirect, all site URLs will redirect to the given URL
 * `css` — a css class which determines the logo and brand colour used on 404/410 pages
 * `options` — used to list significant querystrings for canonicalisation like this: `--query-string first:second:third`. A significant querystring parameter is one which on the old website changes the content in a meaningful way - which we might therefore need to map to a different place. **Query string parameters should be specified in lowercase; uppercase parameters will not be preserved during canonicalisation.**
 * `global_redirect_append_path` — should the path the user supplied be appended
