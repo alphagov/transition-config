@@ -6,4 +6,10 @@ tna_timestamp: 20130128190123
 host: www.cabinet-office.gov.uk
 aliases:
 - cabinet-office.gov.uk
+- cabinet-office.co.uk
+- www.cabinet-office.co.uk
+- cabinet-office.com
+- www.cabinet-office.com
+- cabinet-office.uk
+- www.cabinet-office.uk
 global: =301 https://www.gov.uk/government/organisations/cabinet-office
