@@ -5,4 +5,4 @@
   tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
   host: find-coronavirus-support.service.gov.uk
   global: =301 https://www.gov.uk/find-coronavirus-support
-  global_redirect_append_path: true
+  global_redirect_append_path: false
