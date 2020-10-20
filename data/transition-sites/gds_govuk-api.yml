@@ -5,9 +5,8 @@ homepage: https://www.gov.uk
 tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
 host: api.gov.uk
 aliases:
-  - www.api.gov.uk
   - apigov.uk
   - www.apigov.uk
 homepage_title: GOV.UK
-global: =301 https://www.gov.uk
+global: =301 https://www.api.gov.uk
 global_redirect_append_path: true
