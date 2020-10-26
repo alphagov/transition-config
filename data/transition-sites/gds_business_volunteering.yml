@@ -1,0 +1,8 @@
+---
+  site: gds_business_volunteering
+  whitehall_slug: government-digital-service
+  homepage: https://www.gov.uk/coronavirus-support-from-business
+  tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
+  host: coronavirus-business-volunteers.service.gov.uk
+  global: =301 https://www.gov.uk/coronavirus-support-from-business
+  global_redirect_append_path: false
