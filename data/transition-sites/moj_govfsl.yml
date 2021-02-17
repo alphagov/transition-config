@@ -6,4 +6,3 @@ tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
 host: www.govfsl.com
 aliases:
 - govfsl.com
-global: =301 https://www.gov.uk/government/organisations/gov-facility-services-limited
