@@ -1,0 +1,8 @@
+---
+site: gds_registers
+whitehall_slug: government-digital-service
+homepage: https://www.gov.uk/government/organisations/government-digital-service
+homepage_furl: www.gov.uk/gds
+tna_timestamp: 20210205125927
+host: registers.service.gov.uk
+global: =301 https://data.gov.uk/dataset/a8f488fd-eaea-4176-92b0-6d0437b4d121/historical-gov-uk-registers
