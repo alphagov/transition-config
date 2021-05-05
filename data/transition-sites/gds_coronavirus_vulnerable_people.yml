@@ -1,0 +1,8 @@
+---
+  site: gds_coronavirus_vulnerable_people
+  whitehall_slug: government-digital-service
+  homepage: https://www.gov.uk/coronavirus-shielding-support
+  tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
+  host: coronavirus-vulnerable-people.service.gov.uk
+  global: =301 https://www.gov.uk/coronavirus-shielding-support
+  global_redirect_append_path: false
