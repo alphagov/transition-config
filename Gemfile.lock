@@ -1,8 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.5.2)
-      public_suffix (>= 2.0.2, < 4.0)
+    addressable (2.8.0)
+      public_suffix (>= 2.0.2, < 5.0)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     domain_name (0.5.20190701)
@@ -30,7 +30,7 @@ GEM
       racc (~> 1.4)
     null_logger (0.0.1)
     plek (1.12.0)
-    public_suffix (3.0.1)
+    public_suffix (4.0.6)
     racc (1.5.2)
     rack (2.2.3)
     rack-cache (1.11.1)
