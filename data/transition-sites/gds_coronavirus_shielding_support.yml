@@ -1,8 +1,8 @@
 ---
-  site: gds_coronavirus_vulnerable_people
+  site: gds_coronavirus_shielding_support
   whitehall_slug: government-digital-service
   homepage: https://www.gov.uk/government/publications/get-support-if-youre-clinically-extremely-vulnerable-to-coronavirus-privacy-notice/get-coronavirus-support-as-a-clinically-extremely-vulnerable-person-privacy-notice
   tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
-  host: coronavirus-vulnerable-people.service.gov.uk
+  host: coronavirus-shielding-support.service.gov.uk
   global: =301 https://www.gov.uk/government/publications/get-support-if-youre-clinically-extremely-vulnerable-to-coronavirus-privacy-notice/get-coronavirus-support-as-a-clinically-extremely-vulnerable-person-privacy-notice
   global_redirect_append_path: false

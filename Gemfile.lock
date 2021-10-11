@@ -60,6 +60,3 @@ DEPENDENCIES
   plek (< 2)
   rake (= 12.3.3)
   webmock
-
-BUNDLED WITH
-   1.17.2
