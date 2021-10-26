@@ -1,0 +1,10 @@
+---
+site: ukhsa
+whitehall_slug: uk-health-security-agency
+homepage: https://www.gov.uk/government/organisations/uk-health-security-agency
+tna_timestamp:
+host: www.ukhsa.gov.uk
+homepage_furl: www.gov.uk/ukhsa
+tna_timestamp: 20211026101010 # Stub timestamp - site not in TNA
+aliases:
+- ukhsa.gov.uk
