@@ -1,6 +1,6 @@
 ---
-site: gds_govuk-api
-whitehall_slug: government-digital-service
+site: cddo_govuk-api
+whitehall_slug: central-digital-and-data-office
 homepage: https://www.gov.uk
 tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
 host: api.gov.uk
