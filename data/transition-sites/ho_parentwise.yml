@@ -1,0 +1,9 @@
+---
+site: ho_parentwise
+whitehall_slug: home-office
+homepage: https://parentwise.campaign.gov.uk
+tna_timestamp: 20201010101010 # Stub timestamp - site not in TNA
+host: www.parentwise.gov.uk
+global: =301 https://parentwise.campaign.gov.uk
+aliases:
+- parentwise.gov.uk
