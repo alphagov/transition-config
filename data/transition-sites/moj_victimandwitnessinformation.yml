@@ -1,0 +1,9 @@
+---
+site: moj_victimandwitnessinformation
+whitehall_slug: ministry-of-justice
+homepage: https://www.gov.uk/guidance/victim-and-witness-services
+tna_timestamp: 20201010101010 # Stub timestamp - site not in TNA
+host: www.victimandwitnessinformation.org.uk
+aliases:
+- www.victimandwitnessinformation.org.uk
+global: =301 https://www.gov.uk/guidance/victim-and-witness-services
