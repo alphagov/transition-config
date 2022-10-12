@@ -7,6 +7,7 @@ gem "minitest", "4.7.0"
 gem "nokogiri"
 gem "plek", "< 2"
 gem "rake", "12.3.3"
+gem "rexml"
 
 group :test do
   gem "webmock"
