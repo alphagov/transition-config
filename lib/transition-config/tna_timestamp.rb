@@ -13,11 +13,11 @@ module TransitionConfig
 
     def find
       begin
-        response = open("#{TNA_BASE_URL}/+/http://#{@hostname}")
+        response = URI.open("#{TNA_BASE_URL}/+/http://#{@hostname}")
       rescue OpenURI::HTTPError
         puts "Couldn't find a crawl. Trying HTTPS..."
         begin
-          response = open("#{TNA_BASE_URL}/+/https://#{@hostname}")
+          response = URI.open("#{TNA_BASE_URL}/+/https://#{@hostname}")
         rescue OpenURI::HTTPError
           warn("TNA don't appear to have crawled this (yet) #{@hostname} Try the aliases?")
           return nil
