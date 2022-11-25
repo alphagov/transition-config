@@ -1,0 +1,9 @@
+---
+site: gds_alphagov
+whitehall_slug: government-digital-service
+homepage: https://www.gov.uk/government/organisations/government-digital-service
+tna_timestamp: 20201010101010 # Stub timestamp - site not in TNA
+host: alphagov.co.uk
+aliases:
+- www.alphagov.co.uk
+global: =301 https://www.gov.uk/government/organisations/government-digital-service
