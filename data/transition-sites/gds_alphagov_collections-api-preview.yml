@@ -1,8 +1,0 @@
----
-site: gds_alphagov_collections-api-preview
-whitehall_slug: government-digital-service
-homepage: https://collections-api.integration.publishing.service.gov.uk
-tna_timestamp: 20201010101010 # Stub timestamp - site not in TNA
-host: collections-api.preview.alphagov.co.uk
-global: =301 https://collections-api.integration.publishing.service.gov.uk
-global_redirect_append_path: true

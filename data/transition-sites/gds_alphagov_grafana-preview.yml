@@ -1,8 +1,0 @@
----
-site: gds_alphagov_grafana-preview
-whitehall_slug: government-digital-service
-homepage: https://grafana.integration.publishing.service.gov.uk
-tna_timestamp: 20201010101010 # Stub timestamp - site not in TNA
-host: grafana.preview.alphagov.co.uk
-global: =301 https://grafana.integration.publishing.service.gov.uk
-global_redirect_append_path: true
