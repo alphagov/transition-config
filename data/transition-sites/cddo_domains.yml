@@ -1,0 +1,9 @@
+---
+site: cddo_domains
+whitehall_slug: central-digital-and-data-office
+homepage: https://www.gov.uk/government/groups/domain-management-team
+global: =301 https://www.gov.uk/government/groups/domain-management-team
+tna_timestamp: 20201010101010 # Stub timestamp - site not in TNA
+host: domains.gov.uk
+aliases:
+- www.domains.gov.uk
