@@ -1,8 +1,0 @@
----
-site: gds_alphagov_draft-origin-preview
-whitehall_slug: government-digital-service
-homepage: https://draft-origin.integration.publishing.service.gov.uk
-tna_timestamp: 20201010101010 # Stub timestamp - site not in TNA
-host: draft-origin.preview.alphagov.co.uk
-global: =301 https://draft-origin.integration.publishing.service.gov.uk
-global_redirect_append_path: true

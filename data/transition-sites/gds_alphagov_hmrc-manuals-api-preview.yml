@@ -1,8 +1,0 @@
----
-site: gds_alphagov_hmrc-manuals-api-preview
-whitehall_slug: government-digital-service
-homepage: https://hmrc-manuals-api.integration.publishing.service.gov.uk
-tna_timestamp: 20201010101010 # Stub timestamp - site not in TNA
-host: hmrc-manuals-api.preview.alphagov.co.uk
-global: =301 https://hmrc-manuals-api.integration.publishing.service.gov.uk
-global_redirect_append_path: true
