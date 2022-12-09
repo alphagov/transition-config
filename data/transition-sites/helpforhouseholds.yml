@@ -1,0 +1,9 @@
+---
+site: helpforhouseholds
+whitehall_slug: cabinet-office
+homepage: https://helpforhouseholds.campaign.gov.uk
+tna_timestamp: 20201010101010 # Stub timestamp - site not in TNA
+host: helpforhouseholds.gov.uk
+aliases:
+- www.helpforhouseholds.gov.uk
+global: =301 https://helpforhouseholds.campaign.gov.uk
