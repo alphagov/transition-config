@@ -1,12 +1,12 @@
 ---
 site: dcms
-whitehall_slug: department-for-digital-culture-media-sport
+whitehall_slug: department-for-culture-media-and-sport
 host: www.culture.gov.uk
 tna_timestamp: 20121204113822
 homepage_furl: www.gov.uk/dcms
-homepage: https://www.gov.uk/government/organisations/department-for-digital-culture-media-sport
+homepage: https://www.gov.uk/government/organisations/department-for-culture-media-and-sport
 aliases:
 - culture.gov.uk
 - www.dcms.gov.uk
 - dcms.gov.uk
-css: department-for-digital-culture-media-sport
+css: department-for-culture-media-and-sport
