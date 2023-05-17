@@ -123,17 +123,6 @@ to the URL for the global redirect?
     * `via_aka` - the supplier is redirecting some paths to our aka domain.
     * `supplier` - the supplier is managing redirects to gov.uk. No traffic comes through Bouncer for this site.
 
-## Assets
-
-We continue to serve some pages and assets for Directgov and BusinessLink sites. These are
-stored in GitHub and served by Bouncer's nginx configuration. See:
-* [assets-directgov](https://github.com/alphagov/assets-directgov)
-* [assets-businesslink](https://github.com/alphagov/assets-businesslink)
-* [Bouncer's nginx configuration](https://github.com/alphagov/govuk-puppet/blob/master/modules/govuk/manifests/apps/bouncer.pp#L28-L119)
-
-Bouncer's nginx configuration also includes a small number of redirects and
-other behaviours not possible with mappings.
-
 ## Glossary of terms
 
 A glossary of the terms used can be found in this [blog post](https://insidegovuk.blog.gov.uk/2014/03/17/transition-technical-glossary/).
