@@ -1,0 +1,7 @@
+---
+site: gds_career
+whitehall_slug: government-digital-service
+homepage: https://www.gov.uk/government/organisations/government-digital-service
+global: =301 https://www.civil-service-careers.gov.uk/departments/gds-hub/
+tna_timestamp: 20201010101010 # Stub timestamp - site is not in TNA
+host: gdscareers.gov.uk
