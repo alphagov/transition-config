@@ -1,0 +1,7 @@
+---
+site: gds_govuk-kubernetes-cluster-user-docs
+whitehall_slug: government-digital-service
+homepage: https://docs.publishing.service.gov.uk/kubernetes/
+tna_timestamp: 20201010101010 # Stub timestamp - site not in TNA
+host: govuk-kubernetes-cluster-user-docs.publishing.service.gov.uk
+global: =301 https://docs.publishing.service.gov.uk/kubernetes/
