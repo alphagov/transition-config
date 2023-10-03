@@ -1,3 +1,5 @@
+Oct 2023: The Publishing Platform team are retiring transition-config and allowing users to add, edit and delete sites directly in the Transition app. This makes the process more intuitive and simplifies the technical architecture of GOV.UK.
+
 # Transition Config
 
 This repository holds two things:
